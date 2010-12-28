@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM
+    "http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+<kcfg>
+  <kcfgfile name="kxstitchrc"/>
+  
+  <group name="kxstitch">
+    <entry name="Application_Width" type="Int">
+      <label>The width of the application</label>
+      <default>1200</default>
+    </entry>
+    <entry name="Application_Height" type="Int">
+      <label>The height of the application</label>
+      <default>800</default>
+    </entry>
+    <entry name="Application_HorizontalSplitterSizes" type="IntList">
+      <label>The horizontal splitter values</label>
+      <default>300,900</default>
+    </entry>
+    <entry name="Application_VerticalSplitterSizes" type="IntList">
+      <label>The vertical splitter sizes</label>
+      <default>200,600</default>
+    </entry>
+  </group>
+  
+  <group name="editor">
+    <entry name="Editor_BackgroundColor" type="Color">
+      <label>The background color.</label>
+      <default>#ffffff</default>
+    </entry>
+    <entry name="Editor_ThickLineColor" type="Color">
+      <label>The color of the editors thick lines.</label>
+      <default>#808080</default>
+    </entry>
+    <entry name="Editor_ThinLineColor" type="Color">
+      <label>The color of the editors thin lines.</label>
+      <default>#c0c0c0</default>
+    </entry>
+    <entry name="Editor_ThickLineWidth" type="Int">
+      <label>The width of the major grid lines.</label>
+      <default>0</default>
+    </entry>
+    <entry name="Editor_ThinLineWidth" type="Int">
+      <label>The width of the minor grid lines.</label>
+      <default>0</default>
+    </entry>
+    <entry name="Editor_CellWidth" type="Int">
+      <label>Width of the grid cells.</label>
+      <default>16</default>
+    </entry>
+    <entry name="Editor_CellHeight" type="Int">
+      <label>Height of the grid cells.</label>
+      <default>16</default>
+    </entry>
+    <entry name="Editor_HorizontalCellGrouping" type="Int">
+      <label>The number of cells making up a horizontal group.</label>
+      <default>10</default>
+    </entry>
+    <entry name="Editor_VerticalCellGrouping" type="Int">
+      <label>The number of cells making up a vertical group.</label>
+      <default>10</default>
+    </entry>
+    <entry name="Editor_HorizontalClothCount" type="Int">
+      <label>The horizontal cloth count.</label>
+      <default>16</default>
+    </entry>
+    <entry name="Editor_VerticalClothCount" type="Int">
+      <label>The vertical cloth count.</label>
+      <default>16</default>
+    </entry>
+    <entry name="Editor_ClothCountUnits" type="Enum">
+      <label>The cloth count units.</label>
+      <default>Inches</default>
+      <choices>
+        <choice name="Inches" />
+        <choice name="CM" />
+      </choices>
+    </entry>
+    <entry name="Editor_ShowStitchesAs" type="Enum">
+      <label>How to display stitches.</label>
+      <default>Stitches</default>
+      <choices>
+        <choice name="Stitches" />
+        <choice name="BlackWhiteSymbols" />
+        <choice name="ColorSymbols" />
+        <choice name="ColorBlocks" />
+        <choice name="ColorBlocksSymbols" />
+        <choice name="ColorHilight" />
+      </choices>
+    </entry>
+    <entry name="Editor_ShowBackstitchesAs" type="Enum">
+      <label>How to display backstitches.</label>
+      <default>ColorLines</default>
+      <choices>
+        <choice name="ColorLines" />
+        <choice name="BlackWhiteSymbols" />
+      </choices>
+    </entry>
+    <entry name="Editor_HorizontalRulerHeight" type="Int">
+      <label>The height of the horizontal ruler.</label>
+      <default>30</default>
+    </entry>
+    <entry name="Editor_VerticalRulerWidth" type="Int">
+      <label>The width of the vertical ruler.</label>
+      <default>30</default>
+    </entry>
+    <entry name="Editor_FormatScalesAs" type="Enum">
+      <label>The display units for a scale.</label>
+      <default>Stitches</default>
+      <choices>
+        <choice name="Stitches" />
+        <choice name="Inches" />
+        <choice name="CM" />
+      </choices>
+    </entry>
+    <entry name="Editor_SymbolFont" type="String">
+      <label>The font family to be used for symbols.</label>
+      <default>Arial</default>
+    </entry>
+  </group>
+  
+  <group name="document">
+    <entry name="Document_Width" type="Int">
+      <label>The default width of a new pattern.</label>
+      <default>100</default>
+    </entry>
+    <entry name="Document_Height" type="Int">
+      <label>The default height of a new pattern.</label>
+      <default>80</default>
+    </entry>
+  </group>
+  <group name="palette">
+    <entry name="Palette_DefaultScheme" type="String">
+      <label>The default floss scheme to be used for new documents.</label>
+      <default>DMC</default>
+    </entry>
+    <entry name="Palette_StitchStrands" type="Int">
+      <label>The default number of strands used for stitches.</label>
+      <default>2</default>
+    </entry>
+    <entry name="Palette_BackstitchStrands" type="Int">
+      <label>The default number of strands used for backstitches.</label>
+      <default>2</default>
+    </entry>
+    <entry name="Palette_ShowSymbols" type="Bool">
+      <label>Display the symbols in the palette.</label>
+      <default>false</default>
+    </entry>
+  </group>
+</kcfg>

@@ -1,0 +1,13 @@
+# KDE Config File
+[Desktop Entry]
+Type=Application
+Exec=kxstitch -caption "%c" %i %m
+Icon=kxstitch.png
+MiniIcon=kxstitch.png
+DocPath=kxstitch/index.html
+MimeType=application/kxstitch
+Comment=
+Comment[de]=
+Terminal=0
+Name=KXStitch
+Name[de]=KXStitch

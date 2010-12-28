@@ -1,0 +1,373 @@
+<!DOCTYPE flossScheme SYSTEM "flossScheme.dtd">
+<flossScheme>
+<title>Madeira</title>
+<floss><name>Black</name><description>Black</description><color><red>0</red><green>0</green><blue>0</blue></color></floss>
+<floss><name>Ecru</name><description>Ecru</description><color><red>243</red><green>232</green><blue>209</blue></color></floss>
+<floss><name>White</name><description>White</description><color><red>252</red><green>252</green><blue>252</blue></color></floss>
+<floss><name>101</name><description>Lemon - VY LT</description><color><red>249</red><green>247</green><blue>219</blue></color></floss>
+<floss><name>102</name><description>Lemon - LT</description><color><red>249</red><green>245</green><blue>182</blue></color></floss>
+<floss><name>103</name><description>Lemon - MED</description><color><red>247</red><green>230</green><blue>127</blue></color></floss>
+<floss><name>104</name><description>Lemon - DK</description><color><red>255</red><green>222</green><blue>68</blue></color></floss>
+<floss><name>105</name><description>Lemon - VY DK</description><color><red>255</red><green>212</green><blue>37</blue></color></floss>
+<floss><name>106</name><description>Canary Yellow - BRIGHT</description><color><red>255</red><green>196</green><blue>16</blue></color></floss>
+<floss><name>107</name><description>Topaz - MED</description><color><red>255</red><green>175</green><blue>5</blue></color></floss>
+<floss><name>108</name><description>Topaz - LT</description><color><red>255</red><green>203</green><blue>63</blue></color></floss>
+<floss><name>109</name><description>Topaz - VY LT</description><color><red>255</red><green>209</green><blue>73</blue></color></floss>
+<floss><name>110</name><description>Topaz - ULT VY LT</description><color><red>255</red><green>221</green><blue>104</blue></color></floss>
+<floss><name>111</name><description>Yellow - VY LT</description><color><red>255</red><green>232</green><blue>135</blue></color></floss>
+<floss><name>112</name><description>Yellow - LT</description><color><red>255</red><green>217</green><blue>126</blue></color></floss>
+<floss><name>113</name><description>Yellow - MED</description><color><red>255</red><green>188</green><blue>35</blue></color></floss>
+<floss><name>114</name><description>Yellow - DK</description><color><red>245</red><green>136</green><blue>52</blue></color></floss>
+<floss><name>201</name><description>Tangerine - LT</description><color><red>245</red><green>115</green><blue>0</blue></color></floss>
+<floss><name>202</name><description>Tangerine</description><color><red>245</red><green>105</green><blue>0</blue></color></floss>
+<floss><name>203</name><description>Tangerine - MED</description><color><red>245</red><green>94</green><blue>0</blue></color></floss>
+<floss><name>204</name><description>Tangerine - DK</description><color><red>245</red><green>84</green><blue>0</blue></color></floss>
+<floss><name>205</name><description>Tangerine - VY DK</description><color><red>250</red><green>63</green><blue>0</blue></color></floss>
+<floss><name>206</name><description>Orange Red</description><color><red>245</red><green>5</green><blue>5</blue></color></floss>
+<floss><name>207</name><description>Orange</description><color><red>244</red><green>42</green><blue>42</blue></color></floss>
+<floss><name>208</name><description>Orange - DK</description><color><red>206</red><green>0</green><blue>21</blue></color></floss>
+<floss><name>209</name><description>Orange - VY DK</description><color><red>226</red><green>0</green><blue>21</blue></color></floss>
+<floss><name>210</name><description>Christmas Red - LT</description><color><red>212</red><green>0</green><blue>21</blue></color></floss>
+<floss><name>211</name><description>Christmas Red - BRIGHT</description><color><red>191</red><green>0</green><blue>21</blue></color></floss>
+<floss><name>212</name><description>Christmas Red - DK</description><color><red>207</red><green>0</green><blue>40</blue></color></floss>
+<floss><name>213</name><description>Coral - DK</description><color><red>236</red><green>17</green><blue>67</blue></color></floss>
+<floss><name>214</name><description>Coral - MED</description><color><red>236</red><green>65</green><blue>77</blue></color></floss>
+<floss><name>301</name><description>Peach - MED</description><color><red>245</red><green>102</green><blue>73</blue></color></floss>
+<floss><name>302</name><description>Peach - LT</description><color><red>245</red><green>123</green><blue>94</blue></color></floss>
+<floss><name>303</name><description>Coral</description><color><red>245</red><green>112</green><blue>105</blue></color></floss>
+<floss><name>304</name><description>Coral - LT</description><color><red>245</red><green>177</green><blue>177</blue></color></floss>
+<floss><name>305</name><description>Coral - VY LT</description><color><red>234</red><green>201</green><blue>191</blue></color></floss>
+<floss><name>306</name><description>Coral - ULT VY LT</description><color><red>244</red><green>211</green><blue>191</blue></color></floss>
+<floss><name>307</name><description>Copper - ULT VY LT</description><color><red>236</red><green>118</green><blue>73</blue></color></floss>
+<floss><name>308</name><description>Copper - VY LT</description><color><red>236</red><green>108</green><blue>63</blue></color></floss>
+<floss><name>309</name><description>Copper - LT</description><color><red>236</red><green>82</green><blue>37</blue></color></floss>
+<floss><name>310</name><description>Copper - MED LT</description><color><red>215</red><green>108</green><blue>73</blue></color></floss>
+<floss><name>311</name><description>Copper - MED</description><color><red>215</red><green>87</green><blue>52</blue></color></floss>
+<floss><name>312</name><description>Copper - MED DK</description><color><red>173</red><green>34</green><blue>21</blue></color></floss>
+<floss><name>313</name><description>Copper - DK</description><color><red>163</red><green>7</green><blue>21</blue></color></floss>
+<floss><name>314</name><description>Copper - VY DK</description><color><red>121</red><green>7</green><blue>21</blue></color></floss>
+<floss><name>401</name><description>Terracotta</description><color><red>152</red><green>41</green><blue>45</blue></color></floss>
+<floss><name>402</name><description>Terracotta - MED LT</description><color><red>174</red><green>79</green><blue>65</blue></color></floss>
+<floss><name>403</name><description>Terracotta - LT</description><color><red>216</red><green>131</green><blue>117</blue></color></floss>
+<floss><name>404</name><description>Salmon - LT</description><color><red>239</red><green>168</green><blue>169</blue></color></floss>
+<floss><name>405</name><description>Salmon - MED</description><color><red>218</red><green>127</green><blue>137</blue></color></floss>
+<floss><name>406</name><description>Salmon - DK</description><color><red>201</red><green>74</green><blue>82</blue></color></floss>
+<floss><name>407</name><description>Salmon - VY DK</description><color><red>152</red><green>0</green><blue>0</blue></color></floss>
+<floss><name>408</name><description>Rose</description><color><red>248</red><green>112</green><blue>143</blue></color></floss>
+<floss><name>409</name><description>Rose - MED</description><color><red>244</red><green>81</green><blue>111</blue></color></floss>
+<floss><name>410</name><description>Rose - DK</description><color><red>213</red><green>52</green><blue>64</blue></color></floss>
+<floss><name>411</name><description>Pink - VY DK</description><color><red>224</red><green>31</green><blue>53</blue></color></floss>
+<floss><name>412</name><description>Pink - DK</description><color><red>224</red><green>42</green><blue>74</blue></color></floss>
+<floss><name>413</name><description>Pink - MED</description><color><red>235</red><green>63</green><blue>111</blue></color></floss>
+<floss><name>414</name><description>Pink</description><color><red>235</red><green>105</green><blue>137</blue></color></floss>
+<floss><name>501</name><description>Baby Pink - VY LT</description><color><red>250</red><green>209</green><blue>202</blue></color></floss>
+<floss><name>502</name><description>Baby Pink - LT</description><color><red>253</red><green>200</green><blue>205</blue></color></floss>
+<floss><name>503</name><description>Baby Pink - MED LT</description><color><red>253</red><green>190</green><blue>205</blue></color></floss>
+<floss><name>504</name><description>Baby Pink - MED</description><color><red>255</red><green>123</green><blue>165</blue></color></floss>
+<floss><name>505</name><description>Baby Pink - DK</description><color><red>236</red><green>112</green><blue>154</blue></color></floss>
+<floss><name>506</name><description>Baby Pink - VY DK</description><color><red>215</red><green>70</green><blue>112</blue></color></floss>
+<floss><name>507</name><description>Red</description><color><red>184</red><green>0</green><blue>60</blue></color></floss>
+<floss><name>508</name><description>Red - MED DK</description><color><red>157</red><green>0</green><blue>39</blue></color></floss>
+<floss><name>509</name><description>Red - DK</description><color><red>147</red><green>0</green><blue>17</blue></color></floss>
+<floss><name>510</name><description>Christmas Red</description><color><red>180</red><green>0</green><blue>21</blue></color></floss>
+<floss><name>511</name><description>Garnet</description><color><red>159</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>512</name><description>Garnet - MED</description><color><red>149</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>513</name><description>Garnet - DK</description><color><red>128</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>514</name><description>Garnet - VY DK</description><color><red>96</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>601</name><description>Plum - VY DK</description><color><red>81</red><green>0</green><blue>5</blue></color></floss>
+<floss><name>602</name><description>Plum - DK</description><color><red>116</red><green>20</green><blue>49</blue></color></floss>
+<floss><name>603</name><description>Plum - MED</description><color><red>148</red><green>39</green><blue>66</blue></color></floss>
+<floss><name>604</name><description>Plum</description><color><red>168</red><green>59</green><blue>91</blue></color></floss>
+<floss><name>605</name><description>Plum - LT</description><color><red>205</red><green>107</green><blue>137</blue></color></floss>
+<floss><name>606</name><description>Plum - VY LT</description><color><red>248</red><green>160</green><blue>185</blue></color></floss>
+<floss><name>607</name><description>Plum - ULT VY LT</description><color><red>253</red><green>186</green><blue>200</blue></color></floss>
+<floss><name>608</name><description>Plum - PALE</description><color><red>250</red><green>213</green><blue>216</blue></color></floss>
+<floss><name>609</name><description>Dusty Rose - DK</description><color><red>220</red><green>95</green><blue>115</blue></color></floss>
+<floss><name>610</name><description>Dusty Rose - VY DK</description><color><red>199</red><green>74</green><blue>94</blue></color></floss>
+<floss><name>611</name><description>Rose - MED DK</description><color><red>221</red><green>64</green><blue>94</blue></color></floss>
+<floss><name>612</name><description>Rose - MED LT</description><color><red>235</red><green>117</green><blue>151</blue></color></floss>
+<floss><name>613</name><description>Rose - LT</description><color><red>236</red><green>149</green><blue>182</blue></color></floss>
+<floss><name>614</name><description>Rose - VY LT</description><color><red>236</red><green>133</green><blue>182</blue></color></floss>
+<floss><name>701</name><description>Cerise - LT</description><color><red>215</red><green>76</green><blue>132</blue></color></floss>
+<floss><name>702</name><description>Cerise</description><color><red>215</red><green>7</green><blue>111</blue></color></floss>
+<floss><name>703</name><description>Cerise - DK</description><color><red>184</red><green>0</green><blue>90</blue></color></floss>
+<floss><name>704</name><description>Cerise - VY DK</description><color><red>163</red><green>0</green><blue>69</blue></color></floss>
+<floss><name>705</name><description>Mauve - VY DK</description><color><red>131</red><green>0</green><blue>69</blue></color></floss>
+<floss><name>706</name><description>Mauve - DK</description><color><red>158</red><green>0</green><blue>108</blue></color></floss>
+<floss><name>707</name><description>Mauve - MED DK</description><color><red>179</red><green>0</green><blue>118</blue></color></floss>
+<floss><name>708</name><description>Mauve - MED</description><color><red>190</red><green>52</green><blue>129</blue></color></floss>
+<floss><name>709</name><description>Mauve - LT</description><color><red>216</red><green>102</green><blue>173</blue></color></floss>
+<floss><name>710</name><description>Mauve - VY LT</description><color><red>227</red><green>144</green><blue>194</blue></color></floss>
+<floss><name>711</name><description>Violet - LT</description><color><red>179</red><green>121</green><blue>185</blue></color></floss>
+<floss><name>712</name><description>Violet - MED</description><color><red>127</red><green>37</green><blue>132</blue></color></floss>
+<floss><name>713</name><description>Violet - DK</description><color><red>106</red><green>16</green><blue>111</blue></color></floss>
+<floss><name>714</name><description>Violet - VY DK</description><color><red>64</red><green>0</green><blue>69</blue></color></floss>
+<floss><name>801</name><description>Lavender - VY LT</description><color><red>201</red><green>165</green><blue>203</blue></color></floss>
+<floss><name>802</name><description>Lavender - LT</description><color><red>175</red><green>123</green><blue>177</blue></color></floss>
+<floss><name>803</name><description>Lavender - DK</description><color><red>159</red><green>107</green><blue>177</blue></color></floss>
+<floss><name>804</name><description>Lavender - VY DK</description><color><red>117</red><green>54</green><blue>146</blue></color></floss>
+<floss><name>805</name><description>Purple</description><color><red>105</red><green>0</green><blue>73</blue></color></floss>
+<floss><name>806</name><description>Antique Violet - DK</description><color><red>112</red><green>83</green><blue>87</blue></color></floss>
+<floss><name>807</name><description>Antique Violet - LT</description><color><red>175</red><green>143</green><blue>155</blue></color></floss>
+<floss><name>808</name><description>Antique Mauve - LT</description><color><red>220</red><green>182</green><blue>184</blue></color></floss>
+<floss><name>809</name><description>Antique Mauve - MED</description><color><red>186</red><green>115</green><blue>126</blue></color></floss>
+<floss><name>810</name><description>Antique Mauve - DK</description><color><red>123</red><green>42</green><blue>52</blue></color></floss>
+<floss><name>811</name><description>Shell Pink - MED DK</description><color><red>123</red><green>5</green><blue>21</blue></color></floss>
+<floss><name>812</name><description>Shell Pink - MED</description><color><red>195</red><green>86</green><blue>95</blue></color></floss>
+<floss><name>813</name><description>Shell Pink</description><color><red>227</red><green>117</green><blue>127</blue></color></floss>
+<floss><name>814</name><description>Shell Pink - LT</description><color><red>247</red><green>207</green><blue>206</blue></color></floss>
+<floss><name>901</name><description>Blue Violet - VY LT</description><color><red>175</red><green>178</green><blue>211</blue></color></floss>
+<floss><name>902</name><description>Blue Violet - LT</description><color><red>112</red><green>115</green><blue>169</blue></color></floss>
+<floss><name>903</name><description>Blue Violet - MED</description><color><red>58</red><green>42</green><blue>106</blue></color></floss>
+<floss><name>904</name><description>Cornflower Blue - VY DK</description><color><red>0</red><green>21</green><blue>95</blue></color></floss>
+<floss><name>905</name><description>Cornflower Blue - DK</description><color><red>52</red><green>73</green><blue>137</blue></color></floss>
+<floss><name>906</name><description>Cornflower Blue - MED</description><color><red>79</red><green>100</green><blue>143</blue></color></floss>
+<floss><name>907</name><description>Cornflower Blue - LT</description><color><red>121</red><green>142</green><blue>174</blue></color></floss>
+<floss><name>908</name><description>Blue - ULT VY LT</description><color><red>165</red><green>196</green><blue>195</blue></color></floss>
+<floss><name>909</name><description>Delft</description><color><red>144</red><green>165</green><blue>195</blue></color></floss>
+<floss><name>910</name><description>Delft - MED</description><color><red>86</red><green>128</green><blue>164</blue></color></floss>
+<floss><name>911</name><description>Delft - DK</description><color><red>23</red><green>96</green><blue>158</blue></color></floss>
+<floss><name>912</name><description>Royal Blue - MED</description><color><red>0</red><green>53</green><blue>110</blue></color></floss>
+<floss><name>913</name><description>Royal Blue - DK</description><color><red>0</red><green>32</green><blue>100</blue></color></floss>
+<floss><name>914</name><description>Royal Blue - VY DK</description><color><red>21</red><green>32</green><blue>89</blue></color></floss>
+<floss><name>1001</name><description>Antique Blue - VY LT</description><color><red>187</red><green>210</green><blue>215</blue></color></floss>
+<floss><name>1002</name><description>Antique Blue - LT</description><color><red>152</red><green>181</green><blue>195</blue></color></floss>
+<floss><name>1003</name><description>Antique Blue</description><color><red>89</red><green>127</green><blue>158</blue></color></floss>
+<floss><name>1004</name><description>Antique Blue - MED</description><color><red>58</red><green>106</green><blue>140</blue></color></floss>
+<floss><name>1005</name><description>Antique Blue - DK</description><color><red>16</red><green>74</green><blue>109</blue></color></floss>
+<floss><name>1006</name><description>Antique Blue - VY DK</description><color><red>5</red><green>43</green><blue>88</blue></color></floss>
+<floss><name>1007</name><description>Blue - MED DK</description><color><red>0</red><green>28</green><blue>73</blue></color></floss>
+<floss><name>1008</name><description>Blue - DK</description><color><red>0</red><green>7</green><blue>42</blue></color></floss>
+<floss><name>1009</name><description>Blue - VY DK</description><color><red>0</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>1010</name><description>Blue - VY DK</description><color><red>0</red><green>81</green><blue>132</blue></color></floss>
+<floss><name>1011</name><description>Blue - DK</description><color><red>0</red><green>81</green><blue>122</blue></color></floss>
+<floss><name>1012</name><description>Blue - MED</description><color><red>23</red><green>107</green><blue>143</blue></color></floss>
+<floss><name>1013</name><description>Blue</description><color><red>107</red><green>149</green><blue>174</blue></color></floss>
+<floss><name>1014</name><description>Blue - LT</description><color><red>163</red><green>191</green><blue>195</blue></color></floss>
+<floss><name>1101</name><description>Blue - VY LT</description><color><red>173</red><green>201</green><blue>203</blue></color></floss>
+<floss><name>1102</name><description>Electric Blue - DK</description><color><red>0</red><green>84</green><blue>215</blue></color></floss>
+<floss><name>1103</name><description>Electric Blue - MED</description><color><red>0</red><green>147</green><blue>215</blue></color></floss>
+<floss><name>1104</name><description>Wedgewood - ULT VY LT</description><color><red>189</red><green>228</green><blue>233</blue></color></floss>
+<floss><name>1105</name><description>Wedgewood - LT</description><color><red>107</red><green>169</green><blue>188</blue></color></floss>
+<floss><name>1106</name><description>Wedgewood - MED</description><color><red>75</red><green>137</green><blue>156</blue></color></floss>
+<floss><name>1107</name><description>Wedgewood - DK</description><color><red>44</red><green>106</green><blue>146</blue></color></floss>
+<floss><name>1108</name><description>Misty Blue - DK</description><color><red>23</red><green>117</green><blue>135</blue></color></floss>
+<floss><name>1109</name><description>Misty Blue - MED</description><color><red>52</red><green>138</green><blue>146</blue></color></floss>
+<floss><name>1110</name><description>Misty Blue - MED LT</description><color><red>63</red><green>149</green><blue>156</blue></color></floss>
+<floss><name>1111</name><description>Misty Blue - LT</description><color><red>105</red><green>149</green><blue>156</blue></color></floss>
+<floss><name>1112</name><description>Turquoise - VY LT</description><color><red>129</red><green>205</green><blue>186</blue></color></floss>
+<floss><name>1113</name><description>Turquoise - LT</description><color><red>97</red><green>194</green><blue>175</blue></color></floss>
+<floss><name>1114</name><description>Turquoise - MED DK</description><color><red>7</red><green>163</green><blue>144</blue></color></floss>
+<floss><name>1201</name><description>Turquoise - MED</description><color><red>97</red><green>194</green><blue>165</blue></color></floss>
+<floss><name>1202</name><description>Turquoise - DK</description><color><red>5</red><green>142</green><blue>96</blue></color></floss>
+<floss><name>1203</name><description>Turquoise - VY DK</description><color><red>0</red><green>131</green><blue>91</blue></color></floss>
+<floss><name>1204</name><description>Turquoise - ULT VY DK</description><color><red>0</red><green>73</green><blue>65</blue></color></floss>
+<floss><name>1205</name><description>Blue Green</description><color><red>0</red><green>84</green><blue>60</blue></color></floss>
+<floss><name>1206</name><description>Jade - DK</description><color><red>21</red><green>108</green><blue>52</blue></color></floss>
+<floss><name>1207</name><description>Jade - MED</description><color><red>94</red><green>159</green><blue>117</blue></color></floss>
+<floss><name>1208</name><description>Jade - LT</description><color><red>189</red><green>233</green><blue>212</blue></color></floss>
+<floss><name>1209</name><description>Yellow Green - ULT VY LT</description><color><red>178</red><green>202</green><blue>156</blue></color></floss>
+<floss><name>1210</name><description>Leaf Green - VY LT</description><color><red>189</red><green>233</green><blue>201</blue></color></floss>
+<floss><name>1211</name><description>Leaf Green - LT</description><color><red>152</red><green>207</green><blue>165</blue></color></floss>
+<floss><name>1212</name><description>Leaf Green - MED</description><color><red>95</red><green>157</green><blue>107</blue></color></floss>
+<floss><name>1213</name><description>Leaf Green - DK</description><color><red>47</red><green>133</green><blue>81</blue></color></floss>
+<floss><name>1214</name><description>Leaf Green - VY DK</description><color><red>31</red><green>112</green><blue>60</blue></color></floss>
+<floss><name>1301</name><description>Emerald Green</description><color><red>0</red><green>123</green><blue>60</blue></color></floss>
+<floss><name>1302</name><description>Emerald Green - DK</description><color><red>0</red><green>112</green><blue>60</blue></color></floss>
+<floss><name>1303</name><description>Christmas Green - DK</description><color><red>0</red><green>102</green><blue>48</blue></color></floss>
+<floss><name>1304</name><description>Christmas Green - BRIGHT</description><color><red>0</red><green>102</green><blue>40</blue></color></floss>
+<floss><name>1305</name><description>Christmas Green - MED</description><color><red>0</red><green>105</green><blue>0</blue></color></floss>
+<floss><name>1306</name><description>Chartreuse</description><color><red>66</red><green>158</green><blue>54</blue></color></floss>
+<floss><name>1307</name><description>Chartreuse - LT</description><color><red>118</red><green>200</green><blue>96</blue></color></floss>
+<floss><name>1308</name><description>Yellow Green</description><color><red>165</red><green>184</green><blue>67</blue></color></floss>
+<floss><name>1309</name><description>Pistachio Green - VY LT</description><color><red>226</red><green>236</green><blue>219</blue></color></floss>
+<floss><name>1310</name><description>Pistachio Green - LT</description><color><red>115</red><green>142</green><blue>109</blue></color></floss>
+<floss><name>1311</name><description>Pistachio Green - MED</description><color><red>84</red><green>110</green><blue>77</blue></color></floss>
+<floss><name>1312</name><description>Pistachio Green - DK</description><color><red>52</red><green>89</green><blue>51</blue></color></floss>
+<floss><name>1313</name><description>Pistachio Green - VY DK</description><color><red>31</red><green>68</green><blue>14</blue></color></floss>
+<floss><name>1314</name><description>Pistachio Green - ULT VY DK</description><color><red>0</red><green>28</green><blue>24</blue></color></floss>
+<floss><name>1401</name><description>Green - VY LT</description><color><red>147</red><green>175</green><blue>115</blue></color></floss>
+<floss><name>1402</name><description>Green - LT</description><color><red>100</red><green>136</green><blue>54</blue></color></floss>
+<floss><name>1403</name><description>Green</description><color><red>58</red><green>105</green><blue>17</blue></color></floss>
+<floss><name>1404</name><description>Hunter Green - VY DK</description><color><red>0</red><green>80</green><blue>31</blue></color></floss>
+<floss><name>1405</name><description>Hunter Green - DK</description><color><red>0</red><green>69</green><blue>31</blue></color></floss>
+<floss><name>1406</name><description>Hunter Green - MED</description><color><red>47</red><green>94</green><blue>23</blue></color></floss>
+<floss><name>1407</name><description>Hunter Green</description><color><red>68</red><green>105</green><blue>23</blue></color></floss>
+<floss><name>1408</name><description>Hunter Green - LT</description><color><red>89</red><green>105</green><blue>23</blue></color></floss>
+<floss><name>1409</name><description>Forest Green - VY LT</description><color><red>178</red><green>185</green><blue>107</blue></color></floss>
+<floss><name>1410</name><description>Forest Green - LT</description><color><red>150</red><green>168</green><blue>0</blue></color></floss>
+<floss><name>1411</name><description>Forest Green - MED</description><color><red>114</red><green>146</green><blue>0</blue></color></floss>
+<floss><name>1412</name><description>Forest Green - DK</description><color><red>100</red><green>147</green><blue>0</blue></color></floss>
+<floss><name>1413</name><description>Forest Green - VY DK</description><color><red>68</red><green>126</green><blue>21</blue></color></floss>
+<floss><name>1414</name><description>Avocado Green - PALE</description><color><red>193</red><green>178</green><blue>91</blue></color></floss>
+<floss><name>1501</name><description>Avocado Green - VY LT</description><color><red>185</red><green>195</green><blue>103</blue></color></floss>
+<floss><name>1502</name><description>Avocado Green - LT</description><color><red>133</red><green>153</green><blue>50</blue></color></floss>
+<floss><name>1503</name><description>Avocado Green - MED LT</description><color><red>123</red><green>143</green><blue>50</blue></color></floss>
+<floss><name>1504</name><description>Avocado Green - MED</description><color><red>91</red><green>111</green><blue>19</blue></color></floss>
+<floss><name>1505</name><description>Fern Green - ULT VY DK</description><color><red>49</red><green>38</green><blue>0</blue></color></floss>
+<floss><name>1506</name><description>Fern Green - VY DK</description><color><red>60</red><green>48</green><blue>42</blue></color></floss>
+<floss><name>1507</name><description>Fern Green - DK</description><color><red>63</red><green>63</green><blue>0</blue></color></floss>
+<floss><name>1508</name><description>Fern Green - MED</description><color><red>68</red><green>68</green><blue>5</blue></color></floss>
+<floss><name>1509</name><description>Fern Green - LT</description><color><red>130</red><green>128</green><blue>91</blue></color></floss>
+<floss><name>1510</name><description>Fern Green - VY LT</description><color><red>140</red><green>138</green><blue>96</blue></color></floss>
+<floss><name>1511</name><description>Gray Green - VY LT</description><color><red>180</red><green>176</green><blue>157</blue></color></floss>
+<floss><name>1512</name><description>Gray Green - LT</description><color><red>149</red><green>160</green><blue>136</blue></color></floss>
+<floss><name>1513</name><description>Gray Green - MED</description><color><red>123</red><green>134</green><blue>100</blue></color></floss>
+<floss><name>1514</name><description>Gray Green - DK</description><color><red>60</red><green>82</green><blue>47</blue></color></floss>
+<floss><name>1601</name><description>Laurel Green - DK</description><color><red>60</red><green>92</green><blue>47</blue></color></floss>
+<floss><name>1602</name><description>Laurel Green - MED</description><color><red>81</red><green>103</green><blue>47</blue></color></floss>
+<floss><name>1603</name><description>Laurel Green - LT</description><color><red>144</red><green>166</green><blue>89</blue></color></floss>
+<floss><name>1604</name><description>Laurel Green - VY LT</description><color><red>175</red><green>187</green><blue>131</blue></color></floss>
+<floss><name>1605</name><description>Khaki Green - LT</description><color><red>165</red><green>155</green><blue>89</blue></color></floss>
+<floss><name>1606</name><description>Khaki Green - MED</description><color><red>129</red><green>119</green><blue>53</blue></color></floss>
+<floss><name>1607</name><description>Khaki Green - DK</description><color><red>108</red><green>93</green><blue>43</blue></color></floss>
+<floss><name>1608</name><description>Green - DK</description><color><red>97</red><green>101</green><blue>0</blue></color></floss>
+<floss><name>1609</name><description>Green - MED</description><color><red>147</red><green>147</green><blue>0</blue></color></floss>
+<floss><name>1610</name><description>Sage Green - VY LT</description><color><red>200</red><green>170</green><blue>68</blue></color></floss>
+<floss><name>1611</name><description>Sage Green - LT</description><color><red>161</red><green>147</green><blue>0</blue></color></floss>
+<floss><name>1612</name><description>Sage Green</description><color><red>115</red><green>98</green><blue>0</blue></color></floss>
+<floss><name>1613</name><description>Sage Green - MED</description><color><red>126</red><green>109</green><blue>0</blue></color></floss>
+<floss><name>1614</name><description>Sage Green - DK</description><color><red>94</red><green>77</green><blue>0</blue></color></floss>
+<floss><name>1701</name><description>Sea Foam Green - LT</description><color><red>169</red><green>180</green><blue>165</blue></color></floss>
+<floss><name>1702</name><description>Sea Foam Green</description><color><red>137</red><green>159</green><blue>144</blue></color></floss>
+<floss><name>1703</name><description>Sea Foam Green - MED</description><color><red>95</red><green>117</green><blue>102</blue></color></floss>
+<floss><name>1704</name><description>Sea Foam Green - DK</description><color><red>74</red><green>96</green><blue>81</blue></color></floss>
+<floss><name>1705</name><description>Sea Foam Green - ULT DK</description><color><red>21</red><green>63</green><blue>42</blue></color></floss>
+<floss><name>1706</name><description>Blue Gray - DK</description><color><red>0</red><green>63</green><blue>73</blue></color></floss>
+<floss><name>1707</name><description>Blue Gray - MED</description><color><red>73</red><green>105</green><blue>115</blue></color></floss>
+<floss><name>1708</name><description>Blue Gray - LT</description><color><red>175</red><green>185</green><blue>193</blue></color></floss>
+<floss><name>1709</name><description>Blue Gray - VY LT</description><color><red>175</red><green>170</green><blue>159</blue></color></floss>
+<floss><name>1710</name><description>Dusty Blue - LT</description><color><red>146</red><green>164</green><blue>179</blue></color></floss>
+<floss><name>1711</name><description>Dusty Blue - MED</description><color><red>72</red><green>111</green><blue>127</blue></color></floss>
+<floss><name>1712</name><description>Dusty Blue - DK</description><color><red>51</red><green>90</green><blue>116</blue></color></floss>
+<floss><name>1713</name><description>Blue - BLACK</description><color><red>21</red><green>0</green><blue>42</blue></color></floss>
+<floss><name>1714</name><description>Steel Gray - DK</description><color><red>97</red><green>88</green><blue>105</blue></color></floss>
+<floss><name>1801</name><description>Steel Gray - MED</description><color><red>108</red><green>98</green><blue>108</blue></color></floss>
+<floss><name>1802</name><description>Steel Gray - LT</description><color><red>134</red><green>130</green><blue>139</blue></color></floss>
+<floss><name>1803</name><description>Steel Gray - VY LT</description><color><red>153</red><green>140</green><blue>150</blue></color></floss>
+<floss><name>1804</name><description>Pearl Gray - VY LT</description><color><red>213</red><green>208</green><blue>212</blue></color></floss>
+<floss><name>1805</name><description>Gray Green - ULT VY LT</description><color><red>213</red><green>217</green><blue>212</blue></color></floss>
+<floss><name>1806</name><description>Shell Gray - LT</description><color><red>166</red><green>143</green><blue>151</blue></color></floss>
+<floss><name>1807</name><description>Shell Gray - MED</description><color><red>157</red><green>143</green><blue>151</blue></color></floss>
+<floss><name>1808</name><description>Shell Gray - DK</description><color><red>132</red><green>111</green><blue>119</blue></color></floss>
+<floss><name>1809</name><description>Shell Gray - VY DK</description><color><red>79</red><green>69</green><blue>67</blue></color></floss>
+<floss><name>1810</name><description>Shell Gray - ULT VY DK</description><color><red>58</red><green>38</green><blue>46</blue></color></floss>
+<floss><name>1811</name><description>Beaver Gray - DK</description><color><red>91</red><green>82</green><blue>67</blue></color></floss>
+<floss><name>1812</name><description>Beaver Gray - MED</description><color><red>123</red><green>115</green><blue>98</blue></color></floss>
+<floss><name>1813</name><description>Beaver Gray - LT</description><color><red>138</red><green>137</green><blue>119</blue></color></floss>
+<floss><name>1814</name><description>Beaver Gray - VY LT</description><color><red>178</red><green>172</green><blue>156</blue></color></floss>
+<floss><name>1901</name><description>Beige Gray - LT</description><color><red>205</red><green>203</green><blue>195</blue></color></floss>
+<floss><name>1902</name><description>Beige Gray - MED</description><color><red>179</red><green>169</green><blue>153</blue></color></floss>
+<floss><name>1903</name><description>Beige Gray - DK</description><color><red>148</red><green>127</green><blue>111</blue></color></floss>
+<floss><name>1904</name><description>Beige Gray - ULT VY DK</description><color><red>64</red><green>43</green><blue>27</blue></color></floss>
+<floss><name>1905</name><description>Beige Gray - VY DK</description><color><red>106</red><green>85</green><blue>59</blue></color></floss>
+<floss><name>1906</name><description>Beige Gray</description><color><red>153</red><green>127</green><blue>101</blue></color></floss>
+<floss><name>1907</name><description>Beige Gray - MED LT</description><color><red>216</red><green>190</green><blue>174</blue></color></floss>
+<floss><name>1908</name><description>Beige Brown - ULT VY LT</description><color><red>237</red><green>221</green><blue>206</blue></color></floss>
+<floss><name>1909</name><description>Beige Brown - VY LT</description><color><red>216</red><green>191</green><blue>176</blue></color></floss>
+<floss><name>1910</name><description>Beige Brown - LT</description><color><red>213</red><green>179</green><blue>164</blue></color></floss>
+<floss><name>1911</name><description>Beige Brown - MED</description><color><red>171</red><green>137</green><blue>122</blue></color></floss>
+<floss><name>1912</name><description>Beige Brown - DK</description><color><red>150</red><green>112</green><blue>96</blue></color></floss>
+<floss><name>1913</name><description>Beige Brown - VY DK</description><color><red>118</red><green>81</green><blue>65</blue></color></floss>
+<floss><name>1914</name><description>Beige Brown - ULT VY DK</description><color><red>87</red><green>49</green><blue>17</blue></color></floss>
+<floss><name>2001</name><description>Mocha Brown - LT</description><color><red>216</red><green>200</green><blue>185</blue></color></floss>
+<floss><name>2002</name><description>Mocha Brown - MED</description><color><red>150</red><green>127</green><blue>90</blue></color></floss>
+<floss><name>2003</name><description>Brown - DK</description><color><red>54</red><green>23</green><blue>0</blue></color></floss>
+<floss><name>2004</name><description>Black Brown</description><color><red>42</red><green>21</green><blue>0</blue></color></floss>
+<floss><name>2005</name><description>Chocolate</description><color><red>73</red><green>26</green><blue>0</blue></color></floss>
+<floss><name>2006</name><description>Tan - ULT VY DK</description><color><red>63</red><green>26</green><blue>0</blue></color></floss>
+<floss><name>2007</name><description>Tan - VY DK</description><color><red>84</red><green>37</green><blue>31</blue></color></floss>
+<floss><name>2008</name><description>Tan - DK</description><color><red>110</red><green>52</green><blue>31</blue></color></floss>
+<floss><name>2009</name><description>Tan - MED DK</description><color><red>131</red><green>63</green><blue>21</blue></color></floss>
+<floss><name>2010</name><description>Tan - MED</description><color><red>173</red><green>94</green><blue>52</blue></color></floss>
+<floss><name>2011</name><description>Tan</description><color><red>199</red><green>126</green><blue>73</blue></color></floss>
+<floss><name>2012</name><description>Tan - LT</description><color><red>231</red><green>168</green><blue>94</blue></color></floss>
+<floss><name>2013</name><description>Tan - VY LT</description><color><red>241</red><green>188</green><blue>126</blue></color></floss>
+<floss><name>2014</name><description>Tan - ULT VY LT</description><color><red>248</red><green>219</green><blue>178</blue></color></floss>
+<floss><name>2101</name><description>Cream</description><color><red>255</red><green>247</green><blue>231</blue></color></floss>
+<floss><name>2102</name><description>Hazelnut Brown - LT</description><color><red>220</red><green>166</green><blue>105</blue></color></floss>
+<floss><name>2103</name><description>Hazelnut Brown - LT</description><color><red>178</red><green>124</green><blue>63</blue></color></floss>
+<floss><name>2104</name><description>Hazelnut Brown - MED</description><color><red>157</red><green>102</green><blue>42</blue></color></floss>
+<floss><name>2105</name><description>Hazelnut Brown - DK</description><color><red>110</red><green>64</green><blue>5</blue></color></floss>
+<floss><name>2106</name><description>Drab Brown - VY DK</description><color><red>79</red><green>43</green><blue>5</blue></color></floss>
+<floss><name>2107</name><description>Drab Brown - DK</description><color><red>90</red><green>63</green><blue>5</blue></color></floss>
+<floss><name>2108</name><description>Drab Brown - MED</description><color><red>159</red><green>124</green><blue>84</blue></color></floss>
+<floss><name>2109</name><description>Drab Brown - LT</description><color><red>212</red><green>181</green><blue>147</blue></color></floss>
+<floss><name>2110</name><description>Avocado - LT</description><color><red>170</red><green>160</green><blue>105</blue></color></floss>
+<floss><name>2111</name><description>Avocado - MED</description><color><red>160</red><green>129</green><blue>63</blue></color></floss>
+<floss><name>2112</name><description>Avocado - DK</description><color><red>118</red><green>97</green><blue>31</blue></color></floss>
+<floss><name>2113</name><description>Hazelnut Brown - VY DK</description><color><red>103</red><green>55</green><blue>0</blue></color></floss>
+<floss><name>2114</name><description>Avocado - VY DK</description><color><red>103</red><green>66</green><blue>0</blue></color></floss>
+<floss><name>2201</name><description>Old Gold - DK</description><color><red>145</red><green>97</green><blue>0</blue></color></floss>
+<floss><name>2202</name><description>Old Gold - MED</description><color><red>155</red><green>118</green><blue>0</blue></color></floss>
+<floss><name>2203</name><description>Old Gold</description><color><red>197</red><green>139</green><blue>42</blue></color></floss>
+<floss><name>2204</name><description>Old Gold - LT</description><color><red>208</red><green>150</green><blue>52</blue></color></floss>
+<floss><name>2205</name><description>Old Gold - VY LT</description><color><red>246</red><green>229</green><blue>168</blue></color></floss>
+<floss><name>2206</name><description>Avocado - VY LT</description><color><red>213</red><green>186</green><blue>110</blue></color></floss>
+<floss><name>2207</name><description>Gold - VY LT</description><color><red>249</red><green>228</green><blue>163</blue></color></floss>
+<floss><name>2208</name><description>Gold - LT</description><color><red>229</red><green>181</green><blue>105</blue></color></floss>
+<floss><name>2209</name><description>Gold - MED</description><color><red>197</red><green>139</green><blue>52</blue></color></floss>
+<floss><name>2210</name><description>Gold - DK</description><color><red>187</red><green>118</green><blue>21</blue></color></floss>
+<floss><name>2211</name><description>Topaz - MED DK</description><color><red>197</red><green>97</green><blue>0</blue></color></floss>
+<floss><name>2212</name><description>Topaz - DK</description><color><red>197</red><green>113</green><blue>21</blue></color></floss>
+<floss><name>2213</name><description>Topaz - VY DK</description><color><red>155</red><green>82</green><blue>0</blue></color></floss>
+<floss><name>2214</name><description>Topaz - ULT VY DK</description><color><red>134</red><green>71</green><blue>0</blue></color></floss>
+<floss><name>2301</name><description>Golden Brown - VY LT</description><color><red>229</red><green>132</green><blue>68</blue></color></floss>
+<floss><name>2302</name><description>Golden Brown - LT</description><color><red>218</red><green>101</green><blue>42</blue></color></floss>
+<floss><name>2303</name><description>Golden Brown - MED</description><color><red>155</red><green>50</green><blue>0</blue></color></floss>
+<floss><name>2304</name><description>Mahogany - DK</description><color><red>145</red><green>50</green><blue>42</blue></color></floss>
+<floss><name>2305</name><description>Mahogany - MED</description><color><red>171</red><green>29</green><blue>0</blue></color></floss>
+<floss><name>2306</name><description>Mahogany - LT</description><color><red>181</red><green>61</green><blue>31</blue></color></floss>
+<floss><name>2307</name><description>Mahogany - VY LT</description><color><red>236</red><green>145</green><blue>65</blue></color></floss>
+<floss><name>2308</name><description>Flesh - LT</description><color><red>255</red><green>220</green><blue>199</blue></color></floss>
+<floss><name>2309</name><description>Flesh - MED</description><color><red>245</red><green>189</green><blue>168</blue></color></floss>
+<floss><name>2310</name><description>Flesh - DK</description><color><red>217</red><green>116</green><blue>119</blue></color></floss>
+<floss><name>2311</name><description>Peach Flesh - VY DK</description><color><red>127</red><green>55</green><blue>63</blue></color></floss>
+<floss><name>2312</name><description>Peach Flesh - MED</description><color><red>193</red><green>107</green><blue>93</blue></color></floss>
+<floss><name>2313</name><description>Peach Flesh</description><color><red>241</red><green>169</green><blue>148</blue></color></floss>
+<floss><name>2314</name><description>Golden Brown - VY LT</description><color><red>255</red><green>236</green><blue>215</blue></color></floss>
+<floss><name>2402</name><description>Off White</description><color><red>248</red><green>248</green><blue>248</blue></color></floss>
+<floss><name>2403</name><description>Winter White</description><color><red>253</red><green>253</green><blue>248</blue></color></floss>
+<floss><name>2501</name><description>Bright Terracotta - DK</description><color><red>100</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>2502</name><description>Bright Terracotta - MED</description><color><red>148</red><green>0</green><blue>42</blue></color></floss>
+<floss><name>2503</name><description>Bright Terracotta - LT</description><color><red>255</red><green>175</green><blue>146</blue></color></floss>
+<floss><name>2504</name><description>Wedgewood - VY LT</description><color><red>224</red><green>236</green><blue>226</blue></color></floss>
+<floss><name>2505</name><description>Wedgewood - VY DK</description><color><red>0</red><green>89</green><blue>112</blue></color></floss>
+<floss><name>2506</name><description>Misty Green - BRIGHT</description><color><red>0</red><green>131</green><blue>136</blue></color></floss>
+<floss><name>2507</name><description>Misty Green - DK</description><color><red>0</red><green>105</green><blue>95</blue></color></floss>
+<floss><name>2508</name><description>Misty Green - MED</description><color><red>90</red><green>142</green><blue>144</blue></color></floss>
+<floss><name>2509</name><description>Golden Yellow - BRIGHT</description><color><red>234</red><green>171</green><blue>73</blue></color></floss>
+<floss><name>2510</name><description>Golden Yellow - DK</description><color><red>196</red><green>157</green><blue>76</blue></color></floss>
+<floss><name>2511</name><description>Golden Yellow - LT</description><color><red>238</red><green>229</green><blue>193</blue></color></floss>
+<floss><name>2512</name><description>Golden Brown - LT</description><color><red>238</red><green>223</green><blue>182</blue></color></floss>
+<floss><name>2513</name><description>Golden Brown - BRIGHT</description><color><red>244</red><green>166</green><blue>93</blue></color></floss>
+<floss><name>2514</name><description>Golden Brown - MED</description><color><red>213</red><green>134</green><blue>72</blue></color></floss>
+<floss><name>2601</name><description>Coffee Brown - VY LT</description><color><red>153</red><green>110</green><blue>100</blue></color></floss>
+<floss><name>2602</name><description>Coffee Brown - LT</description><color><red>110</red><green>42</green><blue>21</blue></color></floss>
+<floss><name>2603</name><description>Nile Green - LT</description><color><red>63</red><green>89</green><blue>52</blue></color></floss>
+<floss><name>2604</name><description>Nile Green - DK</description><color><red>136</red><green>178</green><blue>136</blue></color></floss>
+<floss><name>2605</name><description>Peach - VY LT</description><color><red>245</red><green>175</green><blue>156</blue></color></floss>
+<floss><name>2606</name><description>Peach - ULT VY DK</description><color><red>89</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>2607</name><description>Antique Plum - VY DK</description><color><red>58</red><green>0</green><blue>31</blue></color></floss>
+<floss><name>2608</name><description>Antique Plum - DK</description><color><red>79</red><green>0</green><blue>42</blue></color></floss>
+<floss><name>2609</name><description>Antique Plum - MED</description><color><red>121</red><green>31</green><blue>84</blue></color></floss>
+<floss><name>2610</name><description>Antique Plum - LT</description><color><red>215</red><green>163</green><blue>175</blue></color></floss>
+<floss><name>2611</name><description>Dusty Violet - LT</description><color><red>179</red><green>169</green><blue>169</blue></color></floss>
+<floss><name>2612</name><description>Dusty Violet - MED</description><color><red>164</red><green>149</green><blue>164</blue></color></floss>
+<floss><name>2613</name><description>Dusty Violet - DK</description><color><red>136</red><green>110</green><blue>136</blue></color></floss>
+<floss><name>2614</name><description>Dusty Violet - VY DK</description><color><red>94</red><green>68</green><blue>94</blue></color></floss>
+<floss><name>2701</name><description>Blue Violet - DK</description><color><red>0</red><green>0</green><blue>52</blue></color></floss>
+<floss><name>2702</name><description>Blue Violet - VY DK</description><color><red>77</red><green>96</green><blue>147</blue></color></floss>
+<floss><name>2703</name><description>Yellow Green - LT</description><color><red>199</red><green>189</green><blue>42</blue></color></floss>
+<floss><name>2704</name><description>Christmas Green - DK</description><color><red>0</red><green>69</green><blue>35</blue></color></floss>
+<floss><name>2705</name><description>Misty Turquoise - MED</description><color><red>0</red><green>91</green><blue>87</blue></color></floss>
+<floss><name>2706</name><description>Misty Turquoise - DK</description><color><red>0</red><green>133</green><blue>118</blue></color></floss>
+<floss><name>2707</name><description>Bright Pink - LT</description><color><red>243</red><green>117</green><blue>154</blue></color></floss>
+<floss><name>2708</name><description>Bright Pink - MED</description><color><red>216</red><green>0</green><blue>56</blue></color></floss>
+<floss><name>2709</name><description>Antique Lavender - LT</description><color><red>47</red><green>0</green><blue>84</blue></color></floss>
+<floss><name>2710</name><description>Antique Lavender - MED</description><color><red>79</red><green>31</green><blue>115</blue></color></floss>
+<floss><name>2711</name><description>Antique Lavender - DK</description><color><red>152</red><green>136</green><blue>178</blue></color></floss>
+<floss><name>2712</name><description>Pink Purple - LT</description><color><red>227</red><green>185</green><blue>195</blue></color></floss>
+<floss><name>2713</name><description>Pink Purple - MED</description><color><red>190</red><green>131</green><blue>157</blue></color></floss>
+<floss><name>2714</name><description>Pink Purple - DK</description><color><red>115</red><green>31</green><blue>98</blue></color></floss>
+</flossScheme>

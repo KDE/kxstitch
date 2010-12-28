@@ -1,0 +1,18 @@
+<ui version="4.0" >
+ <class>Fonts</class>
+ <widget class="QWidget" name="Fonts" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Fonts</string>
+  </property>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
