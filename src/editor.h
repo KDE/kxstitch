@@ -258,7 +258,6 @@ class Editor : public QWidget
 		bool m_maskColor;
 		bool m_maskBackstitch;
 		bool m_maskKnot;
-		bool m_maskLayer;
 
 		QPoint m_cellStart;
 		QPoint m_cellTracking;

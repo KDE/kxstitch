@@ -99,6 +99,11 @@ Editor::Editor() : QWidget()
 	selectPaintTool();
 	showStitchesAsRegularStitches();
 	showBackstitchesAsColorLines();
+	m_maskStitch = false;
+	m_maskColor = false;
+	m_maskBackstitch = false;
+	m_maskKnot = false;
+	m_copyMirrorRotate = false;
 }
 
 
@@ -909,7 +914,6 @@ void Editor::paintFrenchKnots(QPainter *painter, QRect updateRectangle)
 	*/
 void Editor::paintRubberBandLine(QPainter *painter, QRect updateRectangle)
 {
-	kDebug() << "entered";
 	painter->save();
 	if (m_rubberBand.isValid())
 	{
@@ -927,7 +931,6 @@ void Editor::paintRubberBandLine(QPainter *painter, QRect updateRectangle)
 	*/
 void Editor::paintRubberBandRectangle(QPainter *painter, QRect updateRectangle)
 {
-	kDebug() << "entered";
 	painter->save();
 	if (m_rubberBand.isValid())
 	{
@@ -1097,24 +1100,96 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 /**
 	Called from the mousePressEvent when in erase mode.
 	*/
-void Editor::mousePressEvent_Erase(QMouseEvent*)
+void Editor::mousePressEvent_Erase(QMouseEvent *e)
 {
+	QPoint p = e->pos();
+	QRect rect;
+
+	if (e->modifiers() & Qt::ControlModifier)
+	{
+		// Erase a backstitch
+		m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(p);
+	}
+	else
+	{
+		if (e->modifiers() & Qt::ShiftModifier)
+		{
+			// Delete french knots
+			m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(p);
+			m_document->deleteFrenchKnot(m_cellStart, m_maskColor);
+			rect = QRect(snapToContents(m_cellStart)-QPoint(m_cellWidth/2, m_cellHeight/2), QSize(m_cellWidth, m_cellHeight));
+		}
+		else
+		{
+			m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(p);
+			m_zoneStart = m_zoneTracking = m_zoneEnd = contentsToZone(p);
+			m_document->deleteStitch(m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor);
+			rect = cellToRect(m_cellStart);
+		}
+		update(rect);
+	}
 }
 
 
 /**
 	Called from the mouseMoveEvent when in erase mode.
 	*/
-void Editor::mouseMoveEvent_Erase(QMouseEvent*)
+void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 {
+	QPoint p = e->pos();
+	QRect rect;
+
+	if (e->modifiers() & Qt::ControlModifier)
+	{
+		// Erasing a backstitch
+		// Don't need to do anything here
+	}
+	else
+	{
+		if (e->modifiers() & Qt::ShiftModifier)
+		{
+			// Delete french knots
+			m_cellTracking = contentsToSnap(p);
+			if (m_cellTracking != m_cellStart)
+			{
+				m_cellStart = m_cellTracking;
+				m_document->deleteFrenchKnot(m_cellStart, m_maskColor);
+				rect = QRect(snapToContents(m_cellStart)-QPoint(m_cellWidth/2, m_cellHeight/2), QSize(m_cellWidth, m_cellHeight));
+			}
+		}
+		else
+		{
+			m_cellTracking = contentsToCell(p);
+			m_zoneTracking = contentsToZone(p);
+			if ((m_cellTracking != m_cellStart) || (m_zoneTracking != m_zoneStart))
+			{
+				m_cellStart = m_cellTracking;
+				m_zoneStart = m_zoneTracking;
+				m_document->deleteStitch(m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor);
+				rect = cellToRect(m_cellStart);
+			}
+		}
+		update(rect);
+	}
 }
 
 
 /**
 	Called from the mouseReleaseEvent when in erase mode.
 	*/
-void Editor::mouseReleaseEvent_Erase(QMouseEvent*)
+void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 {
+	QPoint p = e->pos();
+	QRect rect;
+
+	if (e->modifiers() & Qt::ControlModifier)
+	{
+		// Erase a backstitch
+		m_cellEnd = contentsToSnap(p);
+		m_document->deleteBackstitch(m_cellStart, m_cellEnd, m_maskColor);
+		update(QRect(QPoint(std::min(m_cellStart.x(), m_cellEnd.x())-2, std::min(m_cellStart.y(), m_cellEnd.y())-2), QPoint(std::max(m_cellStart.x(), m_cellEnd.x())+2, std::max(m_cellStart.y(), m_cellEnd.y())+2)));
+	}
+	// Nothing needs to be done for french knots or stitches which are handled in mouseMoveEvent_Erase
 }
 
 

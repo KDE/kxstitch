@@ -109,8 +109,12 @@ class Document
 		void setCurrentFlossIndex(int);
 
 		bool addStitch(Stitch::Type, QPoint &);
+		bool deleteStitch(QPoint &, Stitch::Type, int);
 		bool addBackstitch(QPoint &, QPoint &);
+		bool deleteBackstitch(QPoint &, QPoint &, int);
 		bool addFrenchKnot(QPoint &);
+		bool deleteFrenchKnot(QPoint &, int);
+
 		void selectFloss(int);
 		QMap<int, Document::FLOSS> &palette();
 		QList<struct BACKGROUND_IMAGE> backgroundImages() const;

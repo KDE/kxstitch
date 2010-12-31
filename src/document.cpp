@@ -255,6 +255,102 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 }
 
 
+bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor)
+{
+	if (!validateCell(cell))
+		return false;			// Cell isn't valid so it can't be deleted
+
+	unsigned int index = canvasIndex(cell);
+
+	Stitch::Queue *stitchQueue = m_canvasStitches.value(index);
+	if (stitchQueue == 0)
+		return false;			// No stitch queue exists at the required location so nothing to delete
+
+	if (maskStitch == Stitch::Delete)
+	{
+		int stitchCount = stitchQueue->count();
+		while (stitchCount--)
+		{
+			Stitch *stitch = stitchQueue->dequeue();
+			m_usedFlosses[stitch->floss]--;
+			if (!maskColor || (stitch->floss == m_currentFlossIndex))
+				delete stitch;
+			else
+			{
+				stitchQueue->enqueue(stitch);
+				m_usedFlosses[stitch->floss]++;
+			}
+		}
+		if (stitchQueue->count() == 0)
+		{
+			delete stitchQueue;
+			m_canvasStitches.remove(index);
+			return true;
+		}
+	}
+	else
+	{
+		int stitchCount = stitchQueue->count();
+		while (stitchCount--)
+		{
+			Stitch *stitch = stitchQueue->dequeue();
+			m_usedFlosses[stitch->floss]--;
+			if ((stitch->type == maskStitch) && (!maskColor || (stitch->floss == m_currentFlossIndex)))
+			{
+				// delete any stitches of the required stitch if it is the correct color or if the color doesn't matter
+				delete stitch;
+			}
+			else
+			{
+				if ((stitch->type & maskStitch) && (!maskColor || (stitch->floss == m_currentFlossIndex)) && ((stitch->type & 192) == 0))
+				{
+					// the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
+					Stitch::Type changeMask = (Stitch::Type)(stitch->type ^ maskStitch);
+					int flossIndex = stitch->floss;
+					delete stitch;
+					switch (changeMask)
+					{
+						// changeMask contains what is left of the original stitch after deleting the maskStitch
+						// it may contain illegal values, so these are checked for
+						case 3:
+							stitchQueue->enqueue(new Stitch(Stitch::TLQtr, flossIndex));
+							stitchQueue->enqueue(new Stitch(Stitch::TRQtr, flossIndex));
+							m_usedFlosses[flossIndex] += 2;
+							break;
+						case 5:
+							stitchQueue->enqueue(new Stitch(Stitch::TLQtr, flossIndex));
+							stitchQueue->enqueue(new Stitch(Stitch::BLQtr, flossIndex));
+							m_usedFlosses[flossIndex] += 2;
+							break;
+						case 10:
+							stitchQueue->enqueue(new Stitch(Stitch::TRQtr, flossIndex));
+							stitchQueue->enqueue(new Stitch(Stitch::BRQtr, flossIndex));
+							m_usedFlosses[flossIndex] += 2;
+							break;
+						case 12:
+							stitchQueue->enqueue(new Stitch(Stitch::BLQtr, flossIndex));
+							stitchQueue->enqueue(new Stitch(Stitch::BRQtr, flossIndex));
+							m_usedFlosses[flossIndex] += 2;
+							break;
+						default:
+							stitchQueue->enqueue(new Stitch((Stitch::Type)changeMask, flossIndex));
+							m_usedFlosses[flossIndex]++;
+							break;
+					}
+				}
+				else
+				{
+					stitchQueue->enqueue(stitch);
+					m_usedFlosses[stitch->floss]++;
+				}
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+
 bool Document::addBackstitch(QPoint &start, QPoint &end)
 {
 	if (validateSnap(start) && validateSnap(end))
@@ -263,7 +359,31 @@ bool Document::addBackstitch(QPoint &start, QPoint &end)
 		m_usedFlosses[m_currentFlossIndex]++;
 		return true;
 	}
+
 	return false;
+}
+
+
+
+bool Document::deleteBackstitch(QPoint &start, QPoint &end, int maskColor)
+{
+	bool deleted = false;
+
+	for (int i = 0 ; i < m_canvasBackstitches.count() ; )
+	{
+		if ((m_canvasBackstitches.at(i)->start == start) && (m_canvasBackstitches.at(i)->end == end))
+		{
+			if (!maskColor || (m_canvasBackstitches.at(i)->floss == m_currentFlossIndex))
+			{
+				m_backgroundImages.removeAt(i);
+				deleted = true;
+			}
+			else
+				i++;
+		}
+	}
+
+	return deleted;
 }
 
 
@@ -275,7 +395,30 @@ bool Document::addFrenchKnot(QPoint &snap)
 		m_usedFlosses[m_currentFlossIndex]++;
 		return true;
 	}
+
 	return false;
+}
+
+
+bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
+{
+	bool deleted = false;
+
+	for (int i = 0 ; i < m_canvasKnots.count() ; )
+	{
+		if (m_canvasKnots.at(i)->pos == snap)
+		{
+			if (!maskColor || (m_canvasKnots.at(i)->floss == m_currentFlossIndex))
+			{
+				m_backgroundImages.removeAt(i);
+				deleted = true;
+			}
+			else
+				i++;
+		}
+	}
+
+	return deleted;
 }
 
 
