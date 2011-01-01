@@ -58,7 +58,6 @@ class MainWindow : public KXmlGuiWindow
 		void openNew();
 		void open();
 		void open(const KUrl &);
-		void openRecent(const KUrl &);
 		void save();
 		void saveAs();
 		void revert();

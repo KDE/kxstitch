@@ -29,6 +29,7 @@
 #include <KConfigDialog>
 #include <KDebug>
 #include <KFileDialog>
+#include <KGlobalSettings>
 #include <KLocale>
 #include <KMessageBox>
 #include <KRecentFilesAction>
@@ -148,6 +149,7 @@ MainWindow::MainWindow(const KUrl &url) : KXmlGuiWindow()
 	/**
 		Create the document using the url and assign it to the views.  The views will
 		then read any properties required from the document.
+		If the url can't be read an error is displayed and a blank document is opened instead.
 		*/
 	m_document = new Document();
 	m_editor->setDocument(m_document);
@@ -157,6 +159,8 @@ MainWindow::MainWindow(const KUrl &url) : KXmlGuiWindow()
 	setAutoSaveSettings();
 
 	setupGUI();
+
+	open(url);
 }
 
 
@@ -172,7 +176,7 @@ void MainWindow::setupActions()
 	// File menu actions
 	KStandardAction::openNew(this, SLOT(openNew()), ac);
 	KStandardAction::open(this, SLOT(open()), ac);
-	KStandardAction::openRecent(this, SLOT(openRecent(const KUrl &)), ac);
+	m_fileOpenRecent = KStandardAction::openRecent(this, SLOT(open(const KUrl &)), ac);
 	// ----------
 	KStandardAction::save(this, SLOT(save()), ac);
 	KStandardAction::saveAs(this, SLOT(saveAs()), ac);
@@ -445,7 +449,6 @@ void MainWindow::setupActions()
 	m_toolFillPolyline = new KAction(this);
 	m_toolFillPolyline->setText(i18n("Fill Polyline"));
 	m_toolFillPolyline->setIcon(KIcon("polyline"));
-	kDebug() << KIcon("polyline").themeSearchPaths();
 	m_toolFillPolyline->setCheckable(true);
 	connect(m_toolFillPolyline, SIGNAL(triggered()), m_editor, SLOT(selectFillPolylineTool()));
 	ac->addAction("toolFillPolyline", m_toolFillPolyline);
@@ -470,7 +473,6 @@ void MainWindow::setupActions()
 	m_toolBackstitch = new KAction(this);
 	m_toolBackstitch->setText(i18n("Backstitch"));
 	m_toolBackstitch->setIcon(KIcon("backstitch"));
-	kDebug() << KIconLoader::global()->iconPath("backstitch", KIconLoader::Toolbar);
 	m_toolBackstitch->setCheckable(true);
 	connect(m_toolBackstitch, SIGNAL(triggered()), m_editor, SLOT(selectBackstitchTool()));
 	ac->addAction("toolBackstitch", m_toolBackstitch);
@@ -908,39 +910,32 @@ void MainWindow::showBackgroundImage()
 
 
 /**
-	Create a new instance of the MainWindow.
+	Create a new document.
 
-	Creates a new MainWindow with a blank document.  Resizes it to the default size
-	and shows it on the desktop.
+	Check if the current document is already a new one, i.e. it hasn't got a name and hasn't been modified.
+	In this case the document is already a new and another shouldn't be created. Otherwise creates a new
+	MainWindow with a blank document.  Resizes it to the default size and shows it on the desktop.
 	*/
 void MainWindow::openNew()
 {
-	MainWindow *window = new MainWindow();
-	window->resize(Configuration::application_Width(), Configuration::application_Height());
-	window->show();
+	if (!m_document->isNew())
+	{
+		MainWindow *window = new MainWindow(KUrl());
+		window->show();
+	}
 }
 
 
 /**
 	Open an existing document.
 
-	Query for a url to be opened and if valid the current Document is deleted and a new Document
-	using the url as the source is created.  The url is added to the recent documents list.
+	Query for a url to be opened and if valid call the open(url) function to open it.
+	The url is added to the recent documents list.
 	*/
 void MainWindow::open()
 {
 	statusMessage(i18n("Opening file"));
-	KUrl url = KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), QString("*.kxs|KXStitch patterns\n*.pat|PC Stitch patterns\n*|All files"), this);
-	if (!url.isEmpty())
-	{
-		delete m_document;
-		m_document = new Document(url);
-		m_editor->setDocument(m_document);
-		m_preview->setDocument(m_document);
-		m_palette->setDocument(m_document);
-		setCaption(url.fileName(), false);
-		m_fileOpenRecent->addUrl(url);
-	}
+	open(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), QString("*.kxs|KXStitch patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
 	statusMessage(i18n("Ready"));
 }
 
@@ -948,23 +943,34 @@ void MainWindow::open()
 /**
 	Open an existing document.
 
-	Open a document where the url is already known, for example if supplied on the command line.
+	Open a document where the url is already known, for example if supplied on the command line or
+	from the open function after querying for a file to open.
 	@param url reference to the KUrl.
 	*/
 void MainWindow::open(const KUrl &url)
 {
-}
+	if (m_document->isNew())
+	{
+		if (!url.isEmpty() && !m_document->loadURL(url))
+		{
+			KMessageBox::detailedError(0, "Unable to read the file.", url.fileName());
+			delete m_document;
+			m_document = new Document();
+		}
+		else
+			m_fileOpenRecent->addUrl(url);
 
-
-/**
-	Open a recent document.
-
-	Open a document on the recent document list.
-	@param url reference to the KUrl.
-	*/
-void MainWindow::openRecent(const KUrl &url)
-{
-	open(url);
+	}
+	else
+	{
+		MainWindow *window = new MainWindow(url);
+		window->show();
+	}
+	setCaption(url.fileName(), false);
+	updateBackgroundImageActionLists();
+	m_preview->update();
+	m_palette->update();
+	m_editor->update();
 }
 
 
@@ -975,6 +981,13 @@ void MainWindow::openRecent(const KUrl &url)
 	*/
 void MainWindow::save()
 {
+	if (m_document->URL().fileName() == i18n("Untitled"))
+		saveAs();
+	else
+	{
+		m_document->saveDocument();
+		setCaption(m_document->URL().fileName(), false);
+	}
 }
 
 
@@ -985,6 +998,23 @@ void MainWindow::save()
 	*/
 void MainWindow::saveAs()
 {
+	KUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|KXStitch Files"), this, i18n("Save as..."));
+	if (!url.isEmpty())
+	{
+		bool ok = true;
+		if (QFile(url.fileName()).exists())
+		{
+			if (KMessageBox::warningYesNo(0, i18n("The file name specified already exists\nClick Yes to overwrite, No to Cancel.")) == KMessageBox::No)
+				ok = false;
+		}
+		if (ok)
+		{
+			m_document->setURL(url);
+			m_document->saveDocument();
+			m_fileOpenRecent->addUrl(url);
+			setCaption(url.fileName(), false);
+		}
+	}
 }
 
 
