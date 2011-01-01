@@ -58,7 +58,7 @@ void Palette::paintEvent(QPaintEvent *)
 	m_flosses = palette.count();
 	m_paletteIndex.resize(m_flosses);
 	int currentFlossIndex = m_document->currentFlossIndex();
-  
+
 	QPainter painter;
 
 	if (m_flosses)
@@ -147,7 +147,7 @@ void Palette::paintEvent(QPaintEvent *)
 
 void Palette::mousePressEvent(QMouseEvent *event)
 {
-	if (event->button() & Qt::LeftButton)
+	if ((event->button() & Qt::LeftButton) && m_flosses)
 	{
 		QPoint p = event->pos();
 		int x = (p.x()/m_width);
