@@ -991,6 +991,9 @@ void MainWindow::open(const KUrl &url)
 			KMessageBox::detailedError(0, "Unable to read the file.", url.fileName());
 			delete m_document;
 			m_document = new Document();
+			m_editor->setDocument(m_document);
+			m_preview->setDocument(m_document);
+			m_palette->setDocument(m_document);
 		}
 		else
 			m_fileOpenRecent->addUrl(url);
@@ -1058,6 +1061,29 @@ void MainWindow::saveAs()
 	*/
 void MainWindow::revert()
 {
+	if (m_document->isNew())
+		KMessageBox::information(this, i18n("The document is empty"));
+	else
+	{
+		if (m_document->isModified())
+		{
+			if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes)
+			{
+				KUrl url = m_document->URL();
+				delete m_document;
+				m_document = new Document();
+				m_document->loadURL(url);
+				m_editor->setDocument(m_document);
+				m_editor->update();
+				m_preview->setDocument(m_document);
+				m_preview->update();
+				m_palette->setDocument(m_document);
+				m_palette->update();
+			}
+		}
+		else
+			KMessageBox::information(this, i18n("There are no changes to revert"));
+	}
 }
 
 
