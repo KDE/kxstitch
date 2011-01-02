@@ -1270,6 +1270,8 @@ void MainWindow::paletteCreate()
 	*/
 void MainWindow::paletteClearUnused()
 {
+	m_document->clearUnusedColors();
+	m_palette->update();
 }
 
 

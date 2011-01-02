@@ -806,6 +806,18 @@ void Document::selectFloss(int flossIndex)
 }
 
 
+void Document::clearUnusedColors()
+{
+	QMutableMapIterator<int, FLOSS> flosses(m_palette);
+	while (flosses.hasNext())
+	{
+		flosses.next();
+		if (m_usedFlosses[flosses.key()] == 0)
+			flosses.remove();
+	}
+}
+
+
 QMap<int, Document::FLOSS> &Document::palette()
 {
 	return m_palette;

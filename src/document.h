@@ -123,6 +123,7 @@ class Document
 		bool deleteFrenchKnot(QPoint &, int);
 
 		void selectFloss(int);
+		void clearUnusedColors();
 		QMap<int, Document::FLOSS> &palette();
 		QListIterator<struct BACKGROUND_IMAGE> backgroundImages() const;
 		QListIterator<Backstitch *> backstitches() const;
