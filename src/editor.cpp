@@ -736,7 +736,7 @@ void Editor::keyReleaseEvent(QKeyEvent*)
 	*/
 void Editor::mousePressEvent(QMouseEvent *e)
 {
-	if (e->buttons() & Qt::LeftButton)
+	if ((e->buttons() & Qt::LeftButton) && m_document->currentFlossIndex() != -1)
 		(this->*m_mousePressCallPointer)(e);
 }
 
