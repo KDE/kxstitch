@@ -27,7 +27,7 @@
 #include <KActionCollection>
 #include <KApplication>
 #include <KDebug>
-#include <kxmlguifactory.h>
+#include <KXMLGUIFactory>
 
 #include <math.h>
 
