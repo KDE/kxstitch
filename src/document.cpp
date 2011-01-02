@@ -283,7 +283,7 @@ unsigned int Document::height() const
 
 void Document::setURL(const KUrl &url)
 {
-	if (url.fileName().right(4).toLower() == ".pat")		// this looks like a PCStitch file name
+	if (url.fileName().right(4).toLower() == ".pat")	// this looks like a PCStitch file name
 		m_documentURL.setFileName(i18n("Untitled"));	// so that the user doesn't overwrite a PCStitch
 														// file with a KXStitch file.
 	else
@@ -737,19 +737,20 @@ bool Document::deleteBackstitch(QPoint &start, QPoint &end, int maskColor)
 {
 	bool deleted = false;
 
-	for (int i = 0 ; i < m_canvasBackstitches.count() ; )
+	for (int i = 0 ; i < m_canvasBackstitches.count() ; ++i)
 	{
 		if ((m_canvasBackstitches.at(i)->start == start) && (m_canvasBackstitches.at(i)->end == end))
 		{
+			kDebug() << !maskColor << (m_canvasBackstitches.at(i)->floss == m_currentFlossIndex);
 			if (!maskColor || (m_canvasBackstitches.at(i)->floss == m_currentFlossIndex))
 			{
+				m_usedFlosses[m_canvasBackstitches.at(i)->floss]--;
 				m_canvasBackstitches.removeAt(i);
 				m_documentModified = true;
 				m_documentNew = false;
 				deleted = true;
+				break;
 			}
-			else
-				i++;
 		}
 	}
 
@@ -782,6 +783,7 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 		{
 			if (!maskColor || (m_canvasKnots.at(i)->floss == m_currentFlossIndex))
 			{
+				m_usedFlosses[m_canvasKnots.at(i)->floss]--;
 				m_canvasKnots.removeAt(i);
 				m_documentModified = true;
 				m_documentNew = false;
@@ -810,9 +812,21 @@ QMap<int, Document::FLOSS> &Document::palette()
 }
 
 
-QList<struct Document::BACKGROUND_IMAGE> Document::backgroundImages() const
+QListIterator<struct Document::BACKGROUND_IMAGE> Document::backgroundImages() const
 {
-	return m_backgroundImages;
+	return QListIterator<struct Document::BACKGROUND_IMAGE>(m_backgroundImages);
+}
+
+
+QListIterator<Backstitch *> Document::backstitches() const
+{
+	return QListIterator<Backstitch *>(m_canvasBackstitches);
+}
+
+
+QListIterator<Knot *> Document::knots() const
+{
+	return QListIterator<Knot *>(m_canvasKnots);
 }
 
 

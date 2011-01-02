@@ -99,6 +99,7 @@ Editor::Editor() : QWidget()
 	selectPaintTool();
 	showStitchesAsRegularStitches();
 	showBackstitchesAsColorLines();
+	showKnotsAsColorBlocks();
 	m_maskStitch = false;
 	m_maskColor = false;
 	m_maskBackstitch = false;
@@ -402,7 +403,7 @@ void Editor::selectBackstitchTool()
 	m_mousePressCallPointer = &Editor::mousePressEvent_Backstitch;
 	m_mouseMoveCallPointer = &Editor::mouseMoveEvent_Backstitch;
 	m_mouseReleaseCallPointer = &Editor::mouseReleaseEvent_Backstitch;
-	m_paintToolSpecificGraphics = 0;
+	m_paintToolSpecificGraphics = &Editor::paintRubberBandLine;
 	m_toolMode = ToolBackstitch;
 }
 
@@ -629,6 +630,15 @@ void Editor::showBackstitchesAsBlackWhiteSymbols()
 
 
 /**
+	Set the backstitch representation to color hilight
+	*/
+void Editor::showBackstitchesAsColorHilight()
+{
+	m_paintBackstitchCallPointer = &Editor::paintBackstitchesAsColorHilight;
+}
+
+
+/**
 	Set the knot representation to color blocks
 	*/
 void Editor::showKnotsAsColorBlocks()
@@ -640,9 +650,18 @@ void Editor::showKnotsAsColorBlocks()
 /**
 	Set the knot representation to symbols
 	*/
-void Editor::showKnotsAsSymbols()
+void Editor::showKnotsAsBlackWhiteSymbols()
 {
-	m_paintKnotCallPointer = &Editor::paintKnotsAsSymbols;
+	m_paintKnotCallPointer = &Editor::paintKnotsAsBlackWhiteSymbols;
+}
+
+
+/**
+	Set the knot representation to color hilight
+	*/
+void Editor::showKnotsAsColorHilight()
+{
+	m_paintKnotCallPointer = &Editor::paintKnotsAsColorHilight;
 }
 
 
@@ -785,16 +804,17 @@ void Editor::paintEvent(QPaintEvent *e)
 	*/
 void Editor::paintBackgroundImages(QPainter *painter, QRect updateRectangle)
 {
-	QList<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
-	for (int i = 0 ; i < backgroundImages.count() ; i++)
+	QListIterator<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
+	while (backgroundImages.hasNext())
 	{
-		if (backgroundImages.at(i).imageVisible)
+		struct Document::BACKGROUND_IMAGE background = backgroundImages.next();
+		if (background.imageVisible)
 		{
-			QRect r = backgroundImages.at(i).imageLocation;
+			QRect r = background.imageLocation;
 			r.moveTo(r.left()*m_cellWidth, r.top()*m_cellHeight);
 			r.setWidth(r.width()*m_cellWidth);
 			r.setHeight(r.height()*m_cellHeight);
-			painter->drawImage(r, backgroundImages.at(i).image);
+			painter->drawImage(r, background.image);
 		}
 	}
 }
@@ -885,10 +905,11 @@ void Editor::paintStitches(QPainter *painter, QRect updateRectangle)
 void Editor::paintBackstitches(QPainter *painter, QRect updateRectangle)
 {
 	painter->save();
-	// get list of back stitches
-	// for each backstitches
-	//   draw line from start to finish
-	//   ( call drawBackstitch function with color )
+	QListIterator<Backstitch *> backstitches = m_document->backstitches();
+	while (backstitches.hasNext())
+	{
+		(this->*m_paintBackstitchCallPointer)(painter, backstitches.next());
+	}
 	painter->restore();
 }
 
@@ -901,9 +922,11 @@ void Editor::paintBackstitches(QPainter *painter, QRect updateRectangle)
 void Editor::paintFrenchKnots(QPainter *painter, QRect updateRectangle)
 {
 	painter->save();
-	// get list of french knots
-	// iterate list
-	//   draw french knot
+	QListIterator<Knot *> knots = m_document->knots();
+	while (knots.hasNext())
+	{
+		(this->*m_paintKnotCallPointer)(painter, knots.next());
+	}
 	painter->restore();
 }
 
@@ -919,7 +942,10 @@ void Editor::paintRubberBandLine(QPainter *painter, QRect updateRectangle)
 	{
 		QPen pen(Qt::black);
 		pen.setWidth(4);
-		painter->drawLine(cellToRect(m_cellStart).center(), cellToRect(m_cellEnd).center());
+		if (m_toolMode == ToolBackstitch)
+			painter->drawLine(snapToContents(m_cellStart), snapToContents(m_cellEnd));
+		else
+			painter->drawLine(cellToRect(m_cellStart).center(), cellToRect(m_cellEnd).center());
 	}
 	painter->restore();
 }
@@ -1186,8 +1212,19 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 	{
 		// Erase a backstitch
 		m_cellEnd = contentsToSnap(p);
-		m_document->deleteBackstitch(m_cellStart, m_cellEnd, m_maskColor);
-		update(QRect(QPoint(std::min(m_cellStart.x(), m_cellEnd.x())-2, std::min(m_cellStart.y(), m_cellEnd.y())-2), QPoint(std::max(m_cellStart.x(), m_cellEnd.x())+2, std::max(m_cellStart.y(), m_cellEnd.y())+2)));
+		QListIterator<Backstitch *> backstitches = m_document->backstitches();
+		while (backstitches.hasNext())
+		{
+			Backstitch *backstitch = backstitches.next();
+			if (backstitch->contains(m_cellStart) && backstitch->contains(m_cellEnd))
+			{
+				if (m_document->deleteBackstitch(backstitch->start, backstitch->end, m_maskColor))
+				{
+					update(QRect(snapToContents(backstitch->start), snapToContents(backstitch->end)).normalized().adjusted(-2, -2, 2, 2));
+					break;
+				}
+			}
+		}
 	}
 	// Nothing needs to be done for french knots or stitches which are handled in mouseMoveEvent_Erase
 }
@@ -1515,24 +1552,41 @@ void Editor::mouseReleaseEvent_Select(QMouseEvent*)
 /**
 	Called from the mousePressEvent when in backstitch mode.
 	*/
-void Editor::mousePressEvent_Backstitch(QMouseEvent*)
+void Editor::mousePressEvent_Backstitch(QMouseEvent *e)
 {
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(e->pos());
+	m_rubberBand = QRect();
 }
 
 
 /**
 	Called from the mouseMoveEvent when in backstitch mode.
 	*/
-void Editor::mouseMoveEvent_Backstitch(QMouseEvent*)
+void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 {
+	QRect updateArea;
+
+	m_cellTracking = contentsToSnap(e->pos());
+	updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
+	m_rubberBand = QRect();
+	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+
+	m_cellEnd = m_cellTracking;
+	updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
+	m_rubberBand = updateArea;
+	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
 }
 
 
 /**
 	Called from the mouseReleaseEvent when in backstitch mode.
 	*/
-void Editor::mouseReleaseEvent_Backstitch(QMouseEvent*)
+void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 {
+	kDebug() << m_cellStart << m_cellEnd;
+	m_rubberBand = QRect();
+	update();
+	m_document->addBackstitch(m_cellStart, m_cellEnd);
 }
 
 
@@ -1836,22 +1890,74 @@ void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w,
 }
 
 
-void Editor::paintBackstitchesAsColorLines(Backstitch *backstitch)
+/**
+	Paint a backstitch as a color line.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a backstitch to draw.
+	*/
+void Editor::paintBackstitchesAsColorLines(QPainter *painter, Backstitch *backstitch)
+{
+	Floss *floss = m_document->floss(backstitch->floss);
+	QPen pen(floss->color);
+	pen.setWidth(4);
+	painter->setPen(pen);
+	painter->drawLine(snapToContents(backstitch->start), snapToContents(backstitch->end));
+}
+
+
+/**
+	Paint a backstitch as a black & white symbol.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a backstitch to draw.
+	*/
+void Editor::paintBackstitchesAsBlackWhiteSymbols(QPainter *painter, Backstitch *backstitch)
 {
 }
 
 
-void Editor::paintBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
+/**
+	Paint a backstitch as a color hilight.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a backstitch to draw.
+	*/
+void Editor::paintBackstitchesAsColorHilight(QPainter *painter, Backstitch *backstitch)
+{
+	Floss *floss = m_document->floss(backstitch->floss);
+	QPen pen(floss->color);
+	if (backstitch->floss != m_document->currentFlossIndex())
+		pen.setColor(Qt::lightGray);
+	pen.setWidth(4);
+	painter->setPen(pen);
+	painter->drawLine(snapToContents(backstitch->start), snapToContents(backstitch->end));
+}
+
+
+/**
+	Paint a knot as a color block.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a knot to draw.
+	*/
+void Editor::paintKnotsAsColorBlocks(QPainter *painter, Knot *knot)
 {
 }
 
 
-void Editor::paintKnotsAsColorBlocks(Knot *knot)
+/**
+	Paint a knot as a black & white symbol.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a knot to draw.
+	*/
+void Editor::paintKnotsAsBlackWhiteSymbols(QPainter *painter, Knot *knot)
 {
 }
 
 
-void Editor::paintKnotsAsSymbols(Knot *knot)
+/**
+	Paint a knot as a color hilight.
+	@param painter pointer to a QPainter to draw on.
+	@param backstitch pointer to a knot to draw.
+	*/
+void Editor::paintKnotsAsColorHilight(QPainter *painter, Knot *knot)
 {
 }
 

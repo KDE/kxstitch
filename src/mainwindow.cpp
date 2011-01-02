@@ -654,6 +654,39 @@ void MainWindow::setupActions()
 	ac->addAction("showBackstitchesAsBlackWhiteSymbols", m_showBackstitchesAsBlackWhiteSymbols);
 	m_showBackstitchesAs->addAction(m_showBackstitchesAsBlackWhiteSymbols);
 
+	m_showBackstitchesAsColorHilight = new KAction(this);
+	m_showBackstitchesAsColorHilight->setText(i18n("Color Hilight"));
+	m_showBackstitchesAsColorHilight->setCheckable(true);
+	connect(m_showBackstitchesAsColorHilight, SIGNAL(triggered()), m_editor, SLOT(showBackstitchesAsColorHilight()));
+	ac->addAction("showBackstitchesAsColorHilight", m_showBackstitchesAsColorHilight);
+	m_showBackstitchesAs->addAction(m_showBackstitchesAsColorHilight);
+
+	// ShowKnotsAs
+	m_showKnotsAs = new QActionGroup(this);
+	m_showKnotsAs->setExclusive(true);
+
+	m_showKnotsAsColorBlocks = new KAction(this);
+	m_showKnotsAsColorBlocks->setText(i18n("Color Blocks"));
+	m_showKnotsAsColorBlocks->setCheckable(true);
+	m_showKnotsAsColorBlocks->setChecked(true);
+	connect(m_showKnotsAsColorBlocks, SIGNAL(triggered()), m_editor, SLOT(showKnotsAsColorBlocks()));
+	ac->addAction("showKnotsAsColorBlocks", m_showKnotsAsColorBlocks);
+	m_showKnotsAs->addAction(m_showKnotsAsColorBlocks);
+
+	m_showKnotsAsBlackWhiteSymbols = new KAction(this);
+	m_showKnotsAsBlackWhiteSymbols->setText(i18n("Black & White Symbols"));
+	m_showKnotsAsBlackWhiteSymbols->setCheckable(true);
+	connect(m_showKnotsAsBlackWhiteSymbols, SIGNAL(triggered()), m_editor, SLOT(showKnotsAsBlackWhiteSymbols()));
+	ac->addAction("showKnotsAsBlackWhiteSymbols", m_showKnotsAsBlackWhiteSymbols);
+	m_showKnotsAs->addAction(m_showKnotsAsBlackWhiteSymbols);
+
+	m_showKnotsAsColorHilight = new KAction(this);
+	m_showKnotsAsColorHilight->setText(i18n("Color Hilight"));
+	m_showKnotsAsColorHilight->setCheckable(true);
+	connect(m_showKnotsAsColorHilight, SIGNAL(triggered()), m_editor, SLOT(showKnotsAsColorHilight()));
+	ac->addAction("showKnotsAsColorHilight", m_showKnotsAsColorHilight);
+	m_showKnotsAs->addAction(m_showKnotsAsColorHilight);
+
 	m_showStitches = new KAction(this);
 	m_showStitches->setText(i18n("Show Stitches"));
 	m_showStitches->setCheckable(true);
@@ -814,7 +847,7 @@ bool MainWindow::queryExit()
 	*/
 void MainWindow::updateBackgroundImageActionLists()
 {
-	QList<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
+	QListIterator<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
 
 	unplugActionList("removeBackgroundImageActions");
 	unplugActionList("patternFitBackgroundImageActions");
@@ -824,25 +857,27 @@ void MainWindow::updateBackgroundImageActionLists()
 	m_fitBackgroundImageActions.clear();
 	m_showBackgroundImageActions.clear();
 
-	for (int i = 0 ; i < backgroundImages.count() ; i++)
+	while (backgroundImages.hasNext())
 	{
-		KAction *action = new KAction(backgroundImages.at(i).imageURL.fileName(), this);
-		action->setData(backgroundImages.at(i).imageURL.pathOrUrl());
-		action->setIcon(backgroundImages.at(i).imageIcon);
+		struct Document::BACKGROUND_IMAGE background = backgroundImages.next();
+
+		KAction *action = new KAction(background.imageURL.fileName(), this);
+		action->setData(background.imageURL.pathOrUrl());
+		action->setIcon(background.imageIcon);
 		connect(action, SIGNAL(triggered()), this, SLOT(removeBackgroundImage()));
 		m_removeBackgroundImageActions.append(action);
 
-		action = new KAction(backgroundImages.at(i).imageURL.fileName(), this);
-		action->setData(backgroundImages.at(i).imageURL.pathOrUrl());
-		action->setIcon(backgroundImages.at(i).imageIcon);
+		action = new KAction(background.imageURL.fileName(), this);
+		action->setData(background.imageURL.pathOrUrl());
+		action->setIcon(background.imageIcon);
 		connect(action, SIGNAL(triggered()), this, SLOT(fitBackgroundImage()));
 		m_fitBackgroundImageActions.append(action);
 
-		action = new KAction(backgroundImages.at(i).imageURL.fileName(), this);
-		action->setData(backgroundImages.at(i).imageURL.pathOrUrl());
-		action->setIcon(backgroundImages.at(i).imageIcon);
+		action = new KAction(background.imageURL.fileName(), this);
+		action->setData(background.imageURL.pathOrUrl());
+		action->setIcon(background.imageIcon);
 		action->setCheckable(true);
-		action->setChecked(backgroundImages.at(i).imageVisible);
+		action->setChecked(background.imageVisible);
 		connect(action, SIGNAL(triggered()), this, SLOT(showBackgroundImage()));
 		m_showBackgroundImageActions.append(action);
 	}

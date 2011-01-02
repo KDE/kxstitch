@@ -124,7 +124,9 @@ class Document
 
 		void selectFloss(int);
 		QMap<int, Document::FLOSS> &palette();
-		QList<struct BACKGROUND_IMAGE> backgroundImages() const;
+		QListIterator<struct BACKGROUND_IMAGE> backgroundImages() const;
+		QListIterator<Backstitch *> backstitches() const;
+		QListIterator<Knot *> knots() const;
 		bool paletteManager();
 		void addBackgroundImage(KUrl, QRect &);
 		void removeBackgroundImage(QString);

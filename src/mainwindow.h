@@ -194,6 +194,12 @@ class MainWindow : public KXmlGuiWindow
 		QActionGroup		*m_showBackstitchesAs;
 		KAction				*m_showBackstitchesAsColorLines;
 		KAction				*m_showBackstitchesAsBlackWhiteSymbols;
+		KAction				*m_showBackstitchesAsColorHilight;
+
+		QActionGroup		*m_showKnotsAs;
+		KAction				*m_showKnotsAsColorBlocks;
+		KAction				*m_showKnotsAsBlackWhiteSymbols;
+		KAction				*m_showKnotsAsColorHilight;
 
 		QActionGroup		*m_formatScalesAs;
 		KAction				*m_formatScalesAsStitches;

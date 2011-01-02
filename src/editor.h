@@ -111,8 +111,10 @@ class Editor : public QWidget
 		void showStitchesAsColorHilight();
 		void showBackstitchesAsColorLines();
 		void showBackstitchesAsBlackWhiteSymbols();
+		void showBackstitchesAsColorHilight();
 		void showKnotsAsColorBlocks();
-		void showKnotsAsSymbols();
+		void showKnotsAsBlackWhiteSymbols();
+		void showKnotsAsColorHilight();
 
 	protected:
 		void contextMenuEvent(QContextMenuEvent*);
@@ -204,11 +206,13 @@ class Editor : public QWidget
 		void paintStitchesAsColorBlocksSymbols(QPainter *, int, int, int, int, Stitch::Queue *);
 		void paintStitchesAsColorHilight(QPainter *, int, int, int, int, Stitch::Queue *);
 
-		void paintBackstitchesAsColorLines(Backstitch *);
-		void paintBackstitchesAsBlackWhiteSymbols(Backstitch *);
+		void paintBackstitchesAsColorLines(QPainter *, Backstitch *);
+		void paintBackstitchesAsBlackWhiteSymbols(QPainter *, Backstitch *);
+		void paintBackstitchesAsColorHilight(QPainter *, Backstitch *);
 
-		void paintKnotsAsColorBlocks(Knot *);
-		void paintKnotsAsSymbols(Knot *);
+		void paintKnotsAsColorBlocks(QPainter *, Knot *);
+		void paintKnotsAsBlackWhiteSymbols(QPainter *, Knot *);
+		void paintKnotsAsColorHilight(QPainter *, Knot *);
 
 		QPoint contentsToCell(const QPoint &) const;
 		int contentsToZone(const QPoint &) const;
@@ -219,8 +223,8 @@ class Editor : public QWidget
 
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*paintStitchCallPointer)(QPainter *, int, int, int, int, Stitch::Queue *);
-		typedef void (Editor::*paintBackstitchCallPointer)(Backstitch *);
-		typedef void (Editor::*paintKnotCallPointer)(Knot *);
+		typedef void (Editor::*paintBackstitchCallPointer)(QPainter *, Backstitch *);
+		typedef void (Editor::*paintKnotCallPointer)(QPainter *, Knot *);
 		typedef void (Editor::*paintToolSpecificGraphicsCallPointer)(QPainter *, QRect);
 
 		mouseEventCallPointer m_mousePressCallPointer;
