@@ -9,10 +9,13 @@
  ****************************************************************************/
 
 
+#include <QContextMenuEvent>
+#include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
 
 #include <KDebug>
+#include <KXMLGUIFactory>
 
 #include "configuration.h"
 #include "document.h"
@@ -142,6 +145,15 @@ void Palette::paintEvent(QPaintEvent *)
 	{
 		static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty");
 	}
+}
+
+
+void Palette::contextMenuEvent(QContextMenuEvent *e)
+{
+	MainWindow *mainwindow = qobject_cast<MainWindow *>(topLevelWidget());
+	QMenu *context = static_cast<QMenu *>(mainwindow->guiFactory()->container("palettePopup", mainwindow));
+	context->popup(e->globalPos());
+	e->accept();
 }
 
 

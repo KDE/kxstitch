@@ -35,6 +35,7 @@ class Palette : public QFrame
 
 	protected:
 		void paintEvent(QPaintEvent *);
+		void contextMenuEvent(QContextMenuEvent *);
 		void mousePressEvent(QMouseEvent *);
 
 	private:

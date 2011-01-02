@@ -195,6 +195,24 @@
   <Action name="showFrenchKnots"/>
   <Action name="showGrid"/>
 </Menu>
+<Menu name="palettePopup"><text>&amp;Palette</text>
+  <Action name="paletteManager"/>
+  <Separator/>
+  <Action name="paletteShowSymbols"/>
+  <Separator/>
+  <Action name="paletteColorPicker"/>
+  <Separator/>
+  <Action name="paletteSave"/>
+  <Action name="paletteLoad"/>
+  <Action name="paletteCreate"/>
+  <Separator/>
+  <Action name="paletteClearUnused"/>
+  <Separator/>
+  <Action name="paletteSwapColors"/>
+  <Action name="paletteReplaceColor"/>
+  <Separator/>
+  <Action name="paletteCalibrateScheme"/>
+</Menu>
 <Menu name="libraryPopup">
   <Action name="libraryAddCatagory"/>
   <Action name="libraryAddSubcatagory"/>
