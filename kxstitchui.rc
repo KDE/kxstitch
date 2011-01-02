@@ -124,7 +124,14 @@
       <text>Show Backstitches As</text>
       <Action name="showBackstitchesAsColorLines"/>
       <Action name="showBackstitchesAsBlackWhiteSymbols"/>
+      <Action name="showBackstitchesAsColorHilight"/>
     </Menu>
+    <Menu name="showKnotsAs">
+	  <text>Show Knots As</text>
+	  <Action name="showKnotsAsColorBlocks"/>
+	  <Action name="showKnotsAsBlackWhiteSymbols"/>
+	  <Action name="showKnotsAsColorHilight"/>
+	</Menu>
   </Menu>
 </MenuBar>
 <Menu name="editorPopup">
@@ -166,7 +173,14 @@
     <text>Show Backstitches As</text>
     <Action name="showBackstitchesAsColorLines"/>
     <Action name="showBackstitchesAsBlackWhiteSymbols"/>
+    <Action name="showBackstitchesAsColorHilight"/>
   </Menu>
+    <Menu name="showKnotsAs">
+	  <text>Show Knots As</text>
+	  <Action name="showKnotsAsColorBlocks"/>
+	  <Action name="showKnotsAsBlackWhiteSymbols"/>
+	  <Action name="showKnotsAsColorHilight"/>
+	</Menu>
   <Separator/>
   <Menu name="patternFitBackgroundImage">
     <text>Fit Background Image to Selection</text>
