@@ -27,7 +27,7 @@ PaletteManagerDlg::PaletteManagerDlg(SchemeManager *schemeManager, QString &sche
 	m_dialogPalette(palette),
 	m_usedFlosses(usedFlosses)
 {
-	setCaption("Palette Manager");
+	setCaption(i18n("Palette Manager"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);

@@ -123,7 +123,7 @@ FlossScheme *SchemeManager::readScheme(QString name)
 
 	bool success = reader.parse(source);
 	if (!success)
-		KMessageBox::error(0,QString("Error reading scheme %1\n%2.").arg(name).arg(handler.errorString()),"Error reading floss scheme.");
+		KMessageBox::error(0, QString(i18n("Error reading scheme %1\n%2.")).arg(name).arg(handler.errorString()), i18n("Error reading floss scheme."));
 
 	FlossScheme *flossScheme = handler.flossScheme();
 	if (!success || scheme(flossScheme->schemeName()))

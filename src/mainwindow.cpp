@@ -970,7 +970,7 @@ void MainWindow::openNew()
 void MainWindow::open()
 {
 	statusMessage(i18n("Opening file"));
-	open(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), QString("*.kxs|KXStitch patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
+	open(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), QString(i18n("*.kxs|KXStitch patterns\n*.pat|PC Stitch patterns\n*|All files")), this));
 	statusMessage(i18n("Ready"));
 }
 
@@ -988,7 +988,7 @@ void MainWindow::open(const KUrl &url)
 	{
 		if (!url.isEmpty() && !m_document->loadURL(url))
 		{
-			KMessageBox::detailedError(0, "Unable to read the file.", url.fileName());
+			KMessageBox::detailedError(0, i18n("Unable to read the file."), url.fileName());
 			delete m_document;
 			m_document = new Document();
 			m_editor->setDocument(m_document);

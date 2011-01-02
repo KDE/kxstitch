@@ -254,7 +254,7 @@ bool Document::loadURL(const KUrl &url)
 				}
 				else
 				{
-					KMessageBox::detailedError(0, "This file does not appear to be a KXStitch file.", "Not a KXStitch file.");
+					KMessageBox::detailedError(0, i18n("This file does not appear to be a KXStitch file."), i18n("Not a KXStitch file."));
 				}
 				file.close();
 			}
