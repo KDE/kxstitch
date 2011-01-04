@@ -68,6 +68,7 @@ Document::Document()
 	m_properties["formatScalesAs"] = Configuration::editor_FormatScalesAs();
 	m_properties["showStitchesAs"] = Configuration::editor_ShowStitchesAs();
 	m_properties["showBackstitchesAs"] = Configuration::editor_ShowBackstitchesAs();
+	m_properties["showKnotsAs"] = Configuration::editor_ShowKnotsAs();
 	m_properties["showPaletteSymbols"] = Configuration::palette_ShowSymbols();
 	m_properties["paintBackgroundImages"] = true; // Configuration::editor_PaintBackgroundImages();
 	m_properties["paintGrid"] = true; // Configuration::editor_PaintGrid();
