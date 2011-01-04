@@ -103,6 +103,7 @@ class MainWindow : public KXmlGuiWindow
 
 	private:
 		void setupActions();
+		void setActionsFromDocument();
 		void setupStatusBar();
 		void setupDockWindows();
 
@@ -182,6 +183,7 @@ class MainWindow : public KXmlGuiWindow
 		KAction				*m_showBackstitches;
 		KAction				*m_showFrenchKnots;
 		KAction				*m_showGrid;
+		KAction				*m_showBackgroundImages;
 
 		QActionGroup		*m_showStitchesAs;
 		KAction				*m_showStitchesAsRegularStitches;
@@ -198,6 +200,7 @@ class MainWindow : public KXmlGuiWindow
 
 		QActionGroup		*m_showKnotsAs;
 		KAction				*m_showKnotsAsColorBlocks;
+		KAction				*m_showKnotsAsColorSymbols;
 		KAction				*m_showKnotsAsBlackWhiteSymbols;
 		KAction				*m_showKnotsAsColorHilight;
 

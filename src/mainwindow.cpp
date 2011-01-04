@@ -673,6 +673,13 @@ void MainWindow::setupActions()
 	ac->addAction("showKnotsAsColorBlocks", m_showKnotsAsColorBlocks);
 	m_showKnotsAs->addAction(m_showKnotsAsColorBlocks);
 
+	m_showKnotsAsColorSymbols = new KAction(this);
+	m_showKnotsAsColorSymbols->setText(i18n("Color Symbols"));
+	m_showKnotsAsColorSymbols->setCheckable(true);
+	connect(m_showKnotsAsColorSymbols, SIGNAL(triggered()), m_editor, SLOT(showKnotsAsColorSymbols()));
+	ac->addAction("showKnotsAsColorSymbols", m_showKnotsAsColorSymbols);
+	m_showKnotsAs->addAction(m_showKnotsAsColorSymbols);
+
 	m_showKnotsAsBlackWhiteSymbols = new KAction(this);
 	m_showKnotsAsBlackWhiteSymbols->setText(i18n("Black & White Symbols"));
 	m_showKnotsAsBlackWhiteSymbols->setCheckable(true);
@@ -711,11 +718,108 @@ void MainWindow::setupActions()
 	connect(m_showFrenchKnots, SIGNAL(triggered()), m_editor, SLOT(setShowFrenchKnots()));
 	ac->addAction("showFrenchKnots", m_showFrenchKnots);
 
+	m_showBackgroundImages = new KAction(this);
+	m_showBackgroundImages->setText(i18n("Show Background Images"));
+	m_showBackgroundImages->setCheckable(true);
+	connect(m_showBackgroundImages, SIGNAL(triggered()), m_editor, SLOT(setShowFrenchKnots()));
+	ac->addAction("showBackgroundImages", m_showBackgroundImages);
+
 	KStandardAction::showMenubar(this, SLOT(showMenubar()), ac);
 	KStandardAction::showStatusbar(this, SLOT(showStatusbar()), ac);
 	KStandardAction::preferences(this, SLOT(preferences()), ac);
 
 	// Help Menu
+}
+
+
+/**
+	Modify the status of some actions based on the documents properties.  Called
+	when new documents are created or documents are loaded to reset these actions.
+	*/
+void MainWindow::setActionsFromDocument()
+{
+	switch (static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()))
+	{
+		case Configuration::EnumEditor_FormatScalesAs::Stitches:
+			m_formatScalesAsStitches->trigger();
+			break;
+
+		case Configuration::EnumEditor_FormatScalesAs::Inches:
+			m_formatScalesAsInches->trigger();
+			break;
+
+		case Configuration::EnumEditor_FormatScalesAs::CM:
+			m_formatScalesAsCM->trigger();
+			break;
+	}
+
+	switch (static_cast<Configuration::EnumEditor_ShowStitchesAs::type>(m_document->property("showStitchesAs").toInt()))
+	{
+		case Configuration::EnumEditor_ShowStitchesAs::Stitches:
+			m_showStitchesAsRegularStitches->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowStitchesAs::BlackWhiteSymbols:
+			m_showStitchesAsBlackWhiteSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowStitchesAs::ColorSymbols:
+			m_showStitchesAsColorSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowStitchesAs::ColorBlocks:
+			m_showStitchesAsColorBlocks->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowStitchesAs::ColorBlocksSymbols:
+			m_showStitchesAsColorBlocksSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowStitchesAs::ColorHilight:
+			m_showStitchesAsColorHilight->trigger();
+			break;
+	}
+
+	switch (static_cast<Configuration::EnumEditor_ShowBackstitchesAs::type>(m_document->property("showBackstitchesAs").toInt()))
+	{
+		case Configuration::EnumEditor_ShowBackstitchesAs::ColorLines:
+			m_showBackstitchesAsColorLines->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowBackstitchesAs::BlackWhiteSymbols:
+			m_showBackstitchesAsBlackWhiteSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowBackstitchesAs::ColorHilight:
+			m_showBackstitchesAsColorHilight->trigger();
+			break;
+	}
+
+	switch (static_cast<Configuration::EnumEditor_ShowKnotsAs::type>(m_document->property("showKnotsAs").toInt()))
+	{
+		case Configuration::EnumEditor_ShowKnotsAs::ColorBlocks:
+			m_showKnotsAsColorBlocks->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowKnotsAs::ColorSymbols:
+			m_showKnotsAsColorSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowKnotsAs::BlackWhiteSymbols:
+			m_showKnotsAsBlackWhiteSymbols->trigger();
+			break;
+
+		case Configuration::EnumEditor_ShowKnotsAs::ColorHilight:
+			m_showKnotsAsColorHilight->trigger();
+			break;
+	}
+
+	m_paletteShowSymbols->setChecked(m_document->property("showPaletteSymbols").toBool());
+	m_showBackgroundImages->setChecked(m_document->property("paintBackgroundImages").toBool());
+	m_showGrid->setChecked(m_document->property("paintGrid").toBool());
+	m_showStitches->setChecked(m_document->property("paintStitches").toBool());
+	m_showBackstitches->setChecked(m_document->property("paintBackstitches").toBool());
+	m_showFrenchKnots->setChecked(m_document->property("paintFrenchKnots").toBool());
 }
 
 
@@ -1006,6 +1110,7 @@ void MainWindow::open(const KUrl &url)
 	}
 	setCaption(url.fileName(), false);
 	updateBackgroundImageActionLists();
+	setActionsFromDocument();
 	m_preview->update();
 	m_palette->update();
 	m_editor->update();
