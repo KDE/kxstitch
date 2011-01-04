@@ -28,6 +28,7 @@
 #include <KApplication>
 #include <KDebug>
 #include <KXMLGUIFactory>
+#include <KMessageBox>
 
 #include <math.h>
 
@@ -148,7 +149,7 @@ void Editor::setDocument(Document *document)
 	m_showBackstitches = m_document->property("paintBackstitches").toBool();
 	m_showFrenchKnots = m_document->property("paintFrenchKnots").toBool();
 
-	this->resize(m_document->width()*m_cellWidth, m_document->height()*m_cellHeight);
+	this->resize(m_document->width()*m_cellWidth + 1, m_document->height()*m_cellHeight + 1);
 
 	m_horizontalScale->setOffset(pos().x());
 	m_verticalScale->setOffset(pos().y());
@@ -238,6 +239,38 @@ void Editor::actualSize()
 	*/
 void Editor::fitToPage()
 {
+	int documentWidth = m_document->width();
+	int documentHeight = m_document->height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+	QRect visibleArea = parentWidget()->contentsRect();
+	int visibleWidth = visibleArea.width();
+	int visibleHeight = visibleArea.height();
+
+	m_cellWidth = visibleWidth / documentWidth;    // divide the visible width by the number of horizontal cells
+	m_cellHeight = visibleHeight / documentHeight; // divide the visible height by the number of vertical cells
+
+	if (m_cellWidth < 2 || m_cellHeight < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full size.");
+		m_cellWidth = documentCellWidth;
+		m_cellHeight = documentCellHeight;
+	}
+	else
+	{
+		int ratioWidth  = m_cellHeight * documentCellWidth / documentCellHeight;
+		int ratioHeight = m_cellWidth * documentCellHeight / documentCellWidth;
+
+		if (ratioHeight > ratioWidth)
+			m_cellWidth = ratioWidth;
+		else
+			m_cellHeight = ratioHeight;
+
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
 }
 
 
@@ -246,6 +279,27 @@ void Editor::fitToPage()
 	*/
 void Editor::fitToWidth()
 {
+	int documentWidth = m_document->width();
+	int documentHeight = m_document->height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+
+	m_cellWidth = parentWidget()->contentsRect().width() / documentWidth;
+	m_cellHeight = m_cellWidth * m_document->property("cellHeight").toInt() / m_document->property("cellWidth").toInt();
+
+	if (m_cellHeight < 2 || m_cellWidth < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full Width.");
+		m_cellWidth = documentCellWidth;
+		m_cellHeight = documentCellHeight;
+	}
+	else
+	{
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
 }
 
 
@@ -254,6 +308,27 @@ void Editor::fitToWidth()
 	*/
 void Editor::fitToHeight()
 {
+	int documentWidth = m_document->width();
+	int documentHeight = m_document->height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+
+	m_cellHeight = parentWidget()->contentsRect().height() / documentHeight;
+	m_cellWidth = m_cellHeight * documentCellWidth / documentCellHeight;
+
+	if (m_cellHeight < 2 || m_cellWidth < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full height.");
+		m_cellWidth = documentCellWidth;
+		m_cellHeight = documentCellHeight;
+	}
+	else
+	{
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
 }
 
 
@@ -828,6 +903,7 @@ void Editor::paintBackgroundImages(QPainter *painter, QRect updateRectangle)
 void Editor::paintGrid(QPainter *painter, QRect updateRectangle)
 {
 	painter->save();
+
 	int gridMaxX = std::min(updateRectangle.right(),(int)(m_document->width()*m_cellWidth))+1;
 	int gridMaxY = std::min(updateRectangle.bottom(),(int)(m_document->height()*m_cellHeight))+1;
 
@@ -2079,7 +2155,7 @@ void Editor::zoom()
 	m_cellHeight = (int)((m_document->property("cellHeight").toDouble())*factor);
 	m_horizontalScale->setCellSize(m_cellWidth);
 	m_verticalScale->setCellSize(m_cellHeight);
-	this->resize(m_document->width()*m_cellWidth, m_document->height()*m_cellHeight);
+	this->resize(m_document->width()*m_cellWidth + 1, m_document->height()*m_cellHeight + 1);
 }
 
 

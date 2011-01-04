@@ -146,6 +146,9 @@
     <Action name="maskKnot"/>
   </Menu>
   <Separator/>
+  <Action name="view_fit_to_page"/>
+  <Action name="view_fit_to_width"/>
+  <Action name="view_fit_to_height"/>
   <Menu name="Zoom">
     <text>Zoom</text>
     <Action name="zoom25"/>
@@ -154,6 +157,7 @@
     <Action name="zoom200"/>
     <Action name="zoom400"/>
   </Menu>
+  <Separator/>
   <Menu name="formatScalesAs">
     <text>Format Scales As</text>
     <Action name="formatScalesAsStitches"/>
