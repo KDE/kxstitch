@@ -11,9 +11,7 @@
 
 /**
 	@file
-	Implement classes for Stitch, Backstitch and Knot.  Essentially
-	these consist of constructors to initialise the classes.  The member
-	variables are public for convenience.
+	Implement classes for Stitch, StitchQueue, Backstitch and Knot.
 	*/
 
 
@@ -22,13 +20,89 @@
 
 /**
 	Constructor.
-	@param t stitch type
-	@param i color index
+	@param type stitch type
+	@param floss color index
 	*/
-Stitch::Stitch(Type t, int i)
-  : type(t),
-	floss(i)
+Stitch::Stitch(Type type, unsigned floss)
+  : m_type(type),
+	m_floss(floss)
 {
+}
+
+
+/**
+	Destructor.
+	*/
+Stitch::~Stitch()
+{
+}
+
+
+/**
+	Get the stitch type.
+	@return enum value representing the stitch type
+	*/
+Stitch::Type Stitch::type() const
+{
+	return m_type;
+}
+
+
+/**
+	Set the stitch type
+	@param type stitch type
+	*/
+void Stitch::setType(Stitch::Type type)
+{
+	m_type = type;
+}
+
+
+/**
+	Get the floss index.
+	@return index value of the floss
+	*/
+unsigned Stitch::floss() const
+{
+	return m_floss;
+}
+
+
+/**
+	Constructor.
+	*/
+StitchQueue::StitchQueue()
+	:	QQueue<Stitch *>()
+{
+}
+
+
+/**
+	Copy constructor.  Makes a deep copy of the passed StitchQueue.
+	@param queue a pointer to the StitchQueue to be copied.
+	*/
+StitchQueue::StitchQueue(const StitchQueue *const queue)
+	:	QQueue<Stitch *>()
+{
+	if (queue)
+	{
+		for (int i = 0 ; i < queue->count() ; i++)
+		{
+			enqueue(new Stitch(queue->value(i)->type(), queue->value(i)->floss()));
+		}
+	}
+}
+
+
+/**
+	Destructor.  Dequeues the stitches and deletes them.
+	*/
+StitchQueue::~StitchQueue()
+{
+	while (!isEmpty())
+	{
+		delete dequeue();
+	}
 }
 
 
@@ -38,11 +112,49 @@ Stitch::Stitch(Type t, int i)
 	@param e end of backstitch line
 	@param i color index
 	*/
-Backstitch::Backstitch(QPoint s, QPoint e, int i)
-  : start(s),
-	end(e),
-	floss(i)
+Backstitch::Backstitch(const QPoint &start, const QPoint &end, unsigned floss)
+  : m_start(start),
+	m_end(end),
+	m_floss(floss)
 {
+}
+
+
+/**
+	Destructor
+	*/
+Backstitch::~Backstitch()
+{
+}
+
+
+/**
+	Get the start point.
+	@return a const reference to a QPoint.
+	*/
+const QPoint &Backstitch::start() const
+{
+	return m_start;
+}
+
+
+/**
+	Get the end point.
+	@return a const reference to a QPoint.
+	*/
+const QPoint &Backstitch::end() const
+{
+	return m_end;
+}
+
+
+/**
+	Get the floss index.
+	@return index value of the floss.
+	*/
+unsigned Backstitch::floss() const
+{
+	return m_floss;
 }
 
 
@@ -53,9 +165,9 @@ Backstitch::Backstitch(QPoint s, QPoint e, int i)
 	@return true if p starts or ends the backstitch line,
 	false other wise.
 	*/
-bool Backstitch::contains(QPoint p)
+bool Backstitch::contains(const QPoint &point) const
 {
-	if (start == p || end == p)
+	if (m_start == point || m_end == point)
 		return true;
 	return false;
 }
@@ -66,8 +178,36 @@ bool Backstitch::contains(QPoint p)
 	@param p position for the knot
 	@param i color index
 	*/
-Knot::Knot(QPoint p, int i)
-  : pos(p),
-	floss(i)
+Knot::Knot(const QPoint &point, unsigned floss)
+  : m_position(point),
+	m_floss(floss)
 {
+}
+
+
+/**
+	Destructor.
+	*/
+Knot::~Knot()
+{
+}
+
+
+/**
+	Get the position of the knot.
+	@return a const reference to a QPoint.
+	*/
+const QPoint &Knot::position() const
+{
+	return m_position;
+}
+
+
+/**
+	Get the floss index.
+	@return index value of the floss.
+	*/
+unsigned Knot::floss() const
+{
+	return m_floss;
 }

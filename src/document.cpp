@@ -190,7 +190,7 @@ bool Document::loadURL(const KUrl &url)
 								stream	>> canvasStitchKey
 										>> stitchQueueCount;
 								if (file.error()) break;
-								m_canvasStitches[canvasStitchKey] = new Stitch::Queue;
+								m_canvasStitches[canvasStitchKey] = new StitchQueue;
 								while (stitchQueueCount--)
 								{
 									stream	>> stitchType
@@ -354,17 +354,17 @@ bool Document::saveDocument()
 		}
 
 		stream << (quint32)m_canvasStitches.count();
-		QMap<unsigned int, Stitch::Queue *>::const_iterator stitchIterator = m_canvasStitches.constBegin();
+		QMap<unsigned int, StitchQueue *>::const_iterator stitchIterator = m_canvasStitches.constBegin();
 		while (stitchIterator != m_canvasStitches.constEnd())
 		{
 			stream << (quint32)stitchIterator.key();
-			Stitch::Queue *stitchQueue = stitchIterator.value();
+			StitchQueue *stitchQueue = stitchIterator.value();
 			stream << (quint8)stitchQueue->count();
-			Stitch::Queue::const_iterator si = stitchQueue->constBegin();
+			StitchQueue::const_iterator si = stitchQueue->constBegin();
 			while (si != stitchQueue->constEnd())
 			{
-				stream	<< (quint8)((*si)->type)
-						<< (quint32)((*si)->floss);
+				stream	<< (quint8)((*si)->type())
+						<< (quint32)((*si)->floss());
 				++si;
 			}
 			++stitchIterator;
@@ -374,9 +374,9 @@ bool Document::saveDocument()
 		QList<Backstitch *>::const_iterator backstitchIterator = m_canvasBackstitches.constBegin();
 		while (backstitchIterator != m_canvasBackstitches.constEnd())
 		{
-			stream	<< (*backstitchIterator)->start
-					<< (*backstitchIterator)->end
-					<< (quint32)((*backstitchIterator)->floss);
+			stream	<< (*backstitchIterator)->start()
+					<< (*backstitchIterator)->end()
+					<< (quint32)((*backstitchIterator)->floss());
 			++backstitchIterator;
 		}
 
@@ -384,8 +384,8 @@ bool Document::saveDocument()
 		QList<Knot *>::const_iterator knotIterator = m_canvasKnots.constBegin();
 		while (knotIterator != m_canvasKnots.constEnd())
 		{
-			stream	<< (*knotIterator)->pos
-					<< (quint32)((*knotIterator)->floss);
+			stream	<< (*knotIterator)->position()
+					<< (quint32)((*knotIterator)->floss());
 			++knotIterator;
 		}
 
@@ -426,7 +426,7 @@ void Document::setProperty(QString propertyName, QVariant propertyValue)
 }
 
 
-Stitch::Queue *Document::stitchAt(QPoint cell) const
+StitchQueue *Document::stitchAt(QPoint cell) const
 {
 	if (validateCell(cell))
 		return m_canvasStitches.value(canvasIndex(cell)); // this will be 0 if no queue exists at x,y
@@ -461,11 +461,11 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 
 	unsigned int index = canvasIndex(cell);
 
-	Stitch::Queue *stitchQueue = m_canvasStitches.value(index);
+	StitchQueue *stitchQueue = m_canvasStitches.value(index);
 	if (stitchQueue == 0)
 	{
 		/** no stitch queue currently exists for this cell */
-		stitchQueue = new Stitch::Queue();
+		stitchQueue = new StitchQueue();
 		m_canvasStitches[index] = stitchQueue;
 	}
 
@@ -481,11 +481,11 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 		while (stitches--)
 		{
 			Stitch *stitch = stitchQueue->dequeue();
-			if (!(stitch->type & 192)) // so we don't try and merge existing mini stitches
+			if (!(stitch->type() & 192)) // so we don't try and merge existing mini stitches
 			{
-				if (stitch->floss == m_currentFlossIndex)
+				if (stitch->floss() == m_currentFlossIndex)
 				{
-					type = (Stitch::Type)(type | stitch->type);
+					type = (Stitch::Type)(type | stitch->type());
 				}
 			}
 			stitchQueue->enqueue(stitch);
@@ -534,9 +534,9 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 	while (stitchCount--)                                              // while there are existing stitches
 	{
 		Stitch *stitch = stitchQueue->dequeue();                         // get the stitch at the head of the queue
-		m_usedFlosses[stitch->floss]--;
-		Stitch::Type currentStitchType = (Stitch::Type)(stitch->type);   // and find its type
-		int currentFlossIndex = stitch->floss;                           // and color
+		m_usedFlosses[stitch->floss()]--;
+		Stitch::Type currentStitchType = (Stitch::Type)(stitch->type());   // and find its type
+		int currentFlossIndex = stitch->floss();                           // and color
 		Stitch::Type usageMask = (Stitch::Type)(currentStitchType & 15); // and find which parts of a stitch cell are used
 		Stitch::Type interferenceMask = (Stitch::Type)(usageMask & type);
 		// interferenceMask now contains a mask of which bits are affected by new stitch
@@ -588,9 +588,9 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 
 			if (changeMask) // Check if there is anything left of the original stitch, Stitch::Delete is 0
 			{
-				stitch->type = changeMask;           // and change stitch type to the changeMask value
+				stitch->setType(changeMask);           // and change stitch type to the changeMask value
 				stitchQueue->enqueue(stitch);        // and then add it back to the queue
-				m_usedFlosses[stitch->floss]++;
+				m_usedFlosses[stitch->floss()]++;
 				m_documentModified = true;
 				m_documentNew = false;
 			}
@@ -604,7 +604,7 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 		else
 		{
 			stitchQueue->enqueue(stitch);
-			m_usedFlosses[stitch->floss] += 1;
+			m_usedFlosses[stitch->floss()] += 1;
 			m_documentModified = true;
 			m_documentNew = false;
 		}
@@ -621,7 +621,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 
 	unsigned int index = canvasIndex(cell);
 
-	Stitch::Queue *stitchQueue = m_canvasStitches.value(index);
+	StitchQueue *stitchQueue = m_canvasStitches.value(index);
 	if (stitchQueue == 0)
 		return false;			// No stitch queue exists at the required location so nothing to delete
 
@@ -631,8 +631,8 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 		while (stitchCount--)
 		{
 			Stitch *stitch = stitchQueue->dequeue();
-			m_usedFlosses[stitch->floss]--;
-			if (!maskColor || (stitch->floss == m_currentFlossIndex))
+			m_usedFlosses[stitch->floss()]--;
+			if (!maskColor || (stitch->floss() == m_currentFlossIndex))
 			{
 				delete stitch;
 				m_documentModified = true;
@@ -641,7 +641,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 			else
 			{
 				stitchQueue->enqueue(stitch);
-				m_usedFlosses[stitch->floss]++;
+				m_usedFlosses[stitch->floss()]++;
 			}
 		}
 		if (stitchQueue->count() == 0)
@@ -657,8 +657,8 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 		while (stitchCount--)
 		{
 			Stitch *stitch = stitchQueue->dequeue();
-			m_usedFlosses[stitch->floss]--;
-			if ((stitch->type == maskStitch) && (!maskColor || (stitch->floss == m_currentFlossIndex)))
+			m_usedFlosses[stitch->floss()]--;
+			if ((stitch->type() == maskStitch) && (!maskColor || (stitch->floss() == m_currentFlossIndex)))
 			{
 				// delete any stitches of the required stitch if it is the correct color or if the color doesn't matter
 				delete stitch;
@@ -667,11 +667,11 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 			}
 			else
 			{
-				if ((stitch->type & maskStitch) && (!maskColor || (stitch->floss == m_currentFlossIndex)) && ((stitch->type & 192) == 0))
+				if ((stitch->type() & maskStitch) && (!maskColor || (stitch->floss() == m_currentFlossIndex)) && ((stitch->type() & 192) == 0))
 				{
 					// the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
-					Stitch::Type changeMask = (Stitch::Type)(stitch->type ^ maskStitch);
-					int flossIndex = stitch->floss;
+					Stitch::Type changeMask = (Stitch::Type)(stitch->type() ^ maskStitch);
+					int flossIndex = stitch->floss();
 					delete stitch;
 					m_documentModified = true;
 					m_documentNew = false;
@@ -708,7 +708,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 				else
 				{
 					stitchQueue->enqueue(stitch);
-					m_usedFlosses[stitch->floss]++;
+					m_usedFlosses[stitch->floss()]++;
 				}
 			}
 		}
@@ -734,18 +734,18 @@ bool Document::addBackstitch(QPoint &start, QPoint &end)
 
 
 
-bool Document::deleteBackstitch(QPoint &start, QPoint &end, int maskColor)
+bool Document::deleteBackstitch(const QPoint &start, const QPoint &end, int maskColor)
 {
 	bool deleted = false;
 
 	for (int i = 0 ; i < m_canvasBackstitches.count() ; ++i)
 	{
-		if ((m_canvasBackstitches.at(i)->start == start) && (m_canvasBackstitches.at(i)->end == end))
+		if ((m_canvasBackstitches.at(i)->start() == start) && (m_canvasBackstitches.at(i)->end() == end))
 		{
-			kDebug() << !maskColor << (m_canvasBackstitches.at(i)->floss == m_currentFlossIndex);
-			if (!maskColor || (m_canvasBackstitches.at(i)->floss == m_currentFlossIndex))
+			kDebug() << !maskColor << (m_canvasBackstitches.at(i)->floss() == m_currentFlossIndex);
+			if (!maskColor || (m_canvasBackstitches.at(i)->floss() == m_currentFlossIndex))
 			{
-				m_usedFlosses[m_canvasBackstitches.at(i)->floss]--;
+				m_usedFlosses[m_canvasBackstitches.at(i)->floss()]--;
 				m_canvasBackstitches.removeAt(i);
 				m_documentModified = true;
 				m_documentNew = false;
@@ -780,11 +780,11 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 
 	for (int i = 0 ; i < m_canvasKnots.count() ; )
 	{
-		if (m_canvasKnots.at(i)->pos == snap)
+		if (m_canvasKnots.at(i)->position() == snap)
 		{
-			if (!maskColor || (m_canvasKnots.at(i)->floss == m_currentFlossIndex))
+			if (!maskColor || (m_canvasKnots.at(i)->floss() == m_currentFlossIndex))
 			{
-				m_usedFlosses[m_canvasKnots.at(i)->floss]--;
+				m_usedFlosses[m_canvasKnots.at(i)->floss()]--;
 				m_canvasKnots.removeAt(i);
 				m_documentModified = true;
 				m_documentNew = false;

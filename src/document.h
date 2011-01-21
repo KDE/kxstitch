@@ -110,7 +110,7 @@ class Document
 		bool saveDocument();
 		QVariant property(QString) const;
 		void setProperty(QString, QVariant);
-		Stitch::Queue *stitchAt(QPoint) const;
+		StitchQueue *stitchAt(QPoint) const;
 		Floss *floss(int) const;
 		int currentFlossIndex() const;
 		void setCurrentFlossIndex(int);
@@ -118,7 +118,7 @@ class Document
 		bool addStitch(Stitch::Type, QPoint &);
 		bool deleteStitch(QPoint &, Stitch::Type, int);
 		bool addBackstitch(QPoint &, QPoint &);
-		bool deleteBackstitch(QPoint &, QPoint &, int);
+		bool deleteBackstitch(const QPoint &, const QPoint &, int);
 		bool addFrenchKnot(QPoint &);
 		bool deleteFrenchKnot(QPoint &, int);
 
@@ -163,7 +163,7 @@ class Document
 		int						m_currentFlossIndex;
 
 		// Canvas properties
-		QMap<unsigned int, Stitch::Queue *>	m_canvasStitches;
+		QMap<unsigned int, StitchQueue *>	m_canvasStitches;
 		QMap<int, int>			m_usedFlosses;
 		QList<Knot *>			m_canvasKnots;
 		QList<Backstitch *>		m_canvasBackstitches;

@@ -13,8 +13,8 @@
 #define STITCH_H
 
 
-#include <QPoint>
 #include <QQueue>
+#include <QPoint>
 
 
 /** Store information about individual stitches.
@@ -80,34 +80,60 @@ class Stitch
 			BRSmallFull=136,
 			FrenchKnot=255
 		};
-		typedef QQueue<Stitch *> Queue;
 
-		Stitch(Type t, int i);
+		Stitch(Type, unsigned);
+		~Stitch();
 
-		Type  type;
-		int   floss;
+		Stitch::Type type() const;
+		void setType(Stitch::Type);
+		unsigned floss() const;
+
+	private:
+		Type		m_type;
+		unsigned	m_floss;
+};
+
+
+class StitchQueue : public QQueue<Stitch *>
+{
+	public:
+		StitchQueue();
+		StitchQueue(const StitchQueue *const queue);
+		~StitchQueue();
 };
 
 
 class Backstitch
 {
 	public:
-		Backstitch(QPoint s, QPoint e, int i);
-		bool contains(QPoint p);
+		Backstitch(const QPoint &, const QPoint &, unsigned);
+		~Backstitch();
 
-		QPoint  start;
-		QPoint  end;
-		int     floss;
+		const QPoint &start() const;
+		const QPoint &end() const;
+		unsigned floss() const;
+
+		bool contains(const QPoint &) const;
+
+	private:
+		QPoint		m_start;
+		QPoint		m_end;
+		unsigned	m_floss;
 };
 
 
 class Knot
 {
 	public:
-		Knot(QPoint p, int i);
+		Knot(const QPoint &, unsigned);
+		~Knot();
 
-		QPoint  pos;
-		int     floss;
+		const QPoint &position() const;
+		unsigned floss() const;
+
+	private:
+		QPoint		m_position;
+		unsigned	m_floss;
 };
 
 

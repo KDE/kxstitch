@@ -962,7 +962,7 @@ void Editor::paintStitches(QPainter *painter, QRect updateRectangle)
 	{
 		for (int x = firstX ; x <= lastX ; x++)
 		{
-			Stitch::Queue *stitchQueue = m_document->stitchAt(QPoint(x, y));
+			StitchQueue *stitchQueue = m_document->stitchAt(QPoint(x, y));
 			if (stitchQueue)
 			{
 				(this->*m_paintStitchCallPointer)(painter, x*m_cellWidth, y*m_cellHeight, m_cellWidth, m_cellHeight, stitchQueue);
@@ -1294,9 +1294,9 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 			Backstitch *backstitch = backstitches.next();
 			if (backstitch->contains(m_cellStart) && backstitch->contains(m_cellEnd))
 			{
-				if (m_document->deleteBackstitch(backstitch->start, backstitch->end, m_maskColor))
+				if (m_document->deleteBackstitch(backstitch->start(), backstitch->end(), m_maskColor))
 				{
-					update(QRect(snapToContents(backstitch->start), snapToContents(backstitch->end)).normalized().adjusted(-2, -2, 2, 2));
+					update(QRect(snapToContents(backstitch->start()), snapToContents(backstitch->end())).normalized().adjusted(-2, -2, 2, 2));
 					break;
 				}
 			}
@@ -1676,19 +1676,19 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsRegularStitches(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsRegularStitches(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 	for (unsigned i = stitchQueue->count() ; i ; i--)
 	{
 		Stitch *stitch = stitchQueue->dequeue();
-		Floss *floss = m_document->floss(stitch->floss);
+		Floss *floss = m_document->floss(stitch->floss());
 		QPen pen(floss->color);
 		pen.setWidth(4);
 		painter->setPen(pen);
 
 		QRect rect(x, y, w, h);
 
-		switch (stitch->type)
+		switch (stitch->type())
 		{
 			case Stitch::Delete:
 				break;
@@ -1794,7 +1794,7 @@ void Editor::paintStitchesAsRegularStitches(QPainter *painter, int x, int y, int
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsBlackWhiteSymbols(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsBlackWhiteSymbols(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 }
 
@@ -1809,7 +1809,7 @@ void Editor::paintStitchesAsBlackWhiteSymbols(QPainter *painter, int x, int y, i
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsColorSymbols(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsColorSymbols(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 }
 
@@ -1824,7 +1824,7 @@ void Editor::paintStitchesAsColorSymbols(QPainter *painter, int x, int y, int w,
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsColorBlocks(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsColorBlocks(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 }
 
@@ -1840,7 +1840,7 @@ void Editor::paintStitchesAsColorBlocks(QPainter *painter, int x, int y, int w, 
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsColorBlocksSymbols(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsColorBlocksSymbols(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 }
 
@@ -1855,23 +1855,23 @@ void Editor::paintStitchesAsColorBlocksSymbols(QPainter *painter, int x, int y, 
 	@param h height of the update rectangle.
 	@param stitchQueue pointer to the queue of stitches to be painted.
 	*/
-void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w, int h, Stitch::Queue *stitchQueue)
+void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w, int h, StitchQueue *stitchQueue)
 {
 	int currentFlossIndex = m_document->currentFlossIndex();
 
 	for (unsigned i = stitchQueue->count() ; i ; i--)
 	{
 		Stitch *stitch = stitchQueue->dequeue();
-		Floss *floss = m_document->floss(stitch->floss);
+		Floss *floss = m_document->floss(stitch->floss());
 		QPen pen(floss->color);
-		if (stitch->floss != currentFlossIndex)
+		if (stitch->floss() != currentFlossIndex)
 		pen.setColor(Qt::lightGray);;
 		pen.setWidth(2);
 		painter->setPen(pen);
 
 		QRect rect(x, y, w, h);
 
-		switch (stitch->type)
+		switch (stitch->type())
 		{
 			case Stitch::Delete:
 				break;
@@ -1973,11 +1973,11 @@ void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w,
 	*/
 void Editor::paintBackstitchesAsColorLines(QPainter *painter, Backstitch *backstitch)
 {
-	Floss *floss = m_document->floss(backstitch->floss);
+	Floss *floss = m_document->floss(backstitch->floss());
 	QPen pen(floss->color);
 	pen.setWidth(4);
 	painter->setPen(pen);
-	painter->drawLine(snapToContents(backstitch->start), snapToContents(backstitch->end));
+	painter->drawLine(snapToContents(backstitch->start()), snapToContents(backstitch->end()));
 }
 
 
@@ -1998,13 +1998,13 @@ void Editor::paintBackstitchesAsBlackWhiteSymbols(QPainter *painter, Backstitch 
 	*/
 void Editor::paintBackstitchesAsColorHilight(QPainter *painter, Backstitch *backstitch)
 {
-	Floss *floss = m_document->floss(backstitch->floss);
+	Floss *floss = m_document->floss(backstitch->floss());
 	QPen pen(floss->color);
-	if (backstitch->floss != m_document->currentFlossIndex())
+	if (backstitch->floss() != m_document->currentFlossIndex())
 		pen.setColor(Qt::lightGray);
 	pen.setWidth(4);
 	painter->setPen(pen);
-	painter->drawLine(snapToContents(backstitch->start), snapToContents(backstitch->end));
+	painter->drawLine(snapToContents(backstitch->start()), snapToContents(backstitch->end()));
 }
 
 

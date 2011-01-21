@@ -199,12 +199,12 @@ class Editor : public QWidget
 		void mouseMoveEvent_Backstitch(QMouseEvent*);
 		void mouseReleaseEvent_Backstitch(QMouseEvent*);
 
-		void paintStitchesAsRegularStitches(QPainter *, int, int, int, int, Stitch::Queue *);
-		void paintStitchesAsBlackWhiteSymbols(QPainter *, int, int, int, int, Stitch::Queue *);
-		void paintStitchesAsColorSymbols(QPainter *, int, int, int, int, Stitch::Queue *);
-		void paintStitchesAsColorBlocks(QPainter *, int, int, int, int, Stitch::Queue *);
-		void paintStitchesAsColorBlocksSymbols(QPainter *, int, int, int, int, Stitch::Queue *);
-		void paintStitchesAsColorHilight(QPainter *, int, int, int, int, Stitch::Queue *);
+		void paintStitchesAsRegularStitches(QPainter *, int, int, int, int, StitchQueue *);
+		void paintStitchesAsBlackWhiteSymbols(QPainter *, int, int, int, int, StitchQueue *);
+		void paintStitchesAsColorSymbols(QPainter *, int, int, int, int, StitchQueue *);
+		void paintStitchesAsColorBlocks(QPainter *, int, int, int, int, StitchQueue *);
+		void paintStitchesAsColorBlocksSymbols(QPainter *, int, int, int, int, StitchQueue *);
+		void paintStitchesAsColorHilight(QPainter *, int, int, int, int, StitchQueue *);
 
 		void paintBackstitchesAsColorLines(QPainter *, Backstitch *);
 		void paintBackstitchesAsBlackWhiteSymbols(QPainter *, Backstitch *);
@@ -222,7 +222,7 @@ class Editor : public QWidget
 		void processBitmap(QBitmap &);
 
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
-		typedef void (Editor::*paintStitchCallPointer)(QPainter *, int, int, int, int, Stitch::Queue *);
+		typedef void (Editor::*paintStitchCallPointer)(QPainter *, int, int, int, int, StitchQueue *);
 		typedef void (Editor::*paintBackstitchCallPointer)(QPainter *, Backstitch *);
 		typedef void (Editor::*paintKnotCallPointer)(QPainter *, Knot *);
 		typedef void (Editor::*paintToolSpecificGraphicsCallPointer)(QPainter *, QRect);
