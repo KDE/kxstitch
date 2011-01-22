@@ -1682,8 +1682,8 @@ void Editor::paintStitchesAsRegularStitches(QPainter *painter, int x, int y, int
 	for (unsigned i = stitchQueue->count() ; i ; i--)
 	{
 		Stitch *stitch = stitchQueue->dequeue();
-		Floss *floss = m_document->floss(stitch->floss());
-		QPen pen(floss->color);
+		const Floss *floss = m_document->floss(stitch->floss());
+		QPen pen(floss->color());
 		pen.setWidth(4);
 		painter->setPen(pen);
 
@@ -1863,8 +1863,8 @@ void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w,
 	for (unsigned i = stitchQueue->count() ; i ; i--)
 	{
 		Stitch *stitch = stitchQueue->dequeue();
-		Floss *floss = m_document->floss(stitch->floss());
-		QPen pen(floss->color);
+		const Floss *floss = m_document->floss(stitch->floss());
+		QPen pen(floss->color());
 		if (stitch->floss() != currentFlossIndex)
 		pen.setColor(Qt::lightGray);;
 		pen.setWidth(2);
@@ -1974,8 +1974,8 @@ void Editor::paintStitchesAsColorHilight(QPainter *painter, int x, int y, int w,
 	*/
 void Editor::paintBackstitchesAsColorLines(QPainter *painter, Backstitch *backstitch)
 {
-	Floss *floss = m_document->floss(backstitch->floss());
-	QPen pen(floss->color);
+	const Floss *floss = m_document->floss(backstitch->floss());
+	QPen pen(floss->color());
 	pen.setWidth(4);
 	painter->setPen(pen);
 	painter->drawLine(snapToContents(backstitch->start()), snapToContents(backstitch->end()));
@@ -1999,8 +1999,8 @@ void Editor::paintBackstitchesAsBlackWhiteSymbols(QPainter *painter, Backstitch 
 	*/
 void Editor::paintBackstitchesAsColorHilight(QPainter *painter, Backstitch *backstitch)
 {
-	Floss *floss = m_document->floss(backstitch->floss());
-	QPen pen(floss->color);
+	const Floss *floss = m_document->floss(backstitch->floss());
+	QPen pen(floss->color());
 	if (backstitch->floss() != m_document->currentFlossIndex())
 		pen.setColor(Qt::lightGray);
 	pen.setWidth(4);

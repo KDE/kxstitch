@@ -21,13 +21,15 @@
 
 class SchemeManager;
 
+class DocumentFloss;
+
 
 class PaletteManagerDlg : public KDialog
 {
 	Q_OBJECT
 
 	public:
-		PaletteManagerDlg(SchemeManager *, QString &, QMap<int, Document::FLOSS> &, QMap<int, int> &);
+		PaletteManagerDlg(SchemeManager *, const QString &, QMap<int, DocumentFloss *> &, QMap<int, int> &);
 		~PaletteManagerDlg();
 
 	protected slots:
@@ -60,8 +62,8 @@ class PaletteManagerDlg : public KDialog
 		QString m_schemeName;
 		QString m_font;
 		QChar m_selectedChar;
-		QMap<int, Document::FLOSS> &m_documentPalette;
-		QMap<int, Document::FLOSS> m_dialogPalette;
+		QMap<int, DocumentFloss *> &m_documentPalette;
+		QMap<int, DocumentFloss *> m_dialogPalette;
 		QMap<int, int> &m_usedFlosses;
 //		CharacterSelectDlg *m_characterSelectDlg;
 };

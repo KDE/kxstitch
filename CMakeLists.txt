@@ -30,6 +30,7 @@ set (kxstitch_SRCS
   src/flossscheme.cpp
   src/palettemanagerdlg.cpp
   src/backgroundimage.cpp
+  src/floss.cpp
 )
 
 add_subdirectory(icons)

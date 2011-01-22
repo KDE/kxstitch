@@ -162,8 +162,8 @@ bool SchemeManager::writeScheme(QString name)
 			while (it.hasNext())
 			{
 				Floss *floss = it.next();
-				stream << "<floss><name>" << floss->name << "</name><description>" << floss->description << "</description>";
-				stream << "<color><red>" << floss->color.red() << "</red><green>" << floss->color.green() << "</green><blue>" << floss->color.blue() << "</blue></color></floss>\n";
+				stream << "<floss><name>" << floss->name() << "</name><description>" << floss->description() << "</description>";
+				stream << "<color><red>" << floss->color().red() << "</red><green>" << floss->color().green() << "</green><blue>" << floss->color().blue() << "</blue></color></floss>\n";
 			}
 			stream << "</flossScheme>\n";
 			schemeFile.close();

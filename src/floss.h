@@ -21,11 +21,43 @@
 class Floss
 {
 	public:
-		Floss(QString n, QString d, QColor c) : name(n),description(d),color(c) {};
+		Floss(const QString &, const QString &, const QColor &);
+		~Floss();
 
-		QString name;
-		QString description;
-		QColor  color;
+		const QString &name() const;
+		void setName(const QString &);
+		const QString &description() const;
+		void setDescription(const QString &);
+		const QColor &color() const;
+		void setColor(const QColor &);
+
+	private:
+		QString	m_name;
+		QString	m_description;
+		QColor	m_color;
+};
+
+
+class DocumentFloss
+{
+	public:
+		DocumentFloss(Floss *, QChar, unsigned, unsigned);
+		~DocumentFloss();
+
+		const Floss *floss() const;
+		void setFloss(Floss *);
+		const QChar symbol() const;
+		void setSymbol(QChar);
+		unsigned stitchStrands() const;
+		void setStitchStrands(unsigned);
+		unsigned backstitchStrands() const;
+		void setBackstitchStrands(unsigned);
+
+	private:
+		Floss		*m_floss;
+		QChar		m_symbol;
+		unsigned	m_stitchStrands;
+		unsigned	m_backstitchStrands;
 };
 
 

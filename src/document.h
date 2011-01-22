@@ -29,9 +29,11 @@
 
 
 class Floss;
+class DocumentFloss;
 class SchemeManager;
 
 class BackgroundImage;
+
 
 /**
 	V9 Document consists of
@@ -84,14 +86,6 @@ class Document
 		Document();
 		~Document();
 
-		struct FLOSS
-		{
-			Floss     *floss;
-			QChar     symbol;
-			unsigned  stitchStrands;
-			unsigned  backstitchStrands;
-		};
-
 		unsigned  width() const;
 		unsigned  height() const;
 		bool loadURL(const KUrl &);
@@ -103,7 +97,7 @@ class Document
 		QVariant property(QString) const;
 		void setProperty(QString, QVariant);
 		StitchQueue *stitchAt(QPoint) const;
-		Floss *floss(int) const;
+		const Floss *floss(int) const;
 		int currentFlossIndex() const;
 		void setCurrentFlossIndex(int);
 
@@ -116,7 +110,7 @@ class Document
 
 		void selectFloss(int);
 		void clearUnusedColors();
-		QMap<int, Document::FLOSS> &palette();
+		QMap<int, DocumentFloss *> &palette();
 		QListIterator<BackgroundImage *> backgroundImages() const;
 		QListIterator<Backstitch *> backstitches() const;
 		QListIterator<Knot *> knots() const;
@@ -151,7 +145,7 @@ class Document
 		// Palette properties
 		SchemeManager			*m_schemeManager;
 		QString					m_flossSchemeName;
-		QMap<int, FLOSS>		m_palette;
+		QMap<int, DocumentFloss *>	m_palette;
 		int						m_currentFlossIndex;
 
 		// Canvas properties

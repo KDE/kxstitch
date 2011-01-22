@@ -52,8 +52,8 @@ Floss *FlossScheme::find(QString name)
 {
 	for (int i = 0 ; i < m_flosses.size() ; i++)
 	{
-		if (m_flosses.at(i)->name == name)
-		return m_flosses.at(i);
+		if (m_flosses.at(i)->name() == name)
+			return m_flosses.at(i);
 	}
 	return 0;
 }
@@ -69,9 +69,9 @@ Magick::Image* FlossScheme::createImageMap()
 		for (int i = 0 ; i < m_flosses.size() ; i++)
 		{
 			floss = m_flosses.at(i);
-			*pixel++ = (char)(floss->color.red());
-			*pixel++ = (char)(floss->color.green());
-			*pixel++ = (char)(floss->color.blue());
+			*pixel++ = (char)(floss->color().red());
+			*pixel++ = (char)(floss->color().green());
+			*pixel++ = (char)(floss->color().blue());
 			*pixel++ = (char)(0xff);
 		}
 
@@ -111,8 +111,8 @@ Floss *FlossScheme::convert(QColor color)
 	for (int i = 0 ; i < m_flosses.size() ; i++)
 	{
 		Floss *floss = m_flosses.at(i);
-		if (floss->color == newColor)
-		return floss;
+		if (floss->color() == newColor)
+			return floss;
 	}
 	return 0; // should never happen
 }

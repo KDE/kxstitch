@@ -57,7 +57,7 @@ void Palette::loadSettings()
 void Palette::paintEvent(QPaintEvent *)
 {
 	if (m_document == 0) return;
-	QMap<int, Document::FLOSS> &palette = m_document->palette();
+	QMap<int, DocumentFloss *> &palette = m_document->palette();
 	m_flosses = palette.count();
 	m_paletteIndex.resize(m_flosses);
 	int currentFlossIndex = m_document->currentFlossIndex();
@@ -89,18 +89,18 @@ void Palette::paintEvent(QPaintEvent *)
 		font.setPixelSize(std::min(m_width, m_height));
 		painter.setFont(font);
 
-		QMapIterator<int, Document::FLOSS> mapIterator(palette);
+		QMapIterator<int, DocumentFloss *> mapIterator(palette);
 		int flossIndex = 0;
 		while (mapIterator.hasNext())
 		{
 			mapIterator.next();
 			m_paletteIndex[flossIndex] = mapIterator.key();
-			Floss *floss = mapIterator.value().floss;
+			const Floss *floss = mapIterator.value()->floss();
 			int x = (flossIndex%m_cols)*m_width;
 			int y = (flossIndex/m_cols)*m_height;
 			QRect rect(x, y, m_width, m_height);
 
-			painter.fillRect(rect, floss->color);
+			painter.fillRect(rect, floss->color());
 
 			if (currentFlossIndex == -1)
 			{
@@ -129,11 +129,11 @@ void Palette::paintEvent(QPaintEvent *)
 
 			if (m_document->property("showPaletteSymbols").toBool())
 			{
-				if (qGray(floss->color.rgb()) < 128)
+				if (qGray(floss->color().rgb()) < 128)
 					painter.setPen(Qt::white);
 				else
 					painter.setPen(Qt::black);
-				painter.drawText(rect, Qt::AlignCenter, mapIterator.value().symbol);
+				painter.drawText(rect, Qt::AlignCenter, mapIterator.value()->symbol());
 			}
 
 		flossIndex++;

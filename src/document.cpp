@@ -161,12 +161,7 @@ bool Document::loadURL(const KUrl &url)
 										>> backstitchStrands;
 								if (file.error()) break;
 								Floss *floss = flossScheme->find(flossName);
-								struct FLOSS newFloss = {
-									floss,
-									flossSymbol,
-									stitchStrands,
-									backstitchStrands
-									};
+								DocumentFloss *newFloss = new DocumentFloss(floss, flossSymbol, stitchStrands, backstitchStrands);
 								m_palette[flossKey] = newFloss;
 							}
 
@@ -327,14 +322,14 @@ bool Document::saveDocument()
 		stream << m_flossSchemeName;
 
 		stream << (qint32)m_palette.count();
-		QMap<int, FLOSS>::const_iterator flossIterator = m_palette.constBegin();
+		QMap<int, DocumentFloss *>::const_iterator flossIterator = m_palette.constBegin();
 		while (flossIterator != m_palette.constEnd())
 		{
 			stream	<< (quint32)flossIterator.key()
-					<< flossIterator.value().floss->name
-					<< flossIterator.value().symbol
-					<< (quint8)(flossIterator.value().stitchStrands)
-					<< (quint8)(flossIterator.value().backstitchStrands);
+					<< flossIterator.value()->floss()->name()
+					<< flossIterator.value()->symbol()
+					<< (quint8)(flossIterator.value()->stitchStrands())
+					<< (quint8)(flossIterator.value()->backstitchStrands());
 			++flossIterator;
 		}
 
@@ -430,9 +425,9 @@ StitchQueue *Document::stitchAt(QPoint cell) const
 }
 
 
-Floss *Document::floss(int index) const
+const Floss *Document::floss(int index) const
 {
-	return m_palette[index].floss;
+	return m_palette[index]->floss();
 }
 
 
@@ -805,7 +800,7 @@ void Document::selectFloss(int flossIndex)
 
 void Document::clearUnusedColors()
 {
-	QMutableMapIterator<int, FLOSS> flosses(m_palette);
+	QMutableMapIterator<int, DocumentFloss *> flosses(m_palette);
 	while (flosses.hasNext())
 	{
 		flosses.next();
@@ -815,7 +810,7 @@ void Document::clearUnusedColors()
 }
 
 
-QMap<int, Document::FLOSS> &Document::palette()
+QMap<int, DocumentFloss *> &Document::palette()
 {
 	return m_palette;
 }
