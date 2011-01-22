@@ -37,6 +37,7 @@
 #include <KStandardAction>
 #include <KStatusBar>
 
+#include "backgroundimage.h"
 #include "configuration.h"
 #include "document.h"
 #include "editor.h"
@@ -951,7 +952,7 @@ bool MainWindow::queryExit()
 	*/
 void MainWindow::updateBackgroundImageActionLists()
 {
-	QListIterator<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
+	QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages();
 
 	unplugActionList("removeBackgroundImageActions");
 	unplugActionList("patternFitBackgroundImageActions");
@@ -963,25 +964,25 @@ void MainWindow::updateBackgroundImageActionLists()
 
 	while (backgroundImages.hasNext())
 	{
-		struct Document::BACKGROUND_IMAGE background = backgroundImages.next();
+		BackgroundImage *background = backgroundImages.next();
 
-		KAction *action = new KAction(background.imageURL.fileName(), this);
-		action->setData(background.imageURL.pathOrUrl());
-		action->setIcon(background.imageIcon);
+		KAction *action = new KAction(background->URL().fileName(), this);
+		action->setData(background->URL().pathOrUrl());
+		action->setIcon(background->icon());
 		connect(action, SIGNAL(triggered()), this, SLOT(removeBackgroundImage()));
 		m_removeBackgroundImageActions.append(action);
 
-		action = new KAction(background.imageURL.fileName(), this);
-		action->setData(background.imageURL.pathOrUrl());
-		action->setIcon(background.imageIcon);
+		action = new KAction(background->URL().fileName(), this);
+		action->setData(background->URL().pathOrUrl());
+		action->setIcon(background->icon());
 		connect(action, SIGNAL(triggered()), this, SLOT(fitBackgroundImage()));
 		m_fitBackgroundImageActions.append(action);
 
-		action = new KAction(background.imageURL.fileName(), this);
-		action->setData(background.imageURL.pathOrUrl());
-		action->setIcon(background.imageIcon);
+		action = new KAction(background->URL().fileName(), this);
+		action->setData(background->URL().pathOrUrl());
+		action->setIcon(background->icon());
 		action->setCheckable(true);
-		action->setChecked(background.imageVisible);
+		action->setChecked(background->isVisible());
 		connect(action, SIGNAL(triggered()), this, SLOT(showBackgroundImage()));
 		m_showBackgroundImageActions.append(action);
 	}

@@ -31,6 +31,7 @@
 class Floss;
 class SchemeManager;
 
+class BackgroundImage;
 
 /**
 	V9 Document consists of
@@ -91,15 +92,6 @@ class Document
 			unsigned  backstitchStrands;
 		};
 
-		struct BACKGROUND_IMAGE
-		{
-			KUrl   imageURL;
-			QRect  imageLocation;
-			bool   imageVisible;
-			QImage image;
-			QIcon  imageIcon;
-		};
-
 		unsigned  width() const;
 		unsigned  height() const;
 		bool loadURL(const KUrl &);
@@ -125,7 +117,7 @@ class Document
 		void selectFloss(int);
 		void clearUnusedColors();
 		QMap<int, Document::FLOSS> &palette();
-		QListIterator<struct BACKGROUND_IMAGE> backgroundImages() const;
+		QListIterator<BackgroundImage *> backgroundImages() const;
 		QListIterator<Backstitch *> backstitches() const;
 		QListIterator<Knot *> knots() const;
 		bool paletteManager();
@@ -152,7 +144,7 @@ class Document
 		bool					m_documentNew;
 		bool					m_documentModified;
 		KUrl					m_documentURL;
-		QList<struct BACKGROUND_IMAGE>	m_backgroundImages;
+		QList<BackgroundImage *>	m_backgroundImages;
 		QStack<QByteArray>		m_undoStack;
 		QStack<QByteArray>		m_redoStack;
 

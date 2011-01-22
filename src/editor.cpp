@@ -32,6 +32,7 @@
 
 #include <math.h>
 
+#include "backgroundimage.h"
 #include "configuration.h"
 #include "document.h"
 #include "editor.h"
@@ -879,17 +880,17 @@ void Editor::paintEvent(QPaintEvent *e)
 	*/
 void Editor::paintBackgroundImages(QPainter *painter, QRect updateRectangle)
 {
-	QListIterator<struct Document::BACKGROUND_IMAGE> backgroundImages = m_document->backgroundImages();
+	QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages();
 	while (backgroundImages.hasNext())
 	{
-		struct Document::BACKGROUND_IMAGE background = backgroundImages.next();
-		if (background.imageVisible)
+		BackgroundImage *background = backgroundImages.next();
+		if (background->isVisible())
 		{
-			QRect r = background.imageLocation;
+			QRect r = background->location();
 			r.moveTo(r.left()*m_cellWidth, r.top()*m_cellHeight);
 			r.setWidth(r.width()*m_cellWidth);
 			r.setHeight(r.height()*m_cellHeight);
-			painter->drawImage(r, background.image);
+			painter->drawImage(r, background->image());
 		}
 	}
 }

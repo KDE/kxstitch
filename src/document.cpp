@@ -15,6 +15,7 @@
 #include <KMessageBox>
 #include <KIO/NetAccess>
 
+#include "backgroundimage.h"
 #include "configuration.h"
 #include "document.h"
 #include "flossscheme.h"
@@ -231,12 +232,7 @@ bool Document::loadURL(const KUrl &url)
 										>> image
 										>> imageIcon;
 								if (file.error()) break;
-								BACKGROUND_IMAGE backgroundImage;
-								backgroundImage.imageURL = imageURL;
-								backgroundImage.imageLocation = imageLocation;
-								backgroundImage.imageVisible = imageVisible;
-								backgroundImage.image = image;
-								backgroundImage.imageIcon = imageIcon;
+								BackgroundImage *backgroundImage = new BackgroundImage(imageURL, imageLocation, imageVisible, image, imageIcon);
 								m_backgroundImages.append(backgroundImage);
 							}
 							validRead = true;
@@ -390,14 +386,14 @@ bool Document::saveDocument()
 		}
 
 		stream << (quint32)m_backgroundImages.count();
-		QList<struct BACKGROUND_IMAGE>::const_iterator backgroundImageIterator = m_backgroundImages.constBegin();
+		QList<BackgroundImage *>::const_iterator backgroundImageIterator = m_backgroundImages.constBegin();
 		while (backgroundImageIterator != m_backgroundImages.constEnd())
 		{
-			stream	<< (*backgroundImageIterator).imageURL
-					<< (*backgroundImageIterator).imageLocation
-					<< (*backgroundImageIterator).imageVisible
-					<< (*backgroundImageIterator).image
-					<< (*backgroundImageIterator).imageIcon;
+			stream	<< (*backgroundImageIterator)->URL()
+					<< (*backgroundImageIterator)->location()
+					<< (*backgroundImageIterator)->isVisible()
+					<< (*backgroundImageIterator)->image()
+					<< (*backgroundImageIterator)->icon();
 			++backgroundImageIterator;
 		}
 
@@ -825,9 +821,9 @@ QMap<int, Document::FLOSS> &Document::palette()
 }
 
 
-QListIterator<struct Document::BACKGROUND_IMAGE> Document::backgroundImages() const
+QListIterator<BackgroundImage *> Document::backgroundImages() const
 {
-	return QListIterator<struct Document::BACKGROUND_IMAGE>(m_backgroundImages);
+	return QListIterator<BackgroundImage*>(m_backgroundImages);
 }
 
 
@@ -860,14 +856,7 @@ bool Document::paletteManager()
 
 void Document::addBackgroundImage(KUrl url, QRect &rect)
 {
-	BACKGROUND_IMAGE backgroundImage;
-
-	backgroundImage.imageURL = url;
-	backgroundImage.imageLocation = rect;
-	backgroundImage.imageVisible = true;
-	backgroundImage.image.load(url.path());
-	QPixmap pixmap = QPixmap::fromImage(backgroundImage.image);
-	backgroundImage.imageIcon.addPixmap(pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+	BackgroundImage *backgroundImage = new BackgroundImage(url, rect);
 	m_documentModified = true;
 	m_documentNew = false;
 
@@ -880,7 +869,7 @@ void Document::removeBackgroundImage(QString url)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
-		if (m_backgroundImages.at(i).imageURL == url)
+		if (m_backgroundImages.at(i)->URL() == url)
 		{
 			m_backgroundImages.removeAt(i);
 			m_documentModified = true;
@@ -895,9 +884,9 @@ void Document::fitBackgroundImage(QString url, QRect selectionArea)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
-		if (m_backgroundImages.at(i).imageURL == url)
+		if (m_backgroundImages.at(i)->URL() == url)
 		{
-			m_backgroundImages[i].imageLocation = selectionArea;;
+			m_backgroundImages[i]->setLocation(selectionArea);
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
@@ -910,9 +899,9 @@ void Document::showBackgroundImage(QString url, bool visible)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
-		if (m_backgroundImages.at(i).imageURL == url)
+		if (m_backgroundImages.at(i)->URL() == url)
 		{
-			m_backgroundImages[i].imageVisible = visible;
+			m_backgroundImages[i]->setVisible(visible);
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
