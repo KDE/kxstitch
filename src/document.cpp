@@ -27,6 +27,22 @@ Document::Document()
 {
 	m_schemeManager = new SchemeManager();
 
+	initialiseNew();
+}
+
+
+Document::~Document()
+{
+	qDeleteAll(m_backgroundImages);
+	qDeleteAll(m_palette);
+	qDeleteAll(m_canvasStitches);
+	qDeleteAll(m_canvasKnots);
+	qDeleteAll(m_canvasBackstitches);
+}
+
+
+void Document::initialiseNew()
+{
 	// set all the default properties to display a new document
 	// these will be updated by configuring or loading a document
 
@@ -62,17 +78,27 @@ Document::Document()
 	m_properties["paintBackstitches"] = true; // Configuration::editor_PaintBackstitches;
 	m_properties["paintFrenchKnots"] = true; // Configuration::editor_PaintFrenchKnots;
 
+	// use qDeleteAll to delete the objects pointed to in the containers
+	// then clear the containers.
+	qDeleteAll(m_backgroundImages);
+	m_backgroundImages.clear();
+
+	qDeleteAll(m_palette);
+	m_palette.clear();
+
+	qDeleteAll(m_canvasStitches);
+	m_canvasStitches.clear();
+
+	m_usedFlosses.clear();	// no requirement for qDeleteAll as m_usedFlosses does not contain pointers.
+
+	qDeleteAll(m_canvasKnots);
+	m_canvasKnots.clear();
+
+	qDeleteAll(m_canvasBackstitches);
+	m_canvasBackstitches.clear();
+
 	m_documentNew = true;
 	m_documentModified = false;
-
-	// m_backgroundImages	defaults to an empty list
-	// m_undoStack			defaults to an empty stack
-	// m_redoStack			defaults to an empty stack
-	// m_palette			defaults to an empty map
-	// m_canvasStitches		defaults to an empty map
-	// m_usedFlosses		defaults to an empty map
-	// m_canvasKnots		defaults to an empty list
-	// m_canvasBackstitches	defaults to an empty list
 
 	setURL(i18n("Untitled"));
 }
@@ -348,11 +374,6 @@ bool Document::loadURL(const KUrl &url)
 		}
 	}
 	return validRead;
-}
-
-
-Document::~Document()
-{
 }
 
 

@@ -31,31 +31,20 @@
 class Floss;
 class DocumentFloss;
 class SchemeManager;
-
 class BackgroundImage;
 
 
 /**
-	V9 Document consists of
+	V10 Document consists of
 		KXStitch					QString
 		file format version			quint16
-		width in stitches			quint32
-		height in stitches			quint32
-		title						QString
-		author						QString
-		copyright					QString
-		fabric						QString
-		fabric colour				QColor
-		instructions				QString
 		property list				QVariantMap
-		scheme name					QString
 		floss count					quint32
 			floss key				quint32
 			floss name				QString
 			floss symbol			QChar
 			strands / stitch		quint8
 			strands / backstitch	quint8
-		current floss index			quint32
 		used flosses count			quint32
 			floss key				quint32
 			number of stitches		quint32
@@ -71,7 +60,7 @@ class BackgroundImage;
 		knot count					quint32
 			position				QPoint
 			floss key				quint32
-		background image list	QList
+		background image list		QList
 			url						KUrl
 			location rectangle		QRect
 			visible flag			bool
@@ -85,6 +74,8 @@ class Document
 	public:
 		Document();
 		~Document();
+
+		void initialiseNew();
 
 		unsigned  width() const;
 		unsigned  height() const;

@@ -1094,11 +1094,7 @@ void MainWindow::open(const KUrl &url)
 		if (!url.isEmpty() && !m_document->loadURL(url))
 		{
 			KMessageBox::detailedError(0, i18n("Unable to read the file."), url.fileName());
-			delete m_document;
-			m_document = new Document();
-			m_editor->setDocument(m_document);
-			m_preview->setDocument(m_document);
-			m_palette->setDocument(m_document);
+			m_document->initialiseNew();
 		}
 		else
 			m_fileOpenRecent->addUrl(url);
@@ -1176,14 +1172,10 @@ void MainWindow::revert()
 			if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes)
 			{
 				KUrl url = m_document->URL();
-				delete m_document;
-				m_document = new Document();
+				m_document->initialiseNew();
 				m_document->loadURL(url);
-				m_editor->setDocument(m_document);
 				m_editor->update();
-				m_preview->setDocument(m_document);
 				m_preview->update();
-				m_palette->setDocument(m_document);
 				m_palette->update();
 			}
 		}
