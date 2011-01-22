@@ -127,14 +127,6 @@ class Document
 
 		// Document properties
 		QVariantMap				m_properties;
-		unsigned				m_width;
-		unsigned				m_height;
-		QString					m_title;
-		QString					m_author;
-		QString					m_copyright;
-		QString					m_fabric;
-		QColor					m_fabricColor;
-		QString					m_instructions;
 		bool					m_documentNew;
 		bool					m_documentModified;
 		KUrl					m_documentURL;
@@ -144,9 +136,7 @@ class Document
 
 		// Palette properties
 		SchemeManager			*m_schemeManager;
-		QString					m_flossSchemeName;
 		QMap<int, DocumentFloss *>	m_palette;
-		int						m_currentFlossIndex;
 
 		// Canvas properties
 		QMap<unsigned int, StitchQueue *>	m_canvasStitches;

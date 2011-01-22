@@ -23,38 +23,23 @@
 #include "schememanager.h"
 
 
-const int FILE_FORMAT_VERSION = 9;
-
-
 Document::Document()
 {
 	m_schemeManager = new SchemeManager();
 
-	m_width = Configuration::document_Width();
-	m_height = Configuration::document_Height();
-	// m_title				defaults to a blank string
-	// m_author				defaults to a blank string
-	// m_copyright			defaults to a blank string
-	// m_fabric				defaults to a blank string
-	// m_fabricColor		defaults to white
-	// m_instructions		defaults to a blank string
-	m_documentNew = true;
-	m_documentModified = false;
-	setURL(i18n("Untitled"));
-	// m_backgroundImages	defaults to an empty list
-	// m_undoStack			defaults to an empty stack
-	// m_redoStack			defaults to an empty stack
-	m_flossSchemeName = Configuration::palette_DefaultScheme();
-	// m_palette			defaults to an empty map
-	m_currentFlossIndex = -1;
-	// m_canvasStitches		defaults to an empty map
-	// m_usedFlosses		defaults to an empty map
-	// m_canvasKnots		defaults to an empty list
-	// m_canvasBackstitches	defaults to an empty list
-
 	// set all the default properties to display a new document
 	// these will be updated by configuring or loading a document
 
+	m_properties["width"] = Configuration::document_Width();
+	m_properties["height"] = Configuration::document_Height();
+	m_properties["title"] = QString();
+	m_properties["author"] = QString();
+	m_properties["copyright"] = QString();
+	m_properties["fabric"] = QString();
+	m_properties["fabricColor"] = QColor();
+	m_properties["instructions"] = QString();
+	m_properties["flossSchemeName"] = Configuration::palette_DefaultScheme();
+	m_properties["currentFlossIndex"] = -1;
 	m_properties["cellWidth"] = Configuration::editor_CellWidth();
 	m_properties["cellHeight"] = Configuration::editor_CellHeight();
 	m_properties["cellHorizontalGrouping"] = Configuration::editor_HorizontalCellGrouping();
@@ -76,6 +61,20 @@ Document::Document()
 	m_properties["paintStitches"] = true; // Configuration::editor_PaintStitches();
 	m_properties["paintBackstitches"] = true; // Configuration::editor_PaintBackstitches;
 	m_properties["paintFrenchKnots"] = true; // Configuration::editor_PaintFrenchKnots;
+
+	m_documentNew = true;
+	m_documentModified = false;
+
+	// m_backgroundImages	defaults to an empty list
+	// m_undoStack			defaults to an empty stack
+	// m_redoStack			defaults to an empty stack
+	// m_palette			defaults to an empty map
+	// m_canvasStitches		defaults to an empty map
+	// m_usedFlosses		defaults to an empty map
+	// m_canvasKnots		defaults to an empty list
+	// m_canvasBackstitches	defaults to an empty list
+
+	setURL(i18n("Untitled"));
 }
 
 
@@ -88,6 +87,13 @@ bool Document::loadURL(const KUrl &url)
 	quint16 fileFormatVersion;
 	quint32 width;
 	quint32 height;
+	QString title;
+	QString author;
+	QString copyright;
+	QString fabric;
+	QColor fabricColor;
+	QString instructions;
+	QString flossSchemeName;
 	quint32 paletteCount;
 	quint32 flossKey;
 	FlossScheme *flossScheme;
@@ -102,6 +108,8 @@ bool Document::loadURL(const KUrl &url)
 	quint32	canvasStitchKey;
 	quint8	stitchQueueCount;
 	quint8	stitchType;
+	quint32 usedFlossKey;
+	quint32 usedFlossValue;
 	quint32 canvasBackstitches;
 	QPoint	start;
 	QPoint	end;
@@ -112,6 +120,8 @@ bool Document::loadURL(const KUrl &url)
 	bool	imageVisible;
 	QImage	image;
 	QIcon	imageIcon;
+
+	quint32 count;
 
 	if (!url.isEmpty())
 	{
@@ -137,21 +147,28 @@ bool Document::loadURL(const KUrl &url)
 						case 9:
 							stream	>> width
 									>> height
-									>> m_title
-									>> m_author
-									>> m_copyright
-									>> m_fabric
-									>> m_fabricColor
-									>> m_instructions
+									>> title
+									>> author
+									>> copyright
+									>> fabric
+									>> fabricColor
+									>> instructions
 									>> m_properties
-									>> m_flossSchemeName;
+									>> flossSchemeName;
 							if (file.error()) break;
-							m_width = width;
-							m_height = height;
+							m_properties["width"] = width;
+							m_properties["height"] = height;
+							m_properties["title"] = title;
+							m_properties["author"] = author;
+							m_properties["copyright"] = copyright;
+							m_properties["fabric"] = fabric;
+							m_properties["fabricColor"] = fabricColor;
+							m_properties["instructions"] = instructions;
+							m_properties["flossSchemeName"] = flossSchemeName;
 
 							stream	>> paletteCount;
 							if (file.error()) break;
-							flossScheme = m_schemeManager->scheme(m_flossSchemeName);
+							flossScheme = m_schemeManager->scheme(m_properties["flossSchemeName"].toString());
 							while (paletteCount--)
 							{
 								stream	>> flossKey
@@ -167,7 +184,7 @@ bool Document::loadURL(const KUrl &url)
 
 							stream >> currentFlossIndex;
 							if (file.error()) break;
-							m_currentFlossIndex = currentFlossIndex;
+							m_properties["currentFlossIndex"] = currentFlossIndex;
 
 							stream >> usedFlosses;
 							if (file.error()) break;
@@ -233,6 +250,84 @@ bool Document::loadURL(const KUrl &url)
 							validRead = true;
 							break;
 
+						case 10:
+							stream >> m_properties;
+							if (file.error()) break;
+
+							flossScheme = m_schemeManager->scheme(m_properties["flossSchemeName"].toString());
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> flossKey
+											>> flossName
+											>> flossSymbol
+											>> stitchStrands
+											>> backstitchStrands;
+									Floss *floss = flossScheme->find(flossName);
+									m_palette[flossKey] = new DocumentFloss(floss, flossSymbol, stitchStrands, backstitchStrands);
+							}
+							if (file.error()) break;
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> usedFlossKey
+											>> usedFlossValue;
+									m_usedFlosses[usedFlossKey] = usedFlossValue;
+							}
+							if (file.error()) break;
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> canvasStitchKey
+											>> stitchQueueCount;
+									m_canvasStitches[canvasStitchKey] = new StitchQueue;
+									while (stitchQueueCount--)
+									{
+											stream  >> stitchType
+													>> flossKey;
+											m_canvasStitches[canvasStitchKey]->enqueue(new Stitch((Stitch::Type)stitchType, flossKey));
+									}
+							}
+							if (file.error()) break;
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> start
+											>> end
+											>> flossKey;
+									m_canvasBackstitches.append(new Backstitch(start, end, flossKey));
+							}
+							if (file.error()) break;
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> start
+											>> flossKey;
+									m_canvasKnots.append(new Knot(start, flossKey));
+							}
+							if (file.error()) break;
+
+							stream >> count;
+							while (count--)
+							{
+									stream  >> imageURL
+											>> imageLocation
+											>> imageVisible
+											>> image
+											>> imageIcon;
+									m_backgroundImages.append(new BackgroundImage(imageURL, imageLocation, imageVisible, image, imageIcon));
+							}
+							if (file.error()) break;
+
+							validRead = true;
+
+							break;
+
 						default:
 							kDebug() << "Invalid file format encountered.";
 							break;
@@ -263,13 +358,13 @@ Document::~Document()
 
 unsigned int Document::width() const
 {
-	return m_width;
+	return m_properties["width"].toUInt();
 }
 
 
 unsigned int Document::height() const
 {
-	return m_height;
+	return m_properties["height"].toUInt();
 }
 
 
@@ -304,93 +399,66 @@ bool Document::isModified() const
 bool Document::saveDocument()
 {
 	// open the file identified by m_documentURL
+
+	const quint16 FILE_FORMAT_VERSION = 10;
+
 	QFile file(m_documentURL.path());
 	if (file.open(QIODevice::WriteOnly))
 	{
 		QDataStream stream(&file);
 		stream << QString("KXStitch");
-		stream << (quint16)FILE_FORMAT_VERSION;
-		stream << (quint32)m_width;
-		stream << (quint32)m_height;
-		stream << m_title;
-		stream << m_author;
-		stream << m_copyright;
-		stream << m_fabric;
-		stream << m_fabricColor;
-		stream << m_instructions;
+		stream << FILE_FORMAT_VERSION;
 		stream << m_properties;
-		stream << m_flossSchemeName;
 
-		stream << (qint32)m_palette.count();
-		QMap<int, DocumentFloss *>::const_iterator flossIterator = m_palette.constBegin();
-		while (flossIterator != m_palette.constEnd())
-		{
+		stream << (quint32)m_palette.count();
+		QMap<int, DocumentFloss *>::const_iterator flossIterator;
+ 		for (flossIterator = m_palette.constBegin() ; flossIterator != m_palette.constEnd() ; ++flossIterator)
 			stream	<< (quint32)flossIterator.key()
 					<< flossIterator.value()->floss()->name()
 					<< flossIterator.value()->symbol()
 					<< (quint8)(flossIterator.value()->stitchStrands())
 					<< (quint8)(flossIterator.value()->backstitchStrands());
-			++flossIterator;
-		}
-
-		stream << (qint32)m_currentFlossIndex;
 
 		stream << (quint32)m_usedFlosses.count();
-		QMap<int, int>::const_iterator usedFlossesIterator = m_usedFlosses.constBegin();
-		while (usedFlossesIterator != m_usedFlosses.constEnd())
-		{
+		QMap<int, int>::const_iterator usedFlossesIterator;
+		for (usedFlossesIterator = m_usedFlosses.constBegin() ; usedFlossesIterator != m_usedFlosses.constEnd() ; ++usedFlossesIterator)
 			stream	<< (quint32)usedFlossesIterator.key()
 					<< (quint32)usedFlossesIterator.value();
-			++usedFlossesIterator;
-		}
 
 		stream << (quint32)m_canvasStitches.count();
-		QMap<unsigned int, StitchQueue *>::const_iterator stitchIterator = m_canvasStitches.constBegin();
-		while (stitchIterator != m_canvasStitches.constEnd())
+		QMap<unsigned int, StitchQueue *>::const_iterator stitchIterator;
+		for (stitchIterator = m_canvasStitches.constBegin() ; stitchIterator != m_canvasStitches.constEnd() ; ++stitchIterator)
 		{
 			stream << (quint32)stitchIterator.key();
 			StitchQueue *stitchQueue = stitchIterator.value();
 			stream << (quint8)stitchQueue->count();
-			StitchQueue::const_iterator si = stitchQueue->constBegin();
-			while (si != stitchQueue->constEnd())
-			{
+			StitchQueue::const_iterator si;
+			for (si = stitchQueue->constBegin() ; si != stitchQueue->constEnd() ; ++si)
 				stream	<< (quint8)((*si)->type())
 						<< (quint32)((*si)->floss());
-				++si;
-			}
-			++stitchIterator;
 		}
 
 		stream << (quint32)m_canvasBackstitches.count();
-		QList<Backstitch *>::const_iterator backstitchIterator = m_canvasBackstitches.constBegin();
-		while (backstitchIterator != m_canvasBackstitches.constEnd())
-		{
+		QList<Backstitch *>::const_iterator backstitchIterator;
+		for (backstitchIterator = m_canvasBackstitches.constBegin() ; backstitchIterator != m_canvasBackstitches.constEnd() ; ++backstitchIterator)
 			stream	<< (*backstitchIterator)->start()
 					<< (*backstitchIterator)->end()
 					<< (quint32)((*backstitchIterator)->floss());
-			++backstitchIterator;
-		}
 
 		stream << (quint32)m_canvasKnots.count();
-		QList<Knot *>::const_iterator knotIterator = m_canvasKnots.constBegin();
-		while (knotIterator != m_canvasKnots.constEnd())
-		{
+		QList<Knot *>::const_iterator knotIterator;
+		for (knotIterator = m_canvasKnots.constBegin() ; knotIterator != m_canvasKnots.constEnd() ; ++knotIterator)
 			stream	<< (*knotIterator)->position()
 					<< (quint32)((*knotIterator)->floss());
-			++knotIterator;
-		}
 
 		stream << (quint32)m_backgroundImages.count();
-		QList<BackgroundImage *>::const_iterator backgroundImageIterator = m_backgroundImages.constBegin();
-		while (backgroundImageIterator != m_backgroundImages.constEnd())
-		{
+		QList<BackgroundImage *>::const_iterator backgroundImageIterator;
+		for (backgroundImageIterator = m_backgroundImages.constBegin() ; backgroundImageIterator != m_backgroundImages.constEnd() ; ++backgroundImageIterator)
 			stream	<< (*backgroundImageIterator)->URL()
 					<< (*backgroundImageIterator)->location()
 					<< (*backgroundImageIterator)->isVisible()
 					<< (*backgroundImageIterator)->image()
 					<< (*backgroundImageIterator)->icon();
-			++backgroundImageIterator;
-		}
 
 		file.flush();
 		file.close();
@@ -433,13 +501,13 @@ const Floss *Document::floss(int index) const
 
 int Document::currentFlossIndex() const
 {
-	return m_currentFlossIndex;
+	return m_properties["currentFlossIndex"].toInt();;
 }
 
 
 void Document::setCurrentFlossIndex(int floss)
 {
-	m_currentFlossIndex = floss;
+	m_properties["currentFlossIndex"] = floss;
 	m_documentModified = true;
 	m_documentNew = false;
 }
@@ -474,7 +542,7 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 			Stitch *stitch = stitchQueue->dequeue();
 			if (!(stitch->type() & 192)) // so we don't try and merge existing mini stitches
 			{
-				if (stitch->floss() == m_currentFlossIndex)
+				if (stitch->floss() == m_properties["currentFlossIndex"].toInt())
 				{
 					type = (Stitch::Type)(type | stitch->type());
 				}
@@ -486,36 +554,36 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 	switch (type) // add the new stitch checking for illegal types
 	{
 		case 3: // TLQtr and TRQtr
-			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_currentFlossIndex));
-			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_currentFlossIndex));
-			m_usedFlosses[m_currentFlossIndex] += 2;
+			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_properties["currentFlossIndex"].toInt()));
+			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_properties["currentFlossIndex"].toInt()));
+			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
 		case 5: // TLQtr and BLQtr
-			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_currentFlossIndex));
-			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_currentFlossIndex));
-			m_usedFlosses[m_currentFlossIndex] += 2;
+			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_properties["currentFlossIndex"].toInt()));
+			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_properties["currentFlossIndex"].toInt()));
+			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
 		case 10: // TRQtr and BRQtr
-			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_currentFlossIndex));
-			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_currentFlossIndex));
-			m_usedFlosses[m_currentFlossIndex] += 2;
+			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_properties["currentFlossIndex"].toInt()));
+			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_properties["currentFlossIndex"].toInt()));
+			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
 		case 12: // BLQtr and BRQtr
-			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_currentFlossIndex));
-			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_currentFlossIndex));
-			m_usedFlosses[m_currentFlossIndex] += 2;
+			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_properties["currentFlossIndex"].toInt()));
+			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_properties["currentFlossIndex"].toInt()));
+			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
 		default: // other values are acceptable as is including mini stitches
-			stitchQueue->enqueue(new Stitch(type, m_currentFlossIndex));
-			m_usedFlosses[m_currentFlossIndex]++;
+			stitchQueue->enqueue(new Stitch(type, m_properties["currentFlossIndex"].toInt()));
+			m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
 			m_documentModified = true;
 			m_documentNew = false;
 			break;
@@ -623,7 +691,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 		{
 			Stitch *stitch = stitchQueue->dequeue();
 			m_usedFlosses[stitch->floss()]--;
-			if (!maskColor || (stitch->floss() == m_currentFlossIndex))
+			if (!maskColor || (stitch->floss() == m_properties["currentFlossIndex"].toInt()))
 			{
 				delete stitch;
 				m_documentModified = true;
@@ -649,7 +717,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 		{
 			Stitch *stitch = stitchQueue->dequeue();
 			m_usedFlosses[stitch->floss()]--;
-			if ((stitch->type() == maskStitch) && (!maskColor || (stitch->floss() == m_currentFlossIndex)))
+			if ((stitch->type() == maskStitch) && (!maskColor || (stitch->floss() == m_properties["currentFlossIndex"].toInt())))
 			{
 				// delete any stitches of the required stitch if it is the correct color or if the color doesn't matter
 				delete stitch;
@@ -658,7 +726,7 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 			}
 			else
 			{
-				if ((stitch->type() & maskStitch) && (!maskColor || (stitch->floss() == m_currentFlossIndex)) && ((stitch->type() & 192) == 0))
+				if ((stitch->type() & maskStitch) && (!maskColor || (stitch->floss() == m_properties["currentFlossIndex"].toInt())) && ((stitch->type() & 192) == 0))
 				{
 					// the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
 					Stitch::Type changeMask = (Stitch::Type)(stitch->type() ^ maskStitch);
@@ -713,8 +781,8 @@ bool Document::addBackstitch(QPoint &start, QPoint &end)
 {
 	if (validateSnap(start) && validateSnap(end))
 	{
-		m_canvasBackstitches.append(new Backstitch(start, end, m_currentFlossIndex));
-		m_usedFlosses[m_currentFlossIndex]++;
+		m_canvasBackstitches.append(new Backstitch(start, end, m_properties["currentFlossIndex"].toInt()));
+		m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
 		m_documentModified = true;
 		m_documentNew = false;
 		return true;
@@ -733,8 +801,8 @@ bool Document::deleteBackstitch(const QPoint &start, const QPoint &end, int mask
 	{
 		if ((m_canvasBackstitches.at(i)->start() == start) && (m_canvasBackstitches.at(i)->end() == end))
 		{
-			kDebug() << !maskColor << (m_canvasBackstitches.at(i)->floss() == m_currentFlossIndex);
-			if (!maskColor || (m_canvasBackstitches.at(i)->floss() == m_currentFlossIndex))
+			kDebug() << !maskColor << (m_canvasBackstitches.at(i)->floss() == m_properties["currentFlossIndex"].toInt());
+			if (!maskColor || (m_canvasBackstitches.at(i)->floss() == m_properties["currentFlossIndex"].toInt()))
 			{
 				m_usedFlosses[m_canvasBackstitches.at(i)->floss()]--;
 				m_canvasBackstitches.removeAt(i);
@@ -754,8 +822,8 @@ bool Document::addFrenchKnot(QPoint &snap)
 {
 	if (validateSnap(snap))
 	{
-		m_canvasKnots.append(new Knot(snap, m_currentFlossIndex));
-		m_usedFlosses[m_currentFlossIndex]++;
+		m_canvasKnots.append(new Knot(snap, m_properties["currentFlossIndex"].toInt()));
+		m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
 		m_documentModified = true;
 		m_documentNew = false;
 		return true;
@@ -773,7 +841,7 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 	{
 		if (m_canvasKnots.at(i)->position() == snap)
 		{
-			if (!maskColor || (m_canvasKnots.at(i)->floss() == m_currentFlossIndex))
+			if (!maskColor || (m_canvasKnots.at(i)->floss() == m_properties["currentFlossIndex"].toInt()))
 			{
 				m_usedFlosses[m_canvasKnots.at(i)->floss()]--;
 				m_canvasKnots.removeAt(i);
@@ -792,7 +860,7 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 
 void Document::selectFloss(int flossIndex)
 {
-	m_currentFlossIndex = flossIndex;
+	m_properties["currentFlossIndex"] = flossIndex;
 	m_documentModified = true;
 	m_documentNew = false;
 }
@@ -837,7 +905,7 @@ QListIterator<Knot *> Document::knots() const
 bool Document::paletteManager()
 {
 	bool added = false;
-	PaletteManagerDlg *paletteManagerDlg = new PaletteManagerDlg(m_schemeManager, m_flossSchemeName, m_palette, m_usedFlosses);
+	PaletteManagerDlg *paletteManagerDlg = new PaletteManagerDlg(m_schemeManager, m_properties["flossSchemeName"].toString(), m_palette, m_usedFlosses);
 	if (paletteManagerDlg->exec())
 	{
 		added = true;
@@ -907,7 +975,7 @@ void Document::showBackgroundImage(QString url, bool visible)
 
 unsigned int Document::canvasIndex(QPoint &cell) const
 {
-	return cell.y()*m_width + cell.x();
+	return cell.y()*m_properties["width"].toInt() + cell.x();
 }
 
 
@@ -917,9 +985,9 @@ bool Document::validateCell(QPoint &cell) const
 		return false;
 	if (cell.y() < 0)
 		return false;
-	if (m_width <= cell.x())
+	if (m_properties["width"].toInt() <= cell.x())
 		return false;
-	if (m_height <= cell.y())
+	if (m_properties["height"].toInt() <= cell.y())
 		return false;
 	return true;
 }
@@ -931,9 +999,9 @@ bool Document::validateSnap(QPoint &snap) const
 		return false;
 	if (snap.y() < 0)
 		return false;
-	if (m_width*2+1 <= snap.x())
+	if (m_properties["width"].toInt()*2+1 <= snap.x())
 		return false;
-	if (m_height*2+1 <= snap.y())
+	if (m_properties["height"].toInt()*2+1 <= snap.y())
 		return false;
 	return true;
 }
