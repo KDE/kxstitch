@@ -162,6 +162,8 @@ MainWindow::MainWindow(const KUrl &url) : KXmlGuiWindow()
 	setupGUI();
 
 	open(url);
+
+	setCaption(m_document->URL().fileName(), m_document->isModified());
 }
 
 
@@ -1050,19 +1052,12 @@ void MainWindow::showBackgroundImage()
 
 
 /**
-	Create a new document.
-
-	Check if the current document is already a new one, i.e. it hasn't got a name and hasn't been modified.
-	In this case the document is already a new and another shouldn't be created. Otherwise creates a new
-	MainWindow with a blank document.  Resizes it to the default size and shows it on the desktop.
+	Create a new MainWindow and document.
 	*/
 void MainWindow::openNew()
 {
-	if (!m_document->isNew())
-	{
-		MainWindow *window = new MainWindow(KUrl());
-		window->show();
-	}
+	MainWindow *window = new MainWindow(KUrl());
+	window->show();
 }
 
 
@@ -1089,7 +1084,7 @@ void MainWindow::open()
 	*/
 void MainWindow::open(const KUrl &url)
 {
-	if (m_document->isNew())
+	if (m_document->isModified() && m_document->URL().fileName() == i18n("Untitled"))
 	{
 		if (!url.isEmpty() && !m_document->loadURL(url))
 		{
@@ -1097,20 +1092,21 @@ void MainWindow::open(const KUrl &url)
 			m_document->initialiseNew();
 		}
 		else
+		{
 			m_fileOpenRecent->addUrl(url);
-
+			setCaption(m_document->URL().fileName(), m_document->isModified());
+			updateBackgroundImageActionLists();
+			setActionsFromDocument();
+			m_preview->update();
+			m_palette->update();
+			m_editor->update();
+		}
 	}
 	else
 	{
 		MainWindow *window = new MainWindow(url);
 		window->show();
 	}
-	setCaption(url.fileName(), false);
-	updateBackgroundImageActionLists();
-	setActionsFromDocument();
-	m_preview->update();
-	m_palette->update();
-	m_editor->update();
 }
 
 
@@ -1126,7 +1122,7 @@ void MainWindow::save()
 	else
 	{
 		m_document->saveDocument();
-		setCaption(m_document->URL().fileName(), false);
+		setCaption(m_document->URL().fileName(), m_document->isModified());
 	}
 }
 
@@ -1152,7 +1148,7 @@ void MainWindow::saveAs()
 			m_document->setURL(url);
 			m_document->saveDocument();
 			m_fileOpenRecent->addUrl(url);
-			setCaption(url.fileName(), false);
+			setCaption(m_document->URL().fileName(), m_document->isModified());
 		}
 	}
 }
@@ -1177,6 +1173,7 @@ void MainWindow::revert()
 				m_editor->update();
 				m_preview->update();
 				m_palette->update();
+				setCaption(m_document->URL().fileName(), m_document->isModified());
 			}
 		}
 		else
