@@ -724,6 +724,15 @@ void Editor::showKnotsAsColorBlocks()
 
 
 /**
+	Set the knot representation to color symbols
+	*/
+void Editor::showKnotsAsColorSymbols()
+{
+	m_paintKnotCallPointer = &Editor::paintKnotsAsColorSymbols;
+}
+
+
+/**
 	Set the knot representation to symbols
 	*/
 void Editor::showKnotsAsBlackWhiteSymbols()

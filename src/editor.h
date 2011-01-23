@@ -113,6 +113,7 @@ class Editor : public QWidget
 		void showBackstitchesAsBlackWhiteSymbols();
 		void showBackstitchesAsColorHilight();
 		void showKnotsAsColorBlocks();
+		void showKnotsAsColorSymbols();
 		void showKnotsAsBlackWhiteSymbols();
 		void showKnotsAsColorHilight();
 
