@@ -97,9 +97,6 @@ void Document::initialiseNew()
 	qDeleteAll(m_canvasBackstitches);
 	m_canvasBackstitches.clear();
 
-	m_documentNew = true;
-	m_documentModified = false;
-
 	setURL(i18n("Untitled"));
 }
 
@@ -361,7 +358,7 @@ bool Document::loadURL(const KUrl &url)
 
 					if (validRead)
 					{
-						m_documentNew = false;
+						m_undoStack.clear();
 						setURL(url);
 					}
 				}
@@ -405,15 +402,9 @@ KUrl Document::URL() const
 }
 
 
-bool Document::isNew() const
-{
-	return m_documentNew;
-}
-
-
 bool Document::isModified() const
 {
-	return m_documentModified;
+	return !m_undoStack.isClean();
 }
 
 
@@ -483,14 +474,16 @@ bool Document::saveDocument()
 
 		file.flush();
 		file.close();
-		m_documentModified = false;
+
+		m_undoStack.setClean();
+
 		return true;
 	}
 	return false;
 }
 
 
-QVariant Document::property(QString propertyName) const
+QVariant Document::property(const QString &propertyName) const
 {
 	if (! m_properties.contains(propertyName))
 		kDebug() << "Asked for non existant property " << propertyName;
@@ -498,15 +491,13 @@ QVariant Document::property(QString propertyName) const
 }
 
 
-void Document::setProperty(QString propertyName, QVariant propertyValue)
+void Document::setProperty(const QString &propertyName, const QVariant &propertyValue)
 {
 	m_properties[propertyName] = propertyValue;
-	m_documentModified = true;
-	m_documentNew = false;
 }
 
 
-StitchQueue *Document::stitchAt(QPoint cell) const
+StitchQueue *Document::stitchAt(const QPoint &cell) const
 {
 	if (validateCell(cell))
 		return m_canvasStitches.value(canvasIndex(cell)); // this will be 0 if no queue exists at x,y
@@ -529,12 +520,10 @@ int Document::currentFlossIndex() const
 void Document::setCurrentFlossIndex(int floss)
 {
 	m_properties["currentFlossIndex"] = floss;
-	m_documentModified = true;
-	m_documentNew = false;
 }
 
 
-bool Document::addStitch(Stitch::Type type, QPoint &cell)
+bool Document::addStitch(Stitch::Type type, const QPoint &cell)
 {
 	if (!validateCell(cell))
 		return false;
@@ -578,35 +567,25 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_properties["currentFlossIndex"].toInt()));
 			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_properties["currentFlossIndex"].toInt()));
 			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		case 5: // TLQtr and BLQtr
 			stitchQueue->enqueue(new Stitch(Stitch::TLQtr, m_properties["currentFlossIndex"].toInt()));
 			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_properties["currentFlossIndex"].toInt()));
 			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		case 10: // TRQtr and BRQtr
 			stitchQueue->enqueue(new Stitch(Stitch::TRQtr, m_properties["currentFlossIndex"].toInt()));
 			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_properties["currentFlossIndex"].toInt()));
 			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		case 12: // BLQtr and BRQtr
 			stitchQueue->enqueue(new Stitch(Stitch::BLQtr, m_properties["currentFlossIndex"].toInt()));
 			stitchQueue->enqueue(new Stitch(Stitch::BRQtr, m_properties["currentFlossIndex"].toInt()));
 			m_usedFlosses[m_properties["currentFlossIndex"].toInt()] += 2;
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		default: // other values are acceptable as is including mini stitches
 			stitchQueue->enqueue(new Stitch(type, m_properties["currentFlossIndex"].toInt()));
 			m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 	}
 
@@ -633,32 +612,24 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 					stitchQueue->enqueue(new Stitch(Stitch::TLQtr, currentFlossIndex));
 					stitchQueue->enqueue(new Stitch(Stitch::TRQtr, currentFlossIndex));
 					m_usedFlosses[currentFlossIndex] += 2;
-					m_documentModified = true;
-					m_documentNew = false;
 					changeMask = Stitch::Delete;
 					break;
 				case 5:
 					stitchQueue->enqueue(new Stitch(Stitch::TLQtr, currentFlossIndex));
 					stitchQueue->enqueue(new Stitch(Stitch::BLQtr, currentFlossIndex));
 					m_usedFlosses[currentFlossIndex] += 2;
-					m_documentModified = true;
-					m_documentNew = false;
 					changeMask = Stitch::Delete;
 					break;
 				case 10:
 					stitchQueue->enqueue(new Stitch(Stitch::TRQtr, currentFlossIndex));
 					stitchQueue->enqueue(new Stitch(Stitch::BRQtr, currentFlossIndex));
 					m_usedFlosses[currentFlossIndex] += 2;
-					m_documentModified = true;
-					m_documentNew = false;
 					changeMask = Stitch::Delete;
 					break;
 				case 12:
 					stitchQueue->enqueue(new Stitch(Stitch::BLQtr, currentFlossIndex));
 					stitchQueue->enqueue(new Stitch(Stitch::BRQtr, currentFlossIndex));
 					m_usedFlosses[currentFlossIndex] += 2;
-					m_documentModified = true;
-					m_documentNew = false;
 					changeMask = Stitch::Delete;
 					break;
 				default:
@@ -671,22 +642,16 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 				stitch->setType(changeMask);           // and change stitch type to the changeMask value
 				stitchQueue->enqueue(stitch);        // and then add it back to the queue
 				m_usedFlosses[stitch->floss()]++;
-				m_documentModified = true;
-				m_documentNew = false;
 			}
 			else // if changeMask is 0, it does not get requeued, effectively deleting it from the pattern
 			{
 				delete stitch;                     // delete the Stitch as it is no longer required
-				m_documentModified = true;
-				m_documentNew = false;
 			}
 		}
 		else
 		{
 			stitchQueue->enqueue(stitch);
 			m_usedFlosses[stitch->floss()] += 1;
-			m_documentModified = true;
-			m_documentNew = false;
 		}
 	}
 
@@ -694,7 +659,7 @@ bool Document::addStitch(Stitch::Type type, QPoint &cell)
 }
 
 
-bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor)
+bool Document::deleteStitch(const QPoint &cell, Stitch::Type maskStitch, int maskColor)
 {
 	if (!validateCell(cell))
 		return false;			// Cell isn't valid so it can't be deleted
@@ -715,8 +680,6 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 			if (!maskColor || (stitch->floss() == m_properties["currentFlossIndex"].toInt()))
 			{
 				delete stitch;
-				m_documentModified = true;
-				m_documentNew = false;
 			}
 			else
 			{
@@ -742,8 +705,6 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 			{
 				// delete any stitches of the required stitch if it is the correct color or if the color doesn't matter
 				delete stitch;
-				m_documentModified = true;
-				m_documentNew = false;
 			}
 			else
 			{
@@ -753,8 +714,6 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 					Stitch::Type changeMask = (Stitch::Type)(stitch->type() ^ maskStitch);
 					int flossIndex = stitch->floss();
 					delete stitch;
-					m_documentModified = true;
-					m_documentNew = false;
 					switch (changeMask)
 					{
 						// changeMask contains what is left of the original stitch after deleting the maskStitch
@@ -798,14 +757,12 @@ bool Document::deleteStitch(QPoint &cell, Stitch::Type maskStitch, int maskColor
 }
 
 
-bool Document::addBackstitch(QPoint &start, QPoint &end)
+bool Document::addBackstitch(const QPoint &start, const QPoint &end)
 {
 	if (validateSnap(start) && validateSnap(end))
 	{
 		m_canvasBackstitches.append(new Backstitch(start, end, m_properties["currentFlossIndex"].toInt()));
 		m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
-		m_documentModified = true;
-		m_documentNew = false;
 		return true;
 	}
 
@@ -827,8 +784,6 @@ bool Document::deleteBackstitch(const QPoint &start, const QPoint &end, int mask
 			{
 				m_usedFlosses[m_canvasBackstitches.at(i)->floss()]--;
 				m_canvasBackstitches.removeAt(i);
-				m_documentModified = true;
-				m_documentNew = false;
 				deleted = true;
 				break;
 			}
@@ -839,14 +794,12 @@ bool Document::deleteBackstitch(const QPoint &start, const QPoint &end, int mask
 }
 
 
-bool Document::addFrenchKnot(QPoint &snap)
+bool Document::addFrenchKnot(const QPoint &snap)
 {
 	if (validateSnap(snap))
 	{
 		m_canvasKnots.append(new Knot(snap, m_properties["currentFlossIndex"].toInt()));
 		m_usedFlosses[m_properties["currentFlossIndex"].toInt()]++;
-		m_documentModified = true;
-		m_documentNew = false;
 		return true;
 	}
 
@@ -854,7 +807,7 @@ bool Document::addFrenchKnot(QPoint &snap)
 }
 
 
-bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
+bool Document::deleteFrenchKnot(const QPoint &snap, int maskColor)
 {
 	bool deleted = false;
 
@@ -866,8 +819,6 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 			{
 				m_usedFlosses[m_canvasKnots.at(i)->floss()]--;
 				m_canvasKnots.removeAt(i);
-				m_documentModified = true;
-				m_documentNew = false;
 				deleted = true;
 			}
 			else
@@ -882,8 +833,12 @@ bool Document::deleteFrenchKnot(QPoint &snap, int maskColor)
 void Document::selectFloss(int flossIndex)
 {
 	m_properties["currentFlossIndex"] = flossIndex;
-	m_documentModified = true;
-	m_documentNew = false;
+}
+
+
+QUndoStack &Document::undoStack()
+{
+	return m_undoStack;
 }
 
 
@@ -930,77 +885,66 @@ bool Document::paletteManager()
 	if (paletteManagerDlg->exec())
 	{
 		added = true;
-		m_documentModified = true;
-		m_documentNew = false;
 	}
 
 	return added;
 }
 
 
-void Document::addBackgroundImage(KUrl url, QRect &rect)
+void Document::addBackgroundImage(const KUrl &url, const QRect &rect)
 {
 	BackgroundImage *backgroundImage = new BackgroundImage(url, rect);
-	m_documentModified = true;
-	m_documentNew = false;
-
 
 	m_backgroundImages.append(backgroundImage);
 }
 
 
-void Document::removeBackgroundImage(QString url)
+void Document::removeBackgroundImage(const QString &url)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
 		if (m_backgroundImages.at(i)->URL() == url)
 		{
 			m_backgroundImages.removeAt(i);
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		}
 	}
 }
 
 
-void Document::fitBackgroundImage(QString url, QRect selectionArea)
+void Document::fitBackgroundImage(const QString &url, const QRect &selectionArea)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
 		if (m_backgroundImages.at(i)->URL() == url)
 		{
 			m_backgroundImages[i]->setLocation(selectionArea);
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		}
 	}
 }
 
 
-void Document::showBackgroundImage(QString url, bool visible)
+void Document::showBackgroundImage(const QString &url, bool visible)
 {
 	for (int i = 0 ; i < m_backgroundImages.count() ; i++)
 	{
 		if (m_backgroundImages.at(i)->URL() == url)
 		{
 			m_backgroundImages[i]->setVisible(visible);
-			m_documentModified = true;
-			m_documentNew = false;
 			break;
 		}
 	}
 }
 
 
-unsigned int Document::canvasIndex(QPoint &cell) const
+unsigned int Document::canvasIndex(const QPoint &cell) const
 {
 	return cell.y()*m_properties["width"].toInt() + cell.x();
 }
 
 
-bool Document::validateCell(QPoint &cell) const
+bool Document::validateCell(const QPoint &cell) const
 {
 	if (cell.x() < 0)
 		return false;
@@ -1014,7 +958,7 @@ bool Document::validateCell(QPoint &cell) const
 }
 
 
-bool Document::validateSnap(QPoint &snap) const
+bool Document::validateSnap(const QPoint &snap) const
 {
 	if (snap.x() < 0)
 		return false;

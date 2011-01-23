@@ -21,6 +21,7 @@
 #include <QRect>
 #include <QStack>
 #include <QString>
+#include <QUndoStack>
 #include <QVector>
 
 #include <KUrl>
@@ -81,23 +82,22 @@ class Document
 		unsigned  height() const;
 		bool loadURL(const KUrl &);
 		KUrl URL() const;
-		void setURL(const KUrl&);
-		bool isNew() const;
+		void setURL(const KUrl &);
 		bool isModified() const;
 		bool saveDocument();
-		QVariant property(QString) const;
-		void setProperty(QString, QVariant);
-		StitchQueue *stitchAt(QPoint) const;
+		QVariant property(const QString &) const;
+		void setProperty(const QString &, const QVariant &);
+		StitchQueue *stitchAt(const QPoint &) const;
 		const Floss *floss(int) const;
 		int currentFlossIndex() const;
 		void setCurrentFlossIndex(int);
 
-		bool addStitch(Stitch::Type, QPoint &);
-		bool deleteStitch(QPoint &, Stitch::Type, int);
-		bool addBackstitch(QPoint &, QPoint &);
+		bool addStitch(Stitch::Type, const QPoint &);
+		bool deleteStitch(const QPoint &, Stitch::Type, int);
+		bool addBackstitch(const QPoint &, const QPoint &);
 		bool deleteBackstitch(const QPoint &, const QPoint &, int);
-		bool addFrenchKnot(QPoint &);
-		bool deleteFrenchKnot(QPoint &, int);
+		bool addFrenchKnot(const QPoint &);
+		bool deleteFrenchKnot(const QPoint &, int);
 
 		void selectFloss(int);
 		void clearUnusedColors();
@@ -106,24 +106,22 @@ class Document
 		QListIterator<Backstitch *> backstitches() const;
 		QListIterator<Knot *> knots() const;
 		bool paletteManager();
-		void addBackgroundImage(KUrl, QRect &);
-		void removeBackgroundImage(QString);
-		void fitBackgroundImage(QString, QRect);
-		void showBackgroundImage(QString, bool);
+		void addBackgroundImage(const KUrl &, const QRect &);
+		void removeBackgroundImage(const QString &);
+		void fitBackgroundImage(const QString &, const QRect &);
+		void showBackgroundImage(const QString &, bool);
+
+		QUndoStack &undoStack();
 
 	private:
-		unsigned int canvasIndex(QPoint &) const;
-		bool validateCell(QPoint &) const;
-		bool validateSnap(QPoint &) const;
+		unsigned int canvasIndex(const QPoint &) const;
+		bool validateCell(const QPoint &) const;
+		bool validateSnap(const QPoint &) const;
 
 		// Document properties
 		QVariantMap				m_properties;
-		bool					m_documentNew;
-		bool					m_documentModified;
 		KUrl					m_documentURL;
 		QList<BackgroundImage *>	m_backgroundImages;
-		QStack<QByteArray>		m_undoStack;
-		QStack<QByteArray>		m_redoStack;
 
 		// Palette properties
 		SchemeManager			*m_schemeManager;
@@ -134,6 +132,8 @@ class Document
 		QMap<int, int>			m_usedFlosses;
 		QList<Knot *>			m_canvasKnots;
 		QList<Backstitch *>		m_canvasBackstitches;
+
+		QUndoStack				m_undoStack;
 };
 
 

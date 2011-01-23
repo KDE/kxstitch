@@ -208,8 +208,8 @@ void MainWindow::setupActions()
 	KStandardAction::quit(this, SLOT(closeAllWindows()), ac);
 
 	// Edit Menu
-	KStandardAction::undo(this, SLOT(undo()), ac);
-	KStandardAction::redo(this, SLOT(redo()), ac);
+	m_undo = KStandardAction::undo(this, SLOT(undo()), ac);
+	m_redo = KStandardAction::redo(this, SLOT(redo()), ac);
 	// ----------
 	KStandardAction::cut(this, SLOT(cut()), ac);
 	KStandardAction::copy(this, SLOT(copy()), ac);
@@ -823,6 +823,22 @@ void MainWindow::setActionsFromDocument()
 	m_showStitches->setChecked(m_document->property("paintStitches").toBool());
 	m_showBackstitches->setChecked(m_document->property("paintBackstitches").toBool());
 	m_showFrenchKnots->setChecked(m_document->property("paintFrenchKnots").toBool());
+
+	connect(&m_document->undoStack(), SIGNAL(canUndoChanged(bool)), m_undo, SLOT(setEnabled(bool)));
+	connect(&m_document->undoStack(), SIGNAL(canRedoChanged(bool)), m_redo, SLOT(setEnabled(bool)));
+	connect(&m_document->undoStack(), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
+
+	m_undo->setEnabled(m_document->undoStack().canUndo());
+	m_redo->setEnabled(m_document->undoStack().canRedo());
+}
+
+
+/**
+	Slot to receive document modified signal to update the title bar.
+	*/
+void MainWindow::documentModified(bool clean)
+{
+	setCaption(m_document->URL().fileName(), !clean);
 }
 
 
@@ -1084,7 +1100,7 @@ void MainWindow::open()
 	*/
 void MainWindow::open(const KUrl &url)
 {
-	if (m_document->isModified() && m_document->URL().fileName() == i18n("Untitled"))
+	if (!m_document->isModified() && m_document->URL().fileName() == i18n("Untitled"))
 	{
 		if (!url.isEmpty() && !m_document->loadURL(url))
 		{
@@ -1159,26 +1175,19 @@ void MainWindow::saveAs()
 	*/
 void MainWindow::revert()
 {
-	if (m_document->isNew())
-		KMessageBox::information(this, i18n("The document is empty"));
-	else
+	if (m_document->isModified())
 	{
-		if (m_document->isModified())
+		if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes)
 		{
-			if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes)
-			{
-				KUrl url = m_document->URL();
-				m_document->initialiseNew();
-				m_document->loadURL(url);
-				m_editor->update();
-				m_preview->update();
-				m_palette->update();
-				setCaption(m_document->URL().fileName(), m_document->isModified());
-			}
+			KUrl url = m_document->URL();
+			m_document->undoStack().setIndex(m_document->undoStack().cleanIndex());
+			m_editor->update();
+			m_preview->update();
+			m_palette->update();
 		}
-		else
-			KMessageBox::information(this, i18n("There are no changes to revert"));
 	}
+	else
+		KMessageBox::information(this, i18n("There are no changes to revert"));
 }
 
 
@@ -1258,6 +1267,10 @@ void MainWindow::closeAllWindows()
 	*/
 void MainWindow::undo()
 {
+	m_document->undoStack().undo();
+	m_editor->update();
+	m_preview->update();
+	m_palette->update();
 }
 
 
@@ -1266,6 +1279,10 @@ void MainWindow::undo()
 	*/
 void MainWindow::redo()
 {
+	m_document->undoStack().redo();
+	m_editor->update();
+	m_preview->update();
+	m_palette->update();
 }
 
 

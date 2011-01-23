@@ -47,6 +47,7 @@ class MainWindow : public KXmlGuiWindow
 		void loadSettings();
 		void saveSettings();
 		void statusMessage(const QString &);
+		void documentModified(bool);
 
 	protected:
 		virtual bool queryClose();
@@ -123,6 +124,9 @@ class MainWindow : public KXmlGuiWindow
 		QList<QAction *>	m_showBackgroundImageActions;
 		KAction				*m_fileProperties;
 		KAction				*m_fileImport;
+
+		KAction				*m_undo;
+		KAction				*m_redo;
 
 		KAction				*m_maskStitch;
 		KAction				*m_maskColor;
