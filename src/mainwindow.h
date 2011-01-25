@@ -48,6 +48,8 @@ class MainWindow : public KXmlGuiWindow
 		void saveSettings();
 		void statusMessage(const QString &);
 		void documentModified(bool);
+		void undoTextChanged(const QString &);
+		void redoTextChanged(const QString &);
 
 	protected:
 		virtual bool queryClose();

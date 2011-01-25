@@ -38,6 +38,7 @@
 #include <KStatusBar>
 
 #include "backgroundimage.h"
+#include "commands.h"
 #include "configuration.h"
 #include "document.h"
 #include "editor.h"
@@ -817,6 +818,7 @@ void MainWindow::setActionsFromDocument()
 			break;
 	}
 
+
 	m_paletteShowSymbols->setChecked(m_document->property("showPaletteSymbols").toBool());
 	m_showBackgroundImages->setChecked(m_document->property("paintBackgroundImages").toBool());
 	m_showGrid->setChecked(m_document->property("paintGrid").toBool());
@@ -826,6 +828,8 @@ void MainWindow::setActionsFromDocument()
 
 	connect(&m_document->undoStack(), SIGNAL(canUndoChanged(bool)), m_undo, SLOT(setEnabled(bool)));
 	connect(&m_document->undoStack(), SIGNAL(canRedoChanged(bool)), m_redo, SLOT(setEnabled(bool)));
+	connect(&m_document->undoStack(), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
+	connect(&m_document->undoStack(), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
 	connect(&m_document->undoStack(), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
 
 	m_undo->setEnabled(m_document->undoStack().canUndo());
@@ -839,6 +843,24 @@ void MainWindow::setActionsFromDocument()
 void MainWindow::documentModified(bool clean)
 {
 	setCaption(m_document->URL().fileName(), !clean);
+}
+
+
+/**
+	Slot to receive undo text changed signal to update the text of the undo menu entry
+	*/
+void MainWindow::undoTextChanged(const QString &text)
+{
+	m_undo->setText(QString(i18n("Undo %1").arg(text)));
+}
+
+
+/**
+	Slot to receive redo text changed signal to update the text of the redo menu entry
+	*/
+void MainWindow::redoTextChanged(const QString &text)
+{
+	m_redo->setText(QString(i18n("Redo %1").arg(text)));
 }
 
 
@@ -983,6 +1005,7 @@ void MainWindow::updateBackgroundImageActionLists()
 	while (backgroundImages.hasNext())
 	{
 		BackgroundImage *background = backgroundImages.next();
+		kDebug() << background;
 
 		KAction *action = new KAction(background->URL().fileName(), this);
 		action->setData(background->URL().pathOrUrl());
@@ -1025,7 +1048,7 @@ void MainWindow::updateBackgroundImageActionLists()
 void MainWindow::removeBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->removeBackgroundImage(action->data().toString());
+	m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, action->data().toString()));
 	updateBackgroundImageActionLists();
 	m_editor->update();
 }
@@ -1044,7 +1067,7 @@ void MainWindow::removeBackgroundImage()
 void MainWindow::fitBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->fitBackgroundImage(action->data().toString(), m_editor->selectionArea());
+	m_document->undoStack().push(new FitBackgroundImageCommand(m_document, action->data().toString(), m_editor->selectionArea()));
 	m_editor->update();
 }
 
@@ -1062,7 +1085,7 @@ void MainWindow::fitBackgroundImage()
 void MainWindow::showBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->showBackgroundImage(action->data().toString(), action->isChecked());
+	m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, action->data().toString(), action->isChecked()));
 	m_editor->update();
 }
 
@@ -1224,9 +1247,16 @@ void MainWindow::addBackgroundImage()
 	{
 		QRect r;
 		QRect s = m_editor->selectionArea();
-		m_document->addBackgroundImage(url, (s.isValid()?s:r));
-		updateBackgroundImageActionLists();
-		m_editor->update();
+		BackgroundImage *backgroundImage = new BackgroundImage(url, (s.isValid()?s:r));
+		kDebug() << backgroundImage;
+		if (backgroundImage->isValid())
+		{
+			m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage));
+			updateBackgroundImageActionLists();
+			m_editor->update();
+		}
+		else
+			delete backgroundImage;
 	}
 }
 
@@ -1268,6 +1298,7 @@ void MainWindow::closeAllWindows()
 void MainWindow::undo()
 {
 	m_document->undoStack().undo();
+	updateBackgroundImageActionLists(); // in case undoing something that affected the background images.
 	m_editor->update();
 	m_preview->update();
 	m_palette->update();
@@ -1280,6 +1311,7 @@ void MainWindow::undo()
 void MainWindow::redo()
 {
 	m_document->undoStack().redo();
+	updateBackgroundImageActionLists(); // in case redoing something that affected the background images.
 	m_editor->update();
 	m_preview->update();
 	m_palette->update();
