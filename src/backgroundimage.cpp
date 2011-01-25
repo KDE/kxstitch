@@ -17,7 +17,7 @@ BackgroundImage::BackgroundImage(const KUrl &url, const QRect &location)
 		m_location(location),
 		m_visible(true)
 {
-	m_image.load(m_url.path());
+	m_status = m_image.load(m_url.path()); // will be true if successfully loaded
 	QPixmap pixmap = QPixmap::fromImage(m_image);
 	m_icon.addPixmap(pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
@@ -65,6 +65,12 @@ bool BackgroundImage::isVisible() const
 void BackgroundImage::setVisible(bool visible)
 {
 	m_visible = visible;
+}
+
+
+bool BackgroundImage::isValid() const
+{
+	return m_status;
 }
 
 

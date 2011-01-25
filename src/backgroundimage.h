@@ -1,3 +1,4 @@
+
 /****************************************************************************
  *	Copyright (C) 2010 by Stephen Allewell									*
  *	stephen@mirramar.adsl24.co.uk											*
@@ -32,6 +33,7 @@ class BackgroundImage
 		void setLocation(const QRect &);
 		bool isVisible() const;
 		void setVisible(bool);
+		bool isValid() const;
 		const QImage &image() const;
 		const QIcon &icon() const;
 
@@ -39,6 +41,7 @@ class BackgroundImage
 		KUrl	m_url;
 		QRect	m_location;
 		bool	m_visible;
+		bool	m_status;
 		QImage	m_image;
 		QIcon	m_icon;
 };
