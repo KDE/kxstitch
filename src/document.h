@@ -88,18 +88,18 @@ class Document
 		QVariant property(const QString &) const;
 		void setProperty(const QString &, const QVariant &);
 		StitchQueue *stitchAt(const QPoint &) const;
+		void replaceStitchAt(const QPoint &, StitchQueue *);
 		const Floss *floss(int) const;
 		int currentFlossIndex() const;
 		void setCurrentFlossIndex(int);
 
-		bool addStitch(Stitch::Type, const QPoint &);
+		bool addStitch(const QPoint &, Stitch::Type, int);
 		bool deleteStitch(const QPoint &, Stitch::Type, int);
-		bool addBackstitch(const QPoint &, const QPoint &);
+		bool addBackstitch(const QPoint &, const QPoint &, int);
 		bool deleteBackstitch(const QPoint &, const QPoint &, int);
-		bool addFrenchKnot(const QPoint &);
+		bool addFrenchKnot(const QPoint &, int);
 		bool deleteFrenchKnot(const QPoint &, int);
 
-		void selectFloss(int);
 		void clearUnusedColors();
 		QMap<int, DocumentFloss *> &palette();
 		QListIterator<BackgroundImage *> backgroundImages() const;
@@ -107,9 +107,10 @@ class Document
 		QListIterator<Knot *> knots() const;
 		bool paletteManager();
 		void addBackgroundImage(const KUrl &, const QRect &);
-		void removeBackgroundImage(const QString &);
-		void fitBackgroundImage(const QString &, const QRect &);
-		void showBackgroundImage(const QString &, bool);
+		void addBackgroundImage(BackgroundImage *);
+		BackgroundImage *removeBackgroundImage(BackgroundImage *);
+		QRect fitBackgroundImage(const QString &, const QRect &);
+		bool showBackgroundImage(const QString &, bool);
 
 		QUndoStack &undoStack();
 
