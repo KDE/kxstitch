@@ -212,6 +212,7 @@ class Editor : public QWidget
 		void paintBackstitchesAsColorHilight(QPainter *, Backstitch *);
 
 		void paintKnotsAsColorBlocks(QPainter *, Knot *);
+		void paintKnotsAsColorSymbols(QPainter *, Knot *);
 		void paintKnotsAsBlackWhiteSymbols(QPainter *, Knot *);
 		void paintKnotsAsColorHilight(QPainter *, Knot *);
 
@@ -220,7 +221,7 @@ class Editor : public QWidget
 		QPoint contentsToSnap(const QPoint &) const;
 		QPoint snapToContents(const QPoint &) const;
 		QRect cellToRect(QPoint);
-		void processBitmap(QBitmap &);
+		void processBitmap(QBitmap &, const QString &);
 
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*paintStitchCallPointer)(QPainter *, int, int, int, int, StitchQueue *);
