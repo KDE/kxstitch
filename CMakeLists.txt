@@ -29,6 +29,7 @@ set (kxstitch_SRCS
   src/schemeparser.cpp
   src/flossscheme.cpp
   src/palettemanagerdlg.cpp
+  src/commands.cpp
   src/backgroundimage.cpp
   src/floss.cpp
 )
