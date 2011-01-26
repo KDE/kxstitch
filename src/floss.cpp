@@ -70,6 +70,15 @@ DocumentFloss::DocumentFloss(Floss *floss, QChar symbol, unsigned stitchStrands,
 }
 
 
+DocumentFloss::DocumentFloss(DocumentFloss *documentFloss)
+{
+	m_floss = documentFloss->m_floss;
+	m_symbol = documentFloss->m_symbol;
+	m_stitchStrands = documentFloss->m_stitchStrands;
+	m_backstitchStrands = documentFloss->m_backstitchStrands;
+}
+
+
 DocumentFloss::~DocumentFloss()
 {
 }
@@ -120,4 +129,16 @@ unsigned DocumentFloss::backstitchStrands() const
 void DocumentFloss::setBackstitchStrands(unsigned backstitchStrands)
 {
 	m_backstitchStrands = backstitchStrands;
+}
+
+
+bool DocumentFloss::operator==(const DocumentFloss &floss)
+{
+	return ((m_floss == floss.m_floss) && (m_symbol == floss.m_symbol) && (m_stitchStrands == floss.m_stitchStrands) && (m_backstitchStrands == floss.m_backstitchStrands));
+}
+
+
+bool DocumentFloss::operator!=(const DocumentFloss &floss)
+{
+	return !(*this == floss);
 }

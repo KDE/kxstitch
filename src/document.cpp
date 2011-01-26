@@ -863,6 +863,32 @@ QMap<int, DocumentFloss *> &Document::palette()
 }
 
 
+void Document::addFloss(int key, DocumentFloss *documentFloss)
+{
+	m_palette.insert(key, documentFloss);
+
+}
+
+
+DocumentFloss *Document::removeFloss(int key)
+{
+	DocumentFloss *documentFloss = m_palette.take(key);
+	if (m_palette.isEmpty())
+	{
+		setCurrentFlossIndex(-1);
+	}
+	return documentFloss;
+}
+
+
+DocumentFloss *Document::changeFloss(int key, DocumentFloss *documentFloss)
+{
+	DocumentFloss *original = m_palette.value(key);
+	m_palette.insert(key, documentFloss);
+	return original;
+}
+
+
 QListIterator<BackgroundImage *> Document::backgroundImages() const
 {
 	return QListIterator<BackgroundImage*>(m_backgroundImages);
@@ -884,7 +910,7 @@ QListIterator<Knot *> Document::knots() const
 bool Document::paletteManager()
 {
 	bool added = false;
-	PaletteManagerDlg *paletteManagerDlg = new PaletteManagerDlg(m_schemeManager, m_properties["flossSchemeName"].toString(), m_palette, m_usedFlosses);
+	PaletteManagerDlg *paletteManagerDlg = new PaletteManagerDlg(this, m_schemeManager, m_properties["flossSchemeName"].toString(), m_palette, m_usedFlosses);
 	if (paletteManagerDlg->exec())
 	{
 		added = true;

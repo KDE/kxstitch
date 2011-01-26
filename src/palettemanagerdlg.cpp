@@ -11,6 +11,7 @@
 
 #include <QWidget>
 
+#include "commands.h"
 #include "configuration.h"
 #include "floss.h"
 #include "flossscheme.h"
@@ -18,17 +19,23 @@
 #include "schememanager.h"
 
 
-PaletteManagerDlg::PaletteManagerDlg(SchemeManager *schemeManager, const QString &schemeName, QMap<int, DocumentFloss *> &palette, QMap<int, int> &usedFlosses)
+PaletteManagerDlg::PaletteManagerDlg(Document *document, SchemeManager *schemeManager, const QString &schemeName, QMap<int, DocumentFloss *> &palette, QMap<int, int> &usedFlosses)
   : KDialog(0),
 //	m_characterSelectDlg(0),
+	m_document(document),
 	m_schemeManager(schemeManager),
 	m_schemeName(schemeName),
 	m_documentPalette(palette),
-	m_dialogPalette(palette),
+//	m_dialogPalette(palette),
 	m_usedFlosses(usedFlosses)
 {
 	setCaption(i18n("Palette Manager"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	QMap<int, DocumentFloss *>::const_iterator it;
+	for (it = palette.begin() ; it != palette.end() ; ++it)
+	{
+		m_dialogPalette.insert(it.key(), new DocumentFloss(it.value()));
+	}
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);
@@ -48,6 +55,41 @@ void PaletteManagerDlg::slotButtonClicked(int button)
 {
 	if (button == KDialog::Ok)
 	{
+		QList<QUndoCommand *> changes;
+
+		QMap<int, DocumentFloss *>::const_iterator it;
+		for (it = m_documentPalette.begin() ; it != m_documentPalette.end() ; ++it)
+		{
+			if (m_dialogPalette.contains(it.key()))
+			{
+				if (*(it.value()) != *(m_dialogPalette.value(it.key())))
+					changes.append(new ChangeFlossCommand(m_document, it.key(), m_dialogPalette.value(it.key())));
+			}
+			else
+				changes.append(new RemoveFlossCommand(m_document, it.key(), m_dialogPalette.value(it.key())));
+		}
+
+		for (it = m_dialogPalette.begin() ; it != m_dialogPalette.end() ; ++it)
+		{
+			if (!m_documentPalette.contains(it.key()))
+				changes.append(new AddFlossCommand(m_document, it.key(), it.value()));
+		}
+
+		if (!changes.isEmpty())
+		{
+			m_document->undoStack().beginMacro(i18n("Update Palette"));
+			QList<QUndoCommand *>::const_iterator it;
+			for (it = changes.begin() ; it != changes.end() ; ++it)
+			{
+				m_document->undoStack().push(*it);
+			}
+			m_document->undoStack().endMacro();
+		}
+		accept();
+	}
+#if 0
+	if (button == KDialog::Ok)
+	{
 		m_documentPalette.clear();
 		QMapIterator<int, DocumentFloss *> i(m_dialogPalette);
 		while (i.hasNext())
@@ -57,6 +99,7 @@ void PaletteManagerDlg::slotButtonClicked(int button)
 		}
 		accept();
 	}
+#endif
 	else
 		KDialog::slotButtonClicked(button);
 }

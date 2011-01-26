@@ -42,6 +42,7 @@ class DocumentFloss
 {
 	public:
 		DocumentFloss(Floss *, QChar, unsigned, unsigned);
+		DocumentFloss(DocumentFloss *);
 		~DocumentFloss();
 
 		const Floss *floss() const;
@@ -52,6 +53,9 @@ class DocumentFloss
 		void setStitchStrands(unsigned);
 		unsigned backstitchStrands() const;
 		void setBackstitchStrands(unsigned);
+
+		bool operator==(const DocumentFloss &);
+		bool operator!=(const DocumentFloss &);
 
 	private:
 		Floss		*m_floss;

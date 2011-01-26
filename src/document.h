@@ -89,9 +89,6 @@ class Document
 		void setProperty(const QString &, const QVariant &);
 		StitchQueue *stitchAt(const QPoint &) const;
 		void replaceStitchAt(const QPoint &, StitchQueue *);
-		const Floss *floss(int) const;
-		int currentFlossIndex() const;
-		void setCurrentFlossIndex(int);
 
 		bool addStitch(const QPoint &, Stitch::Type, int);
 		bool deleteStitch(const QPoint &, Stitch::Type, int);
@@ -102,12 +99,20 @@ class Document
 
 		void clearUnusedColors();
 		QMap<int, DocumentFloss *> &palette();
+		void addFloss(int, DocumentFloss *);
+		DocumentFloss *removeFloss(int);
+		DocumentFloss *changeFloss(int, DocumentFloss *);
+		const Floss *floss(int) const;
+		int currentFlossIndex() const;
+		void setCurrentFlossIndex(int);
+		bool paletteManager();
+
 		QListIterator<BackgroundImage *> backgroundImages() const;
 		QListIterator<Backstitch *> backstitches() const;
 		QListIterator<Knot *> knots() const;
-		bool paletteManager();
 		void addBackgroundImage(const KUrl &, const QRect &);
 		void addBackgroundImage(BackgroundImage *);
+		BackgroundImage *removeBackgroundImage(const QString &);
 		BackgroundImage *removeBackgroundImage(BackgroundImage *);
 		QRect fitBackgroundImage(const QString &, const QRect &);
 		bool showBackgroundImage(const QString &, bool);
