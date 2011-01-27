@@ -158,29 +158,29 @@ bool Document::loadURL(const KUrl &url)
 			{
 				QDataStream stream(&file);
 
-	stream >> magic;
+				stream >> magic;
 				if (file.error()) return false;
 				if (magic == "KXStitch")
-	{
-		stream >> fileFormatVersion;
+				{
+					stream >> fileFormatVersion;
 					if (file.error())
 					{
 						file.close();
 						return false;
 					}
-		switch (fileFormatVersion)
-		{
-			case 9:
-				stream	>> width
-						>> height
-						>> title
-						>> author
-						>> copyright
-						>> fabric
-						>> fabricColor
-						>> instructions
+					switch (fileFormatVersion)
+					{
+						case 9:
+							stream	>> width
+									>> height
+									>> title
+									>> author
+									>> copyright
+									>> fabric
+									>> fabricColor
+									>> instructions
 									>> m_properties
-						>> flossSchemeName;
+									>> flossSchemeName;
 							if (file.error()) break;
 							m_properties["width"] = width;
 							m_properties["height"] = height;
@@ -192,185 +192,184 @@ bool Document::loadURL(const KUrl &url)
 							m_properties["instructions"] = instructions;
 							m_properties["flossSchemeName"] = flossSchemeName;
 
-				stream	>> paletteCount;
+							stream	>> paletteCount;
 							if (file.error()) break;
 							flossScheme = m_schemeManager->scheme(m_properties["flossSchemeName"].toString());
-				while (paletteCount--)
-				{
-					stream	>> flossKey
-							>> flossName
-							>> flossSymbol
-							>> stitchStrands
-							>> backstitchStrands;
+							while (paletteCount--)
+							{
+								stream	>> flossKey
+										>> flossName
+										>> flossSymbol
+										>> stitchStrands
+										>> backstitchStrands;
 								if (file.error()) break;
-					Floss *floss = flossScheme->find(flossName);
+								Floss *floss = flossScheme->find(flossName);
 								DocumentFloss *newFloss = new DocumentFloss(floss, flossSymbol, stitchStrands, backstitchStrands);
 								m_palette[flossKey] = newFloss;
-				}
+							}
 
-				stream >> currentFlossIndex;
+							stream >> currentFlossIndex;
 							if (file.error()) break;
 							m_properties["currentFlossIndex"] = currentFlossIndex;
 
-				stream >> usedFlosses;
+							stream >> usedFlosses;
 							if (file.error()) break;
-				while (usedFlosses--)
-				{
-					stream	>> flossKey
-							>> usedFlossesValue;
+							while (usedFlosses--)
+							{
+								stream	>> flossKey
+										>> usedFlossesValue;
 								if (file.error()) break;
 								m_usedFlosses[flossKey] = usedFlossesValue;
-				}
+							}
 
-				stream >> canvasStitches;
+							stream >> canvasStitches;
 							if (file.error()) break;
-				while (canvasStitches--)
-				{
-					stream	>> canvasStitchKey
-							>> stitchQueueCount;
+							while (canvasStitches--)
+							{
+								stream	>> canvasStitchKey
+										>> stitchQueueCount;
 								if (file.error()) break;
 								m_canvasStitches[canvasStitchKey] = new StitchQueue;
-					while (stitchQueueCount--)
-					{
-						stream	>> stitchType
-								>> flossKey;
+								while (stitchQueueCount--)
+								{
+									stream	>> stitchType
+											>> flossKey;
 									if (file.error()) break;
 									m_canvasStitches[canvasStitchKey]->enqueue(new Stitch((Stitch::Type)stitchType, flossKey));
-					}
-				}
+								}
+							}
 
-				stream >> canvasBackstitches;
+							stream >> canvasBackstitches;
 							if (file.error()) break;
-				while (canvasBackstitches--)
-				{
-					stream	>> start
-							>> end
-							>> flossKey;
+							while (canvasBackstitches--)
+							{
+								stream	>> start
+										>> end
+										>> flossKey;
 								if (file.error()) break;
 								m_canvasBackstitches.append(new Backstitch(start, end, flossKey));
-				}
+							}
 
-				stream >> canvasKnots;
+							stream >> canvasKnots;
 							if (file.error()) return false;
-				while (canvasKnots--)
-				{
-					stream	>> start
-							>> flossKey;
+							while (canvasKnots--)
+							{
+								stream	>> start
+										>> flossKey;
 								if (file.error()) break;
 								m_canvasKnots.append(new Knot(start, flossKey));
-				}
+							}
 
-				stream >> backgroundImages;
+							stream >> backgroundImages;
 							if (file.error()) break;
-				while (backgroundImages--)
-				{
-					stream	>> imageURL
-							>> imageLocation
-							>> imageVisible
-							>> image
-							>> imageIcon;
+							while (backgroundImages--)
+							{
+								stream	>> imageURL
+										>> imageLocation
+										>> imageVisible
+										>> image
+										>> imageIcon;
 								if (file.error()) break;
 								BackgroundImage *backgroundImage = new BackgroundImage(imageURL, imageLocation, imageVisible, image, imageIcon);
 								m_backgroundImages.append(backgroundImage);
-				}
+							}
 							validRead = true;
-				break;
+							break;
 
-			case 10:
+						case 10:
 							stream >> m_properties;
 							if (file.error()) break;
 
 							flossScheme = m_schemeManager->scheme(m_properties["flossSchemeName"].toString());
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> flossKey
-							>> flossName
-							>> flossSymbol
-							>> stitchStrands
-							>> backstitchStrands;
-					Floss *floss = flossScheme->find(flossName);
-									m_palette[flossKey] = new DocumentFloss(floss, flossSymbol, stitchStrands, backstitchStrands);
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> flossKey
+										>> flossName
+										>> flossSymbol
+										>> stitchStrands
+										>> backstitchStrands;
+								Floss *floss = flossScheme->find(flossName);
+								m_palette[flossKey] = new DocumentFloss(floss, flossSymbol, stitchStrands, backstitchStrands);
+							}
 							if (file.error()) break;
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> usedFlossKey
-							>> usedFlossValue;
-									m_usedFlosses[usedFlossKey] = usedFlossValue;
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> usedFlossKey
+										>> usedFlossValue;
+								m_usedFlosses[usedFlossKey] = usedFlossValue;
+							}
 							if (file.error()) break;
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> canvasStitchKey
-							>> stitchQueueCount;
-									m_canvasStitches[canvasStitchKey] = new StitchQueue;
-					while (stitchQueueCount--)
-					{
-						stream	>> stitchType
-								>> flossKey;
-											m_canvasStitches[canvasStitchKey]->enqueue(new Stitch((Stitch::Type)stitchType, flossKey));
-					}
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> canvasStitchKey
+										>> stitchQueueCount;
+								m_canvasStitches[canvasStitchKey] = new StitchQueue;
+								while (stitchQueueCount--)
+								{
+									stream	>> stitchType
+											>> flossKey;
+									m_canvasStitches[canvasStitchKey]->enqueue(new Stitch((Stitch::Type)stitchType, flossKey));
+								}
+							}
 							if (file.error()) break;
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> start
-							>> end
-							>> flossKey;
-									m_canvasBackstitches.append(new Backstitch(start, end, flossKey));
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> start
+										>> end
+										>> flossKey;
+								m_canvasBackstitches.append(new Backstitch(start, end, flossKey));
+							}
 							if (file.error()) break;
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> start
-							>> flossKey;
-									m_canvasKnots.append(new Knot(start, flossKey));
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> start
+										>> flossKey;
+								m_canvasKnots.append(new Knot(start, flossKey));
+							}
 							if (file.error()) break;
 
-				stream >> count;
-				while (count--)
-				{
-					stream	>> imageURL
-							>> imageLocation
-							>> imageVisible
-							>> image
-							>> imageIcon;
-									m_backgroundImages.append(new BackgroundImage(imageURL, imageLocation, imageVisible, image, imageIcon));
-				}
+							stream >> count;
+							while (count--)
+							{
+								stream	>> imageURL
+										>> imageLocation
+										>> imageVisible
+										>> image
+										>> imageIcon;
+								m_backgroundImages.append(new BackgroundImage(imageURL, imageLocation, imageVisible, image, imageIcon));
+							}
 							if (file.error()) break;
 
 							validRead = true;
+							break;
 
-				break;
-
-			default:
+						default:
 							kDebug() << "Invalid file format encountered.";
-				break;
-		}
+							break;
+					}
 
 					if (validRead)
 					{
 						m_undoStack.clear();
 						setURL(url);
 					}
-	}
-	else
-	{
+				}
+				else
+				{
 					KMessageBox::detailedError(0, i18n("This file does not appear to be a KXStitch file."), i18n("Not a KXStitch file."));
 				}
 				file.close();
-	}
+			}
 		}
 	}
 	return validRead;
@@ -886,6 +885,7 @@ void Document::addFloss(int key, DocumentFloss *documentFloss)
 DocumentFloss *Document::removeFloss(int key)
 {
 	DocumentFloss *documentFloss = m_palette.take(key);
+	m_usedFlosses.remove(key);
 	if (m_palette.isEmpty())
 	{
 		setCurrentFlossIndex(-1);
