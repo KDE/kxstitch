@@ -847,12 +847,25 @@ QUndoStack &Document::undoStack()
 
 void Document::clearUnusedColors()
 {
-	QMutableMapIterator<int, DocumentFloss *> flosses(m_palette);
+	QList<QUndoCommand *> changes;
+
+	QMapIterator<int, DocumentFloss *> flosses(m_palette);
 	while (flosses.hasNext())
 	{
 		flosses.next();
 		if (m_usedFlosses[flosses.key()] == 0)
-			flosses.remove();
+			changes.append(new RemoveFlossCommand(this, flosses.key(), flosses.value()));
+	}
+
+	if (!changes.isEmpty())
+	{
+		m_undoStack.beginMacro(i18n("Clear Unused Flosses"));
+		QListIterator<QUndoCommand *> it(changes);
+		while (it.hasNext())
+		{
+			m_undoStack.push(it.next());
+		}
+		m_undoStack.endMacro();
 	}
 }
 
