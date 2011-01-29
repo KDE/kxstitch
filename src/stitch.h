@@ -12,9 +12,9 @@
 #ifndef STITCH_H
 #define STITCH_H
 
-
-#include <QQueue>
+#include <QMap>
 #include <QPoint>
+#include <QQueue>
 
 
 /** Store information about individual stitches.
@@ -100,6 +100,16 @@ class StitchQueue : public QQueue<Stitch *>
 		StitchQueue();
 		StitchQueue(const StitchQueue *const queue);
 		~StitchQueue();
+
+		int add(Stitch::Type, int);
+		int remove(Stitch::Type, int);
+		static const QMap<Stitch::Type, int> &usedStitches();
+		static const QMap<int, int> &usedFlosses();
+
+	private:
+		static QMap<Stitch::Type, int> m_usedStitches;
+		static QMap<int, int> m_usedFlosses;
+		int stitchLength(Stitch::Type);
 };
 
 

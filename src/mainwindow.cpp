@@ -1005,7 +1005,6 @@ void MainWindow::updateBackgroundImageActionLists()
 	while (backgroundImages.hasNext())
 	{
 		BackgroundImage *background = backgroundImages.next();
-		kDebug() << background;
 
 		KAction *action = new KAction(background->URL().fileName(), this);
 		action->setData(background->URL().pathOrUrl());
@@ -1248,7 +1247,6 @@ void MainWindow::addBackgroundImage()
 		QRect r;
 		QRect s = m_editor->selectionArea();
 		BackgroundImage *backgroundImage = new BackgroundImage(url, (s.isValid()?s:r));
-		kDebug() << backgroundImage;
 		if (backgroundImage->isValid())
 		{
 			m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage));

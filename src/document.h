@@ -123,6 +123,7 @@ class Document
 		unsigned int canvasIndex(const QPoint &) const;
 		bool validateCell(const QPoint &) const;
 		bool validateSnap(const QPoint &) const;
+		void updateUsedFlosses();
 
 		// Document properties
 		QVariantMap				m_properties;
