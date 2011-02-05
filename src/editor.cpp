@@ -128,6 +128,24 @@ void Editor::setDocument(Document *document)
 {
 	m_document = document;
 	// read the document properties that will be used to display it
+	m_showBackgroundImages = m_document->property("paintBackgroundImages").toBool();
+	m_showGrid = m_document->property("paintGrid").toBool();
+	m_showStitches = m_document->property("paintStitches").toBool();
+	m_showBackstitches = m_document->property("paintBackstitches").toBool();
+	m_showFrenchKnots = m_document->property("paintFrenchKnots").toBool();
+
+	resizeEditor();
+}
+
+
+/**
+	Resize the document.
+	Resize the editor widget and update the scales
+	@param width the new width
+	@param height the new height
+	*/
+void Editor::resizeEditor()
+{
 	m_cellWidth = m_document->property("cellWidth").toUInt();
 	m_cellHeight = m_document->property("cellHeight").toUInt();
 	m_cellHorizontalGrouping = m_document->property("cellHorizontalGrouping").toUInt();
@@ -138,23 +156,17 @@ void Editor::setDocument(Document *document)
 	m_horizontalScale->setCellCount(m_document->width());
 	m_horizontalScale->setClothCount(m_document->property("horizontalClothCount").toDouble());
 	m_horizontalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
-	m_verticalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
 
 	m_verticalScale->setCellSize(m_cellHeight);
 	m_verticalScale->setCellGrouping(m_cellVerticalGrouping);
 	m_verticalScale->setCellCount(m_document->height());
 	m_verticalScale->setClothCount(m_document->property("verticalClothCount").toDouble());
-
-	m_showBackgroundImages = m_document->property("paintBackgroundImages").toBool();
-	m_showGrid = m_document->property("paintGrid").toBool();
-	m_showStitches = m_document->property("paintStitches").toBool();
-	m_showBackstitches = m_document->property("paintBackstitches").toBool();
-	m_showFrenchKnots = m_document->property("paintFrenchKnots").toBool();
-
-	this->resize(m_document->width()*m_cellWidth + 1, m_document->height()*m_cellHeight + 1);
+	m_verticalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
 
 	m_horizontalScale->setOffset(pos().x());
 	m_verticalScale->setOffset(pos().y());
+
+	this->resize(m_document->width()*m_cellWidth + 1, m_document->height()*m_cellHeight + 1);
 }
 
 
@@ -1685,7 +1697,6 @@ void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 	*/
 void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 {
-	kDebug() << m_cellStart << m_cellEnd;
 	m_rubberBand = QRect();
 	update();
 	m_document->undoStack().push(new AddBackstitchCommand(m_document, m_cellStart, m_cellEnd, m_document->currentFlossIndex()));

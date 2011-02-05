@@ -27,6 +27,7 @@
 class BackgroundImage;
 class Document;
 class DocumentFloss;
+class Floss;
 
 
 class AddStitchCommand : public QUndoCommand
@@ -247,7 +248,7 @@ class RemoveFlossCommand : public QUndoCommand
 class ChangeFlossCommand : public QUndoCommand
 {
 	public:
-		ChangeFlossCommand(Document *, unsigned, DocumentFloss *);
+		ChangeFlossCommand(Document *, int, DocumentFloss *);
 		~ChangeFlossCommand();
 
 		virtual void redo();
@@ -255,8 +256,45 @@ class ChangeFlossCommand : public QUndoCommand
 
 	private:
 		Document		*m_document;
-		unsigned		m_key;
+		int				m_key;
 		DocumentFloss	*m_documentFloss;
+};
+
+
+class ResizeDocumentCommand : public QUndoCommand
+{
+	public:
+		ResizeDocumentCommand(Document *, int, int);
+		~ResizeDocumentCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document	*m_document;
+		int			m_width;
+		int			m_height;
+		int			m_originalWidth;
+		int			m_originalHeight;
+		int			m_xOffset;
+		int			m_yOffset;
+		QPoint		m_snapOffset;
+};
+
+
+class ChangeFlossColorCommand : public QUndoCommand
+{
+	public:
+		ChangeFlossColorCommand(Document *, DocumentFloss *, Floss *);
+		~ChangeFlossColorCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document		*m_document;
+		DocumentFloss	*m_documentFloss;
+		const Floss		*m_floss;
 };
 
 

@@ -31,6 +31,9 @@
 
 class Floss;
 class DocumentFloss;
+class Editor;
+class Palette;
+class Preview;
 class SchemeManager;
 class BackgroundImage;
 
@@ -80,6 +83,12 @@ class Document
 
 		unsigned  width() const;
 		unsigned  height() const;
+		void resizeDocument(int, int);
+
+		void setEditor(Editor *);
+		void setPalette(Palette *);
+		void setPreview(Preview *);
+
 		bool loadURL(const KUrl &);
 		KUrl URL() const;
 		void setURL(const KUrl &);
@@ -88,7 +97,8 @@ class Document
 		QVariant property(const QString &) const;
 		void setProperty(const QString &, const QVariant &);
 		StitchQueue *stitchAt(const QPoint &) const;
-		void replaceStitchAt(const QPoint &, StitchQueue *);
+		StitchQueue *replaceStitchAt(const QPoint &, StitchQueue *);
+		StitchQueue *takeStitchAt(const QPoint &);
 
 		bool addStitch(const QPoint &, Stitch::Type, int);
 		bool deleteStitch(const QPoint &, Stitch::Type, int);
@@ -106,6 +116,7 @@ class Document
 		int currentFlossIndex() const;
 		void setCurrentFlossIndex(int);
 		bool paletteManager();
+		SchemeManager *schemeManager();
 
 		QListIterator<BackgroundImage *> backgroundImages() const;
 		QListIterator<Backstitch *> backstitches() const;
@@ -116,11 +127,18 @@ class Document
 		BackgroundImage *removeBackgroundImage(BackgroundImage *);
 		QRect fitBackgroundImage(const QString &, const QRect &);
 		bool showBackgroundImage(const QString &, bool);
+		QRect extents();
+		void movePattern(int, int, int);
 
 		QUndoStack &undoStack();
 
 	private:
+		Editor		*m_editorWidget;
+		Palette		*m_paletteWidget;
+		Preview		*m_previewWidget;
+
 		unsigned int canvasIndex(const QPoint &) const;
+		unsigned int canvasIndex(int, int) const;
 		bool validateCell(const QPoint &) const;
 		bool validateSnap(const QPoint &) const;
 		void updateUsedFlosses();

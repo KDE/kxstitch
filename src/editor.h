@@ -48,6 +48,7 @@ class Editor : public QWidget
 		~Editor();
 
 		void setDocument(Document *);
+		void resizeEditor();
 		Scale *horizontalScale() const;
 		Scale *verticalScale() const;
 		QRect selectionArea();

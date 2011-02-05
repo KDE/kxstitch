@@ -42,6 +42,7 @@
 #include "configuration.h"
 #include "document.h"
 #include "editor.h"
+#include "filepropertiesdlg.h"
 #include "mainwindow.h"
 #include "palette.h"
 #include "preview.h"
@@ -154,6 +155,9 @@ MainWindow::MainWindow(const KUrl &url) : KXmlGuiWindow()
 		If the url can't be read an error is displayed and a blank document is opened instead.
 		*/
 	m_document = new Document();
+	m_document->setEditor(m_editor);
+	m_document->setPalette(m_palette);
+	m_document->setPreview(m_preview);
 	m_editor->setDocument(m_document);
 	m_preview->setDocument(m_document);
 	m_palette->setDocument(m_document);
@@ -1267,6 +1271,14 @@ void MainWindow::addBackgroundImage()
 	*/
 void MainWindow::fileProperties()
 {
+	FilePropertiesDlg *dialog = new FilePropertiesDlg(m_document);
+	if (dialog->exec() == QDialog::Accepted)
+	{
+		m_editor->update();
+		m_preview->update();
+		m_palette->update();
+	}
+	delete dialog;
 }
 
 

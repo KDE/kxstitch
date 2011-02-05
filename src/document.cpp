@@ -19,8 +19,11 @@
 #include "commands.h"
 #include "configuration.h"
 #include "document.h"
+#include "editor.h"
 #include "flossscheme.h"
+#include "palette.h"
 #include "palettemanagerdlg.h"
+#include "preview.h"
 #include "schememanager.h"
 
 
@@ -49,6 +52,7 @@ void Document::initialiseNew()
 
 	m_properties["width"] = Configuration::document_Width();
 	m_properties["height"] = Configuration::document_Height();
+	m_properties["unitsFormat"] = Configuration::document_UnitsFormat();
 	m_properties["title"] = QString();
 	m_properties["author"] = QString();
 	m_properties["copyright"] = QString();
@@ -64,6 +68,7 @@ void Document::initialiseNew()
 	m_properties["horizontalClothCount"] = Configuration::editor_HorizontalClothCount();
 	m_properties["verticalClothCount"] = Configuration::editor_VerticalClothCount();
 	m_properties["clothCountUnits"] = Configuration::editor_ClothCountUnits();
+	m_properties["clothCountLink"] = Configuration::editor_ClothCountLink();
 	m_properties["thickLineWidth"] = Configuration::editor_ThickLineWidth();
 	m_properties["thinLineWidth"] = Configuration::editor_ThinLineWidth();
 	m_properties["thickLineColor"] = Configuration::editor_ThickLineColor();
@@ -101,6 +106,24 @@ void Document::initialiseNew()
 	m_undoStack.clear();
 
 	setURL(i18n("Untitled"));
+}
+
+
+void Document::setEditor(Editor *editor)
+{
+	m_editorWidget = editor;
+}
+
+
+void Document::setPalette(Palette *palette)
+{
+	m_paletteWidget = palette;
+}
+
+
+void Document::setPreview(Preview *preview)
+{
+	m_previewWidget = preview;
 }
 
 
@@ -389,6 +412,14 @@ unsigned int Document::height() const
 }
 
 
+void Document::resizeDocument(int width, int height)
+{
+	m_properties["width"] = width;
+	m_properties["height"] = height;
+	m_editorWidget->resizeEditor();
+}
+
+
 void Document::setURL(const KUrl &url)
 {
 	if (url.fileName().right(4).toLower() == ".pat")	// this looks like a PCStitch file name
@@ -509,9 +540,19 @@ StitchQueue *Document::stitchAt(const QPoint &cell) const
 }
 
 
-void Document::replaceStitchAt(const QPoint &cell, StitchQueue *queue)
+StitchQueue *Document::replaceStitchAt(const QPoint &cell, StitchQueue *queue)
 {
-	m_canvasStitches[canvasIndex(cell)] = queue;
+	StitchQueue *original = 0;
+	if (validateCell(cell))
+	{
+		int index = canvasIndex(cell);
+		original = m_canvasStitches.value(index);
+		if (queue)
+			m_canvasStitches[index] = queue;
+		else
+			m_canvasStitches.remove(index);
+	}
+	return original;
 }
 
 
@@ -560,15 +601,17 @@ bool Document::deleteStitch(const QPoint &cell, Stitch::Type maskStitch, int mas
 		return false;			// Cell isn't valid so it can't be deleted
 
 	unsigned int index = canvasIndex(cell);
+	kDebug() << "Index:" << index;
 
 	StitchQueue *stitchQueue = m_canvasStitches.value(index);
+	kDebug() << "stitchQueue:" << stitchQueue;
 	if (stitchQueue == 0)
 		return false;			// No stitch queue exists at the required location so nothing to delete
 
 	if (stitchQueue->remove(maskStitch, maskColor) == 0)
 	{
-		delete stitchQueue;
 		m_canvasStitches.remove(index);
+		delete stitchQueue;
 	}
 
 	return true;
@@ -739,6 +782,12 @@ bool Document::paletteManager()
 }
 
 
+SchemeManager *Document::schemeManager()
+{
+	return m_schemeManager;
+}
+
+
 void Document::addBackgroundImage(BackgroundImage *backgroundImage)
 {
 	m_backgroundImages.append(backgroundImage);
@@ -812,6 +861,12 @@ unsigned int Document::canvasIndex(const QPoint &cell) const
 }
 
 
+unsigned int Document::canvasIndex(int x, int y) const
+{
+	return y*m_properties["width"].toInt() + x;
+}
+
+
 bool Document::validateCell(const QPoint &cell) const
 {
 	if (cell.x() < 0)
@@ -862,5 +917,176 @@ void Document::updateUsedFlosses()
 	{
 		Knot *knot = knotIterator.next();
 		m_usedFlosses[knot->floss()]+=4; // arbitrary value for a relative amount of floss to do a knot.
+	}
+}
+
+
+QRect Document::extents()
+{
+	QRect extentsRect;
+
+	if(!m_canvasStitches.isEmpty())
+	{
+		QMapIterator<unsigned, StitchQueue *> stitchesIterator(m_canvasStitches);
+		int key = stitchesIterator.next().key();
+		int x = key % width();
+		int y = key / width();
+		extentsRect = QRect(x*2, y*2, 2, 2);			// initialise in snap coordinates
+		while (stitchesIterator.hasNext())
+		{
+			int key = stitchesIterator.next().key();
+			int x = key % width();
+			int y = key / width();
+			extentsRect = extentsRect.unite(QRect(x*2, y*2, 2, 2));	// update with snap coordinates
+		}
+	}
+
+	if (!m_canvasBackstitches.isEmpty())
+	{
+		QListIterator<Backstitch *> backstitchIterator(m_canvasBackstitches);
+		Backstitch *backstitch = backstitchIterator.next();
+		int minX = std::min(backstitch->start().x(), backstitch->end().x());
+		int minY = std::min(backstitch->start().y(), backstitch->end().y());
+		int maxX = std::max(backstitch->start().x(), backstitch->end().x());
+		int maxY = std::max(backstitch->start().y(), backstitch->end().y());
+		while (backstitchIterator.hasNext())
+		{
+			backstitch = backstitchIterator.next();
+			minX = std::min(minX, std::min(backstitch->start().x(), backstitch->end().x()));
+			minY = std::min(minY, std::min(backstitch->start().y(), backstitch->end().y()));
+			maxX = std::max(maxX, std::max(backstitch->start().x(), backstitch->end().x()));
+			maxY = std::max(maxY, std::max(backstitch->start().y(), backstitch->end().y()));
+		}
+		if (extentsRect.isValid())
+		{
+			if (minX < extentsRect.left())
+				extentsRect.setLeft(minX);
+			if (minY < extentsRect.top())
+				extentsRect.setTop(minY);
+			if (maxX > extentsRect.right())
+				extentsRect.setRight(maxX);
+			if (maxY > extentsRect.bottom())
+				extentsRect.setBottom(maxY);
+		}
+		else
+		{
+			extentsRect.setLeft(minX);
+			extentsRect.setTop(minY);
+			extentsRect.setRight(maxX);
+			extentsRect.setBottom(maxY);
+		}
+	}
+
+	if (!m_canvasKnots.isEmpty())
+	{
+		QListIterator<Knot *> knotIterator(m_canvasKnots);
+		Knot *knot = knotIterator.next();
+		int minX;
+		int minY;
+		int maxX = minX = knot->position().x();
+		int maxY = minY = knot->position().y();
+		while (knotIterator.hasNext())
+		{
+			Knot *knot = knotIterator.next();
+			int x = knot->position().x();
+			int y = knot->position().y();
+			minX = std::min(x, minX);
+			minY = std::min(y, minY);
+			maxX = std::max(x, maxX);
+			maxY = std::max(y, maxY);
+		}
+		if (extentsRect.isValid())
+		{
+			if (minX < extentsRect.left())
+				extentsRect.setLeft(minX);
+			if (minY < extentsRect.top())
+				extentsRect.setTop(minY);
+			if (maxX > extentsRect.right())
+				extentsRect.setRight(maxX);
+			if (maxY > extentsRect.bottom())
+				extentsRect.setBottom(maxY);
+		}
+		else
+		{
+			extentsRect.setLeft(minX);
+			extentsRect.setTop(minY);
+			extentsRect.setRight(maxX);
+			extentsRect.setBottom(maxY);
+		}
+	}
+
+	// extentsRect is in snap coordinates
+	// if width or height is zero, change to 2;
+	if (extentsRect.width() == 0)
+		extentsRect.setWidth(2);
+	if (extentsRect.height() == 0)
+		extentsRect.setHeight(2);
+
+	extentsRect.adjust(-(extentsRect.left()%2), -(extentsRect.top()%2), extentsRect.right()%2, extentsRect.bottom()%2);
+
+	return QRect(extentsRect.left()/2, extentsRect.top()/2, extentsRect.width()/2, extentsRect.height()/2);
+}
+
+
+void Document::movePattern(int dx, int dy, int width)
+{
+	QRect extentsRect = extents();
+	int xStart = extentsRect.left();
+	int yStart = extentsRect.top();
+	int xEnd = extentsRect.right();
+	int yEnd = extentsRect.bottom();
+	int xInc;
+	int yInc;
+
+	if (dx < 0) // moving left
+	{
+		++xEnd;
+		xInc = 1;
+	}
+	else // moving right
+	{
+		int x = xStart;
+		xStart = xEnd;
+		xEnd = x-1;
+		xInc = -1;
+	}
+
+	if (dy < 0) // moving up
+	{
+		++yEnd;
+		yInc = 1;
+	}
+	else // moving down
+	{
+		int y = yStart;
+		yStart = yEnd;
+		yEnd = y-1;
+		yInc = -1;
+	}
+	for (int y = yStart ; y != yEnd ; y += yInc)
+	{
+		for (int x = xStart ; x != xEnd ; x += xInc)
+		{
+			if (m_canvasStitches.contains(canvasIndex(x, y)))
+			{
+				StitchQueue *queue = m_canvasStitches.take(canvasIndex(x, y));
+				if (queue)  // no need to insert a null pointer
+					m_canvasStitches.insert((y+dy)*width+(x+dx), queue);
+			}
+		}
+	}
+	dx *= 2;
+	dy *= 2;
+	QListIterator<Backstitch *> backstitchIterator(m_canvasBackstitches);
+	while (backstitchIterator.hasNext())
+	{
+		Backstitch *backstitch = backstitchIterator.next();
+		backstitch->move(QPoint(dx, dy));
+	}
+	QListIterator<Knot *> knotIterator(m_canvasKnots);
+	while (knotIterator.hasNext())
+	{
+		Knot *knot = knotIterator.next();
+		knot->move(QPoint(dx, dy));
 	}
 }

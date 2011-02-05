@@ -450,6 +450,17 @@ const QPoint &Backstitch::end() const
 
 
 /**
+	Move the start and end points.
+	@param offset a QPoint offset.
+	*/
+void Backstitch::move(const QPoint &offset)
+{
+	m_start += offset;
+	m_end += offset;
+}
+
+
+/**
 	Get the floss index.
 	@return index value of the floss.
 	*/
@@ -501,6 +512,16 @@ Knot::~Knot()
 const QPoint &Knot::position() const
 {
 	return m_position;
+}
+
+
+/**
+	Move the position point.
+	@param offset a QPoint representing the offset.
+	*/
+void Knot::move(const QPoint &offset)
+{
+	m_position += offset;
 }
 
 

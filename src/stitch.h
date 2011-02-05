@@ -121,6 +121,7 @@ class Backstitch
 
 		const QPoint &start() const;
 		const QPoint &end() const;
+		void move(const QPoint &);
 		unsigned floss() const;
 
 		bool contains(const QPoint &) const;
@@ -139,6 +140,7 @@ class Knot
 		~Knot();
 
 		const QPoint &position() const;
+		void move(const QPoint &);
 		unsigned floss() const;
 
 	private:

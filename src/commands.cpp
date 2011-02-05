@@ -9,6 +9,7 @@
  ****************************************************************************/
 
 
+#include <KDebug>
 #include <KLocale>
 
 #include "backgroundimage.h"
@@ -36,19 +37,17 @@ AddStitchCommand::~AddStitchCommand()
 
 void AddStitchCommand::redo()
 {
-	if (!m_original)
-	{
-		StitchQueue *queue = m_document->stitchAt(m_cell);
-		if (queue)
-			m_original = new StitchQueue(queue);
-	}
+	m_original = m_document->stitchAt(m_cell);
+	if (m_original)
+		m_document->replaceStitchAt(m_cell, new StitchQueue(m_original));
 	m_document->addStitch(m_cell, m_type, m_floss);
 }
 
 
 void AddStitchCommand::undo()
 {
-	m_document->replaceStitchAt(m_cell, m_original);
+	delete m_document->replaceStitchAt(m_cell, m_original);
+	m_original = 0;
 }
 
 
@@ -71,15 +70,17 @@ DeleteStitchCommand::~DeleteStitchCommand()
 
 void DeleteStitchCommand::redo()
 {
-	if (!m_original)
-		m_original = new StitchQueue(m_document->stitchAt(m_cell));
+	m_original = m_document->stitchAt(m_cell);
+	if (m_original)
+		m_document->replaceStitchAt(m_cell, new StitchQueue(m_original));
 	m_document->deleteStitch(m_cell, m_type, m_floss);
 }
 
 
 void DeleteStitchCommand::undo()
 {
-	m_document->replaceStitchAt(m_cell, m_original);
+	delete m_document->replaceStitchAt(m_cell, m_original);
+	m_original = 0;
 }
 
 
@@ -373,7 +374,7 @@ void RemoveFlossCommand::undo()
 }
 
 
-ChangeFlossCommand::ChangeFlossCommand(Document *document, unsigned key, DocumentFloss *documentFloss)
+ChangeFlossCommand::ChangeFlossCommand(Document *document, int key, DocumentFloss *documentFloss)
 	:	QUndoCommand(),
 		m_document(document),
 		m_key(key),
@@ -397,4 +398,69 @@ void ChangeFlossCommand::redo()
 void ChangeFlossCommand::undo()
 {
 	m_documentFloss = m_document->changeFloss(m_key, m_documentFloss);
+}
+
+
+ResizeDocumentCommand::ResizeDocumentCommand(Document *document, int width, int height)
+	:	QUndoCommand(),
+		m_document(document),
+		m_width(width),
+		m_height(height)
+{
+}
+
+
+ResizeDocumentCommand::~ResizeDocumentCommand()
+{
+}
+
+
+void ResizeDocumentCommand::redo()
+{
+	m_originalWidth = m_document->width();
+	m_originalHeight = m_document->height();
+	QRect extents = m_document->extents();
+	int minx = std::min(extents.left(), m_width - extents.width());
+	m_xOffset = minx - extents.left();
+	int miny = std::min(extents.top(), m_height - extents.height());
+	m_yOffset = miny - extents.top();
+	m_document->movePattern(m_xOffset, m_yOffset, m_width);
+	m_document->resizeDocument(m_width, m_height);
+}
+
+
+void ResizeDocumentCommand::undo()
+{
+	m_document->movePattern(-m_xOffset, -m_yOffset, m_originalWidth);
+	m_document->resizeDocument(m_originalWidth, m_originalHeight);
+}
+
+
+ChangeFlossColorCommand::ChangeFlossColorCommand(Document *document, DocumentFloss *documentFloss, Floss *floss)
+	:	QUndoCommand(),
+		m_document(document),
+		m_documentFloss(documentFloss),
+		m_floss(floss)
+{
+}
+
+
+ChangeFlossColorCommand::~ChangeFlossColorCommand()
+{
+}
+
+
+void ChangeFlossColorCommand::redo()
+{
+	const Floss *floss = m_documentFloss->floss();
+	m_documentFloss->setFloss(m_floss);
+	m_floss = floss;
+}
+
+
+void ChangeFlossColorCommand::undo()
+{
+	const Floss *floss = m_documentFloss->floss();
+	m_documentFloss->setFloss(m_floss);
+	m_floss = floss;
 }

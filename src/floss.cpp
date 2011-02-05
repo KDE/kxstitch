@@ -90,7 +90,7 @@ const Floss *DocumentFloss::floss() const
 }
 
 
-void DocumentFloss::setFloss(Floss *floss)
+void DocumentFloss::setFloss(const Floss *floss)
 {
 	m_floss = floss;
 }

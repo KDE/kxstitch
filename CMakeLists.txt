@@ -17,21 +17,22 @@ include_directories (${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
 
 set (kxstitch_SRCS
+  src/backgroundimage.cpp
+  src/commands.cpp
+  src/document.cpp
+  src/editor.cpp
+  src/filepropertiesdlg.cpp
+  src/floss.cpp
+  src/flossscheme.cpp
   src/main.cpp
   src/mainwindow.cpp
-  src/scale.cpp
-  src/editor.cpp
-  src/preview.cpp
   src/palette.cpp
-  src/document.cpp
-  src/stitch.cpp
+  src/palettemanagerdlg.cpp
+  src/preview.cpp
+  src/scale.cpp
   src/schememanager.cpp
   src/schemeparser.cpp
-  src/flossscheme.cpp
-  src/palettemanagerdlg.cpp
-  src/commands.cpp
-  src/backgroundimage.cpp
-  src/floss.cpp
+  src/stitch.cpp
 )
 
 add_subdirectory(icons)
@@ -41,11 +42,11 @@ kde4_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 
 kde4_add_ui_files(kxstitch_SRCS
   ui/appearance.ui
-  ui/general.ui
   ui/colors.ui
+  ui/fileproperties.ui
   ui/fonts.ui
+  ui/general.ui
   ui/palettemanager.ui
-  ui/patternproperties.ui
 )
 
 kde4_add_app_icon (lo32-app-kxstitch.png lo16-app-kxstitch.png)

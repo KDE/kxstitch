@@ -76,6 +76,10 @@
 				<choice name="CM" />
 			</choices>
 		</entry>
+		<entry name="Editor_ClothCountLink" type="bool">
+			<label>Square cells</label>
+			<default>true</default>
+		</entry>
 		<entry name="Editor_ShowStitchesAs" type="Enum">
 			<label>How to display stitches.</label>
 			<default>Stitches</default>
@@ -138,6 +142,15 @@
 		<entry name="Document_Height" type="Int">
 			<label>The default height of a new pattern.</label>
 			<default>80</default>
+		</entry>
+		<entry name="Document_UnitsFormat" type="Enum">
+			<label>The cloth count units.</label>
+			<default>Stitches</default>
+			<choices>
+				<choice name="Stitches" />
+				<choice name="Inches" />
+				<choice name="CM" />
+			</choices>
 		</entry>
 	</group>
 

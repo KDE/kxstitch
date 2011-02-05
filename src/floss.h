@@ -46,7 +46,7 @@ class DocumentFloss
 		~DocumentFloss();
 
 		const Floss *floss() const;
-		void setFloss(Floss *);
+		void setFloss(const Floss *);
 		const QChar symbol() const;
 		void setSymbol(QChar);
 		unsigned stitchStrands() const;
@@ -58,7 +58,7 @@ class DocumentFloss
 		bool operator!=(const DocumentFloss &);
 
 	private:
-		Floss		*m_floss;
+		const Floss		*m_floss;
 		QChar		m_symbol;
 		unsigned	m_stitchStrands;
 		unsigned	m_backstitchStrands;
