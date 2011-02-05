@@ -57,7 +57,7 @@ void Document::initialiseNew()
 	m_properties["author"] = QString();
 	m_properties["copyright"] = QString();
 	m_properties["fabric"] = QString();
-	m_properties["fabricColor"] = QColor();
+	m_properties["fabricColor"] = Configuration::editor_BackgroundColor();
 	m_properties["instructions"] = QString();
 	m_properties["flossSchemeName"] = Configuration::palette_DefaultScheme();
 	m_properties["currentFlossIndex"] = -1;

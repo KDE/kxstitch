@@ -877,6 +877,7 @@ void Editor::paintEvent(QPaintEvent *e)
 	QPainter *painter = new QPainter();
 	painter->begin(this);
 
+	painter->fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
 	if (m_showBackgroundImages) paintBackgroundImages(painter, e->rect());
 	if (m_showGrid) paintGrid(painter, e->rect());
 	if (m_showStitches) paintStitches(painter, e->rect());
