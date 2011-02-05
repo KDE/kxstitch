@@ -416,7 +416,6 @@ void Document::resizeDocument(int width, int height)
 {
 	m_properties["width"] = width;
 	m_properties["height"] = height;
-	m_editorWidget->resizeEditor();
 }
 
 
@@ -529,6 +528,17 @@ QVariant Document::property(const QString &propertyName) const
 void Document::setProperty(const QString &propertyName, const QVariant &propertyValue)
 {
 	m_properties[propertyName] = propertyValue;
+	if (propertyName == "verticalClothCount")
+	{
+		if (m_properties["clothCountLink"].toBool())
+			m_properties["cellHeight"] = m_properties["cellWidth"];
+		else
+		{
+			double ratio = m_properties["horizontalClothCount"].toDouble()/m_properties["verticalClothCount"].toDouble();
+			double calculatedHeight = m_properties["cellWidth"].toDouble()*ratio;
+			m_properties["cellHeight"] = (int)calculatedHeight;
+		}
+	}
 }
 
 
@@ -601,10 +611,8 @@ bool Document::deleteStitch(const QPoint &cell, Stitch::Type maskStitch, int mas
 		return false;			// Cell isn't valid so it can't be deleted
 
 	unsigned int index = canvasIndex(cell);
-	kDebug() << "Index:" << index;
 
 	StitchQueue *stitchQueue = m_canvasStitches.value(index);
-	kDebug() << "stitchQueue:" << stitchQueue;
 	if (stitchQueue == 0)
 		return false;			// No stitch queue exists at the required location so nothing to delete
 

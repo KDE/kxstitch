@@ -1274,6 +1274,7 @@ void MainWindow::fileProperties()
 	FilePropertiesDlg *dialog = new FilePropertiesDlg(m_document);
 	if (dialog->exec() == QDialog::Accepted)
 	{
+		m_editor->resizeEditor();
 		m_editor->update();
 		m_preview->update();
 		m_palette->update();

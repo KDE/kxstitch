@@ -2095,7 +2095,7 @@ void Editor::paintKnotsAsColorHilight(QPainter *painter, Knot *knot)
 	*/
 QPoint Editor::contentsToCell(const QPoint &p) const
 {
-	return QPoint(p.x()/m_cellHeight, p.y()/m_cellWidth);
+	return QPoint(p.x()/m_cellWidth, p.y()/m_cellHeight);
 }
 
 
@@ -2107,7 +2107,7 @@ QPoint Editor::contentsToCell(const QPoint &p) const
 	*/
 int Editor::contentsToZone(const QPoint &p) const
 {
-	QPoint cell(p.x()*2/m_cellHeight, p.y()*2/m_cellWidth);
+	QPoint cell(p.x()*2/m_cellWidth, p.y()*2/m_cellHeight);
 	int zone = (cell.y()%2)*2 + (cell.x()%2);
 	return zone;
 }

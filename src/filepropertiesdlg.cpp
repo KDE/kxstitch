@@ -54,12 +54,11 @@ FilePropertiesDlg::FilePropertiesDlg(Document *document)
 	ui.FlossScheme->addItems(m_document->schemeManager()->schemes());
 	ui.FlossScheme->setCurrentItem(m_document->property("flossSchemeName").toString());
 	ui.Instructions->setPlainText(m_document->property("instructions").toString());
+	ui.ClothCountLink->setChecked(m_clothCountLink);
+	on_ClothCountLink_clicked(m_clothCountLink);
 
 	QMetaObject::connectSlotsByName(this);
 	setMainWidget(widget);
-
-	if (m_clothCountLink)
-		ui.ClothCountLink->click();
 }
 
 
