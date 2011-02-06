@@ -298,4 +298,23 @@ class ChangeFlossColorCommand : public QUndoCommand
 };
 
 
+class CropToPatternCommand : public QUndoCommand
+{
+	public:
+		CropToPatternCommand(Document *);
+		~CropToPatternCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document	*m_document;
+		unsigned	m_originalWidth;
+		unsigned	m_originalHeight;
+		int			m_xOffset;
+		int			m_yOffset;
+		QRect		m_extents;
+};
+
+
 #endif

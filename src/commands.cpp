@@ -464,3 +464,34 @@ void ChangeFlossColorCommand::undo()
 	m_documentFloss->setFloss(m_floss);
 	m_floss = floss;
 }
+
+
+CropToPatternCommand::CropToPatternCommand(Document *document)
+	:	QUndoCommand(i18n("Crop to Pattern")),
+		m_document(document)
+{
+}
+
+
+CropToPatternCommand::~CropToPatternCommand()
+{
+}
+
+
+void CropToPatternCommand::redo()
+{
+	m_originalWidth = m_document->width();
+	m_originalHeight = m_document->height();
+	QRect extents = m_document->extents();
+	m_xOffset = -extents.left();
+	m_yOffset = -extents.top();
+	m_document->movePattern(m_xOffset, m_yOffset, extents.width());
+	m_document->resizeDocument(extents.width(), extents.height());
+}
+
+
+void CropToPatternCommand::undo()
+{
+	m_document->movePattern(-m_xOffset, -m_yOffset, m_originalWidth);
+	m_document->resizeDocument(m_originalWidth, m_originalHeight);
+}

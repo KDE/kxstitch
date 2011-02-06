@@ -1521,6 +1521,9 @@ void MainWindow::patternCropCanvasToSelection()
 	*/
 void MainWindow::patternCropCanvasToPattern()
 {
+	m_document->undoStack().push(new CropToPatternCommand(m_document));
+	m_editor->resizeEditor();
+	m_preview->update();
 }
 
 

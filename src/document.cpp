@@ -416,6 +416,7 @@ void Document::resizeDocument(int width, int height)
 {
 	m_properties["width"] = width;
 	m_properties["height"] = height;
+	m_editorWidget->resizeEditor();
 }
 
 
