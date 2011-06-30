@@ -74,7 +74,6 @@ void Layers::addLayer(int layer, const QString &name)
 	{
 		m_currentLayer = 0;
 	}
-	kDebug() << "m_currentLayer" << m_currentLayer;
 }
 
 

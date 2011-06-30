@@ -59,7 +59,6 @@ Renderer::~Renderer()
 
 void Renderer::setCellSize(int cellWidth, int cellHeight)
 {
-	kDebug() << "cellWidth" << cellWidth << "cellHeight" << cellHeight;
 	if ((cellWidth != m_cellWidth) || (cellHeight != m_cellHeight))
 	{
 		int halfWidth = cellWidth/2;
