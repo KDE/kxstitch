@@ -370,6 +370,7 @@ void MainWindow::fileOpen(const KUrl &url)
 		if (docEmpty)
 		{
 			m_document->load(url);
+			setActionsFromDocument();
 			m_editor->readDocumentSettings();
 			m_palette->readDocumentSettings();
 			m_preview->readDocumentSettings();
