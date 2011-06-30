@@ -52,19 +52,19 @@
 			<label>Height of the grid cells.</label>
 			<default>16</default>
 		</entry>
-		<entry name="Editor_HorizontalCellGrouping" type="Int">
+		<entry name="Editor_CellHorizontalGrouping" type="Int">
 			<label>The number of cells making up a horizontal group.</label>
 			<default>10</default>
 		</entry>
-		<entry name="Editor_VerticalCellGrouping" type="Int">
+		<entry name="Editor_CellVerticalGrouping" type="Int">
 			<label>The number of cells making up a vertical group.</label>
 			<default>10</default>
 		</entry>
-		<entry name="Editor_HorizontalClothCount" type="Int">
+		<entry name="Editor_HorizontalClothCount" type="Double">
 			<label>The horizontal cloth count.</label>
 			<default>16</default>
 		</entry>
-		<entry name="Editor_VerticalClothCount" type="Int">
+		<entry name="Editor_VerticalClothCount" type="Double">
 			<label>The vertical cloth count.</label>
 			<default>16</default>
 		</entry>
@@ -79,37 +79,6 @@
 		<entry name="Editor_ClothCountLink" type="bool">
 			<label>Square cells</label>
 			<default>true</default>
-		</entry>
-		<entry name="Editor_ShowStitchesAs" type="Enum">
-			<label>How to display stitches.</label>
-			<default>Stitches</default>
-			<choices>
-				<choice name="Stitches" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorSymbols" />
-				<choice name="ColorBlocks" />
-				<choice name="ColorBlocksSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
-		</entry>
-		<entry name="Editor_ShowBackstitchesAs" type="Enum">
-			<label>How to display backstitches.</label>
-			<default>ColorLines</default>
-			<choices>
-				<choice name="ColorLines" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
-		</entry>
-		<entry name="Editor_ShowKnotsAs" type="Enum">
-			<label>How to display french knots.</label>
-			<default>ColorBlocks</default>
-			<choices>
-				<choice name="ColorBlocks" />
-				<choice name="ColorSymbols" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
 		</entry>
 		<entry name="Editor_HorizontalRulerHeight" type="Int">
 			<label>The height of the horizontal ruler.</label>
@@ -134,6 +103,43 @@
 		</entry>
 	</group>
 
+	<group name="renderer">
+		<entry name="Renderer_RenderStitchesAs" type="Enum">
+			<label>How to display stitches.</label>
+			<default>Stitches</default>
+			<choices>
+				<choice name="None" />
+				<choice name="Stitches" />
+				<choice name="BlackWhiteSymbols" />
+				<choice name="ColorSymbols" />
+				<choice name="ColorBlocks" />
+				<choice name="ColorBlocksSymbols" />
+				<choice name="ColorHilight" />
+			</choices>
+		</entry>
+		<entry name="Renderer_RenderBackstitchesAs" type="Enum">
+			<label>How to display backstitches.</label>
+			<default>ColorLines</default>
+			<choices>
+				<choice name="None" />
+				<choice name="ColorLines" />
+				<choice name="BlackWhiteSymbols" />
+				<choice name="ColorHilight" />
+			</choices>
+		</entry>
+		<entry name="Renderer_RenderKnotsAs" type="Enum">
+			<label>How to display french knots.</label>
+			<default>ColorBlocks</default>
+			<choices>
+				<choice name="None" />
+				<choice name="ColorBlocks" />
+				<choice name="ColorSymbols" />
+				<choice name="BlackWhiteSymbols" />
+				<choice name="ColorHilight" />
+			</choices>
+		</entry>
+	</group>
+
 	<group name="document">
 		<entry name="Document_Width" type="Int">
 			<label>The default width of a new pattern.</label>
@@ -154,6 +160,16 @@
 		</entry>
 	</group>
 
+	<group name="import">
+		<entry name="Import_UseMaximumColors" type="Bool">
+			<label>Use a maximum number of colors</label>
+			<default>true</default>
+		</entry>
+		<entry name="Import_MaximumColors" type="Int">
+			<label>Maximum number of colors</label>
+			<default>50</default>
+		</entry>
+	</group>
 	<group name="palette">
 		<entry name="Palette_DefaultScheme" type="String">
 			<label>The default floss scheme to be used for new documents.</label>
