@@ -99,6 +99,7 @@ void Preview::paintEvent(QPaintEvent *e)
 	painter.begin(this);
 	QList<int> layerOrder = m_document->layers().layerNumbers();
 	QList<int> visibleLayers = m_document->layers().layerNumbers();
+	painter.fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
 	m_renderer->render(&painter, m_document, e->rect(), layerOrder, visibleLayers, true, true, true, -1);
 	if (m_visible.width()*m_cellWidth < m_previewWidth || m_visible.height()*m_cellHeight < m_previewHeight)
 	{
