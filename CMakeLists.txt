@@ -13,7 +13,7 @@ if (DOXYGEN_FOUND)
 		COMMENT "Generating API documentation with Doxygen" VERBATIM)
 endif (DOXYGEN_FOUND)
 
-include_directories (${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+include_directories (${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
 
 set (kxstitch_SRCS
@@ -78,7 +78,7 @@ kde4_add_ui_files(kxstitch_SRCS
 	ui/TextTool.ui
 )
 
-kde4_add_app_icon (hi32-app-kxstitch.png lo32-app-kxstitch.png lo16-app-kxstitch.png)
+kde4_install_icons(${ICON_INSTALL_DIR})
 
 kde4_add_executable (kxstitch ${kxstitch_SRCS})
 
