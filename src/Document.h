@@ -59,6 +59,9 @@ class Document
 		StitchData &stitchData();
 
 	private:
+		bool readPCStitch5File(QDataStream &);
+		QString readPCStitchString(QDataStream &);
+
 		static const int version = 100;
 
 		QMap<QString, QVariant>	m_properties;
