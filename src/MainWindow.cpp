@@ -377,6 +377,7 @@ void MainWindow::fileOpen(const KUrl &url)
 			m_editor->update();
 			m_palette->update();
 			m_preview->update();
+			documentModified(true); // this is the clean value true
 		}
 		else
 		{
