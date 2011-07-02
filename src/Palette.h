@@ -41,6 +41,7 @@ class Palette : public QFrame
 		void colorSelected(int);
 
 	protected:
+		virtual bool event(QEvent *);
 		void paintEvent(QPaintEvent *);
 		void contextMenuEvent(QContextMenuEvent *);
 		void mousePressEvent(QMouseEvent *);

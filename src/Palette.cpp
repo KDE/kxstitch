@@ -13,14 +13,18 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QToolTip>
 
+#include <KLocale>
 #include <KXMLGUIFactory>
 
 #include "configuration.h"
 #include "Document.h"
 #include "Floss.h"
+#include "FlossScheme.h"
 #include "MainWindow.h"
 #include "Palette.h"
+#include "SchemeManager.h"
 
 
 Palette::Palette(QWidget *parent)
@@ -64,6 +68,40 @@ void Palette::showSymbols(bool show)
 {
 	m_showSymbols = show;
 	update();
+}
+
+
+bool Palette::event(QEvent *event)
+{
+	if (event->type() == QEvent::ToolTip)
+	{
+		QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
+		QPoint local = helpEvent->pos();
+		int xCell = local.x()/m_width;
+		int yCell = local.y()/m_height;
+		int i = yCell*m_cols+xCell;
+		if (m_paletteIndex.count())
+		{
+			if (i < m_paletteIndex.count())
+			{
+				DocumentFloss *documentFloss = m_document->documentPalette().flosses()[m_paletteIndex[i]];
+				FlossScheme *flossScheme = SchemeManager::scheme(m_document->documentPalette().schemeName());
+				Floss *floss = flossScheme->find(documentFloss->flossName());
+				QString tip = QString("%1 %2").arg(floss->name()).arg(floss->description());
+				QToolTip::showText(helpEvent->globalPos(), tip);
+			}
+			else
+			{
+				QToolTip::hideText();
+				event->ignore();
+			}
+		}
+		else
+			QToolTip::showText(helpEvent->globalPos(), QString(i18n("No colors in palette")));
+
+		return true;
+	}
+	return QWidget::event(event);
 }
 
 
