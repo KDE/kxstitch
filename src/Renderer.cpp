@@ -768,7 +768,7 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 		QBrush brush(Qt::SolidPattern);
 		if ((m_hilight == -1) || (stitch->colorIndex == m_hilight))
 		{
-			textPen.setColor((documentFloss->flossColor().rgb() < 128)?Qt::white:Qt::black);
+			textPen.setColor((qGray(documentFloss->flossColor().rgb()) < 128)?Qt::white:Qt::black);
 			outlinePen.setColor(documentFloss->flossColor());
 			brush.setColor(documentFloss->flossColor());
 		}
@@ -776,6 +776,7 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 		{
 			outlinePen.setColor(Qt::lightGray);
 			brush.setColor(Qt::lightGray);
+			textPen.setColor(Qt::darkGray);
 		}
 		m_painter->setPen(outlinePen);
 		m_painter->setBrush(brush);
