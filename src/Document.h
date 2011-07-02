@@ -62,7 +62,14 @@ class Document
 		bool readPCStitch5File(QDataStream &);
 		QString readPCStitchString(QDataStream &);
 
-		static const int version = 100;
+		bool readKXStitchV2File(QDataStream &);
+		bool readKXStitchV3File(QDataStream &);
+		bool readKXStitchV4File(QDataStream &);
+		bool readKXStitchV5File(QDataStream &);
+		bool readKXStitchV6File(QDataStream &);
+		bool readKXStitchV7File(QDataStream &);
+
+		static const int version = 101;
 
 		QMap<QString, QVariant>	m_properties;
 
