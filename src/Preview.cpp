@@ -105,7 +105,7 @@ void Preview::paintEvent(QPaintEvent *e)
 	{
 		painter.setPen(Qt::white);
 		painter.setBrush(Qt::NoBrush);
-		painter.setCompositionMode(QPainter::CompositionMode_Xor);
+		painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
 		painter.drawRect(m_visible.left()*m_cellWidth, m_visible.top()*m_cellHeight, m_visible.width()*m_cellWidth, m_visible.height()*m_cellHeight);
 	}
 	painter.end();
