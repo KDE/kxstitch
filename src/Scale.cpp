@@ -99,6 +99,7 @@ QSize Scale::sizeHint() const
 void Scale::paintEvent(QPaintEvent *event)
 {
 	int length = m_cellCount*m_cellSize;
+	int halfLength = length/2;
 	int width = contentsRect().width();
 	int height = contentsRect().height();
 	int left = contentsRect().left();
@@ -141,11 +142,20 @@ void Scale::paintEvent(QPaintEvent *event)
 
 	QPainter painter;
 	painter.begin(this);
+	painter.setBrush(Qt::black);
 
+	QPolygon midPoint;
 	if (m_orientation == Qt::Horizontal)
+	{
 		painter.drawLine(left, bottom, right, bottom);
+		midPoint << QPoint(left+halfLength+m_offset,bottom) << QPoint(left+halfLength-5+m_offset, bottom-5) << QPoint(left+halfLength+5+m_offset, bottom-5);
+	}
 	else
+	{
 		painter.drawLine(right, top, right, bottom);
+		midPoint << QPoint(right, top+halfLength+m_offset) << QPoint(right-5, top+halfLength-5+m_offset) << QPoint(right-5, top+halfLength+5+m_offset);
+	}
+	painter.drawPolygon(midPoint);
 
 	for (int i = 0 ; i <= length ; i++)
 	{
