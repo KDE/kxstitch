@@ -1,7 +1,7 @@
 <!DOCTYPE flossScheme SYSTEM "flossScheme.dtd">
 <flossScheme>
 <title>DMC</title>
-<floss><name>White</name><description>White</description><color><red>252</red><green>251</green><blue>248</blue></color></floss>
+<floss><name>Blanc</name><description>White</description><color><red>252</red><green>251</green><blue>248</blue></color></floss>
 <floss><name>B5200</name><description>Snow White</description><color><red>255</red><green>255</green><blue>255</blue></color></floss>
 <floss><name>Ecru</name><description>Ecru</description><color><red>240</red><green>234</green><blue>218</blue></color></floss>
 <floss><name>150</name><description>Dusty Rose Ult Vy Dk</description><color><red>171</red><green>2</green><blue>73</blue></color></floss>
