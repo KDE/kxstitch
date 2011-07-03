@@ -113,19 +113,15 @@ QRect StitchData::extents() const
 	QHashIterator<int, QList<Backstitch *> > backstitchLayerIterator(m_backstitches);
 	while (backstitchLayerIterator.hasNext())
 	{
-		int minX;
-		int minY;
-		int maxX;
-		int maxY;
 		backstitchLayerIterator.next();
 		QListIterator<Backstitch *> backstitchIterator(backstitchLayerIterator.value());
 		if (backstitchIterator.hasNext())
 		{
 			Backstitch *backstitch = backstitchIterator.next();
-			minX = std::min(backstitch->start.x(), backstitch->end.x());
-			minY = std::min(backstitch->start.y(), backstitch->end.y());
-			maxX = std::max(backstitch->start.x(), backstitch->end.x());
-			maxY = std::max(backstitch->start.y(), backstitch->end.y());
+			int minX = std::min(backstitch->start.x(), backstitch->end.x());
+			int minY = std::min(backstitch->start.y(), backstitch->end.y());
+			int maxX = std::max(backstitch->start.x(), backstitch->end.x());
+			int maxY = std::max(backstitch->start.y(), backstitch->end.y());
 			while (backstitchIterator.hasNext())
 			{
 				backstitch = backstitchIterator.next();
@@ -134,41 +130,39 @@ QRect StitchData::extents() const
 				maxX = std::max(maxX, std::max(backstitch->start.x(), backstitch->end.x()));
 				maxY = std::max(maxY, std::max(backstitch->start.y(), backstitch->end.y()));
 			}
-		}
-		if (extentsRect.isValid())
-		{
-			if (minX < extentsRect.left())
+			if (extentsRect.isValid())
+			{
+				if (minX < extentsRect.left())
+					extentsRect.setLeft(minX);
+				if (minY < extentsRect.top())
+					extentsRect.setTop(minY);
+				if (maxX > extentsRect.right())
+					extentsRect.setRight(maxX);
+				if (maxY > extentsRect.bottom())
+					extentsRect.setBottom(maxY);
+			}
+			else
+			{
 				extentsRect.setLeft(minX);
-			if (minY < extentsRect.top())
 				extentsRect.setTop(minY);
-			if (maxX > extentsRect.right())
 				extentsRect.setRight(maxX);
-			if (maxY > extentsRect.bottom())
 				extentsRect.setBottom(maxY);
-		}
-		else
-		{
-			extentsRect.setLeft(minX);
-			extentsRect.setTop(minY);
-			extentsRect.setRight(maxX);
-			extentsRect.setBottom(maxY);
+			}
 		}
 	}
 
 	QHashIterator<int, QList<Knot *> > knotLayerIterator(m_knots);
 	while (knotLayerIterator.hasNext())
 	{
-		int minX;
-		int minY;
-		int maxX;
-		int maxY;
 		knotLayerIterator.next();
 		QListIterator<Knot *> knotIterator(knotLayerIterator.value());
 		if (knotIterator.hasNext())
 		{
 			Knot *knot = knotIterator.next();
-			int maxX = minX = knot->position.x();
-			int maxY = minY = knot->position.y();
+			int minX = knot->position.x();
+			int maxX = minX;
+			int minY = knot->position.y();
+			int maxY = minY;
 			while (knotIterator.hasNext())
 			{
 				knot = knotIterator.next();
@@ -179,24 +173,24 @@ QRect StitchData::extents() const
 				maxX = std::max(x, maxX);
 				maxY = std::max(y, maxY);
 			}
-		}
-		if (extentsRect.isValid())
-		{
-			if (minX < extentsRect.left())
+			if (extentsRect.isValid())
+			{
+				if (minX < extentsRect.left())
+					extentsRect.setLeft(minX);
+				if (minY < extentsRect.top())
+					extentsRect.setTop(minY);
+				if (maxX > extentsRect.right())
+					extentsRect.setRight(maxX);
+				if (maxY > extentsRect.bottom())
+					extentsRect.setBottom(maxY);
+			}
+			else
+			{
 				extentsRect.setLeft(minX);
-			if (minY < extentsRect.top())
 				extentsRect.setTop(minY);
-			if (maxX > extentsRect.right())
 				extentsRect.setRight(maxX);
-			if (maxY > extentsRect.bottom())
 				extentsRect.setBottom(maxY);
-		}
-		else
-		{
-			extentsRect.setLeft(minX);
-			extentsRect.setTop(minY);
-			extentsRect.setRight(maxX);
-			extentsRect.setBottom(maxY);
+			}
 		}
 	}
 
