@@ -837,21 +837,6 @@ void MainWindow::viewActualSize()
 }
 
 
-void MainWindow::viewFitToPage()
-{
-}
-
-
-void MainWindow::viewFitToWidth()
-{
-}
-
-
-void MainWindow::viewFitToHeight()
-{
-}
-
-
 void MainWindow::viewZoom()
 {
 	m_editor->zoom(qobject_cast<KAction *>(sender())->data().toDouble());
@@ -1023,9 +1008,9 @@ void MainWindow::setupActions()
 
 	// View menu
 	KStandardAction::actualSize(this, SLOT(viewActualSize()), actions);
-	KStandardAction::fitToPage(this, SLOT(viewFitToPage()), actions);
-	KStandardAction::fitToWidth(this, SLOT(viewFitToWidth()), actions);
-	KStandardAction::fitToHeight(this, SLOT(viewFitToHeight()), actions);
+	KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
+	KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
+	KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
 
 	actionGroup = new QActionGroup(this);
 	actionGroup->setExclusive(true);

@@ -20,6 +20,7 @@
 #include <QStyleOptionRubberBand>
 
 #include <KAction>
+#include <KMessageBox>
 #include <KXMLGUIFactory>
 
 #include <math.h>
@@ -231,6 +232,105 @@ void Editor::zoom(double factor)
 	m_renderer->setCellSize(m_cellWidth, m_cellHeight);
 	this->resize(m_document->stitchData().width()*m_cellWidth + 1, m_document->stitchData().height()*m_cellHeight + 1);
 	emit changedVisibleCells(visibleCells());
+}
+
+
+void Editor::fitToPage()
+{
+	int oldCellWidth = m_cellWidth;
+	int oldCellHeight = m_cellHeight;
+
+	int documentWidth = m_document->stitchData().width();
+	int documentHeight = m_document->stitchData().height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+
+	QRect visibleArea = parentWidget()->contentsRect();
+	int visibleWidth = visibleArea.width();
+	int visibleHeight = visibleArea.height();
+
+	m_cellWidth = visibleWidth / documentWidth;    // divide the visible width by the number of horizontal cells
+	m_cellHeight = visibleHeight / documentHeight; // divide the visible height by the number of vertical cells
+
+	if (m_cellWidth < 2 || m_cellHeight < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full size.");
+		m_cellWidth = oldCellWidth;
+		m_cellHeight = oldCellHeight;
+	}
+	else
+	{
+		int ratioWidth  = m_cellHeight * documentCellWidth / documentCellHeight;
+		int ratioHeight = m_cellWidth * documentCellHeight / documentCellWidth;
+
+		if (ratioHeight > ratioWidth)
+			m_cellWidth = ratioWidth;
+		else
+			m_cellHeight = ratioHeight;
+
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
+}
+
+
+void Editor::fitToWidth()
+{
+	int oldCellWidth = m_cellWidth;
+	int oldCellHeight = m_cellHeight;
+
+	int documentWidth = m_document->stitchData().width();
+	int documentHeight = m_document->stitchData().height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+
+	m_cellWidth = parentWidget()->contentsRect().width() / documentWidth;
+	m_cellHeight = m_cellWidth * m_document->property("cellHeight").toInt() / m_document->property("cellWidth").toInt();
+
+	if (m_cellHeight < 2 || m_cellWidth < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full Width.");
+		m_cellWidth = oldCellWidth;
+		m_cellHeight = oldCellHeight;
+	}
+	else
+	{
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
+}
+
+
+void Editor::fitToHeight()
+{
+	int oldCellWidth = m_cellWidth;
+	int oldCellHeight = m_cellHeight;
+
+	int documentWidth = m_document->stitchData().width();
+	int documentHeight = m_document->stitchData().height();
+	int documentCellWidth = m_document->property("cellWidth").toInt();
+	int documentCellHeight = m_document->property("cellHeight").toInt();
+
+	m_cellHeight = parentWidget()->contentsRect().height() / documentHeight;
+	m_cellWidth = m_cellHeight * documentCellWidth / documentCellHeight;
+
+	if (m_cellHeight < 2 || m_cellWidth < 2)
+	{
+		KMessageBox::information(this, "Pattern is to large to display full height.");
+		m_cellWidth = oldCellWidth;
+		m_cellHeight = oldCellHeight;
+	}
+	else
+	{
+		m_horizontalScale->setCellSize(m_cellWidth);
+		m_verticalScale->setCellSize(m_cellHeight);
+
+		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
+	}
 }
 
 

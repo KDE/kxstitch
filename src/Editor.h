@@ -81,6 +81,10 @@ class Editor : public QWidget
 		void changedVisibleCells(const QRect &);
 
 	public slots:
+		void fitToPage();
+		void fitToWidth();
+		void fitToHeight();
+
 		void renderStitches(bool);
 		void renderBackstitches(bool);
 		void renderFrenchKnots(bool);

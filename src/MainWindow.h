@@ -87,9 +87,6 @@ class MainWindow : public KXmlGuiWindow
 
 		// View menu
 		void viewActualSize();
-		void viewFitToPage();
-		void viewFitToWidth();
-		void viewFitToHeight();
 		void viewZoom();
 		void viewFitBackgroundImage();
 		void viewShowBackgroundImage();
