@@ -1,13 +1,15 @@
 # KDE Config File
 [Desktop Entry]
 Type=Application
-Exec=kxstitch -caption "%c" %i %m
-Icon=kxstitch.png
-MiniIcon=kxstitch.png
-DocPath=kxstitch/index.html
-MimeType=application/kxstitch
-Comment=
-Comment[de]=
-Terminal=0
+Version=1.0
 Name=KXStitch
 Name[de]=KXStitch
+GenericName=Cross Stitch Editor
+Comment=A cross stitch application
+Comment[de]=
+Icon=kxstitch.png
+Exec=kxstitch -caption %c %i %U
+Terminal=0
+MimeType=application/kxstitch
+Categories=Qt;KDE;Graphics;RasterGraphics;
+DocPath=kxstitch/index.html
