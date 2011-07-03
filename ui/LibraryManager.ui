@@ -51,12 +51,12 @@
   <customwidget>
    <class>LibraryTreeWidget</class>
    <extends>QTreeWidget</extends>
-   <header>../src/LibraryTreeWidget.h</header>
+   <header>src/LibraryTreeWidget.h</header>
   </customwidget>
   <customwidget>
    <class>LibraryListWidget</class>
    <extends>QListWidget</extends>
-   <header>../src/LibraryListWidget.h</header>
+   <header>src/LibraryListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
