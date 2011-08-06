@@ -65,7 +65,7 @@ class PaletteManagerDlg : public KDialog
 		QChar				m_selectedChar;
 		QMap<int, DocumentFloss *>	m_documentPalette;
 		QMap<int, DocumentFloss *>	m_dialogPalette;
-		QMap<int, int>			m_usedFlosses;
+		QMap<int, FlossUsage>		m_flossUsage;
 		QList<QUndoCommand *>		m_changes;
 		FlossScheme			*m_scheme;
 //		CharacterSelectDlg *m_characterSelectDlg;

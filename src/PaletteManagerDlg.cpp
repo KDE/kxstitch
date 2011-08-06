@@ -28,7 +28,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 		m_document(document),
 		m_schemeName(document->documentPalette().schemeName()),
 		m_documentPalette(document->documentPalette().flosses()),
-		m_usedFlosses(document->stitchData().usedFlosses()),
+		m_flossUsage(document->stitchData().flossUsage()),
 		m_scheme(SchemeManager::scheme(m_schemeName))
 //		m_characterSelectDlg(0)
 {
@@ -108,7 +108,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 		ui.BackstitchStrands->setEnabled(true);
 		ui.FlossSymbol->setEnabled(true);
 		ui.ClearUnused->setEnabled(true);
-		if (m_usedFlosses.contains(i) && m_usedFlosses[i] != 0)
+		if (m_flossUsage.contains(i) && m_flossUsage[i].totalStitches() != 0)
 			ui.RemoveFloss->setEnabled(false);
 		else
 			ui.RemoveFloss->setEnabled(true);
@@ -190,7 +190,7 @@ void PaletteManagerDlg::on_NewFloss_clicked(bool)
 			if (contains(floss->name()))
 			{
 				insertListWidgetItem(ui.CurrentList, listWidgetItem);
-				if (m_usedFlosses.contains(paletteIndex(floss->name())) && m_usedFlosses[paletteIndex(floss->name())])
+				if (m_flossUsage.contains(paletteIndex(floss->name())) && m_flossUsage[paletteIndex(floss->name())].totalStitches())
 					listWidgetItem->setForeground(QBrush(Qt::gray));
 			}
 			else
@@ -208,7 +208,7 @@ void PaletteManagerDlg::on_ClearUnused_clicked(bool)
 		ui.CurrentList->setCurrentRow(row);
 		QListWidgetItem *listWidgetItem = ui.CurrentList->currentItem();
 		int i = paletteIndex(listWidgetItem->data(Qt::UserRole).toString());
-		if (!m_usedFlosses.contains(i) || m_usedFlosses[i] == 0)
+		if (!m_flossUsage.contains(i) || m_flossUsage[i].totalStitches() == 0)
 			on_RemoveFloss_clicked(true);
 		else
 			row++;
@@ -244,7 +244,7 @@ void PaletteManagerDlg::fillLists()
 		if (contains(floss->name()))
 		{
 			insertListWidgetItem(ui.CurrentList, listWidgetItem);
-			if (m_usedFlosses.contains(paletteIndex(floss->name())) && m_usedFlosses[paletteIndex(floss->name())])
+			if (m_flossUsage.contains(paletteIndex(floss->name())) && m_flossUsage[paletteIndex(floss->name())].totalStitches())
 				listWidgetItem->setForeground(QBrush(Qt::gray));
 		}
 		else

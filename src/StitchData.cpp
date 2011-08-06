@@ -13,6 +13,28 @@
 #include "StitchData.h"
 
 
+FlossUsage::FlossUsage()
+{
+}
+
+
+double FlossUsage::totalLength() const
+{
+	return stitchLength;
+}
+
+
+int FlossUsage::totalStitches() const
+{
+	int total = 0;
+
+	foreach (int count, stitchCounts)
+		total += count;
+
+	return total;
+}
+
+
 StitchData::StitchData()
 {
 }
@@ -577,33 +599,33 @@ QListIterator<Knot *> StitchData::knotIterator(int layer)
 }
 
 
-QMap<int, int> StitchData::usedFlosses()
+QMap<int, FlossUsage> StitchData::flossUsage()
 {
-	QMap<int, int> used;
-	static QMap<Stitch::Type, int> lengths;
+	QMap<int, FlossUsage> usage;
+	static QMap<Stitch::Type, double> lengths;
 	if (!lengths.count())
 	{
-		lengths.insert(Stitch::Delete, 4);
-		lengths.insert(Stitch::TLQtr, 1);
-		lengths.insert(Stitch::TRQtr, 1);
-		lengths.insert(Stitch::BLQtr, 1);
-		lengths.insert(Stitch::BTHalf, 2);
-		lengths.insert(Stitch::TL3Qtr, 3);
-		lengths.insert(Stitch::BRQtr, 1);
-		lengths.insert(Stitch::TBHalf, 2);
-		lengths.insert(Stitch::TR3Qtr, 3);
-		lengths.insert(Stitch::BL3Qtr, 3);
-		lengths.insert(Stitch::BR3Qtr, 3);
-		lengths.insert(Stitch::Full, 4);
-		lengths.insert(Stitch::TLSmallHalf, 1);
-		lengths.insert(Stitch::TRSmallHalf, 1);
-		lengths.insert(Stitch::BLSmallHalf, 1);
-		lengths.insert(Stitch::BRSmallHalf, 1);
-		lengths.insert(Stitch::TLSmallFull, 2);
-		lengths.insert(Stitch::TRSmallFull, 2);
-		lengths.insert(Stitch::BLSmallFull, 2);
-		lengths.insert(Stitch::BRSmallFull, 2);
-		lengths.insert(Stitch::FrenchKnot, 4);
+		lengths.insert(Stitch::Delete, 0.0);
+		lengths.insert(Stitch::TLQtr, 0.707107 + 0.5);
+		lengths.insert(Stitch::TRQtr, 0.707107 + 0.5);
+		lengths.insert(Stitch::BLQtr, 0.707107 + 0.5);
+		lengths.insert(Stitch::BTHalf, 1.414213 + 1.0);
+		lengths.insert(Stitch::TL3Qtr, 1.414213 + 0.707107 + 1.0 + 0.5);
+		lengths.insert(Stitch::BRQtr, 0.707107 + 0.5);
+		lengths.insert(Stitch::TBHalf, 1.414213 + 1.0);
+		lengths.insert(Stitch::TR3Qtr, 1.414213 + 0.707107 + 1.0 + 0.5);
+		lengths.insert(Stitch::BL3Qtr, 1.414213 + 0.707107 + 1.0 + 0.5);
+		lengths.insert(Stitch::BR3Qtr, 1.414213 + 0.707107 + 1.0 + 0.5);
+		lengths.insert(Stitch::Full, 1.414213 + 1.414213 + 1.0 + 1.0);
+		lengths.insert(Stitch::TLSmallHalf, 0.707107 + 0.5);
+		lengths.insert(Stitch::TRSmallHalf, 0.707107 + 0.5);
+		lengths.insert(Stitch::BLSmallHalf, 0.707107 + 0.5);
+		lengths.insert(Stitch::BRSmallHalf, 0.707107 + 0.5);
+		lengths.insert(Stitch::TLSmallFull, 0.707107 + 0.5 + 0.707107 + 0.5);
+		lengths.insert(Stitch::TRSmallFull, 0.707107 + 0.5 + 0.707107 + 0.5);
+		lengths.insert(Stitch::BLSmallFull, 0.707107 + 0.5 + 0.707107 + 0.5);
+		lengths.insert(Stitch::BRSmallFull, 0.707107 + 0.5 + 0.707107 + 0.5);
+		lengths.insert(Stitch::FrenchKnot, 2.0);
 	}
 
 	QHashIterator<int, QHash<int, QHash<int, StitchQueue *> > > stitchLayerIterator(m_stitches);
@@ -625,7 +647,8 @@ QMap<int, int> StitchData::usedFlosses()
 					while (stitchIterator.hasNext())
 					{
 						Stitch *stitch = stitchIterator.next();
-						used[stitch->colorIndex] += lengths[stitch->type];
+						usage[stitch->colorIndex].stitchCounts[stitch->type]++;
+						usage[stitch->colorIndex].stitchLength += lengths[stitch->type];
 					}
 				}
 			}
@@ -640,7 +663,8 @@ QMap<int, int> StitchData::usedFlosses()
 		while (backstitchIterator.hasNext())
 		{
 			Backstitch *backstitch = backstitchIterator.next();
-			used[backstitch->colorIndex] += QPoint(backstitch->start - backstitch->end).manhattanLength();
+			usage[backstitch->colorIndex].backstitchCount++;
+			usage[backstitch->colorIndex].stitchLength += QPoint(backstitch->start - backstitch->end).manhattanLength();
 		}
 	}
 
@@ -652,11 +676,12 @@ QMap<int, int> StitchData::usedFlosses()
 		while (knotIterator.hasNext())
 		{
 			Knot *knot = knotIterator.next();
-			used[knot->colorIndex] += 4; // arbitrary value for a relative amount of floss to do a knot.
+			usage[knot->colorIndex].stitchCounts[Stitch::FrenchKnot]++;
+			usage[knot->colorIndex].stitchLength += lengths[Stitch::FrenchKnot];
 		}
 	}
 
-	return used;
+	return usage;
 }
 
 

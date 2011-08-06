@@ -804,12 +804,12 @@ void MainWindow::paletteClearUnused()
 {
 	QList<QUndoCommand *> changes;
 
-	QMap<int, int> usedFlosses = m_document->stitchData().usedFlosses();
+	QMap<int, FlossUsage> flossUsage = m_document->stitchData().flossUsage();
 	QMapIterator<int, DocumentFloss *> flosses(m_document->documentPalette().flosses());
 	while (flosses.hasNext())
 	{
 		flosses.next();
-		if (usedFlosses[flosses.key()] == 0)
+		if (flossUsage[flosses.key()].totalStitches() == 0)
 			changes.append(new RemoveDocumentFlossCommand(m_document, flosses.key(), flosses.value()));
 	}
 

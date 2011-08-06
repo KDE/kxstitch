@@ -24,6 +24,20 @@
 #include "Stitch.h"
 
 
+class FlossUsage
+{
+	public:
+		FlossUsage();
+
+		double totalLength() const;
+		int totalStitches() const;
+
+		double	stitchLength;
+		QMap<Stitch::Type, int>	stitchCounts;
+		int	backstitchCount;
+};
+
+
 class StitchData
 {
 	public:
@@ -64,7 +78,7 @@ class StitchData
 		QListIterator<Backstitch *> backstitchIterator(int layer);
 		QListIterator<Knot *> knotIterator(int layer);
 
-		QMap<int, int> usedFlosses();
+		QMap<int, FlossUsage> flossUsage();
 
 		friend QDataStream &operator<<(QDataStream &, const StitchData &);
 		friend QDataStream &operator>>(QDataStream &, StitchData &);
