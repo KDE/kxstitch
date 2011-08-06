@@ -49,10 +49,11 @@ class Preview : public QWidget
 		QRect		m_visible;
 		QPoint		m_point;
 		bool		m_moved;
-		int		m_cellWidth;
-		int		m_cellHeight;
-		int		m_previewWidth;
-		int		m_previewHeight;
+		double		m_cellWidth;
+		double		m_cellHeight;
+		double		m_previewWidth;
+		double		m_previewHeight;
+		double		m_zoomFactor;
 };
 
 

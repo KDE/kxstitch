@@ -54,13 +54,6 @@
 		<Action name="renderBackgroundImages"/>
 	</Menu>
 	<Menu name="view"><text>&amp;View</text>
-		<Menu name="zoomActions"><text>Zoom</text>
-			<Action name="zoom25"/>
-			<Action name="zoom50"/>
-			<Action name="zoom100"/>
-			<Action name="zoom200"/>
-			<Action name="zoom400"/>
-		</Menu>
 		<Action name="showPreviewDockWidget"/>
 		<Action name="showPaletteDockWidget"/>
 		<Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
@@ -149,13 +142,6 @@
 	<Action name="renderGrid"/>
 	<Action name="renderBackgroundImages"/>
 	<Separator/>
-	<Menu name="zoomActions"><text>Zoom</text>
-		<Action name="zoom25"/>
-		<Action name="zoom50"/>
-		<Action name="zoom100"/>
-		<Action name="zoom200"/>
-		<Action name="zoom400"/>
-	</Menu>
 	<Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
 		<ActionList name="showBackgroundImageActions" />
 	</Menu>
@@ -205,6 +191,15 @@
 </ToolBar>
 <ToolBar name="SelectLayerToolBar" fullWidth="false">
 	<ActionList name="selectLayerActions" />
+</ToolBar>
+<ToolBar name="ZoomToolbar" fullWidth="false">
+	<Action name="view_zoom_in"/>
+	<Action name="view_zoom_out"/>
+	<Separator/>
+	<Action name="view_actual_size"/>
+	<Action name="view_fit_to_page"/>
+	<Action name="view_fit_to_width"/>
+	<action name="view_fit_to_height"/>
 </ToolBar>
 <State name="palette_empty">
   <disable>

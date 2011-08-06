@@ -68,9 +68,6 @@ class Editor : public QWidget
 		Scale *horizontalScale();
 		Scale *verticalScale();
 
-		void resizeEditor();
-		void zoom(double);
-
 		QRect selectionArea();
 
 		QList<int> visibleLayers();
@@ -81,6 +78,9 @@ class Editor : public QWidget
 		void changedVisibleCells(const QRect &);
 
 	public slots:
+		void zoomIn();
+		void zoomOut();
+		void actualSize();
 		void fitToPage();
 		void fitToWidth();
 		void fitToHeight();
@@ -121,8 +121,9 @@ class Editor : public QWidget
 		void paintEvent(QPaintEvent*);
 
 	private:
+		void zoom(double);
+
 		void renderBackgroundImages(QPainter *, QRect);
-		void renderGrid(QPainter *, QRect);
 		void renderStitches(QPainter *, QRect);
 		void renderBackstitches(QPainter *, QRect);
 		void renderFrenchKnots(QPainter *, QRect);
@@ -191,8 +192,11 @@ class Editor : public QWidget
 		Scale		*m_horizontalScale;
 		Scale		*m_verticalScale;
 
-		int	m_cellWidth;
-		int	m_cellHeight;
+		double	m_zoomFactor;
+		double	m_cellWidth;
+		double	m_cellHeight;
+		double	m_horizontalClothCount;
+		double	m_verticalClothCount;
 		int	m_cellHorizontalGrouping;
 		int	m_cellVerticalGrouping;
 

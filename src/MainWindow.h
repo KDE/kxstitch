@@ -86,8 +86,6 @@ class MainWindow : public KXmlGuiWindow
 		void paletteCalibrateScheme();
 
 		// View menu
-		void viewActualSize();
-		void viewZoom();
 		void viewFitBackgroundImage();
 		void viewShowBackgroundImage();
 

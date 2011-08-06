@@ -191,146 +191,107 @@ Scale *Editor::verticalScale()
 
 void Editor::readDocumentSettings()
 {
-	m_cellWidth = m_document->property("cellWidth").toInt();
-	m_cellHeight = m_document->property("cellHeight").toInt();
 	m_cellHorizontalGrouping = m_document->property("cellHorizontalGrouping").toInt();
 	m_cellVerticalGrouping = m_document->property("cellVerticalGrouping").toInt();
 
-	m_horizontalScale->setCellSize(m_cellWidth);
+	m_horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
+	m_verticalClothCount = m_document->property("verticalClothCount").toDouble();
+
 	m_horizontalScale->setCellGrouping(m_cellHorizontalGrouping);
 	m_horizontalScale->setCellCount(m_document->stitchData().width());
-	m_horizontalScale->setClothCount(m_document->property("horizontalClothCount").toDouble());
+	m_horizontalScale->setClothCount(m_horizontalClothCount);
 	m_horizontalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
 
-	m_verticalScale->setCellSize(m_cellHeight);
 	m_verticalScale->setCellGrouping(m_cellVerticalGrouping);
 	m_verticalScale->setCellCount(m_document->stitchData().height());
-	m_verticalScale->setClothCount(m_document->property("verticalClothCount").toDouble());
+	m_verticalScale->setClothCount(m_verticalClothCount);
 	m_verticalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
 
-	m_renderer->setCellSize(m_cellWidth, m_cellHeight);
+	m_renderer->setPatternRect(QRect(0, 0, m_document->stitchData().width(), m_document->stitchData().height()));
 
-	m_horizontalScale->setOffset(pos().x());
-	m_verticalScale->setOffset(pos().y());
-
-	resizeEditor(); // this will do an update
-}
-
-
-void Editor::resizeEditor()
-{
-	this->resize(m_document->stitchData().width()*m_cellWidth + 1, m_document->stitchData().height()*m_cellHeight + 1);
+	zoom(1.0);
 }
 
 
 void Editor::zoom(double factor)
 {
-	m_cellWidth = (int)((m_document->property("cellWidth").toDouble())*factor);
-	m_cellHeight = (int)((m_document->property("cellHeight").toDouble())*factor);
+	m_zoomFactor = factor;
+
+	double dpiX = physicalDpiX();
+	double dpiY = physicalDpiY();
+
+	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+
+	m_cellWidth = dpiX * factor / ((clothCountUnitsInches)?m_horizontalClothCount:m_horizontalClothCount*2.54);
+	m_cellHeight = dpiY * factor / ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54);
+
 	m_horizontalScale->setCellSize(m_cellWidth);
 	m_verticalScale->setCellSize(m_cellHeight);
+
+	m_horizontalScale->setOffset(pos().x());
+	m_verticalScale->setOffset(pos().y());
+
 	m_renderer->setCellSize(m_cellWidth, m_cellHeight);
-	this->resize(m_document->stitchData().width()*m_cellWidth + 1, m_document->stitchData().height()*m_cellHeight + 1);
+
+	this->resize(m_document->stitchData().width()*m_cellWidth, m_document->stitchData().height()*m_cellHeight);
+	m_renderer->setPaintDeviceArea(QRect(0, 0, width(), height()));
+
 	emit changedVisibleCells(visibleCells());
+}
+
+
+void Editor::zoomIn()
+{
+	zoom(m_zoomFactor * 1.2);
+}
+
+
+void Editor::zoomOut()
+{
+	zoom(m_zoomFactor / 1.2);
+}
+
+
+void Editor::actualSize()
+{
+	zoom(1.0);
 }
 
 
 void Editor::fitToPage()
 {
-	int oldCellWidth = m_cellWidth;
-	int oldCellHeight = m_cellHeight;
-
 	int documentWidth = m_document->stitchData().width();
 	int documentHeight = m_document->stitchData().height();
-	int documentCellWidth = m_document->property("cellWidth").toInt();
-	int documentCellHeight = m_document->property("cellHeight").toInt();
-
 	QRect visibleArea = parentWidget()->contentsRect();
-	int visibleWidth = visibleArea.width();
-	int visibleHeight = visibleArea.height();
+	double visibleWidth = visibleArea.width();
+	double visibleHeight = visibleArea.height();
+	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+	double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches)?m_horizontalClothCount:m_horizontalClothCount*2.54) / physicalDpiX();
+	double heightScaleFactor = visibleHeight / m_document->stitchData().height() * ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54) / physicalDpiY();
 
-	m_cellWidth = visibleWidth / documentWidth;    // divide the visible width by the number of horizontal cells
-	m_cellHeight = visibleHeight / documentHeight; // divide the visible height by the number of vertical cells
-
-	if (m_cellWidth < 2 || m_cellHeight < 2)
-	{
-		KMessageBox::information(this, "Pattern is to large to display full size.");
-		m_cellWidth = oldCellWidth;
-		m_cellHeight = oldCellHeight;
-	}
-	else
-	{
-		int ratioWidth  = m_cellHeight * documentCellWidth / documentCellHeight;
-		int ratioHeight = m_cellWidth * documentCellHeight / documentCellWidth;
-
-		if (ratioHeight > ratioWidth)
-			m_cellWidth = ratioWidth;
-		else
-			m_cellHeight = ratioHeight;
-
-		m_horizontalScale->setCellSize(m_cellWidth);
-		m_verticalScale->setCellSize(m_cellHeight);
-
-		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
-	}
+	zoom(std::min(widthScaleFactor, heightScaleFactor));
 }
 
 
 void Editor::fitToWidth()
 {
-	int oldCellWidth = m_cellWidth;
-	int oldCellHeight = m_cellHeight;
-
 	int documentWidth = m_document->stitchData().width();
-	int documentHeight = m_document->stitchData().height();
-	int documentCellWidth = m_document->property("cellWidth").toInt();
-	int documentCellHeight = m_document->property("cellHeight").toInt();
+	double visibleWidth = parentWidget()->contentsRect().width();
+	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+	double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches)?m_horizontalClothCount:m_horizontalClothCount*2.54) / physicalDpiX();
 
-	m_cellWidth = parentWidget()->contentsRect().width() / documentWidth;
-	m_cellHeight = m_cellWidth * m_document->property("cellHeight").toInt() / m_document->property("cellWidth").toInt();
-
-	if (m_cellHeight < 2 || m_cellWidth < 2)
-	{
-		KMessageBox::information(this, "Pattern is to large to display full Width.");
-		m_cellWidth = oldCellWidth;
-		m_cellHeight = oldCellHeight;
-	}
-	else
-	{
-		m_horizontalScale->setCellSize(m_cellWidth);
-		m_verticalScale->setCellSize(m_cellHeight);
-
-		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
-	}
+	zoom(widthScaleFactor);
 }
 
 
 void Editor::fitToHeight()
 {
-	int oldCellWidth = m_cellWidth;
-	int oldCellHeight = m_cellHeight;
-
-	int documentWidth = m_document->stitchData().width();
 	int documentHeight = m_document->stitchData().height();
-	int documentCellWidth = m_document->property("cellWidth").toInt();
-	int documentCellHeight = m_document->property("cellHeight").toInt();
+	double visibleHeight = parentWidget()->contentsRect().height();
+	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+	double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54) / physicalDpiY();
 
-	m_cellHeight = parentWidget()->contentsRect().height() / documentHeight;
-	m_cellWidth = m_cellHeight * documentCellWidth / documentCellHeight;
-
-	if (m_cellHeight < 2 || m_cellWidth < 2)
-	{
-		KMessageBox::information(this, "Pattern is to large to display full height.");
-		m_cellWidth = oldCellWidth;
-		m_cellHeight = oldCellHeight;
-	}
-	else
-	{
-		m_horizontalScale->setCellSize(m_cellWidth);
-		m_verticalScale->setCellSize(m_cellHeight);
-
-		this->resize(documentWidth*m_cellWidth + 1, documentHeight*m_cellHeight + 1);
-	}
+	zoom(heightScaleFactor);
 }
 
 
@@ -523,12 +484,12 @@ void Editor::paintEvent(QPaintEvent *e)
 	painter->fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
 
 	if (m_renderBackgroundImages) renderBackgroundImages(painter, e->rect());
-	if (m_renderGrid) renderGrid(painter, e->rect());
 	m_renderer->render(painter,
 			   m_document,
 			   e->rect(),
 			   m_layerOrder,
 			   m_visibleLayers,
+			   m_renderGrid,
 			   m_renderStitches,
 			   m_renderBackstitches,
 			   m_renderFrenchKnots,
@@ -565,46 +526,6 @@ void Editor::renderBackgroundImages(QPainter *painter, QRect updateRectangle)
 				painter->drawImage(r, background->image());
 		}
 	}
-}
-
-
-void Editor::renderGrid(QPainter *painter, QRect updateRectangle)
-{
-	painter->save();
-
-	int gridMaxX = std::min(updateRectangle.right(),(int)(m_document->stitchData().width()*m_cellWidth))+1;
-	int gridMaxY = std::min(updateRectangle.bottom(),(int)(m_document->stitchData().height()*m_cellHeight))+1;
-
-	QPen thickLine;
-	QPen thinLine;
-	thickLine.setWidth(m_document->property("thickLineWidth").toInt());
-	thickLine.setColor(m_document->property("thickLineColor").value<QColor>());
-	thinLine.setWidth(m_document->property("thinLineWidth").toInt());
-	thinLine.setColor(m_document->property("thinLineColor").value<QColor>());
-
-	for (int x = updateRectangle.left() ; x <= gridMaxX ; x++)
-	{
-		for (int y = updateRectangle.top() ; y <= gridMaxY ; y++)
-		{
-			if ((y % m_cellHeight) == 0)
-			{
-				if (y % (m_cellHeight*m_cellVerticalGrouping))
-					painter->setPen(thinLine);
-				else
-					painter->setPen(thickLine);
-				painter->drawLine(updateRectangle.left(), y, gridMaxX, y);
-			}
-		}
-		if ((x % m_cellWidth) == 0)
-		{
-			if (x % (m_cellWidth*m_cellHorizontalGrouping))
-				painter->setPen(thinLine);
-			else
-				painter->setPen(thickLine);
-			painter->drawLine(x, updateRectangle.top(), x, gridMaxY);
-		}
-	}
-	painter->restore();
 }
 
 

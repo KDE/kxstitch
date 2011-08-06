@@ -831,18 +831,6 @@ void MainWindow::paletteCalibrateScheme()
 }
 
 
-void MainWindow::viewActualSize()
-{
-	actionCollection()->action("zoom100")->trigger();
-}
-
-
-void MainWindow::viewZoom()
-{
-	m_editor->zoom(qobject_cast<KAction *>(sender())->data().toDouble());
-}
-
-
 void MainWindow::viewFitBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
@@ -1007,54 +995,15 @@ void MainWindow::setupActions()
 
 
 	// View menu
-	KStandardAction::actualSize(this, SLOT(viewActualSize()), actions);
-	KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
-	KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
-	KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
-
-	actionGroup = new QActionGroup(this);
-	actionGroup->setExclusive(true);
-
-	action = new KAction(this);
-	action->setText("25%");
-	action->setData(0.25);
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered()), this, SLOT(viewZoom()));
-	actionGroup->addAction(action);
-	actions->addAction("zoom25", action);
-
-	action = new KAction(this);
-	action->setText("50%");
-	action->setData(0.5);
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered()), this, SLOT(viewZoom()));
-	actionGroup->addAction(action);
-	actions->addAction("zoom50", action);
-
-	action = new KAction(this);
-	action->setText("100%");
-	action->setData(1.0);
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered()), this, SLOT(viewZoom()));
-	actionGroup->addAction(action);
-	actions->addAction("zoom100", action);
-	action->setChecked(true);
-
-	action = new KAction(this);
-	action->setText("200%");
-	action->setData(2.0);
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered()), this, SLOT(viewZoom()));
-	actionGroup->addAction(action);
-	actions->addAction("zoom200", action);
-
-	action = new KAction(this);
-	action->setText("400%");
-	action->setData(4.0);
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered()), this, SLOT(viewZoom()));
-	actionGroup->addAction(action);
-	actions->addAction("zoom400", action);
+	KStandardAction::zoomIn(m_editor, SLOT(zoomIn()), actions);
+	KStandardAction::zoomOut(m_editor, SLOT(zoomOut()), actions);
+	KStandardAction::actualSize(m_editor, SLOT(actualSize()), actions);
+	action = KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
+	action->setIcon(KIcon("zoom-fit-best"));
+	action = KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
+	action->setIcon(KIcon("zoom-fit-width"));
+	action = KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
+	action->setIcon(KIcon("zoom-fit-height"));
 
 	// Entries for Show/Hide Preview and Palette dock windows are added dynamically
 	// Entries for Show/Hide and Remove background images are added dynamically
@@ -1504,6 +1453,7 @@ void MainWindow::setupDockWindows()
 	scrollArea->setWidget(m_preview);
 	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	scrollArea->setMinimumSize(std::min(300, m_preview->width()), std::min(400, m_preview->height()));
 	dock->setWidget(scrollArea);
 	addDockWidget(Qt::LeftDockWidgetArea, dock);
 	actionCollection()->addAction("showPreviewDockWidget", dock->toggleViewAction());

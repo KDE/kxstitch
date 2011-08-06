@@ -307,11 +307,6 @@ QVariant Document::property(const QString &name) const
 
 void Document::setProperty(const QString &name, const QVariant &value)
 {
-	if (name == QString("verticalClothCount"))
-	{
-		setProperty("cellHeight", int(property("cellWidth").toDouble()*property("horizontalClothCount").toDouble()/value.toDouble()));
-	}
-
 	m_properties[name] = value;
 }
 
@@ -656,8 +651,6 @@ bool Document::readKXStitchV2File(QDataStream &stream)
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
 
-	kDebug() << "QDataStream::Status" << stream.status();
-
 	return (stream.status() == QDataStream::Ok);
 }
 
@@ -817,8 +810,6 @@ bool Document::readKXStitchV3File(QDataStream &stream)
 
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
-
-	kDebug() << "QDataStream::Status" << stream.status();
 
 	return (stream.status() == QDataStream::Ok);
 }
@@ -996,8 +987,6 @@ bool Document::readKXStitchV4File(QDataStream &stream)
 
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
-
-	kDebug() << "QDataStream::Status" << stream.status();
 
 	return (stream.status() == QDataStream::Ok);
 }
@@ -1182,8 +1171,6 @@ bool Document::readKXStitchV5File(QDataStream &stream)
 
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
-
-	kDebug() << "QDataStream::Status" << stream.status();
 
 	return (stream.status() == QDataStream::Ok);
 }
@@ -1373,8 +1360,6 @@ bool Document::readKXStitchV6File(QDataStream &stream)
 
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
-
-	kDebug() << "QDataStream::Status" << stream.status();
 
 	return (stream.status() == QDataStream::Ok);
 }
@@ -1574,8 +1559,6 @@ bool Document::readKXStitchV7File(QDataStream &stream)
 
 		m_stitchData.addBackstitch(0, start, end, colorIndex);
 	}
-
-	kDebug() << "QDataStream::Status" << stream.status();
 
 	return (stream.status() == QDataStream::Ok);
 }

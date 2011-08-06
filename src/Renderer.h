@@ -34,17 +34,20 @@ class Renderer
 		Renderer();
 		~Renderer();
 
-		void setCellSize(int, int);
+		void setCellSize(double, double);
 
+		void setPatternRect(const QRect &);
 		void setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type);
 		void setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type);
 		void setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type);
+		void setPaintDeviceArea(const QRectF &);
 
 		void render(QPainter *,
 			    Document *,
 			    const QRect &updateRectangle,
 			    const QList<int> &layerOrder,
 			    const QList<int> &visibleLayers,
+			    bool renderGrid,
 			    bool renderStitches,
 			    bool renderBackstitches,
 			    bool renderKnots,
@@ -82,34 +85,36 @@ class Renderer
 		QPainter	*m_painter;
 
 		Document	*m_document;
+		QRect		m_patternRect;
+		QRectF		m_paintDeviceArea;
 
 		int	m_hilight;
 
-		int	m_cellWidth;
-		int	m_cellHeight;
+		double	m_cellWidth;
+		double	m_cellHeight;
 
-		QRect	m_renderCell;
-		QRect	m_renderTLCell;
-		QRect	m_renderTL3Cell;
-		QRect	m_renderTRCell;
-		QRect	m_renderTR3Cell;
-		QRect	m_renderBLCell;
-		QRect	m_renderBL3Cell;
-		QRect	m_renderBRCell;
-		QRect	m_renderBR3Cell;
+		QRectF	m_renderCell;
+		QRectF	m_renderTLCell;
+		QRectF	m_renderTL3Cell;
+		QRectF	m_renderTRCell;
+		QRectF	m_renderTR3Cell;
+		QRectF	m_renderBLCell;
+		QRectF	m_renderBL3Cell;
+		QRectF	m_renderBRCell;
+		QRectF	m_renderBR3Cell;
 
-		QPolygon	m_renderTLQ;
-		QPolygon	m_renderTRQ;
-		QPolygon	m_renderBLQ;
-		QPolygon	m_renderBRQ;
+		QPolygonF	m_renderTLQ;
+		QPolygonF	m_renderTRQ;
+		QPolygonF	m_renderBLQ;
+		QPolygonF	m_renderBRQ;
 
-		QPolygon	m_renderBLTRH;
-		QPolygon	m_renderTLBRH;
+		QPolygonF	m_renderBLTRH;
+		QPolygonF	m_renderTLBRH;
 
-		QPolygon	m_renderTL3Q;
-		QPolygon	m_renderTR3Q;
-		QPolygon	m_renderBL3Q;
-		QPolygon	m_renderBR3Q;
+		QPolygonF	m_renderTL3Q;
+		QPolygonF	m_renderTR3Q;
+		QPolygonF	m_renderBL3Q;
+		QPolygonF	m_renderBR3Q;
 
 		QFont	m_renderFont;
 		QFont	m_renderQtrFont;

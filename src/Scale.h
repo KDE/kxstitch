@@ -27,11 +27,11 @@ class Scale : public QWidget
 		~Scale();
 
 		void setUnits(Configuration::EnumEditor_FormatScalesAs::type);
-		void setCellSize(int);
+		void setCellSize(double);
 		void setCellGrouping(int);
 		void setCellCount(int);
 		void setClothCount(double);
-		void setOffset(int);
+		void setOffset(double);
 		virtual QSize sizeHint() const;
 
 	protected:
@@ -39,11 +39,11 @@ class Scale : public QWidget
 
 	private:
 		Configuration::EnumEditor_FormatScalesAs::type m_units;
-		int m_cellSize;
+		double m_cellSize;
 		int m_cellGrouping;
 		int m_cellCount;
 		double m_clothCount;
-		int m_offset;
+		double m_offset;
 		Qt::Orientation m_orientation;
 };
 

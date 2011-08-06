@@ -9,6 +9,7 @@
  ********************************************************************************/
 
 
+#include <QPaintEngine>
 #include <QPainter>
 #include <QPen>
 
@@ -57,35 +58,35 @@ Renderer::~Renderer()
 }
 
 
-void Renderer::setCellSize(int cellWidth, int cellHeight)
+void Renderer::setCellSize(double cellWidth, double cellHeight)
 {
 	if ((cellWidth != m_cellWidth) || (cellHeight != m_cellHeight))
 	{
-		int halfWidth = cellWidth/2;
-		int halfHeight = cellHeight/2;
-		int thirdWidth = cellWidth/3;
-		int thirdHeight = cellHeight/3;
+		double halfWidth = cellWidth/2;
+		double halfHeight = cellHeight/2;
+		double thirdWidth = cellWidth/3;
+		double thirdHeight = cellHeight/3;
 
-		m_renderCell = QRect(0, 0, cellWidth, cellHeight);
-		m_renderTLCell = QRect(0, 0, halfWidth, halfHeight);
-		m_renderTL3Cell = QRect(0, 0, cellWidth-thirdWidth, cellHeight-thirdHeight);
-		m_renderTRCell = QRect(halfWidth, 0, halfWidth, halfHeight);
-		m_renderTR3Cell = QRect(thirdWidth, 0, cellWidth-thirdWidth, cellHeight-thirdHeight);
-		m_renderBLCell = QRect(0, halfHeight, halfWidth, halfHeight);
-		m_renderBL3Cell = QRect(0, thirdHeight, cellWidth-thirdWidth, cellHeight-thirdHeight);
-		m_renderBRCell = QRect(halfWidth, halfHeight, halfWidth, halfHeight);
-		m_renderBR3Cell = QRect(thirdWidth, thirdHeight, cellWidth-thirdWidth, cellHeight-thirdHeight);
+		m_renderCell = QRectF(0, 0, cellWidth, cellHeight);
+		m_renderTLCell = QRectF(0, 0, halfWidth, halfHeight);
+		m_renderTL3Cell = QRectF(0, 0, cellWidth-thirdWidth, cellHeight-thirdHeight);
+		m_renderTRCell = QRectF(halfWidth, 0, halfWidth, halfHeight);
+		m_renderTR3Cell = QRectF(thirdWidth, 0, cellWidth-thirdWidth, cellHeight-thirdHeight);
+		m_renderBLCell = QRectF(0, halfHeight, halfWidth, halfHeight);
+		m_renderBL3Cell = QRectF(0, thirdHeight, cellWidth-thirdWidth, cellHeight-thirdHeight);
+		m_renderBRCell = QRectF(halfWidth, halfHeight, halfWidth, halfHeight);
+		m_renderBR3Cell = QRectF(thirdWidth, thirdHeight, cellWidth-thirdWidth, cellHeight-thirdHeight);
 
-		m_renderTLQ.setPoints(3, 0, 0, halfWidth, 0, 0, halfHeight);
-		m_renderTRQ.setPoints(3, halfWidth, 0, cellWidth, 0, cellWidth, halfHeight);
-		m_renderBLQ.setPoints(3, 0, halfHeight, halfWidth, cellHeight, 0, cellHeight);
-		m_renderBRQ.setPoints(3, cellWidth, halfHeight, cellWidth, cellHeight, halfWidth, cellHeight);
-		m_renderBLTRH.setPoints(6, 0, cellHeight, 0, halfHeight, halfWidth, 0, cellWidth, 0, cellWidth, halfHeight, halfWidth, cellHeight);
-		m_renderTLBRH.setPoints(6, 0, 0, halfWidth, 0, cellWidth, halfHeight, cellWidth, cellHeight, halfWidth, cellHeight, 0, halfWidth);
-		m_renderTL3Q.setPoints(5, 0, 0, cellWidth, 0, cellWidth, halfHeight, halfWidth, cellHeight, 0, cellHeight);
-		m_renderTR3Q.setPoints(5, 0, 0, cellWidth, 0, cellWidth, cellHeight, halfWidth, cellHeight, 0, halfHeight);
-		m_renderBL3Q.setPoints(5, 0, 0, halfWidth, 0, cellWidth, halfHeight, cellWidth, cellHeight, 0, cellHeight);
-		m_renderBR3Q.setPoints(5, halfWidth, 0, cellWidth, 0, cellWidth, cellHeight, 0, cellHeight, 0, halfHeight);
+		m_renderTLQ << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(0, halfHeight);
+		m_renderTRQ << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight);
+		m_renderBLQ << QPointF(0, halfHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, cellHeight);
+		m_renderBRQ << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight);
+		m_renderBLTRH << QPointF(0, cellHeight) << QPointF(0, halfHeight) << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(halfWidth, cellHeight);
+		m_renderTLBRH << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, halfWidth);
+		m_renderTL3Q << QPointF(0, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, cellHeight);
+		m_renderTR3Q << QPointF(0, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, halfHeight);
+		m_renderBL3Q << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(0, cellHeight);
+		m_renderBR3Q << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, cellHeight) << QPointF(0, cellHeight) << QPointF(0, halfHeight);
 
 		m_renderFontSize = std::min(cellWidth, cellHeight)*3/4;
 		m_renderQtrFontSize = m_renderFontSize/2;
@@ -94,6 +95,12 @@ void Renderer::setCellSize(int cellWidth, int cellHeight)
 		m_cellWidth = cellWidth;
 		m_cellHeight = cellHeight;
 	}
+}
+
+
+void Renderer::setPatternRect(const QRect &rect)
+{
+	m_patternRect = rect;
 }
 
 
@@ -115,24 +122,71 @@ void Renderer::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type 
 }
 
 
+void Renderer::setPaintDeviceArea(const QRectF &rect)
+{
+	m_paintDeviceArea = rect;
+}
+
+
 void Renderer::render(QPainter *painter,
 		      Document *document,
 		      const QRect &updateRectangle,
 		      const QList<int> &layerOrder,
 		      const QList<int> &visibleLayers,
+		      bool renderGrid,
 		      bool renderStitches,
 		      bool renderBackstitches,
 		      bool renderKnots,
 		      int colorHilight)
 {
+	kDebug() << "paint device type" << painter->device()->paintEngine()->type();
+
+	bool paintDeviceIsScreen = (painter->device()->paintEngine()->type() == QPaintEngine::X11); // test for other types
+
+	painter->save();
 	m_painter = painter;
 	m_document = document;
 	m_hilight = colorHilight;
 
-	int leftCell = updateRectangle.left()/m_cellWidth;
-	int rightCell = updateRectangle.right()/m_cellWidth;
-	int topCell = updateRectangle.top()/m_cellHeight;
-	int bottomCell = updateRectangle.bottom()/m_cellHeight;
+	painter->drawRect(m_paintDeviceArea);
+
+	double l = m_paintDeviceArea.left();
+	double t = m_paintDeviceArea.top();
+	double w = m_paintDeviceArea.width();
+	double h = m_paintDeviceArea.height();
+	double dx = w / m_patternRect.width();
+	double dy = h / m_patternRect.height();
+
+	painter->translate(l, t);
+
+	if (renderGrid)
+	{
+		int cellHorizontalGrouping = m_document->property("cellHorizontalGrouping").toInt();
+		int cellVerticalGrouping = m_document->property("cellVerticalGrouping").toInt();
+
+		for (int x = 0 ; x < m_patternRect.width() ; x++)
+		{
+			if (x % cellHorizontalGrouping)
+				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.2));
+			else
+				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 1.0));
+			painter->drawLine(x*dx, 0, x*dx, h);
+		}
+
+		for (int y = 0 ; y < m_patternRect.height() ; y++)
+		{
+			if (y % cellVerticalGrouping)
+				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.2));
+			else
+				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 1.0));
+			painter->drawLine(0, y*dy, w, y*dy);
+		}
+	}
+
+	int leftCell = std::max(0, int((updateRectangle.left()-l)/dx));
+	int topCell = std::max(0, int((updateRectangle.top()-t)/dy));
+	int rightCell = std::min(m_patternRect.width(), int((updateRectangle.right()-l)/dx));
+	int bottomCell = std::min(m_patternRect.height(), int((updateRectangle.bottom()-t)/dx));
 
 	m_renderFont = m_painter->font();
 	m_renderFont.setFamily(Configuration::editor_SymbolFont());
@@ -159,16 +213,17 @@ void Renderer::render(QPainter *painter,
 						StitchQueue *queue = m_document->stitchData().stitchQueueAt(layer, QPoint(x, y));
 						if (queue)
 						{
-							int xpos = x*m_cellWidth;
-							int ypos = y*m_cellHeight;
+							double xpos = x*m_cellWidth;
+							double ypos = y*m_cellHeight;
 							m_painter->resetTransform();
-							m_painter->translate(xpos, ypos);
+							m_painter->translate(xpos+l, ypos+t);
 							(this->*renderStitchCallPointers[m_renderStitchesAs])(queue);
 						}
 					}
 				}
 			}
 			m_painter->resetTransform();
+			m_painter->translate(l, t);
 			// process backstitches
 			if (renderBackstitches)
 			{
@@ -194,6 +249,7 @@ void Renderer::render(QPainter *painter,
 			}
 		}
 	}
+	painter->restore();
 }
 
 

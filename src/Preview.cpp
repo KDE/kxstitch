@@ -22,7 +22,8 @@
 Preview::Preview(QWidget *parent)
 	:	QWidget(parent),
 		m_document(0),
-		m_renderer(new Renderer())
+		m_renderer(new Renderer()),
+		m_zoomFactor(1.0)
 {
 	m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
 	m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
@@ -53,14 +54,14 @@ void Preview::readDocumentSettings()
 {
 	int width = m_document->stitchData().width();
 	int height = m_document->stitchData().height();
-	int cellWidth = m_document->property("cellWidth").toInt();
-	int cellHeight = m_document->property("cellHeight").toInt();
-	m_previewWidth = (width * 4);
-	m_previewHeight = (height * 4)*cellHeight/cellWidth;
-	resize(m_previewWidth, m_previewHeight);
 	m_cellWidth = 4;
-	m_cellHeight = m_previewHeight/height;
+	m_cellHeight = 4 * m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
+	m_previewWidth = m_cellWidth * width * m_zoomFactor;
+	m_previewHeight = m_cellHeight * height * m_zoomFactor;
+	m_renderer->setPatternRect(QRect(0, 0, width, height));
 	m_renderer->setCellSize(m_cellWidth, m_cellHeight);
+	m_renderer->setPaintDeviceArea(QRectF(0, 0, m_previewWidth, m_previewHeight));
+	resize(m_previewWidth, m_previewHeight);
 }
 
 
@@ -97,10 +98,12 @@ void Preview::paintEvent(QPaintEvent *e)
 
 	QPainter painter;
 	painter.begin(this);
+	painter.setRenderHint(QPainter::Antialiasing, true);
 	QList<int> layerOrder = m_document->layers().layerNumbers();
 	QList<int> visibleLayers = m_document->layers().layerNumbers();
 	painter.fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
-	m_renderer->render(&painter, m_document, e->rect(), layerOrder, visibleLayers, true, true, true, -1);
+	m_renderer->render(&painter, m_document, e->rect(), layerOrder, visibleLayers, false, true, true, true, -1);
+
 	if (m_visible.width()*m_cellWidth < m_previewWidth || m_visible.height()*m_cellHeight < m_previewHeight)
 	{
 		painter.setPen(Qt::white);
