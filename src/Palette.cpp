@@ -60,7 +60,7 @@ Document *Palette::document() const
 
 void Palette::readDocumentSettings()
 {
-	m_showSymbols = m_document->documentPalette().showSymbols();
+	showSymbols(m_document->documentPalette().showSymbols());
 }
 
 
@@ -108,9 +108,11 @@ bool Palette::event(QEvent *event)
 void Palette::paintEvent(QPaintEvent *)
 {
 	if (m_document == 0) return;
+
 	QMap<int, DocumentFloss *> palette = m_document->documentPalette().flosses();
 	m_flosses = palette.count();
-	m_paletteIndex.resize(m_flosses);
+	m_paletteIndex = m_document->documentPalette().sortedFlosses();
+
 	int currentFlossIndex = m_document->documentPalette().currentIndex();
 
 	QPainter painter;
@@ -140,13 +142,9 @@ void Palette::paintEvent(QPaintEvent *)
 		font.setPixelSize(std::min(m_width, m_height));
 		painter.setFont(font);
 
-		QMapIterator<int, DocumentFloss *> mapIterator(palette);
-		int flossIndex = 0;
-		while (mapIterator.hasNext())
+		for (int flossIndex = 0 ; flossIndex < m_flosses ; flossIndex++)
 		{
-			mapIterator.next();
-			m_paletteIndex[flossIndex] = mapIterator.key();
-			QColor color = mapIterator.value()->flossColor();
+			QColor color = palette[m_paletteIndex[flossIndex]]->flossColor();
 			int x = (flossIndex%m_cols)*m_width;
 			int y = (flossIndex/m_cols)*m_height;
 			QRect rect(x, y, m_width, m_height);
@@ -155,11 +153,11 @@ void Palette::paintEvent(QPaintEvent *)
 
 			if (currentFlossIndex == -1)
 			{
-				m_document->documentPalette().setCurrentIndex(mapIterator.key());
-				currentFlossIndex = mapIterator.key();
+				m_document->documentPalette().setCurrentIndex(m_paletteIndex[flossIndex]);
+				currentFlossIndex = m_paletteIndex[flossIndex];
 			}
 
-			if (mapIterator.key() == currentFlossIndex)
+			if (m_paletteIndex[flossIndex] == currentFlossIndex)
 			{
 				painter.setPen(Qt::black);
 				painter.drawLine(rect.topLeft(), rect.topRight());
@@ -184,10 +182,8 @@ void Palette::paintEvent(QPaintEvent *)
 					painter.setPen(Qt::white);
 				else
 					painter.setPen(Qt::black);
-				painter.drawText(rect, Qt::AlignCenter, mapIterator.value()->stitchSymbol());
+				painter.drawText(rect, Qt::AlignCenter, palette[m_paletteIndex[flossIndex]]->stitchSymbol());
 			}
-
-			flossIndex++;
 		}
 
 		painter.end();

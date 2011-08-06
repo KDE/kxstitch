@@ -46,6 +46,41 @@ QMap<int, DocumentFloss *> &DocumentPalette::flosses()
 }
 
 
+QVector<int> DocumentPalette::sortedFlosses() const
+{
+	int colors = m_documentFlosses.count();
+
+	QVector<int> sorted(colors);
+	QMapIterator<int, DocumentFloss *> iterator(m_documentFlosses);
+
+	int i = 0;
+	while (iterator.hasNext())
+		sorted[i++] = iterator.next().key();
+
+	bool exchanged;
+	do
+	{
+		exchanged = false;
+		for (i = 0 ; i < colors-1 ; i++)
+		{
+			QString flossName1(m_documentFlosses[sorted[i]]->flossName());
+			QString flossName2(m_documentFlosses[sorted[i+1]]->flossName());
+			int length1 = flossName1.length();
+			int length2 = flossName2.length();
+			if (((flossName1 > flossName2) && (length1 >= length2)) || (length1 > length2))
+			{
+				int tmp = sorted[i];
+				sorted[i] = sorted[i+1];
+				sorted[i+1] = tmp;
+				exchanged = true;
+			}
+		}
+	} while (exchanged);
+
+	return sorted;
+}
+
+
 DocumentFloss *DocumentPalette::currentFloss() const
 {
 	DocumentFloss *documentFloss = 0;
