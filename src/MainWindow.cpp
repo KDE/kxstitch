@@ -641,9 +641,9 @@ void MainWindow::fileAddBackgroundImage()
 	KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Background Image"));
 	if (!url.path().isNull())
 	{
-		QRect location;
+		QRect patternArea(0, 0, m_document->stitchData().width(), m_document->stitchData().height());
 		QRect selectionArea = m_editor->selectionArea();
-		BackgroundImage *backgroundImage = new BackgroundImage(url, (selectionArea.isValid()?selectionArea:location));
+		BackgroundImage *backgroundImage = new BackgroundImage(url, (selectionArea.isValid()?selectionArea:patternArea));
 		if (backgroundImage->isValid())
 		{
 			m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage, this));
