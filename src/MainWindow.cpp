@@ -59,10 +59,42 @@ MainWindow::MainWindow()
 MainWindow::MainWindow(const KUrl &url)
 	:	m_libraryManagerDlg(0)
 {
+	setupMainWindow();
+	setupLayout();
+	setupDockWindows();
+	setupActions();
+	setupDocument();
+	fileOpen(url);
+	setupActionDefaults();
+	setupActionsFromDocument();
+	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
+}
+
+
+MainWindow::MainWindow(const Magick::Image &image)
+	:	m_libraryManagerDlg(0)
+{
+	setupMainWindow();
+	setupLayout();
+	setupDockWindows();
+	setupActions();
+	setupDocument();
+	convertImage(image);
+	setupActionDefaults();
+	setupActionsFromDocument();
+	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
+}
+
+
+void MainWindow::setupMainWindow()
+{
 	setObjectName("MainWindow#");
+	setAutoSaveSettings();
+}
 
-	KActionCollection *actions = actionCollection();
 
+void MainWindow::setupLayout()
+{
 	QScrollArea *scrollArea = new QScrollArea();
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -81,18 +113,12 @@ MainWindow::MainWindow(const KUrl &url)
 	layout->setLayout(gridLayout);
 
 	setCentralWidget(layout);
+}
 
-	setupDockWindows();
 
-	setupActions();
-
-	m_horizontalScale->addAction(actions->action("formatScalesAsStitches"));
-	m_horizontalScale->addAction(actions->action("formatScalesAsCM"));
-	m_horizontalScale->addAction(actions->action("formatScalesAsInches"));
-
-	m_verticalScale->addAction(actions->action("formatScalesAsStitches"));
-	m_verticalScale->addAction(actions->action("formatScalesAsCM"));
-	m_verticalScale->addAction(actions->action("formatScalesAsInches"));
+void MainWindow::setupDocument()
+{
+	KActionCollection *actions = actionCollection();
 
 	m_document = new Document();
 
@@ -114,90 +140,17 @@ MainWindow::MainWindow(const KUrl &url)
 	m_editor->setPreview(m_preview);
 	m_palette->setDocument(m_document);
 	m_preview->setDocument(m_document);
-
-	setAutoSaveSettings();
-
-	setupGUI(KXmlGuiWindow::Default, "kxstitchui.rc");
-
-	actions->action("toolPaint")->trigger();	// Select paint tool
-	actions->action("stitchFull")->trigger();	// Select full stitch
-
-	clipboardDataChanged();				// Enable / Disable the paste button depending on the clipboard contents
-
-	fileOpen(url);
-
-	setActionsFromDocument();
-
-	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
 }
 
 
-MainWindow::MainWindow(const Magick::Image &image)
-	:	m_libraryManagerDlg(0)
+void MainWindow::setupActionDefaults()
 {
-	setObjectName("MainWindow#");
-
 	KActionCollection *actions = actionCollection();
-
-	m_editor = new Editor(this);
-	m_horizontalScale = m_editor->horizontalScale();
-	m_verticalScale = m_editor->verticalScale();
-
-	QScrollArea *scrollArea = new QScrollArea();
-	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-	scrollArea->setWidget(m_editor);
-
-	QGridLayout *gridLayout = new QGridLayout(this);
-	gridLayout->addWidget(m_horizontalScale, 0, 1);
-	gridLayout->addWidget(m_verticalScale, 1, 0);
-	gridLayout->addWidget(scrollArea, 1, 1);
-
-	QWidget *layout = new QWidget();
-	layout->setLayout(gridLayout);
-
-	setCentralWidget(layout);
-
-	setupDockWindows();
-
-	setupActions();
-
-	m_horizontalScale->addAction(actions->action("formatScalesAsStitches"));
-	m_horizontalScale->addAction(actions->action("formatScalesAsCM"));
-	m_horizontalScale->addAction(actions->action("formatScalesAsInches"));
-
-	m_verticalScale->addAction(actions->action("formatScalesAsStitches"));
-	m_verticalScale->addAction(actions->action("formatScalesAsCM"));
-	m_verticalScale->addAction(actions->action("formatScalesAsInches"));
-
-	m_document = new Document();
-
-	connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action("edit_undo"), SLOT(setEnabled(bool)));
-	connect(&(m_document->undoStack()), SIGNAL(canRedoChanged(bool)), actions->action("edit_redo"), SLOT(setEnabled(bool)));
-	connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
-	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
-	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
-	connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
-	connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
-
-	m_editor->setDocument(m_document);
-	m_palette->setDocument(m_document);
-	m_preview->setDocument(m_document);
-
-	setAutoSaveSettings();
-
-	setupGUI(KXmlGuiWindow::Default, "kxstitchui.rc");
 
 	actions->action("toolPaint")->trigger();	// Select paint tool
 	actions->action("stitchFull")->trigger();	// Select full stitch
 
-	clipboardDataChanged();				// Enable / Disable the paste button depending on the clipboard contents
-
-	convertImage(image);
-
-	setActionsFromDocument();
-
-	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
+	clipboardDataChanged();
 }
 
 
@@ -258,7 +211,7 @@ bool MainWindow::queryExit()
 }
 
 
-void MainWindow::setActionsFromDocument()
+void MainWindow::setupActionsFromDocument()
 {
 	KActionCollection *actions = actionCollection();
 
@@ -372,13 +325,10 @@ void MainWindow::fileOpen(const KUrl &url)
 		if (docEmpty)
 		{
 			m_document->load(url);
-			setActionsFromDocument();
+			setupActionsFromDocument();
 			m_editor->readDocumentSettings();
 			m_palette->readDocumentSettings();
 			m_preview->readDocumentSettings();
-			m_editor->update();
-			m_palette->update();
-			m_preview->update();
 			documentModified(true); // this is the clean value true
 		}
 		else
@@ -671,7 +621,7 @@ void MainWindow::fileClose()
 	if (queryClose())
 	{
 		m_document->initialiseNew();
-		setActionsFromDocument();
+		setupActionsFromDocument();
 		m_editor->readDocumentSettings();
 		m_palette->readDocumentSettings();
 		m_preview->readDocumentSettings();
@@ -1377,6 +1327,16 @@ void MainWindow::setupActions()
 	action->setCheckable(true);
 	connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackgroundImages(bool)));
 	actions->addAction("renderBackgroundImages", action);
+
+	m_horizontalScale->addAction(actions->action("formatScalesAsStitches"));
+	m_horizontalScale->addAction(actions->action("formatScalesAsCM"));
+	m_horizontalScale->addAction(actions->action("formatScalesAsInches"));
+
+	m_verticalScale->addAction(actions->action("formatScalesAsStitches"));
+	m_verticalScale->addAction(actions->action("formatScalesAsCM"));
+	m_verticalScale->addAction(actions->action("formatScalesAsInches"));
+
+	setupGUI(KXmlGuiWindow::Default, "kxstitchui.rc");
 }
 
 

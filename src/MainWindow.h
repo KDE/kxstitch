@@ -49,7 +49,6 @@ class MainWindow : public KXmlGuiWindow
 	protected:
 		bool queryClose();
 		bool queryExit();
-		void setActionsFromDocument();
 
 	protected slots:
 		// File menu
@@ -106,8 +105,13 @@ class MainWindow : public KXmlGuiWindow
 		void documentModified(bool);
 
 	private:
-		void setupActions();
+		void setupMainWindow();
+		void setupLayout();
 		void setupDockWindows();
+		void setupActions();
+		void setupDocument();
+		void setupActionDefaults();
+		void setupActionsFromDocument();
 		void updateLayerActionLists();
 		void convertImage(const Magick::Image &);
 
