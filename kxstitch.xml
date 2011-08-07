@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/octet-stream">
+		<comment xml:lang="en_GB">KXStitch pattern</comment>
+		<magic priority="50">
+			<match type="string" value="KXStitchDoc" offset="0"/>
+		</magic>
+		<glob pattern="*.kxs"/>
+	</mime-type>
+</mime-info>
+
