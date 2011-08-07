@@ -78,6 +78,9 @@ class Editor : public QWidget
 		void changedVisibleCells(const QRect &);
 
 	public slots:
+		void previewClicked(const QPoint &);
+		void previewClicked(const QRect &);
+
 		void zoomIn();
 		void zoomOut();
 		void actualSize();

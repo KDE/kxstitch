@@ -213,6 +213,36 @@ void Editor::readDocumentSettings()
 }
 
 
+void Editor::previewClicked(const QPoint &cell)
+{
+	QRect contentsRect = parentWidget()->contentsRect();
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(cell.x()*m_cellWidth, cell.y()*m_cellHeight, contentsRect.width()/2, contentsRect.height()/2);
+}
+
+
+void Editor::previewClicked(const QRect &cells)
+{
+	int documentWidth = m_document->stitchData().width();
+	int documentHeight = m_document->stitchData().height();
+	int left = cells.left();
+	int top = cells.top();
+	int right = std::min(cells.right(), documentWidth-1);
+	int bottom = std::min(cells.bottom(), documentHeight-1);
+
+	QRect visibleArea = parentWidget()->contentsRect();
+	double visibleWidth = visibleArea.width();
+	double visibleHeight = visibleArea.height();
+	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+	double widthScaleFactor = visibleWidth / (right-left) * ((clothCountUnitsInches)?m_horizontalClothCount:m_horizontalClothCount*2.54) / physicalDpiX();
+	double heightScaleFactor = visibleHeight / (bottom-top) * ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54) / physicalDpiY();
+
+	zoom(std::min(widthScaleFactor, heightScaleFactor));
+
+	previewClicked(cells.center());
+
+}
+
+
 void Editor::zoom(double factor)
 {
 	m_zoomFactor = factor;

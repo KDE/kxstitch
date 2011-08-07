@@ -12,6 +12,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScrollArea>
+#include <QStyleOptionRubberBand>
 
 #include "configuration.h"
 #include "Document.h"
@@ -74,21 +75,39 @@ void Preview::setVisibleCells(const QRect &cells)
 
 void Preview::mousePressEvent(QMouseEvent *e)
 {
-	m_point = e->pos();
-	m_moved = false;
+	if (e->buttons() & Qt::LeftButton)
+	{
+		m_start = m_tracking = m_end = e->pos(); // QPoint(e->pos().x()/m_cellWidth, e->pos().y()/m_cellHeight);
+	}
 }
 
 
 void Preview::mouseMoveEvent(QMouseEvent *e)
 {
-	m_moved = (e->pos() != m_point);
+	if (e->buttons() & Qt::LeftButton)
+	{
+		m_tracking = e->pos(); // QPoint(e->pos().x()/m_cellWidth, e->pos().y()/m_cellHeight);
+		if (m_tracking != m_start)
+		{
+			QRect updateArea = QRect(m_start, m_end).normalized();
+			m_end = m_tracking;
+			m_rubberBand = QRect(m_start, m_end).normalized();
+			update(updateArea.united(m_rubberBand));
+		}
+	}
 }
 
 
-void Preview::mouseReleaseEvent(QMouseEvent *)
+void Preview::mouseReleaseEvent(QMouseEvent *e)
 {
-	if (!m_moved)
-		emit clicked(QPoint(m_point.x()/m_cellWidth, m_point.y()/m_cellHeight));
+	QPoint p = e->pos();
+	if (m_start == m_end)
+		emit clicked(QPoint(m_start.x()/m_cellWidth, m_start.y()/m_cellHeight));
+	else
+		emit clicked(QRect(QPoint(m_start.x()/m_cellWidth, m_start.y()/m_cellHeight), QPoint(m_end.x()/m_cellWidth, m_end.y()/m_cellHeight)).normalized());
+	QRect updateArea = m_rubberBand;
+	m_rubberBand = QRect();
+	update(updateArea);
 }
 
 
@@ -111,5 +130,16 @@ void Preview::paintEvent(QPaintEvent *e)
 		painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
 		painter.drawRect(m_visible.left()*m_cellWidth, m_visible.top()*m_cellHeight, m_visible.width()*m_cellWidth, m_visible.height()*m_cellHeight);
 	}
+
+	if (m_rubberBand.isValid())
+	{
+		QStyleOptionRubberBand opt;
+		opt.initFrom(this);
+		opt.shape = QRubberBand::Rectangle;
+		opt.opaque = false;
+		opt.rect = m_rubberBand;
+		style()->drawControl(QStyle::CE_RubberBand, &opt, &painter);
+	}
+
 	painter.end();
 }

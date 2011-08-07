@@ -37,6 +37,7 @@ class Preview : public QWidget
 
 	signals:
 		void clicked(QPoint);
+		void clicked(QRect);
 
 	protected:
 		virtual void mousePressEvent(QMouseEvent *);
@@ -47,8 +48,10 @@ class Preview : public QWidget
 		Document	*m_document;
 		Renderer	*m_renderer;
 		QRect		m_visible;
-		QPoint		m_point;
-		bool		m_moved;
+		QPoint		m_start;
+		QPoint		m_tracking;
+		QPoint		m_end;
+		QRect		m_rubberBand;
 		double		m_cellWidth;
 		double		m_cellHeight;
 		double		m_previewWidth;

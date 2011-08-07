@@ -107,6 +107,8 @@ MainWindow::MainWindow(const KUrl &url)
 	connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
 	connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
 	connect(m_editor, SIGNAL(changedVisibleCells(const QRect &)), m_preview, SLOT(setVisibleCells(const QRect &)));
+	connect(m_preview, SIGNAL(clicked(const QPoint &)), m_editor, SLOT(previewClicked(const QPoint &)));
+	connect(m_preview, SIGNAL(clicked(const QRect &)), m_editor, SLOT(previewClicked(const QRect &)));
 
 	m_editor->setDocument(m_document);
 	m_editor->setPreview(m_preview);
