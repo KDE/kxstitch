@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Commands_H
-#define __Commands_H
+#ifndef Commands_H
+#define Commands_H
 
 
 #include <QPoint>
@@ -450,4 +450,4 @@ class PreviewReadDocumentSettingsCommand : public QUndoCommand
 };
 
 
-#endif
+#endif // Commands_H

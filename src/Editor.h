@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Editor_H
-#define __Editor_H
+#ifndef Editor_H
+#define Editor_H
 
 
 #include <QWidget>
@@ -249,4 +249,4 @@ class Editor : public QWidget
 };
 
 
-#endif
+#endif // Editor_H

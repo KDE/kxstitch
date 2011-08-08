@@ -5,9 +5,11 @@
  *	This program is free software; you can redistribute it and/or modify	*
  *	it under the terms of the GNU General Public License as published by	*
  *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*					*
+ *	(at your option) any later version.					*
  ********************************************************************************/
 
+
+#include "SchemeManager.h"
 
 #include <QDir>
 #include <QFile>
@@ -23,7 +25,6 @@
 
 #include "Floss.h"
 #include "FlossScheme.h"
-#include "SchemeManager.h"
 #include "SchemeParser.h"
 
 
@@ -139,7 +140,7 @@ FlossScheme *SchemeManager::readScheme(QString name)
 
 	bool success = reader.parse(source);
 	if (!success)
-		KMessageBox::error(0, QString(i18n("Error reading scheme %1\n%2.")).arg(name).arg(handler.errorString()), i18n("Error reading floss scheme."));
+		KMessageBox::error(0, i18n("Error reading scheme %1\n%2.", name, handler.errorString()), i18n("Error reading floss scheme."));
 
 	FlossScheme *flossScheme = handler.flossScheme();
 	if (!success)

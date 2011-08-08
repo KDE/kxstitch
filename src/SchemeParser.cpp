@@ -15,10 +15,11 @@
 	*/
 
 
+#include "SchemeParser.h"
+
 #include <KDebug>
 #include <KLocale>
 
-#include "SchemeParser.h"
 #include "FlossScheme.h"
 #include "Floss.h"
 

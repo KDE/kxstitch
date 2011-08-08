@@ -109,7 +109,7 @@ void DocumentFloss::setBackstitchStrands(int backstitchStrands)
 }
 
 
-bool DocumentFloss::operator==(const DocumentFloss &other)
+bool DocumentFloss::operator==(const DocumentFloss &other) const
 {
 	return ((m_flossName == other.m_flossName) &&
 		(m_stitchSymbol == other.m_stitchSymbol) &&
@@ -119,7 +119,7 @@ bool DocumentFloss::operator==(const DocumentFloss &other)
 }
 
 
-bool DocumentFloss::operator!=(const DocumentFloss &other)
+bool DocumentFloss::operator!=(const DocumentFloss &other) const
 {
 	return !(*this == other);
 }

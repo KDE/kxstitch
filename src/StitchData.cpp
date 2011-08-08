@@ -9,8 +9,9 @@
  ********************************************************************************/
 
 
-#include <KDebug>
 #include "StitchData.h"
+
+#include <KDebug>
 
 
 FlossUsage::FlossUsage()
@@ -353,7 +354,7 @@ StitchData StitchData::cut(const QRect &area, const QList<int> &layerMask, const
 						newQueue.push(newStitch);
 					}
 				}
-				subSet[layer][colum][row] = newQueue;
+				subSet[layer][column][row] = newQueue;
 			}
 		}
 

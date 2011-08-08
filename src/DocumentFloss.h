@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __DocumentFloss_H
-#define __DocumentFloss_H
+#ifndef DocumentFloss_H
+#define DocumentFloss_H
 
 
 #include <QChar>
@@ -40,8 +40,8 @@ class DocumentFloss
 		void setStitchStrands(int);
 		void setBackstitchStrands(int);
 
-		bool operator==(const DocumentFloss &);
-		bool operator!=(const DocumentFloss &);
+		bool operator==(const DocumentFloss &) const;
+		bool operator!=(const DocumentFloss &) const;
 
 		friend QDataStream &operator<<(QDataStream &, const DocumentFloss &);
 		friend QDataStream &operator>>(QDataStream &, DocumentFloss &);
@@ -62,4 +62,4 @@ QDataStream &operator<<(QDataStream &, DocumentFloss *);
 QDataStream &operator>>(QDataStream &, DocumentFloss *);
 
 
-#endif
+#endif // DocumentFloss_H

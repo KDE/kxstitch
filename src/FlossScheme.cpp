@@ -9,10 +9,10 @@
  ********************************************************************************/
 
 
+#include "FlossScheme.h"
+
 #include <Magick++.h>
 #include <magick/version.h>
-
-#include "FlossScheme.h"
 
 
 FlossScheme::FlossScheme()

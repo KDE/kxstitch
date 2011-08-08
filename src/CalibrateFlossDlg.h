@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __CalibrateFlossDlg_H
-#define __CalibrateFlossDlg_H
+#ifndef CalibrateFlossDlg_H
+#define CalibrateFlossDlg_H
 
 
 #include <QColor>
@@ -65,4 +65,4 @@ class CalibrateFlossDlg : public KDialog
 };
 
 
-#endif
+#endif // CalibrateFlossDlg_H

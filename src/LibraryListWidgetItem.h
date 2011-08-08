@@ -9,8 +9,8 @@
  ***************************************************************************/
 
 
-#ifndef __LibraryListWidgetItem_H
-#define __LibraryListWidgetItem_H
+#ifndef LibraryListWidgetItem_H
+#define LibraryListWidgetItem_H
 
 
 #include <QListWidgetItem>
@@ -41,4 +41,4 @@ class LibraryListWidgetItem : public QListWidgetItem
 };
 
 
-#endif
+#endif // LibraryListWidgetItem_H

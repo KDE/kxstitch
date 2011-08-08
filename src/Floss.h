@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Floss_H
-#define __Floss_H
+#ifndef Floss_H
+#define Floss_H
 
 
 #include <QColor>
@@ -38,4 +38,4 @@ class Floss
 };
 
 
-#endif
+#endif // Floss_H

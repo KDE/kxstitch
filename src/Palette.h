@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Palette_H
-#define __Palette_H
+#ifndef Palette_H
+#define Palette_H
 
 
 #include <QFrame>
@@ -57,4 +57,4 @@ class Palette : public QFrame
 };
 
 
-#endif
+#endif // Palette_H

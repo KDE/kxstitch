@@ -9,8 +9,8 @@
  ***************************************************************************/
 
 
-#ifndef __LibraryFile_H
-#define __LibraryFile_H
+#ifndef LibraryFile_H
+#define LibraryFile_H
 
 
 #include <QList>
@@ -51,4 +51,4 @@ class LibraryFile
 };
 
 
-#endif
+#endif // LibraryFile_H

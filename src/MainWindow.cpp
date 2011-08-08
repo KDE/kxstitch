@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "MainWindow.h"
+
 #include <QActionGroup>
 #include <QClipboard>
 #include <QDataStream>
@@ -38,7 +40,6 @@
 #include "FlossScheme.h"
 #include "ImportImageDlg.h"
 #include "LibraryManagerDlg.h"
-#include "MainWindow.h"
 #include "Palette.h"
 #include "PaletteManagerDlg.h"
 #include "PatternMimeData.h"
@@ -312,14 +313,14 @@ void MainWindow::fileNew()
 
 void MainWindow::fileOpen()
 {
-	fileOpen(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), QString(i18n("*.kxs|Cross Stitch Patterns\n*.kem|Embroidery Patterns\n*.pat|PC Stitch patterns\n*|All files")), this));
+	fileOpen(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), i18n("*.kxs|Cross Stitch Patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
 }
 
 
 void MainWindow::fileOpen(const KUrl &url)
 {
 	MainWindow *window;
-	bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == QString(i18n("Untitled"))));
+	bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
 	if (url.isValid())
 	{
 		if (docEmpty)
@@ -380,7 +381,7 @@ void MainWindow::fileRevert()
 void MainWindow::fileImportImage()
 {
 	MainWindow *window;
-	bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == QString(i18n("Untitled"))));
+	bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
 	KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Import Image"));
 	if (!url.path().isNull())
 	{
@@ -400,7 +401,7 @@ void MainWindow::convertImage(const Magick::Image &image)
 	QMap<int, QColor> documentFlosses;
 	QMap<int, QChar> flossSymbols;
 
-	ImportImageDlg *importImageDlg = new ImportImageDlg(this, image);
+	QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 	if (importImageDlg->exec())
 	{
 		Magick::Image convertedImage = importImageDlg->convertedImage();
@@ -527,7 +528,7 @@ void MainWindow::convertImage(const Magick::Image &image)
 
 void MainWindow::fileProperties()
 {
-	FilePropertiesDlg *filePropertiesDlg = new FilePropertiesDlg(this, m_document);
+	QPointer<FilePropertiesDlg> filePropertiesDlg = new FilePropertiesDlg(this, m_document);
 	if (filePropertiesDlg->exec())
 	{
 		QList<QUndoCommand *> changes;
@@ -665,13 +666,13 @@ void MainWindow::editPaste()
 
 void MainWindow::undoTextChanged(const QString &text)
 {
-	actionCollection()->action("edit_undo")->setText(QString(i18n("Undo %1").arg(text)));
+	actionCollection()->action("edit_undo")->setText(i18n("Undo %1", text));
 }
 
 
 void MainWindow::redoTextChanged(const QString &text)
 {
-	actionCollection()->action("edit_redo")->setText(QString(i18n("Redo %1").arg(text)));
+	actionCollection()->action("edit_redo")->setText(i18n("Redo %1", text));
 }
 
 
@@ -684,7 +685,7 @@ void MainWindow::clipboardDataChanged()
 
 void MainWindow::toolText()
 {
-	TextToolDlg *textToolDlg = new TextToolDlg(this);
+	QPointer<TextToolDlg> textToolDlg = new TextToolDlg(this);
 	if (textToolDlg->exec())
 	{
 		QByteArray pattern = textToolDlg->pattern();
@@ -719,7 +720,7 @@ void MainWindow::toolText()
 
 void MainWindow::paletteManager()
 {
-	PaletteManagerDlg *paletteManagerDlg = new PaletteManagerDlg(this, m_document);
+	QPointer<PaletteManagerDlg> paletteManagerDlg = new PaletteManagerDlg(this, m_document);
 	if (paletteManagerDlg->exec())
 	{
 		QList<QUndoCommand *> changes = paletteManagerDlg->changes();
@@ -815,7 +816,7 @@ void MainWindow::libraryManager()
 
 void MainWindow::patternExtend()
 {
-	ExtendPatternDlg *extendPatternDlg = new ExtendPatternDlg(this);
+	QPointer<ExtendPatternDlg> extendPatternDlg = new ExtendPatternDlg(this);
 	if (extendPatternDlg->exec())
 	{
 		int top = extendPatternDlg->top();
@@ -1115,7 +1116,7 @@ void MainWindow::setupActions()
 	actionGroup->addAction(action);
 
 	action = new KAction(this);
-	action->setText(i18n("Select"));
+	action->setText(i18nc("Select an area of the pattern", "Select"));
 	action->setData(Editor::ToolSelect);
 	action->setIcon(KIcon("s_rect"));
 	action->setCheckable(true);

@@ -9,8 +9,8 @@
  ***************************************************************************/
 
 
-#ifndef __LibraryPattern_H
-#define __LibraryPattern_H
+#ifndef LibraryPattern_H
+#define LibraryPattern_H
 
 
 #include <QByteArray>
@@ -64,4 +64,4 @@ QDataStream &operator<<(QDataStream &, const LibraryPattern &);
 QDataStream &operator>>(QDataStream &, LibraryPattern &);
 
 
-#endif
+#endif // LibraryPattern_H

@@ -9,11 +9,12 @@
  ***************************************************************************/
 
 
+#include "LibraryPattern.h"
+
 #include <QListWidget>
 
 #include "KeycodeLineEdit.h"
 #include "LibraryListWidgetItem.h"
-#include "LibraryPattern.h"
 
 
 LibraryPattern::LibraryPattern()

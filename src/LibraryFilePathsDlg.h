@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __LibraryFilePathsDlg_H
-#define __LibraryFilePathsDlg_H
+#ifndef LibraryFilePathsDlg_H
+#define LibraryFilePathsDlg_H
 
 
 #include <KDialog>
@@ -34,4 +34,4 @@ class LibraryFilePathsDlg : public KDialog
 };
 
 
-#endif
+#endif // LibraryFilePathsDlg_H

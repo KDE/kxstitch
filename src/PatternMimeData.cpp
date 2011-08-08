@@ -10,9 +10,9 @@
 
 
 
-#include <KDebug>
-
 #include "PatternMimeData.h"
+
+#include <KDebug>
 
 
 PatternMimeData::PatternMimeData()

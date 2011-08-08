@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __LibraryPatternPropertiesDlg_H
-#define __LibraryPatternPropertiesDlg_H
+#ifndef LibraryPatternPropertiesDlg_H
+#define LibraryPatternPropertiesDlg_H
 
 
 #include <KDialog>
@@ -36,4 +36,4 @@ class LibraryPatternPropertiesDlg : public KDialog
 };
 
 
-#endif
+#endif // LibraryPatternPropertiesDlg_H

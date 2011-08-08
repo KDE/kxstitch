@@ -9,18 +9,18 @@
  ***************************************************************************/
 
 
-#ifndef __KeycodeLineEdit_H
-#define __KeycodeLineEdit_H
+#ifndef KeycodeLineEdit_H
+#define KeycodeLineEdit_H
 
 
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QString>
 
 
 class QKeyEvent;
 
 
-class KeycodeLineEdit : public QLineEdit
+class KeycodeLineEdit : public KLineEdit
 {
 	Q_OBJECT
 
@@ -42,4 +42,4 @@ class KeycodeLineEdit : public QLineEdit
 };
 
 
-#endif
+#endif // KeycodeLineEdit_H

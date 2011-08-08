@@ -9,10 +9,11 @@
  ********************************************************************************/
 
 
-#ifndef __SchemeManager_H
-#define __SchemeManager_H
+#ifndef SchemeManager_H
+#define SchemeManager_H
 
 
+#include <QColor>
 #include <QList>
 #include <QStringList>
 
@@ -48,4 +49,4 @@ class SchemeManager : private QObject
 };
 
 
-#endif
+#endif // SchemeManager_H

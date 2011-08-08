@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Document_H
-#define __Document_H
+#ifndef Document_H
+#define Document_H
 
 
 #include <QPolygon>
@@ -88,4 +88,4 @@ class Document
 };
 
 
-#endif
+#endif // Document_H

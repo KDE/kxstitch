@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __StitchData_H
-#define __StitchData_H
+#ifndef StitchData_H
+#define StitchData_H
 
 
 #include <QHash>
@@ -101,4 +101,4 @@ QDataStream &operator<<(QDataStream &, const StitchData &);
 QDataStream &operator>>(QDataStream &, StitchData &);
 
 
-#endif
+#endif // StitchData_H

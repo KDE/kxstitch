@@ -9,13 +9,14 @@
  ********************************************************************************/
 
 
+#include "Renderer.h"
+
 #include <QPaintEngine>
 #include <QPainter>
 #include <QPen>
 
 #include "Document.h"
 #include "DocumentFloss.h"
-#include "Renderer.h"
 #include "Stitch.h"
 
 

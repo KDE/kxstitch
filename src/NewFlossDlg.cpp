@@ -9,11 +9,12 @@
  ********************************************************************************/
 
 
+#include "NewFlossDlg.h"
+
 #include <KDebug>
 #include <KMessageBox>
 
 #include "FlossScheme.h"
-#include "NewFlossDlg.h"
 
 
 NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
@@ -48,7 +49,7 @@ void NewFlossDlg::slotButtonClicked(int button)
 {
 	if (button == KDialog::Ok)
 	{
-		if (!m_flossScheme->find(ui.FlossName->text()) || KMessageBox::questionYesNo(this, QString(i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.").arg(ui.FlossName->text())),
+		if (!m_flossScheme->find(ui.FlossName->text()) || KMessageBox::questionYesNo(this, i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()),
 												i18n("Overwrite")) == KDialog::Yes)
 		{
 			m_floss = new Floss(ui.FlossName->text(), ui.FlossDescription->text(), ui.ColorButton->color());

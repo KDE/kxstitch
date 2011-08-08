@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "Preview.h"
+
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScrollArea>
@@ -16,7 +18,6 @@
 
 #include "configuration.h"
 #include "Document.h"
-#include "Preview.h"
 #include "Renderer.h"
 
 

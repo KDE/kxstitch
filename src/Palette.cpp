@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "Palette.h"
+
 #include <QContextMenuEvent>
 #include <QMenu>
 #include <QMouseEvent>
@@ -23,7 +25,6 @@
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "MainWindow.h"
-#include "Palette.h"
 #include "SchemeManager.h"
 
 
@@ -98,7 +99,7 @@ bool Palette::event(QEvent *event)
 			}
 		}
 		else
-			QToolTip::showText(helpEvent->globalPos(), QString(i18n("No colors in palette")));
+			QToolTip::showText(helpEvent->globalPos(), i18n("No colors in palette"));
 
 		return true;
 	}

@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __BackgroundImages_H
-#define __BackgroundImages_H
+#ifndef BackgroundImages_H
+#define BackgroundImages_H
 
 
 #include <QDataStream>
@@ -50,4 +50,4 @@ QDataStream &operator<<(QDataStream &, const BackgroundImages &);
 QDataStream &operator>>(QDataStream &, BackgroundImages &);
 
 
-#endif
+#endif // BackgroundImages_H

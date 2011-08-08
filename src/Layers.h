@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Layers_H
-#define __Layers_H
+#ifndef Layers_H
+#define Layers_H
 
 
 #include <QDataStream>
@@ -52,4 +52,4 @@ QDataStream &operator<<(QDataStream &, const Layers &);
 QDataStream &operator>>(QDataStream &, Layers &);
 
 
-#endif
+#endif // Layers_H

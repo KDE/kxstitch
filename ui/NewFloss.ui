@@ -31,12 +31,12 @@
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Color Name</string>
+      <string>Floss Name</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLineEdit" name="FlossName"/>
+    <widget class="KLineEdit" name="FlossName"/>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_3">
@@ -46,12 +46,15 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QLineEdit" name="FlossDescription"/>
+    <widget class="KLineEdit" name="FlossDescription"/>
    </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_4">
+     <property name="toolTip">
+      <string/>
+     </property>
      <property name="text">
-      <string>Color</string>
+      <string comment="Color chooser">Color</string>
      </property>
     </widget>
    </item>
@@ -61,6 +64,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
   <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>

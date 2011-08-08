@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#include "configuration.h"
 #include "DocumentPalette.h"
+#include "configuration.h"
 
 
 DocumentPalette::DocumentPalette()
@@ -61,7 +61,7 @@ QVector<int> DocumentPalette::sortedFlosses() const
 	do
 	{
 		exchanged = false;
-		for (i = 0 ; i < colors-1 ; i++)
+		for (i = 0 ; i < colors-1 ; ++i)
 		{
 			QString flossName1(m_documentFlosses[sorted[i]]->flossName());
 			QString flossName2(m_documentFlosses[sorted[i+1]]->flossName());

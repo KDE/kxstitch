@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Renderer_H
-#define __Renderer_H
+#ifndef Renderer_H
+#define Renderer_H
 
 
 #include <QFont>
@@ -126,4 +126,4 @@ class Renderer
 };
 
 
-#endif
+#endif // Renderer_H

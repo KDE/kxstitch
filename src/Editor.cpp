@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "Editor.h"
+
 #include <QAction>
 #include <QBitmap>
 #include <QContextMenuEvent>
@@ -28,7 +30,6 @@
 #include "BackgroundImage.h"
 #include "Commands.h"
 #include "Document.h"
-#include "Editor.h"
 #include "Floss.h"
 #include "MainWindow.h"
 #include "Preview.h"

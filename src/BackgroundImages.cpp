@@ -9,10 +9,11 @@
  ********************************************************************************/
 
 
+#include "BackgroundImages.h"
+
 #include <KDebug>
 
 #include "BackgroundImage.h"
-#include "BackgroundImages.h"
 
 
 BackgroundImages::BackgroundImages()

@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __TextToolDlg_H
-#define __TextToolDlg_H
+#ifndef TextToolDlg_H
+#define TextToolDlg_H
 
 
 #include <QFont>
@@ -52,4 +52,4 @@ class TextToolDlg : public KDialog
 };
 
 
-#endif
+#endif // TextToolDlg_H

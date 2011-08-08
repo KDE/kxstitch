@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __MainWindow_H
-#define __MainWindow_H
+#ifndef MainWindow_H
+#define MainWindow_H
 
 
 #include <KXmlGuiWindow>
@@ -128,5 +128,4 @@ class MainWindow : public KXmlGuiWindow
 };
 
 
-#endif
-
+#endif // MainWindow_H

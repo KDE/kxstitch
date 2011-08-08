@@ -9,8 +9,8 @@
  ***************************************************************************/
 
 
-#ifndef __LibraryTreeWidget_H
-#define __LibraryTreeWidget_H
+#ifndef LibraryTreeWidget_H
+#define LibraryTreeWidget_H
 
 
 #include <QTreeWidget>
@@ -50,4 +50,4 @@ class LibraryTreeWidget : public QTreeWidget
 };
 
 
-#endif
+#endif // LibraryTreeWidget_H

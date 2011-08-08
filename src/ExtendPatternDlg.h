@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __ExtendPatternDlg_H
-#define __ExtendPatternDlg_H
+#ifndef ExtendPatternDlg_H
+#define ExtendPatternDlg_H
 
 
 #include "ui_ExtendPattern.h"
@@ -34,4 +34,4 @@ class ExtendPatternDlg : public KDialog
 };
 
 
-#endif
+#endif // ExtendPatternDlg_H

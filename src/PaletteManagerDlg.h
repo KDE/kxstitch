@@ -9,13 +9,15 @@
  ********************************************************************************/
 
 
-#ifndef __PaletteManagerDlg_H
-#define __PaletteManagerDlg_H
+#ifndef PaletteManagerDlg_H
+#define PaletteManagerDlg_H
 
 
 #include <KDialog>
 
 #include "Document.h"
+#include "FlossScheme.h"
+
 #include "ui_PaletteManager.h"
 
 
@@ -43,7 +45,8 @@ class PaletteManagerDlg : public KDialog
 		void on_RemoveFloss_clicked(bool);
 		void on_StitchStrands_activated(int);
 		void on_BackstitchStrands_activated(int);
-		void on_FlossSymbol_clicked(bool);
+		void on_StitchSymbol_clicked(bool);
+		void on_BackstitchSymbol_clicked(bool);
 		void on_NewFloss_clicked(bool);
 		void on_ClearUnused_clicked(bool);
 		void on_Calibrate_clicked(bool);
@@ -72,4 +75,4 @@ class PaletteManagerDlg : public KDialog
 };
 
 
-#endif
+#endif // PaletteManagerDlg_H

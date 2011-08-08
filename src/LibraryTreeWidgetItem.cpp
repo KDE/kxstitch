@@ -9,6 +9,9 @@
  ***************************************************************************/
 
 
+#include "LibraryTreeWidgetItem.h"
+
+
 /*
 struct LIBRARY (original)
 {
@@ -80,7 +83,6 @@ struct LIBRARY (new)
 #include <KStandardDirs>
 
 #include "LibraryPattern.h"
-#include "LibraryTreeWidgetItem.h"
 
 
 LibraryTreeWidgetItem::LibraryTreeWidgetItem(QTreeWidget *parent, const QString &name)
@@ -192,7 +194,7 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
 	}
 	// create a writable path
 	QString path = m_libraryFiles[0]->path();
-	path.replace(0, path.indexOf("library"), "");
+	path = path.remove(0, path.indexOf("library"));
 	path = KGlobal::dirs()->saveLocation("appdata", path);
 	addPath(path);
 	libraryFile = m_libraryFiles.last();

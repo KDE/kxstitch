@@ -9,10 +9,11 @@
  ********************************************************************************/
 
 
+#include "Commands.h"
+
 #include <KLocale>
 
 #include "BackgroundImage.h"
-#include "Commands.h"
 #include "Document.h"
 #include "Editor.h"
 #include "Floss.h"

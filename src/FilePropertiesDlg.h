@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __FilePropertiesDlg_H
-#define __FilePropertiesDlg_H
+#ifndef FilePropertiesDlg_H
+#define FilePropertiesDlg_H
 
 
 #include <KDialog>
@@ -77,4 +77,4 @@ class FilePropertiesDlg : public KDialog
 };
 
 
-#endif
+#endif // FilePropertiesDlg_H

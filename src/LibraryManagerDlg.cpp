@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "LibraryManagerDlg.h"
+
 #include <QClipboard>
 #include <QDir>
 #include <QFileInfoList>
@@ -16,7 +18,6 @@
 
 #include <KStandardDirs>
 
-#include "LibraryManagerDlg.h"
 #include "LibraryListWidgetItem.h"
 #include "LibraryTreeWidgetItem.h"
 

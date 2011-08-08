@@ -9,8 +9,8 @@
  ***************************************************************************/
 
 
-#ifndef __AlphaSelect_H
-#define __AlphaSelect_H
+#ifndef AlphaSelect_H
+#define AlphaSelect_H
 
 
 #include <QLabel>
@@ -35,4 +35,4 @@ class AlphaSelect : public QLabel
 };
 
 
-#endif
+#endif // AlphaSelect_H

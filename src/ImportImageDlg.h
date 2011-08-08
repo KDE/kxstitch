@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __ImportImageDlg_H
-#define __ImportImageDlg_H
+#ifndef ImportImageDlg_H
+#define ImportImageDlg_H
 
 
 #include <QAction>
@@ -88,4 +88,4 @@ class ImportImageDlg : public KDialog
 };
 
 
-#endif
+#endif // ImportImageDlg_H

@@ -9,11 +9,11 @@
  ***************************************************************************/
 
 
+#include "AlphaSelect.h"
+
 #include <QMouseEvent>
 
 #include <KDebug>
-
-#include "AlphaSelect.h"
 
 
 AlphaSelect::AlphaSelect(QLabel *parent)

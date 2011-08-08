@@ -9,13 +9,14 @@
  ********************************************************************************/
 
 
+#include "ImportImageDlg.h"
+
 #include <QApplication>
 #include <QPainter>
 #include <QProgressDialog>
 
 #include "configuration.h"
 #include "FlossScheme.h"
-#include "ImportImageDlg.h"
 #include "SchemeManager.h"
 
 
@@ -182,7 +183,8 @@ void ImportImageDlg::on_HorizontalClothCount_valueChanged(double horizontalCloth
 	}
 	if (ui.ClothCountLink->isChecked())
 		ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
-	ui.FinalSize->setText(QString(i18n("%1%2 x %3%4")).arg(preferredSizeWidth, 0, 'g', 3).arg(suffix).arg(preferredSizeHeight, 0, 'g', 3).arg(suffix));
+	// TODO is there a better way of representing the dimensional values below for correct translations.
+	ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1%2 x %3%4", QString().arg(preferredSizeWidth, 0, 'g', 3), QString().arg(suffix), QString().arg(preferredSizeHeight, 0, 'g', 3), QString().arg(suffix))));
 }
 
 
@@ -198,7 +200,8 @@ void ImportImageDlg::on_VerticalClothCount_valueChanged(double verticalClothCoun
 		preferredSizeHeight /= verticalClothCount;
 		suffix = ui.HorizontalClothCount->suffix().right(2);
 	}
-	ui.FinalSize->setText(QString(i18n("%1%2 x %3%4")).arg(preferredSizeWidth, 0, 'g', 3).arg(suffix).arg(preferredSizeHeight, 0, 'g', 3).arg(suffix));
+	// TODO is there a better way of representing the dimensional values below for correct translations.
+	ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1%2 x %3%4", QString().arg(preferredSizeWidth, 0, 'g', 3), QString().arg(suffix), QString().arg(preferredSizeHeight, 0, 'g', 3), QString().arg(suffix))));
 }
 
 

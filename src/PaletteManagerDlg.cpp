@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "PaletteManagerDlg.h"
+
 #include <QWidget>
 
 #include <KDebug>
@@ -19,7 +21,6 @@
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "NewFlossDlg.h"
-#include "PaletteManagerDlg.h"
 #include "SchemeManager.h"
 
 
@@ -103,10 +104,10 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 		int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
 		ui.StitchStrands->setCurrentIndex(m_dialogPalette[i]->stitchStrands()-1);
 		ui.BackstitchStrands->setCurrentIndex(m_dialogPalette[i]->backstitchStrands()-1);
-		ui.FlossSymbol->setText(m_dialogPalette[i]->stitchSymbol());
+		ui.StitchSymbol->setText(m_dialogPalette[i]->stitchSymbol());
 		ui.StitchStrands->setEnabled(true);
 		ui.BackstitchStrands->setEnabled(true);
-		ui.FlossSymbol->setEnabled(true);
+		ui.StitchSymbol->setEnabled(true);
 		ui.ClearUnused->setEnabled(true);
 		if (m_flossUsage.contains(i) && m_flossUsage[i].totalStitches() != 0)
 			ui.RemoveFloss->setEnabled(false);
@@ -118,7 +119,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 		ui.RemoveFloss->setEnabled(false);
 		ui.StitchStrands->setEnabled(false);
 		ui.BackstitchStrands->setEnabled(false);
-		ui.FlossSymbol->setEnabled(false);
+		ui.StitchSymbol->setEnabled(false);
 		ui.ClearUnused->setEnabled(false);
 	}
 }
@@ -169,14 +170,19 @@ void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
 }
 
 
-void PaletteManagerDlg::on_FlossSymbol_clicked(bool)
+void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
+{
+}
+
+
+void PaletteManagerDlg::on_BackstitchSymbol_clicked(bool)
 {
 }
 
 
 void PaletteManagerDlg::on_NewFloss_clicked(bool)
 {
-	NewFlossDlg *newFlossDlg = new NewFlossDlg(this, m_scheme);
+	QPointer<NewFlossDlg> newFlossDlg = new NewFlossDlg(this, m_scheme);
 	if (newFlossDlg->exec())
 	{
 		Floss *floss = newFlossDlg->floss();
@@ -218,7 +224,7 @@ void PaletteManagerDlg::on_ClearUnused_clicked(bool)
 
 void PaletteManagerDlg::on_Calibrate_clicked(bool)
 {
-	CalibrateFlossDlg *calibrateFlossDlg = new CalibrateFlossDlg(this, m_schemeName);
+	QPointer<CalibrateFlossDlg> calibrateFlossDlg = new CalibrateFlossDlg(this, m_schemeName);
 	if (calibrateFlossDlg->exec() == QDialog::Accepted)
 	{
 		fillLists();

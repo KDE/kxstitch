@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Text Tool</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -52,7 +52,7 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="QLineEdit" name="TextToolText"/>
+    <widget class="KLineEdit" name="TextToolText"/>
    </item>
    <item row="2" column="0">
     <spacer name="spacer2">
@@ -77,6 +77,11 @@
    <class>KFontComboBox</class>
    <extends>KComboBox</extends>
    <header>kfontcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KComboBox</class>

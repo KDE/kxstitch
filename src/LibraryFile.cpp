@@ -9,6 +9,8 @@
  ***************************************************************************/
 
 
+#include "LibraryFile.h"
+
 #include <QDataStream>
 #include <QFile>
 #include <QFileInfo>
@@ -19,7 +21,6 @@
 
 #include <stdlib.h>
 
-#include "LibraryFile.h"
 #include "LibraryPattern.h"
 
 
@@ -122,7 +123,7 @@ void LibraryFile::readFile()
 				}
 				else
 				{
-					KMessageBox::sorry(0, i18n("There was a checksum error in %1.").arg(localFile()), i18n("Checksum Error"));
+					KMessageBox::sorry(0, i18n("There was a checksum error in %1.", localFile()), i18n("Checksum Error"));
 					ok = false;
 				}
 			}
@@ -156,7 +157,7 @@ void LibraryFile::readFile()
 	}
 	else
 	{
-		KMessageBox::error(0, QString(i18n("The file %1\ncould not be opened.\n%2")).arg(localFile()).arg(file.errorString()), i18n("Error opening file"));
+		KMessageBox::error(0, i18n("The file %1\ncould not be opened.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
 	}
 }
 

@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __LibraryManagerDlg_H
-#define __LibraryManagerDlg_H
+#ifndef LibraryManagerDlg_H
+#define LibraryManagerDlg_H
 
 
 #include <QMenu>
@@ -50,4 +50,4 @@ class LibraryManagerDlg : public KDialog
 };
 
 
-#endif
+#endif // LibraryManagerDlg_H

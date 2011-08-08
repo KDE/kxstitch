@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Stitch_H
-#define __Stitch_H
+#ifndef Stitch_H
+#define Stitch_H
 
 #include <QDataStream>
 #include <QPoint>
@@ -116,4 +116,4 @@ QDataStream &operator<<(QDataStream &, const Knot &);
 QDataStream &operator>>(QDataStream &, Knot &);
 
 
-#endif
+#endif // Stitch_H

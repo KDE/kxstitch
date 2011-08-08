@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __PatternMimeData_H
-#define __PatternMimeData_H
+#ifndef PatternMimeData_H
+#define PatternMimeData_H
 
 
 #include <QMimeData>
@@ -40,4 +40,4 @@ class PatternMimeData : public QMimeData
 };
 
 
-#endif
+#endif // PatternMimeData_H

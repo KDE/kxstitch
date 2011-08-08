@@ -9,11 +9,11 @@
  ***************************************************************************/
 
 
+#include "KeycodeLineEdit.h"
+
 #include <QKeyEvent>
 
 #include <KDebug>
-
-#include "KeycodeLineEdit.h"
 
 
 struct KEYCODE
@@ -343,7 +343,7 @@ struct KEYCODE
 
 
 KeycodeLineEdit::KeycodeLineEdit(QWidget *parent)
-	:	QLineEdit(parent)
+	:	KLineEdit(parent)
 {
 }
 

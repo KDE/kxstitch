@@ -12,8 +12,8 @@
  ********************************************************************************/
 
 
-#ifndef __QVariantPtr_H
-#define __QVariantPtr_H
+#ifndef QVariantPtr_H
+#define QVariantPtr_H
 
 
 template <class T> class QVariantPtr
@@ -31,4 +31,4 @@ template <class T> class QVariantPtr
 };
 
 
-#endif
+#endif // QVariantPtr_H

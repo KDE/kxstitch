@@ -9,11 +9,12 @@
  ********************************************************************************/
 
 
+#include "FilePropertiesDlg.h"
+
 #include <QRect>
 
 #include "Commands.h"
 #include "Document.h"
-#include "FilePropertiesDlg.h"
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"

@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __Scale_H
-#define __Scale_H
+#ifndef Scale_H
+#define Scale_H
 
 
 #include <QWidget>
@@ -48,4 +48,4 @@ class Scale : public QWidget
 };
 
 
-#endif
+#endif // Scale_H

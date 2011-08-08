@@ -9,13 +9,14 @@
  ********************************************************************************/
 
 
-#ifndef __Preview_H
-#define __Preview_H
+#ifndef Preview_H
+#define Preview_H
 
 
 #include <QWidget>
 
 
+class Document;
 class Renderer;
 
 
@@ -60,4 +61,4 @@ class Preview : public QWidget
 };
 
 
-#endif
+#endif // Preview_H

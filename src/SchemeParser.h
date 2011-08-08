@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __SchemeParser_H
-#define __SchemeParser_H
+#ifndef SchemeParser_H
+#define SchemeParser_H
 
 
 #include <QXmlDefaultHandler>
@@ -42,4 +42,4 @@ class SchemeParser : public QXmlDefaultHandler
 };
 
 
-#endif
+#endif // SchemeParser_H

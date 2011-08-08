@@ -9,9 +9,9 @@
  ********************************************************************************/
 
 
-#include <KDebug>
-
 #include "Layers.h"
+
+#include <KDebug>
 
 
 Layers::Layers()

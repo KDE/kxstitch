@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __FlossScheme_h
-#define __FlossScheme_H
+#ifndef FlossScheme_H
+#define FlossScheme_H
 
 
 #include <QColor>
@@ -46,4 +46,4 @@ class FlossScheme
 		Magick::Image	*m_map;
 };
 
-#endif
+#endif // FlossScheme_H

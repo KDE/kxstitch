@@ -9,6 +9,8 @@
  ********************************************************************************/
 
 
+#include "Document.h"
+
 #include <QDataStream>
 #include <QFile>
 #include <QVariant>
@@ -18,7 +20,6 @@
 #include <KLocale>
 #include <KMessageBox>
 
-#include "Document.h"
 #include "Editor.h"
 #include "Floss.h"
 #include "FlossScheme.h"
@@ -193,7 +194,7 @@ void Document::load(const KUrl &documentUrl)
 							break;
 
 						default:
-							KMessageBox::sorry(0, QString(i18n("Version %1 of the file format is not supported\nin this version of the software.\nPlease try a more recent version.")).arg(version));
+							KMessageBox::sorry(0, i18n("Version %1 of the file format is not supported\nin this version of the software.\nPlease try a more recent version.", version));
 							break;
 					}
 				}
@@ -235,7 +236,7 @@ void Document::load(const KUrl &documentUrl)
 							break;
 
 						default:
-							KMessageBox::sorry(0, QString(i18n("Version %1 of the file format is not supported\nIf it is needed, please inform the developer.")).arg(version));
+							KMessageBox::sorry(0, i18n("Version %1 of the file format is not supported\nIf it is needed, please inform the developer.", version));
 							break;
 					}
 				}
@@ -288,7 +289,7 @@ void Document::save()
 		}
 		else
 		{
-			KMessageBox::error(0, QString(i18n("The file %1\ncould not be opened.\n%2")).arg(m_url.path()).arg(file.errorString()), i18n("Error opening file"));
+			KMessageBox::error(0, i18n("The file %1\ncould not be opened.\n%2", m_url.path(), file.errorString()), i18n("Error opening file"));
 		}
 	}
 }
@@ -369,7 +370,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 		stream >> unknown;
 		for (int i = 0 ; i < colors ; i++)
 		{
-			stream >> unknown;				// color value, probably RGBA, dont need it
+			stream >> unknown;				// color value, probably RGBA, don't need it
 			stream.readRawData(buffer, 30);			// includes DMC,Anchor and Coates names
 			buffer[10] = '\0';
 			QString colorName = QString(buffer).trimmed();	// minus the white space
@@ -383,7 +384,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 			Floss *floss = scheme->find(colorName);
 			if (floss == 0)
 			{
-			        KMessageBox::sorry(0, QString(i18n("Unable to find color %1 in scheme DMC")).arg(colorName));
+			        KMessageBox::sorry(0, i18n("Unable to find color %1 in scheme DMC", colorName));
 			}
 			else
 			{

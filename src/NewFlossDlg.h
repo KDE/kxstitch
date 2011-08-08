@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __NewFlossDlg_H
-#define __NewFlossDlg_H
+#ifndef NewFlossDlg_H
+#define NewFlossDlg_H
 
 
 #include <KDialog>
@@ -50,4 +50,4 @@ class NewFlossDlg : public KDialog
 };
 
 
-#endif
+#endif // NewFlossDlg_H

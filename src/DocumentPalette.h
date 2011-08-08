@@ -9,8 +9,8 @@
  ********************************************************************************/
 
 
-#ifndef __DocumentPalette_H
-#define __DocumentPalette_H
+#ifndef DocumentPalette_H
+#define DocumentPalette_H
 
 
 #include <QDataStream>
@@ -61,4 +61,4 @@ QDataStream &operator<<(QDataStream &, const DocumentPalette &);
 QDataStream &operator>>(QDataStream &, DocumentPalette &);
 
 
-#endif
+#endif // DocumentPalette_H

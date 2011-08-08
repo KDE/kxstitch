@@ -9,11 +9,11 @@
  ********************************************************************************/
 
 
+#include "TextToolDlg.h"
+
 #include <QBitmap>
 #include <QPainter>
 #include <QPen>
-
-#include "TextToolDlg.h"
 
 
 TextToolDlg::TextToolDlg(QWidget *parent)

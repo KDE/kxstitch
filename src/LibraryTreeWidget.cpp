@@ -9,6 +9,8 @@
  ***************************************************************************/
 
 
+#include "LibraryTreeWidget.h"
+
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QDragMoveEvent>
@@ -17,7 +19,6 @@
 #include <QTreeWidgetItem>
 
 #include "LibraryPattern.h"
-#include "LibraryTreeWidget.h"
 
 
 LibraryTreeWidget::LibraryTreeWidget(QWidget *parent)
