@@ -1,0 +1,1432 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stephen Allewell <stephen@mirramar.adsl24.co.uk>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
+"POT-Creation-Date: 2011-08-08 17:19+0100\n"
+"PO-Revision-Date: 2011-08-08 17:33+0100\n"
+"Last-Translator: Stephen Allewell <stephen@mirramar.adsl24.co.uk>\n"
+"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. i18n: file: ui/CalibrateFloss.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
+#: build/ui_CalibrateFloss.h:185 rc.cpp:192 src/CalibrateFlossDlg.cpp:24
+#: rc.cpp:192
+msgid "Calibrate Floss"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:20
+#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
+#. i18n: file: ui/NewFloss.ui:20
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: file: ui/CalibrateFloss.ui:20
+#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
+#. i18n: file: ui/NewFloss.ui:20
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/ui_CalibrateFloss.h:186 build/ui_NewFloss.h:98 rc.cpp:195 rc.cpp:357
+#: rc.cpp:195 rc.cpp:357
+msgid "Scheme"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:60
+#. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
+#: build/ui_CalibrateFloss.h:187 rc.cpp:198 rc.cpp:198
+msgid "Currently selected color"
+msgstr "Currently selected colour"
+
+#: build/ui_CalibrateFloss.h:188
+msgid "Green"
+msgstr ""
+
+#: build/ui_CalibrateFloss.h:189
+msgid "Red"
+msgstr ""
+
+#: build/ui_CalibrateFloss.h:190
+msgid "Blue"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:158
+#. i18n: ectx: property (text), widget (QPushButton, ResetColor)
+#: build/ui_CalibrateFloss.h:191 rc.cpp:210 rc.cpp:210
+msgid "Reset Color"
+msgstr "Reset Colour"
+
+#. i18n: file: ui/ExtendPattern.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
+#: build/ui_ExtendPattern.h:152 rc.cpp:216 src/ExtendPatternDlg.cpp:18
+#: rc.cpp:216
+msgid "Extend Pattern"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:17
+#. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
+#: build/ui_FileProperties.h:322 rc.cpp:219 src/FilePropertiesDlg.cpp:27
+#: src/MainWindow.cpp:568 src/MainWindow.cpp:896 src/TextToolDlg.cpp:22
+#: rc.cpp:219
+msgid "File Properties"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:33
+#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
+#. i18n: file: ui/ImportImage.ui:42
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: file: ui/FileProperties.ui:33
+#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
+#. i18n: file: ui/ImportImage.ui:42
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: build/ui_FileProperties.h:323 build/ui_ImportImage.h:239 rc.cpp:225
+#: rc.cpp:285 src/MainWindow.cpp:1424 rc.cpp:225 rc.cpp:285
+msgid "Palette"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:41
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: file: ui/ImportImage.ui:48
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: file: ui/FileProperties.ui:41
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: file: ui/ImportImage.ui:48
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/ui_FileProperties.h:324 build/ui_ImportImage.h:240 rc.cpp:228
+#: rc.cpp:288 rc.cpp:228 rc.cpp:288
+msgid "Floss Scheme"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:63
+#. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
+#: build/ui_FileProperties.h:325 rc.cpp:231 rc.cpp:231
+msgid "Pattern Size"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:74
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: build/ui_FileProperties.h:326 rc.cpp:234 rc.cpp:234
+msgid "Units"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:82
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#: build/ui_FileProperties.h:329 rc.cpp:237 src/Document.cpp:1054
+#: src/Document.cpp:1239 src/MainWindow.cpp:1180 rc.cpp:237
+msgid "Stitches"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:87
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#: build/ui_FileProperties.h:330 rc.cpp:240 src/Document.cpp:1056
+#: src/Document.cpp:1241 src/MainWindow.cpp:1194 rc.cpp:240
+msgid "Inches"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:92
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#: build/ui_FileProperties.h:331 rc.cpp:243 src/Document.cpp:1055
+#: src/Document.cpp:1240 src/MainWindow.cpp:1187 rc.cpp:243
+msgid "CM"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:100
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: file: ui/LibraryPatternProperties.ui:53
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: file: ui/FileProperties.ui:100
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: file: ui/LibraryPatternProperties.ui:53
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: build/ui_FileProperties.h:333 build/ui_LibraryPatternProperties.h:133
+#: rc.cpp:246 rc.cpp:342 rc.cpp:246 rc.cpp:342
+msgid "Width"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:123
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/LibraryPatternProperties.ui:67
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: file: ui/FileProperties.ui:123
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/LibraryPatternProperties.ui:67
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: build/ui_FileProperties.h:334 build/ui_LibraryPatternProperties.h:135
+#: rc.cpp:249 rc.cpp:345 rc.cpp:249 rc.cpp:345
+msgid "Height"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:164
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: build/ui_FileProperties.h:335 rc.cpp:252 rc.cpp:252
+msgid "Cloth Count"
+msgstr ""
+
+#: build/ui_FileProperties.h:336
+msgid "Horizontal"
+msgstr ""
+
+#: build/ui_FileProperties.h:337
+msgid "Vertical"
+msgstr ""
+
+#: build/ui_FileProperties.h:339
+msgid "Title"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:292
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: build/ui_FileProperties.h:340 rc.cpp:264 rc.cpp:264
+msgid "Author"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:305
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: build/ui_FileProperties.h:341 rc.cpp:267 rc.cpp:267
+msgid "Copyright"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:318
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: build/ui_FileProperties.h:342 rc.cpp:270 rc.cpp:270
+msgid "Fabric"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:27
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: build/ui_FileProperties.h:343 rc.cpp:222 rc.cpp:222
+msgid "Pattern"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:338
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: build/ui_FileProperties.h:344 rc.cpp:273 rc.cpp:273
+msgid "Instructions"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
+#: build/ui_ImportImage.h:237 rc.cpp:282 src/MainWindow.cpp:385
+#: src/MainWindow.cpp:891 rc.cpp:282
+msgid "Import Image"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:71
+#. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
+#: build/ui_ImportImage.h:247 rc.cpp:291 rc.cpp:291
+msgid "Maximum colors"
+msgstr "Maximum colours"
+
+#. i18n: file: ui/ImportImage.ui:118
+#. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
+#: build/ui_ImportImage.h:254 rc.cpp:294 rc.cpp:294
+msgid "Ignore color"
+msgstr "Ignore colour"
+
+#. i18n: file: ui/ImportImage.ui:165
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: file: ui/TextTool.ui:38
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#. i18n: file: ui/ImportImage.ui:165
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: file: ui/TextTool.ui:38
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: build/ui_ImportImage.h:259 build/ui_TextTool.h:100 rc.cpp:297 rc.cpp:456
+#: rc.cpp:297 rc.cpp:456
+msgid "Size"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:171
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: build/ui_ImportImage.h:260 rc.cpp:300 rc.cpp:300
+msgid "Horizontal cloth count"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:234
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: build/ui_ImportImage.h:264 rc.cpp:303 rc.cpp:303
+msgid "Vertical cloth count"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:263
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: build/ui_ImportImage.h:265 rc.cpp:306 rc.cpp:306
+msgid "Pattern scale"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:292
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: build/ui_ImportImage.h:266 rc.cpp:309 rc.cpp:309
+msgid "Pattern size"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:299
+#. i18n: ectx: property (text), widget (QLabel, FinalSize)
+#. i18n: file: ui/LibraryPatternProperties.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: file: ui/ImportImage.ui:299
+#. i18n: ectx: property (text), widget (QLabel, FinalSize)
+#. i18n: file: ui/LibraryPatternProperties.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/ui_ImportImage.h:267 build/ui_LibraryPatternProperties.h:130
+#: rc.cpp:312 rc.cpp:336 rc.cpp:312 rc.cpp:336
+msgid "TextLabel"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:309
+#. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
+#: build/ui_ImportImage.h:271 rc.cpp:315 rc.cpp:315
+msgid "Use fractionals"
+msgstr ""
+
+#. i18n: file: ui/ImportImage.ui:319
+#. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
+#: build/ui_ImportImage.h:272 rc.cpp:318 rc.cpp:318
+msgid "Set as default"
+msgstr ""
+
+#. i18n: file: ui/LibraryFilePaths.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
+#: build/ui_LibraryFilePaths.h:63 rc.cpp:321 src/LibraryFilePathsDlg.cpp:18
+#: rc.cpp:321
+msgid "Library File Paths"
+msgstr ""
+
+#. i18n: file: ui/LibraryFilePaths.ui:23
+#. i18n: ectx: property (text), widget (QLabel, CatagoryName)
+#: build/ui_LibraryFilePaths.h:64 rc.cpp:324 rc.cpp:324
+msgid "Paths"
+msgstr ""
+
+#. i18n: file: ui/LibraryManager.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
+#: build/ui_LibraryManager.h:65 rc.cpp:327 src/LibraryManagerDlg.cpp:28
+#: rc.cpp:327
+msgid "Library Manager"
+msgstr ""
+
+#. i18n: file: ui/LibraryManager.ui:21
+#. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
+#: build/ui_LibraryManager.h:67 rc.cpp:330 rc.cpp:330
+msgid "Libraries"
+msgstr ""
+
+#. i18n: file: ui/LibraryPatternProperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
+#: build/ui_LibraryPatternProperties.h:129 rc.cpp:333
+#: src/LibraryPatternPropertiesDlg.cpp:18 rc.cpp:333
+msgid "Library Pattern Properties"
+msgstr ""
+
+#. i18n: file: ui/LibraryPatternProperties.ui:39
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: build/ui_LibraryPatternProperties.h:131 rc.cpp:339 rc.cpp:339
+msgid "Floss scheme"
+msgstr ""
+
+#. i18n: file: ui/LibraryPatternProperties.ui:81
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: build/ui_LibraryPatternProperties.h:137 rc.cpp:348 rc.cpp:348
+msgid "Baseline"
+msgstr ""
+
+#. i18n: file: ui/LibraryPatternProperties.ui:98
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: build/ui_LibraryPatternProperties.h:138 rc.cpp:351 rc.cpp:351
+msgid "Associated Character"
+msgstr ""
+
+#. i18n: file: ui/NewFloss.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
+#: build/ui_NewFloss.h:97 rc.cpp:354 rc.cpp:354
+msgid "Create New Floss"
+msgstr ""
+
+#. i18n: file: ui/NewFloss.ui:27
+#. i18n: ectx: property (text), widget (QLabel, SchemeName)
+#: build/ui_NewFloss.h:99 rc.cpp:360 rc.cpp:360
+msgid "Floss Scheme Name"
+msgstr ""
+
+#. i18n: file: ui/NewFloss.ui:34
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: build/ui_NewFloss.h:100 rc.cpp:363 rc.cpp:363
+msgid "Floss Name"
+msgstr ""
+
+#. i18n: file: ui/NewFloss.ui:44
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: build/ui_NewFloss.h:101 rc.cpp:366 rc.cpp:366
+msgid "Description"
+msgstr ""
+
+#: build/ui_NewFloss.h:105
+msgid "Color"
+msgstr "Colour"
+
+#. i18n: file: ui/PaletteManager.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
+#: build/ui_PaletteManager.h:202 rc.cpp:372 src/PaletteManagerDlg.cpp:36
+#: rc.cpp:372
+msgid "Palette Manager"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:24
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/ui_PaletteManager.h:203 rc.cpp:375 rc.cpp:375
+msgid "Current Palette"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:51
+#. i18n: ectx: property (text), widget (QPushButton, AddFloss)
+#: build/ui_PaletteManager.h:204 rc.cpp:378 rc.cpp:378
+msgid "<<"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:58
+#. i18n: ectx: property (text), widget (QPushButton, RemoveFloss)
+#: build/ui_PaletteManager.h:205 rc.cpp:381 rc.cpp:381
+msgid ">>"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:82
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: build/ui_PaletteManager.h:206 rc.cpp:384 rc.cpp:384
+msgid "Current Scheme"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:96
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: build/ui_PaletteManager.h:207 rc.cpp:387 rc.cpp:387
+msgid "Stitch Strands"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:104
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:200
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:104
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:200
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:210 build/ui_PaletteManager.h:225 rc.cpp:390
+#: rc.cpp:426 rc.cpp:390 rc.cpp:426
+msgid "1"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:109
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:205
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:109
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:205
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:211 build/ui_PaletteManager.h:226 rc.cpp:393
+#: rc.cpp:429 rc.cpp:393 rc.cpp:429
+msgid "2"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:114
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:210
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:114
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:210
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:212 build/ui_PaletteManager.h:227 rc.cpp:396
+#: rc.cpp:432 rc.cpp:396 rc.cpp:432
+msgid "3"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:119
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:215
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:119
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:215
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:213 build/ui_PaletteManager.h:228 rc.cpp:399
+#: rc.cpp:435 rc.cpp:399 rc.cpp:435
+msgid "4"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:124
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:220
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:124
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:220
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:214 build/ui_PaletteManager.h:229 rc.cpp:402
+#: rc.cpp:438 rc.cpp:402 rc.cpp:438
+msgid "5"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:129
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:225
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#. i18n: file: ui/PaletteManager.ui:129
+#. i18n: ectx: property (text), item, widget (KComboBox, StitchStrands)
+#. i18n: file: ui/PaletteManager.ui:225
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchStrands)
+#: build/ui_PaletteManager.h:215 build/ui_PaletteManager.h:230 rc.cpp:405
+#: rc.cpp:441 rc.cpp:405 rc.cpp:441
+msgid "6"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:137
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: file: ui/PaletteManager.ui:233
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: file: ui/PaletteManager.ui:137
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: file: ui/PaletteManager.ui:233
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: build/ui_PaletteManager.h:217 build/ui_PaletteManager.h:232 rc.cpp:408
+#: rc.cpp:444 rc.cpp:408 rc.cpp:444
+msgid "Symbol"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:147
+#. i18n: ectx: property (text), widget (QPushButton, StitchSymbol)
+#: build/ui_PaletteManager.h:218 rc.cpp:411 rc.cpp:411
+msgid "A"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:169
+#. i18n: ectx: property (text), widget (QPushButton, NewFloss)
+#: build/ui_PaletteManager.h:219 rc.cpp:414 src/NewFlossDlg.cpp:25 rc.cpp:414
+msgid "New Floss"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:176
+#. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
+#: build/ui_PaletteManager.h:220 rc.cpp:417 src/MainWindow.cpp:771 rc.cpp:417
+msgid "Clear Unused Flosses"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:183
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: build/ui_PaletteManager.h:221 rc.cpp:420 rc.cpp:420
+msgid "Calibrate Flosses"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:192
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: build/ui_PaletteManager.h:222 rc.cpp:423 rc.cpp:423
+msgid "Backstitch Strands"
+msgstr ""
+
+#. i18n: file: ui/PaletteManager.ui:243
+#. i18n: ectx: property (text), widget (QPushButton, BackstitchSymbol)
+#: build/ui_PaletteManager.h:233 rc.cpp:447 rc.cpp:447
+msgid "-------------"
+msgstr ""
+
+#. i18n: file: ui/TextTool.ui:17
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
+#: build/ui_TextTool.h:98 rc.cpp:450 rc.cpp:450
+msgid "Text Tool"
+msgstr ""
+
+#. i18n: file: ui/TextTool.ui:25
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: build/ui_TextTool.h:99 rc.cpp:453 rc.cpp:453
+msgid "Font"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:10
+#. i18n: ectx: label, entry (Application_Width), group (kxstitch)
+#: rc.cpp:3 rc.cpp:3
+msgid "The width of the application"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:14
+#. i18n: ectx: label, entry (Application_Height), group (kxstitch)
+#: rc.cpp:6 rc.cpp:6
+msgid "The height of the application"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:18
+#. i18n: ectx: label, entry (Application_HorizontalSplitterSizes), group (kxstitch)
+#: rc.cpp:9 rc.cpp:9
+msgid "The horizontal splitter values"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:22
+#. i18n: ectx: label, entry (Application_VerticalSplitterSizes), group (kxstitch)
+#: rc.cpp:12 rc.cpp:12
+msgid "The vertical splitter sizes"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:29
+#. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
+#: rc.cpp:15 rc.cpp:15
+msgid "The background color."
+msgstr "The background colour."
+
+#. i18n: file: kxstitch.kcfg:33
+#. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
+#: rc.cpp:18 rc.cpp:18
+msgid "The color of the editors thick lines."
+msgstr "The colour of the editors thick lines."
+
+#. i18n: file: kxstitch.kcfg:37
+#. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
+#: rc.cpp:21 rc.cpp:21
+msgid "The color of the editors thin lines."
+msgstr "The colour of the editors thin lines."
+
+#. i18n: file: kxstitch.kcfg:41
+#. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
+#: rc.cpp:24 rc.cpp:24
+msgid "The width of the major grid lines."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:45
+#. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
+#: rc.cpp:27 rc.cpp:27
+msgid "The width of the minor grid lines."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:49
+#. i18n: ectx: label, entry (Editor_CellWidth), group (editor)
+#: rc.cpp:30 rc.cpp:30
+msgid "Width of the grid cells."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:53
+#. i18n: ectx: label, entry (Editor_CellHeight), group (editor)
+#: rc.cpp:33 rc.cpp:33
+msgid "Height of the grid cells."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:57
+#. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
+#: rc.cpp:36 rc.cpp:36
+msgid "The number of cells making up a horizontal group."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:61
+#. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
+#: rc.cpp:39 rc.cpp:39
+msgid "The number of cells making up a vertical group."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:65
+#. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
+#: rc.cpp:42 rc.cpp:42
+msgid "The horizontal cloth count."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:69
+#. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
+#: rc.cpp:45 rc.cpp:45
+msgid "The vertical cloth count."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:73
+#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
+#. i18n: file: kxstitch.kcfg:154
+#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
+#. i18n: file: kxstitch.kcfg:73
+#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
+#. i18n: file: kxstitch.kcfg:154
+#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
+#: rc.cpp:48 rc.cpp:81 rc.cpp:48 rc.cpp:81
+msgid "The cloth count units."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:81
+#. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
+#: rc.cpp:51 rc.cpp:51
+msgid "Square cells"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:85
+#. i18n: ectx: label, entry (Editor_HorizontalRulerHeight), group (editor)
+#: rc.cpp:54 rc.cpp:54
+msgid "The height of the horizontal ruler."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:89
+#. i18n: ectx: label, entry (Editor_VerticalRulerWidth), group (editor)
+#: rc.cpp:57 rc.cpp:57
+msgid "The width of the vertical ruler."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:93
+#. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
+#: rc.cpp:60 rc.cpp:60
+msgid "The display units for a scale."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:102
+#. i18n: ectx: label, entry (Editor_SymbolFont), group (editor)
+#: rc.cpp:63 rc.cpp:63
+msgid "The font family to be used for symbols."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:109
+#. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
+#: rc.cpp:66 rc.cpp:66
+msgid "How to display stitches."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:122
+#. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
+#: rc.cpp:69 rc.cpp:69
+msgid "How to display backstitches."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:132
+#. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
+#: rc.cpp:72 rc.cpp:72
+msgid "How to display french knots."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:146
+#. i18n: ectx: label, entry (Document_Width), group (document)
+#: rc.cpp:75 rc.cpp:75
+msgid "The default width of a new pattern."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:150
+#. i18n: ectx: label, entry (Document_Height), group (document)
+#: rc.cpp:78 rc.cpp:78
+msgid "The default height of a new pattern."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:166
+#. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
+#: rc.cpp:84 rc.cpp:84
+msgid "Use a maximum number of colors"
+msgstr "Use a maximum number of colours"
+
+#. i18n: file: kxstitch.kcfg:170
+#. i18n: ectx: label, entry (Import_MaximumColors), group (import)
+#: rc.cpp:87 rc.cpp:87
+msgid "Maximum number of colors"
+msgstr "Maximum number of colours"
+
+#. i18n: file: kxstitch.kcfg:176
+#. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
+#: rc.cpp:90 rc.cpp:90
+msgid "The default floss scheme to be used for new documents."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:180
+#. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
+#: rc.cpp:93 rc.cpp:93
+msgid "The default number of strands used for stitches."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:184
+#. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
+#: rc.cpp:96 rc.cpp:96
+msgid "The default number of strands used for backstitches."
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:188
+#. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
+#: rc.cpp:99 rc.cpp:99
+msgid "Display the symbols in the palette."
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:5
+#. i18n: ectx: Menu (file)
+#: rc.cpp:102 rc.cpp:102
+msgid "&File"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:10
+#. i18n: ectx: Menu (fileRemoveBackgroundImage)
+#: rc.cpp:105 src/Commands.cpp:320 rc.cpp:105
+msgid "Remove Background Image"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:14
+#. i18n: ectx: Menu (edit)
+#: rc.cpp:108 rc.cpp:108
+msgid "&Edit"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:15
+#. i18n: ectx: Menu (selectionMasks)
+#: rc.cpp:111 rc.cpp:111
+msgid "Selection Masks"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:23
+#. i18n: ectx: Menu (settings)
+#: rc.cpp:114 rc.cpp:114
+msgid "&Settings"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:25
+#. i18n: ectx: Menu (formatScalesAs)
+#. i18n: file: kxstitchui.rc:114
+#. i18n: ectx: Menu (formatScalesAs)
+#. i18n: file: kxstitchui.rc:25
+#. i18n: ectx: Menu (formatScalesAs)
+#. i18n: file: kxstitchui.rc:114
+#. i18n: ectx: Menu (formatScalesAs)
+#: rc.cpp:117 rc.cpp:153 rc.cpp:117 rc.cpp:153
+msgid "Format Scales As"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:31
+#. i18n: ectx: Menu (renderStitchesAs)
+#. i18n: file: kxstitchui.rc:120
+#. i18n: ectx: Menu (renderStitchesAs)
+#. i18n: file: kxstitchui.rc:31
+#. i18n: ectx: Menu (renderStitchesAs)
+#. i18n: file: kxstitchui.rc:120
+#. i18n: ectx: Menu (renderStitchesAs)
+#: rc.cpp:120 rc.cpp:156 rc.cpp:120 rc.cpp:156
+msgid "Render Stitches As"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:39
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#. i18n: file: kxstitchui.rc:128
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#. i18n: file: kxstitchui.rc:39
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#. i18n: file: kxstitchui.rc:128
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#: rc.cpp:123 rc.cpp:159 rc.cpp:123 rc.cpp:159
+msgid "Render Backstitches As"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:44
+#. i18n: ectx: Menu (renderKnotsAs)
+#. i18n: file: kxstitchui.rc:133
+#. i18n: ectx: Menu (renderKnotsAs)
+#. i18n: file: kxstitchui.rc:44
+#. i18n: ectx: Menu (renderKnotsAs)
+#. i18n: file: kxstitchui.rc:133
+#. i18n: ectx: Menu (renderKnotsAs)
+#: rc.cpp:126 rc.cpp:162 rc.cpp:126 rc.cpp:162
+msgid "Render Knots As"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:56
+#. i18n: ectx: Menu (view)
+#: rc.cpp:129 rc.cpp:129
+msgid "&View"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:59
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#. i18n: file: kxstitchui.rc:145
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#. i18n: file: kxstitchui.rc:59
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#. i18n: file: kxstitchui.rc:145
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#: rc.cpp:132 rc.cpp:165 src/Commands.cpp:294 rc.cpp:132 rc.cpp:165
+msgid "Show Background Image"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:62
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#. i18n: file: kxstitchui.rc:148
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#. i18n: file: kxstitchui.rc:62
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#. i18n: file: kxstitchui.rc:148
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#: rc.cpp:135 rc.cpp:168 rc.cpp:135 rc.cpp:168
+msgid "Fit Background Image to Selection"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:66
+#. i18n: ectx: Menu (stitches)
+#: rc.cpp:138 rc.cpp:138
+msgid "&Stitches"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:77
+#. i18n: ectx: Menu (Tools)
+#: rc.cpp:141 rc.cpp:141
+msgid "&Tools"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:94
+#. i18n: ectx: Menu (palette)
+#: rc.cpp:144 rc.cpp:144
+msgid "&Palette"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:101
+#. i18n: ectx: Menu (library)
+#: rc.cpp:147 rc.cpp:147
+msgid "&Library Manager"
+msgstr ""
+
+#. i18n: file: kxstitchui.rc:104
+#. i18n: ectx: Menu (pattern)
+#: rc.cpp:150 rc.cpp:150
+msgid "&Pattern"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, Appearance)
+#: rc.cpp:171 rc.cpp:171
+msgid "Appearance"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:21
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:174 rc.cpp:174
+msgid "Thick Line Width"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:35
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: rc.cpp:177 rc.cpp:177
+msgid "Thin Line Width"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:49
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: rc.cpp:180 rc.cpp:180
+msgid "Cell Width"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:63
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: rc.cpp:183 rc.cpp:183
+msgid "Cell Height"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:77
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: rc.cpp:186 rc.cpp:186
+msgid "Vertical Cell Group"
+msgstr ""
+
+#. i18n: file: ui/Appearance.ui:91
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: rc.cpp:189 rc.cpp:189
+msgid "Horizontal Cell Group"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:102
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: rc.cpp:201 rc.cpp:201
+msgctxt "Green value of color"
+msgid "Green"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:112
+#. i18n: ectx: property (text), widget (QLabel, TextLabel3)
+#: rc.cpp:204 rc.cpp:204
+msgctxt "Red value of color"
+msgid "Red"
+msgstr ""
+
+#. i18n: file: ui/CalibrateFloss.ui:132
+#. i18n: ectx: property (text), widget (QLabel, TextLabel5)
+#: rc.cpp:207 rc.cpp:207
+msgctxt "Blue value of color"
+msgid "Blue"
+msgstr ""
+
+#. i18n: file: ui/Colors.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, Colors)
+#: rc.cpp:213 rc.cpp:213
+msgid "Colors"
+msgstr "Colours"
+
+#. i18n: file: ui/FileProperties.ui:172
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: rc.cpp:255 rc.cpp:255
+msgctxt "Horizontal cloth count value"
+msgid "Horizontal"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:198
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: rc.cpp:258 rc.cpp:258
+msgctxt "Vertical cloth count value"
+msgid "Vertical"
+msgstr ""
+
+#. i18n: file: ui/FileProperties.ui:279
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: rc.cpp:261 rc.cpp:261
+msgctxt "The document title"
+msgid "Title"
+msgstr ""
+
+#. i18n: file: ui/Fonts.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, Fonts)
+#: rc.cpp:276 rc.cpp:276
+msgid "Fonts"
+msgstr ""
+
+#. i18n: file: ui/General.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, General)
+#: rc.cpp:279 rc.cpp:279
+msgctxt "General settings tab"
+msgid "General"
+msgstr ""
+
+#. i18n: file: ui/NewFloss.ui:57
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: rc.cpp:369 rc.cpp:369
+msgctxt "Color chooser"
+msgid "Color"
+msgstr "Colour"
+
+#: rc.cpp:457 rc.cpp:457
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#: rc.cpp:458 rc.cpp:458
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/CalibrateFlossDlg.cpp:111
+msgid " (Modified)"
+msgstr ""
+
+#: src/Commands.cpp:96
+msgid "Add Backstitch"
+msgstr ""
+
+#: src/Commands.cpp:124
+msgid "Delete Backstitch"
+msgstr ""
+
+#: src/Commands.cpp:212
+msgid "Set Property"
+msgstr ""
+
+#: src/Commands.cpp:240
+msgid "Add Background Image"
+msgstr ""
+
+#: src/Commands.cpp:268
+msgid "Fit Background to Selection"
+msgstr ""
+
+#: src/Commands.cpp:497
+msgid "Crop to Pattern"
+msgstr ""
+
+#: src/Commands.cpp:602
+msgid "Update Preview"
+msgstr ""
+
+#: src/Commands.cpp:626
+msgid "Change floss scheme"
+msgstr ""
+
+#: src/Document.cpp:50
+msgid "Layer 0"
+msgstr ""
+
+#: src/Document.cpp:95 src/MainWindow.cpp:323 src/MainWindow.cpp:346
+#: src/MainWindow.cpp:384
+msgid "Untitled"
+msgstr ""
+
+#: src/Document.cpp:197
+msgid ""
+"Version %1 of the file format is not supported\n"
+"in this version of the software.\n"
+"Please try a more recent version."
+msgstr ""
+
+#: src/Document.cpp:239
+msgid ""
+"Version %1 of the file format is not supported\n"
+"If it is needed, please inform the developer."
+msgstr ""
+
+#: src/Document.cpp:292 src/LibraryFile.cpp:160
+msgid ""
+"The file %1\n"
+"could not be opened.\n"
+"%2"
+msgstr ""
+
+#: src/Document.cpp:292 src/LibraryFile.cpp:160
+msgid "Error opening file"
+msgstr ""
+
+#: src/Document.cpp:387
+msgid "Unable to find color %1 in scheme DMC"
+msgstr "Unable to find colour %1 in scheme DMC"
+
+#: src/ImportImageDlg.cpp:187 src/ImportImageDlg.cpp:204
+msgctxt "dimension with units identifier"
+msgid "%1%2 x %3%4"
+msgstr ""
+
+#: src/ImportImageDlg.cpp:283
+msgid "Rendering preview"
+msgstr ""
+
+#: src/ImportImageDlg.cpp:283 src/MainWindow.cpp:432
+msgid "Cancel"
+msgstr ""
+
+#: src/LibraryFile.cpp:126
+msgid "There was a checksum error in %1."
+msgstr ""
+
+#: src/LibraryFile.cpp:126
+msgid "Checksum Error"
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:52
+msgid "New Catagory"
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:55 src/LibraryManagerDlg.cpp:72
+msgid "Add to Export List"
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:56 src/LibraryManagerDlg.cpp:71
+msgid "Properties..."
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:59 src/LibraryManagerDlg.cpp:81
+msgid "Paste"
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:73
+msgid "Copy"
+msgstr ""
+
+#: src/LibraryManagerDlg.cpp:74
+msgid "Delete"
+msgstr ""
+
+#: src/Main.cpp:89
+msgid "KXStitch"
+msgstr ""
+
+#: src/Main.cpp:90
+msgid "A cross stitch pattern creator."
+msgstr ""
+
+#: src/Main.cpp:92
+msgid "(c)2010 Stephen Allewell"
+msgstr ""
+
+#: src/Main.cpp:93
+msgid "Some free text."
+msgstr ""
+
+#: src/Main.cpp:96
+msgid "Stephen Allewell"
+msgstr ""
+
+#: src/Main.cpp:96
+msgid "Project Lead"
+msgstr ""
+
+#: src/Main.cpp:97
+msgid "Pierre Brua"
+msgstr ""
+
+#: src/Main.cpp:97
+msgid "Bug fixes, application icons"
+msgstr ""
+
+#: src/Main.cpp:98
+msgid "Eric Pareja"
+msgstr ""
+
+#: src/Main.cpp:98
+msgid "Man page"
+msgstr ""
+
+#: src/Main.cpp:99
+msgid "Adam Gundy"
+msgstr ""
+
+#: src/Main.cpp:99
+msgid "Bug fixes, improvements"
+msgstr ""
+
+#: src/Main.cpp:104
+msgid "Document to open"
+msgstr ""
+
+#: src/MainWindow.cpp:188
+msgid ""
+"Save changes to document?\n"
+"Selecting No discards changes."
+msgstr ""
+
+#: src/MainWindow.cpp:196
+msgid "Unable to save the file"
+msgstr ""
+
+#: src/MainWindow.cpp:316
+msgid ""
+"*.kxs|Cross Stitch Patterns\n"
+"*.pat|PC Stitch patterns\n"
+"*|All files"
+msgstr ""
+
+#: src/MainWindow.cpp:355
+msgid "*.kxs|Cross Stitch Patterns"
+msgstr ""
+
+#: src/MainWindow.cpp:355
+msgid "Save As..."
+msgstr ""
+
+#: src/MainWindow.cpp:360
+msgid ""
+"This file already exists\n"
+"Do you want to overwrite it?"
+msgstr ""
+
+#: src/MainWindow.cpp:375
+msgid "Revert changes to document?"
+msgstr ""
+
+#: src/MainWindow.cpp:432
+msgid "Converting to stitches"
+msgstr ""
+
+#: src/MainWindow.cpp:594
+msgid "Background Image"
+msgstr ""
+
+#: src/MainWindow.cpp:669
+msgid "Undo %1"
+msgstr ""
+
+#: src/MainWindow.cpp:675
+msgid "Redo %1"
+msgstr ""
+
+#: src/MainWindow.cpp:729
+msgid "Update Palette"
+msgstr ""
+
+#: src/MainWindow.cpp:901
+msgid "Add Background Image..."
+msgstr ""
+
+#: src/MainWindow.cpp:920
+msgid "Layer Mask"
+msgstr ""
+
+#: src/MainWindow.cpp:926
+msgid "Stitch Mask"
+msgstr ""
+
+#: src/MainWindow.cpp:932
+msgid "Color Mask"
+msgstr "Colour Mask"
+
+#: src/MainWindow.cpp:938
+msgid "Exclude Backstitches"
+msgstr ""
+
+#: src/MainWindow.cpp:944
+msgid "Exclude Knots"
+msgstr ""
+
+#: src/MainWindow.cpp:970
+msgid "Quarter Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:979
+msgid "Half Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:988
+msgid "3 Quarter Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:997
+msgid "Full Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:1006
+msgid "Small Half Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:1015
+msgid "Small Full Stitch"
+msgstr ""
+
+#: src/MainWindow.cpp:1024
+msgid "French Knot"
+msgstr ""
+
+#: src/MainWindow.cpp:1038
+msgid "Paint"
+msgstr ""
+
+#: src/MainWindow.cpp:1047
+msgid "Draw"
+msgstr ""
+
+#: src/MainWindow.cpp:1056
+msgid "Erase"
+msgstr ""
+
+#: src/MainWindow.cpp:1065
+msgid "Draw Rectangle"
+msgstr ""
+
+#: src/MainWindow.cpp:1074
+msgid "Fill Rectangle"
+msgstr ""
+
+#: src/MainWindow.cpp:1083
+msgid "Draw Ellipse"
+msgstr ""
+
+#: src/MainWindow.cpp:1092
+msgid "Fill Ellipse"
+msgstr ""
+
+#: src/MainWindow.cpp:1101
+msgid "Fill Polyline"
+msgstr ""
+
+#: src/MainWindow.cpp:1110
+msgid "Text"
+msgstr ""
+
+#: src/MainWindow.cpp:1119
+msgctxt "Select an area of the pattern"
+msgid "Select"
+msgstr ""
+
+#: src/MainWindow.cpp:1128
+msgid "Backstitch"
+msgstr ""
+
+#: src/MainWindow.cpp:1139
+msgid "Palette Manager..."
+msgstr ""
+
+#: src/MainWindow.cpp:1145
+msgid "Show Symbols"
+msgstr ""
+
+#: src/MainWindow.cpp:1151
+msgid "Clear Unused"
+msgstr ""
+
+#: src/MainWindow.cpp:1156
+msgid "Calibrate Scheme..."
+msgstr ""
+
+#: src/MainWindow.cpp:1163
+msgid "Extend Pattern..."
+msgstr ""
+
+#: src/MainWindow.cpp:1170
+msgid "Library Manager..."
+msgstr ""
+
+#: src/MainWindow.cpp:1205
+msgid "Regular Stitches"
+msgstr ""
+
+#: src/MainWindow.cpp:1214 src/MainWindow.cpp:1259 src/MainWindow.cpp:1288
+msgid "Black & White Symbols"
+msgstr ""
+
+#: src/MainWindow.cpp:1222 src/MainWindow.cpp:1280
+msgid "Color Symbols"
+msgstr "Colour Symbols"
+
+#: src/MainWindow.cpp:1230 src/MainWindow.cpp:1271
+msgid "Color Blocks"
+msgstr "Colour Blocks"
+
+#: src/MainWindow.cpp:1238
+msgid "Color Blocks & Symbols"
+msgstr "Colour Blocks & Symbols"
+
+#: src/MainWindow.cpp:1250
+msgid "Color Lines"
+msgstr "Colour Lines"
+
+#: src/MainWindow.cpp:1297
+msgid "Color Hilight"
+msgstr "Colour Hilight"
+
+#: src/MainWindow.cpp:1303
+msgid "Show Stitches"
+msgstr ""
+
+#: src/MainWindow.cpp:1309
+msgid "Show Backstitches"
+msgstr ""
+
+#: src/MainWindow.cpp:1315
+msgid "Show French Knots"
+msgstr ""
+
+#: src/MainWindow.cpp:1321
+msgid "Show Grid"
+msgstr ""
+
+#: src/MainWindow.cpp:1327
+msgid "Show Background Images"
+msgstr ""
+
+#: src/MainWindow.cpp:1412
+msgid "Preview"
+msgstr ""
+
+#: src/NewFlossDlg.cpp:52
+msgid ""
+"The floss name %1 is already used.\n"
+"Overwrite with the description and color selected."
+msgstr ""
+"The floss name %1 is already used.\n"
+"Overwrite with the description and colour selected."
+
+#: src/NewFlossDlg.cpp:53
+msgid "Overwrite"
+msgstr ""
+
+#: src/Palette.cpp:102
+msgid "No colors in palette"
+msgstr "No colours in palette"
+
+#: src/SchemeManager.cpp:143
+msgid ""
+"Error reading scheme %1\n"
+"%2."
+msgstr ""
+
+#: src/SchemeManager.cpp:143
+msgid "Error reading floss scheme."
+msgstr ""
+
+#: src/SchemeManager.cpp:166
+msgid ""
+"Unable to locate a writable directory\n"
+"to store the scheme."
+msgstr ""
+
