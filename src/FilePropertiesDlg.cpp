@@ -41,8 +41,6 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
 	m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property("unitsFormat").toInt());
 	ui.UnitsFormat->setCurrentIndex(m_unitsFormat);
 	updatePatternSizes();
-	ui.PatternWidth->setMinimum(m_minWidth);
-	ui.PatternHeight->setMinimum(m_minHeight);
 	ui.PatternTitle->setText(m_document->property("title").toString());
 	ui.PatternAuthor->setText(m_document->property("author").toString());
 	ui.PatternCopyright->setText(m_document->property("copyright").toString());
@@ -193,7 +191,7 @@ void FilePropertiesDlg::on_PatternWidth_valueChanged(double d)
 {
 	if (m_unitsFormat != Configuration::EnumDocument_UnitsFormat::Stitches)
 		d *= m_horizontalClothCount;
-	m_width = (int)d;
+	m_width = std::max((int)d, m_minWidth);
 }
 
 
@@ -201,7 +199,7 @@ void FilePropertiesDlg::on_PatternHeight_valueChanged(double d)
 {
 	if (m_unitsFormat != Configuration::EnumDocument_UnitsFormat::Stitches)
 		d *= m_horizontalClothCount;
-	m_height = (int)d;
+	m_height = std::max((int)d, m_minHeight);
 }
 
 
@@ -239,15 +237,23 @@ void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
 void FilePropertiesDlg::updatePatternSizes()
 {
 	ui.UnitsFormat->setCurrentIndex(m_unitsFormat);
+
 	double horizontalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches)?1:m_horizontalClothCount;
 	double verticalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches)?1:m_verticalClothCount;
-	ui.PatternWidth->setValue(m_width/horizontalScale);
-	ui.PatternHeight->setValue(m_height/verticalScale);
+	double scaledWidth = m_width/horizontalScale;
+	double scaledHeight = m_height/verticalScale;
+
+	ui.PatternWidth->setMinimum(scaledWidth);
+	ui.PatternHeight->setMinimum(scaledHeight);
+	ui.PatternWidth->setValue(scaledWidth);
+	ui.PatternHeight->setValue(scaledHeight);
 	ui.HorizontalClothCount->setValue(m_horizontalClothCount);
 	ui.VerticalClothCount->setValue(m_verticalClothCount);
+
 	QString suffix = ((m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM)?"/cm":"/in");
 	ui.HorizontalClothCount->setSuffix(suffix);
 	ui.VerticalClothCount->setSuffix(suffix);
+
 	double step = ((m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches)?1:0.01);
 	ui.PatternWidth->setSingleStep(step);
 	ui.PatternHeight->setSingleStep(step);

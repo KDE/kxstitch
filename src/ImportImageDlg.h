@@ -66,6 +66,7 @@ class ImportImageDlg : public KDialog
 		void selectColor(const QPoint &);
 
 	private:
+		void clothCountChanged(double, double);
 		void calculateSizes();
 		void createImageMap();
 		void renderPixmap();
