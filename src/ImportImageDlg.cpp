@@ -171,37 +171,34 @@ void ImportImageDlg::on_ColorButton_clicked(bool)
 
 void ImportImageDlg::on_HorizontalClothCount_valueChanged(double horizontalClothCount)
 {
-	double preferredSizeWidth = m_preferredSize.width();
-	double preferredSizeHeight = m_preferredSize.height();
-	QString suffix;
-	int units = Configuration::document_UnitsFormat();
-	if (units != Configuration::EnumDocument_UnitsFormat::Stitches)
-	{
-		preferredSizeWidth /= horizontalClothCount;
-		preferredSizeHeight /= ui.VerticalClothCount->value();
-		suffix = ui.HorizontalClothCount->suffix().right(2);
-	}
-	if (ui.ClothCountLink->isChecked())
-		ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
-	// TODO is there a better way of representing the dimensional values below for correct translations.
-	ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1%2 x %3%4", QString().arg(preferredSizeWidth, 0, 'g', 3), QString().arg(suffix), QString().arg(preferredSizeHeight, 0, 'g', 3), QString().arg(suffix))));
+	clothCountChanged(horizontalClothCount, ui.VerticalClothCount->value());
 }
 
 
 void ImportImageDlg::on_VerticalClothCount_valueChanged(double verticalClothCount)
 {
+	clothCountChanged(ui.HorizontalClothCount->value(), verticalClothCount);
+}
+
+
+void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verticalClothCount)
+{
 	double preferredSizeWidth = m_preferredSize.width();
 	double preferredSizeHeight = m_preferredSize.height();
-	QString suffix;
-	int units = Configuration::document_UnitsFormat();
+	QString suffix(i18n("Stitches"));
+	Configuration::EnumDocument_UnitsFormat::type units = Configuration::document_UnitsFormat();
 	if (units != Configuration::EnumDocument_UnitsFormat::Stitches)
 	{
-		preferredSizeWidth /= ui.HorizontalClothCount->value();
+		preferredSizeWidth /= horizontalClothCount;
 		preferredSizeHeight /= verticalClothCount;
 		suffix = ui.HorizontalClothCount->suffix().right(2);
 	}
+	if (ui.ClothCountLink->isChecked())
+		ui.VerticalClothCount->setValue(horizontalClothCount);
+	QString formattedSizeWidth = QString("%1").arg(preferredSizeWidth, 0, 'g', 3);
+	QString formattedSizeHeight = QString("%1").arg(preferredSizeHeight, 0, 'g', 3);
 	// TODO is there a better way of representing the dimensional values below for correct translations.
-	ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1%2 x %3%4", QString().arg(preferredSizeWidth, 0, 'g', 3), QString().arg(suffix), QString().arg(preferredSizeHeight, 0, 'g', 3), QString().arg(suffix))));
+	ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1 x %2 %3", QString("%1").arg(preferredSizeWidth, 0, 'g', 3), QString("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
 }
 
 
