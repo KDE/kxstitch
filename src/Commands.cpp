@@ -542,11 +542,17 @@ ExtendPatternCommand::~ExtendPatternCommand()
 
 void ExtendPatternCommand::redo()
 {
+	StitchData &stitchData = m_document->stitchData();
+	stitchData.resize(stitchData.width()+m_left+m_right, stitchData.height()+m_top+m_bottom);
+	stitchData.movePattern(m_left, m_top);
 }
 
 
 void ExtendPatternCommand::undo()
 {
+	StitchData &stitchData = m_document->stitchData();
+	stitchData.movePattern(-m_left, -m_top);
+	stitchData.resize(stitchData.width()-m_left-m_right, stitchData.height()-m_top-m_bottom);
 }
 
 
