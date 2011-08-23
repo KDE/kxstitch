@@ -97,6 +97,9 @@
 		<Action name="paletteShowSymbols"/>
 		<Separator/>
 		<Action name="paletteClearUnused"/>
+		<Separator/>
+		<Action name="paletteSwapColors"/>
+		<Action name="paletteReplaceColor"/>
 	</Menu>
 	<Menu name="library"><text>&amp;Library Manager</text>
 		<Action name="libraryManager"/>
@@ -155,6 +158,9 @@
 	<Action name="paletteShowSymbols"/>
 	<Separator/>
 	<Action name="paletteClearUnused"/>
+	<Separator/>
+	<Action name="paletteSwapColors"/>
+	<Action name="paletteReplaceColor"/>
 </Menu>
 <ToolBar name="StitchToolBar" fullWidth="false">
 	<Action name="stitchQuarter"/>

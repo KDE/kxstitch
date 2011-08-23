@@ -145,6 +145,14 @@ DocumentFloss *DocumentPalette::replace(int flossIndex, DocumentFloss *documentF
 }
 
 
+void DocumentPalette::swap(int originalIndex, int swappedIndex)
+{
+	DocumentFloss *original = m_documentFlosses.take(originalIndex);
+	m_documentFlosses.insert(originalIndex, m_documentFlosses.take(swappedIndex));
+	m_documentFlosses.insert(swappedIndex, original);
+}
+
+
 void DocumentPalette::setShowSymbols(bool show)
 {
 	m_showSymbols = show;

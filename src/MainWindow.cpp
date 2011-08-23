@@ -133,6 +133,8 @@ void MainWindow::setupDocument()
 	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
 	connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
+	connect(m_palette, SIGNAL(swapColors(int, int)), this, SLOT(paletteSwapColors(int, int)));
+	connect(m_palette, SIGNAL(replaceColor(int, int)), this, SLOT(paletteReplaceColor(int, int)));
 	connect(m_editor, SIGNAL(changedVisibleCells(const QRect &)), m_preview, SLOT(setVisibleCells(const QRect &)));
 	connect(m_preview, SIGNAL(clicked(const QPoint &)), m_editor, SLOT(previewClicked(const QPoint &)));
 	connect(m_preview, SIGNAL(clicked(const QRect &)), m_editor, SLOT(previewClicked(const QRect &)));
@@ -784,6 +786,40 @@ void MainWindow::paletteCalibrateScheme()
 }
 
 
+void MainWindow::paletteSwapColors(int originalIndex, int replacementIndex)
+{
+	if (originalIndex != replacementIndex)
+	{
+		m_document->undoStack().beginMacro(i18n("Swap Color"));
+		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
+		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
+		m_document->undoStack().push(new PaletteSwapColorCommand(m_document, originalIndex, replacementIndex));
+		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
+		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
+		m_document->undoStack().endMacro();
+	}
+}
+
+
+void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
+{
+	if (originalIndex != replacementIndex)
+	{
+		m_document->undoStack().beginMacro(i18n("Replace Color"));
+		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
+		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
+		m_document->undoStack().push(new PaletteReplaceColorCommand(m_document, originalIndex, replacementIndex));
+		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
+		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
+		m_document->undoStack().endMacro();
+	}
+}
+
+
 void MainWindow::viewFitBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
@@ -1156,6 +1192,16 @@ void MainWindow::setupActions()
 	action->setText(i18n("Calibrate Scheme..."));
 	connect(action, SIGNAL(triggered()), this, SLOT(paletteCalibrateScheme()));
 	actions->addAction("paletteCalibrateScheme", action);
+
+	action = new KAction(this);
+	action->setText(i18n("Swap Colors"));
+	connect(action, SIGNAL(triggered()), m_palette, SLOT(swapColors()));
+	actions->addAction("paletteSwapColors", action);
+
+	action = new KAction(this);
+	action->setText(i18n("Replace Colors"));
+	connect(action, SIGNAL(triggered()), m_palette, SLOT(replaceColor()));
+	actions->addAction("paletteReplaceColor", action);
 
 
 	// Pattern Menu

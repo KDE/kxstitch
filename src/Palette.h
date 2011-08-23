@@ -24,6 +24,8 @@ class Palette : public QFrame
 	Q_OBJECT
 
 	public:
+		enum Mode {Select, Replace, Swap};
+
 		Palette(QWidget *);
 		virtual ~Palette();
 
@@ -36,9 +38,13 @@ class Palette : public QFrame
 
 	public slots:
 		void showSymbols(bool);
+		void swapColors();
+		void replaceColor();
 
 	signals:
 		void colorSelected(int);
+		void swapColors(int, int);
+		void replaceColor(int, int);
 
 	protected:
 		virtual bool event(QEvent *);
@@ -54,6 +60,8 @@ class Palette : public QFrame
 		int		m_height;
 		int		m_flosses;
 		QVector<int>	m_paletteIndex;
+
+		Mode		m_mode;
 };
 
 

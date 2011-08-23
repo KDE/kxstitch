@@ -42,6 +42,7 @@ class DocumentPalette
 		void add(int, DocumentFloss *);
 		DocumentFloss *remove(int);
 		DocumentFloss *replace(int, DocumentFloss *);
+		void swap(int, int);
 		void setShowSymbols(bool);
 
 		friend QDataStream &operator<<(QDataStream &, const DocumentPalette &);

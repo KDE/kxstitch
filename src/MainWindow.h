@@ -83,6 +83,8 @@ class MainWindow : public KXmlGuiWindow
 		void paletteShowSymbols(bool);
 		void paletteClearUnused();
 		void paletteCalibrateScheme();
+		void paletteSwapColors(int, int);
+		void paletteReplaceColor(int, int);
 
 		// View menu
 		void viewFitBackgroundImage();

@@ -450,4 +450,39 @@ class PreviewReadDocumentSettingsCommand : public QUndoCommand
 };
 
 
+class PaletteReplaceColorCommand : public QUndoCommand
+{
+	public:
+		PaletteReplaceColorCommand(Document *document, int, int);
+		~PaletteReplaceColorCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document	*m_document;
+		int		m_originalIndex;
+		int		m_replacementIndex;
+		QList<Stitch *>		m_stitches;
+		QList<Backstitch *>	m_backstitches;
+		QList<Knot *>		m_knots;
+};
+
+
+class PaletteSwapColorCommand : public QUndoCommand
+{
+	public:
+		PaletteSwapColorCommand(Document *, int, int);
+		~PaletteSwapColorCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document	*m_document;
+		int	m_originalIndex;
+		int	m_swappedIndex;
+};
+
+
 #endif // Commands_H

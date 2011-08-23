@@ -525,7 +525,7 @@ void CropToPatternCommand::undo()
 
 
 ExtendPatternCommand::ExtendPatternCommand(Document *document, int top, int left, int right, int bottom)
-	:	QUndoCommand(""),
+	:	QUndoCommand(i18n("Extend Pattern")),
 		m_document(document),
 		m_top(top),
 		m_left(left),
@@ -551,7 +551,7 @@ void ExtendPatternCommand::undo()
 
 
 UpdateEditorCommand::UpdateEditorCommand(Editor *editor)
-	:	QUndoCommand(""),
+	:	QUndoCommand(),
 		m_editor(editor)
 {
 }
@@ -575,7 +575,7 @@ void UpdateEditorCommand::undo()
 
 
 UpdatePaletteCommand::UpdatePaletteCommand(Palette *palette)
-	:	QUndoCommand(""),
+	:	QUndoCommand(),
 		m_palette(palette)
 {
 }
@@ -599,7 +599,7 @@ void UpdatePaletteCommand::undo()
 
 
 UpdatePreviewCommand::UpdatePreviewCommand(Preview *preview)
-	:	QUndoCommand(i18n("Update Preview")),
+	:	QUndoCommand(),
 		m_preview(preview)
 {
 }
@@ -681,7 +681,8 @@ void ChangeSchemeCommand::undo()
 
 
 EditorReadDocumentSettingsCommand::EditorReadDocumentSettingsCommand(Editor *editor)
-	:	m_editor(editor)
+	:	QUndoCommand(),
+		m_editor(editor)
 {
 }
 
@@ -703,7 +704,8 @@ void EditorReadDocumentSettingsCommand::undo()
 
 
 PaletteReadDocumentSettingsCommand::PaletteReadDocumentSettingsCommand(Palette *palette)
-	:	m_palette(palette)
+	:	QUndoCommand(),
+		m_palette(palette)
 {
 }
 
@@ -726,7 +728,8 @@ void PaletteReadDocumentSettingsCommand::undo()
 
 
 PreviewReadDocumentSettingsCommand::PreviewReadDocumentSettingsCommand(Preview *preview)
-	:	m_preview(preview)
+	:	QUndoCommand(),
+		m_preview(preview)
 {
 }
 
@@ -745,4 +748,155 @@ void PreviewReadDocumentSettingsCommand::redo()
 void PreviewReadDocumentSettingsCommand::undo()
 {
 	m_preview->readDocumentSettings();
+}
+
+
+PaletteReplaceColorCommand::PaletteReplaceColorCommand(Document *document, int originalIndex, int replacementIndex)
+	:	QUndoCommand(i18n("Replace Color")),
+		m_document(document),
+		m_originalIndex(originalIndex),
+		m_replacementIndex(replacementIndex)
+{
+}
+
+
+PaletteReplaceColorCommand::~PaletteReplaceColorCommand()
+{
+}
+
+
+void PaletteReplaceColorCommand::redo()
+{
+	if (m_stitches.count() || m_backstitches.count() || m_knots.count())
+	{
+		// populated from a previous redo call
+		// iterator over the existing pointers
+		QListIterator<Stitch *> stitchIterator(m_stitches);
+		while (stitchIterator.hasNext())
+		{
+			stitchIterator.next()->colorIndex = m_replacementIndex;
+		}
+
+		QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+		while (backstitchIterator.hasNext())
+		{
+			backstitchIterator.next()->colorIndex = m_replacementIndex;
+		}
+
+		QListIterator<Knot *> knotIterator(m_knots);
+		while (knotIterator.hasNext())
+		{
+			knotIterator.next()->colorIndex = m_replacementIndex;
+		}
+	}
+	else
+	{
+		// search the stitch data for stitches of the required color
+		StitchData &stitchData = m_document->stitchData();
+		QListIterator<int> stitchLayerIterator(stitchData.stitchLayers());
+		while (stitchLayerIterator.hasNext())
+		{
+			int layer = stitchLayerIterator.next();
+			for (int row = 0 ; row < stitchData.height() ; ++row)
+			{
+				for (int col = 0 ; col < stitchData.width() ; ++col)
+				{
+					StitchQueue *queue = stitchData.stitchQueueAt(layer, QPoint(col, row));
+					if (queue)
+					{
+						QListIterator<Stitch *> stitchIterator(*queue);
+						while (stitchIterator.hasNext())
+						{
+							Stitch *stitch = stitchIterator.next();
+							if (stitch->colorIndex == m_originalIndex)
+							{
+								m_stitches.append(stitch);
+								stitch->colorIndex = m_replacementIndex;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		QListIterator<int> backstitchLayerIterator(stitchData.backstitchLayers());
+		while (backstitchLayerIterator.hasNext())
+		{
+			int layer = backstitchLayerIterator.next();
+			QListIterator<Backstitch *> backstitchIterator = stitchData.backstitchIterator(layer);
+			while (backstitchIterator.hasNext())
+			{
+				Backstitch *backstitch = backstitchIterator.next();
+				if (backstitch->colorIndex == m_originalIndex)
+				{
+					m_backstitches.append(backstitch);
+					backstitch->colorIndex = m_replacementIndex;
+				}
+			}
+		}
+
+		QListIterator<int> knotLayerIterator(stitchData.knotLayers());
+		while (knotLayerIterator.hasNext())
+		{
+			int layer = knotLayerIterator.next();
+			QListIterator<Knot *> knotIterator = stitchData.knotIterator(layer);
+			while (knotIterator.hasNext())
+			{
+				Knot *knot = knotIterator.next();
+				if (knot->colorIndex == m_originalIndex)
+				{
+					m_knots.append(knot);
+					knot->colorIndex = m_replacementIndex;
+				}
+			}
+		}
+	}
+}
+
+
+void PaletteReplaceColorCommand::undo()
+{
+	QListIterator<Stitch *> stitchIterator(m_stitches);
+	while (stitchIterator.hasNext())
+	{
+		stitchIterator.next()->colorIndex = m_originalIndex;
+	}
+
+	QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+	while (backstitchIterator.hasNext())
+	{
+		backstitchIterator.next()->colorIndex = m_originalIndex;
+	}
+
+	QListIterator<Knot *> knotIterator(m_knots);
+	while (knotIterator.hasNext())
+	{
+		knotIterator.next()->colorIndex = m_originalIndex;
+	}
+}
+
+
+PaletteSwapColorCommand::PaletteSwapColorCommand(Document *document, int originalIndex, int swappedIndex)
+	:	QUndoCommand(i18n("Swap Colors")),
+		m_document(document),
+		m_originalIndex(originalIndex),
+		m_swappedIndex(swappedIndex)
+{
+}
+
+
+PaletteSwapColorCommand::~PaletteSwapColorCommand()
+{
+}
+
+
+void PaletteSwapColorCommand::redo()
+{
+	m_document->documentPalette().swap(m_originalIndex, m_swappedIndex);
+}
+
+
+void PaletteSwapColorCommand::undo()
+{
+	m_document->documentPalette().swap(m_originalIndex, m_swappedIndex);
 }
