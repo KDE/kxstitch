@@ -156,7 +156,7 @@ StitchData &Document::stitchData()
 }
 
 
-void Document::load(const KUrl &documentUrl)
+bool Document::load(const KUrl &documentUrl)
 {
 	initialiseNew();
 	bool readOk = false;
@@ -263,6 +263,8 @@ void Document::load(const KUrl &documentUrl)
 	{
 		initialiseNew();
 	}
+
+	return readOk;
 }
 
 

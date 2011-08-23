@@ -26,6 +26,7 @@
 #include <KIO/NetAccess>
 #include <KLocale>
 #include <KMessageBox>
+#include <KRecentFilesAction>
 #include <KSelectAction>
 #include <KUrl>
 
@@ -327,12 +328,17 @@ void MainWindow::fileOpen(const KUrl &url)
 	{
 		if (docEmpty)
 		{
-			m_document->load(url);
-			setupActionsFromDocument();
-			m_editor->readDocumentSettings();
-			m_palette->readDocumentSettings();
-			m_preview->readDocumentSettings();
-			documentModified(true); // this is the clean value true
+			if (m_document->load(url))
+			{
+				setupActionsFromDocument();
+				m_editor->readDocumentSettings();
+				m_palette->readDocumentSettings();
+				m_preview->readDocumentSettings();
+				documentModified(true); // this is the clean value true
+				KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
+				action->addUrl(url);
+				action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+			}
 		}
 		else
 		{
@@ -366,6 +372,9 @@ void MainWindow::fileSaveAs()
 		}
 		m_document->setUrl(url);
 		m_document->save();
+		KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
+		action->addUrl(url);
+		action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
 	}
 }
 
@@ -918,7 +927,7 @@ void MainWindow::setupActions()
 	// File menu
 	KStandardAction::openNew(this, SLOT(fileNew()), actions);
 	KStandardAction::open(this, SLOT(fileOpen()), actions);
-	KStandardAction::openRecent(this, SLOT(fileOpen(const KUrl &)), actions);
+	KStandardAction::openRecent(this, SLOT(fileOpen(const KUrl &)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
 	KStandardAction::save(this, SLOT(fileSave()), actions);
 	KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
 	KStandardAction::revert(this, SLOT(fileRevert()), actions);

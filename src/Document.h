@@ -38,7 +38,7 @@ class Document
 
 		void initialiseNew();
 
-		void load(const KUrl &);
+		bool load(const KUrl &);
 		void save();
 
 		void setUrl(const KUrl &);
