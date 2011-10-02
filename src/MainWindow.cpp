@@ -16,8 +16,13 @@
 #include <QDataStream>
 #include <QDockWidget>
 #include <QGridLayout>
+#include <QPainter>
 #include <QProgressDialog>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QPrintPreviewDialog>
 #include <QScrollArea>
+#include <QTemporaryFile>
 
 #include <KAction>
 #include <KActionCollection>
@@ -45,6 +50,7 @@
 #include "PaletteManagerDlg.h"
 #include "PatternMimeData.h"
 #include "Preview.h"
+#include "PrintSetupDlg.h"
 #include "QVariantPtr.h"
 #include "Scale.h"
 #include "SchemeManager.h"
@@ -52,14 +58,16 @@
 
 
 MainWindow::MainWindow()
-	:	m_libraryManagerDlg(0)
+	:	m_libraryManagerDlg(0),
+		m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupActions();
 }
 
 
 MainWindow::MainWindow(const KUrl &url)
-	:	m_libraryManagerDlg(0)
+	:	m_libraryManagerDlg(0),
+		m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupMainWindow();
 	setupLayout();
@@ -74,7 +82,8 @@ MainWindow::MainWindow(const KUrl &url)
 
 
 MainWindow::MainWindow(const Magick::Image &image)
-	:	m_libraryManagerDlg(0)
+	:	m_libraryManagerDlg(0),
+		m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupMainWindow();
 	setupLayout();
@@ -161,6 +170,7 @@ void MainWindow::setupActionDefaults()
 MainWindow::~MainWindow()
 {
 	delete m_libraryManagerDlg;
+	delete m_printer;
 }
 
 
@@ -386,6 +396,172 @@ void MainWindow::fileRevert()
 		if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes)
 			m_document->undoStack().setIndex(m_document->undoStack().cleanIndex());
 	}
+}
+
+
+void MainWindow::filePrintSetup()
+{
+	QPointer<PrintSetupDlg> printSetupDlg = new PrintSetupDlg(this, m_document, m_printer);
+	if (printSetupDlg->exec() == QDialog::Accepted)
+	{
+		m_document->undoStack().push(new UpdatePrinterConfigurationCommand(m_document, printSetupDlg->printerConfiguration()));
+	}
+	delete printSetupDlg;
+}
+
+
+void MainWindow::filePrint()
+{
+	m_printer->setFullPage(true);
+	m_printer->setResolution(300);
+	m_printer->setPrintRange(QPrinter::AllPages);
+	m_printer->setFromTo(1, m_document->printerConfiguration().pages().count());
+
+	QListIterator<Page *> pageIterator(m_document->printerConfiguration().pages());
+	if (pageIterator.hasNext())
+	{
+		Page *page = pageIterator.next();
+		m_printer->setPaperSize(page->paperSize());
+		m_printer->setOrientation(page->orientation());
+
+		QPointer<QPrintDialog> printDialog = new QPrintDialog(m_printer, this);
+		if (printDialog->exec() == QDialog::Accepted)
+		{
+			printPages(m_printer);
+		}
+		delete printDialog;
+	}
+	else
+	{
+		KMessageBox::information(this, i18n("There is nothing to print"));
+	}
+}
+
+
+void MainWindow::printPages(QPrinter *printer)
+{
+	QList<Page *> pages = m_document->printerConfiguration().pages();
+	int totalPages = pages.count();
+
+	QPainter painter;
+	painter.begin(printer);
+
+	Page *page = pages.at(0);
+	for (int p = 0 ; p < totalPages ;)
+	{
+		// for the first page, the orientation and size will have been set
+		kDebug() << "printer settings" << printer->paperSize() << printer->orientation();
+		page->render(m_document, &painter);
+		if (++p < totalPages)
+		{
+			page = pages.at(p);
+			printer->setPaperSize(page->paperSize());
+			printer->setOrientation(page->orientation());
+			printer->newPage();
+		}
+
+	}
+
+	painter.end();
+
+#if 0
+#if QT_VERSION >= 0x040700
+	int copies = m_printer->copyCount();
+	bool supportsMultipleCopies = m_printer->supportsMultipleCopies();
+#else
+	int copies = m_printer->numCopies();
+	bool supportsMultipleCopies = false;
+#endif
+	bool collateCopies = m_printer->collateCopies();
+
+	int fromPage = m_printer->fromPage();
+	int toPage = m_printer->toPage();
+	QString outputFileName = m_printer->outputFileName();
+	QPrinter::OutputFormat outputFormat = m_printer->outputFormat();
+	QPrinter::PageOrder pageOrder = m_printer->pageOrder();
+	QRect paperRect = m_printer->paperRect();
+	QPrinter::PaperSize paperSize = m_printer->paperSize();
+	QPrinter::PrintRange printRange = m_printer->printRange();
+	if (printRange == QPrinter::AllPages)
+	{
+		fromPage = 1;
+		toPage = m_document->printerConfiguration().pages().count();
+	}
+	int resolution = m_printer->resolution();
+
+	QPainter painter;
+	painter.begin(printer);
+
+	if (collateCopies)
+	{
+		for (int c = 0 ; c < copies ; ++c)
+		{
+			if (pageOrder == QPrinter::FirstPageFirst)
+			{
+				for (int p = fromPage ; p <= toPage ; ++p)
+				{
+					Page *page = pages.at(p-1);
+					printer->setPaperSize(page->paperSize());
+					printer->setOrientation(page->orientation());
+					page->render(m_document, &painter);
+					if (p != toPage)
+						m_printer->newPage();
+				}
+			}
+			else
+			{
+				for (int p = toPage ; p >= fromPage ; --p)
+				{
+					Page *page = pages.at(p-1);
+					printer->setPaperSize(page->paperSize());
+					printer->setOrientation(page->orientation());
+					page->render(m_document, &painter);
+					if (p != fromPage)
+						m_printer->newPage();
+				}
+			}
+		}
+	}
+	else
+	{
+		if (pageOrder == QPrinter::FirstPageFirst)
+		{
+			for (int p = fromPage ; p <= toPage ; )
+			{
+				Page *page = pages.at(p-1);
+				printer->setPaperSize(page->paperSize());
+				printer->setOrientation(page->orientation());
+				for (int c = 0 ; c < copies ; )
+				{
+					page->render(m_document, &painter);
+					if (++c < copies)
+						m_printer->newPage();
+				}
+				if (++p <= toPage)
+					m_printer->newPage();
+			}
+		}
+		else
+		{
+			for (int p = toPage ; p >= fromPage ; )
+			{
+				Page *page = pages.at(p-1);
+				printer->setPaperSize(page->paperSize());
+				printer->setOrientation(page->orientation());
+				for (int c = 0 ; c < copies ; )
+				{
+					page->render(m_document, &painter);
+					if (++c < copies)
+						m_printer->newPage();
+				}
+				if (--p >= fromPage)
+					m_printer->newPage();
+			}
+		}
+	}
+
+	painter.end();
+#endif
 }
 
 
@@ -936,6 +1112,13 @@ void MainWindow::setupActions()
 	KStandardAction::save(this, SLOT(fileSave()), actions);
 	KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
 	KStandardAction::revert(this, SLOT(fileRevert()), actions);
+
+	action = new KAction(this);
+	action->setText(i18n("Print Setup..."));
+	connect(action, SIGNAL(triggered()), this, SLOT(filePrintSetup()));
+	actions->addAction("filePrintSetup", action);
+
+	KStandardAction::print(this, SLOT(filePrint()), actions);
 
 	action = new KAction(this);
 	action->setText(i18n("Import Image"));

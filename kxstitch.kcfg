@@ -171,6 +171,7 @@
 			<default>50</default>
 		</entry>
 	</group>
+
 	<group name="palette">
 		<entry name="Palette_DefaultScheme" type="String">
 			<label>The default floss scheme to be used for new documents.</label>
@@ -187,6 +188,170 @@
 		<entry name="Palette_ShowSymbols" type="Bool">
 			<label>Display the symbols in the palette.</label>
 			<default>false</default>
+		</entry>
+	</group>
+
+	<group name="printer">
+		<entry name="Page_MarginLeft" type="Int">
+			<label>The page left margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="Page_MarginTop" type="Int">
+			<label>The page top margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="Page_MarginRight" type="Int">
+			<label>The page right margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="Page_MarginBottom" type="Int">
+			<label>The page bottom margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="Page_GridSize" type="Int">
+			<label>The grid size in mm</label>
+			<default>10</default>
+		</entry>
+
+		<entry name="KeyElement_ShowBorder" type="Bool">
+			<label>Show a border around the key</label>
+			<default>true</default>
+		</entry>
+		<entry name="KeyElement_BorderColor" type="Color">
+			<label>The color of the border</label>
+			<default>#000000</default>
+		</entry>
+		<entry name="KeyElement_BorderThickness" type="Int">
+			<label>The thickness of the border in 1/10 mm</label>
+			<default>5</default>
+		</entry>
+		<entry name="KeyElement_FillBackground" type="Bool">
+			<label>Fill the background</label>
+			<default>false</default>
+		</entry>
+		<entry name="KeyElement_BackgroundColor" type="Color">
+			<label>The color of the background</label>
+			<default>#ffffff</default>
+		</entry>
+		<entry name="KeyElement_BackgroundTransparency" type="Int">
+			<label>Transparency of the background</label>
+			<default>255</default>
+		</entry>
+		<entry name="KeyElement_MarginLeft" type="Int">
+			<label>The key element left margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="KeyElement_MarginTop" type="Int">
+			<label>The key element top margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="KeyElement_MarginRight" type="Int">
+			<label>The key element right margin</label>
+			<default>5</default>
+		</entry>
+		<entry name="KeyElement_MarginBottom" type="Int">
+			<label>The key element bottom margin</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="KeyElement_SymbolColumn" type="Bool">
+			<label>Show the key element symbol column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_FlossNameColumn" type="Bool">
+			<label>Show the key element floss name column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_StrandsColumn" type="Bool">
+			<label>Show the key element floss strands column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_FlossDescriptionColumn" type="Bool">
+			<label>Show the key element floss description column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_StitchesColumn" type="Bool">
+			<label>Show the key element stitch count column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_StitchBreakdownColumn" type="Bool">
+			<label>Show the key element stitch breakdown column</label>
+			<default>false</default>
+		</entry>
+
+		<entry name="KeyElement_LengthColumn" type="Bool">
+			<label>Show the key element floss length column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_SkeinsColumn" type="Bool">
+			<label>Show the key element skeins column</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="KeyElement_TotalStitches" type="Bool">
+			<label>Show the total number of stitches</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="TextElement_ShowBorder" type="Bool">
+			<label>Show the border</label>
+			<default>true</default>
+		</entry>
+
+		<entry name="TextElement_BorderColor" type="Color">
+			<label>The border color</label>
+			<default>#000000</default>
+		</entry>
+
+		<entry name="TextElement_BorderThickness" type="Int">
+			<label>Thickness of the border in 1/10 mm</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="TextElement_FillBackground" type="Bool">
+			<label>Fill the background</label>
+			<default>false</default>
+		</entry>
+
+		<entry name="TextElement_BackgroundColor" type="Color">
+			<label>Color of the background</label>
+			<default>#ffffff</default>
+		</entry>
+
+		<entry name="TextElement_BackgroundTransparency" type="Int">
+			<label>The transparency value</label>
+			<default>255</default>
+		</entry>
+
+		<entry name="TextElement_MarginTop" type="Int">
+			<label>The top margin</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="TextElement_MarginLeft" type="Int">
+			<label>The left margin</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="TextElement_MarginRight" type="Int">
+			<label>The right margin</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="TextElement_MarginBottom" type="Int">
+			<label>The bottom margin</label>
+			<default>5</default>
+		</entry>
+
+		<entry name="TextElement_TextColor" type="Color">
+			<label>The text color</label>
+			<default>#000000</default>
 		</entry>
 	</group>
 </kcfg>

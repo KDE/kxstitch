@@ -906,3 +906,29 @@ void PaletteSwapColorCommand::undo()
 {
 	m_document->documentPalette().swap(m_originalIndex, m_swappedIndex);
 }
+
+
+UpdatePrinterConfigurationCommand::UpdatePrinterConfigurationCommand(Document *document, const PrinterConfiguration &printerConfiguration)
+	:	m_document(document),
+		m_printerConfiguration(printerConfiguration)
+{
+}
+
+
+UpdatePrinterConfigurationCommand::~UpdatePrinterConfigurationCommand()
+{
+}
+
+
+void UpdatePrinterConfigurationCommand::redo()
+{
+	PrinterConfiguration original = m_document->printerConfiguration();
+	m_document->setPrinterConfiguration(m_printerConfiguration);
+	m_printerConfiguration = original;
+}
+
+
+void UpdatePrinterConfigurationCommand::undo()
+{
+	redo();
+}

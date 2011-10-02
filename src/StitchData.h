@@ -30,11 +30,14 @@ class FlossUsage
 		FlossUsage();
 
 		double totalLength() const;
+		double stitchLength() const;
 		int totalStitches() const;
+		int stitchCount() const;
 
-		double	stitchLength;
 		QMap<Stitch::Type, int>	stitchCounts;
+		QMap<Stitch::Type, double> stitchLengths;
 		int	backstitchCount;
+		double	backstitchLength;
 };
 
 

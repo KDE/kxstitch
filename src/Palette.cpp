@@ -259,7 +259,7 @@ bool Palette::event(QEvent *event)
 				FlossScheme *flossScheme = SchemeManager::scheme(m_document->documentPalette().schemeName());
 				Floss *floss = flossScheme->find(documentFloss->flossName());
 				FlossUsage flossUsage = m_document->stitchData().flossUsage()[m_paletteIndex[i]];
-				QString tip = QString("%1 %2\n%3 Stitches").arg(floss->name()).arg(floss->description()).arg(flossUsage.totalStitches());
+				QString tip = QString("%1 %2\n%3 Stitches").arg(floss->name()).arg(floss->description()).arg(flossUsage.stitchCount()+flossUsage.backstitchCount);
 				QToolTip::showText(helpEvent->globalPos(), tip);
 			}
 			else

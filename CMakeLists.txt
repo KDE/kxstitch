@@ -20,11 +20,13 @@ include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCor
 set (kxstitch_SRCS
 	src/BackgroundImage.cpp
 	src/BackgroundImages.cpp
+	src/Boundary.cpp
 	src/Commands.cpp
 	src/Document.cpp
 	src/DocumentFloss.cpp
 	src/DocumentPalette.cpp
 	src/Editor.cpp
+	src/Element.cpp
 	src/Floss.cpp
 	src/FlossScheme.cpp
 	src/KeycodeLineEdit.cpp
@@ -34,9 +36,12 @@ set (kxstitch_SRCS
 	src/LibraryPattern.cpp
 	src/Main.cpp
 	src/MainWindow.cpp
+	src/Page.cpp
 	src/Palette.cpp
+	src/PaperSizes.cpp
 	src/PatternMimeData.cpp
 	src/Preview.cpp
+	src/PrinterConfiguration.cpp
 	src/Renderer.cpp
 	src/Scale.cpp
 	src/SchemeManager.cpp
@@ -49,6 +54,7 @@ set (kxstitch_SRCS
 	src/ExtendPatternDlg.cpp
 	src/FilePropertiesDlg.cpp
 	src/ImportImageDlg.cpp
+	src/KeyElementDlg.cpp
 	src/LibraryFilePathsDlg.cpp
 	src/LibraryListWidget.cpp
 	src/LibraryListWidgetItem.cpp
@@ -58,6 +64,13 @@ set (kxstitch_SRCS
 	src/LibraryTreeWidgetItem.cpp
 	src/NewFlossDlg.cpp
 	src/PaletteManagerDlg.cpp
+	src/PageLayoutEditor.cpp
+	src/PagePreviewListWidgetItem.cpp
+	src/PagePropertiesDlg.cpp
+	src/PatternElementDlg.cpp
+	src/PrintSetupDlg.cpp
+	src/SelectArea.cpp
+	src/TextElementDlg.cpp
 	src/TextToolDlg.cpp
 )
 
@@ -71,12 +84,17 @@ kde4_add_ui_files(kxstitch_SRCS
 	ui/CalibrateFloss.ui
 	ui/ExtendPattern.ui
 	ui/FileProperties.ui
+	ui/KeyElement.ui
 	ui/ImportImage.ui
 	ui/LibraryFilePaths.ui
 	ui/LibraryManager.ui
 	ui/LibraryPatternProperties.ui
 	ui/NewFloss.ui
+	ui/PageProperties.ui
 	ui/PaletteManager.ui
+	ui/PatternElement.ui
+	ui/PrintSetup.ui
+	ui/TextElement.ui
 	ui/TextTool.ui
 )
 

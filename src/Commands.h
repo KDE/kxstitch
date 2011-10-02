@@ -21,6 +21,7 @@
 
 #include <KUrl>
 
+#include "PrinterConfiguration.h"
 #include "Stitch.h"
 
 
@@ -482,6 +483,21 @@ class PaletteSwapColorCommand : public QUndoCommand
 		Document	*m_document;
 		int	m_originalIndex;
 		int	m_swappedIndex;
+};
+
+
+class UpdatePrinterConfigurationCommand : public QUndoCommand
+{
+	public:
+		UpdatePrinterConfigurationCommand(Document *, const PrinterConfiguration &);
+		~UpdatePrinterConfigurationCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document		*m_document;
+		PrinterConfiguration	m_printerConfiguration;
 };
 
 

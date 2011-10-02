@@ -22,6 +22,7 @@
 #include "configuration.h"
 #include "DocumentPalette.h"
 #include "Layers.h"
+#include "PrinterConfiguration.h"
 #include "StitchData.h"
 
 
@@ -57,6 +58,8 @@ class Document
 		BackgroundImages &backgroundImages();
 		DocumentPalette &documentPalette();
 		StitchData &stitchData();
+		PrinterConfiguration printerConfiguration() const;
+		void setPrinterConfiguration(const PrinterConfiguration &);
 
 	private:
 		bool readPCStitch5File(QDataStream &);
@@ -69,7 +72,7 @@ class Document
 		bool readKXStitchV6File(QDataStream &);
 		bool readKXStitchV7File(QDataStream &);
 
-		static const int version = 101;
+		static const int version = 102;
 
 		QMap<QString, QVariant>	m_properties;
 
@@ -85,6 +88,7 @@ class Document
 		BackgroundImages	m_backgroundImages;
 		DocumentPalette		m_documentPalette;
 		StitchData		m_stitchData;
+		PrinterConfiguration	m_printerConfiguration;
 };
 
 

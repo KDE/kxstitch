@@ -15,17 +15,36 @@
 
 
 FlossUsage::FlossUsage()
+	:	backstitchCount(0),
+		backstitchLength(0.0)
 {
 }
 
 
 double FlossUsage::totalLength() const
 {
-	return stitchLength;
+	return stitchLength()+backstitchLength;
+}
+
+
+double FlossUsage::stitchLength() const
+{
+	double total = 0;
+
+	foreach (double length, stitchLengths)
+		total += length;
+
+	return total;
 }
 
 
 int FlossUsage::totalStitches() const
+{
+	return stitchCount()+backstitchCount;
+}
+
+
+int FlossUsage::stitchCount() const
 {
 	int total = 0;
 
@@ -649,12 +668,13 @@ QMap<int, FlossUsage> StitchData::flossUsage()
 					{
 						Stitch *stitch = stitchIterator.next();
 						usage[stitch->colorIndex].stitchCounts[stitch->type]++;
-						usage[stitch->colorIndex].stitchLength += lengths[stitch->type];
+						usage[stitch->colorIndex].stitchLengths[stitch->type] += lengths[stitch->type];
 					}
 				}
 			}
 		}
 	}
+
 
 	QHashIterator<int, QList<Backstitch *> > backstitchLayers(m_backstitches);
 	while(backstitchLayers.hasNext())
@@ -665,7 +685,7 @@ QMap<int, FlossUsage> StitchData::flossUsage()
 		{
 			Backstitch *backstitch = backstitchIterator.next();
 			usage[backstitch->colorIndex].backstitchCount++;
-			usage[backstitch->colorIndex].stitchLength += QPoint(backstitch->start - backstitch->end).manhattanLength();
+			usage[backstitch->colorIndex].backstitchLength += QPoint(backstitch->start - backstitch->end).manhattanLength();
 		}
 	}
 
@@ -678,7 +698,7 @@ QMap<int, FlossUsage> StitchData::flossUsage()
 		{
 			Knot *knot = knotIterator.next();
 			usage[knot->colorIndex].stitchCounts[Stitch::FrenchKnot]++;
-			usage[knot->colorIndex].stitchLength += lengths[Stitch::FrenchKnot];
+			usage[knot->colorIndex].stitchLengths[Stitch::FrenchKnot] += lengths[Stitch::FrenchKnot];
 		}
 	}
 

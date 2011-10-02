@@ -58,6 +58,9 @@ class MainWindow : public KXmlGuiWindow
 		void fileSave();
 		void fileSaveAs();
 		void fileRevert();
+		void filePrintSetup();
+		void filePrint();
+		void printPages(QPrinter *);
 		void fileImportImage();
 		void fileProperties();
 		void fileAddBackgroundImage();
@@ -116,6 +119,7 @@ class MainWindow : public KXmlGuiWindow
 		void setupActionsFromDocument();
 		void updateLayerActionLists();
 		void convertImage(const Magick::Image &);
+		QPrinter *printer();
 
 	protected:
 		Document	*m_document;
@@ -127,6 +131,8 @@ class MainWindow : public KXmlGuiWindow
 		Scale		*m_verticalScale;
 
 		LibraryManagerDlg	*m_libraryManagerDlg;
+
+		QPrinter	*m_printer;
 };
 
 

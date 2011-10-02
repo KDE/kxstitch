@@ -57,6 +57,8 @@ void Document::initialiseNew()
 	m_stitchData.clear();
 	m_stitchData.resize(Configuration::document_Width(), Configuration::document_Height());
 
+	m_printerConfiguration.clear();
+
 	setProperty("unitsFormat", Configuration::document_UnitsFormat());
 	setProperty("title", QString());
 	setProperty("author", QString());
@@ -156,6 +158,18 @@ StitchData &Document::stitchData()
 }
 
 
+PrinterConfiguration Document::printerConfiguration() const
+{
+	return m_printerConfiguration;
+}
+
+
+void Document::setPrinterConfiguration(const PrinterConfiguration &printerConfiguration)
+{
+	m_printerConfiguration = printerConfiguration;
+}
+
+
 bool Document::load(const KUrl &documentUrl)
 {
 	initialiseNew();
@@ -181,6 +195,17 @@ bool Document::load(const KUrl &documentUrl)
 					stream >> version;
 					switch (version)
 					{
+						case 102:
+							stream.setVersion(QDataStream::Qt_4_0);	// maintain consistancy in the qt types
+							stream >> m_properties;
+							stream >> m_layers;
+							stream >> m_backgroundImages;
+							stream >> m_documentPalette;
+							stream >> m_stitchData;
+							stream >> m_printerConfiguration;
+							readOk = true;
+							break;
+
 						case 101:
 							stream.setVersion(QDataStream::Qt_4_0);	// maintain consistancy in the qt types
 							// flow through to version 100
@@ -208,7 +233,6 @@ bool Document::load(const KUrl &documentUrl)
 					stream.device()->seek(20);
 					qint16 version;
 					stream >> version;
-					kDebug() << "Older format kxstitch file" << "Version" << version;
 					switch (version)
 					{
 						case 2:
@@ -284,6 +308,7 @@ void Document::save()
 			stream << m_backgroundImages;
 			stream << m_documentPalette;
 			stream << m_stitchData;
+			stream << m_printerConfiguration;
 
 			file.close();
 
