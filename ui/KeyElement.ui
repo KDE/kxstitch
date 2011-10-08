@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KeyElement</class>
+ <widget class="QWidget" name="KeyElement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>237</width>
+    <height>689</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Key Element Properties</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
+      <string>Margins</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="MarginTop">
+        <property name="toolTip">
+         <string>Top margin in mm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="suffix">
+         <string>mm</string>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="QSpinBox" name="MarginLeft">
+        <property name="toolTip">
+         <string>Left margin in mm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="suffix">
+         <string>mm</string>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="MarginRight">
+        <property name="toolTip">
+         <string>Right margin in mm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="suffix">
+         <string>mm</string>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="MarginBottom">
+        <property name="toolTip">
+         <string>Bottom margin in mm</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="suffix">
+         <string>mm</string>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Border</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="ShowBorder">
+        <property name="text">
+         <string>Show border</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string comment="Label for color value">Color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="KColorCombo" name="BorderColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Line thickness</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="BorderThickness">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Thickness of the border in 1/10 mm</string>
+        </property>
+        <property name="prefix">
+         <string/>
+        </property>
+        <property name="suffix">
+         <string>mm</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.500000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string comment="Groupbox title for background properties">Background</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="FillBackground">
+        <property name="text">
+         <string>Fill Background</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string comment="Label for color value">Color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="KColorCombo" name="BackgroundColor">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Transparency</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="BackgroundTransparency">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="value">
+         <number>255</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>Font</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="KFontRequester" name="KeyFont"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Columns</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QCheckBox" name="SymbolColumn">
+        <property name="text">
+         <string>Symbol</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="FlossNameColumn">
+        <property name="text">
+         <string>Floss Name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="StrandsColumn">
+        <property name="text">
+         <string>Strands</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="FlossDescriptionColumn">
+        <property name="text">
+         <string>Floss Description</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="StitchesColumn">
+        <property name="text">
+         <string>Stitches</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="StitchBreakdownColumn">
+        <property name="text">
+         <string>Stitch Breakdown</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="LengthColumn">
+        <property name="text">
+         <string>Length</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="SkeinsColumn">
+        <property name="text">
+         <string>Skeins</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="TotalStitches">
+     <property name="text">
+      <string>Total Stitches</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KFontRequester</class>
+   <extends>QWidget</extends>
+   <header>kfontrequester.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KColorCombo</class>
+   <extends>QComboBox</extends>
+   <header>kcolorcombo.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>MarginTop</tabstop>
+  <tabstop>MarginLeft</tabstop>
+  <tabstop>MarginRight</tabstop>
+  <tabstop>MarginBottom</tabstop>
+  <tabstop>ShowBorder</tabstop>
+  <tabstop>BorderColor</tabstop>
+  <tabstop>BorderThickness</tabstop>
+  <tabstop>FillBackground</tabstop>
+  <tabstop>BackgroundColor</tabstop>
+  <tabstop>BackgroundTransparency</tabstop>
+  <tabstop>SymbolColumn</tabstop>
+  <tabstop>FlossNameColumn</tabstop>
+  <tabstop>StrandsColumn</tabstop>
+  <tabstop>FlossDescriptionColumn</tabstop>
+  <tabstop>StitchesColumn</tabstop>
+  <tabstop>StitchBreakdownColumn</tabstop>
+  <tabstop>LengthColumn</tabstop>
+  <tabstop>SkeinsColumn</tabstop>
+  <tabstop>TotalStitches</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>FillBackground</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BackgroundColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>291</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FillBackground</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BackgroundTransparency</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>32</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowBorder</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BorderColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>150</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowBorder</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BorderThickness</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>151</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

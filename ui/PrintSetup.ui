@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PrintSetup</class>
+ <widget class="QWidget" name="PrintSetup">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>716</width>
+    <height>565</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Print Setup</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0" rowspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>24</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Pages</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="AddPage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Append a page</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="InsertPage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Insert a page before the selected page</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="DeletePage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Delete the selected page</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="4">
+      <widget class="QListWidget" name="Pages">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>100</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Page list</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>140</width>
+         <height>140</height>
+        </size>
+       </property>
+       <property name="gridSize">
+        <size>
+         <width>170</width>
+         <height>170</height>
+        </size>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::IconMode</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="KComboBox" name="PaperSize">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Select a paper size</string>
+       </property>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A6</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A7</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">A9</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B6</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B7</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B9</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">B10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">C5E</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Comm10E</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">DLE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Executive</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Folio</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Ledger</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Legal</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Letter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string comment="Paper size">Tabloid</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="KComboBox" name="Orientation">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Select the paper orientation</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Portrait</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Landscape</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="KComboBox" name="Zoom">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Zoom factor</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>25%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>50%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>150%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>200%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string notr="true">400%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>800%</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1600%</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QToolButton" name="SelectElement">
+       <property name="toolTip">
+        <string>Select an element</string>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="TextElement">
+       <property name="toolTip">
+        <string>Insert a text element</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="PatternElement">
+       <property name="toolTip">
+        <string>Insert a pattern element</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="KeyElement">
+       <property name="toolTip">
+        <string>Insert a key element</string>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="1">
+    <widget class="QScrollArea" name="PagePreview">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>100</horstretch>
+       <verstretch>100</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>Page preview</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>470</width>
+        <height>496</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PatternElement</class>
+ <widget class="QWidget" name="PatternElement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>449</width>
+    <height>561</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Pattern Element Properties</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0" colspan="2">
+    <widget class="QScrollArea" name="PreviewFrame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>100</horstretch>
+       <verstretch>100</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;Click and drag to select the area of the pattern to be displayed.&lt;br /&gt;Grayed out areas have already been selected on this or other pages.&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>418</width>
+        <height>421</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="ShowStitches">
+       <property name="text">
+        <string>Show stitches</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>As</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="KComboBox" name="RenderStitchesAs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Stitches</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Black &amp; White Symbols</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Color Symbols</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Color Blocks</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Color Blocks &amp; Symbols</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="ShowBackstitches">
+       <property name="text">
+        <string>Show backstitches</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>As</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="KComboBox" name="RenderBackstitchesAs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Color Lines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Black &amp; White Symbols</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QCheckBox" name="ShowKnots">
+       <property name="text">
+        <string>Show knots</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>As</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="KComboBox" name="RenderKnotsAs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Color Blocks</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Color Symbols</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Black &amp; White Symbols</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QCheckBox" name="ShowScales">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Show scales</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>As</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="KComboBox" name="FormatScalesAs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Stitches</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Inches</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CM</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QCheckBox" name="ShowGrid">
+       <property name="text">
+        <string>Show grid</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QCheckBox" name="ShowPlan">
+       <property name="text">
+        <string>Show map</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="1">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>77</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>ShowStitches</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderStitchesAs</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>455</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>455</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowBackstitches</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderBackstitchesAs</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>478</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>484</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowKnots</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RenderKnotsAs</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>221</x>
+     <y>506</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowScales</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>FormatScalesAs</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>576</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>581</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
