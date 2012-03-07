@@ -13,7 +13,6 @@
 	</Menu>
 	<Menu name="edit"><text>&amp;Edit</text>
 		<Menu name="selectionMasks"><text>Selection Masks</text>
-			<Action name="maskLayer"/>
 			<Action name="maskStitch"/>
 			<Action name="maskColor"/>
 			<Action name="maskBackstitch"/>
@@ -195,9 +194,6 @@
     <Separator/>
     <Action name="paletteManager"/>
     <Action name="colorPicker"/>
-</ToolBar>
-<ToolBar name="SelectLayerToolBar" fullWidth="false">
-	<ActionList name="selectLayerActions" />
 </ToolBar>
 <ToolBar name="ZoomToolbar" fullWidth="false">
 	<Action name="view_zoom_in"/>
