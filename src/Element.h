@@ -144,8 +144,6 @@ class PatternElement : public Element
 		Configuration::EnumRenderer_RenderStitchesAs::type renderStitchesAs() const;
 		Configuration::EnumRenderer_RenderBackstitchesAs::type renderBackstitchesAs() const;
 		Configuration::EnumRenderer_RenderKnotsAs::type renderKnotsAs() const;
-		QList<int> layerOrder() const;
-		QList<int> visibleLayers() const;
 		bool showGrid() const;
 		bool showStitches() const;
 		bool showBackstitches() const;
@@ -157,8 +155,6 @@ class PatternElement : public Element
 		void setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type);
 		void setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type);
 		void setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type);
-		void setLayerOrder(const QList<int> &);
-		void setVisibleLayers(const QList<int> &);
 		void setShowGrid(bool);
 		void setShowStitches(bool);
 		void setShowBackstitches(bool);
@@ -171,7 +167,7 @@ class PatternElement : public Element
 		virtual QDataStream &streamIn(QDataStream &);
 
 	private:
-		static const int version = 100;
+		static const int version = 101;
 
 		QRect	m_patternRect;
 		bool	m_showScales;
@@ -182,9 +178,6 @@ class PatternElement : public Element
 		Configuration::EnumRenderer_RenderStitchesAs::type	m_renderStitchesAs;
 		Configuration::EnumRenderer_RenderBackstitchesAs::type	m_renderBackstitchesAs;
 		Configuration::EnumRenderer_RenderKnotsAs::type		m_renderKnotsAs;
-
-		QList<int>	m_visibleLayers;
-		QList<int>	m_layerOrder;
 
 		bool		m_showGrid;
 		bool		m_showStitches;

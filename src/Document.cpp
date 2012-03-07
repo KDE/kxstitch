@@ -23,6 +23,7 @@
 #include "Editor.h"
 #include "Floss.h"
 #include "FlossScheme.h"
+#include "Layers.h"
 #include "Palette.h"
 #include "Preview.h"
 #include "SchemeManager.h"
@@ -45,9 +46,6 @@ Document::~Document()
 void Document::initialiseNew()
 {
 	m_undoStack.clear();
-
-	m_layers.clear();
-	m_layers.addLayer(0, i18n("Layer 0"));
 
 	m_backgroundImages.clear();
 
@@ -88,7 +86,6 @@ void Document::initialiseNew()
 	setProperty("renderStitches", true); // Configuration::editor_PaintStitches();
 	setProperty("renderBackstitches", true); // Configuration::editor_PaintBackstitches;
 	setProperty("renderFrenchKnots", true); // Configuration::editor_PaintFrenchKnots;
-	setProperty("maskLayer",false);
 	setProperty("maskStitch", false);
 	setProperty("maskColor", false);
 	setProperty("maskBackstitch", false);
@@ -131,12 +128,6 @@ void Document::addView(Palette *palette)
 void Document::addView(Preview *preview)
 {
 	m_preview = preview;
-}
-
-
-Layers &Document::layers()
-{
-	return m_layers;
 }
 
 
@@ -191,14 +182,25 @@ bool Document::load(const KUrl &documentUrl)
 				{
 					// a current KXStitchDoc format file
 					stream.device()->seek(11);
+					Layers layers;
 					qint32 version;
 					stream >> version;
 					switch (version)
 					{
+						case 103:
+							stream.setVersion(QDataStream::Qt_4_0);	// maintain consistancy in the qt types
+							stream >> m_properties;
+							stream >> m_backgroundImages;
+							stream >> m_documentPalette;
+							stream >> m_stitchData;
+							stream >> m_printerConfiguration;
+							readOk = true;
+							break;
+
 						case 102:
 							stream.setVersion(QDataStream::Qt_4_0);	// maintain consistancy in the qt types
 							stream >> m_properties;
-							stream >> m_layers;
+							stream >> layers;
 							stream >> m_backgroundImages;
 							stream >> m_documentPalette;
 							stream >> m_stitchData;
@@ -211,7 +213,7 @@ bool Document::load(const KUrl &documentUrl)
 							// flow through to version 100
 						case 100:
 							stream >> m_properties;
-							stream >> m_layers;
+							stream >> layers;
 							stream >> m_backgroundImages;
 							stream >> m_documentPalette;
 							stream >> m_stitchData;
@@ -304,7 +306,6 @@ void Document::save()
 			stream.writeRawData("KXStitchDoc", 11);
 			stream << version;
 			stream << m_properties;
-			stream << m_layers;
 			stream << m_backgroundImages;
 			stream << m_documentPalette;
 			stream << m_stitchData;
@@ -448,7 +449,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 			{
 				int xc = (i+c)/documentHeight;
 				int yc = (i+c)%documentHeight;
-				m_stitchData.addStitch(0, QPoint(xc, yc), stitchType[type], color-1);	// color-1 because PCStitch uses 1 based array
+				m_stitchData.addStitch(QPoint(xc, yc), stitchType[type], color-1);	// color-1 because PCStitch uses 1 based array
 			}
 		}
 	}
@@ -468,7 +469,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 			stream >> color;
 			stream >> type;
 			if (type != 0xff)
-				m_stitchData.addStitch(0, QPoint(x-1, y-1), stitchType[type], color-1);
+				m_stitchData.addStitch(QPoint(x-1, y-1), stitchType[type], color-1);
 		}
 	}
 	// read french knots
@@ -481,7 +482,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 		stream >> x;
 		stream >> y;
 		stream >> color;
-		m_stitchData.addFrenchKnot(0, QPoint(x-1, y-1), color-1);
+		m_stitchData.addFrenchKnot(QPoint(x-1, y-1), color-1);
 	}
 	// read backstitches
 	if (stream.device()->pos()+4 > fileSize) return false;
@@ -497,7 +498,7 @@ bool Document::readPCStitch5File(QDataStream &stream)
 		qint16 ey;
 		qint16 ep;
 		stream >> sx >> sy >> sp >> ex >> ey >> ep >> color;
-		m_stitchData.addBackstitch(0, QPoint(--sx*2+((sp-1)%3), --sy*2+((sp-1)/3)), QPoint(--ex*2+((ep-1)%3), --ey*2+((ep-1)/3)), color-1);
+		m_stitchData.addBackstitch(QPoint(--sx*2+((sp-1)%3), --sy*2+((sp-1)/3)), QPoint(--ex*2+((ep-1)%3), --ey*2+((ep-1)/3)), color-1);
 	}
 	return true;
 }
@@ -661,7 +662,7 @@ bool Document::readKXStitchV2File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -676,7 +677,7 @@ bool Document::readKXStitchV2File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);
@@ -821,7 +822,7 @@ bool Document::readKXStitchV3File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -836,7 +837,7 @@ bool Document::readKXStitchV3File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);
@@ -986,7 +987,7 @@ bool Document::readKXStitchV4File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -999,7 +1000,7 @@ bool Document::readKXStitchV4File(QDataStream &stream)
 		stream	>> position
 			>> colorIndex;
 
-		m_stitchData.addFrenchKnot(0, position, colorIndex);
+		m_stitchData.addFrenchKnot(position, colorIndex);
 	}
 
 	qint32 backstitches;
@@ -1013,7 +1014,7 @@ bool Document::readKXStitchV4File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);
@@ -1170,7 +1171,7 @@ bool Document::readKXStitchV5File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -1183,7 +1184,7 @@ bool Document::readKXStitchV5File(QDataStream &stream)
 		stream	>> position
 			>> colorIndex;
 
-		m_stitchData.addFrenchKnot(0, position, colorIndex);
+		m_stitchData.addFrenchKnot(position, colorIndex);
 	}
 
 	qint32 backstitches;
@@ -1197,7 +1198,7 @@ bool Document::readKXStitchV5File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);
@@ -1359,7 +1360,7 @@ bool Document::readKXStitchV6File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -1372,7 +1373,7 @@ bool Document::readKXStitchV6File(QDataStream &stream)
 		stream	>> position
 			>> colorIndex;
 
-		m_stitchData.addFrenchKnot(0, position, colorIndex);
+		m_stitchData.addFrenchKnot(position, colorIndex);
 	}
 
 	qint32 backstitches;
@@ -1386,7 +1387,7 @@ bool Document::readKXStitchV6File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);
@@ -1558,7 +1559,7 @@ bool Document::readKXStitchV7File(QDataStream &stream)
 			stream	>> type
 				>> colorIndex;
 
-			m_stitchData.addStitch(0, QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
+			m_stitchData.addStitch(QPoint(i%width, i/width), Stitch::Type(type), colorIndex);
 		}
 	}
 
@@ -1571,7 +1572,7 @@ bool Document::readKXStitchV7File(QDataStream &stream)
 		stream	>> position
 			>> colorIndex;
 
-		m_stitchData.addFrenchKnot(0, position, colorIndex);
+		m_stitchData.addFrenchKnot(position, colorIndex);
 	}
 
 	qint32 backstitches;
@@ -1585,7 +1586,7 @@ bool Document::readKXStitchV7File(QDataStream &stream)
 			>> end
 			>> colorIndex;
 
-		m_stitchData.addBackstitch(0, start, end, colorIndex);
+		m_stitchData.addBackstitch(start, end, colorIndex);
 	}
 
 	return (stream.status() == QDataStream::Ok);

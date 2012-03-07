@@ -24,10 +24,9 @@
 #include "SchemeManager.h"
 
 
-AddStitchCommand::AddStitchCommand(Document *document, int layer, const QPoint &location, Stitch::Type type, int colorIndex)
+AddStitchCommand::AddStitchCommand(Document *document, const QPoint &location, Stitch::Type type, int colorIndex)
 	:	QUndoCommand(),
 		m_document(document),
-		m_layer(layer),
 		m_cell(location),
 		m_type(type),
 		m_colorIndex(colorIndex),
@@ -44,24 +43,23 @@ AddStitchCommand::~AddStitchCommand()
 
 void AddStitchCommand::redo()
 {
-	m_original = m_document->stitchData().stitchQueueAt(m_layer, m_cell);
+	m_original = m_document->stitchData().stitchQueueAt(m_cell);
 	if (m_original)
-		m_document->stitchData().replaceStitchQueueAt(m_layer, m_cell, new StitchQueue(m_original));
-	m_document->stitchData().addStitch(m_layer, m_cell, m_type, m_colorIndex);
+		m_document->stitchData().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
+	m_document->stitchData().addStitch(m_cell, m_type, m_colorIndex);
 }
 
 
 void AddStitchCommand::undo()
 {
-	delete m_document->stitchData().replaceStitchQueueAt(m_layer, m_cell, m_original);
+	delete m_document->stitchData().replaceStitchQueueAt(m_cell, m_original);
 	m_original = 0;
 }
 
 
-DeleteStitchCommand::DeleteStitchCommand(Document *document, int layer, const QPoint &cell, Stitch::Type type, int colorIndex)
+DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell, Stitch::Type type, int colorIndex)
 	:	QUndoCommand(),
 		m_document(document),
-		m_layer(layer),
 		m_cell(cell),
 		m_type(type),
 		m_colorIndex(colorIndex),
@@ -78,24 +76,23 @@ DeleteStitchCommand::~DeleteStitchCommand()
 
 void DeleteStitchCommand::redo()
 {
-	m_original = m_document->stitchData().stitchQueueAt(m_layer, m_cell);
+	m_original = m_document->stitchData().stitchQueueAt(m_cell);
 	if (m_original)
-		m_original = m_document->stitchData().replaceStitchQueueAt(m_layer, m_cell, new StitchQueue(m_original));
-	m_document->stitchData().deleteStitch(m_layer, m_cell, m_type, m_colorIndex);
+		m_original = m_document->stitchData().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
+	m_document->stitchData().deleteStitch(m_cell, m_type, m_colorIndex);
 }
 
 
 void DeleteStitchCommand::undo()
 {
-	delete m_document->stitchData().replaceStitchQueueAt(m_layer, m_cell, m_original);
+	delete m_document->stitchData().replaceStitchQueueAt(m_cell, m_original);
 	m_original = 0;
 }
 
 
-AddBackstitchCommand::AddBackstitchCommand(Document *document, int layer, const QPoint &start, const QPoint &end, int colorIndex)
+AddBackstitchCommand::AddBackstitchCommand(Document *document, const QPoint &start, const QPoint &end, int colorIndex)
 	:	QUndoCommand(i18n("Add Backstitch")),
 		m_document(document),
-		m_layer(layer),
 		m_start(start),
 		m_end(end),
 		m_colorIndex(colorIndex)
@@ -110,20 +107,19 @@ AddBackstitchCommand::~AddBackstitchCommand()
 
 void AddBackstitchCommand::redo()
 {
-	m_document->stitchData().addBackstitch(m_layer, m_start, m_end, m_colorIndex);
+	m_document->stitchData().addBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
 void AddBackstitchCommand::undo()
 {
-	delete m_document->stitchData().takeBackstitch(m_layer, m_start, m_end, m_colorIndex);
+	delete m_document->stitchData().takeBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
-DeleteBackstitchCommand::DeleteBackstitchCommand(Document *document, int layer, const QPoint &start, const QPoint &end, int colorIndex)
+DeleteBackstitchCommand::DeleteBackstitchCommand(Document *document, const QPoint &start, const QPoint &end, int colorIndex)
 	:	QUndoCommand(i18n("Delete Backstitch")),
 		m_document(document),
-		m_layer(layer),
 		m_start(start),
 		m_end(end),
 		m_colorIndex(colorIndex),
@@ -142,20 +138,19 @@ void DeleteBackstitchCommand::redo()
 {
 	if (m_backstitch)
 		delete m_backstitch;
-	m_backstitch = m_document->stitchData().takeBackstitch(m_layer, m_start, m_end, m_colorIndex);
+	m_backstitch = m_document->stitchData().takeBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
 void DeleteBackstitchCommand::undo()
 {
-	m_document->stitchData().addBackstitch(m_layer, m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
+	m_document->stitchData().addBackstitch(m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
 }
 
 
-AddKnotCommand::AddKnotCommand(Document *document, int layer, const QPoint &snap, int colorIndex)
+AddKnotCommand::AddKnotCommand(Document *document, const QPoint &snap, int colorIndex)
 	:	QUndoCommand(),
 		m_document(document),
-		m_layer(layer),
 		m_snap(snap),
 		m_colorIndex(colorIndex)
 {
@@ -169,20 +164,19 @@ AddKnotCommand::~AddKnotCommand()
 
 void AddKnotCommand::redo()
 {
-	m_document->stitchData().addFrenchKnot(m_layer, m_snap, m_colorIndex);
+	m_document->stitchData().addFrenchKnot(m_snap, m_colorIndex);
 }
 
 
 void AddKnotCommand::undo()
 {
-	delete m_document->stitchData().takeFrenchKnot(m_layer, m_snap, m_colorIndex);
+	delete m_document->stitchData().takeFrenchKnot(m_snap, m_colorIndex);
 }
 
 
-DeleteKnotCommand::DeleteKnotCommand(Document *document, int layer, const QPoint &snap, int colorIndex)
+DeleteKnotCommand::DeleteKnotCommand(Document *document, const QPoint &snap, int colorIndex)
 	:	QUndoCommand(),
 		m_document(document),
-		m_layer(layer),
 		m_snap(snap),
 		m_colorIndex(colorIndex),
 		m_knot(0)
@@ -198,13 +192,13 @@ DeleteKnotCommand::~DeleteKnotCommand()
 
 void DeleteKnotCommand::redo()
 {
-	m_knot = m_document->stitchData().takeFrenchKnot(m_layer, m_snap, m_colorIndex);
+	m_knot = m_document->stitchData().takeFrenchKnot(m_snap, m_colorIndex);
 }
 
 
 void DeleteKnotCommand::undo()
 {
-	m_document->stitchData().addFrenchKnot(m_layer, m_knot->position, m_knot->colorIndex);
+	m_document->stitchData().addFrenchKnot(m_knot->position, m_knot->colorIndex);
 }
 
 
@@ -799,61 +793,46 @@ void PaletteReplaceColorCommand::redo()
 	{
 		// search the stitch data for stitches of the required color
 		StitchData &stitchData = m_document->stitchData();
-		QListIterator<int> stitchLayerIterator(stitchData.stitchLayers());
-		while (stitchLayerIterator.hasNext())
+		for (int row = 0 ; row < stitchData.height() ; ++row)
 		{
-			int layer = stitchLayerIterator.next();
-			for (int row = 0 ; row < stitchData.height() ; ++row)
+			for (int col = 0 ; col < stitchData.width() ; ++col)
 			{
-				for (int col = 0 ; col < stitchData.width() ; ++col)
+				StitchQueue *queue = stitchData.stitchQueueAt(QPoint(col, row));
+				if (queue)
 				{
-					StitchQueue *queue = stitchData.stitchQueueAt(layer, QPoint(col, row));
-					if (queue)
+					QListIterator<Stitch *> stitchIterator(*queue);
+					while (stitchIterator.hasNext())
 					{
-						QListIterator<Stitch *> stitchIterator(*queue);
-						while (stitchIterator.hasNext())
+						Stitch *stitch = stitchIterator.next();
+						if (stitch->colorIndex == m_originalIndex)
 						{
-							Stitch *stitch = stitchIterator.next();
-							if (stitch->colorIndex == m_originalIndex)
-							{
-								m_stitches.append(stitch);
-								stitch->colorIndex = m_replacementIndex;
-							}
+							m_stitches.append(stitch);
+							stitch->colorIndex = m_replacementIndex;
 						}
 					}
 				}
 			}
 		}
 
-		QListIterator<int> backstitchLayerIterator(stitchData.backstitchLayers());
-		while (backstitchLayerIterator.hasNext())
+		QListIterator<Backstitch *> backstitchIterator = stitchData.backstitchIterator();
+		while (backstitchIterator.hasNext())
 		{
-			int layer = backstitchLayerIterator.next();
-			QListIterator<Backstitch *> backstitchIterator = stitchData.backstitchIterator(layer);
-			while (backstitchIterator.hasNext())
+			Backstitch *backstitch = backstitchIterator.next();
+			if (backstitch->colorIndex == m_originalIndex)
 			{
-				Backstitch *backstitch = backstitchIterator.next();
-				if (backstitch->colorIndex == m_originalIndex)
-				{
-					m_backstitches.append(backstitch);
-					backstitch->colorIndex = m_replacementIndex;
-				}
+				m_backstitches.append(backstitch);
+				backstitch->colorIndex = m_replacementIndex;
 			}
 		}
 
-		QListIterator<int> knotLayerIterator(stitchData.knotLayers());
-		while (knotLayerIterator.hasNext())
+		QListIterator<Knot *> knotIterator = stitchData.knotIterator();
+		while (knotIterator.hasNext())
 		{
-			int layer = knotLayerIterator.next();
-			QListIterator<Knot *> knotIterator = stitchData.knotIterator(layer);
-			while (knotIterator.hasNext())
+			Knot *knot = knotIterator.next();
+			if (knot->colorIndex == m_originalIndex)
 			{
-				Knot *knot = knotIterator.next();
-				if (knot->colorIndex == m_originalIndex)
-				{
-					m_knots.append(knot);
-					knot->colorIndex = m_replacementIndex;
-				}
+				m_knots.append(knot);
+				knot->colorIndex = m_replacementIndex;
 			}
 		}
 	}

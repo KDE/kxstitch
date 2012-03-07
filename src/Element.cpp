@@ -558,8 +558,6 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle)
 	m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
 	m_renderer->setRenderKnotsAs(m_renderKnotsAs);
 	m_renderer->setPaintDeviceArea(QRectF());
-	m_layerOrder.append(0);
-	m_visibleLayers.append(0);
 }
 
 
@@ -572,8 +570,6 @@ PatternElement::PatternElement(const PatternElement &other)
 		m_renderStitchesAs(other.m_renderStitchesAs),
 		m_renderBackstitchesAs(other.m_renderBackstitchesAs),
 		m_renderKnotsAs(other.m_renderKnotsAs),
-		m_visibleLayers(other.m_visibleLayers),
-		m_layerOrder(other.m_layerOrder),
 		m_showGrid(other.m_showGrid),
 		m_showStitches(other.m_showStitches),
 		m_showBackstitches(other.m_showBackstitches),
@@ -632,8 +628,6 @@ void PatternElement::render(Document *document, QPainter *painter, double scale)
 	m_renderer->render(painter,
 			   document,
 			   paintDeviceArea.toRect(), // scaled to suit the dimensions of the paint area
-			   m_layerOrder,
-			   m_visibleLayers,
 			   m_showGrid,
 			   m_showStitches,
 			   m_showBackstitches,
@@ -675,18 +669,6 @@ Configuration::EnumRenderer_RenderBackstitchesAs::type PatternElement::renderBac
 Configuration::EnumRenderer_RenderKnotsAs::type PatternElement::renderKnotsAs() const
 {
 	return m_renderKnotsAs;
-}
-
-
-QList<int> PatternElement::layerOrder() const
-{
-	return m_layerOrder;
-}
-
-
-QList<int> PatternElement::visibleLayers() const
-{
-	return m_visibleLayers;
 }
 
 
@@ -754,18 +736,6 @@ void PatternElement::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs:
 }
 
 
-void PatternElement::setLayerOrder(const QList<int> &layerOrder)
-{
-	m_layerOrder = layerOrder;
-}
-
-
-void PatternElement::setVisibleLayers(const QList<int> &visibleLayers)
-{
-	m_visibleLayers = visibleLayers;
-}
-
-
 void PatternElement::setShowGrid(bool showGrid)
 {
 	m_showGrid = showGrid;
@@ -803,8 +773,6 @@ QDataStream &PatternElement::streamOut(QDataStream &stream) const
 		<< qint32(m_renderStitchesAs)
 		<< qint32(m_renderBackstitchesAs)
 		<< qint32(m_renderKnotsAs)
-		<< m_visibleLayers
-		<< m_layerOrder
 		<< qint32(m_showGrid)
 		<< qint32(m_showStitches)
 		<< qint32(m_showBackstitches)
@@ -836,10 +804,53 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
 	qint32 showBackstitches;
 	qint32 showKnots;
 	qint32 planElement;
+	QList<int> visibleLayers;
+	QList<int> layerOrder;
 
 	stream >> version;
 	switch (version)
 	{
+		case 101:
+			stream	>> m_patternRect
+				>> showScales
+				>> showPlan
+				>> formatScalesAs
+				>> renderStitchesAs
+				>> renderBackstitchesAs
+				>> renderKnotsAs
+				>> showGrid
+				>> showStitches
+				>> showBackstitches
+				>> showKnots
+				>> planElement;
+
+			m_showScales = bool(showScales);
+			m_showPlan = bool(showPlan);
+			m_formatScalesAs = static_cast<Configuration::EnumEditor_FormatScalesAs::type>(formatScalesAs);
+			m_renderStitchesAs = static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(renderStitchesAs);
+			m_renderBackstitchesAs = static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(renderBackstitchesAs);
+			m_renderKnotsAs = static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(renderKnotsAs);
+			m_showGrid = bool(showGrid);
+			m_showStitches = bool(showStitches);
+			m_showBackstitches = bool(showBackstitches);
+			m_showKnots = bool(showKnots);
+
+			if (bool(planElement))
+			{
+				m_planElement = new PlanElement(parent(), QRect());
+				stream >> *m_planElement;
+				m_planElement->setPatternRect(m_patternRect);
+			}
+			else
+				m_planElement = 0;
+
+			m_renderer->setPatternRect(m_patternRect);
+			m_renderer->setRenderStitchesAs(m_renderStitchesAs);
+			m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
+			m_renderer->setRenderKnotsAs(m_renderKnotsAs);
+			m_renderer->setPaintDeviceArea(QRectF());
+			break;
+
 		case 100:
 			stream	>> m_patternRect
 				>> showScales
@@ -848,8 +859,8 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
 				>> renderStitchesAs
 				>> renderBackstitchesAs
 				>> renderKnotsAs
-				>> m_visibleLayers
-				>> m_layerOrder
+				>> visibleLayers
+				>> layerOrder
 				>> showGrid
 				>> showStitches
 				>> showBackstitches

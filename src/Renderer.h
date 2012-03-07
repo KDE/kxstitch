@@ -47,8 +47,6 @@ class Renderer
 		void render(QPainter *,
 			    Document *,
 			    const QRect &updateRectangle,
-			    const QList<int> &layerOrder,
-			    const QList<int> &visibleLayers,
 			    bool renderGrid,
 			    bool renderStitches,
 			    bool renderBackstitches,

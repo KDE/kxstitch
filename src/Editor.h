@@ -70,9 +70,6 @@ class Editor : public QWidget
 
 		QRect selectionArea();
 
-		QList<int> visibleLayers();
-		QList<int> layerOrder();
-
 	signals:
 		void selectionMade(bool);
 		void changedVisibleCells(const QRect &);
@@ -104,7 +101,6 @@ class Editor : public QWidget
 
 		void selectStitch();
 
-		void setMaskLayer(bool);
 		void setMaskStitch(bool);
 		void setMaskColor(bool);
 		void setMaskBackstitch(bool);
@@ -203,9 +199,6 @@ class Editor : public QWidget
 		int	m_cellHorizontalGrouping;
 		int	m_cellVerticalGrouping;
 
-		QList<int>	m_visibleLayers;
-		QList<int>	m_layerOrder;
-
 		enum ToolMode	m_toolMode;
 
 		bool	m_renderBackgroundImages;
@@ -214,7 +207,6 @@ class Editor : public QWidget
 		bool	m_renderBackstitches;
 		bool	m_renderFrenchKnots;
 
-		bool	m_maskLayer;
 		bool	m_maskStitch;
 		bool	m_maskColor;
 		bool	m_maskBackstitch;

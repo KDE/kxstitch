@@ -61,25 +61,21 @@ class StitchData
 		StitchData copy(const QRect &area, const QList<int> &layerMask, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const;
 		void paste(const StitchData &dataSet, const QPoint &, bool merge);
 
-		void addStitch(int, const QPoint &, Stitch::Type, int);
-		void deleteStitch(int, const QPoint &, Stitch::Type, int);
+		void addStitch(const QPoint &, Stitch::Type, int);
+		void deleteStitch(const QPoint &, Stitch::Type, int);
 
-		StitchQueue *stitchQueueAt(int, const QPoint &);
-		StitchQueue *takeStitchQueueAt(int, const QPoint &);
-		StitchQueue *replaceStitchQueueAt(int, const QPoint &, StitchQueue *);
+		StitchQueue *stitchQueueAt(const QPoint &);
+		StitchQueue *takeStitchQueueAt(const QPoint &);
+		StitchQueue *replaceStitchQueueAt(const QPoint &, StitchQueue *);
 
-		void addBackstitch(int, const QPoint &, const QPoint &, int);
-		Backstitch *takeBackstitch(int, const QPoint &, const QPoint &, int);
+		void addBackstitch(const QPoint &, const QPoint &, int);
+		Backstitch *takeBackstitch(const QPoint &, const QPoint &, int);
 
-		void addFrenchKnot(int, const QPoint &, int);
-		Knot *takeFrenchKnot(int, const QPoint &, int);
+		void addFrenchKnot(const QPoint &, int);
+		Knot *takeFrenchKnot(const QPoint &, int);
 
-		QList<int> stitchLayers() const;
-		QList<int> backstitchLayers() const;
-		QList<int> knotLayers() const;
-
-		QListIterator<Backstitch *> backstitchIterator(int layer);
-		QListIterator<Knot *> knotIterator(int layer);
+		QListIterator<Backstitch *> backstitchIterator();
+		QListIterator<Knot *> knotIterator();
 
 		QMap<int, FlossUsage> flossUsage();
 
@@ -89,14 +85,14 @@ class StitchData
 	private:
 		void	deleteStitches();
 
-		static const int version = 100;
+		static const int version = 101;
 
 		int m_width;
 		int m_height;
 
-		QHash<int, QHash<int, QHash<int, StitchQueue *> > >	m_stitches;
-		QHash<int, QList<Backstitch *> >			m_backstitches;
-		QHash<int, QList<Knot *> >				m_knots;
+		QHash<int, QHash<int, StitchQueue *> >	m_stitches;
+		QList<Backstitch *>			m_backstitches;
+		QList<Knot *>				m_knots;
 };
 
 

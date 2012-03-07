@@ -182,16 +182,12 @@ void Renderer::setPaintDeviceArea(const QRectF &rect)
 void Renderer::render(QPainter *painter,
 		      Document *document,
 		      const QRect &updateRectangle,
-		      const QList<int> &layerOrder,
-		      const QList<int> &visibleLayers,
 		      bool renderGrid,
 		      bool renderStitches,
 		      bool renderBackstitches,
 		      bool renderKnots,
 		      int colorHilight)
 {
-	kDebug() << "paint device type" << painter->device()->paintEngine()->type();
-
 	bool paintDeviceIsScreen = (painter->device()->paintEngine()->type() == QPaintEngine::X11); // test for other types
 
 	painter->save();
@@ -249,57 +245,50 @@ void Renderer::render(QPainter *painter,
 
 	QRect snapUpdateRectangle(leftCell*2, topCell*2, (rightCell-leftCell)*2, (bottomCell-topCell)*2);
 
-	QListIterator<int> layerIterator(layerOrder);
-	while (layerIterator.hasNext())
+	if (renderStitches)
 	{
-		int layer = layerIterator.next();
-		if (visibleLayers.contains(layer))
+		for (int y =  topCell ; y <= bottomCell ; y++)
 		{
-			if (renderStitches)
+			for (int x = leftCell ; x <= rightCell ; x++)
 			{
-				for (int y =  topCell ; y <= bottomCell ; y++)
+				StitchQueue *queue = document->stitchData().stitchQueueAt(QPoint(x, y));
+				if (queue)
 				{
-					for (int x = leftCell ; x <= rightCell ; x++)
-					{
-						StitchQueue *queue = document->stitchData().stitchQueueAt(layer, QPoint(x, y));
-						if (queue)
-						{
-							double xpos = x*d->m_cellWidth;
-							double ypos = y*d->m_cellHeight;
-							painter->resetTransform();
-							painter->translate(xpos+l, ypos+t);
-							(this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
-						}
-					}
-				}
-			}
-			painter->resetTransform();
-			painter->translate(l, t);
-			// process backstitches
-			if (renderBackstitches)
-			{
-				QListIterator<Backstitch *> backstitchIterator = document->stitchData().backstitchIterator(layer);
-				while (backstitchIterator.hasNext())
-				{
-					Backstitch *backstitch = backstitchIterator.next();
-					(this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitch);
-				}
-			}
-			// process knots
-			if (renderKnots)
-			{
-				QListIterator<Knot *> knotIterator = document->stitchData().knotIterator(layer);
-				while (knotIterator.hasNext())
-				{
-					Knot *knot = knotIterator.next();
-					if ((colorHilight == -1) || (colorHilight = knot->colorIndex))
-					{
-						(this->*renderKnotCallPointers[d->m_renderKnotsAs])(knot);
-					}
+					double xpos = x*d->m_cellWidth;
+					double ypos = y*d->m_cellHeight;
+					painter->resetTransform();
+					painter->translate(xpos+l, ypos+t);
+					(this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
 				}
 			}
 		}
 	}
+	painter->resetTransform();
+	painter->translate(l, t);
+	// process backstitches
+	if (renderBackstitches)
+	{
+		QListIterator<Backstitch *> backstitchIterator = document->stitchData().backstitchIterator();
+		while (backstitchIterator.hasNext())
+		{
+			Backstitch *backstitch = backstitchIterator.next();
+			(this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitch);
+		}
+	}
+	// process knots
+	if (renderKnots)
+	{
+		QListIterator<Knot *> knotIterator = document->stitchData().knotIterator();
+		while (knotIterator.hasNext())
+		{
+			Knot *knot = knotIterator.next();
+			if ((colorHilight == -1) || (colorHilight = knot->colorIndex))
+			{
+				(this->*renderKnotCallPointers[d->m_renderKnotsAs])(knot);
+			}
+		}
+	}
+	
 	painter->restore();
 }
 

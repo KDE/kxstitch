@@ -676,27 +676,26 @@ void MainWindow::convertImage(const Magick::Image &image)
 						}
 						// at this point
 						//   flossIndex will be the index for the found colorHilight
-						int baseLayer = 0;
 						if (useFractionals)
 						{
 							if (dx%2)
 							{
 								if (dy%2)
-									m_document->stitchData().addStitch(baseLayer, QPoint(dx/2, dy/2), Stitch::BRQtr, flossIndex);
+									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::BRQtr, flossIndex);
 								else
-									m_document->stitchData().addStitch(baseLayer, QPoint(dx/2, dy/2), Stitch::TRQtr, flossIndex);
+									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::TRQtr, flossIndex);
 							}
 							else
 							{
 								if (dx%2)
-									m_document->stitchData().addStitch(baseLayer, QPoint(dx/2, dy/2), Stitch::BLQtr, flossIndex);
+									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::BLQtr, flossIndex);
 								else
-									m_document->stitchData().addStitch(baseLayer, QPoint(dx/2, dy/2), Stitch::TLQtr, flossIndex);
+									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::TLQtr, flossIndex);
 							}
 						}
 						else
 						{
-							m_document->stitchData().addStitch(baseLayer, QPoint(dx, dy), Stitch::Full, flossIndex);
+							m_document->stitchData().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
 						}
 					}
 				}

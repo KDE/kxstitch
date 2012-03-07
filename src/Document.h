@@ -21,7 +21,6 @@
 #include "BackgroundImages.h"
 #include "configuration.h"
 #include "DocumentPalette.h"
-#include "Layers.h"
 #include "PrinterConfiguration.h"
 #include "StitchData.h"
 
@@ -54,7 +53,6 @@ class Document
 
 		QUndoStack &undoStack();
 
-		Layers &layers();
 		BackgroundImages &backgroundImages();
 		DocumentPalette &documentPalette();
 		StitchData &stitchData();
@@ -72,7 +70,7 @@ class Document
 		bool readKXStitchV6File(QDataStream &);
 		bool readKXStitchV7File(QDataStream &);
 
-		static const int version = 102;
+		static const int version = 103;
 
 		QMap<QString, QVariant>	m_properties;
 
@@ -84,7 +82,6 @@ class Document
 		Palette	*m_palette;
 		Preview	*m_preview;
 
-		Layers			m_layers;
 		BackgroundImages	m_backgroundImages;
 		DocumentPalette		m_documentPalette;
 		StitchData		m_stitchData;

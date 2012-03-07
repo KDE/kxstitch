@@ -39,7 +39,7 @@ class Preview;
 class AddStitchCommand : public QUndoCommand
 {
 	public:
-		AddStitchCommand(Document *, int, const QPoint &, Stitch::Type, int);
+		AddStitchCommand(Document *, const QPoint &, Stitch::Type, int);
 		~AddStitchCommand();
 
 		virtual void redo();
@@ -47,7 +47,6 @@ class AddStitchCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_cell;
 		Stitch::Type	m_type;
 		int		m_colorIndex;
@@ -58,7 +57,7 @@ class AddStitchCommand : public QUndoCommand
 class DeleteStitchCommand : public QUndoCommand
 {
 	public:
-		DeleteStitchCommand(Document *, int, const QPoint &, Stitch::Type, int);
+		DeleteStitchCommand(Document *, const QPoint &, Stitch::Type, int);
 		~DeleteStitchCommand();
 
 		virtual void redo();
@@ -66,7 +65,6 @@ class DeleteStitchCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_cell;
 		Stitch::Type	m_type;
 		int		m_colorIndex;
@@ -77,7 +75,7 @@ class DeleteStitchCommand : public QUndoCommand
 class AddBackstitchCommand : public QUndoCommand
 {
 	public:
-		AddBackstitchCommand(Document *, int, const QPoint &, const QPoint &, int);
+		AddBackstitchCommand(Document *, const QPoint &, const QPoint &, int);
 		~AddBackstitchCommand();
 
 		virtual void redo();
@@ -85,7 +83,6 @@ class AddBackstitchCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_start;
 		QPoint		m_end;
 		int		m_colorIndex;
@@ -95,7 +92,7 @@ class AddBackstitchCommand : public QUndoCommand
 class DeleteBackstitchCommand : public QUndoCommand
 {
 	public:
-		DeleteBackstitchCommand(Document *, int, const QPoint &, const QPoint &, int);
+		DeleteBackstitchCommand(Document *, const QPoint &, const QPoint &, int);
 		~DeleteBackstitchCommand();
 
 		virtual void redo();
@@ -103,7 +100,6 @@ class DeleteBackstitchCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_start;
 		QPoint		m_end;
 		int		m_colorIndex;
@@ -114,7 +110,7 @@ class DeleteBackstitchCommand : public QUndoCommand
 class AddKnotCommand : public QUndoCommand
 {
 	public:
-		AddKnotCommand(Document *, int, const QPoint &, int);
+		AddKnotCommand(Document *, const QPoint &, int);
 		~AddKnotCommand();
 
 		virtual void redo();
@@ -122,7 +118,6 @@ class AddKnotCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_snap;
 		int		m_colorIndex;
 };
@@ -131,7 +126,7 @@ class AddKnotCommand : public QUndoCommand
 class DeleteKnotCommand : public QUndoCommand
 {
 	public:
-		DeleteKnotCommand(Document *, int, const QPoint &, int);
+		DeleteKnotCommand(Document *, const QPoint &, int);
 		~DeleteKnotCommand();
 
 		virtual void redo();
@@ -139,7 +134,6 @@ class DeleteKnotCommand : public QUndoCommand
 
 	private:
 		Document	*m_document;
-		int		m_layer;
 		QPoint		m_snap;
 		int		m_colorIndex;
 		Knot		*m_knot;
