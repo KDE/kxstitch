@@ -23,6 +23,7 @@
 #include <QPrintPreviewDialog>
 #include <QScrollArea>
 #include <QTemporaryFile>
+#include <QUndoView>
 
 #include <KAction>
 #include <KActionCollection>
@@ -153,6 +154,7 @@ void MainWindow::setupDocument()
 	m_editor->setPreview(m_preview);
 	m_palette->setDocument(m_document);
 	m_preview->setDocument(m_document);
+	m_history->setStack(&(m_document->undoStack()));
 }
 
 
@@ -1670,4 +1672,11 @@ void MainWindow::setupDockWindows()
 	dock->setWidget(m_palette);
 	addDockWidget(Qt::LeftDockWidgetArea, dock);
 	actionCollection()->addAction("showPaletteDockWidget", dock->toggleViewAction());
+	
+	dock = new QDockWidget(i18n("History"), this);
+	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+	m_history = new QUndoView(this);
+	dock->setWidget(m_history);
+	addDockWidget(Qt::RightDockWidgetArea, dock);
+	actionCollection()->addAction("showHistoryDockWidget", dock->toggleViewAction());
 }

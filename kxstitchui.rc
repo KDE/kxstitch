@@ -56,6 +56,7 @@
 	<Menu name="view"><text>&amp;View</text>
 		<Action name="showPreviewDockWidget"/>
 		<Action name="showPaletteDockWidget"/>
+		<Action name="showHistoryDockWidget"/>
 		<Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
 			<ActionList name="showBackgroundImageActions" />
 		</Menu>

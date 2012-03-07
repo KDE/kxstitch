@@ -18,6 +18,7 @@
 #include <Magick++.h>
 
 class QString;
+class QUndoView;
 
 class KUrl;
 
@@ -126,6 +127,7 @@ class MainWindow : public KXmlGuiWindow
 		Editor		*m_editor;
 		Palette		*m_palette;
 		Preview		*m_preview;
+		QUndoView	*m_history;
 
 		Scale		*m_horizontalScale;
 		Scale		*m_verticalScale;
