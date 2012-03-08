@@ -20,9 +20,8 @@
 
 #include "BackgroundImages.h"
 #include "configuration.h"
-#include "DocumentPalette.h"
+#include "Pattern.h"
 #include "PrinterConfiguration.h"
-#include "StitchData.h"
 
 
 class Editor;
@@ -47,19 +46,18 @@ class Document
 		void addView(Editor *);
 		void addView(Palette *);
 		void addView(Preview *);
-
+		
 		Editor *editor() const;
 		Palette *palette() const;
 		Preview *preview() const;
-		
+
 		QVariant property(const QString &) const;
 		void setProperty(const QString &, const QVariant &);
 
 		QUndoStack &undoStack();
 
 		BackgroundImages &backgroundImages();
-		DocumentPalette &documentPalette();
-		StitchData &stitchData();
+		Pattern *pattern();
 		PrinterConfiguration printerConfiguration() const;
 		void setPrinterConfiguration(const PrinterConfiguration &);
 
@@ -74,7 +72,7 @@ class Document
 		bool readKXStitchV6File(QDataStream &);
 		bool readKXStitchV7File(QDataStream &);
 
-		static const int version = 103;
+		static const int version = 104;
 
 		QMap<QString, QVariant>	m_properties;
 
@@ -87,8 +85,7 @@ class Document
 		Preview	*m_preview;
 
 		BackgroundImages	m_backgroundImages;
-		DocumentPalette		m_documentPalette;
-		StitchData		m_stitchData;
+		Pattern			*m_pattern;
 		PrinterConfiguration	m_printerConfiguration;
 };
 

@@ -29,11 +29,11 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 
-	QRect extents = m_document->stitchData().extents();
+	QRect extents = m_document->pattern()->stitches().extents();
 	m_minWidth = extents.width();
 	m_minHeight = extents.height();
-	m_width = m_document->stitchData().width();
-	m_height = m_document->stitchData().height();
+	m_width = m_document->pattern()->stitches().width();
+	m_height = m_document->pattern()->stitches().height();
 	m_horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
 	m_verticalClothCount = m_document->property("verticalClothCount").toDouble();
 	m_clothCountLink = m_document->property("clothCountLink").toBool();
@@ -47,7 +47,7 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
 	ui.PatternFabric->setText(m_document->property("fabric").toString());
 	ui.FabricColor->setColor(m_document->property("fabricColor").value<QColor>());
 	ui.FlossScheme->addItems(SchemeManager::schemes());
-	ui.FlossScheme->setCurrentItem(m_document->documentPalette().schemeName());
+	ui.FlossScheme->setCurrentItem(m_document->pattern()->palette().schemeName());
 	ui.Instructions->setPlainText(m_document->property("instructions").toString());
 	ui.ClothCountLink->setChecked(m_clothCountLink);
 	on_ClothCountLink_clicked(m_clothCountLink);

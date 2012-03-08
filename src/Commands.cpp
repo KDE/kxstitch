@@ -43,16 +43,16 @@ AddStitchCommand::~AddStitchCommand()
 
 void AddStitchCommand::redo()
 {
-	m_original = m_document->stitchData().stitchQueueAt(m_cell);
+	m_original = m_document->pattern()->stitches().stitchQueueAt(m_cell);
 	if (m_original)
-		m_document->stitchData().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
-	m_document->stitchData().addStitch(m_cell, m_type, m_colorIndex);
+		m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
+	m_document->pattern()->stitches().addStitch(m_cell, m_type, m_colorIndex);
 }
 
 
 void AddStitchCommand::undo()
 {
-	delete m_document->stitchData().replaceStitchQueueAt(m_cell, m_original);
+	delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
 	m_original = 0;
 }
 
@@ -76,16 +76,16 @@ DeleteStitchCommand::~DeleteStitchCommand()
 
 void DeleteStitchCommand::redo()
 {
-	m_original = m_document->stitchData().stitchQueueAt(m_cell);
+	m_original = m_document->pattern()->stitches().stitchQueueAt(m_cell);
 	if (m_original)
-		m_original = m_document->stitchData().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
-	m_document->stitchData().deleteStitch(m_cell, m_type, m_colorIndex);
+		m_original = m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
+	m_document->pattern()->stitches().deleteStitch(m_cell, m_type, m_colorIndex);
 }
 
 
 void DeleteStitchCommand::undo()
 {
-	delete m_document->stitchData().replaceStitchQueueAt(m_cell, m_original);
+	delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
 	m_original = 0;
 }
 
@@ -107,13 +107,13 @@ AddBackstitchCommand::~AddBackstitchCommand()
 
 void AddBackstitchCommand::redo()
 {
-	m_document->stitchData().addBackstitch(m_start, m_end, m_colorIndex);
+	m_document->pattern()->stitches().addBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
 void AddBackstitchCommand::undo()
 {
-	delete m_document->stitchData().takeBackstitch(m_start, m_end, m_colorIndex);
+	delete m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
@@ -138,13 +138,13 @@ void DeleteBackstitchCommand::redo()
 {
 	if (m_backstitch)
 		delete m_backstitch;
-	m_backstitch = m_document->stitchData().takeBackstitch(m_start, m_end, m_colorIndex);
+	m_backstitch = m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
 }
 
 
 void DeleteBackstitchCommand::undo()
 {
-	m_document->stitchData().addBackstitch(m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
+	m_document->pattern()->stitches().addBackstitch(m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
 }
 
 
@@ -164,13 +164,13 @@ AddKnotCommand::~AddKnotCommand()
 
 void AddKnotCommand::redo()
 {
-	m_document->stitchData().addFrenchKnot(m_snap, m_colorIndex);
+	m_document->pattern()->stitches().addFrenchKnot(m_snap, m_colorIndex);
 }
 
 
 void AddKnotCommand::undo()
 {
-	delete m_document->stitchData().takeFrenchKnot(m_snap, m_colorIndex);
+	delete m_document->pattern()->stitches().takeFrenchKnot(m_snap, m_colorIndex);
 }
 
 
@@ -192,13 +192,13 @@ DeleteKnotCommand::~DeleteKnotCommand()
 
 void DeleteKnotCommand::redo()
 {
-	m_knot = m_document->stitchData().takeFrenchKnot(m_snap, m_colorIndex);
+	m_knot = m_document->pattern()->stitches().takeFrenchKnot(m_snap, m_colorIndex);
 }
 
 
 void DeleteKnotCommand::undo()
 {
-	m_document->stitchData().addFrenchKnot(m_knot->position, m_knot->colorIndex);
+	m_document->pattern()->stitches().addFrenchKnot(m_knot->position, m_knot->colorIndex);
 }
 
 
@@ -356,13 +356,13 @@ AddDocumentFlossCommand::~AddDocumentFlossCommand()
 
 void AddDocumentFlossCommand::redo()
 {
-	m_document->documentPalette().add(m_key, m_documentFloss);
+	m_document->pattern()->palette().add(m_key, m_documentFloss);
 }
 
 
 void AddDocumentFlossCommand::undo()
 {
-	m_document->documentPalette().remove(m_key);
+	m_document->pattern()->palette().remove(m_key);
 }
 
 
@@ -383,13 +383,13 @@ RemoveDocumentFlossCommand::~RemoveDocumentFlossCommand()
 
 void RemoveDocumentFlossCommand::redo()
 {
-	m_document->documentPalette().remove(m_key);
+	m_document->pattern()->palette().remove(m_key);
 }
 
 
 void RemoveDocumentFlossCommand::undo()
 {
-	m_document->documentPalette().add(m_key, m_documentFloss);
+	m_document->pattern()->palette().add(m_key, m_documentFloss);
 }
 
 
@@ -410,13 +410,13 @@ ReplaceDocumentFlossCommand::~ReplaceDocumentFlossCommand()
 
 void ReplaceDocumentFlossCommand::redo()
 {
-	m_documentFloss = m_document->documentPalette().replace(m_key, m_documentFloss);
+	m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
 }
 
 
 void ReplaceDocumentFlossCommand::undo()
 {
-	m_documentFloss = m_document->documentPalette().replace(m_key, m_documentFloss);
+	m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
 }
 
 
@@ -436,22 +436,22 @@ ResizeDocumentCommand::~ResizeDocumentCommand()
 
 void ResizeDocumentCommand::redo()
 {
-	m_originalWidth = m_document->stitchData().width();
-	m_originalHeight = m_document->stitchData().height();
-	QRect extents = m_document->stitchData().extents();
+	m_originalWidth = m_document->pattern()->stitches().width();
+	m_originalHeight = m_document->pattern()->stitches().height();
+	QRect extents = m_document->pattern()->stitches().extents();
 	int minx = std::min(extents.left(), m_width - extents.width());
 	m_xOffset = minx - extents.left();
 	int miny = std::min(extents.top(), m_height - extents.height());
 	m_yOffset = miny - extents.top();
-	m_document->stitchData().movePattern(m_xOffset, m_yOffset);
-	m_document->stitchData().resize(m_width, m_height);
+	m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
+	m_document->pattern()->stitches().resize(m_width, m_height);
 }
 
 
 void ResizeDocumentCommand::undo()
 {
-	m_document->stitchData().movePattern(-m_xOffset, -m_yOffset);
-	m_document->stitchData().resize(m_originalWidth, m_originalHeight);
+	m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
+	m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
 }
 
 
@@ -472,8 +472,8 @@ ChangeFlossColorCommand::~ChangeFlossColorCommand()
 
 void ChangeFlossColorCommand::redo()
 {
-	Floss *floss = m_documentFloss->documentPalette().floss();
-	m_documentFloss->documentPalette().setFloss(m_floss);
+	Floss *floss = m_documentFloss->pattern()->palette().floss();
+	m_documentFloss->pattern()->palette().setFloss(m_floss);
 	m_floss = floss;
 }
 
@@ -481,7 +481,7 @@ void ChangeFlossColorCommand::redo()
 void ChangeFlossColorCommand::undo()
 {
 	Floss *floss = m_documentFloss->floss();
-	m_documentFloss->documentPalette().setFloss(m_floss);
+	m_documentFloss->pattern()->palette().setFloss(m_floss);
 	m_floss = floss;
 }
 #endif
@@ -501,20 +501,20 @@ CropToPatternCommand::~CropToPatternCommand()
 
 void CropToPatternCommand::redo()
 {
-	m_originalWidth = m_document->stitchData().width();
-	m_originalHeight = m_document->stitchData().height();
-	QRect extents = m_document->stitchData().extents();
+	m_originalWidth = m_document->pattern()->stitches().width();
+	m_originalHeight = m_document->pattern()->stitches().height();
+	QRect extents = m_document->pattern()->stitches().extents();
 	m_xOffset = -extents.left();
 	m_yOffset = -extents.top();
-	m_document->stitchData().movePattern(m_xOffset, m_yOffset);
-	m_document->stitchData().resize(extents.width(), extents.height());
+	m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
+	m_document->pattern()->stitches().resize(extents.width(), extents.height());
 }
 
 
 void CropToPatternCommand::undo()
 {
-	m_document->stitchData().movePattern(-m_xOffset, -m_yOffset);
-	m_document->stitchData().resize(m_originalWidth, m_originalHeight);
+	m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
+	m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
 }
 
 
@@ -536,7 +536,7 @@ ExtendPatternCommand::~ExtendPatternCommand()
 
 void ExtendPatternCommand::redo()
 {
-	StitchData &stitchData = m_document->stitchData();
+	StitchData &stitchData = m_document->pattern()->stitches();
 	stitchData.resize(stitchData.width()+m_left+m_right, stitchData.height()+m_top+m_bottom);
 	stitchData.movePattern(m_left, m_top);
 }
@@ -544,7 +544,7 @@ void ExtendPatternCommand::redo()
 
 void ExtendPatternCommand::undo()
 {
-	StitchData &stitchData = m_document->stitchData();
+	StitchData &stitchData = m_document->pattern()->stitches();
 	stitchData.movePattern(-m_left, -m_top);
 	stitchData.resize(stitchData.width()-m_left-m_right, stitchData.height()-m_top-m_bottom);
 }
@@ -639,7 +639,7 @@ void ChangeSchemeCommand::redo()
 {
 	if (m_flosses.count() == 0) // if m_flosses is empty, initialise it with converted flosses
 	{
-		QMapIterator<int, DocumentFloss *> flossIterator(m_document->documentPalette().flosses());
+		QMapIterator<int, DocumentFloss *> flossIterator(m_document->pattern()->palette().flosses());
 		FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
 		while (flossIterator.hasNext())
 		{
@@ -656,11 +656,11 @@ void ChangeSchemeCommand::redo()
 	while (flossIterator.hasNext())
 	{
 		int key = flossIterator.key();
-		m_flosses[key] = m_document->documentPalette().replace(key, m_flosses[key]);
+		m_flosses[key] = m_document->pattern()->palette().replace(key, m_flosses[key]);
 	}
 
-	QString schemeName = m_document->documentPalette().schemeName();
-	m_document->documentPalette().setSchemeName(m_schemeName);
+	QString schemeName = m_document->pattern()->palette().schemeName();
+	m_document->pattern()->palette().setSchemeName(m_schemeName);
 	m_schemeName = schemeName;
 }
 
@@ -671,11 +671,11 @@ void ChangeSchemeCommand::undo()
 	while (flossIterator.hasNext())
 	{
 		int key = flossIterator.key();
-		m_flosses[key] = m_document->documentPalette().replace(key, m_flosses[key]);
+		m_flosses[key] = m_document->pattern()->palette().replace(key, m_flosses[key]);
 	}
 
-	QString schemeName = m_document->documentPalette().schemeName();
-	m_document->documentPalette().setSchemeName(m_schemeName);
+	QString schemeName = m_document->pattern()->palette().schemeName();
+	m_document->pattern()->palette().setSchemeName(m_schemeName);
 	m_schemeName = schemeName;
 }
 
@@ -792,7 +792,7 @@ void PaletteReplaceColorCommand::redo()
 	else
 	{
 		// search the stitch data for stitches of the required color
-		StitchData &stitchData = m_document->stitchData();
+		StitchData &stitchData = m_document->pattern()->stitches();
 		for (int row = 0 ; row < stitchData.height() ; ++row)
 		{
 			for (int col = 0 ; col < stitchData.width() ; ++col)
@@ -877,13 +877,13 @@ PaletteSwapColorCommand::~PaletteSwapColorCommand()
 
 void PaletteSwapColorCommand::redo()
 {
-	m_document->documentPalette().swap(m_originalIndex, m_swappedIndex);
+	m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
 }
 
 
 void PaletteSwapColorCommand::undo()
 {
-	m_document->documentPalette().swap(m_originalIndex, m_swappedIndex);
+	m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
 }
 
 

@@ -215,11 +215,11 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
 	painter->save();
 
 	double unitLength = (1/(document->property("horizontalClothCount").toDouble()*(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt() == Configuration::EnumEditor_ClothCountUnits::CM)?2.54:1.0)))*0.0254;
-	QMap<int, FlossUsage> flossUsage = document->stitchData().flossUsage();
-	QMap<int, DocumentFloss *> flosses = document->documentPalette().flosses();
-	QVector<int> sortedFlosses = document->documentPalette().sortedFlosses();
+	QMap<int, FlossUsage> flossUsage = document->pattern()->stitches().flossUsage();
+	QMap<int, DocumentFloss *> flosses = document->pattern()->palette().flosses();
+	QVector<int> sortedFlosses = document->pattern()->palette().sortedFlosses();
 
-	FlossScheme *scheme = SchemeManager::scheme(document->documentPalette().schemeName());
+	FlossScheme *scheme = SchemeManager::scheme(document->pattern()->palette().schemeName());
 
 	QPen pen(m_borderColor);
 	pen.setWidthF(double(m_borderThickness)*painter->device()->physicalDpiX()/254); // m_borderThickness in 1/10 mm
@@ -486,8 +486,8 @@ PlanElement *PlanElement::clone() const
 void PlanElement::render(Document *document, QPainter *painter, double scale) const
 {
 	painter->save();
-	int documentWidth = document->stitchData().width();
-	int documentHeight = document->stitchData().height();
+	int documentWidth = document->pattern()->stitches().width();
+	int documentHeight = document->pattern()->stitches().height();
 	double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
 	double mapWidth = m_rectangle.width()-6;
 	double cellWidth = mapWidth / documentWidth;
@@ -988,21 +988,21 @@ QString TextElement::convertedText(Document *document) const
 	replacement.replace(QRegExp("\\$\\{instructions\\}"), document->property("instructions").toString());
 	replacement.replace(QRegExp("\\$\\{horizontalClothCount\\}"), document->property("horizontalClothCount").toString());
 	replacement.replace(QRegExp("\\$\\{verticalClothCount\\}"), document->property("verticalClothCount").toString());
-	replacement.replace(QRegExp("\\$\\{width.stitches\\}"), QString("%1").arg(document->stitchData().width()));
-	replacement.replace(QRegExp("\\$\\{height.stitches\\}"), QString("%1").arg(document->stitchData().height()));
-	replacement.replace(QRegExp("\\$\\{width.inches\\}"), QString("%1").arg(round_n(document->stitchData().width() /
+	replacement.replace(QRegExp("\\$\\{width.stitches\\}"), QString("%1").arg(document->pattern()->stitches().width()));
+	replacement.replace(QRegExp("\\$\\{height.stitches\\}"), QString("%1").arg(document->pattern()->stitches().height()));
+	replacement.replace(QRegExp("\\$\\{width.inches\\}"), QString("%1").arg(round_n(document->pattern()->stitches().width() /
 				(document->property("horizontalClothCount").toDouble() *
 				((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM)?2.54:1)),2)));
-	replacement.replace(QRegExp("\\$\\{height.inches\\}"), QString("%1").arg(round_n(document->stitchData().height() /
+	replacement.replace(QRegExp("\\$\\{height.inches\\}"), QString("%1").arg(round_n(document->pattern()->stitches().height() /
 				(document->property("verticalClothCount").toDouble() *
 				((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM)?2.54:1)),2)));
-	replacement.replace(QRegExp("\\$\\{width.cm\\}"), QString("%1").arg(round_n(document->stitchData().width() /
+	replacement.replace(QRegExp("\\$\\{width.cm\\}"), QString("%1").arg(round_n(document->pattern()->stitches().width() /
 				(document->property("horizontalClothCount").toDouble() /
 				((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches)?2.54:1)), 2)));
-	replacement.replace(QRegExp("\\$\\{height.cm\\}"), QString("%1").arg(round_n(document->stitchData().height() /
+	replacement.replace(QRegExp("\\$\\{height.cm\\}"), QString("%1").arg(round_n(document->pattern()->stitches().height() /
 				(document->property("verticalClothCount").toDouble() /
 				((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches)?2.54:1)), 2)));
-	replacement.replace(QRegExp("\\$\\{scheme\\}"), document->documentPalette().schemeName());
+	replacement.replace(QRegExp("\\$\\{scheme\\}"), document->pattern()->palette().schemeName());
 	replacement.replace(QRegExp("\\$\\{page\\}"), QString("%1").arg(parent()->pageNumber()));
 
 	// repeat for all possible values

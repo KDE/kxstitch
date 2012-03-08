@@ -27,9 +27,9 @@
 PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 	:	KDialog(parent),
 		m_document(document),
-		m_schemeName(document->documentPalette().schemeName()),
-		m_documentPalette(document->documentPalette().flosses()),
-		m_flossUsage(document->stitchData().flossUsage()),
+		m_schemeName(document->pattern()->palette().schemeName()),
+		m_documentPalette(document->pattern()->palette().flosses()),
+		m_flossUsage(document->pattern()->stitches().flossUsage()),
 		m_scheme(SchemeManager::scheme(m_schemeName))
 //		m_characterSelectDlg(0)
 {

@@ -612,11 +612,11 @@ void MainWindow::convertImage(const Magick::Image &image)
 			documentWidth /= 2;
 			documentHeight /= 2;
 		}
-		m_document->stitchData().resize(documentWidth, documentHeight);
+		m_document->pattern()->stitches().resize(documentWidth, documentHeight);
 
 		QString schemeName = importImageDlg->flossScheme();
 		FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
-		m_document->documentPalette().setSchemeName(schemeName);
+		m_document->pattern()->palette().setSchemeName(schemeName);
 
 		QProgressDialog progress(i18n("Converting to stitches"), i18n("Cancel"), 0, pixelCount, this);
 		progress.setWindowModality(Qt::WindowModal);
@@ -670,7 +670,7 @@ void MainWindow::convertImage(const Magick::Image &image)
 
 							DocumentFloss *documentFloss = new DocumentFloss(flossScheme->find(color), stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
 							documentFloss->setFlossColor(color);
-							m_document->documentPalette().add(flossIndex, documentFloss);
+							m_document->pattern()->palette().add(flossIndex, documentFloss);
 							documentFlosses.insert(flossIndex, color);
 							flossSymbols.insert(flossIndex, stitchSymbol);
 						}
@@ -681,21 +681,21 @@ void MainWindow::convertImage(const Magick::Image &image)
 							if (dx%2)
 							{
 								if (dy%2)
-									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::BRQtr, flossIndex);
+									m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), Stitch::BRQtr, flossIndex);
 								else
-									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::TRQtr, flossIndex);
+									m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), Stitch::TRQtr, flossIndex);
 							}
 							else
 							{
 								if (dx%2)
-									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::BLQtr, flossIndex);
+									m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), Stitch::BLQtr, flossIndex);
 								else
-									m_document->stitchData().addStitch(QPoint(dx/2, dy/2), Stitch::TLQtr, flossIndex);
+									m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), Stitch::TLQtr, flossIndex);
 							}
 						}
 						else
 						{
-							m_document->stitchData().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
+							m_document->pattern()->stitches().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
 						}
 					}
 				}
@@ -720,7 +720,7 @@ void MainWindow::fileProperties()
 	if (filePropertiesDlg->exec())
 	{
 		QList<QUndoCommand *> changes;
-		if ((filePropertiesDlg->documentWidth() != m_document->stitchData().width()) || (filePropertiesDlg->documentHeight() != m_document->stitchData().height()))
+		if ((filePropertiesDlg->documentWidth() != m_document->pattern()->stitches().width()) || (filePropertiesDlg->documentHeight() != m_document->pattern()->stitches().height()))
 			changes.append(new ResizeDocumentCommand(m_document, filePropertiesDlg->documentWidth(), filePropertiesDlg->documentHeight()));
 		if (filePropertiesDlg->unitsFormat() != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property("unitsFormat").toInt()))
 			changes.append(new SetPropertyCommand(m_document, "unitsFormat", QVariant(filePropertiesDlg->unitsFormat())));
@@ -745,7 +745,7 @@ void MainWindow::fileProperties()
 		if (filePropertiesDlg->instructions() != m_document->property("instructions").toString())
 			changes.append(new SetPropertyCommand(m_document, "instructions", QVariant(filePropertiesDlg->instructions())));
 
-		if (filePropertiesDlg->flossScheme() != m_document->documentPalette().schemeName())
+		if (filePropertiesDlg->flossScheme() != m_document->pattern()->palette().schemeName())
 		{
 			changes.append(new ChangeSchemeCommand(m_document, filePropertiesDlg->flossScheme()));
 		}
@@ -782,7 +782,7 @@ void MainWindow::fileAddBackgroundImage()
 	KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Background Image"));
 	if (!url.path().isNull())
 	{
-		QRect patternArea(0, 0, m_document->stitchData().width(), m_document->stitchData().height());
+		QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
 		QRect selectionArea = m_editor->selectionArea();
 		BackgroundImage *backgroundImage = new BackgroundImage(url, (selectionArea.isValid()?selectionArea:patternArea));
 		if (backgroundImage->isValid())
@@ -879,9 +879,9 @@ void MainWindow::toolText()
 		QByteArray pattern = textToolDlg->pattern();
 		QByteArray array;
 		QDataStream stream(&array, QIODevice::WriteOnly);
-		DocumentFloss *documentFloss = m_document->documentPalette().currentFloss();
+		DocumentFloss *documentFloss = m_document->pattern()->palette().currentFloss();
 		QColor flossColor = documentFloss->flossColor();
-		stream << m_document->documentPalette().schemeName();
+		stream << m_document->pattern()->palette().schemeName();
 		int width = textToolDlg->boundingWidth();
 		int height = textToolDlg->boundingHeight();
 		stream << (qint32)width;
@@ -937,7 +937,7 @@ void MainWindow::paletteManager()
 void MainWindow::paletteShowSymbols(bool show)
 {
 	m_palette->showSymbols(show);
-	m_document->documentPalette().setShowSymbols(show);
+	m_document->pattern()->palette().setShowSymbols(show);
 }
 
 
@@ -945,8 +945,8 @@ void MainWindow::paletteClearUnused()
 {
 	QList<QUndoCommand *> changes;
 
-	QMap<int, FlossUsage> flossUsage = m_document->stitchData().flossUsage();
-	QMapIterator<int, DocumentFloss *> flosses(m_document->documentPalette().flosses());
+	QMap<int, FlossUsage> flossUsage = m_document->pattern()->stitches().flossUsage();
+	QMapIterator<int, DocumentFloss *> flosses(m_document->pattern()->palette().flosses());
 	while (flosses.hasNext())
 	{
 		flosses.next();

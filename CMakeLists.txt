@@ -39,6 +39,7 @@ set (kxstitch_SRCS
 	src/Page.cpp
 	src/Palette.cpp
 	src/PaperSizes.cpp
+	src/Pattern.cpp
 	src/PatternMimeData.cpp
 	src/Preview.cpp
 	src/PrinterConfiguration.cpp

@@ -29,8 +29,8 @@ SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document
 		m_patternRect(patternElement->patternRect()),
 		m_patternRects(patternRects)
 {
-	m_width = m_document->stitchData().width();
-	m_height = m_document->stitchData().height();
+	m_width = m_document->pattern()->stitches().width();
+	m_height = m_document->pattern()->stitches().height();
 	resize(m_width*8, m_height*8);
 	m_fullPatternElement = new PatternElement(0, QRect(QPoint(0, 0), size()));
 	m_fullPatternElement->setPatternRect(QRect(0, 0, m_width, m_height));

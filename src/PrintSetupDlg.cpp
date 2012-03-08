@@ -243,7 +243,7 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
 		case Pattern:
 			patternElement = new PatternElement(page, rectangle);
 			page->addElement(patternElement);
-			patternElement->setPatternRect(QRect(0, 0, m_document->stitchData().width(), m_document->stitchData().height()));
+			patternElement->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
 			break;
 
 		case Key:

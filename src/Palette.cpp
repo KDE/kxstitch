@@ -211,7 +211,7 @@ Document *Palette::document() const
 
 void Palette::readDocumentSettings()
 {
-	showSymbols(m_document->documentPalette().showSymbols());
+	showSymbols(m_document->pattern()->palette().showSymbols());
 }
 
 
@@ -255,10 +255,10 @@ bool Palette::event(QEvent *event)
 		{
 			if (i < m_paletteIndex.count())
 			{
-				DocumentFloss *documentFloss = m_document->documentPalette().flosses()[m_paletteIndex[i]];
-				FlossScheme *flossScheme = SchemeManager::scheme(m_document->documentPalette().schemeName());
+				DocumentFloss *documentFloss = m_document->pattern()->palette().flosses()[m_paletteIndex[i]];
+				FlossScheme *flossScheme = SchemeManager::scheme(m_document->pattern()->palette().schemeName());
 				Floss *floss = flossScheme->find(documentFloss->flossName());
-				FlossUsage flossUsage = m_document->stitchData().flossUsage()[m_paletteIndex[i]];
+				FlossUsage flossUsage = m_document->pattern()->stitches().flossUsage()[m_paletteIndex[i]];
 				QString tip = QString("%1 %2\n%3 Stitches").arg(floss->name()).arg(floss->description()).arg(flossUsage.stitchCount()+flossUsage.backstitchCount);
 				QToolTip::showText(helpEvent->globalPos(), tip);
 			}
@@ -281,11 +281,11 @@ void Palette::paintEvent(QPaintEvent *)
 {
 	if (m_document == 0) return;
 
-	QMap<int, DocumentFloss *> palette = m_document->documentPalette().flosses();
+	QMap<int, DocumentFloss *> palette = m_document->pattern()->palette().flosses();
 	m_flosses = palette.count();
-	m_paletteIndex = m_document->documentPalette().sortedFlosses();
+	m_paletteIndex = m_document->pattern()->palette().sortedFlosses();
 
-	int currentFlossIndex = m_document->documentPalette().currentIndex();
+	int currentFlossIndex = m_document->pattern()->palette().currentIndex();
 
 	QPainter painter;
 
@@ -325,7 +325,7 @@ void Palette::paintEvent(QPaintEvent *)
 
 			if (currentFlossIndex == -1)
 			{
-				m_document->documentPalette().setCurrentIndex(m_paletteIndex[flossIndex]);
+				m_document->pattern()->palette().setCurrentIndex(m_paletteIndex[flossIndex]);
 				currentFlossIndex = m_paletteIndex[flossIndex];
 			}
 
@@ -389,7 +389,7 @@ void Palette::mousePressEvent(QMouseEvent *event)
 		{
 			if (m_mode == Swap)
 			{
-				int currentIndex = m_document->documentPalette().currentIndex();
+				int currentIndex = m_document->pattern()->palette().currentIndex();
 				emit(swapColors(currentIndex, selectedIndex));
 				setCursor(Qt::ArrowCursor);
 				m_mode = Select;
@@ -397,13 +397,13 @@ void Palette::mousePressEvent(QMouseEvent *event)
 			}
 			if (m_mode == Replace)
 			{
-				emit(replaceColor(m_document->documentPalette().currentIndex(), selectedIndex));
+				emit(replaceColor(m_document->pattern()->palette().currentIndex(), selectedIndex));
 				setCursor(Qt::ArrowCursor);
 				m_mode = Select;
 			}
 			if (m_mode == Select)
 			{
-				m_document->documentPalette().setCurrentIndex(selectedIndex);
+				m_document->pattern()->palette().setCurrentIndex(selectedIndex);
 				emit colorSelected(i);
 			}
 		}

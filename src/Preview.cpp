@@ -54,8 +54,8 @@ Document *Preview::document()
 
 void Preview::readDocumentSettings()
 {
-	int width = m_document->stitchData().width();
-	int height = m_document->stitchData().height();
+	int width = m_document->pattern()->stitches().width();
+	int height = m_document->pattern()->stitches().height();
 	m_cellWidth = 4;
 	m_cellHeight = 4 * m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
 	m_previewWidth = m_cellWidth * width * m_zoomFactor;
