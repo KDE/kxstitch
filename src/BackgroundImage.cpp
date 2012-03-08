@@ -18,14 +18,13 @@ BackgroundImage::BackgroundImage()
 
 
 BackgroundImage::BackgroundImage(const KUrl &url, const QRect &location)
+	:	m_url(url),
+		m_location(location),
+		m_visible(true)
 {
-	setUrl(url);
-	setLocation(location);
-	setVisible(true);
-	QImage image;
-	setStatus(image.load(m_url.path()));
-	setImage(image);
-	setIcon(QPixmap::fromImage(m_image).scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+	m_status = m_image.load(m_url.path());
+	if (m_status)
+		m_icon = QPixmap::fromImage(m_image).scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 }
 
 
@@ -65,12 +64,6 @@ const QIcon &BackgroundImage::icon() const
 }
 
 
-void BackgroundImage::setUrl(const KUrl &url)
-{
-	m_url = url;
-}
-
-
 void BackgroundImage::setLocation(const QRect &location)
 {
 	m_location = location;
@@ -80,24 +73,6 @@ void BackgroundImage::setLocation(const QRect &location)
 void BackgroundImage::setVisible(bool visible)
 {
 	m_visible = visible;
-}
-
-
-void BackgroundImage::setStatus(bool valid)
-{
-	m_status = valid;
-}
-
-
-void BackgroundImage::setImage(const QImage &image)
-{
-	m_image = image;
-}
-
-
-void BackgroundImage::setIcon(const QIcon &icon)
-{
-	m_icon = icon;
 }
 
 

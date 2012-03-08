@@ -34,12 +34,8 @@ class BackgroundImage
 		const QImage &image() const;
 		const QIcon &icon() const;
 
-		void setUrl(const KUrl &);
 		void setLocation(const QRect &);
 		void setVisible(bool);
-		void setStatus(bool);
-		void setImage(const QImage &);
-		void setIcon(const QIcon &);
 
 		friend QDataStream &operator<<(QDataStream &, const BackgroundImage &);
 		friend QDataStream &operator>>(QDataStream &, BackgroundImage &);
