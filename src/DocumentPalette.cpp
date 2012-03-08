@@ -94,6 +94,17 @@ DocumentFloss *DocumentPalette::currentFloss() const
 }
 
 
+DocumentFloss *DocumentPalette::floss(int colorIndex) const
+{
+	DocumentFloss *documentFloss = 0;
+	
+	if (m_documentFlosses.contains(colorIndex))
+		documentFloss = m_documentFlosses.value(colorIndex);
+	
+	return documentFloss;
+}
+
+
 int DocumentPalette::currentIndex() const
 {
 	return m_currentIndex;

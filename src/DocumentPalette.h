@@ -34,6 +34,7 @@ class DocumentPalette
 		QMap<int, DocumentFloss *> &flosses();
 		QVector<int> sortedFlosses() const;
 		DocumentFloss *currentFloss() const;
+		DocumentFloss *floss(int) const;
 		int currentIndex() const;
 		bool showSymbols() const;
 
