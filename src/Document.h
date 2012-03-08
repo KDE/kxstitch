@@ -48,6 +48,10 @@ class Document
 		void addView(Palette *);
 		void addView(Preview *);
 
+		Editor *editor() const;
+		Palette *palette() const;
+		Preview *preview() const;
+		
 		QVariant property(const QString &) const;
 		void setProperty(const QString &, const QVariant &);
 

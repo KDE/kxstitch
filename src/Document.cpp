@@ -131,6 +131,24 @@ void Document::addView(Preview *preview)
 }
 
 
+Editor *Document::editor() const
+{
+	return m_editor;
+}
+
+
+Palette *Document::palette() const
+{
+	return m_palette;
+}
+
+
+Preview *Document::preview() const
+{
+	return m_preview;
+}
+
+
 BackgroundImages &Document::backgroundImages()
 {
 	return m_backgroundImages;
