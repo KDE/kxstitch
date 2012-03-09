@@ -637,46 +637,25 @@ ChangeSchemeCommand::~ChangeSchemeCommand()
 
 void ChangeSchemeCommand::redo()
 {
-	if (m_flosses.count() == 0) // if m_flosses is empty, initialise it with converted flosses
-	{
-		QMapIterator<int, DocumentFloss *> flossIterator(m_document->pattern()->palette().flosses());
-		FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
-		while (flossIterator.hasNext())
-		{
-			flossIterator.next();
-			int key = flossIterator.key();
-			DocumentFloss *documentFloss = flossIterator.value();
-			Floss *floss = scheme->convert(documentFloss->flossColor());
-			m_flosses[key] = new DocumentFloss(floss->name(), documentFloss->stitchSymbol(), documentFloss->backstitchSymbol(), documentFloss->stitchStrands(), documentFloss->backstitchStrands());
-			m_flosses[key]->setFlossColor(floss->color());
-		}
-	}
-
-	QMapIterator<int, DocumentFloss *> flossIterator(m_flosses);
-	while (flossIterator.hasNext())
-	{
-		int key = flossIterator.key();
-		m_flosses[key] = m_document->pattern()->palette().replace(key, m_flosses[key]);
-	}
-
-	QString schemeName = m_document->pattern()->palette().schemeName();
+	QDataStream stream(&m_originalPalette, QIODevice::WriteOnly);
+	stream << m_document->pattern()->palette();
 	m_document->pattern()->palette().setSchemeName(m_schemeName);
-	m_schemeName = schemeName;
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 
 void ChangeSchemeCommand::undo()
 {
-	QMapIterator<int, DocumentFloss *> flossIterator(m_flosses);
-	while (flossIterator.hasNext())
-	{
-		int key = flossIterator.key();
-		m_flosses[key] = m_document->pattern()->palette().replace(key, m_flosses[key]);
-	}
-
-	QString schemeName = m_document->pattern()->palette().schemeName();
-	m_document->pattern()->palette().setSchemeName(m_schemeName);
-	m_schemeName = schemeName;
+	QDataStream stream(&m_originalPalette, QIODevice::ReadOnly);
+	stream >> m_document->pattern()->palette();
+	m_originalPalette.clear();
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 

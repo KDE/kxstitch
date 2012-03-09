@@ -10,6 +10,10 @@
 
 
 #include "DocumentPalette.h"
+
+#include "FlossScheme.h"
+#include "SchemeManager.h"
+
 #include "configuration.h"
 
 
@@ -119,7 +123,25 @@ bool DocumentPalette::showSymbols() const
 
 void DocumentPalette::setSchemeName(const QString &schemeName)
 {
+	if (m_schemeName == schemeName)
+		return;
+	
 	m_schemeName = schemeName;
+
+	FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
+
+	QMapIterator<int, DocumentFloss *> flossIterator(m_documentFlosses);
+	while (flossIterator.hasNext())
+	{
+		
+		int key = flossIterator.next().key();
+		DocumentFloss *documentFloss = flossIterator.value();
+		Floss *floss = scheme->convert(documentFloss->flossColor());
+		DocumentFloss *replacement = new DocumentFloss(floss->name(), documentFloss->stitchSymbol(), documentFloss->backstitchSymbol(), documentFloss->stitchStrands(), documentFloss->backstitchStrands());
+		replacement->setFlossColor(floss->color());
+		delete documentFloss;
+		replace(key, replacement);
+	}
 }
 
 
@@ -153,6 +175,7 @@ DocumentFloss *DocumentPalette::replace(int flossIndex, DocumentFloss *documentF
 {
 	DocumentFloss *old = m_documentFlosses.take(flossIndex);
 	m_documentFlosses.insert(flossIndex, documentFloss);
+	return old;
 }
 
 
@@ -198,6 +221,8 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 	qint32 key;
 	DocumentFloss *documentFloss;
 
+	documentPalette.clear();
+	
 	stream >> version;
 	switch (version)
 	{

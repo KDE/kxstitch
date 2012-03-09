@@ -397,9 +397,9 @@ class ChangeSchemeCommand : public QUndoCommand
 		void undo();
 
 	private:
-		Document			*m_document;
-		QString				m_schemeName;
-		QMap<int, DocumentFloss *>	m_flosses;
+		Document	*m_document;
+		QString		m_schemeName;
+		QByteArray	m_originalPalette;
 };
 
 
