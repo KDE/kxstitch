@@ -1641,6 +1641,6 @@ void MainWindow::setupDockWindows()
 	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 	m_history = new QUndoView(this);
 	dock->setWidget(m_history);
-	addDockWidget(Qt::RightDockWidgetArea, dock);
+	addDockWidget(Qt::LeftDockWidgetArea, dock);
 	actionCollection()->addAction("showHistoryDockWidget", dock->toggleViewAction());
 }
