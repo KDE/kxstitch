@@ -290,7 +290,7 @@ void StitchData::movePattern(int dx, int dy)
 }
 
 
-StitchData StitchData::cut(const QRect &area, const QList<int> &layerMask, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches)
+StitchData StitchData::cut(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches)
 {
 #if 0
 	StitchData subSet;
@@ -349,7 +349,7 @@ StitchData StitchData::cut(const QRect &area, const QList<int> &layerMask, const
 }
 
 
-StitchData StitchData::copy(const QRect &area, const QList<int> &layerMask, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const
+StitchData StitchData::copy(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const
 {
 }
 

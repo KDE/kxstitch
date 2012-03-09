@@ -100,9 +100,6 @@ class MainWindow : public KXmlGuiWindow
 		// Pattern menu
 		void patternExtend();
 
-		// Layer action
-		void selectLayer();
-
 		// Settings menu
 		void formatScalesAsStitches();
 		void formatScalesAsCM();
@@ -118,7 +115,6 @@ class MainWindow : public KXmlGuiWindow
 		void setupDocument();
 		void setupActionDefaults();
 		void setupActionsFromDocument();
-		void updateLayerActionLists();
 		void convertImage(const Magick::Image &);
 		QPrinter *printer();
 

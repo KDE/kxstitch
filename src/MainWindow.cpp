@@ -236,7 +236,6 @@ void MainWindow::setupActionsFromDocument()
 	actions->action("edit_redo")->setEnabled(m_document->undoStack().canRedo());
 
 	updateBackgroundImageActionLists();
-	updateLayerActionLists();
 
 	switch (static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()))
 	{
@@ -305,7 +304,6 @@ void MainWindow::setupActionsFromDocument()
 	actions->action("colorHilight")->setChecked(m_document->property("colorHilight").toBool());
 	m_editor->colorHilight(m_document->property("colorHilight").toBool());
 
-	actions->action("maskLayer")->setChecked(m_document->property("maskLayer").toBool());
 	actions->action("maskStitch")->setChecked(m_document->property("maskStitch").toBool());
 	actions->action("maskColor")->setChecked(m_document->property("maskColor").toBool());
 	actions->action("maskBackstitch")->setChecked(m_document->property("maskBackstitch").toBool());
@@ -452,7 +450,6 @@ void MainWindow::printPages(QPrinter *printer)
 	for (int p = 0 ; p < totalPages ;)
 	{
 		// for the first page, the orientation and size will have been set
-		kDebug() << "printer settings" << printer->paperSize() << printer->orientation();
 		page->render(m_document, &painter);
 		if (++p < totalPages)
 		{
@@ -1065,13 +1062,6 @@ void MainWindow::patternExtend()
 }
 
 
-void MainWindow::selectLayer()
-{
-	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->setProperty("currentLayer", action->data().toInt());
-}
-
-
 void MainWindow::formatScalesAsStitches()
 {
 	m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
@@ -1150,12 +1140,6 @@ void MainWindow::setupActions()
 	KStandardAction::paste(this, SLOT(editPaste()), actions);
 
 	// Selection mask sub menu
-	action = new KAction(this);
-	action->setText(i18n("Layer Mask"));
-	action->setCheckable(true);
-	connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskLayer(bool)));
-	actions->addAction("maskLayer", action);
-
 	action = new KAction(this);
 	action->setText(i18n("Stitch Mask"));
 	action->setCheckable(true);
@@ -1625,29 +1609,6 @@ void MainWindow::updateBackgroundImageActionLists()
 	plugActionList("removeBackgroundImageActions", removeBackgroundImageActions);
 	plugActionList("fitBackgroundImageActions", fitBackgroundImageActions);
 	plugActionList("showBackgroundImageActions", showBackgroundImageActions);
-}
-
-
-void MainWindow::updateLayerActionLists()
-{
-#if 0
-	QHashIterator<int, QString> layerIterator = m_document->layers();
-
-	unplugActionList("selectLayerActions");
-	QList<QAction *> selectLayerActions;
-
-	while (layerIterator.hasNext())
-	{
-		layerIterator.next();
-		KAction *action = new KAction(layerIterator.value(), this);
-		action->setData(layerIterator.key());
-		connect(action, SIGNAL(triggered()), this, SLOT(selectLayer()));
-		selectLayerActions.append(action);
-		() << "Added layer action(" << layerIterator.key() << "," << layerIterator.value() << ")";
-	}
-
-	plugActionList("selectLayerActions", selectLayerActions);
-#endif
 }
 
 

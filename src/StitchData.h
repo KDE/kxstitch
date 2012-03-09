@@ -57,8 +57,8 @@ class StitchData
 		QRect extents() const;
 		void movePattern(int dx, int dy);
 
-		StitchData cut(const QRect &area, const QList<int> &layerMask, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches);
-		StitchData copy(const QRect &area, const QList<int> &layerMask, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const;
+		StitchData cut(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches);
+		StitchData copy(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const;
 		void paste(const StitchData &dataSet, const QPoint &, bool merge);
 
 		void addStitch(const QPoint &, Stitch::Type, int);
