@@ -155,6 +155,10 @@ void MainWindow::setupDocument()
 	m_palette->setDocument(m_document);
 	m_preview->setDocument(m_document);
 	m_history->setStack(&(m_document->undoStack()));
+	
+	m_document->addView(m_editor);
+	m_document->addView(m_preview);
+	m_document->addView(m_palette);
 }
 
 
