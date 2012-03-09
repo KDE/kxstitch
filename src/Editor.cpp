@@ -236,7 +236,6 @@ void Editor::previewClicked(const QRect &cells)
 	zoom(std::min(widthScaleFactor, heightScaleFactor));
 
 	previewClicked(cells.center());
-
 }
 
 
@@ -605,10 +604,9 @@ void Editor::mousePressEvent_Paint(QMouseEvent *e)
 		if (QRect(0, 0, m_document->pattern()->stitches().width()*m_cellWidth, m_document->pattern()->stitches().height()*m_cellHeight).contains(p))
 		{
 			m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(p);
-			m_document->undoStack().beginMacro("Paint knots");
-			m_document->undoStack().push(new UpdateEditorCommand(this));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new AddKnotCommand(m_document, m_cellStart, m_document->pattern()->palette().currentIndex()));
+			m_activeCommand = new PaintKnotsCommand(m_document);
+			new AddKnotCommand(m_document, m_cellStart, m_document->pattern()->palette().currentIndex(), m_activeCommand);
+			m_document->undoStack().push(m_activeCommand);
 			rect = QRect(snapToContents(m_cellStart)-(QPoint(m_cellWidth, m_cellHeight)/2), QSize(m_cellWidth, m_cellHeight));
 		}
 	}
@@ -617,10 +615,9 @@ void Editor::mousePressEvent_Paint(QMouseEvent *e)
 		m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(p);
 		m_zoneStart = m_zoneTracking = m_zoneEnd = contentsToZone(p);
 		Stitch::Type stitchType = stitchMap[m_currentStitchType][m_zoneStart];
-		m_document->undoStack().beginMacro("Paint stitches");
-		m_document->undoStack().push(new UpdateEditorCommand(this));
-		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-		m_document->undoStack().push(new AddStitchCommand(m_document, m_cellStart, stitchType, m_document->pattern()->palette().currentIndex()));
+		m_activeCommand = new PaintStitchesCommand(m_document);
+		new AddStitchCommand(m_document, m_cellStart, stitchType, m_document->pattern()->palette().currentIndex(), m_activeCommand);
+		m_document->undoStack().push(m_activeCommand);
 		rect = cellToRect(m_cellStart);
 	}
 	update(rect);
@@ -640,8 +637,8 @@ void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
 			if (m_cellTracking != m_cellStart)
 			{
 				m_cellStart = m_cellTracking;
-				m_document->undoStack().push(new AddKnotCommand(m_document, m_cellStart, m_document->pattern()->palette().currentIndex()));
-				rect = QRect(snapToContents(m_cellStart)-(QPoint(m_cellWidth, m_cellHeight)/2), QSize(m_cellWidth, m_cellHeight));
+				QUndoCommand *cmd = new AddKnotCommand(m_document, m_cellStart, m_document->pattern()->palette().currentIndex(), m_activeCommand);
+				cmd->redo();
 			}
 		}
 	}
@@ -654,7 +651,8 @@ void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
 			m_cellStart = m_cellTracking;
 			m_zoneStart = m_zoneTracking;
 			Stitch::Type stitchType = stitchMap[m_currentStitchType][m_zoneStart];
-			m_document->undoStack().push(new AddStitchCommand(m_document, m_cellStart, stitchType, m_document->pattern()->palette().currentIndex()));
+			QUndoCommand *cmd = new AddStitchCommand(m_document, m_cellStart, stitchType, m_document->pattern()->palette().currentIndex(), m_activeCommand);
+			cmd->redo();
 			rect = cellToRect(m_cellStart);
 		}
 	}
@@ -664,7 +662,7 @@ void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Paint(QMouseEvent*)
 {
-	m_document->undoStack().endMacro();
+	m_activeCommand = 0;
 	m_preview->update();
 }
 
@@ -680,18 +678,20 @@ void Editor::mouseMoveEvent_Draw(QMouseEvent *e)
 {
 	QPoint p = e->pos();
 	QRect updateArea;
-
+	
 	//  qobject_cast<QScrollArea *>(parent())->ensureVisible(p.x(), p.y());
 
 	m_cellTracking = contentsToCell(p);
-	updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-	m_rubberBand = QRect();
-	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	if (m_cellTracking != m_cellEnd)
+	{
+		updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
 
-	m_cellEnd = m_cellTracking;
-	updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-	m_rubberBand = updateArea;
-	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+		m_cellEnd = m_cellTracking;
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		update(m_rubberBand.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	}
 }
 
 
@@ -707,10 +707,12 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 		painter.begin(&canvas);
 		painter.setPen(QPen(Qt::color1));
 		painter.drawLine(m_cellStart, m_cellEnd);
-		painter.drawPoint(m_cellStart); // TODO see if this is still necessary, possible controlled by end cap
-		painter.drawPoint(m_cellEnd); // TODO see if this is still necessary, possible controlled by end cap
 		painter.end();
-		processBitmap(canvas, "Draw line");
+		
+		QUndoCommand *cmd = new DrawLineCommand(m_document);
+		processBitmap(cmd, canvas);
+		
+		m_document->undoStack().push(cmd);
 	}
 	m_rubberBand = QRect();
 	update();
@@ -721,7 +723,8 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
 {
 	QPoint p = e->pos();
 	QRect rect;
-
+	QUndoCommand *cmd;
+	
 	if (e->modifiers() & Qt::ControlModifier)
 	{
 		// Erase a backstitch
@@ -729,24 +732,22 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
 	}
 	else
 	{
+		m_activeCommand = new EraseStitchesCommand(m_document);
+		m_document->undoStack().push(m_activeCommand);
 		if (e->modifiers() & Qt::ShiftModifier)
 		{
 			// Delete french knots
 			m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(p);
-			m_document->undoStack().beginMacro("Delete knots");
-			m_document->undoStack().push(new UpdateEditorCommand(this));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1));
+			cmd = new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, m_activeCommand);
+			cmd->redo();
 			rect = QRect(snapToContents(m_cellStart)-QPoint(m_cellWidth/2, m_cellHeight/2), QSize(m_cellWidth, m_cellHeight));
 		}
 		else
 		{
 			m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(p);
 			m_zoneStart = m_zoneTracking = m_zoneEnd = contentsToZone(p);
-			m_document->undoStack().beginMacro("Delete stitches");
-			m_document->undoStack().push(new UpdateEditorCommand(this));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor?m_document->pattern()->palette().currentIndex():-1));
+			cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor?m_document->pattern()->palette().currentIndex():-1, m_activeCommand);
+			cmd->redo();
 			rect = cellToRect(m_cellStart);
 		}
 		update(rect);
@@ -758,6 +759,7 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 {
 	QPoint p = e->pos();
 	QRect rect;
+	QUndoCommand *cmd;
 
 	if (e->modifiers() & Qt::ControlModifier)
 	{
@@ -773,7 +775,8 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 			if (m_cellTracking != m_cellStart)
 			{
 				m_cellStart = m_cellTracking;
-				m_document->undoStack().push(new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1));
+				cmd = new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, m_activeCommand);
+				cmd->redo();
 				rect = QRect(snapToContents(m_cellStart)-QPoint(m_cellWidth/2, m_cellHeight/2), QSize(m_cellWidth, m_cellHeight));
 			}
 		}
@@ -785,7 +788,8 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 			{
 				m_cellStart = m_cellTracking;
 				m_zoneStart = m_zoneTracking;
-				m_document->undoStack().push(new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor?m_document->pattern()->palette().currentIndex():-1));
+				cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch?stitchMap[m_currentStitchType][m_zoneStart]:Stitch::Delete, m_maskColor?m_document->pattern()->palette().currentIndex():-1, m_activeCommand);
+				cmd->redo();
 				rect = cellToRect(m_cellStart);
 			}
 		}
@@ -802,7 +806,7 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 	if (e->modifiers() & Qt::ControlModifier)
 	{
 		// Erase a backstitch
-		m_cellEnd = contentsToSnap(p);
+		m_cellEnd = contentsToSnap(p);			
 		QListIterator<Backstitch *> backstitches = m_document->pattern()->stitches().backstitchIterator();
 		while (backstitches.hasNext())
 		{
@@ -815,16 +819,13 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 			}
 		}
 	}
-	else
-	{
-		m_document->undoStack().endMacro();
-		m_preview->update();
-	}
+	
+	m_preview->update();
 	// Nothing needs to be done for french knots or stitches which are handled in mouseMoveEvent_Erase
 }
 
 
-void Editor::mousePressEvent_Rectangle(QMouseEvent *event)
+void Editor::mousePressEvent_Rectangle(QMouseEvent *e)
 {
 	if (m_rubberBand.isValid())
 	{
@@ -833,22 +834,23 @@ void Editor::mousePressEvent_Rectangle(QMouseEvent *event)
 		repaint(r);
 	}
 
-	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(event->pos());
-	QRect updateArea = cellToRect(m_cellStart);
-	m_rubberBand = updateArea;
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_rubberBand = cellToRect(m_cellStart);
+	repaint(m_rubberBand);
 }
 
 
-void Editor::mouseMoveEvent_Rectangle(QMouseEvent *event)
+void Editor::mouseMoveEvent_Rectangle(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(event->pos());
+	m_cellTracking = contentsToCell(e->pos());
 	if (m_cellTracking != m_cellEnd)
 	{
+		QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
 		m_cellEnd = m_cellTracking;
-		QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-		m_rubberBand = updateArea;
-		repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
 	}
 }
 
@@ -863,40 +865,36 @@ void Editor::mouseReleaseEvent_Rectangle(QMouseEvent*)
 	int y = m_selectionArea.top();
 	QPoint cell(x, y);
 
-	m_document->undoStack().beginMacro("Draw rectangle");
-	m_document->undoStack().push(new UpdateEditorCommand(this));
-	m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+	QUndoCommand *cmd = new DrawRectangleCommand(m_document);
 	while (++x <= m_selectionArea.right())
 	{
-		m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+		new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
 		cell.setX(x);
 	}
 	while (++y <= m_selectionArea.bottom())
 	{
-		m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+		new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
 		cell.setY(y);
 	}
 	while (--x >= m_selectionArea.left())
 	{
-		m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+		new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
 		cell.setX(x);
 	}
 	while (--y >= m_selectionArea.top())
 	{
-		m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+		new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
 		cell.setY(y);
 	}
-	m_document->undoStack().endMacro();
 
-	QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
 	m_selectionArea = QRect();	// this will clear the selection area rectangle on the next repaint
 	m_rubberBand = QRect();		// this will clear the rubber band rectangle on the next repaint
-	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
-	m_preview->update();
+
+	m_document->undoStack().push(cmd);
 }
 
 
-void Editor::mousePressEvent_FillRectangle(QMouseEvent *event)
+void Editor::mousePressEvent_FillRectangle(QMouseEvent *e)
 {
 	if (m_rubberBand.isValid())
 	{
@@ -905,27 +903,28 @@ void Editor::mousePressEvent_FillRectangle(QMouseEvent *event)
 		repaint(r);
 	}
 
-	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(event->pos());
-	QRect updateArea = cellToRect(m_cellStart);
-	m_rubberBand = updateArea;
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_rubberBand = cellToRect(m_cellStart);
+	repaint(m_rubberBand);
 }
 
 
-void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *event)
+void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(event->pos());
+	m_cellTracking = contentsToCell(e->pos());
 	if (m_cellTracking != m_cellEnd)
 	{
+		QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
 		m_cellEnd = m_cellTracking;
-		QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-		m_rubberBand = updateArea;
-		repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
 	}
 }
 
 
-void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent *event)
+void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent *e)
 {
 	m_selectionArea.setTopLeft(m_cellStart);
 	m_selectionArea.setBottomRight(m_cellEnd);
@@ -935,94 +934,126 @@ void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent *event)
 	int y = m_selectionArea.top();
 	QPoint cell(x, y);
 
-	m_document->undoStack().beginMacro("Fill rectangle");
-	m_document->undoStack().push(new UpdateEditorCommand(this));
-	m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
+	QUndoCommand *cmd = new FillRectangleCommand(m_document);
 	for (int y = m_selectionArea.top() ; y <= m_selectionArea.bottom() ; y++)
 	{
 		for (int x = m_selectionArea.left() ; x <= m_selectionArea.right() ; x++)
 		{
 			QPoint cell(x, y);
-			m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+			new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
 		}
 	}
-	m_document->undoStack().endMacro();
 
-	QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
 	m_selectionArea = QRect();	// this will clear the selection area rectangle on the next repaint
 	m_rubberBand = QRect();		// this will clear the rubber band rectangle on the next repaint
-	update(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
-	m_preview->update();
+
+	m_document->undoStack().push(cmd);
 }
 
 
-void Editor::mousePressEvent_Ellipse(QMouseEvent*)
+void Editor::mousePressEvent_Ellipse(QMouseEvent *e)
 {
+	if (m_rubberBand.isValid())
+	{
+		QRect r = m_rubberBand;
+		m_rubberBand = QRect();
+		repaint(r);
+	}
+
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_rubberBand = cellToRect(m_cellStart);
+	repaint(m_rubberBand);
 }
 
 
-void Editor::mouseMoveEvent_Ellipse(QMouseEvent*)
+void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
 {
+	m_cellTracking = contentsToCell(e->pos());
+	if (m_cellTracking != m_cellEnd)
+	{
+		QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
+		m_cellEnd = m_cellTracking;
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
+	}
 }
 
 
 void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
 {
+	QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
+	QPainter painter;
+	
+	canvas.fill(Qt::color0);
+	painter.begin(&canvas);
+	painter.setRenderHint(QPainter::Antialiasing, true);
+	painter.setPen(QPen(Qt::color1));
+	painter.setBrush(Qt::NoBrush);
+	painter.drawEllipse(QRect(QPoint(m_cellStart.x(), m_cellStart.y()), QPoint(m_cellEnd.x(), m_cellEnd.y())).normalized());
+	painter.end();
+
+	QUndoCommand *cmd = new DrawEllipseCommand(m_document);
+	processBitmap(cmd, canvas);
+
+	m_rubberBand = QRect();
+	m_selectionArea = QRect();
+
+	m_document->undoStack().push(cmd);
 }
 
 
-void Editor::mousePressEvent_FillEllipse(QMouseEvent *event)
+void Editor::mousePressEvent_FillEllipse(QMouseEvent *e)
 {
 	if (m_rubberBand.isValid())
 	{
 		QRect r = m_rubberBand;
-		m_rubberBand = QRect(0, 0, 0, 0);
+		m_rubberBand = QRect();
 		repaint(r);
 	}
 
-	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(event->pos());
-	QRect updateArea = cellToRect(m_cellStart);
-	m_rubberBand = updateArea;
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_rubberBand = cellToRect(m_cellStart);
+	repaint(m_rubberBand);
 }
 
 
-void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *event)
+void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(event->pos());
+	m_cellTracking = contentsToCell(e->pos());
 	if (m_cellTracking != m_cellEnd)
 	{
+		QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
 		m_cellEnd = m_cellTracking;
-		QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-		m_rubberBand = updateArea;
-		repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
 	}
 }
 
 
 void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
 {
-	QBitmap canvas(m_document->pattern()->stitches().width()*2, m_document->pattern()->stitches().height()*2);
-	QRect rect;
+	QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
 	QPainter painter;
-
-	QPainterPath path;
-	QPoint s(m_cellStart.x()*2, m_cellStart.y()*2);
-	QPoint e(m_cellEnd.x()*2, m_cellEnd.y()*2);
-	path.addEllipse(QRect(s, e).normalized());
+	
 	canvas.fill(Qt::color0);
 	painter.begin(&canvas);
 	painter.setRenderHint(QPainter::Antialiasing, true);
 	painter.setPen(QPen(Qt::color1));
 	painter.setBrush(Qt::color1);
-	painter.drawPath(path);
+	painter.drawEllipse(QRect(QPoint(m_cellStart.x(), m_cellStart.y()), QPoint(m_cellEnd.x(), m_cellEnd.y())).normalized());
 	painter.end();
-	processBitmap(canvas, "Fill ellipse");
+
+	QUndoCommand *cmd = new FillEllipseCommand(m_document);
+	processBitmap(cmd, canvas);
 
 	m_rubberBand = QRect();
 	m_selectionArea = QRect();
 
-	update();
+	m_document->undoStack().push(cmd);
 }
 
 
@@ -1056,31 +1087,32 @@ void Editor::mouseReleaseEvent_Text(QMouseEvent*)
 }
 
 
-void Editor::mousePressEvent_Select(QMouseEvent *event)
+void Editor::mousePressEvent_Select(QMouseEvent *e)
 {
 	if (m_rubberBand.isValid())
 	{
 		QRect r = m_rubberBand;
-		m_rubberBand = QRect(0, 0, 0, 0);
+		m_rubberBand = QRect();
 		repaint(r);
 	}
 
-	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(event->pos());
-	QRect updateArea = cellToRect(m_cellStart);
-	m_rubberBand = updateArea;
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_rubberBand = cellToRect(m_cellStart);
+	repaint(m_rubberBand);
 }
 
 
-void Editor::mouseMoveEvent_Select(QMouseEvent *event)
+void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(event->pos());
+	m_cellTracking = contentsToCell(e->pos());
 	if (m_cellTracking != m_cellEnd)
 	{
+		QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
 		m_cellEnd = m_cellTracking;
-		QRect updateArea = (cellToRect(m_cellStart).united(cellToRect(m_cellEnd))).normalized();
-		m_rubberBand = updateArea;
-		repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+		m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
 	}
 }
 
@@ -1090,6 +1122,7 @@ void Editor::mouseReleaseEvent_Select(QMouseEvent*)
 	m_selectionArea.setTopLeft(m_cellStart);
 	m_selectionArea.setBottomRight(m_cellEnd);
 	m_selectionArea = m_selectionArea.normalized();
+	m_rubberBand = QRect();
 	emit(selectionMade(true));
 }
 
@@ -1103,24 +1136,16 @@ void Editor::mousePressEvent_Backstitch(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 {
-	QRect updateArea;
-#if 0
 	m_cellTracking = contentsToSnap(e->pos());
-	updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
-	m_rubberBand = QRect();
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
-
-	m_cellEnd = m_cellTracking;
-	updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
-	m_rubberBand = updateArea;
-	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
-#endif
-	updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
-	m_cellEnd = contentsToSnap(e->pos());
-	m_rubberBand = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
-	updateArea.unite(m_rubberBand);
-	repaint(updateArea);
-//	repaint(updateArea.adjusted(-m_cellWidth, -m_cellHeight, m_cellWidth, m_cellHeight));
+	if (m_cellTracking != m_cellEnd)
+	{
+		QRect updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
+		m_rubberBand = QRect();
+		repaint(updateArea);
+		m_cellEnd = m_cellTracking;
+		m_rubberBand = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
+		repaint(m_rubberBand);
+	}
 }
 
 
@@ -1128,8 +1153,6 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 {
 	m_rubberBand = QRect();
 	m_document->undoStack().push(new AddBackstitchCommand(m_document, m_cellStart, m_cellEnd, m_document->pattern()->palette().currentIndex()));
-	update();
-	m_preview->update();
 }
 
 
@@ -1176,13 +1199,10 @@ QRect Editor::cellToRect(QPoint cell)
 }
 
 
-void Editor::processBitmap(QBitmap &canvas, const QString &string)
+void Editor::processBitmap(QUndoCommand *parent, QBitmap &canvas)
 {
 	QImage image;
 	image = canvas.toImage();
-	m_document->undoStack().beginMacro(string);
-	m_document->undoStack().push(new UpdateEditorCommand(this));
-	m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
 	for (int y = 0 ; y < image.height() ; y++)
 	{
 		for (int x = 0 ; x < image.width() ; x++)
@@ -1190,11 +1210,10 @@ void Editor::processBitmap(QBitmap &canvas, const QString &string)
 			if (image.pixelIndex(x, y) == 1)
 			{
 				QPoint cell(x, y);
-				m_document->undoStack().push(new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex()));
+				new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), parent);
 			}
 		}
 	}
-	m_document->undoStack().endMacro();
 }
 
 

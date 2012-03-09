@@ -13,10 +13,10 @@
 #define Editor_H
 
 
+#include <QUndoCommand>
 #include <QWidget>
 
 #include "configuration.h"
-#include "Editor.h"
 
 
 class Document;
@@ -180,7 +180,7 @@ class Editor : public QWidget
 		QPoint contentsToSnap(const QPoint &) const;
 		QPoint snapToContents(const QPoint &) const;
 		QRect cellToRect(QPoint);
-		void processBitmap(QBitmap &, const QString &);
+		void processBitmap(QUndoCommand *, QBitmap &);
 		QRect visibleCells();
 
 		Document	*m_document;
@@ -219,6 +219,8 @@ class Editor : public QWidget
 		int	m_zoneStart;
 		int	m_zoneTracking;
 		int	m_zoneEnd;
+		
+		QUndoCommand	*m_activeCommand;
 
 		enum SelectedStitchType	m_currentStitchType;
 

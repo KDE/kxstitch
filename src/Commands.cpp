@@ -24,8 +24,255 @@
 #include "SchemeManager.h"
 
 
-AddStitchCommand::AddStitchCommand(Document *document, const QPoint &location, Stitch::Type type, int colorIndex)
-	:	QUndoCommand(),
+PaintStitchesCommand::PaintStitchesCommand(Document *document)
+	:	QUndoCommand(i18n("Paint Stitches")),
+		m_document(document)
+{
+}
+
+
+PaintStitchesCommand::~PaintStitchesCommand()
+{
+}
+
+
+void PaintStitchesCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void PaintStitchesCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+PaintKnotsCommand::PaintKnotsCommand(Document *document)
+	:	QUndoCommand(i18n("Paint Knots")),
+		m_document(document)
+{
+}
+
+
+PaintKnotsCommand::~PaintKnotsCommand()
+{
+}
+
+
+void PaintKnotsCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void PaintKnotsCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+DrawLineCommand::DrawLineCommand(Document *document)
+	:	QUndoCommand(i18n("Draw Line")),
+		m_document(document)
+{
+}
+
+
+DrawLineCommand::~DrawLineCommand()
+{
+}
+
+
+void DrawLineCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void DrawLineCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+EraseStitchesCommand::EraseStitchesCommand(Document *document)
+	:	QUndoCommand(i18n("Erase Stitches")),
+		m_document(document)
+{
+}
+
+
+EraseStitchesCommand::~EraseStitchesCommand()
+{
+}
+
+
+void EraseStitchesCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void EraseStitchesCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+DrawRectangleCommand::DrawRectangleCommand(Document *document)
+	:	QUndoCommand(i18n("Draw Rectangle")),
+		m_document(document)
+{
+}
+
+
+DrawRectangleCommand::~DrawRectangleCommand()
+{
+}
+
+
+void DrawRectangleCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void DrawRectangleCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+FillRectangleCommand::FillRectangleCommand(Document *document)
+	:	QUndoCommand(i18n("Fill Rectangle")),
+		m_document(document)
+{
+}
+
+
+FillRectangleCommand::~FillRectangleCommand()
+{
+}
+
+
+void FillRectangleCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void FillRectangleCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+
+DrawEllipseCommand::DrawEllipseCommand(Document *document)
+	:	QUndoCommand(i18n("Draw Ellipse")),
+		m_document(document)
+{
+}
+
+
+DrawEllipseCommand::~DrawEllipseCommand()
+{
+}
+
+
+void DrawEllipseCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void DrawEllipseCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+FillEllipseCommand::FillEllipseCommand(Document *document)
+	:	QUndoCommand(i18n("Fill Ellipse")),
+		m_document(document)
+{
+}
+
+
+FillEllipseCommand::~FillEllipseCommand()
+{
+}
+
+
+void FillEllipseCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void FillEllipseCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+FillPolygonCommand::FillPolygonCommand(Document *document)
+	:	QUndoCommand(i18n("Fill Polygon")),
+		m_document(document)
+{
+}
+
+
+FillPolygonCommand::~FillPolygonCommand()
+{
+}
+
+
+void FillPolygonCommand::redo()
+{
+}
+
+
+void FillPolygonCommand::undo()
+{
+}
+
+
+AddStitchCommand::AddStitchCommand(Document *document, const QPoint &location, Stitch::Type type, int colorIndex, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Add Stitch"), parent),
 		m_document(document),
 		m_cell(location),
 		m_type(type),
@@ -57,8 +304,8 @@ void AddStitchCommand::undo()
 }
 
 
-DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell, Stitch::Type type, int colorIndex)
-	:	QUndoCommand(),
+DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell, Stitch::Type type, int colorIndex, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Delete Stiches"), parent),
 		m_document(document),
 		m_cell(cell),
 		m_type(type),
@@ -148,8 +395,8 @@ void DeleteBackstitchCommand::undo()
 }
 
 
-AddKnotCommand::AddKnotCommand(Document *document, const QPoint &snap, int colorIndex)
-	:	QUndoCommand(),
+AddKnotCommand::AddKnotCommand(Document *document, const QPoint &snap, int colorIndex, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Add Knot"), parent),
 		m_document(document),
 		m_snap(snap),
 		m_colorIndex(colorIndex)
@@ -174,8 +421,8 @@ void AddKnotCommand::undo()
 }
 
 
-DeleteKnotCommand::DeleteKnotCommand(Document *document, const QPoint &snap, int colorIndex)
-	:	QUndoCommand(),
+DeleteKnotCommand::DeleteKnotCommand(Document *document, const QPoint &snap, int colorIndex, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Delete Knots"), parent),
 		m_document(document),
 		m_snap(snap),
 		m_colorIndex(colorIndex),

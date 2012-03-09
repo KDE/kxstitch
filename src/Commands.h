@@ -36,10 +36,136 @@ class Palette;
 class Preview;
 
 
+class PaintStitchesCommand : public QUndoCommand
+{
+	public:
+		PaintStitchesCommand(Document *);
+		virtual ~PaintStitchesCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;
+};
+
+
+class PaintKnotsCommand : public QUndoCommand
+{
+	public:
+		PaintKnotsCommand(Document *);
+		virtual ~PaintKnotsCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;
+};
+
+
+class DrawLineCommand : public QUndoCommand
+{
+	public:
+		DrawLineCommand(Document *);
+		virtual ~DrawLineCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;	/**< pointer to the associated Document */
+};
+
+
+class EraseStitchesCommand : public QUndoCommand
+{
+	public:
+		EraseStitchesCommand(Document *);
+		virtual ~EraseStitchesCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;
+};
+
+
+class DrawRectangleCommand : public QUndoCommand
+{
+	public:
+		DrawRectangleCommand(Document *document);
+		virtual ~DrawRectangleCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;	/**< pointer to the associated Document */
+};
+
+
+class FillRectangleCommand : public QUndoCommand
+{
+	public:
+		FillRectangleCommand(Document *document);
+		virtual ~FillRectangleCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;	/**< pointer to the associated Document */
+};
+
+
+class DrawEllipseCommand : public QUndoCommand
+{
+	public:
+		DrawEllipseCommand(Document *document);
+		virtual ~DrawEllipseCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;	/**< pointer to the associated Document */
+};
+
+
+class FillEllipseCommand : public QUndoCommand
+{
+	public:
+		FillEllipseCommand(Document *document);
+		virtual ~FillEllipseCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;	/**< pointer to the associated Document */
+};
+
+
+class FillPolygonCommand : public QUndoCommand
+{
+public:
+	FillPolygonCommand(Document *);
+	virtual ~FillPolygonCommand();
+	
+	virtual void redo();
+	virtual void undo();
+	
+private:
+	Document	*m_document;
+};
+
+
 class AddStitchCommand : public QUndoCommand
 {
 	public:
-		AddStitchCommand(Document *, const QPoint &, Stitch::Type, int);
+		AddStitchCommand(Document *, const QPoint &, Stitch::Type, int, QUndoCommand *);
 		~AddStitchCommand();
 
 		virtual void redo();
@@ -57,7 +183,7 @@ class AddStitchCommand : public QUndoCommand
 class DeleteStitchCommand : public QUndoCommand
 {
 	public:
-		DeleteStitchCommand(Document *, const QPoint &, Stitch::Type, int);
+		DeleteStitchCommand(Document *, const QPoint &, Stitch::Type, int, QUndoCommand *);
 		~DeleteStitchCommand();
 
 		virtual void redo();
@@ -110,7 +236,7 @@ class DeleteBackstitchCommand : public QUndoCommand
 class AddKnotCommand : public QUndoCommand
 {
 	public:
-		AddKnotCommand(Document *, const QPoint &, int);
+		AddKnotCommand(Document *, const QPoint &, int, QUndoCommand *);
 		~AddKnotCommand();
 
 		virtual void redo();
@@ -126,7 +252,7 @@ class AddKnotCommand : public QUndoCommand
 class DeleteKnotCommand : public QUndoCommand
 {
 	public:
-		DeleteKnotCommand(Document *, const QPoint &, int);
+		DeleteKnotCommand(Document *, const QPoint &, int, QUndoCommand *);
 		~DeleteKnotCommand();
 
 		virtual void redo();
