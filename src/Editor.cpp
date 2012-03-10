@@ -768,7 +768,11 @@ void Editor::mousePressEvent_Draw(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Draw(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();	
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -908,7 +912,11 @@ void Editor::mousePressEvent_Rectangle(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Rectangle(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -962,7 +970,11 @@ void Editor::mousePressEvent_FillRectangle(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -1004,7 +1016,11 @@ void Editor::mousePressEvent_Ellipse(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -1044,7 +1060,11 @@ void Editor::mousePressEvent_FillEllipse(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -1121,7 +1141,11 @@ void Editor::mousePressEvent_Select(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
@@ -1146,7 +1170,11 @@ void Editor::mousePressEvent_Backstitch(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 {
-	m_cellTracking = contentsToSnap(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToSnap(p);
 	QRect updateArea = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
 	m_cellEnd = m_cellTracking;
 	m_rubberBand = QRect(snapToContents(m_cellStart), snapToContents(m_cellEnd)).normalized();
@@ -1171,7 +1199,11 @@ void Editor::mousePressEvent_Paste(QMouseEvent *e)
 
 void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
 {
-	m_cellTracking = contentsToCell(e->pos());
+	QPoint p = e->pos();
+	
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+	
+	m_cellTracking = contentsToCell(p);
 	if (m_cellTracking != m_cellEnd)
 	{
 		m_cellEnd = m_cellTracking;
