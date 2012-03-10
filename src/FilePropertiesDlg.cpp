@@ -240,11 +240,13 @@ void FilePropertiesDlg::updatePatternSizes()
 
 	double horizontalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches)?1:m_horizontalClothCount;
 	double verticalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches)?1:m_verticalClothCount;
+	double scaledMinWidth = m_minWidth/horizontalScale;
+	double scaledMinHeight = m_minHeight/verticalScale;
 	double scaledWidth = m_width/horizontalScale;
 	double scaledHeight = m_height/verticalScale;
 
-	ui.PatternWidth->setMinimum(scaledWidth);
-	ui.PatternHeight->setMinimum(scaledHeight);
+	ui.PatternWidth->setMinimum(scaledMinWidth);
+	ui.PatternHeight->setMinimum(scaledMinHeight);
 	ui.PatternWidth->setValue(scaledWidth);
 	ui.PatternHeight->setValue(scaledHeight);
 	ui.HorizontalClothCount->setValue(m_horizontalClothCount);
