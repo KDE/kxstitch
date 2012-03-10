@@ -724,59 +724,38 @@ void MainWindow::fileProperties()
 	QPointer<FilePropertiesDlg> filePropertiesDlg = new FilePropertiesDlg(this, m_document);
 	if (filePropertiesDlg->exec())
 	{
-		QList<QUndoCommand *> changes;
+		QUndoCommand *cmd = new FilePropertiesCommand(m_document);
 		if ((filePropertiesDlg->documentWidth() != m_document->pattern()->stitches().width()) || (filePropertiesDlg->documentHeight() != m_document->pattern()->stitches().height()))
-			changes.append(new ResizeDocumentCommand(m_document, filePropertiesDlg->documentWidth(), filePropertiesDlg->documentHeight()));
+			new ResizeDocumentCommand(m_document, filePropertiesDlg->documentWidth(), filePropertiesDlg->documentHeight(), cmd);
 		if (filePropertiesDlg->unitsFormat() != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property("unitsFormat").toInt()))
-			changes.append(new SetPropertyCommand(m_document, "unitsFormat", QVariant(filePropertiesDlg->unitsFormat())));
+			new SetPropertyCommand(m_document, "unitsFormat", QVariant(filePropertiesDlg->unitsFormat()), cmd);
 		if (filePropertiesDlg->horizontalClothCount() != m_document->property("horizontalClothCount").toDouble())
-			changes.append(new SetPropertyCommand(m_document, "horizontalClothCount", QVariant(filePropertiesDlg->horizontalClothCount())));
+			new SetPropertyCommand(m_document, "horizontalClothCount", QVariant(filePropertiesDlg->horizontalClothCount()), cmd);
 		if (filePropertiesDlg->clothCountLink() != m_document->property("clothCountLink").toBool())
-			changes.append(new SetPropertyCommand(m_document, "clothCountLink", QVariant(filePropertiesDlg->clothCountLink())));
+			new SetPropertyCommand(m_document, "clothCountLink", QVariant(filePropertiesDlg->clothCountLink()), cmd);
 		if (filePropertiesDlg->verticalClothCount() != m_document->property("verticalClothCount").toDouble())
-			changes.append(new SetPropertyCommand(m_document, "verticalClothCount", QVariant(filePropertiesDlg->verticalClothCount())));
+			new SetPropertyCommand(m_document, "verticalClothCount", QVariant(filePropertiesDlg->verticalClothCount()), cmd);
 		if (filePropertiesDlg->clothCountUnits() != static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()))
-			changes.append(new SetPropertyCommand(m_document, "clothCountUnits", QVariant(filePropertiesDlg->clothCountUnits())));
+			new SetPropertyCommand(m_document, "clothCountUnits", QVariant(filePropertiesDlg->clothCountUnits()), cmd);
 		if (filePropertiesDlg->title() != m_document->property("title").toString())
-			changes.append(new SetPropertyCommand(m_document, "title", QVariant(filePropertiesDlg->title())));
+			new SetPropertyCommand(m_document, "title", QVariant(filePropertiesDlg->title()), cmd);
 		if (filePropertiesDlg->author() != m_document->property("author").toString())
-			changes.append(new SetPropertyCommand(m_document, "author", QVariant(filePropertiesDlg->author())));
+			new SetPropertyCommand(m_document, "author", QVariant(filePropertiesDlg->author()), cmd);
 		if (filePropertiesDlg->copyright() != m_document->property("copyright").toString())
-			changes.append(new SetPropertyCommand(m_document, "copyright", QVariant(filePropertiesDlg->copyright())));
+			new SetPropertyCommand(m_document, "copyright", QVariant(filePropertiesDlg->copyright()), cmd);
 		if (filePropertiesDlg->fabric() != m_document->property("fabric").toString())
-			changes.append(new SetPropertyCommand(m_document, "fabric", QVariant(filePropertiesDlg->fabric())));
+			new SetPropertyCommand(m_document, "fabric", QVariant(filePropertiesDlg->fabric()), cmd);
 		if (filePropertiesDlg->fabricColor() != m_document->property("fabricColor").value<QColor>())
-			changes.append(new SetPropertyCommand(m_document, "fabricColor", QVariant(filePropertiesDlg->fabricColor())));
+			new SetPropertyCommand(m_document, "fabricColor", QVariant(filePropertiesDlg->fabricColor()), cmd);
 		if (filePropertiesDlg->instructions() != m_document->property("instructions").toString())
-			changes.append(new SetPropertyCommand(m_document, "instructions", QVariant(filePropertiesDlg->instructions())));
-
+			new SetPropertyCommand(m_document, "instructions", QVariant(filePropertiesDlg->instructions()), cmd);
 		if (filePropertiesDlg->flossScheme() != m_document->pattern()->palette().schemeName())
-		{
-			changes.append(new ChangeSchemeCommand(m_document, filePropertiesDlg->flossScheme()));
-		}
+			new ChangeSchemeCommand(m_document, filePropertiesDlg->flossScheme(), cmd);
 
-		if (!changes.isEmpty())
-		{
-			QListIterator<QUndoCommand *> it(changes);
-			m_document->undoStack().beginMacro(i18n("File Properties"));
-			m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-			m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new EditorReadDocumentSettingsCommand(m_editor));
-			m_document->undoStack().push(new PaletteReadDocumentSettingsCommand(m_palette));
-			m_document->undoStack().push(new PreviewReadDocumentSettingsCommand(m_preview));
-			while (it.hasNext())
-			{
-				m_document->undoStack().push(it.next());
-			}
-			m_document->undoStack().push(new EditorReadDocumentSettingsCommand(m_editor));
-			m_document->undoStack().push(new PaletteReadDocumentSettingsCommand(m_palette));
-			m_document->undoStack().push(new PreviewReadDocumentSettingsCommand(m_preview));
-			m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-			m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().endMacro();
-		}
+		if (cmd->childCount())
+			m_document->undoStack().push(cmd);
+		else
+			delete cmd;
 	}
 	delete filePropertiesDlg;
 }

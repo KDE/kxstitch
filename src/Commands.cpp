@@ -28,6 +28,42 @@
 #include "SchemeManager.h"
 
 
+FilePropertiesCommand::FilePropertiesCommand(Document *document)
+	:	QUndoCommand(i18n("File Properties")),
+		m_document(document)
+{
+}
+
+
+FilePropertiesCommand::~FilePropertiesCommand()
+{
+}
+
+
+void FilePropertiesCommand::redo()
+{
+	QUndoCommand::redo();
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
+	m_document->palette()->readDocumentSettings();
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
+}
+
+
+void FilePropertiesCommand::undo()
+{
+	QUndoCommand::undo();
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
+	m_document->palette()->readDocumentSettings();
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
+}
+
+
 PaintStitchesCommand::PaintStitchesCommand(Document *document)
 	:	QUndoCommand(i18n("Paint Stitches")),
 		m_document(document)
@@ -461,8 +497,8 @@ void DeleteKnotCommand::undo()
 }
 
 
-SetPropertyCommand::SetPropertyCommand(Document *document, const QString &name, const QVariant &value)
-	:	QUndoCommand(i18n("Set Property")),
+SetPropertyCommand::SetPropertyCommand(Document *document, const QString &name, const QVariant &value, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Set Property"), parent),
 		m_document(document),
 		m_name(name),
 		m_value(value)
@@ -679,8 +715,8 @@ void ReplaceDocumentFlossCommand::undo()
 }
 
 
-ResizeDocumentCommand::ResizeDocumentCommand(Document *document, int width, int height)
-	:	QUndoCommand(),
+ResizeDocumentCommand::ResizeDocumentCommand(Document *document, int width, int height, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Resize Document"), parent),
 		m_document(document),
 		m_width(width),
 		m_height(height)
@@ -849,8 +885,8 @@ void UpdatePreviewCommand::undo()
 }
 
 
-ChangeSchemeCommand::ChangeSchemeCommand(Document *document, const QString &schemeName)
-	:	QUndoCommand(i18n("Change floss scheme")),
+ChangeSchemeCommand::ChangeSchemeCommand(Document *document, const QString &schemeName, QUndoCommand *parent)
+	:	QUndoCommand(i18n("Change floss scheme"), parent),
 		m_document(document),
 		m_schemeName(schemeName)
 {

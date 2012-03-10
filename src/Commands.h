@@ -37,6 +37,20 @@ class Pattern;
 class Preview;
 
 
+class FilePropertiesCommand : public QUndoCommand
+{
+	public:
+		FilePropertiesCommand(Document *);
+		virtual ~FilePropertiesCommand();
+		
+		virtual void redo();
+		virtual void undo();
+		
+	private:
+		Document	*m_document;
+};
+
+
 class PaintStitchesCommand : public QUndoCommand
 {
 	public:
@@ -270,7 +284,7 @@ class DeleteKnotCommand : public QUndoCommand
 class SetPropertyCommand : public QUndoCommand
 {
 	public:
-		SetPropertyCommand(Document *, const QString &, const QVariant &);
+		SetPropertyCommand(Document *, const QString &, const QVariant &, QUndoCommand *parent = 0);
 		~SetPropertyCommand();
 
 		virtual void redo();
@@ -399,7 +413,7 @@ class ReplaceDocumentFlossCommand : public QUndoCommand
 class ResizeDocumentCommand : public QUndoCommand
 {
 	public:
-		ResizeDocumentCommand(Document *, int, int);
+		ResizeDocumentCommand(Document *, int, int, QUndoCommand *parent = 0);
 		~ResizeDocumentCommand();
 
 		void redo();
@@ -499,7 +513,7 @@ class UpdatePreviewCommand : public QUndoCommand
 class ChangeSchemeCommand : public QUndoCommand
 {
 	public:
-		ChangeSchemeCommand(Document *, const QString &);
+		ChangeSchemeCommand(Document *, const QString &, QUndoCommand *parent = 0);
 		~ChangeSchemeCommand();
 
 		void redo();
