@@ -417,24 +417,6 @@ class ResizeDocumentCommand : public QUndoCommand
 };
 
 
-#if 0
-class ChangeFlossColorCommand : public QUndoCommand
-{
-	public:
-		ChangeFlossColorCommand(Document *, DocumentFloss *, Floss *);
-		~ChangeFlossColorCommand();
-
-		void redo();
-		void undo();
-
-	private:
-		Document	*m_document;
-		DocumentFloss	*m_documentFloss;
-		Floss		*m_floss;
-};
-#endif
-
-
 class CropToPatternCommand : public QUndoCommand
 {
 	public:

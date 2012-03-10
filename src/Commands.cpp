@@ -714,38 +714,6 @@ void ResizeDocumentCommand::undo()
 }
 
 
-#if 0
-ChangeFlossColorCommand::ChangeFlossColorCommand(Document *document, DocumentFloss *documentFloss, Floss *floss)
-	:	QUndoCommand(),
-		m_document(document),
-		m_documentFloss(documentFloss),
-		m_floss(floss)
-{
-}
-
-
-ChangeFlossColorCommand::~ChangeFlossColorCommand()
-{
-}
-
-
-void ChangeFlossColorCommand::redo()
-{
-	Floss *floss = m_documentFloss->pattern()->palette().floss();
-	m_documentFloss->pattern()->palette().setFloss(m_floss);
-	m_floss = floss;
-}
-
-
-void ChangeFlossColorCommand::undo()
-{
-	Floss *floss = m_documentFloss->floss();
-	m_documentFloss->pattern()->palette().setFloss(m_floss);
-	m_floss = floss;
-}
-#endif
-
-
 CropToPatternCommand::CropToPatternCommand(Document *document)
 	:	QUndoCommand(i18n("Crop to Pattern")),
 		m_document(document)
