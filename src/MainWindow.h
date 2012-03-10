@@ -72,9 +72,6 @@ class MainWindow : public KXmlGuiWindow
 		// Edit menu
 		void editUndo();
 		void editRedo();
-		void editCut();
-		void editCopy();
-		void editPaste();
 		void undoTextChanged(const QString &);
 		void redoTextChanged(const QString &);
 		void clipboardDataChanged();

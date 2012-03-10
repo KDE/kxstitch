@@ -626,7 +626,7 @@ void PatternElement::render(Document *document, QPainter *painter, double scale)
 
 	QRect rectangle(0, 0, m_patternRect.width()*cellWidth, m_patternRect.height()*cellHeight);
 	m_renderer->render(painter,
-			   document,
+			   document->pattern(),
 			   paintDeviceArea.toRect(), // scaled to suit the dimensions of the paint area
 			   m_showGrid,
 			   m_showStitches,

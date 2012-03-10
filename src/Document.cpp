@@ -52,7 +52,7 @@ void Document::initialiseNew()
 	m_printerConfiguration.clear();
 
 	delete m_pattern;
-	m_pattern = new Pattern;
+	m_pattern = new Pattern(this);
 	
 	m_pattern->palette().setSchemeName(Configuration::palette_DefaultScheme());
 	m_pattern->stitches().resize(Configuration::document_Width(), Configuration::document_Height());

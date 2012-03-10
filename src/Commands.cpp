@@ -11,6 +11,10 @@
 
 #include "Commands.h"
 
+#include <QApplication>
+#include <QClipboard>
+#include <QMimeData>
+
 #include <KLocale>
 
 #include "BackgroundImage.h"
@@ -1136,4 +1140,90 @@ void UpdatePrinterConfigurationCommand::redo()
 void UpdatePrinterConfigurationCommand::undo()
 {
 	redo();
+}
+
+
+EditCutCommand::EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots)
+	:	QUndoCommand("Cut"),
+		m_document(document),
+		m_selectionArea(selectionArea),
+		m_colorMask(colorMask),
+		m_stitchMasks(stitchMasks),
+		m_excludeBackstitches(excludeBackstitches),
+		m_excludeKnots(excludeKnots),
+		m_originalPattern(0)
+{
+}
+	
+	
+EditCutCommand::~EditCutCommand()
+{
+	delete m_originalPattern;
+}
+
+
+void EditCutCommand::redo()
+{
+	m_originalPattern = m_document->pattern()->cut(m_selectionArea, m_colorMask, m_stitchMasks, m_excludeBackstitches, m_excludeKnots);
+
+	QByteArray data;
+	QDataStream stream(&data, QIODevice::WriteOnly);
+	stream << *m_originalPattern;
+
+	QMimeData *mimeData = new QMimeData();
+	mimeData->setData("application/kxstitch", data);
+	
+	QApplication::clipboard()->setMimeData(mimeData);
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void EditCutCommand::undo()
+{
+	m_document->pattern()->paste(m_originalPattern, m_selectionArea.topLeft(), true);
+	delete m_originalPattern;
+	m_originalPattern = 0;
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+EditPasteCommand::EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge)
+	:	QUndoCommand("Paste"),
+		m_document(document),
+		m_pastePattern(pattern),
+		m_cell(cell),
+		m_merge(merge)
+{
+}
+
+
+EditPasteCommand::~EditPasteCommand()
+{
+}
+
+
+void EditPasteCommand::redo()
+{
+	QDataStream stream(&m_originalPattern, QIODevice::WriteOnly);
+	stream << *(m_document->pattern());
+	m_document->pattern()->paste(m_pastePattern, m_cell, m_merge);
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
+}
+
+
+void EditPasteCommand::undo()
+{
+	QDataStream stream(&m_originalPattern, QIODevice::ReadOnly);
+	m_document->pattern()->clear();
+	stream >> *(m_document->pattern());
+	m_originalPattern.clear();
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }

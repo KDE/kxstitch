@@ -26,6 +26,7 @@ class QPainter;
 class Backstitch;
 class Document;
 class Knot;
+class Pattern;
 class StitchQueue;
 
 
@@ -46,6 +47,7 @@ class RendererPrivate : public QSharedData
 		QPainter	*m_painter;
 
 		Document	*m_document;
+		Pattern		*m_pattern;
 		QRect		m_patternRect;
 		QRectF		m_paintDeviceArea;
 

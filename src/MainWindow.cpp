@@ -308,9 +308,13 @@ void MainWindow::setupActionsFromDocument()
 	actions->action("colorHilight")->setChecked(m_document->property("colorHilight").toBool());
 	m_editor->colorHilight(m_document->property("colorHilight").toBool());
 
+	m_editor->setMaskStitch(m_document->property("maskStitch").toBool());
 	actions->action("maskStitch")->setChecked(m_document->property("maskStitch").toBool());
+	m_editor->setMaskColor(m_document->property("maskColor").toBool());
 	actions->action("maskColor")->setChecked(m_document->property("maskColor").toBool());
+	m_editor->setMaskBackstitch(m_document->property("maskBackstitch").toBool());
 	actions->action("maskBackstitch")->setChecked(m_document->property("maskBackstitch").toBool());
+	m_editor->setMaskKnot(m_document->property("maskKnot").toBool());
 	actions->action("maskKnot")->setChecked(m_document->property("maskKnot").toBool());
 
 	actions->action("renderStitches")->setChecked(m_document->property("renderStitches").toBool());
@@ -838,21 +842,6 @@ void MainWindow::editRedo()
 }
 
 
-void MainWindow::editCut()
-{
-}
-
-
-void MainWindow::editCopy()
-{
-}
-
-
-void MainWindow::editPaste()
-{
-}
-
-
 void MainWindow::undoTextChanged(const QString &text)
 {
 	actionCollection()->action("edit_undo")->setText(i18n("Undo %1", text));
@@ -867,8 +856,7 @@ void MainWindow::redoTextChanged(const QString &text)
 
 void MainWindow::clipboardDataChanged()
 {
-	const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-	actionCollection()->action("edit_paste")->setEnabled(mimeData->hasFormat("application/kxstitch"));
+	actionCollection()->action("edit_paste")->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch"));
 }
 
 
@@ -1137,11 +1125,11 @@ void MainWindow::setupActions()
 	// Edit menu
 	KStandardAction::undo(this, SLOT(editUndo()), actions);
 	KStandardAction::redo(this, SLOT(editRedo()), actions);
-	KStandardAction::cut(this, SLOT(editCut()), actions);
+	KStandardAction::cut(m_editor, SLOT(editCut()), actions);
 	actions->action("edit_cut")->setEnabled(false);
-	KStandardAction::copy(this, SLOT(editCopy()), actions);
+	KStandardAction::copy(m_editor, SLOT(editCopy()), actions);
 	actions->action("edit_copy")->setEnabled(false);
-	KStandardAction::paste(this, SLOT(editPaste()), actions);
+	KStandardAction::paste(m_editor, SLOT(editPaste()), actions);
 
 	// Selection mask sub menu
 	action = new KAction(this);

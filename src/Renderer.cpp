@@ -23,7 +23,9 @@
 RendererPrivate::RendererPrivate()
 	:	m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
 		m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
-		m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None)
+		m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
+		m_painter(0),
+		m_pattern(0)
 {
 }
 
@@ -33,7 +35,7 @@ RendererPrivate::RendererPrivate(const RendererPrivate &other)
 		m_renderStitchesAs(other.m_renderStitchesAs),
 		m_renderBackstitchesAs(other.m_renderBackstitchesAs),
 		m_renderKnotsAs(other.m_renderKnotsAs),
-		m_document(other.m_document),
+		m_pattern(other.m_pattern),
 		m_patternRect(other.m_patternRect),
 		m_cellWidth(other.m_cellWidth),
 		m_cellHeight(other.m_cellHeight),
@@ -180,19 +182,22 @@ void Renderer::setPaintDeviceArea(const QRectF &rect)
 
 
 void Renderer::render(QPainter *painter,
-		      Document *document,
+		      Pattern *pattern,
 		      const QRect &updateRectangle,
 		      bool renderGrid,
 		      bool renderStitches,
 		      bool renderBackstitches,
 		      bool renderKnots,
-		      int colorHilight)
+		      int colorHilight,
+		      const QPoint &offset)
 {
 	bool paintDeviceIsScreen = (painter->device()->paintEngine()->type() == QPaintEngine::X11); // test for other types
+	
+	QPoint snapOffset(offset.x()*2, offset.y()*2);
 
 	painter->save();
 	d->m_painter = painter;
-	d->m_document = document;
+	d->m_pattern = pattern;
 	d->m_hilight = colorHilight;
 
 	painter->drawRect(d->m_paintDeviceArea);
@@ -206,10 +211,10 @@ void Renderer::render(QPainter *painter,
 
 	painter->translate(l, t);
 
-	if (renderGrid)
+	if (renderGrid && pattern->document())
 	{
-		int cellHorizontalGrouping = document->property("cellHorizontalGrouping").toInt();
-		int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
+		int cellHorizontalGrouping = pattern->document()->property("cellHorizontalGrouping").toInt();
+		int cellVerticalGrouping = pattern->document()->property("cellVerticalGrouping").toInt();
 
 		for (int x = 0 ; x < d->m_patternRect.width() ; x++)
 		{
@@ -251,7 +256,7 @@ void Renderer::render(QPainter *painter,
 		{
 			for (int x = leftCell ; x <= rightCell ; x++)
 			{
-				StitchQueue *queue = document->pattern()->stitches().stitchQueueAt(QPoint(x, y));
+				StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y)-offset);
 				if (queue)
 				{
 					double xpos = x*d->m_cellWidth;
@@ -268,27 +273,21 @@ void Renderer::render(QPainter *painter,
 	// process backstitches
 	if (renderBackstitches)
 	{
-		QListIterator<Backstitch *> backstitchIterator = document->pattern()->stitches().backstitchIterator();
+		QListIterator<Backstitch *> backstitchIterator = pattern->stitches().backstitchIterator();
 		while (backstitchIterator.hasNext())
 		{
-			Backstitch *backstitch = backstitchIterator.next();
-			(this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitch);
+			(this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitchIterator.next(), snapOffset);
 		}
 	}
 	// process knots
 	if (renderKnots)
 	{
-		QListIterator<Knot *> knotIterator = document->pattern()->stitches().knotIterator();
+		QListIterator<Knot *> knotIterator = pattern->stitches().knotIterator();
 		while (knotIterator.hasNext())
 		{
-			Knot *knot = knotIterator.next();
-			if ((colorHilight == -1) || (colorHilight = knot->colorIndex))
-			{
-				(this->*renderKnotCallPointers[d->m_renderKnotsAs])(knot);
-			}
+			(this->*renderKnotCallPointers[d->m_renderKnotsAs])(knotIterator.next(), snapOffset);
 		}
 	}
-	
 	painter->restore();
 }
 
@@ -305,7 +304,7 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[stitch->colorIndex];
+		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			pen.setColor(documentFloss->flossColor());
@@ -422,7 +421,7 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[stitch->colorIndex];
+		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			symbolPen.setColor(Qt::black);
@@ -608,7 +607,7 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[stitch->colorIndex];
+		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			pen.setColor(documentFloss->flossColor());
@@ -755,7 +754,7 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[stitch->colorIndex];
+		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
 		QBrush brush(Qt::SolidPattern);
 		QPen pen;
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
@@ -858,7 +857,7 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[stitch->colorIndex];
+		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
 		QPen textPen;
 		QPen outlinePen;
 		QBrush brush(Qt::SolidPattern);
@@ -1015,16 +1014,16 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 }
 
 
-void Renderer::renderBackstitchesAsNone(Backstitch *backstitch)
+void Renderer::renderBackstitchesAsNone(Backstitch *backstitch, const QPoint &offset)
 {
 }
 
 
-void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
+void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch, const QPoint &offset)
 {
-	QPoint start((backstitch->start.x()*d->m_cellWidth)/2, (backstitch->start.y()*d->m_cellHeight)/2);
-	QPoint end((backstitch->end.x()*d->m_cellWidth)/2, (backstitch->end.y()*d->m_cellHeight)/2);
-	DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[backstitch->colorIndex];
+	QPoint start(((backstitch->start.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->start.y()+offset.y())*d->m_cellHeight)/2);
+	QPoint end(((backstitch->end.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->end.y()+offset.y())*d->m_cellHeight)/2);
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
 
 	QPen pen;
 	if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight))
@@ -1043,11 +1042,11 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 }
 
 
-void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
+void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch, const QPoint &offset)
 {
-	QPoint start((backstitch->start.x()*d->m_cellWidth)/2, (backstitch->start.y()*d->m_cellHeight)/2);
-	QPoint end((backstitch->end.x()*d->m_cellWidth)/2, (backstitch->end.y()*d->m_cellHeight)/2);
-	DocumentFloss *documentFloss = d->m_document->pattern()->palette().flosses()[backstitch->colorIndex];
+	QPoint start(((backstitch->start.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->start.y()+offset.y())*d->m_cellHeight)/2);
+	QPoint end(((backstitch->end.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->end.y()+offset.y())*d->m_cellHeight)/2);
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
 
 	QPen pen;
 	pen.setStyle(documentFloss->backstitchSymbol());
@@ -1067,21 +1066,21 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 }
 
 
-void Renderer::renderKnotsAsNone(Knot *knot)
+void Renderer::renderKnotsAsNone(Knot *knot, const QPoint &offset)
 {
 }
 
 
-void Renderer::renderKnotsAsColorBlocks(Knot *knot)
+void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
 {
 }
 
 
-void Renderer::renderKnotsAsColorSymbols(Knot *knot)
+void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
 {
 }
 
 
-void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
+void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint &offset)
 {
 }

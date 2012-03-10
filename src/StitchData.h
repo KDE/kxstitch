@@ -51,15 +51,11 @@ class StitchData
 
 		int width() const;
 		int height() const;
-
+		
 		void resize(int, int);
-
+		
 		QRect extents() const;
 		void movePattern(int dx, int dy);
-
-		StitchData cut(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches);
-		StitchData copy(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const;
-		void paste(const StitchData &dataSet, const QPoint &, bool merge);
 
 		void addStitch(const QPoint &, Stitch::Type, int);
 		void deleteStitch(const QPoint &, Stitch::Type, int);
@@ -69,13 +65,19 @@ class StitchData
 		StitchQueue *replaceStitchQueueAt(const QPoint &, StitchQueue *);
 
 		void addBackstitch(const QPoint &, const QPoint &, int);
+		void addBackstitch(Backstitch *);
 		Backstitch *takeBackstitch(const QPoint &, const QPoint &, int);
+		Backstitch *takeBackstitch(Backstitch *);
 
 		void addFrenchKnot(const QPoint &, int);
+		void addFrenchKnot(Knot *);
 		Knot *takeFrenchKnot(const QPoint &, int);
+		Knot *takeFrenchKnot(Knot *);
 
 		QListIterator<Backstitch *> backstitchIterator();
+		QMutableListIterator<Backstitch *> mutableBackstitchIterator();
 		QListIterator<Knot *> knotIterator();
+		QMutableListIterator<Knot *> mutableKnotIterator();
 
 		QMap<int, FlossUsage> flossUsage();
 
@@ -85,7 +87,7 @@ class StitchData
 	private:
 		void	deleteStitches();
 
-		static const int version = 101;
+		static const int version = 102;
 
 		int m_width;
 		int m_height;

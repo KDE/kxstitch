@@ -161,6 +161,54 @@ void DocumentPalette::add(int flossIndex, DocumentFloss *documentFloss)
 }
 
 
+int DocumentPalette::add(const QColor &srcColor)
+{
+	int colorIndex = -1;
+	
+	QMapIterator<int, DocumentFloss *> flossIterator(m_documentFlosses);
+	while (flossIterator.hasNext() && colorIndex == -1)
+	{
+		flossIterator.next();
+		if (flossIterator.value()->flossColor() == srcColor)
+		{
+			colorIndex = flossIterator.key();
+		}
+	}
+	
+	if (colorIndex == -1) // the color hasn't been found in the existing list
+	{
+		FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
+		Floss *floss = scheme->find(scheme->find(srcColor));
+			
+		for (colorIndex = 0 ; m_documentFlosses.contains(colorIndex) ; ++colorIndex) ; // i contains a free index
+		
+		int c = -1;
+		bool found = false;
+		QChar symbol;
+		while (!found)
+		{
+			symbol = QChar(++c);
+			if (symbol.isPrint() && !symbol.isSpace() && !symbol.isPunct())
+			{
+				found = true;
+				QMapIterator<int, DocumentFloss *> i(m_documentFlosses);
+				while (i.hasNext() && found)
+				{
+					if (i.next().value()->stitchSymbol() == symbol)
+					found = false;
+				}
+			}
+		}
+
+		DocumentFloss *documentFloss = new DocumentFloss(floss->name(), symbol, Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+		documentFloss->setFlossColor(floss->color());
+		add(colorIndex, documentFloss);
+	}
+	
+	return colorIndex;
+}
+
+
 DocumentFloss *DocumentPalette::remove(int flossIndex)
 {
 	DocumentFloss documentFloss = m_documentFlosses.take(flossIndex);

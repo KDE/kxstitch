@@ -17,16 +17,24 @@
 #include "StitchData.h"
 
 
+class Document;
+
+
 class Pattern
 {
 	public:
-		Pattern();
+		Pattern(Document *document = 0);
 		~Pattern();
 		
 		void clear();
 		
+		Document *document();
 		DocumentPalette &palette();
 		StitchData &stitches();
+		
+		Pattern *cut(const QRect &area, int colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots);
+		Pattern *copy(const QRect &area, int colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots);
+		void paste(Pattern *pattern, const QPoint &cell, bool merge);
 		
 		friend QDataStream &operator<<(QDataStream &stream, const Pattern &pattern);
 		friend QDataStream &operator>>(QDataStream &stream, Pattern &pattern);
@@ -34,6 +42,9 @@ class Pattern
 	private:
 		static const int version = 100;
 		
+		void constructPalette(Pattern *pattern);
+		
+		Document	*m_document;
 		DocumentPalette m_documentPalette;
 		StitchData	m_stitchData;
 };

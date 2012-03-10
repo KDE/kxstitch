@@ -290,75 +290,6 @@ void StitchData::movePattern(int dx, int dy)
 }
 
 
-StitchData StitchData::cut(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches)
-{
-#if 0
-	StitchData subSet;
-	QIntListIterator layerIterator(layerMask);
-	while (layerIterator.hasNext())
-	{
-		layerIterator.next();
-		int layer = layerIterator.key();
-		QHashIterator<int, QHash<int, StitchQueue *> > columnIterator(d->m_stitches[layerIterator.value()]);
-		while (columnIterator.hasNext())
-		{
-			columnIterator.next();
-			int column = columnIterator.key();
-			QHashIterator<int, StitchQueue *> rowIterator(columnIterator.value());
-			while (rowIterator.hasNext());
-			{
-				rowIterator.next();
-				int row = rowIterator.key();
-				StitchQueue queue = rowIterator.value();
-				StitchQueue newQueue;
-				QListIterator queueIterator(queue);
-				while (queueIterator.hasNext())
-				{
-					Stitch stitch = queueIterator.next();
-					if (stitchMask.contains(stitch.type()) && colorMask.contains(stitch.color()))
-					{
-						Stitch newStitch(stitch.type(), stitch.floss());
-						newQueue.push(newStitch);
-					}
-				}
-				subSet[layer][column][row] = newQueue;
-			}
-		}
-
-		if (!excludeBackstitches)
-		{
-			QListIterator<Backstitch>  backstitchIterator m_backstitches[layer];
-			while (backstitchIterator.hasNext())
-			{
-				Backstitch backstitch = backstitchIterator.next();
-				if (colorMask.contains(backstitch.floss()))
-				{
-					QRect backstitchRect(backstitch.start(), backstitch.end())
-					// TODO calculate if intersection crosses the selected area
-				}
-			}
-		}
-
-		if (!excludeKnots)
-		{
-			QListIterator<Knot *> knotIterator m_knots[layer];
-			// TODO calculate if the knot is in the selected area
-		}
-	}
-#endif
-}
-
-
-StitchData StitchData::copy(const QRect &area, const QList<int> &colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots, bool crossingBackstitches) const
-{
-}
-
-
-void StitchData::paste(const StitchData &stitchData, const QPoint &, bool merge)
-{
-}
-
-
 void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
 	StitchQueue *stitchQueue = 0;
@@ -446,6 +377,12 @@ void StitchData::addBackstitch(const QPoint &start, const QPoint &end, int color
 }
 
 
+void StitchData::addBackstitch(Backstitch *backstitch)
+{
+	m_backstitches.append(backstitch);
+}
+
+
 Backstitch *StitchData::takeBackstitch(const QPoint &start, const QPoint &end, int colorIndex)
 {
 	Backstitch *removed = 0;
@@ -469,9 +406,34 @@ Backstitch *StitchData::takeBackstitch(const QPoint &start, const QPoint &end, i
 }
 
 
+Backstitch *StitchData::takeBackstitch(Backstitch *backstitch)
+{
+	Backstitch *removed = 0;
+	
+	QMutableListIterator<Backstitch *> iterator(m_backstitches);
+	while (iterator.hasNext())
+	{
+		if (backstitch == iterator.next())
+		{
+			removed = backstitch;
+			iterator.remove();
+			break;
+		}
+	}
+	
+	return removed;
+}
+
+
 void StitchData::addFrenchKnot(const QPoint &position, int colorIndex)
 {
 	m_knots.append(new Knot(position, colorIndex));
+}
+
+
+void StitchData::addFrenchKnot(Knot *knot)
+{
+	m_knots.append(knot);
 }
 
 
@@ -498,15 +460,46 @@ Knot *StitchData::takeFrenchKnot(const QPoint &position, int colorIndex)
 }
 
 
+Knot *StitchData::takeFrenchKnot(Knot *knot)
+{
+	Knot *removed = 0;
+	
+	QMutableListIterator<Knot *> iterator(m_knots);
+	while (iterator.hasNext())
+	{
+		if (knot == iterator.next())
+		{
+			removed = knot;
+			iterator.remove();
+			break;
+		}
+	}
+	
+	return removed;
+}
+
+
 QListIterator<Backstitch *> StitchData::backstitchIterator()
 {
 	return QListIterator<Backstitch *>(m_backstitches);
 }
 
 
+QMutableListIterator<Backstitch *> StitchData::mutableBackstitchIterator()
+{
+	return QMutableListIterator<Backstitch *>(m_backstitches);
+}
+
+
 QListIterator<Knot *> StitchData::knotIterator()
 {
 	return QListIterator<Knot *>(m_knots);
+}
+
+
+QMutableListIterator<Knot *> StitchData::mutableKnotIterator()
+{
+	return QMutableListIterator<Knot *>(m_knots);
 }
 
 
@@ -606,6 +599,20 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
 			stream << *stitchQueue;
 		}
 	}
+	
+	QListIterator<Backstitch *> backstitchIterator(stitchData.m_backstitches);
+	stream << qint32(stitchData.m_backstitches.count());
+	while (backstitchIterator.hasNext())
+	{
+		stream << *(backstitchIterator.next());
+	}
+	
+	QListIterator<Knot *> knotIterator(stitchData.m_knots);
+	stream << qint32(stitchData.m_knots.count());
+	while (knotIterator.hasNext())
+	{
+		stream << *(knotIterator.next());
+	}
 
 	return stream;
 }
@@ -619,12 +626,54 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
 	qint32 layers;
 	qint32 columns;
 	qint32 rows;
+	qint32 count;
 
 	stitchData.clear();
 	
 	stream >> version;
 	switch (version)
 	{
+		case 102:
+			stream >> width;
+			stream >> height;
+			stitchData.m_width = width;
+			stitchData.m_height = height;
+			
+			stream >> columns;
+			while (columns--)
+			{
+				stream >> rows;
+				while (rows--)
+				{
+					qint32 column;
+					qint32 row;
+
+					stream >> column;
+					stream >> row;
+
+					StitchQueue *stitchQueue = new StitchQueue;
+					stitchData.m_stitches[column][row] = stitchQueue;
+					stream >> *stitchQueue;
+				}
+			}
+			
+			stream >> count;
+			while (count--)
+			{
+				Backstitch *backstitch = new Backstitch;
+				stream >> *(backstitch);
+				stitchData.addBackstitch(backstitch);
+			}
+			
+			stream >> count;
+			while (count--)
+			{
+				Knot *knot = new Knot;
+				stream >> *knot;
+				stitchData.addFrenchKnot(knot);
+			}
+			break;
+						
 		case 101:
 			stream >> width;
 			stream >> height;

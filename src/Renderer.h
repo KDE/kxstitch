@@ -45,18 +45,19 @@ class Renderer
 		void setPaintDeviceArea(const QRectF &);
 
 		void render(QPainter *,
-			    Document *,
+			    Pattern *,
 			    const QRect &updateRectangle,
 			    bool renderGrid,
 			    bool renderStitches,
 			    bool renderBackstitches,
 			    bool renderKnots,
-			    int colorHilight);
+			    int colorHilight,
+			    const QPoint &offset = QPoint(0, 0));
 
 	private:
 		typedef void (Renderer::*renderStitchCallPointer)(StitchQueue *);
-		typedef void (Renderer::*renderBackstitchCallPointer)(Backstitch *);
-		typedef void (Renderer::*renderKnotCallPointer)(Knot *);
+		typedef void (Renderer::*renderBackstitchCallPointer)(Backstitch *, const QPoint &);
+		typedef void (Renderer::*renderKnotCallPointer)(Knot *, const QPoint &);
 
 		static const renderStitchCallPointer renderStitchCallPointers[];
 		static const renderBackstitchCallPointer renderBackstitchCallPointers[];
@@ -69,14 +70,14 @@ class Renderer
 		void renderStitchesAsColorBlocks(StitchQueue *);
 		void renderStitchesAsColorBlocksSymbols(StitchQueue *);
 
-		void renderBackstitchesAsNone(Backstitch *);
-		void renderBackstitchesAsColorLines(Backstitch *);
-		void renderBackstitchesAsBlackWhiteSymbols(Backstitch *);
+		void renderBackstitchesAsNone(Backstitch *, const QPoint &);
+		void renderBackstitchesAsColorLines(Backstitch *, const QPoint &);
+		void renderBackstitchesAsBlackWhiteSymbols(Backstitch *, const QPoint &);
 
-		void renderKnotsAsNone(Knot *);
-		void renderKnotsAsColorBlocks(Knot *);
-		void renderKnotsAsColorSymbols(Knot *);
-		void renderKnotsAsBlackWhiteSymbols(Knot *);
+		void renderKnotsAsNone(Knot *, const QPoint &);
+		void renderKnotsAsColorBlocks(Knot *, const QPoint &);
+		void renderKnotsAsColorSymbols(Knot *, const QPoint &);
+		void renderKnotsAsBlackWhiteSymbols(Knot *, const QPoint &);
 
 		QSharedDataPointer<RendererPrivate>	d;
 };

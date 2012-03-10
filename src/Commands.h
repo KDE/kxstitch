@@ -33,6 +33,7 @@ class Editor;
 class Floss;
 class MainWindow;
 class Palette;
+class Pattern;
 class Preview;
 
 
@@ -618,6 +619,46 @@ class UpdatePrinterConfigurationCommand : public QUndoCommand
 	private:
 		Document		*m_document;
 		PrinterConfiguration	m_printerConfiguration;
+};
+
+
+class EditCutCommand : public QUndoCommand
+{
+	public:
+		EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots);
+		~EditCutCommand();
+		
+		void redo();
+		void undo();
+
+	private:
+		Document		*m_document;
+		QRect			m_selectionArea;
+		int			m_colorMask;
+		QList<Stitch::Type>	m_stitchMasks;
+		bool			m_excludeBackstitches;
+		bool			m_excludeKnots;
+		
+		Pattern			*m_originalPattern;
+};
+
+
+class EditPasteCommand : public QUndoCommand
+{
+	public:
+		EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge);
+		~EditPasteCommand();
+		
+		void redo();
+		void undo();
+		
+	private:
+		Document	*m_document;
+		Pattern		*m_pastePattern;
+		QPoint		m_cell;
+		bool		m_merge;
+		
+		QByteArray	m_originalPattern;
 };
 
 

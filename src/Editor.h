@@ -13,13 +13,17 @@
 #define Editor_H
 
 
-#include <QUndoCommand>
 #include <QWidget>
+
+#include "Stitch.h"
 
 #include "configuration.h"
 
 
+class QUndoCommand;
+
 class Document;
+class Pattern;
 class Preview;
 class Renderer;
 class Scale;
@@ -52,7 +56,7 @@ class Editor : public QWidget
 			ToolText,
 			ToolSelect,
 			ToolBackstitch,
-			ToolPaste = 128		// or'd with the operating tool mode when pasting.
+			ToolPaste
 		};
 
 		Editor(QWidget *);
@@ -84,6 +88,10 @@ class Editor : public QWidget
 		void fitToPage();
 		void fitToWidth();
 		void fitToHeight();
+		
+		void editCut();
+		void editCopy();
+		void editPaste();
 
 		void renderStitches(bool);
 		void renderBackstitches(bool);
@@ -130,6 +138,7 @@ class Editor : public QWidget
 		void renderRubberBandLine(QPainter *, QRect);
 		void renderRubberBandRectangle(QPainter *, QRect);
 		void renderRubberBandEllipse(QPainter *, QRect);
+		void renderPasteImage(QPainter *, QRect);
 
 		void mousePressEvent_Paint(QMouseEvent*);
 		void mouseMoveEvent_Paint(QMouseEvent*);
@@ -175,6 +184,10 @@ class Editor : public QWidget
 		void mouseMoveEvent_Backstitch(QMouseEvent*);
 		void mouseReleaseEvent_Backstitch(QMouseEvent*);
 
+		void mousePressEvent_Paste(QMouseEvent *event);
+		void mouseMoveEvent_Paste(QMouseEvent *event);
+		void mouseReleaseEvent_Paste(QMouseEvent *event);
+
 		QPoint contentsToCell(const QPoint &) const;
 		int contentsToZone(const QPoint &) const;
 		QPoint contentsToSnap(const QPoint &) const;
@@ -182,6 +195,7 @@ class Editor : public QWidget
 		QRect cellToRect(QPoint);
 		void processBitmap(QUndoCommand *, QBitmap &);
 		QRect visibleCells();
+		QList<Stitch::Type> maskStitches() const;
 
 		Document	*m_document;
 		Preview		*m_preview;
@@ -200,6 +214,7 @@ class Editor : public QWidget
 		int	m_cellVerticalGrouping;
 
 		enum ToolMode	m_toolMode;
+		enum ToolMode	m_oldToolMode;
 
 		bool	m_renderBackgroundImages;
 		bool	m_renderGrid;
@@ -231,6 +246,9 @@ class Editor : public QWidget
 
 		QRect	m_rubberBand;
 		QRect	m_selectionArea;
+		
+		QByteArray	m_pasteData;
+		Pattern		*m_pastePattern;
 
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, QRect);

@@ -12,7 +12,9 @@
 #include "Editor.h"
 
 #include <QAction>
+#include <QApplication>
 #include <QBitmap>
+#include <QClipboard>
 #include <QContextMenuEvent>
 #include <QMenu>
 #include <QMouseEvent>
@@ -49,7 +51,8 @@ const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 	&Editor::mousePressEvent_FillPolyline,
 	&Editor::mousePressEvent_Text,
 	&Editor::mousePressEvent_Select,
-	&Editor::mousePressEvent_Backstitch
+	&Editor::mousePressEvent_Backstitch,
+	&Editor::mousePressEvent_Paste
 };
 
 const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
@@ -64,7 +67,8 @@ const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
 	&Editor::mouseMoveEvent_FillPolyline,
 	&Editor::mouseMoveEvent_Text,
 	&Editor::mouseMoveEvent_Select,
-	&Editor::mouseMoveEvent_Backstitch
+	&Editor::mouseMoveEvent_Backstitch,
+	&Editor::mouseMoveEvent_Paste
 };
 
 const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
@@ -79,7 +83,8 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
 	&Editor::mouseReleaseEvent_FillPolyline,
 	&Editor::mouseReleaseEvent_Text,
 	&Editor::mouseReleaseEvent_Select,
-	&Editor::mouseReleaseEvent_Backstitch
+	&Editor::mouseReleaseEvent_Backstitch,
+	&Editor::mouseReleaseEvent_Paste
 };
 
 const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGraphics[] =
@@ -94,7 +99,8 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	0,					// Fill Polyline
 	0,					// Text
 	&Editor::renderRubberBandRectangle,	// Select
-	&Editor::renderRubberBandLine		// Backstitch
+	&Editor::renderRubberBandLine,		// Backstitch
+	&Editor::renderPasteImage		// Paste
 };
 
 
@@ -321,6 +327,71 @@ void Editor::fitToHeight()
 }
 
 
+QList<Stitch::Type> Editor::maskStitches() const
+{
+	QList<Stitch::Type> maskStitches;
+	if (m_maskStitch)
+	{
+		if (m_currentStitchType == StitchFull)
+			maskStitches << Stitch::Full;
+		else
+		{
+			for (int i = 0 ; i < 4 ; ++i)
+				maskStitches << stitchMap[m_currentStitchType][i];
+		}
+	}
+	else
+	{
+		maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr
+			<< Stitch::TBHalf << Stitch::TR3Qtr << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf
+			<< Stitch::TRSmallHalf << Stitch::BLSmallHalf << Stitch::BRSmallHalf << Stitch::TLSmallFull << Stitch::TRSmallFull
+			<< Stitch::BLSmallFull << Stitch::BRSmallFull;
+	}
+
+	return maskStitches;
+}
+
+
+void Editor::editCut()
+{
+	m_document->undoStack().push(new EditCutCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot));
+	m_selectionArea = QRect();
+}
+
+
+void Editor::editCopy()
+{
+	Pattern *pattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot);
+
+	QByteArray data;
+	QDataStream stream(&data, QIODevice::WriteOnly);
+	stream << *pattern;
+	
+	QMimeData *mimeData = new QMimeData();
+	mimeData->setData("application/kxstitch", data);
+	
+	QApplication::clipboard()->setMimeData(mimeData);
+
+	m_selectionArea = QRect();
+	update();
+}
+
+
+void Editor::editPaste()
+{
+	m_pasteData = QApplication::clipboard()->mimeData()->data("application/kxstitch");
+	m_pastePattern = new Pattern;
+	QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
+	stream >> *m_pastePattern;
+	
+	m_oldToolMode = m_toolMode;
+	m_toolMode = ToolPaste;
+	
+	m_cellStart = m_cellTracking = m_cellEnd = QPoint(0, 0);
+	update();
+}
+
+
 void Editor::renderStitches(bool show)
 {
 	m_renderStitches = show;
@@ -503,16 +574,20 @@ void Editor::paintEvent(QPaintEvent *e)
 
 	painter->fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
 
-	if (m_renderBackgroundImages) renderBackgroundImages(painter, e->rect());
+	if (m_renderBackgroundImages)
+		renderBackgroundImages(painter, e->rect());
+	
 	m_renderer->render(painter,
-			   m_document,
+			   m_document->pattern(),
 			   e->rect(),
 			   m_renderGrid,
 			   m_renderStitches,
 			   m_renderBackstitches,
 			   m_renderFrenchKnots,
 			   (m_colorHilight)?m_document->pattern()->palette().currentIndex():-1);
-	if (renderToolSpecificGraphics[m_toolMode]) (this->*renderToolSpecificGraphics[m_toolMode])(painter, e->rect());
+	
+	if (renderToolSpecificGraphics[m_toolMode])
+		(this->*renderToolSpecificGraphics[m_toolMode])(painter, e->rect());
 
 	painter->end();
 	delete painter;
@@ -590,6 +665,22 @@ void Editor::renderRubberBandEllipse(QPainter *painter, QRect)
 		painter->setPen(Qt::black);
 		painter->drawPath(path);
 	}
+	painter->restore();
+}
+
+
+void Editor::renderPasteImage(QPainter *painter, QRect rect)
+{
+	painter->save();
+	m_renderer->render(painter,
+			   m_pastePattern,	// the pattern data to render
+			   rect,		// update rectangle
+			   false,		// dont render the grid
+			   true,		// render stitches
+			   true,		// render backstitches
+			   true,		// render knots
+			   -1,			// all colors
+			   m_cellEnd);		// offset to the position of the mouse
 	painter->restore();
 }
 
@@ -708,7 +799,7 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 		painter.setPen(QPen(Qt::color1));
 		painter.drawLine(m_cellStart, m_cellEnd);
 		painter.end();
-		
+
 		QUndoCommand *cmd = new DrawLineCommand(m_document);
 		processBitmap(cmd, canvas);
 		
@@ -724,7 +815,7 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
 	QPoint p = e->pos();
 	QRect rect;
 	QUndoCommand *cmd;
-	
+
 	if (e->modifiers() & Qt::ControlModifier)
 	{
 		// Erase a backstitch
@@ -1156,6 +1247,32 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 }
 
 
+void Editor::mousePressEvent_Paste(QMouseEvent *e)
+{
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	update();
+}
+
+
+void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
+{
+	m_cellTracking = contentsToCell(e->pos());
+	if (m_cellTracking != m_cellEnd)
+	{
+		m_cellEnd = m_cellTracking;
+		update();
+	}
+}
+
+
+void Editor::mouseReleaseEvent_Paste(QMouseEvent *e)
+{
+	m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
+	m_pastePattern = 0;
+	m_toolMode = m_oldToolMode;
+}
+
+
 QPoint Editor::contentsToCell(const QPoint &p) const
 {
 	return QPoint(p.x()/m_cellWidth, p.y()/m_cellHeight);
@@ -1203,6 +1320,7 @@ void Editor::processBitmap(QUndoCommand *parent, QBitmap &canvas)
 {
 	QImage image;
 	image = canvas.toImage();
+			
 	for (int y = 0 ; y < image.height() ; y++)
 	{
 		for (int x = 0 ; x < image.width() ; x++)

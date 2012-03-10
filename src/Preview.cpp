@@ -120,7 +120,7 @@ void Preview::paintEvent(QPaintEvent *e)
 	painter.begin(this);
 	painter.setRenderHint(QPainter::Antialiasing, true);
 	painter.fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
-	m_renderer->render(&painter, m_document, e->rect(), false, true, true, true, -1);
+	m_renderer->render(&painter, m_document->pattern(), e->rect(), false, true, true, true, -1);
 
 	if (m_visible.width()*m_cellWidth < m_previewWidth || m_visible.height()*m_cellHeight < m_previewHeight)
 	{

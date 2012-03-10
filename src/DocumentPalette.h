@@ -41,6 +41,7 @@ class DocumentPalette
 		void setSchemeName(const QString &);
 		void setCurrentIndex(int);
 		void add(int, DocumentFloss *);
+		int add(const QColor &);
 		DocumentFloss *remove(int);
 		DocumentFloss *replace(int, DocumentFloss *);
 		void swap(int, int);
