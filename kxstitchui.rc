@@ -162,7 +162,7 @@
 	<Action name="paletteSwapColors"/>
 	<Action name="paletteReplaceColor"/>
 </Menu>
-<ToolBar name="StitchToolBar" fullWidth="false">
+<ToolBar name="StitchToolBar" fullWidth="false"><text>Stitch Toolbar</text>
 	<Action name="stitchQuarter"/>
 	<Action name="stitchHalf"/>
 	<Action name="stitch3Quarter"/>
@@ -173,7 +173,7 @@
 	<Separator/>
 	<Action name="stitchFrenchKnot"/>
 </ToolBar>
-<ToolBar name="ToolsToolbar" fullWidth="false">
+<ToolBar name="ToolsToolbar" fullWidth="false"><text>Tools Toolbar</text>
     <Action name="toolPaint"/>
     <Action name="toolDraw"/>
     <Action name="toolErase"/>
@@ -195,7 +195,7 @@
     <Action name="paletteManager"/>
     <Action name="colorPicker"/>
 </ToolBar>
-<ToolBar name="ZoomToolbar" fullWidth="false">
+<ToolBar name="ZoomToolbar" fullWidth="false"><text>Zoom Toolbar</text>
 	<Action name="view_zoom_in"/>
 	<Action name="view_zoom_out"/>
 	<Separator/>
