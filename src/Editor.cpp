@@ -413,6 +413,9 @@ void Editor::pastePattern(Pattern *pattern)
 	m_toolMode = ToolPaste;
 
 	m_cellStart = m_cellTracking = m_cellEnd = QPoint(0, 0);
+	QPoint pos = mapFromGlobal(QCursor::pos());
+	if (rect().contains(pos))
+		m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(pos);
 	update();
 }
 
