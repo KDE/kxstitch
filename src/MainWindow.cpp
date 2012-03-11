@@ -960,6 +960,12 @@ void MainWindow::patternExtend()
 }
 
 
+void MainWindow::patternCrop()
+{
+	m_document->undoStack().push(new CropToPatternCommand(m_document));
+}
+
+
 void MainWindow::formatScalesAsStitches()
 {
 	m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
@@ -1289,6 +1295,11 @@ void MainWindow::setupActions()
 	action->setText(i18n("Extend Pattern..."));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
 	actions->addAction("patternExtend", action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Crop Canvas to Pattern"));
+	connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
+	actions->addAction("patternCrop", action);
 
 
 	// Library Menu

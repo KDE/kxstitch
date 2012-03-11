@@ -779,6 +779,8 @@ void CropToPatternCommand::redo()
 	m_yOffset = -extents.top();
 	m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
 	m_document->pattern()->stitches().resize(extents.width(), extents.height());
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
 }
 
 
@@ -786,6 +788,8 @@ void CropToPatternCommand::undo()
 {
 	m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 	m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
 }
 
 

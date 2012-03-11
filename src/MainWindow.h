@@ -95,6 +95,7 @@ class MainWindow : public KXmlGuiWindow
 
 		// Pattern menu
 		void patternExtend();
+		void patternCrop();
 
 		// Settings menu
 		void formatScalesAsStitches();
