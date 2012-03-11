@@ -29,9 +29,7 @@ class TextToolDlg : public KDialog
 		TextToolDlg(QWidget *);
 		~TextToolDlg();
 
-		int boundingWidth() const;
-		int boundingHeight() const;
-		QByteArray pattern();
+		QImage image();
 
 	protected slots:
 		void slotButtonClicked(int);
@@ -47,8 +45,6 @@ class TextToolDlg : public KDialog
 		QFont	m_font;
 		int	m_size;
 		QString	m_text;
-		int	m_boundingWidth;
-		int	m_boundingHeight;
 };
 
 

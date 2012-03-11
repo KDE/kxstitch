@@ -642,7 +642,7 @@ class EditCutCommand : public QUndoCommand
 class EditPasteCommand : public QUndoCommand
 {
 	public:
-		EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge);
+		EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge, const QString &);
 		~EditPasteCommand();
 		
 		void redo();

@@ -55,7 +55,6 @@
 #include "QVariantPtr.h"
 #include "Scale.h"
 #include "SchemeManager.h"
-#include "TextToolDlg.h"
 
 
 MainWindow::MainWindow()
@@ -833,41 +832,6 @@ void MainWindow::redoTextChanged(const QString &text)
 void MainWindow::clipboardDataChanged()
 {
 	actionCollection()->action("edit_paste")->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch"));
-}
-
-
-void MainWindow::toolText()
-{
-	QPointer<TextToolDlg> textToolDlg = new TextToolDlg(this);
-	if (textToolDlg->exec())
-	{
-		QByteArray pattern = textToolDlg->pattern();
-		QByteArray array;
-		QDataStream stream(&array, QIODevice::WriteOnly);
-		DocumentFloss *documentFloss = m_document->pattern()->palette().currentFloss();
-		QColor flossColor = documentFloss->flossColor();
-		stream << m_document->pattern()->palette().schemeName();
-		int width = textToolDlg->boundingWidth();
-		int height = textToolDlg->boundingHeight();
-		stream << (qint32)width;
-		stream << (qint32)height;
-		for (int y = 0 ; y < height ; y++)
-		{
-			for (int x = 0 ; x < width ; x++)
-			{
-				if (pattern[y*width+x])
-					stream << (qint8)1 << (qint8)Stitch::Full << flossColor;
-				else
-					stream << (qint8)0;
-			}
-		}
-		stream << (qint32)0;
-		stream << (qint32)0;
-
-		PatternMimeData *patternMimeData = new PatternMimeData();
-		patternMimeData->setData("application/kxstitch", array);
-		QApplication::clipboard()->setMimeData(patternMimeData);
-	}
 }
 
 

@@ -1211,8 +1211,8 @@ void EditCutCommand::undo()
 }
 
 
-EditPasteCommand::EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge)
-	:	QUndoCommand("Paste"),
+EditPasteCommand::EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge, const QString &source)
+	:	QUndoCommand(source),
 		m_document(document),
 		m_pastePattern(pattern),
 		m_cell(cell),

@@ -19,7 +19,7 @@
 TextToolDlg::TextToolDlg(QWidget *parent)
 	:	KDialog(parent)
 {
-	setCaption(i18n("File Properties"));
+	setCaption(i18n("Text Tool"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
@@ -48,7 +48,7 @@ void TextToolDlg::slotButtonClicked(int button)
 }
 
 
-QByteArray TextToolDlg::pattern()
+QImage TextToolDlg::image()
 {
 	QBitmap bitmap(1000, 100);
 	QPainter painter;
@@ -60,37 +60,21 @@ QByteArray TextToolDlg::pattern()
 	painter.setFont(font);
 	painter.setPen(QPen(Qt::color0));
 	QRect boundingRect = painter.boundingRect(0, 0, 1000, 100, Qt::AlignLeft | Qt::AlignTop, m_text);
-	m_boundingWidth = boundingRect.width();
-	m_boundingHeight = boundingRect.height();
 	painter.end();
 
-	bitmap = bitmap.copy(0, 0, m_boundingWidth, m_boundingHeight); // a resize
+	int boundingWidth = boundingRect.width();
+	int boundingHeight = boundingRect.height();
+	bitmap = bitmap.copy(0, 0, boundingWidth, boundingHeight); // a resize
 	painter.begin(&bitmap);
 	painter.setFont(font);
 	bitmap.fill(Qt::color0);
 	painter.setPen(QPen(Qt::color1));
-	painter.drawText(0, 0, m_boundingWidth, m_boundingHeight, Qt::AlignLeft | Qt::AlignTop, m_text);
+	painter.drawText(0, 0, boundingWidth, boundingHeight, Qt::AlignLeft | Qt::AlignTop, m_text);
 	painter.end();
+	
+	QImage image = bitmap.toImage();
 
-	QImage image;
-	QByteArray a(m_boundingWidth*m_boundingHeight, '\0');
-	image = bitmap.toImage();
-	for (int y = 0 ; y < m_boundingHeight ; y++)
-		for (int x = 0 ; x < m_boundingWidth ; x++)
-			a[y*m_boundingWidth+x] = ((image.pixelIndex(x, y))?1:0);
-	return a;
-}
-
-
-int TextToolDlg::boundingWidth() const
-{
-	return m_boundingWidth;
-}
-
-
-int TextToolDlg::boundingHeight() const
-{
-	return m_boundingHeight;
+	return image;
 }
 
 

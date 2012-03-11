@@ -37,7 +37,24 @@
 #include "Preview.h"
 #include "Renderer.h"
 #include "Scale.h"
+#include "TextToolDlg.h"
 
+
+const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
+{
+	0,					// Paint
+	0,					// Draw
+	0,					// Erase
+	0,					// Rectangle
+	0,					// Fill Rectangle
+	0,					// Ellipse
+	0,					// Fill Ellipse
+	0,					// Fill Polyline
+	&Editor::toolInitText,			// Text
+	0,					// Select
+	0,					// Backstitch
+	0					// Paste
+};
 
 const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 {
@@ -380,13 +397,21 @@ void Editor::editCopy()
 void Editor::editPaste()
 {
 	m_pasteData = QApplication::clipboard()->mimeData()->data("application/kxstitch");
-	m_pastePattern = new Pattern;
+	Pattern *pattern = new Pattern;
 	QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
-	stream >> *m_pastePattern;
+	stream >> *pattern;
+	
+	pastePattern(pattern);
+}
+
+
+void Editor::pastePattern(Pattern *pattern)
+{
+	m_pastePattern = pattern;
 	
 	m_oldToolMode = m_toolMode;
 	m_toolMode = ToolPaste;
-	
+
 	m_cellStart = m_cellTracking = m_cellEnd = QPoint(0, 0);
 	update();
 }
@@ -470,7 +495,10 @@ void Editor::selectTool()
 		}
 		emit(selectionMade(false));
 	}
+	
 	m_toolMode = static_cast<Editor::ToolMode>(qobject_cast<QAction *>(sender())->data().toInt());
+	if (toolInitCallPointers[m_toolMode])
+		(this->*toolInitCallPointers[m_toolMode])();
 }
 
 
@@ -540,6 +568,41 @@ void Editor::keyPressEvent(QKeyEvent*)
 
 void Editor::keyReleaseEvent(QKeyEvent*)
 {
+}
+
+
+void Editor::toolInitText()
+{
+	QPointer<TextToolDlg> textToolDlg = new TextToolDlg(this);
+	if (textToolDlg->exec())
+	{
+		Pattern *pattern = new Pattern;
+		QImage image = textToolDlg->image();
+
+		pattern->palette().setSchemeName(m_document->pattern()->palette().schemeName());
+		int currentIndex = m_document->pattern()->palette().currentIndex();
+		pattern->palette().add(currentIndex, new DocumentFloss(m_document->pattern()->palette().currentFloss()));
+		pattern->stitches().resize(image.width(), image.height());
+		
+		int stitchesAdded = 0;
+		for (int row = 0 ; row < image.height() ; ++row)
+		{
+			for (int col = 0 ; col < image.width() ; ++col)
+			{
+				if (image.pixelIndex(col, row) == 1)
+				{
+					QPoint cell(col, row);
+					pattern->stitches().addStitch(cell, Stitch::Full, currentIndex);
+					++stitchesAdded;
+				}
+			}
+		}
+		
+		if (stitchesAdded)
+			pastePattern(pattern);
+		else
+			delete pattern;
+	}
 }
 
 
@@ -1214,7 +1277,12 @@ void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Paste(QMouseEvent *e)
 {
-	m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
+	QString source = i18n("Paste");
+	
+	if (m_oldToolMode == ToolText)
+		source = i18n("Text");
+	
+	m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier), source));
 	m_pastePattern = 0;
 	m_toolMode = m_oldToolMode;
 }

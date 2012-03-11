@@ -92,6 +92,8 @@ class Editor : public QWidget
 		void editCut();
 		void editCopy();
 		void editPaste();
+		
+		void pastePattern(Pattern *);
 
 		void renderStitches(bool);
 		void renderBackstitches(bool);
@@ -130,6 +132,8 @@ class Editor : public QWidget
 	private:
 		void zoom(double);
 
+		void toolInitText();
+		
 		void renderBackgroundImages(QPainter *, QRect);
 		void renderStitches(QPainter *, QRect);
 		void renderBackstitches(QPainter *, QRect);
@@ -250,9 +254,11 @@ class Editor : public QWidget
 		QByteArray	m_pasteData;
 		Pattern		*m_pastePattern;
 
+		typedef void (Editor::*toolInitCallPointer)();
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, QRect);
 
+		static const toolInitCallPointer	toolInitCallPointers[];
 		static const mouseEventCallPointer	mousePressEventCallPointers[];
 		static const mouseEventCallPointer	mouseMoveEventCallPointers[];
 		static const mouseEventCallPointer	mouseReleaseEventCallPointers[];

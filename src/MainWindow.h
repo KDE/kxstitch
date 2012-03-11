@@ -77,7 +77,6 @@ class MainWindow : public KXmlGuiWindow
 		void clipboardDataChanged();
 
 		// Tool menu
-		void toolText();
 
 		// Palette menu
 		void paletteManager();
