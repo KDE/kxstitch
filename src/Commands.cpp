@@ -543,6 +543,7 @@ void AddBackgroundImageCommand::redo()
 {
 	m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
 	m_mainWindow->updateBackgroundImageActionLists();
+	m_document->editor()->update();
 }
 
 
@@ -550,6 +551,7 @@ void AddBackgroundImageCommand::undo()
 {
 	m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
 	m_mainWindow->updateBackgroundImageActionLists();
+	m_document->editor()->update();
 }
 
 
@@ -570,12 +572,14 @@ FitBackgroundImageCommand::~FitBackgroundImageCommand()
 void FitBackgroundImageCommand::redo()
 {
 	m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
+	m_document->editor()->update();
 }
 
 
 void FitBackgroundImageCommand::undo()
 {
 	m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
+	m_document->editor()->update();
 }
 
 
@@ -596,12 +600,14 @@ ShowBackgroundImageCommand::~ShowBackgroundImageCommand()
 void ShowBackgroundImageCommand::redo()
 {
 	m_visible = m_document->backgroundImages().showBackgroundImage(m_backgroundImage, m_visible);
+	m_document->editor()->update();
 }
 
 
 void ShowBackgroundImageCommand::undo()
 {
 	m_visible = m_document->backgroundImages().showBackgroundImage(m_backgroundImage, m_visible);
+	m_document->editor()->update();
 }
 
 
@@ -625,6 +631,7 @@ void RemoveBackgroundImageCommand::redo()
 {
 	m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
 	m_mainWindow->updateBackgroundImageActionLists();
+	m_document->editor()->update();
 }
 
 
@@ -632,6 +639,7 @@ void RemoveBackgroundImageCommand::undo()
 {
 	m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
 	m_mainWindow->updateBackgroundImageActionLists();
+	m_document->editor()->update();
 }
 
 

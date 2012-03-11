@@ -772,8 +772,6 @@ void MainWindow::fileAddBackgroundImage()
 		if (backgroundImage->isValid())
 		{
 			m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage, this));
-//			updateBackgroundImageActionLists();
-			m_editor->update();
 		}
 		else
 			delete backgroundImage;
@@ -785,7 +783,6 @@ void MainWindow::fileRemoveBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
 	m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), this));
-	m_editor->update();
 }
 
 
@@ -977,22 +974,14 @@ void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
 void MainWindow::viewFitBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->undoStack().beginMacro("Fit background image");
-	m_document->undoStack().push(new UpdateEditorCommand(m_editor));
 	m_document->undoStack().push(new FitBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), m_editor->selectionArea()));
-	m_document->undoStack().endMacro();
-	m_editor->update();
 }
 
 
 void MainWindow::viewShowBackgroundImage()
 {
 	KAction *action = qobject_cast<KAction *>(sender());
-	m_document->undoStack().beginMacro("Show background image");
-	m_document->undoStack().push(new UpdateEditorCommand(m_editor));
 	m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), action->isChecked()));
-	m_document->undoStack().endMacro();
-	m_editor->update();
 }
 
 
