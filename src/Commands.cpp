@@ -1086,6 +1086,10 @@ void PaletteReplaceColorCommand::redo()
 			}
 		}
 	}
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 
@@ -1108,6 +1112,10 @@ void PaletteReplaceColorCommand::undo()
 	{
 		knotIterator.next()->colorIndex = m_originalIndex;
 	}
+
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 
