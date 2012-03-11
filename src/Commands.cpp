@@ -793,6 +793,53 @@ void CropToPatternCommand::undo()
 }
 
 
+CropToSelectionCommand::CropToSelectionCommand(Document *document, const QRect &selectionArea)
+	:	QUndoCommand(i18n("Crop to Selection")),
+		m_document(document),
+		m_selectionArea(selectionArea)
+{
+}
+		
+
+CropToSelectionCommand::~CropToSelectionCommand()
+{
+}
+
+
+void CropToSelectionCommand::redo()
+{
+	QList<Stitch::Type> maskStitches;
+	maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr
+			<< Stitch::TBHalf << Stitch::TR3Qtr << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf
+			<< Stitch::TRSmallHalf << Stitch::BLSmallHalf << Stitch::BRSmallHalf << Stitch::TLSmallFull << Stitch::TRSmallFull
+			<< Stitch::BLSmallFull << Stitch::BRSmallFull;
+
+	QDataStream stream(&m_originalPattern, QIODevice::WriteOnly);
+	stream << *(m_document->pattern());
+	
+	Pattern *pattern = m_document->pattern()->copy(m_selectionArea, -1, maskStitches, false, false);
+	m_document->pattern()->clear();
+	m_document->pattern()->stitches().resize(m_selectionArea.width(), m_selectionArea.height());
+	m_document->pattern()->paste(pattern, QPoint(0, 0), true);
+	delete pattern;
+	
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
+}
+
+
+void CropToSelectionCommand::undo()
+{
+	m_document->pattern()->clear();
+	QDataStream stream(&m_originalPattern, QIODevice::ReadOnly);
+	stream >> *(m_document->pattern());
+	m_originalPattern.clear();
+	
+	m_document->editor()->readDocumentSettings();
+	m_document->preview()->readDocumentSettings();
+}
+
+
 ExtendPatternCommand::ExtendPatternCommand(Document *document, int top, int left, int right, int bottom)
 	:	QUndoCommand(i18n("Extend Pattern")),
 		m_document(document),

@@ -450,6 +450,22 @@ class CropToPatternCommand : public QUndoCommand
 };
 
 
+class CropToSelectionCommand : public QUndoCommand
+{
+public:
+	CropToSelectionCommand(Document *, const QRect &);
+	~CropToSelectionCommand();
+	
+	void redo();
+	void undo();
+	
+private:
+	Document	*m_document;
+	QRect		m_selectionArea;
+	QByteArray	m_originalPattern;
+};
+
+
 class ExtendPatternCommand : public QUndoCommand
 {
 	public:

@@ -139,6 +139,7 @@ void MainWindow::setupDocument()
 	connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_cut"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_copy"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
 	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
@@ -966,6 +967,12 @@ void MainWindow::patternCrop()
 }
 
 
+void MainWindow::patternCropToSelection()
+{
+	m_document->undoStack().push(new CropToSelectionCommand(m_document, m_editor->selectionArea()));
+}
+
+
 void MainWindow::formatScalesAsStitches()
 {
 	m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
@@ -1300,6 +1307,12 @@ void MainWindow::setupActions()
 	action->setText(i18n("Crop Canvas to Pattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
 	actions->addAction("patternCrop", action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Crop Canvas to Selection"));
+	connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
+	action->setEnabled(false);
+	actions->addAction("patternCropToSelection", action);
 
 
 	// Library Menu
