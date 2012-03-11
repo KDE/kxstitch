@@ -169,6 +169,8 @@ Editor::Editor(QWidget *parent)
 	m_verticalScale = new Scale(Qt::Vertical);
 
 	m_renderer = new Renderer();
+	
+	m_zoomFactor = 1.0;
 }
 
 
@@ -229,7 +231,7 @@ void Editor::readDocumentSettings()
 
 	m_renderer->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
 
-	zoom(1.0);
+	zoom(m_zoomFactor);
 }
 
 
