@@ -810,6 +810,8 @@ void ExtendPatternCommand::redo()
 	StitchData &stitchData = m_document->pattern()->stitches();
 	stitchData.resize(stitchData.width()+m_left+m_right, stitchData.height()+m_top+m_bottom);
 	stitchData.movePattern(m_left, m_top);
+	m_document->editor()->readDocumentSettings();	// this causes a zoom updating the display
+	m_document->preview()->readDocumentSettings();	// this causes a resize updating the display
 }
 
 
@@ -818,6 +820,8 @@ void ExtendPatternCommand::undo()
 	StitchData &stitchData = m_document->pattern()->stitches();
 	stitchData.movePattern(-m_left, -m_top);
 	stitchData.resize(stitchData.width()-m_left-m_right, stitchData.height()-m_top-m_bottom);
+	m_document->editor()->readDocumentSettings();	// this causes a zoom updating the display
+	m_document->preview()->readDocumentSettings();	// this causes a resize updating the display
 }
 
 

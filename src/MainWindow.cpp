@@ -953,17 +953,7 @@ void MainWindow::patternExtend()
 
 		if (top || left || right || bottom)
 		{
-			m_document->undoStack().beginMacro("Extend Pattern");
-			m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new PreviewReadDocumentSettingsCommand(m_preview));
-			m_document->undoStack().push(new EditorReadDocumentSettingsCommand(m_editor));
-			m_document->undoStack().push(new ExtendPatternCommand(m_document, top, left, bottom, right));
-			m_document->undoStack().push(new EditorReadDocumentSettingsCommand(m_editor));
-			m_document->undoStack().push(new PreviewReadDocumentSettingsCommand(m_preview));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-			m_document->undoStack().endMacro();
+			m_document->undoStack().push(new ExtendPatternCommand(m_document, top, left, right, bottom));
 		}
 	}
 	delete extendPatternDlg;
