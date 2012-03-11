@@ -905,15 +905,7 @@ void MainWindow::paletteSwapColors(int originalIndex, int replacementIndex)
 {
 	if (originalIndex != replacementIndex)
 	{
-		m_document->undoStack().beginMacro(i18n("Swap Color"));
-		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
 		m_document->undoStack().push(new PaletteSwapColorCommand(m_document, originalIndex, replacementIndex));
-		m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
-		m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-		m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-		m_document->undoStack().endMacro();
 	}
 }
 

@@ -1128,12 +1128,15 @@ PaletteSwapColorCommand::~PaletteSwapColorCommand()
 void PaletteSwapColorCommand::redo()
 {
 	m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 
 void PaletteSwapColorCommand::undo()
 {
-	m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
+	redo();
 }
 
 
