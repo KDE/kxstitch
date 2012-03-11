@@ -132,6 +132,8 @@ class Editor : public QWidget
 	private:
 		void zoom(double);
 
+		void keyPressPaste(QKeyEvent *);
+		
 		void toolInitText();
 		
 		void renderBackgroundImages(QPainter *, QRect);
@@ -254,10 +256,12 @@ class Editor : public QWidget
 		QByteArray	m_pasteData;
 		Pattern		*m_pastePattern;
 
+		typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
 		typedef void (Editor::*toolInitCallPointer)();
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, QRect);
 
+		static const keyPressCallPointer	keyPressCallPointers[];
 		static const toolInitCallPointer	toolInitCallPointers[];
 		static const mouseEventCallPointer	mousePressEventCallPointers[];
 		static const mouseEventCallPointer	mouseMoveEventCallPointers[];

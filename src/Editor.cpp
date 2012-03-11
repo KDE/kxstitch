@@ -40,6 +40,22 @@
 #include "TextToolDlg.h"
 
 
+const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
+{
+	0,					// Paint
+	0,					// Draw
+	0,					// Erase
+	0,					// Rectangle
+	0,					// Fill Rectangle
+	0,					// Ellipse
+	0,					// Fill Ellipse
+	0,					// Fill polyline
+	0,					// Text
+	0,					// Select
+	0,					// Backstitch
+	&Editor::keyPressPaste			// Paste
+};
+
 const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
 {
 	0,					// Paint
@@ -419,6 +435,8 @@ void Editor::pastePattern(Pattern *pattern)
 	if (rect().contains(pos))
 		m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(pos);
 	update();
+	
+	setFocus(Qt::OtherFocusReason);
 }
 
 
@@ -566,13 +584,84 @@ void Editor::dropEvent(QDropEvent*)
 }
 
 
-void Editor::keyPressEvent(QKeyEvent*)
+void Editor::keyPressEvent(QKeyEvent *e)
 {
+	if (keyPressCallPointers[m_toolMode])
+		(this->*keyPressCallPointers[m_toolMode])(e);
+	else
+		e->ignore();
 }
 
 
 void Editor::keyReleaseEvent(QKeyEvent*)
 {
+}
+
+
+void Editor::keyPressPaste(QKeyEvent *e)
+{
+	switch (e->key())
+	{
+		case Qt::Key_Escape:
+			delete m_pastePattern;
+			m_pastePattern = 0;
+			m_toolMode = m_oldToolMode;
+			update();
+			e->accept();
+			break;
+			
+		case Qt::Key_Up:
+			m_cellTracking = QPoint(m_cellEnd.x(), std::max(m_cellEnd.y()-1, 0));
+			if (m_cellTracking != m_cellEnd)
+			{
+				m_cellEnd = m_cellTracking;
+				update();
+			}
+			e->accept();
+			break;
+			
+		case Qt::Key_Down:
+			m_cellTracking = QPoint(m_cellEnd.x(), std::min(m_cellEnd.y()+1, m_document->pattern()->stitches().height()-1));
+			if (m_cellTracking != m_cellEnd)
+			{
+				m_cellEnd = m_cellTracking;
+				update();
+			}
+			e->accept();
+			break;
+			
+		case Qt::Key_Left:
+			m_cellTracking = QPoint(std::max(m_cellEnd.x()-1, 0), m_cellEnd.y());
+			if (m_cellTracking != m_cellEnd)
+			{
+				m_cellEnd = m_cellTracking;
+				update();
+			}
+			e->accept();
+			break;
+			
+		case Qt::Key_Right:
+			m_cellTracking = QPoint(std::min(m_cellEnd.x()+1, m_document->pattern()->stitches().width()-1), m_cellEnd.y());
+			if (m_cellTracking != m_cellEnd)
+			{
+				m_cellEnd = m_cellTracking;
+				update();
+			}
+			e->accept();
+			break;
+			
+		case Qt::Key_Return:
+		case Qt::Key_Enter:
+			m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
+			m_pastePattern = 0;
+			m_toolMode = m_oldToolMode;
+			e->accept();
+			break;
+			
+		default:
+			e->ignore();
+			break;
+	}
 }
 
 
