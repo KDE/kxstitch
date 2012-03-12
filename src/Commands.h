@@ -484,6 +484,22 @@ class ExtendPatternCommand : public QUndoCommand
 };
 
 
+class CentrePatternCommand : public QUndoCommand
+{
+public:
+	CentrePatternCommand(Document *);
+	~CentrePatternCommand();
+	
+	void redo();
+	void undo();
+	
+private:
+	Document	*m_document;
+	int		m_xOffset;
+	int		m_yOffset;
+};
+
+
 class UpdateEditorCommand : public QUndoCommand
 {
 	public:

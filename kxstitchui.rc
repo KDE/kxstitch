@@ -106,6 +106,7 @@
 	</Menu>
 	<Menu name="pattern"><text>&amp;Pattern</text>
 		<Action name="patternExtend"/>
+		<Action name="patternCentre"/>
 		<Action name="patternCrop"/>
 		<Action name="patternCropToSelection"/>
 	</Menu>

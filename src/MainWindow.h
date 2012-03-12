@@ -95,6 +95,7 @@ class MainWindow : public KXmlGuiWindow
 
 		// Pattern menu
 		void patternExtend();
+		void patternCentre();
 		void patternCrop();
 		void patternCropToSelection();
 

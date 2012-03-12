@@ -961,6 +961,12 @@ void MainWindow::patternExtend()
 }
 
 
+void MainWindow::patternCentre()
+{
+	m_document->undoStack().push(new CentrePatternCommand(m_document));
+}
+
+
 void MainWindow::patternCrop()
 {
 	m_document->undoStack().push(new CropToPatternCommand(m_document));
@@ -1302,6 +1308,11 @@ void MainWindow::setupActions()
 	action->setText(i18n("Extend Pattern..."));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
 	actions->addAction("patternExtend", action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Centre Pattern"));
+	connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
+	actions->addAction("patternCentre", action);
 	
 	action = new KAction(this);
 	action->setText(i18n("Crop Canvas to Pattern"));

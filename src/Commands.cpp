@@ -876,6 +876,42 @@ void ExtendPatternCommand::undo()
 }
 
 
+CentrePatternCommand::CentrePatternCommand(Document *document)
+	:	QUndoCommand(i18n("Centre Pattern")),
+		m_document(document)
+{
+}
+
+
+CentrePatternCommand::~CentrePatternCommand()
+{
+}
+
+
+void CentrePatternCommand::CentrePatternCommand::redo()
+{
+	QRect extents = m_document->pattern()->stitches().extents();
+
+	m_xOffset = ((m_document->pattern()->stitches().width() - extents.width())/2) - extents.left();
+	m_yOffset = ((m_document->pattern()->stitches().height() - extents.height())/2) - extents.top();
+
+	m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
+
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+ 
+
+void CentrePatternCommand::CentrePatternCommand::undo()
+{
+	m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
+
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
 UpdateEditorCommand::UpdateEditorCommand(Editor *editor)
 	:	QUndoCommand(),
 		m_editor(editor)
