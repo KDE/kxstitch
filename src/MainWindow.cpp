@@ -1233,12 +1233,12 @@ void MainWindow::setupActions()
 	actionGroup->addAction(action);
 
 	action = new KAction(this);
-	action->setText(i18n("Fill Polyline"));
-	action->setData(Editor::ToolFillPolyline);
-	action->setIcon(KIcon("polyline"));
+	action->setText(i18n("Fill Polygon"));
+	action->setData(Editor::ToolFillPolygon);
+	action->setIcon(KIcon("polygon"));
 	action->setCheckable(true);
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-	actions->addAction("toolFillPolyline", action);
+	actions->addAction("toolFillPolygon", action);
 	actionGroup->addAction(action);
 
 	action = new KAction(this);

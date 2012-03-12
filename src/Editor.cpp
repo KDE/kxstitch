@@ -49,7 +49,7 @@ const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
 	0,					// Fill Rectangle
 	0,					// Ellipse
 	0,					// Fill Ellipse
-	0,					// Fill polyline
+	&Editor::keyPressPolygon,		// Fill Polygon
 	0,					// Text
 	0,					// Select
 	0,					// Backstitch
@@ -65,12 +65,30 @@ const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
 	0,					// Fill Rectangle
 	0,					// Ellipse
 	0,					// Fill Ellipse
-	0,					// Fill Polyline
+	&Editor::toolInitPolygon,		// Fill Polygon
 	&Editor::toolInitText,			// Text
 	0,					// Select
 	0,					// Backstitch
 	0					// Paste
 };
+
+
+const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] =
+{
+	0,					// Paint
+	0,					// Draw
+	0,					// Erase
+	0,					// Rectangle
+	0,					// Fill Rectangle
+	0,					// Ellipse
+	0,					// Fill Ellipse
+	&Editor::toolCleanupPolygon,		// Fill Polygon
+	0,					// Text
+	&Editor::toolCleanupSelect,		// Select
+	0,					// Backstitch
+	0					// Paste
+};
+
 
 const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 {
@@ -81,7 +99,7 @@ const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 	&Editor::mousePressEvent_FillRectangle,
 	&Editor::mousePressEvent_Ellipse,
 	&Editor::mousePressEvent_FillEllipse,
-	&Editor::mousePressEvent_FillPolyline,
+	&Editor::mousePressEvent_FillPolygon,
 	&Editor::mousePressEvent_Text,
 	&Editor::mousePressEvent_Select,
 	&Editor::mousePressEvent_Backstitch,
@@ -97,7 +115,7 @@ const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
 	&Editor::mouseMoveEvent_FillRectangle,
 	&Editor::mouseMoveEvent_Ellipse,
 	&Editor::mouseMoveEvent_FillEllipse,
-	&Editor::mouseMoveEvent_FillPolyline,
+	&Editor::mouseMoveEvent_FillPolygon,
 	&Editor::mouseMoveEvent_Text,
 	&Editor::mouseMoveEvent_Select,
 	&Editor::mouseMoveEvent_Backstitch,
@@ -113,7 +131,7 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
 	&Editor::mouseReleaseEvent_FillRectangle,
 	&Editor::mouseReleaseEvent_Ellipse,
 	&Editor::mouseReleaseEvent_FillEllipse,
-	&Editor::mouseReleaseEvent_FillPolyline,
+	&Editor::mouseReleaseEvent_FillPolygon,
 	&Editor::mouseReleaseEvent_Text,
 	&Editor::mouseReleaseEvent_Select,
 	&Editor::mouseReleaseEvent_Backstitch,
@@ -129,7 +147,7 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	&Editor::renderRubberBandRectangle,	// Fill Rectangle
 	&Editor::renderRubberBandEllipse,	// Ellipse
 	&Editor::renderRubberBandEllipse,	// Fill Ellipse
-	0,					// Fill Polyline
+	&Editor::renderFillPolygon,		// Fill Polygon
 	0,					// Text
 	&Editor::renderRubberBandRectangle,	// Select
 	&Editor::renderRubberBandLine,		// Backstitch
@@ -508,18 +526,11 @@ void Editor::colorHilight(bool set)
 
 void Editor::selectTool()
 {
-	if (m_toolMode == Editor::ToolSelect)
-	{
-		if (m_rubberBand.isValid())
-		{
-			QRect r = m_rubberBand;
-			m_rubberBand = QRect();
-			update(r.adjusted(-5,-5,5,5));
-		}
-		emit(selectionMade(false));
-	}
+	if (toolCleanupCallPointers[m_toolMode])
+		(this->*toolCleanupCallPointers[m_toolMode])();
 	
 	m_toolMode = static_cast<Editor::ToolMode>(qobject_cast<QAction *>(sender())->data().toInt());
+
 	if (toolInitCallPointers[m_toolMode])
 		(this->*toolInitCallPointers[m_toolMode])();
 }
@@ -598,6 +609,37 @@ void Editor::keyReleaseEvent(QKeyEvent*)
 }
 
 
+void Editor::keyPressPolygon(QKeyEvent *e)
+{
+	switch (e->key())
+	{
+		case Qt::Key_Backspace:
+			if (!m_polygon.isEmpty())
+			{
+				QRect updateArea = polygonToContents(m_polygon);
+				m_polygon.pop_back();
+				update(updateArea.adjusted(-5,-5,5,5));
+			}
+			e->accept();
+			break;
+			
+		case Qt::Key_Escape:
+			if (!m_polygon.isEmpty())
+			{
+				QRect updateArea = polygonToContents(m_polygon);
+				m_polygon.clear();
+				update(updateArea.adjusted(-5,-5,5,5));
+			}
+			e->accept();
+			break;
+			
+		default:
+			e->ignore();
+			break;
+	}
+}
+
+
 void Editor::keyPressPaste(QKeyEvent *e)
 {
 	switch (e->key())
@@ -665,6 +707,12 @@ void Editor::keyPressPaste(QKeyEvent *e)
 }
 
 
+void Editor::toolInitPolygon()
+{
+	m_polygon.clear();
+}
+
+
 void Editor::toolInitText()
 {
 	QPointer<TextToolDlg> textToolDlg = new TextToolDlg(this);
@@ -697,6 +745,25 @@ void Editor::toolInitText()
 		else
 			delete pattern;
 	}
+}
+
+
+void Editor::toolCleanupPolygon()
+{
+	m_polygon.clear();
+	m_document->editor()->update();
+}
+
+
+void Editor::toolCleanupSelect()
+{
+	if (m_rubberBand.isValid())
+	{
+		QRect r = m_rubberBand;
+		m_rubberBand = QRect();
+		update(r.adjusted(-5,-5,5,5));
+	}
+	emit(selectionMade(false));
 }
 
 
@@ -822,6 +889,22 @@ void Editor::renderRubberBandEllipse(QPainter *painter, QRect)
 		painter->setPen(Qt::black);
 		painter->drawPath(path);
 	}
+	painter->restore();
+}
+
+
+void Editor::renderFillPolygon(QPainter *painter, QRect rect)
+{
+	QPolygon polyline;
+	painter->save();
+	QVector<QPoint>::const_iterator i;
+	for (i = m_polygon.constBegin() ; i != m_polygon.constEnd() ; ++i)
+	{
+		QRect cellRect = cellToRect(*i);
+		painter->drawEllipse(cellRect);
+		polyline.append(cellRect.center());
+	}
+	painter->drawPolyline(polyline);
 	painter->restore();
 }
 
@@ -1252,18 +1335,50 @@ void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
 }
 
 
-void Editor::mousePressEvent_FillPolyline(QMouseEvent*)
+void Editor::mousePressEvent_FillPolygon(QMouseEvent *e)
 {
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_polygon.append(m_cellStart);
+	update(polygonToContents(m_polygon).adjusted(-5,-5,5,5));
 }
 
 
-void Editor::mouseMoveEvent_FillPolyline(QMouseEvent*)
+void Editor::mouseMoveEvent_FillPolygon(QMouseEvent *e)
 {
+	m_cellTracking = contentsToCell(e->pos());
+	if (m_cellTracking != m_cellStart)
+	{
+		m_polygon.append(m_cellTracking);
+		m_cellStart = m_cellTracking;
+	}
+	update(polygonToContents(m_polygon).adjusted(-5,-5,5,5));
 }
 
 
-void Editor::mouseReleaseEvent_FillPolyline(QMouseEvent*)
+void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
 {
+	m_cellEnd = contentsToCell(e->pos());
+	if ((m_cellEnd == m_polygon.point(0)) && (m_polygon.count() > 2))
+	{
+		QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
+		QPainter painter;
+		
+		canvas.fill(Qt::color0);
+		painter.begin(&canvas);
+		painter.setPen(QPen(Qt::color1));
+		painter.setBrush(Qt::color1);
+		painter.drawPolygon(m_polygon);
+		painter.end();
+
+		QUndoCommand *cmd = new FillPolygonCommand(m_document);
+		processBitmap(cmd, canvas);
+
+		m_document->undoStack().push(cmd);
+		
+		m_polygon.clear();
+	}
+	update(polygonToContents(m_polygon).adjusted(-5,-5,5,5));
+	setFocus(Qt::OtherFocusReason);
 }
 
 
@@ -1422,6 +1537,13 @@ QRect Editor::cellToRect(QPoint cell)
 	int x = cell.x()*m_cellWidth;
 	int y = cell.y()*m_cellHeight;
 	return QRect(x, y, m_cellWidth, m_cellHeight);
+}
+
+
+QRect Editor::polygonToContents(const QPolygon &polygon)
+{
+	QRect updateArea = polygon.boundingRect();
+	return QRect(updateArea.left()*m_cellWidth, updateArea.top()*m_cellHeight, updateArea.width()*m_cellWidth, updateArea.height()*m_cellHeight);
 }
 
 

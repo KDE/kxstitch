@@ -83,7 +83,7 @@
 		<Action name="toolFillRectangle"/>
 		<Action name="toolEllipse"/>
 		<Action name="toolFillEllipse"/>
-		<Action name="toolFillPolyline"/>
+		<Action name="toolFillPolygon"/>
 		<Separator/>
 		<Action name="toolText"/>
 		<Separator/>
@@ -185,7 +185,7 @@
     <Action name="toolFillRectangle"/>
     <Action name="toolEllipse"/>
     <Action name="toolFillEllipse"/>
-    <Action name="toolFillPolyline"/>
+    <Action name="toolFillPolygon"/>
     <Separator/>
     <Action name="toolAlphabet"/>
     <Separator/>
@@ -216,7 +216,7 @@
     <Action name="toolFillRectangle"/>
     <Action name="toolEllipse"/>
     <Action name="toolFillEllipse"/>
-    <Action name="toolFillPolyline"/>
+    <Action name="toolFillPolygon"/>
     <Action name="toolText"/>
     <Action name="toolBackstitch"/>
     <Action name="colorPicker"/>

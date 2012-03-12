@@ -303,11 +303,17 @@ FillPolygonCommand::~FillPolygonCommand()
 
 void FillPolygonCommand::redo()
 {
+	QUndoCommand::redo();
+	m_document->editor()->update();
+	m_document->preview()->update();
 }
 
 
 void FillPolygonCommand::undo()
 {
+	QUndoCommand::undo();
+	m_document->editor()->update();
+	m_document->preview()->update();
 }
 
 

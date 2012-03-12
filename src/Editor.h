@@ -52,7 +52,7 @@ class Editor : public QWidget
 			ToolFillRectangle,
 			ToolEllipse,
 			ToolFillEllipse,
-			ToolFillPolyline,
+			ToolFillPolygon,
 			ToolText,
 			ToolSelect,
 			ToolBackstitch,
@@ -132,9 +132,14 @@ class Editor : public QWidget
 	private:
 		void zoom(double);
 
+		void keyPressPolygon(QKeyEvent *);
 		void keyPressPaste(QKeyEvent *);
 		
+		void toolInitPolygon();
 		void toolInitText();
+		
+		void toolCleanupPolygon();
+		void toolCleanupSelect();
 		
 		void renderBackgroundImages(QPainter *, QRect);
 		void renderStitches(QPainter *, QRect);
@@ -144,6 +149,7 @@ class Editor : public QWidget
 		void renderRubberBandLine(QPainter *, QRect);
 		void renderRubberBandRectangle(QPainter *, QRect);
 		void renderRubberBandEllipse(QPainter *, QRect);
+		void renderFillPolygon(QPainter *, QRect);
 		void renderPasteImage(QPainter *, QRect);
 
 		void mousePressEvent_Paint(QMouseEvent*);
@@ -174,9 +180,9 @@ class Editor : public QWidget
 		void mouseMoveEvent_FillEllipse(QMouseEvent*);
 		void mouseReleaseEvent_FillEllipse(QMouseEvent*);
 
-		void mousePressEvent_FillPolyline(QMouseEvent*);
-		void mouseMoveEvent_FillPolyline(QMouseEvent*);
-		void mouseReleaseEvent_FillPolyline(QMouseEvent*);
+		void mousePressEvent_FillPolygon(QMouseEvent*);
+		void mouseMoveEvent_FillPolygon(QMouseEvent*);
+		void mouseReleaseEvent_FillPolygon(QMouseEvent*);
 
 		void mousePressEvent_Text(QMouseEvent*);
 		void mouseMoveEvent_Text(QMouseEvent*);
@@ -199,6 +205,8 @@ class Editor : public QWidget
 		QPoint contentsToSnap(const QPoint &) const;
 		QPoint snapToContents(const QPoint &) const;
 		QRect cellToRect(QPoint);
+		QRect polygonToContents(const QPolygon &);
+		
 		void processBitmap(QUndoCommand *, QBitmap &);
 		QRect visibleCells();
 		QList<Stitch::Type> maskStitches() const;
@@ -240,6 +248,8 @@ class Editor : public QWidget
 		int	m_zoneStart;
 		int	m_zoneTracking;
 		int	m_zoneEnd;
+
+		QPolygon	m_polygon;
 		
 		QUndoCommand	*m_activeCommand;
 
@@ -258,11 +268,15 @@ class Editor : public QWidget
 
 		typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
 		typedef void (Editor::*toolInitCallPointer)();
+		typedef void (Editor::*toolCleanupCallPointer)();
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
 		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, QRect);
 
 		static const keyPressCallPointer	keyPressCallPointers[];
+		
 		static const toolInitCallPointer	toolInitCallPointers[];
+		static const toolCleanupCallPointer	toolCleanupCallPointers[];
+		
 		static const mouseEventCallPointer	mousePressEventCallPointers[];
 		static const mouseEventCallPointer	mouseMoveEventCallPointers[];
 		static const mouseEventCallPointer	mouseReleaseEventCallPointers[];
