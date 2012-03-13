@@ -56,6 +56,7 @@ class Editor : public QWidget
 			ToolText,
 			ToolSelect,
 			ToolBackstitch,
+			ToolColorPicker,
 			ToolPaste
 		};
 
@@ -117,6 +118,7 @@ class Editor : public QWidget
 		void setMaskKnot(bool);
 
 	protected:
+		bool event(QEvent *);
 		void contextMenuEvent(QContextMenuEvent*);
 		void dragEnterEvent(QDragEnterEvent*);
 		void dragLeaveEvent(QDragLeaveEvent*);
@@ -196,6 +198,10 @@ class Editor : public QWidget
 		void mouseMoveEvent_Backstitch(QMouseEvent*);
 		void mouseReleaseEvent_Backstitch(QMouseEvent*);
 
+		void mousePressEvent_ColorPicker(QMouseEvent*);
+		void mouseMoveEvent_ColorPicker(QMouseEvent*);
+		void mouseReleaseEvent_ColorPicker(QMouseEvent*);
+		
 		void mousePressEvent_Paste(QMouseEvent *event);
 		void mouseMoveEvent_Paste(QMouseEvent *event);
 		void mouseReleaseEvent_Paste(QMouseEvent *event);

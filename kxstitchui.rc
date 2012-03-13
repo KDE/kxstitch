@@ -89,6 +89,8 @@
 		<Separator/>
 		<Action name="toolSelectRectangle"/>
 		<Separator/>
+		<Action name="toolColorPicker"/>
+		<Separator/>
 		<Action name="toolBackstitch"/>
 	</Menu>
 	<Menu name="palette"><text>&amp;Palette</text>
@@ -157,6 +159,7 @@
 </Menu>
 <Menu name="PalettePopup">
 	<Action name="paletteManager"/>
+	<Action name="toolColorPicker"/>
 	<Separator/>
 	<Action name="paletteShowSymbols"/>
 	<Separator/>
@@ -195,6 +198,7 @@
     <Separator/>
     <Action name="toolBackstitch"/>
     <Separator/>
+    <Action name="toolColorPicker"/>
     <Action name="paletteManager"/>
     <Action name="colorPicker"/>
 </ToolBar>
@@ -219,7 +223,7 @@
     <Action name="toolFillPolygon"/>
     <Action name="toolText"/>
     <Action name="toolBackstitch"/>
-    <Action name="colorPicker"/>
+    <Action name="toolColorPicker"/>
     <Action name="swapColors"/>
     <Action name="replaceColor"/>
     <Action name="clearUnused"/>

@@ -1267,6 +1267,15 @@ void MainWindow::setupActions()
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
 	actions->addAction("toolBackstitch", action);
 	actionGroup->addAction(action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Color Picker"));
+	action->setData(Editor::ToolColorPicker);
+	action->setIcon(KIcon("color-picker"));
+	action->setCheckable(true);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
+	actions->addAction("toolColorPicker", action);
+	actionGroup->addAction(action);
 
 
 	// Palette Menu

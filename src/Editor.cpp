@@ -22,6 +22,7 @@
 #include <QRubberBand>
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
+#include <QToolTip>
 
 #include <KAction>
 #include <KMessageBox>
@@ -33,10 +34,13 @@
 #include "Commands.h"
 #include "Document.h"
 #include "Floss.h"
+#include "FlossScheme.h"
 #include "MainWindow.h"
+#include "Palette.h"
 #include "Preview.h"
 #include "Renderer.h"
 #include "Scale.h"
+#include "SchemeManager.h"
 #include "TextToolDlg.h"
 
 
@@ -53,6 +57,7 @@ const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
 	0,					// Text
 	0,					// Select
 	0,					// Backstitch
+	0,					// Color Picker
 	&Editor::keyPressPaste			// Paste
 };
 
@@ -69,6 +74,7 @@ const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
 	&Editor::toolInitText,			// Text
 	0,					// Select
 	0,					// Backstitch
+	0,					// Color Picker
 	0					// Paste
 };
 
@@ -86,6 +92,7 @@ const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] =
 	0,					// Text
 	&Editor::toolCleanupSelect,		// Select
 	0,					// Backstitch
+	0,					// Color Picker
 	0					// Paste
 };
 
@@ -103,6 +110,7 @@ const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 	&Editor::mousePressEvent_Text,
 	&Editor::mousePressEvent_Select,
 	&Editor::mousePressEvent_Backstitch,
+	&Editor::mousePressEvent_ColorPicker,
 	&Editor::mousePressEvent_Paste
 };
 
@@ -119,6 +127,7 @@ const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
 	&Editor::mouseMoveEvent_Text,
 	&Editor::mouseMoveEvent_Select,
 	&Editor::mouseMoveEvent_Backstitch,
+	&Editor::mouseMoveEvent_ColorPicker,
 	&Editor::mouseMoveEvent_Paste
 };
 
@@ -135,6 +144,7 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
 	&Editor::mouseReleaseEvent_Text,
 	&Editor::mouseReleaseEvent_Select,
 	&Editor::mouseReleaseEvent_Backstitch,
+	&Editor::mouseReleaseEvent_ColorPicker,
 	&Editor::mouseReleaseEvent_Paste
 };
 
@@ -151,6 +161,7 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	0,					// Text
 	&Editor::renderRubberBandRectangle,	// Select
 	&Editor::renderRubberBandLine,		// Backstitch
+	0,					// Color Picker
 	&Editor::renderPasteImage		// Paste
 };
 
@@ -203,6 +214,8 @@ Editor::Editor(QWidget *parent)
 	m_verticalScale = new Scale(Qt::Vertical);
 
 	m_renderer = new Renderer();
+
+	m_toolMode = ToolPaint;
 	
 	m_zoomFactor = 1.0;
 }
@@ -563,6 +576,46 @@ void Editor::setMaskBackstitch(bool set)
 void Editor::setMaskKnot(bool set)
 {
 	m_maskKnot = set;
+}
+
+
+bool Editor::event(QEvent *e)
+{
+	if ((e->type() == QEvent::ToolTip) && (m_toolMode == ToolColorPicker))
+	{
+		QHelpEvent *helpEvent = static_cast<QHelpEvent *>(e);
+		int colorIndex = -1;
+		QPoint cell = contentsToCell(helpEvent->pos());
+		int zone = contentsToZone(helpEvent->pos());
+		StitchQueue *queue = m_document->pattern()->stitches().stitchQueueAt(cell);
+		if (queue)
+		{
+			Stitch::Type type = stitchMap[0][zone];
+			QListIterator<Stitch *> q(*queue);
+			while (q.hasNext())
+			{
+				Stitch *stitch = q.next();
+				if (stitch->type & type)
+				{
+					colorIndex = stitch->colorIndex;
+					break;
+				}
+			}
+		}
+		if (colorIndex != -1)
+		{
+			DocumentFloss *documentFloss = m_document->pattern()->palette().floss(colorIndex);
+			Floss *floss = SchemeManager::scheme(m_document->pattern()->palette().schemeName())->find(documentFloss->flossName());
+			QToolTip::showText(helpEvent->globalPos(), QString("%1 %2").arg(floss->name()).arg(floss->description()));
+		}
+		else
+		{
+			QToolTip::hideText();
+			e->ignore();
+		}
+		return true;
+	}
+	return QWidget::event(e);
 }
 
 
@@ -1459,6 +1512,43 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 	m_rubberBand = QRect();
 	if (m_cellStart != m_cellEnd)
 		m_document->undoStack().push(new AddBackstitchCommand(m_document, m_cellStart, m_cellEnd, m_document->pattern()->palette().currentIndex()));
+}
+
+
+void Editor::mousePressEvent_ColorPicker(QMouseEvent *e)
+{
+}
+
+
+void Editor::mouseMoveEvent_ColorPicker(QMouseEvent *e)
+{
+}
+
+
+void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
+{
+	int colorIndex = -1;
+	StitchQueue *queue = m_document->pattern()->stitches().stitchQueueAt(contentsToCell(e->pos()));
+	if (queue)
+	{
+		Stitch::Type type = stitchMap[0][m_zoneStart];
+		QListIterator<Stitch *> q(*queue);
+		while (q.hasNext())
+		{
+			Stitch *stitch = q.next();
+			if (stitch->type & type)
+			{
+				colorIndex = stitch->colorIndex;
+				break;
+			}
+		}
+		if (colorIndex != -1)
+		{
+			m_document->pattern()->palette().setCurrentIndex(colorIndex);
+			m_document->palette()->update();
+		}
+	}
+
 }
 
 
