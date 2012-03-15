@@ -24,6 +24,11 @@
 			<Action name="mirrorHorizontal"/>
 			<Action name="mirrorVertical"/>
 		</Menu>
+		<Menu name="rotate"><Text>Rotate Selection</Text>
+			<Action name="rotate90"/>
+			<Action name="rotate180"/>
+			<action name="rotate270"/>
+		</Menu>
 	</Menu>
 	<Menu name="settings"><text>&amp;Settings</text>
 		<Menu name="formatScalesAs">

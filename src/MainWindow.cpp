@@ -141,6 +141,9 @@ void MainWindow::setupDocument()
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_copy"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorHorizontal"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorVertical"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate90"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate180"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));	
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
 	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
@@ -1078,6 +1081,27 @@ void MainWindow::setupActions()
 	action->setEnabled(false);
 	actions->addAction("mirrorVertical", action);
 	
+	action = new KAction(this);
+	action->setText(i18n("90 Degrees"));
+	action->setData(StitchData::Rotate90);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
+	action->setEnabled(false);
+	actions->addAction("rotate90", action);
+
+	action = new KAction(this);
+	action->setText(i18n("180 Degrees"));
+	action->setData(StitchData::Rotate180);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
+	action->setEnabled(false);
+	actions->addAction("rotate180", action);
+
+	action = new KAction(this);
+	action->setText(i18n("270 Degrees"));
+	action->setData(StitchData::Rotate270);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
+	action->setEnabled(false);
+	actions->addAction("rotate270", action);
+
 	// Selection mask sub menu
 	action = new KAction(this);
 	action->setText(i18n("Stitch Mask"));

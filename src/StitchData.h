@@ -44,6 +44,12 @@ class FlossUsage
 class StitchData
 {
 	public:
+		enum Rotation {
+			Rotate90,
+			Rotate180,
+			Rotate270
+		};
+		
 		StitchData();
 		~StitchData();
 
@@ -57,6 +63,7 @@ class StitchData
 		QRect extents() const;
 		void movePattern(int dx, int dy);
 		void mirror(Qt::Orientation);
+		void rotate(Rotation);
 
 		void addStitch(const QPoint &, Stitch::Type, int);
 		void deleteStitch(const QPoint &, Stitch::Type, int);
@@ -88,6 +95,7 @@ class StitchData
 	private:
 		void	deleteStitches();
 		void	invertQueue(Qt::Orientation, StitchQueue *);
+		void	rotateQueue(Rotation, StitchQueue *);
 
 		static const int version = 102;
 

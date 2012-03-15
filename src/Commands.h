@@ -23,6 +23,7 @@
 
 #include "PrinterConfiguration.h"
 #include "Stitch.h"
+#include "StitchData.h"
 
 
 class BackgroundImage;
@@ -714,5 +715,30 @@ class MirrorSelectionCommand : public QUndoCommand
 		bool			m_merge;
 };
 
- 
+
+class RotateSelectionCommand : public QUndoCommand
+{
+	public:
+		RotateSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, StitchData::Rotation, bool, const QByteArray &, Pattern *, const QPoint &, bool);
+		~RotateSelectionCommand();
+
+		void redo();
+		void undo();
+
+	private:
+		Document		*m_document;
+		QRect			m_selectionArea;
+		int			m_colorMask;
+		QList<Stitch::Type>	m_stitchMasks;
+		bool			m_excludeBackstitches;
+		bool			m_excludeKnots;
+		StitchData::Rotation	m_rotation;
+		bool			m_copies;
+		QByteArray		m_originalPatternData;
+		Pattern			*m_rotatedPattern;
+		QPoint			m_pasteCell;
+		bool			m_merge;
+};
+
+
 #endif // Commands_H

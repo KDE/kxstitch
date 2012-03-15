@@ -59,7 +59,8 @@ const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
 	0,					// Backstitch
 	0,					// Color Picker
 	&Editor::keyPressPaste,			// Paste
-	&Editor::keyPressMirror			// Mirror
+	&Editor::keyPressMirror,		// Mirror
+	&Editor::keyPressRotate			// Rotate
 };
 
 const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
@@ -77,7 +78,8 @@ const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
 	0,					// Backstitch
 	0,					// Color Picker
 	0,					// Paste
-	0					// Mirror
+	0,					// Mirror
+	0					// Rotate
 };
 
 
@@ -96,7 +98,8 @@ const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] =
 	0,					// Backstitch
 	0,					// Color Picker
 	0,					// Paste
-	&Editor::toolCleanupMirror		// Mirror
+	&Editor::toolCleanupMirror,		// Mirror
+	&Editor::toolCleanupRotate		// Rotate
 };
 
 
@@ -115,7 +118,8 @@ const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 	&Editor::mousePressEvent_Backstitch,
 	&Editor::mousePressEvent_ColorPicker,
 	&Editor::mousePressEvent_Paste,
-	&Editor::mousePressEvent_Mirror
+	&Editor::mousePressEvent_Mirror,
+	&Editor::mousePressEvent_Rotate
 };
 
 const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
@@ -133,7 +137,8 @@ const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
 	&Editor::mouseMoveEvent_Backstitch,
 	&Editor::mouseMoveEvent_ColorPicker,
 	&Editor::mouseMoveEvent_Paste,
-	&Editor::mouseMoveEvent_Mirror
+	&Editor::mouseMoveEvent_Mirror,
+	&Editor::mouseMoveEvent_Rotate
 };
 
 const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
@@ -151,7 +156,8 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
 	&Editor::mouseReleaseEvent_Backstitch,
 	&Editor::mouseReleaseEvent_ColorPicker,
 	&Editor::mouseReleaseEvent_Paste,
-	&Editor::mouseReleaseEvent_Mirror
+	&Editor::mouseReleaseEvent_Mirror,
+	&Editor::mouseReleaseEvent_Rotate
 };
 
 const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGraphics[] =
@@ -169,7 +175,8 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	&Editor::renderRubberBandLine,		// Backstitch
 	0,					// Color Picker
 	&Editor::renderPasteImage,		// Paste
-	&Editor::renderPasteImage		// Mirror - Paste performs the same functions
+	&Editor::renderPasteImage,		// Mirror - Paste performs the same functions
+	&Editor::renderPasteImage		// Rotate - Paste performs the same functions
 };
 
 
@@ -493,6 +500,22 @@ void Editor::mirrorSelection()
 }
 
 
+void Editor::rotateSelection()
+{
+	m_rotation = static_cast<StitchData::Rotation>(qobject_cast<KAction *>(sender())->data().toInt());
+
+	QDataStream stream(&m_pasteData, QIODevice::WriteOnly);
+	stream << m_document->pattern()->stitches();
+	if (m_makesCopies)
+		m_pastePattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot);
+	else
+		m_pastePattern = m_document->pattern()->cut(m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot);
+	
+	m_pastePattern->stitches().rotate(m_rotation);
+	pastePattern(ToolRotate);
+}
+
+
 void Editor::renderStitches(bool show)
 {
 	m_renderStitches = show;
@@ -767,6 +790,26 @@ void Editor::keyPressMirror(QKeyEvent *e)
 }
 
 
+void Editor::keyPressRotate(QKeyEvent *e)
+{
+	switch (e->key())
+	{
+		case Qt::Key_Return:
+		case Qt::Key_Enter:
+			m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(m_cellEnd), (e->modifiers() & Qt::ShiftModifier)));
+			m_pastePattern = 0;
+			m_pasteData.clear();
+			e->accept();
+			selectTool(m_oldToolMode);
+			break;
+			
+		default:
+			keyPressMovePattern(e);
+			break;
+	}
+}
+
+
 void Editor::keyPressMovePattern(QKeyEvent *e)
 {
 	switch (e->key())
@@ -884,6 +927,24 @@ void Editor::toolCleanupSelect()
 
 
 void Editor::toolCleanupMirror()
+{
+	delete m_pastePattern;
+	m_pastePattern = 0;
+	
+	if (!m_pasteData.isEmpty())
+	{
+		m_document->pattern()->stitches().clear();
+		QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
+		stream >> m_document->pattern()->stitches();
+		m_pasteData.clear();
+	}
+	
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+
+
+void Editor::toolCleanupRotate()
 {
 	delete m_pastePattern;
 	m_pastePattern = 0;
@@ -1687,6 +1748,27 @@ void Editor::mouseReleaseEvent_Mirror(QMouseEvent *e)
 	m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
 	m_pasteData.clear();
 	m_pastePattern = 0;
+	selectTool(m_oldToolMode);
+}
+
+
+void Editor::mousePressEvent_Rotate(QMouseEvent *e)
+{
+	mousePressEvent_Paste(e);
+}
+
+
+void Editor::mouseMoveEvent_Rotate(QMouseEvent *e)
+{
+	mouseMoveEvent_Paste(e);
+}
+
+
+void Editor::mouseReleaseEvent_Rotate(QMouseEvent *e)
+{
+	m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
+	m_pastePattern = 0;
+	m_pasteData.clear();
 	selectTool(m_oldToolMode);
 }
 

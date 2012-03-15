@@ -18,6 +18,7 @@
 #include "Stitch.h"
 
 #include "configuration.h"
+#include "StitchData.h"
 
 
 class QUndoCommand;
@@ -58,7 +59,8 @@ class Editor : public QWidget
 			ToolBackstitch,
 			ToolColorPicker,
 			ToolPaste,
-			ToolMirror
+			ToolMirror,
+			ToolRotate
 		};
 
 		Editor(QWidget *);
@@ -96,6 +98,7 @@ class Editor : public QWidget
 		void editPaste();
 		
 		void mirrorSelection();
+		void rotateSelection();
 		
 		void pastePattern(ToolMode);
 
@@ -142,6 +145,7 @@ class Editor : public QWidget
 		void keyPressPolygon(QKeyEvent *);
 		void keyPressPaste(QKeyEvent *);
 		void keyPressMirror(QKeyEvent *);
+		void keyPressRotate(QKeyEvent *);
 		void keyPressMovePattern(QKeyEvent *);
 		
 		void toolInitPolygon();
@@ -150,6 +154,7 @@ class Editor : public QWidget
 		void toolCleanupPolygon();
 		void toolCleanupSelect();
 		void toolCleanupMirror();
+		void toolCleanupRotate();
 		
 		void renderBackgroundImages(QPainter *, QRect);
 		void renderStitches(QPainter *, QRect);
@@ -217,6 +222,10 @@ class Editor : public QWidget
 		void mousePressEvent_Mirror(QMouseEvent *);
 		void mouseMoveEvent_Mirror(QMouseEvent *);
 		void mouseReleaseEvent_Mirror(QMouseEvent *);
+		
+		void mousePressEvent_Rotate(QMouseEvent *);
+		void mouseMoveEvent_Rotate(QMouseEvent *);
+		void mouseReleaseEvent_Rotate(QMouseEvent *);
 
 		QPoint contentsToCell(const QPoint &) const;
 		int contentsToZone(const QPoint &) const;
@@ -260,7 +269,8 @@ class Editor : public QWidget
 		bool	m_maskKnot;
 		bool	m_makesCopies;
 		
-		Qt::Orientation	m_orientation;
+		Qt::Orientation		m_orientation;
+		StitchData::Rotation	m_rotation;
 
 		QPoint	m_cellStart;
 		QPoint	m_cellTracking;

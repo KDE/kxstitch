@@ -355,6 +355,110 @@ void StitchData::mirror(Qt::Orientation orientation)
 }
 
 
+void StitchData::rotate(Rotation rotation)
+{
+	int rows = m_height;
+	int cols = m_width;
+
+	QHash<int, QHash<int, StitchQueue *> > rotatedData;
+
+	for (int row = 0 ; row < rows ; ++row)
+	{
+		for (int col = 0 ; col < cols ; ++col)
+		{
+			QPoint srcCell(col, row);
+			QPoint dstCell;
+			switch (rotation)
+			{
+				case Rotate90:
+					dstCell = QPoint(row, cols-col-1);
+					break;
+
+				case Rotate180:
+					dstCell = QPoint(cols-col-1, rows-row-1);
+					break;
+
+				case Rotate270:
+					dstCell = QPoint(rows-row-1, col);
+					break;
+			}
+			StitchQueue *src = takeStitchQueueAt(srcCell);
+			if (src)
+			{
+				rotateQueue(rotation, src);
+				rotatedData[dstCell.x()][dstCell.y()] = src;
+			}
+		}
+	}
+	
+	if ((rotation == Rotate90) || (rotation == Rotate270))
+		resize(m_height, m_width);
+	
+	QMutableHashIterator<int, QHash<int, StitchQueue *> > columnIterator(m_stitches);
+	while (columnIterator.hasNext())
+	{
+		columnIterator.next().value().clear();
+	}
+	m_stitches.clear();
+	
+	QMutableHashIterator<int, QHash<int, StitchQueue *> > rotatedColumnIterator(rotatedData);
+	while (rotatedColumnIterator.hasNext())
+	{
+		rotatedColumnIterator.next();
+		m_stitches[rotatedColumnIterator.key()] = rotatedColumnIterator.value();
+		rotatedColumnIterator.value().clear();
+	}
+	rotatedData.clear();
+
+	int maxXSnap = m_width*2;
+	int maxYSnap = m_height*2;
+	QListIterator<Backstitch *> bi(m_backstitches);
+	while (bi.hasNext())
+	{
+		Backstitch *backstitch = bi.next();
+		
+		switch (rotation)
+		{
+			case Rotate90:
+				backstitch->start = QPoint(backstitch->start.y(), maxXSnap-backstitch->start.x());
+				backstitch->end = QPoint(backstitch->end.y(), maxXSnap-backstitch->end.x());
+				break;
+
+			case Rotate180:
+				backstitch->start = QPoint(maxXSnap-backstitch->start.x(), maxYSnap-backstitch->start.y());
+				backstitch->end = QPoint(maxXSnap-backstitch->end.x(), maxYSnap-backstitch->end.y());
+				break;
+
+			case Rotate270:
+				backstitch->start = QPoint(maxYSnap-backstitch->start.y(), backstitch->start.x());
+				backstitch->end = QPoint(maxYSnap-backstitch->end.y(), backstitch->end.x());
+				break;
+		}
+	}
+
+	QListIterator<Knot *> ki(m_knots);
+	while (ki.hasNext())
+	{
+		Knot *knot = ki.next();
+
+		switch (rotation)
+		{
+			case Rotate90:
+				knot->position = QPoint(knot->position.y(), maxXSnap-knot->position.x());
+				break;
+
+			case Rotate180:
+				knot->position = QPoint(maxXSnap-knot->position.x(), maxYSnap-knot->position.y());
+				break;
+
+			case Rotate270:
+				knot->position = QPoint(maxYSnap-knot->position.y(), knot->position.x());
+				break;
+		}
+	}
+}
+               
+
 void StitchData::invertQueue(Qt::Orientation orientation, StitchQueue *queue)
 {
 	static QMap<Qt::Orientation, QMap<Stitch::Type, Stitch::Type> > mirrorMap;
@@ -408,6 +512,81 @@ void StitchData::invertQueue(Qt::Orientation orientation, StitchQueue *queue)
 	{
 		Stitch *stitch = i.next();
 		stitch->type = mirrorMap[orientation][stitch->type];
+	}
+}
+
+
+void StitchData::rotateQueue(Rotation rotation, StitchQueue *queue)
+{
+	static QMap<Rotation, QMap<Stitch::Type, Stitch::Type> > rotateMap;
+	if (rotateMap.isEmpty())
+	{
+		rotateMap[Rotate90][Stitch::TLQtr] = Stitch::BLQtr;
+		rotateMap[Rotate90][Stitch::TRQtr] = Stitch::TLQtr;
+		rotateMap[Rotate90][Stitch::BLQtr] = Stitch::BRQtr;
+		rotateMap[Rotate90][Stitch::BRQtr] = Stitch::TRQtr;
+		rotateMap[Rotate90][Stitch::BTHalf] = Stitch::TBHalf;
+		rotateMap[Rotate90][Stitch::TBHalf] = Stitch::BTHalf;
+		rotateMap[Rotate90][Stitch::TL3Qtr] = Stitch::BL3Qtr;
+		rotateMap[Rotate90][Stitch::TR3Qtr] = Stitch::TL3Qtr;
+		rotateMap[Rotate90][Stitch::BL3Qtr] = Stitch::BR3Qtr;
+		rotateMap[Rotate90][Stitch::BR3Qtr] = Stitch::TR3Qtr;
+		rotateMap[Rotate90][Stitch::TLSmallHalf] = Stitch::BLSmallHalf;
+		rotateMap[Rotate90][Stitch::TRSmallHalf] = Stitch::TLSmallHalf;
+		rotateMap[Rotate90][Stitch::BLSmallHalf] = Stitch::BRSmallHalf;
+		rotateMap[Rotate90][Stitch::BRSmallHalf] = Stitch::TRSmallHalf;
+		rotateMap[Rotate90][Stitch::TLSmallFull] = Stitch::BLSmallFull;
+		rotateMap[Rotate90][Stitch::TRSmallFull] = Stitch::TLSmallFull;
+		rotateMap[Rotate90][Stitch::BLSmallFull] = Stitch::BRSmallFull;
+		rotateMap[Rotate90][Stitch::BRSmallFull] = Stitch::TRSmallFull;
+		rotateMap[Rotate90][Stitch::Full] = Stitch::Full;
+
+		rotateMap[Rotate180][Stitch::TLQtr] = Stitch::BRQtr;
+		rotateMap[Rotate180][Stitch::TRQtr] = Stitch::BLQtr;
+		rotateMap[Rotate180][Stitch::BLQtr] = Stitch::TRQtr;
+		rotateMap[Rotate180][Stitch::BRQtr] = Stitch::TLQtr;
+		rotateMap[Rotate180][Stitch::BTHalf] = Stitch::BTHalf;
+		rotateMap[Rotate180][Stitch::TBHalf] = Stitch::TBHalf;
+		rotateMap[Rotate180][Stitch::TL3Qtr] = Stitch::BR3Qtr;
+		rotateMap[Rotate180][Stitch::TR3Qtr] = Stitch::BL3Qtr;
+		rotateMap[Rotate180][Stitch::BL3Qtr] = Stitch::TR3Qtr;
+		rotateMap[Rotate180][Stitch::BR3Qtr] = Stitch::TL3Qtr;
+		rotateMap[Rotate180][Stitch::TLSmallHalf] = Stitch::BRSmallHalf;
+		rotateMap[Rotate180][Stitch::TRSmallHalf] = Stitch::BLSmallHalf;
+		rotateMap[Rotate180][Stitch::BLSmallHalf] = Stitch::TRSmallHalf;
+		rotateMap[Rotate180][Stitch::BRSmallHalf] = Stitch::TLSmallHalf;
+		rotateMap[Rotate180][Stitch::TLSmallFull] = Stitch::BRSmallFull;
+		rotateMap[Rotate180][Stitch::TRSmallFull] = Stitch::BLSmallFull;
+		rotateMap[Rotate180][Stitch::BLSmallFull] = Stitch::TRSmallFull;
+		rotateMap[Rotate180][Stitch::BRSmallFull] = Stitch::TLSmallFull;
+		rotateMap[Rotate180][Stitch::Full] = Stitch::Full;
+
+		rotateMap[Rotate270][Stitch::TLQtr] = Stitch::TRQtr;
+		rotateMap[Rotate270][Stitch::TRQtr] = Stitch::BRQtr;
+		rotateMap[Rotate270][Stitch::BLQtr] = Stitch::TLQtr;
+		rotateMap[Rotate270][Stitch::BRQtr] = Stitch::BLQtr;
+		rotateMap[Rotate270][Stitch::BTHalf] = Stitch::TBHalf;
+		rotateMap[Rotate270][Stitch::TBHalf] = Stitch::BTHalf;
+		rotateMap[Rotate270][Stitch::TL3Qtr] = Stitch::TR3Qtr;
+		rotateMap[Rotate270][Stitch::TR3Qtr] = Stitch::BR3Qtr;
+		rotateMap[Rotate270][Stitch::BL3Qtr] = Stitch::TL3Qtr;
+		rotateMap[Rotate270][Stitch::BR3Qtr] = Stitch::BL3Qtr;
+		rotateMap[Rotate270][Stitch::TLSmallHalf] = Stitch::TRSmallHalf;
+		rotateMap[Rotate270][Stitch::TRSmallHalf] = Stitch::BRSmallHalf;
+		rotateMap[Rotate270][Stitch::BLSmallHalf] = Stitch::TLSmallHalf;
+		rotateMap[Rotate270][Stitch::BRSmallHalf] = Stitch::BLSmallHalf;
+		rotateMap[Rotate270][Stitch::TLSmallFull] = Stitch::TRSmallFull;
+		rotateMap[Rotate270][Stitch::TRSmallFull] = Stitch::BRSmallFull;
+		rotateMap[Rotate270][Stitch::BLSmallFull] = Stitch::TLSmallFull;
+		rotateMap[Rotate270][Stitch::BRSmallFull] = Stitch::BLSmallFull;
+		rotateMap[Rotate270][Stitch::Full] = Stitch::Full;
+	}
+ 
+	QListIterator<Stitch *> i(*queue);
+	while (i.hasNext())
+	{
+		Stitch *stitch = i.next();
+		stitch->type = rotateMap[rotation][stitch->type];
 	}
 }
 
