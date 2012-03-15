@@ -18,6 +18,12 @@
 			<Action name="maskBackstitch"/>
 			<Action name="maskKnot"/>
 		</Menu>
+		<Separator/>
+		<Action name="makesCopies"/>
+		<Menu name="mirror"><text>Mirror Selection</text>
+			<Action name="mirrorHorizontal"/>
+			<Action name="mirrorVertical"/>
+		</Menu>
 	</Menu>
 	<Menu name="settings"><text>&amp;Settings</text>
 		<Menu name="formatScalesAs">

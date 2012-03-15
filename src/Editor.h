@@ -57,7 +57,8 @@ class Editor : public QWidget
 			ToolSelect,
 			ToolBackstitch,
 			ToolColorPicker,
-			ToolPaste
+			ToolPaste,
+			ToolMirror
 		};
 
 		Editor(QWidget *);
@@ -94,7 +95,9 @@ class Editor : public QWidget
 		void editCopy();
 		void editPaste();
 		
-		void pastePattern(Pattern *);
+		void mirrorSelection();
+		
+		void pastePattern(ToolMode);
 
 		void renderStitches(bool);
 		void renderBackstitches(bool);
@@ -109,6 +112,7 @@ class Editor : public QWidget
 		void colorHilight(bool);
 
 		void selectTool();
+		void selectTool(ToolMode);
 
 		void selectStitch();
 
@@ -116,6 +120,7 @@ class Editor : public QWidget
 		void setMaskColor(bool);
 		void setMaskBackstitch(bool);
 		void setMaskKnot(bool);
+		void setMakesCopies(bool);
 
 	protected:
 		bool event(QEvent *);
@@ -136,12 +141,15 @@ class Editor : public QWidget
 
 		void keyPressPolygon(QKeyEvent *);
 		void keyPressPaste(QKeyEvent *);
+		void keyPressMirror(QKeyEvent *);
+		void keyPressMovePattern(QKeyEvent *);
 		
 		void toolInitPolygon();
 		void toolInitText();
 		
 		void toolCleanupPolygon();
 		void toolCleanupSelect();
+		void toolCleanupMirror();
 		
 		void renderBackgroundImages(QPainter *, QRect);
 		void renderStitches(QPainter *, QRect);
@@ -202,9 +210,13 @@ class Editor : public QWidget
 		void mouseMoveEvent_ColorPicker(QMouseEvent*);
 		void mouseReleaseEvent_ColorPicker(QMouseEvent*);
 		
-		void mousePressEvent_Paste(QMouseEvent *event);
-		void mouseMoveEvent_Paste(QMouseEvent *event);
-		void mouseReleaseEvent_Paste(QMouseEvent *event);
+		void mousePressEvent_Paste(QMouseEvent *);
+		void mouseMoveEvent_Paste(QMouseEvent *);
+		void mouseReleaseEvent_Paste(QMouseEvent *);
+		
+		void mousePressEvent_Mirror(QMouseEvent *);
+		void mouseMoveEvent_Mirror(QMouseEvent *);
+		void mouseReleaseEvent_Mirror(QMouseEvent *);
 
 		QPoint contentsToCell(const QPoint &) const;
 		int contentsToZone(const QPoint &) const;
@@ -246,6 +258,9 @@ class Editor : public QWidget
 		bool	m_maskColor;
 		bool	m_maskBackstitch;
 		bool	m_maskKnot;
+		bool	m_makesCopies;
+		
+		Qt::Orientation	m_orientation;
 
 		QPoint	m_cellStart;
 		QPoint	m_cellTracking;
@@ -271,7 +286,7 @@ class Editor : public QWidget
 		
 		QByteArray	m_pasteData;
 		Pattern		*m_pastePattern;
-
+		
 		typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
 		typedef void (Editor::*toolInitCallPointer)();
 		typedef void (Editor::*toolCleanupCallPointer)();

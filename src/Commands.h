@@ -690,4 +690,29 @@ class EditPasteCommand : public QUndoCommand
 };
 
 
+class MirrorSelectionCommand : public QUndoCommand
+{
+	public:
+		MirrorSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, Qt::Orientation, bool, const QByteArray &, Pattern *, const QPoint &, bool merge);
+		~MirrorSelectionCommand();
+
+		virtual void redo();
+		virtual void undo();
+
+	private:
+		Document		*m_document;
+		QRect			m_selectionArea;
+		int			m_colorMask;
+		QList<Stitch::Type>	m_stitchMasks;
+		bool			m_excludeBackstitches;
+		bool			m_excludeKnots;
+		Qt::Orientation		m_orientation;
+		bool			m_copies;
+		QByteArray		m_originalPatternData;
+		Pattern			*m_invertedPattern;
+		QPoint			m_pasteCell;
+		bool			m_merge;
+};
+
+ 
 #endif // Commands_H

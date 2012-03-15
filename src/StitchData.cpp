@@ -290,6 +290,128 @@ void StitchData::movePattern(int dx, int dy)
 }
 
 
+void StitchData::mirror(Qt::Orientation orientation)
+{
+	int rows = m_height;
+	int cols = m_width;
+
+	if (orientation == Qt::Vertical)
+		rows = rows/2 + rows%2;
+	else
+		cols = cols/2 + cols%2;
+
+	for (int row = 0 ; row < rows ; ++row)
+	{
+		for (int col = 0 ; col < cols ; ++col)
+		{
+			QPoint srcCell(col, row);
+			QPoint dstCell;
+			if (orientation == Qt::Vertical)
+				dstCell = QPoint(col, m_height-row-1);
+			else
+				dstCell = QPoint(m_width-col-1, row);
+			StitchQueue *src = takeStitchQueueAt(srcCell);
+			StitchQueue *dst = takeStitchQueueAt(dstCell);
+			if (src)
+			{
+				invertQueue(orientation, src);
+				replaceStitchQueueAt(dstCell, src);
+			}
+			if (dst)
+			{
+				invertQueue(orientation, dst);
+				replaceStitchQueueAt(srcCell, dst);
+			}
+		}
+	}
+
+	int maxXSnap = m_width*2;
+	int maxYSnap = m_height*2;
+	QListIterator<Backstitch *> bi(m_backstitches);
+	while (bi.hasNext())
+	{
+		Backstitch *backstitch = bi.next();
+		if (orientation == Qt::Horizontal)
+		{
+			backstitch->start.setX(maxXSnap - backstitch->start.x());
+			backstitch->end.setX(maxXSnap - backstitch->end.x());
+		}
+		else
+		{
+			backstitch->start.setY(maxYSnap - backstitch->start.y());
+			backstitch->end.setY(maxYSnap - backstitch->end.y());
+		}
+	}
+
+	QListIterator<Knot *> ki(m_knots);
+	while (ki.hasNext())
+	{
+		Knot *knot = ki.next();
+		if (orientation == Qt::Horizontal)
+			knot->position.setX(maxXSnap - knot->position.x());
+		else
+			knot->position.setY(maxYSnap - knot->position.y());
+	}
+}
+
+
+void StitchData::invertQueue(Qt::Orientation orientation, StitchQueue *queue)
+{
+	static QMap<Qt::Orientation, QMap<Stitch::Type, Stitch::Type> > mirrorMap;
+	if (mirrorMap.isEmpty())
+	{
+		mirrorMap[Qt::Horizontal][Stitch::Delete] = Stitch::Delete;
+		mirrorMap[Qt::Horizontal][Stitch::TLQtr] = Stitch::TRQtr;
+		mirrorMap[Qt::Horizontal][Stitch::TRQtr] = Stitch::TLQtr;
+		mirrorMap[Qt::Horizontal][Stitch::BLQtr] = Stitch::BRQtr;
+		mirrorMap[Qt::Horizontal][Stitch::BRQtr] = Stitch::BLQtr;
+		mirrorMap[Qt::Horizontal][Stitch::BTHalf] = Stitch::TBHalf;
+		mirrorMap[Qt::Horizontal][Stitch::TBHalf] = Stitch::BTHalf;
+		mirrorMap[Qt::Horizontal][Stitch::TL3Qtr] = Stitch::TR3Qtr;
+		mirrorMap[Qt::Horizontal][Stitch::TR3Qtr] = Stitch::TL3Qtr;
+		mirrorMap[Qt::Horizontal][Stitch::BL3Qtr] = Stitch::BR3Qtr;
+		mirrorMap[Qt::Horizontal][Stitch::BR3Qtr] = Stitch::BL3Qtr;
+		mirrorMap[Qt::Horizontal][Stitch::TLSmallHalf] = Stitch::TRSmallHalf;
+		mirrorMap[Qt::Horizontal][Stitch::TRSmallHalf] = Stitch::TLSmallHalf;
+		mirrorMap[Qt::Horizontal][Stitch::BLSmallHalf] = Stitch::BRSmallHalf;
+		mirrorMap[Qt::Horizontal][Stitch::BRSmallHalf] = Stitch::BLSmallHalf;
+		mirrorMap[Qt::Horizontal][Stitch::TLSmallFull] = Stitch::TRSmallFull;
+		mirrorMap[Qt::Horizontal][Stitch::TRSmallFull] = Stitch::TLSmallFull;
+		mirrorMap[Qt::Horizontal][Stitch::BLSmallFull] = Stitch::BRSmallFull;
+		mirrorMap[Qt::Horizontal][Stitch::BRSmallFull] = Stitch::BLSmallFull;
+		mirrorMap[Qt::Horizontal][Stitch::Full] = Stitch::Full;
+
+		mirrorMap[Qt::Vertical][Stitch::Delete] = Stitch::Delete;
+		mirrorMap[Qt::Vertical][Stitch::TLQtr] = Stitch::BLQtr;
+		mirrorMap[Qt::Vertical][Stitch::TRQtr] = Stitch::BRQtr;
+		mirrorMap[Qt::Vertical][Stitch::BLQtr] = Stitch::TLQtr;
+		mirrorMap[Qt::Vertical][Stitch::BRQtr] = Stitch::TRQtr;
+		mirrorMap[Qt::Vertical][Stitch::BTHalf] = Stitch::TBHalf;
+		mirrorMap[Qt::Vertical][Stitch::TBHalf] = Stitch::BTHalf;
+		mirrorMap[Qt::Vertical][Stitch::TL3Qtr] = Stitch::BL3Qtr;
+		mirrorMap[Qt::Vertical][Stitch::TR3Qtr] = Stitch::BR3Qtr;
+		mirrorMap[Qt::Vertical][Stitch::BL3Qtr] = Stitch::TL3Qtr;
+		mirrorMap[Qt::Vertical][Stitch::BR3Qtr] = Stitch::TR3Qtr;
+		mirrorMap[Qt::Vertical][Stitch::TLSmallHalf] = Stitch::BLSmallHalf;
+		mirrorMap[Qt::Vertical][Stitch::TRSmallHalf] = Stitch::BRSmallHalf;
+		mirrorMap[Qt::Vertical][Stitch::BLSmallHalf] = Stitch::TLSmallHalf;
+		mirrorMap[Qt::Vertical][Stitch::BRSmallHalf] = Stitch::TRSmallHalf;
+		mirrorMap[Qt::Vertical][Stitch::TLSmallFull] = Stitch::BLSmallFull;
+		mirrorMap[Qt::Vertical][Stitch::TRSmallFull] = Stitch::BRSmallFull;
+		mirrorMap[Qt::Vertical][Stitch::BLSmallFull] = Stitch::TLSmallFull;
+		mirrorMap[Qt::Vertical][Stitch::BRSmallFull] = Stitch::TRSmallFull;
+		mirrorMap[Qt::Vertical][Stitch::Full] = Stitch::Full;
+	}
+
+	QListIterator<Stitch *> i(*queue);
+	while (i.hasNext())
+	{
+		Stitch *stitch = i.next();
+		stitch->type = mirrorMap[orientation][stitch->type];
+	}
+}
+
+
 void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
 	StitchQueue *stitchQueue = 0;

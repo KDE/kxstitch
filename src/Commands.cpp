@@ -1355,3 +1355,49 @@ void EditPasteCommand::undo()
 	m_document->preview()->update();
 	m_document->palette()->update();
 }
+
+
+MirrorSelectionCommand::MirrorSelectionCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots, Qt::Orientation orientation, bool copies, const QByteArray &originalPatternData, Pattern *invertedPattern, const QPoint &pasteCell, bool merge)
+	:	QUndoCommand(i18n("Mirror Selection")),
+		m_document(document),
+		m_selectionArea(selectionArea),
+		m_colorMask(colorMask),
+		m_stitchMasks(stitchMasks),
+		m_excludeBackstitches(excludeBackstitches),
+		m_excludeKnots(excludeKnots),
+		m_orientation(orientation),
+		m_copies(copies),
+		m_originalPatternData(originalPatternData),
+		m_invertedPattern(invertedPattern),
+		m_pasteCell(pasteCell),
+		m_merge(merge)
+{
+}
+ 
+
+MirrorSelectionCommand::~MirrorSelectionCommand()
+{
+	delete m_invertedPattern;
+}
+
+
+void MirrorSelectionCommand::redo()
+{
+	if (!m_copies)
+		delete m_document->pattern()->cut(m_selectionArea, m_colorMask, m_stitchMasks, m_excludeBackstitches, m_excludeKnots);
+	m_document->pattern()->paste(m_invertedPattern, m_pasteCell, m_merge);
+
+	m_document->editor()->update();
+	m_document->preview()->update();
+}
+ 
+
+void MirrorSelectionCommand::undo()
+{
+	m_document->pattern()->stitches().clear();
+	QDataStream stream(&m_originalPatternData, QIODevice::ReadOnly);
+	stream >> m_document->pattern()->stitches();
+
+	m_document->editor()->update();
+	m_document->preview()->update();
+}

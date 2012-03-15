@@ -56,6 +56,7 @@ class StitchData
 		
 		QRect extents() const;
 		void movePattern(int dx, int dy);
+		void mirror(Qt::Orientation);
 
 		void addStitch(const QPoint &, Stitch::Type, int);
 		void deleteStitch(const QPoint &, Stitch::Type, int);
@@ -86,6 +87,7 @@ class StitchData
 
 	private:
 		void	deleteStitches();
+		void	invertQueue(Qt::Orientation, StitchQueue *);
 
 		static const int version = 102;
 

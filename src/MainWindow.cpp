@@ -139,6 +139,8 @@ void MainWindow::setupDocument()
 	connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_cut"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_copy"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorHorizontal"), SLOT(setEnabled(bool)));
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorVertical"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
 	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
@@ -1056,6 +1058,26 @@ void MainWindow::setupActions()
 	actions->action("edit_copy")->setEnabled(false);
 	KStandardAction::paste(m_editor, SLOT(editPaste()), actions);
 
+	action = new KAction(this);
+	action->setText(i18n("Mirror/Rotate makes copies"));
+	action->setCheckable(true);
+	connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMakesCopies(bool)));
+	actions->addAction("makesCopies", action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Horizontally"));
+	action->setData(Qt::Horizontal);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
+	action->setEnabled(false);
+	actions->addAction("mirrorHorizontal", action);
+	
+	action = new KAction(this);
+	action->setText(i18n("Vertically"));
+	action->setData(Qt::Vertical);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
+	action->setEnabled(false);
+	actions->addAction("mirrorVertical", action);
+	
 	// Selection mask sub menu
 	action = new KAction(this);
 	action->setText(i18n("Stitch Mask"));
@@ -1315,11 +1337,13 @@ void MainWindow::setupActions()
 	// Pattern Menu
 	action = new KAction(this);
 	action->setText(i18n("Extend Pattern..."));
+	action->setIcon(KIcon("extpattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
 	actions->addAction("patternExtend", action);
 	
 	action = new KAction(this);
 	action->setText(i18n("Centre Pattern"));
+	action->setIcon(KIcon("centerpattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
 	actions->addAction("patternCentre", action);
 	
