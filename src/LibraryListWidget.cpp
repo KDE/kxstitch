@@ -10,27 +10,118 @@
 
 
 #include "LibraryListWidget.h"
+
+#include <QApplication>
+#include <QBitmap>
+#include <QListIterator>
+#include <QMouseEvent>
+#include <QPainter>
+
 #include "LibraryListWidgetItem.h"
-#include "PatternMimeData.h"
+#include "LibraryPattern.h"
+#include "Pattern.h"
+#include "Renderer.h"
 
 
 LibraryListWidget::LibraryListWidget(QWidget *parent)
 	:	QListWidget(parent)
 {
+	m_renderer = new Renderer();
+	m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
+	m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+	m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
 
-void LibraryListWidget::setScaleSize(int scaleSize)
+LibraryListWidget::~LibraryListWidget()
 {
-	m_scaleSize = scaleSize;
+	delete m_renderer;
 }
 
 
-QDragObject *LibraryListWidget::dragObject()
+void LibraryListWidget::setCellSize(double cellWidth, double cellHeight)
 {
-#if 0
-	PatternMimeData *dragObject = new PatternMimeData(dynamic_cast<LibraryListWidgetItem>(currentItem()->data(), this);
-	dragObject->setScale(m_scaleSize, m_scaleSize);
-	return dragObject;
-#endif
+	m_cellWidth = cellWidth;
+	m_cellHeight = cellHeight;
+	
+	m_renderer->setCellSize(cellWidth, cellHeight);
+}
+
+
+void LibraryListWidget::changeIconSize(int size)
+{
+	setIconSize(QSize(size, size));
+	setGridSize(QSize(size+10, size+20));
+}
+
+
+void LibraryListWidget::dragEnterEvent(QDragEnterEvent *e)
+{
+}
+
+
+void LibraryListWidget::dragMoveEvent(QDragMoveEvent *e)
+{
+}
+
+
+void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent *e)
+{
+}
+
+
+void LibraryListWidget::mousePressEvent(QMouseEvent *e)
+{
+	LibraryListWidgetItem *item = static_cast<LibraryListWidgetItem *>(itemAt(m_startDrag));
+	if (item && (e->button() == Qt::LeftButton))
+	{
+		m_startDrag = e->pos();
+		e->accept();
+	}
+	else
+		e->ignore();
+}
+
+
+void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
+{
+	if ((e->pos()-m_startDrag).manhattanLength() > QApplication::startDragDistance())
+	{
+		LibraryListWidgetItem *item = static_cast<LibraryListWidgetItem *>(itemAt(m_startDrag));
+		if (item && (e->buttons() & Qt::LeftButton))
+		{
+			QByteArray data;
+			QDataStream stream(&data, QIODevice::WriteOnly);
+			Pattern *pattern = item->libraryPattern()->pattern();
+			stream << *pattern;
+			QMimeData *mimeData = new QMimeData();
+			mimeData->setData("application/kxstitch", data);
+			
+			QPixmap pixmap(pattern->stitches().width()*m_cellWidth, pattern->stitches().height()*m_cellHeight);
+			pixmap.fill(Qt::white);
+			m_renderer->setPatternRect(QRect(0, 0, pattern->stitches().width(), pattern->stitches().height()));
+			m_renderer->setPaintDeviceArea(QRect(0, 0, pixmap.width(), pixmap.height()));
+			QPainter painter(&pixmap);
+			m_renderer->render(&painter,
+						pattern,
+						QRect(QPoint(0, 0), pixmap.size()),
+						false,		// render grid
+						true,		// render stitches
+						true,		// render backstitches
+						true,		// render knots
+						-1);		// no color mask
+			painter.end();
+			pixmap.setMask(pixmap.createMaskFromColor(Qt::white));
+			
+			QDrag *drag = new QDrag(this);
+			drag->setMimeData(mimeData);
+			drag->setPixmap(pixmap);
+			drag->setHotSpot(QPoint(m_cellWidth/2, m_cellHeight/2));
+			drag->exec(Qt::CopyAction);
+			
+			e->accept();
+		}
+	}
+	else
+		e->ignore();
 }

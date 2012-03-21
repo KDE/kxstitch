@@ -43,7 +43,7 @@ struct LIBRARY (original)
   ] patterns
 ]
 
-struct LIBRARY (new)
+struct LIBRARY (new kde3)
 [
   "KXStitchLib"
   Q_INT16 version
@@ -76,6 +76,22 @@ struct LIBRARY (new)
     ]
   ]
 ]
+
+struct LIBRARY (new kde4)
+[
+  "KXStitchLib"
+  quint16 version
+  [
+    version 100
+    qint32 patterns
+    [
+      quint32 key
+      quint32 modifier
+      quint32 baseline
+      Pattern
+    ]
+  ]
+]     
 */
 
 #include <QTreeWidget>
@@ -83,12 +99,12 @@ struct LIBRARY (new)
 #include <KStandardDirs>
 
 #include "LibraryPattern.h"
+#include "Pattern.h"
 
 
 LibraryTreeWidgetItem::LibraryTreeWidgetItem(QTreeWidget *parent, const QString &name)
 	:	QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
 {
-//	setDropEnabled(true);
 	setText(0, name);
 }
 
@@ -96,7 +112,6 @@ LibraryTreeWidgetItem::LibraryTreeWidgetItem(QTreeWidget *parent, const QString 
 LibraryTreeWidgetItem::LibraryTreeWidgetItem(LibraryTreeWidgetItem *parent, const QString &name)
 	:	QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
 {
-//	setDropEnabled(true);
 	setText(0, name);
 }
 
@@ -106,7 +121,7 @@ int LibraryTreeWidgetItem::maxHeight()
 	int max = 0;
 	for (LibraryPattern *libraryPattern = first() ; libraryPattern ; libraryPattern = next())
 	{
-		max = std::max(max, libraryPattern->stitchData().height());
+		max = std::max(max, libraryPattern->pattern()->stitches().height());
 	}
 	return max;
 }
@@ -192,7 +207,6 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
 		if (!libraryFile->isWritable())
 			return libraryFile;
 	}
-	// create a writable path
 	QString path = m_libraryFiles[0]->path();
 	path = path.remove(0, path.indexOf("library"));
 	path = KGlobal::dirs()->saveLocation("appdata", path);
@@ -202,32 +216,7 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
 }
 
 
-#if 0
-void LibraryTreeWidgetItem::addPattern(KXStitchDragObject *libraryPattern)
-{
-	writablePath()->addPattern(libraryPattern);
-}
-#endif
-
-
 void LibraryTreeWidgetItem::addPattern(LibraryPattern *libraryPattern)
 {
 	writablePath()->addPattern(libraryPattern);
 }
-
-
-#if 0
-void LibraryTreeWidgetItem::deletePattern(PreviewIconViewItem *item)
-{
-	QListIterator<LibraryFile *> libraryFileIterator(m_libraryFiles);
-	while (libraryFileIterator.hasNext())
-	{
-		LibraryFile *libraryFile = libraryFileIterator.next();
-		for (LibraryPattern *libraryPattern = libraryFile->first() ; libraryPattern ; libraryPattern = libraryFile->next())
-		{
-			if (libraryPattern->iconViewItem() == item)
-				libraryFile->deletePattern(pattern);
-		}
-	}
-}
-#endif

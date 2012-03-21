@@ -15,23 +15,82 @@
 
 #include "KeycodeLineEdit.h"
 #include "LibraryListWidgetItem.h"
+#include "Pattern.h"
 
 
 LibraryPattern::LibraryPattern()
 {
+	m_pattern = new Pattern;
 }
 
 
-LibraryPattern::LibraryPattern(qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline, quint16 checksum, const DocumentPalette &documentPalette, const StitchData &stitchData)
-	:	m_key(key),
+LibraryPattern::LibraryPattern(Pattern *pattern, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline)
+	:	m_pattern(pattern),
+		m_key(key),
 		m_modifiers(modifiers),
 		m_baseline(baseline),
-		m_checksum(checksum),
-		m_documentPalette(documentPalette),
-		m_stitchData(stitchData),
 		m_libraryListWidgetItem(0),
 		m_changed(false)
 {
+}
+
+
+LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline)
+	:	m_key(key),
+		m_modifiers(modifiers),
+		m_baseline(baseline),
+		m_libraryListWidgetItem(0),
+		m_changed(false)
+{
+	QDataStream stream(&data, QIODevice::ReadOnly);
+	stream.setVersion(QDataStream::Qt_3_3);
+	QString scheme;
+	qint32 width;
+	qint32 height;
+	stream	>> scheme
+		>> width
+		>> height;
+	m_pattern = new Pattern;
+	m_pattern->palette().setSchemeName(scheme);
+	m_pattern->stitches().resize(width, height);
+	
+	for (int y = 0 ; y < height ; ++y)
+	{
+		for (int x = 0 ; x < width ; ++x)
+		{
+			QPoint cell(x, y);
+			qint8 stitches;
+			stream >> stitches;
+			while (stitches--)
+			{
+				qint8 type;
+				QColor color;
+				stream >> type >> color;
+				m_pattern->stitches().addStitch(cell, static_cast<Stitch::Type>(type), m_pattern->palette().add(color));
+			}
+		}
+	}
+	
+	qint32 backstitches;
+	stream >> backstitches;
+	while (backstitches--)
+	{
+		QPoint start;
+		QPoint end;
+		QColor color;
+		stream >> start >> end >> color;
+		m_pattern->stitches().addBackstitch(start, end, m_pattern->palette().add(color));
+	}
+	
+	qint32 knots;
+	stream >> knots;
+	while (knots--)
+	{
+		QPoint position;
+		QColor color;
+		stream >> position >> color;
+		m_pattern->stitches().addFrenchKnot(position, m_pattern->palette().add(color));
+	}
 }
 
 
@@ -53,21 +112,9 @@ qint16 LibraryPattern::baseline() const
 }
 
 
-quint16 LibraryPattern::checksum() const
+Pattern *LibraryPattern::pattern()
 {
-	return m_checksum;
-}
-
-
-const DocumentPalette &LibraryPattern::documentPalette() const
-{
-	return m_documentPalette;
-}
-
-
-const StitchData &LibraryPattern::stitchData() const
-{
-	return m_stitchData;
+	return m_pattern;
 }
 
 
@@ -112,9 +159,7 @@ QDataStream &operator<<(QDataStream &stream, const LibraryPattern &libraryPatter
 	stream << libraryPattern.m_key;
 	stream << qint32(libraryPattern.m_modifiers);
 	stream << libraryPattern.m_baseline;
-	stream << libraryPattern.m_checksum;
-	stream << libraryPattern.m_documentPalette;
-	stream << libraryPattern.m_stitchData;
+	stream << *(libraryPattern.m_pattern);
 }
 
 
@@ -131,9 +176,7 @@ QDataStream &operator>>(QDataStream &stream, LibraryPattern &libraryPattern)
 			stream >> modifiers;
 			libraryPattern.m_modifiers = Qt::KeyboardModifiers(modifiers);
 			stream >> libraryPattern.m_baseline;
-			stream >> libraryPattern.m_checksum;
-			stream >> libraryPattern.m_documentPalette;
-			stream >> libraryPattern.m_stitchData;
+			stream >> *(libraryPattern.m_pattern);
 			libraryPattern.m_libraryListWidgetItem = 0;
 			libraryPattern.m_changed = false;
 			break;

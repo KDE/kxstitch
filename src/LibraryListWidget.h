@@ -20,19 +20,32 @@
 class QDragObject;
 class QString;
 
+class Renderer;
+
 
 class LibraryListWidget : public QListWidget
 {
 	public:
 		LibraryListWidget(QWidget *parent);
-
-		void setScaleSize(int scaleSize);
-
+		~LibraryListWidget();
+		
+		void setCellSize(double, double);
+		void changeIconSize(int);
+		
 	protected:
-		virtual QDragObject *dragObject();
+		virtual void dragEnterEvent(QDragEnterEvent *);
+		virtual void dragMoveEvent(QDragMoveEvent *);
+		virtual void dragLeaveEvent(QDragLeaveEvent *);
+		virtual void mousePressEvent(QMouseEvent *);
+		virtual void mouseMoveEvent(QMouseEvent *);
 
 	private:
-		int m_scaleSize;
+		Renderer	*m_renderer;
+		
+		QPoint	m_startDrag;
+		
+		double	m_cellWidth;
+		double	m_cellHeight;
 };
 
 

@@ -16,6 +16,7 @@
 #include <QDataStream>
 #include <QDockWidget>
 #include <QGridLayout>
+#include <QMimeData>
 #include <QPainter>
 #include <QProgressDialog>
 #include <QPrintDialog>
@@ -46,10 +47,8 @@
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "ImportImageDlg.h"
-#include "LibraryManagerDlg.h"
 #include "Palette.h"
 #include "PaletteManagerDlg.h"
-#include "PatternMimeData.h"
 #include "Preview.h"
 #include "PrintSetupDlg.h"
 #include "QVariantPtr.h"
@@ -58,16 +57,14 @@
 
 
 MainWindow::MainWindow()
-	:	m_libraryManagerDlg(0),
-		m_printer(new QPrinter(QPrinter::HighResolution))
+	:	m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupActions();
 }
 
 
 MainWindow::MainWindow(const KUrl &url)
-	:	m_libraryManagerDlg(0),
-		m_printer(new QPrinter(QPrinter::HighResolution))
+	:	m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupMainWindow();
 	setupLayout();
@@ -82,8 +79,7 @@ MainWindow::MainWindow(const KUrl &url)
 
 
 MainWindow::MainWindow(const Magick::Image &image)
-	:	m_libraryManagerDlg(0),
-		m_printer(new QPrinter(QPrinter::HighResolution))
+	:	m_printer(new QPrinter(QPrinter::HighResolution))
 {
 	setupMainWindow();
 	setupLayout();
@@ -180,7 +176,6 @@ void MainWindow::setupActionDefaults()
 
 MainWindow::~MainWindow()
 {
-	delete m_libraryManagerDlg;
 	delete m_printer;
 }
 
@@ -939,14 +934,6 @@ void MainWindow::viewShowBackgroundImage()
 }
 
 
-void MainWindow::libraryManager()
-{
-	if (m_libraryManagerDlg == 0)
-		m_libraryManagerDlg = new LibraryManagerDlg(this);
-	m_libraryManagerDlg->show();
-}
-
-
 void MainWindow::patternExtend()
 {
 	QPointer<ExtendPatternDlg> extendPatternDlg = new ExtendPatternDlg(this);
@@ -1386,7 +1373,7 @@ void MainWindow::setupActions()
 	// Library Menu
 	action = new KAction(this);
 	action->setText(i18n("Library Manager..."));
-	connect(action, SIGNAL(triggered()), this, SLOT(libraryManager()));
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(libraryManager()));
 	actions->addAction("libraryManager", action);
 
 	// Settings Menu

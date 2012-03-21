@@ -10,7 +10,17 @@
 
 
 #include "LibraryListWidgetItem.h"
+
+#include <QPainter>
+
 #include "LibraryPattern.h"
+#include "Pattern.h"
+#include "Renderer.h"
+#include "StitchData.h"
+
+#include "configuration.h"
+
+#include <KDebug>
 
 
 LibraryListWidgetItem::LibraryListWidgetItem(QListWidget *listWidget, LibraryPattern *libraryPattern)
@@ -22,25 +32,43 @@ LibraryListWidgetItem::LibraryListWidgetItem(QListWidget *listWidget, LibraryPat
 
 void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
 {
-#if 0
+	static Renderer *renderer = 0;
+	if (renderer == 0)
+	{
+		renderer = new Renderer();
+		renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
+		renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+		renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
+	}
+	
 	m_libraryPattern = libraryPattern;
-	setPixmap(PatternMimeData(libraryPattern->data()).encodedData("image/png"));
-#endif
+
+	StitchData &stitches = libraryPattern->pattern()->stitches();
+	int cellSize = 256/std::max(stitches.width(), stitches.height());
+	QPixmap pixmap(stitches.width()*cellSize+1, stitches.height()*cellSize+1);
+	renderer->setCellSize(cellSize, cellSize);
+	pixmap.fill(Qt::white);
+			
+	renderer->setPatternRect(QRect(0, 0, stitches.width(), stitches.height()));
+	renderer->setPaintDeviceArea(QRect(0, 0, pixmap.width(), pixmap.height()));
+
+	QPainter painter(&pixmap);
+	
+	renderer->render(&painter,
+			libraryPattern->pattern(),
+			pixmap.rect(),
+			true,
+			true,
+			true,
+			true,
+			-1);
+	
+	setIcon(QIcon(pixmap));
+//	setSizeHint(QSize(pixmap.width(), pixmap.height()+10));
 }
 
 
 LibraryPattern *LibraryListWidgetItem::libraryPattern()
 {
 	return m_libraryPattern;
-}
-
-
-bool LibraryListWidgetItem::acceptDrop(const QMimeSource *mimeSource)
-{
-	return false;
-}
-
-
-void LibraryListWidgetItem::dropped(QDropEvent *, const QList<QIconDragItem> &)
-{
 }

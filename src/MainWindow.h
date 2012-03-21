@@ -24,7 +24,6 @@ class KUrl;
 
 class Document;
 class Editor;
-class LibraryManagerDlg;
 class Palette;
 class Preview;
 class Scale;
@@ -91,7 +90,6 @@ class MainWindow : public KXmlGuiWindow
 		void viewShowBackgroundImage();
 
 		// Library menu
-		void libraryManager();
 
 		// Pattern menu
 		void patternExtend();
@@ -126,8 +124,6 @@ class MainWindow : public KXmlGuiWindow
 
 		Scale		*m_horizontalScale;
 		Scale		*m_verticalScale;
-
-		LibraryManagerDlg	*m_libraryManagerDlg;
 
 		QPrinter	*m_printer;
 };

@@ -17,25 +17,22 @@
 #include <QDataStream>
 #include <QString>
 
-#include "DocumentPalette.h"
-#include "StitchData.h"
-
 
 class LibraryListWidgetItem;
+class Pattern;
 
 
 class LibraryPattern
 {
 	public:
 		LibraryPattern();
-		LibraryPattern(qint32, Qt::KeyboardModifiers, qint16, quint16, const DocumentPalette &, const StitchData &);
+		LibraryPattern(Pattern *, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
+		LibraryPattern(QByteArray, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
 
 		qint32 key() const;
 		Qt::KeyboardModifiers modifiers() const;
 		qint16 baseline() const;
-		quint16 checksum() const;
-		const DocumentPalette &documentPalette() const;
-		const StitchData &stitchData() const;
+		Pattern *pattern();
 		LibraryListWidgetItem *libraryListWidgetItem() const;
 		bool hasChanged() const;
 
@@ -52,9 +49,7 @@ class LibraryPattern
 		qint32			m_key;
 		Qt::KeyboardModifiers	m_modifiers;
 		qint16			m_baseline;
-		quint16			m_checksum;
-		DocumentPalette		m_documentPalette;
-		StitchData		m_stitchData;
+		Pattern			*m_pattern;
 		LibraryListWidgetItem	*m_libraryListWidgetItem;
 		bool			m_changed;
 };

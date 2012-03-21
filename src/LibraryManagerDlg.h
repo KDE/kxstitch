@@ -33,6 +33,9 @@ class LibraryManagerDlg : public KDialog
 		LibraryManagerDlg(QWidget *parent);
 		~LibraryManagerDlg();
 
+	public slots:
+		void setCellSize(double, double);
+		
 	protected slots:
 		void slotButtonClicked(int);
 
@@ -40,6 +43,17 @@ class LibraryManagerDlg : public KDialog
 		void on_LibraryTree_customContextMenuRequested(const QPoint &);
 		void on_LibraryIcons_customContextMenuRequested(const QPoint &);
 		void on_LibraryTree_currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *);
+		void on_IconSizeSlider_valueChanged(int);
+		
+		void newCategory();
+		void addLibraryToExportList();
+		void libraryProperties();
+		void pasteFromClipboard();
+		
+		void patternProperties();
+		void addPatternToExportList();
+		void copyToClipboard();
+		void deletePattern();
 
 	private:
 		void refreshLibraries();

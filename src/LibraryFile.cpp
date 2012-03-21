@@ -15,9 +15,9 @@
 #include <QFile>
 #include <QFileInfo>
 
-#include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
+#include <KProgressDialog>
 
 #include <stdlib.h>
 
@@ -28,6 +28,7 @@ LibraryFile::LibraryFile(const QString &path)
 	:	m_read(false),
 		m_path(path)
 {
+	m_exists = QFile::exists(localFile());
 }
 
 
@@ -68,15 +69,11 @@ void LibraryFile::deletePattern(LibraryPattern *libraryPattern)
 LibraryPattern *LibraryFile::first()
 {
 	if (!m_read)
-	{
 		readFile();
-	}
 
 	m_current = 0;
 	if (m_current < m_libraryPatterns.count())
-	{
 		return m_libraryPatterns.at(m_current++);
-	}
 
 	return 0;
 }
@@ -85,9 +82,7 @@ LibraryPattern *LibraryFile::first()
 LibraryPattern *LibraryFile::next()
 {
 	if (m_current < m_libraryPatterns.count())
-	{
 		return m_libraryPatterns.at(m_current++);
-	}
 
 	return 0;
 }
@@ -95,69 +90,112 @@ LibraryPattern *LibraryFile::next()
 
 void LibraryFile::readFile()
 {
-	bool ok = true;
-	QFile file(localFile());
-	if (file.open(QIODevice::ReadOnly))
+	if (m_exists)
 	{
-		QDataStream stream(&file);
-		char header[11];
-		stream.readRawData(header, 11);
-		if (strncmp(header, "KXStitchLib", 11))
+		bool ok = true;
+		QFile file(localFile());
+		if (file.open(QIODevice::ReadOnly))
 		{
-			// probably an old library, try and read the old format
-#if 0
-			file.reset();
-			qint32 patterns;
-			stream >> patterns;
-			while (patterns-- && ok)
+			QDataStream stream(&file);
+			char header[11];
+			stream.readRawData(header, 11);
+			if (strncmp(header, "KXStitchLib", 11))
 			{
-				qint16 checksum;
-				QByteArray data;
-				QByteArray compressed;
-				stream >> checksum;
-				stream >> compressed;
-				data = qUncompress(compressed);
-				if (checksum == qChecksum(data.data(), data.size()))
+				// probably an old library, try and read the old format
+#if 0
+				file.reset();
+				qint32 patterns;
+				stream >> patterns;
+				while (patterns-- && ok)
 				{
-					m_patterns.append(new LibraryPattern(0, Qt::NoButton , 0, checksum, data));
+					qint16 checksum;
+					QByteArray data;
+					QByteArray compressed;
+					stream >> checksum;
+					stream >> compressed;
+					data = qUncompress(compressed);
+					if (checksum == qChecksum(data.data(), data.size()))
+					{
+						m_patterns.append(new LibraryPattern(0, Qt::NoButton , 0, checksum, data));
+					}
+					else
+					{
+						KMessageBox::sorry(0, i18n("There was a checksum error in %1.", localFile()), i18n("Checksum Error"));
+						ok = false;
+					}
 				}
-				else
+#endif
+			}
+			else
+			{
+				quint16 version;
+				qint32 count;
+				qint32 key;		// version 1 of library format
+				qint32 modifier;	// version 1 of library format
+				qint16 baseline;	// version 1 of library format
+				quint16 checksum;	// version 1 of library format
+				bool ok = true;
+				QByteArray data;
+				LibraryPattern *libraryPattern;
+				
+				KProgressDialog progress(0, i18n("Loading Library"), file.fileName());
+
+				stream >> version;
+				switch (version)
 				{
-					KMessageBox::sorry(0, i18n("There was a checksum error in %1.", localFile()), i18n("Checksum Error"));
-					ok = false;
+					case 1:
+						progress.progressBar()->setMinimum(file.pos());
+						progress.progressBar()->setMaximum(file.size());
+						progress.show();
+						while (!file.atEnd() && ok)
+						{
+							stream >> key;
+							stream >> modifier;
+							stream >> baseline;
+							stream >> checksum;	// no longer used
+							stream >> data;
+							Qt::KeyboardModifiers replacedModifiers;
+							if (modifier & 0x0100) replacedModifiers |= Qt::ShiftModifier;
+							if (modifier & 0x0200) replacedModifiers |= Qt::ControlModifier;
+							if (modifier & 0x0400) replacedModifiers |= Qt::AltModifier;
+							if (modifier & 0x0800) replacedModifiers |= Qt::MetaModifier;
+							if (checksum = qChecksum(data.data(), data.size()))
+								m_libraryPatterns.append(new LibraryPattern(data, key, replacedModifiers, baseline));
+							else
+							{
+								KMessageBox::error(0, i18n("Failed to read a pattern from the library %1.\n%2", localFile(), file.errorString()), i18n("Failed to read library."));
+								ok = false;
+							}
+							
+							progress.progressBar()->setValue(file.pos());
+						}
+						break;
+						
+					case 100:
+						stream >> count;
+						progress.progressBar()->setMinimum(0);
+						progress.progressBar()->setMaximum(count);
+						progress.progressBar()->setValue(0);
+						while (count--)
+						{
+							libraryPattern = new LibraryPattern;
+							stream >> *libraryPattern;
+							m_libraryPatterns.append(libraryPattern);
+							progress.progressBar()->setValue(progress.progressBar()->value()+1);
+						}
+						break;
+
+					default:
+						// not supported
+						// throw exception
+						break;
 				}
 			}
-#endif
+			file.close();
+			m_read = true;
 		}
 		else
-		{
-			qint32 version;
-			qint32 count;
-			LibraryPattern *libraryPattern;
-			stream >> version;
-			switch (version)
-			{
-				case 100:
-					stream >> count;
-					while (count--)
-					{
-						libraryPattern = new LibraryPattern;
-						stream >> *libraryPattern;
-					}
-					break;
-
-				default:
-					// not supported
-					// throw exception
-					break;
-			}
-		}
-		file.close();
-		m_read = true;
-	}
-	else
-	{
-		KMessageBox::error(0, i18n("The file %1\ncould not be opened.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
+			KMessageBox::error(0, i18n("The file %1\ncould not be opened.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
 	}
 }
 
@@ -165,16 +203,18 @@ void LibraryFile::readFile()
 void LibraryFile::writeFile()
 {
 	QFile file(localFile());
+	
 	if (file.open(QIODevice::WriteOnly)) // truncates the file
 	{
 		QDataStream stream(&file);
 		stream.writeRawData("KXStitchLib", 11);
-		stream << qint32(version);
+		stream << qint16(version);
 		stream << qint32(m_libraryPatterns.count());
 		QListIterator<LibraryPattern *> iterator(m_libraryPatterns);
 		while (iterator.hasNext())
 		{
-			stream << *iterator.next();
+			LibraryPattern *libraryPattern = iterator.next();
+			stream << *libraryPattern;
 		}
 		file.close();
 		m_read = true;
@@ -185,6 +225,7 @@ void LibraryFile::writeFile()
 QString LibraryFile::localFile() const
 {
 	QFileInfo path(m_path);
+	
 	if (path.isDir())
 		return m_path+"kxstitch.library";
 	else
@@ -198,9 +239,7 @@ bool LibraryFile::hasChanged()
 
 	QListIterator<LibraryPattern *> libraryPatternIterator(m_libraryPatterns);
 	while (libraryPatternIterator.hasNext())
-	{
 		changed = changed | libraryPatternIterator.next()->hasChanged();
-	}
 
 	return changed;
 }

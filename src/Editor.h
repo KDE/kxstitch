@@ -24,6 +24,7 @@
 class QUndoCommand;
 
 class Document;
+class LibraryManagerDlg;
 class Pattern;
 class Preview;
 class Renderer;
@@ -83,6 +84,8 @@ class Editor : public QWidget
 		void changedVisibleCells(const QRect &);
 
 	public slots:
+		void libraryManager();
+		
 		void previewClicked(const QPoint &);
 		void previewClicked(const QRect &);
 
@@ -246,6 +249,8 @@ class Editor : public QWidget
 		Scale		*m_horizontalScale;
 		Scale		*m_verticalScale;
 
+		LibraryManagerDlg	*m_libraryManagerDlg;
+		
 		double	m_zoomFactor;
 		double	m_cellWidth;
 		double	m_cellHeight;

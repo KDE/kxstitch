@@ -190,6 +190,13 @@
 			<default>false</default>
 		</entry>
 	</group>
+	
+	<group name="library">
+		<entry name="Icon_DefaultSize" type="Int">
+			<label>The default size of icons shown in the icon view</label>
+			<default>64</default>
+		</entry>
+	</group>
 
 	<group name="printer">
 		<entry name="Page_MarginLeft" type="Int">

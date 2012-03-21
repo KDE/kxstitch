@@ -42,6 +42,7 @@ class LibraryFile
 
 		static const int version = 100;
 
+		bool			m_exists;
 		bool			m_read;
 		QString			m_path;
 		QList<LibraryPattern *>	m_libraryPatterns;

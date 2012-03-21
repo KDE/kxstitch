@@ -200,7 +200,7 @@ void Renderer::render(QPainter *painter,
 	d->m_pattern = pattern;
 	d->m_hilight = colorHilight;
 
-	painter->drawRect(d->m_paintDeviceArea);
+	//painter->drawRect(d->m_paintDeviceArea);
 
 	double l = d->m_paintDeviceArea.left();
 	double t = d->m_paintDeviceArea.top();
@@ -211,14 +211,19 @@ void Renderer::render(QPainter *painter,
 
 	painter->translate(l, t);
 
-	if (renderGrid && pattern->document())
+	if (renderGrid)
 	{
-		int cellHorizontalGrouping = pattern->document()->property("cellHorizontalGrouping").toInt();
-		int cellVerticalGrouping = pattern->document()->property("cellVerticalGrouping").toInt();
+		int cellHorizontalGrouping = -1;
+		int cellVerticalGrouping = -1;
+		if (pattern->document())
+		{
+			cellHorizontalGrouping = pattern->document()->property("cellHorizontalGrouping").toInt();
+			cellVerticalGrouping = pattern->document()->property("cellVerticalGrouping").toInt();
+		}
 
 		for (int x = 0 ; x < d->m_patternRect.width() ; x++)
 		{
-			if (x % cellHorizontalGrouping)
+			if ((cellHorizontalGrouping == -1) || (x % cellHorizontalGrouping))
 				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.5));
 			else
 				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 2.0));
@@ -227,7 +232,7 @@ void Renderer::render(QPainter *painter,
 
 		for (int y = 0 ; y < d->m_patternRect.height() ; y++)
 		{
-			if (y % cellVerticalGrouping)
+			if ((cellVerticalGrouping == -1) || (y % cellVerticalGrouping))
 				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.5));
 			else
 				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 2.0));

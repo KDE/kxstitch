@@ -16,10 +16,15 @@
 #include <QFileInfoList>
 #include <QMimeData>
 
+#include <KInputDialog>
+#include <KMessageBox>
 #include <KStandardDirs>
 
 #include "LibraryListWidgetItem.h"
 #include "LibraryTreeWidgetItem.h"
+#include "Pattern.h"
+
+#include "configuration.h"
 
 
 LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
@@ -27,16 +32,31 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
 {
 	setCaption(i18n("Library Manager"));
 	setButtons(KDialog::Close | KDialog::Help);
-	setContextMenuPolicy(Qt::CustomContextMenu);
+	
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
+	ui.ZoomOut->setIcon(KIcon("zoom-out"));
+	ui.ZoomIn->setIcon(KIcon("zoom-in"));
 	QMetaObject::connectSlotsByName(this);
 	setMainWidget(widget);
+	
+	refreshLibraries();
+	
+	ui.LibraryTree->setContextMenuPolicy(Qt::CustomContextMenu);
+	ui.LibraryIcons->setContextMenuPolicy(Qt::CustomContextMenu);
+	ui.LibraryIcons->changeIconSize(Configuration::icon_DefaultSize());
+	ui.IconSizeSlider->setValue(Configuration::icon_DefaultSize());
 }
 
 
 LibraryManagerDlg::~LibraryManagerDlg()
 {
+}
+
+
+void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
+{
+	ui.LibraryIcons->setCellSize(cellWidth, cellHeight);
 }
 
 
@@ -49,17 +69,17 @@ void LibraryManagerDlg::slotButtonClicked(int button)
 void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &position)
 {
 	m_contextMenu.clear();
-	m_contextMenu.addAction(i18n("New Catagory"), this, SLOT(newTreeCatagory()));
+	m_contextMenu.addAction(i18n("New Category"), this, SLOT(newCategory()));
 	if (ui.LibraryTree->itemAt(position))
 	{
 		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryToExportList()));
-		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternLibraryProperties()));
+		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryProperties()));
 		if (QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch"))
 		{
 			m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
 		}
 	}
-	m_contextMenu.popup(position);
+	m_contextMenu.popup(QCursor::pos());
 }
 
 
@@ -68,8 +88,8 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
 	m_contextMenu.clear();
 	if (ui.LibraryIcons->itemAt(position))
 	{
-		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryPatternProperties()));
-		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryPatternToExportList()));
+		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
+		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 		m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
 		m_contextMenu.addAction(i18n("Delete"), this, SLOT(deleteLibraryPattern()));
 		m_contextMenu.popup(position);
@@ -79,7 +99,7 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
 		if (QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch") && ui.LibraryTree->selectedItems().count() == 1)
 		{
 			m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
-			m_contextMenu.popup(position);
+			m_contextMenu.popup(QCursor::pos());
 		}
 	}
 }
@@ -94,6 +114,131 @@ void LibraryManagerDlg::on_LibraryTree_currentItemChanged(QTreeWidgetItem *curre
 		LibraryListWidgetItem *libraryListWidgetItem = new LibraryListWidgetItem(ui.LibraryIcons, libraryPattern);
 		libraryPattern->setLibraryListWidgetItem(libraryListWidgetItem);
 	}
+}
+
+
+void LibraryManagerDlg::on_IconSizeSlider_valueChanged(int size)
+{
+	ui.LibraryIcons->changeIconSize(size);
+}
+
+
+void LibraryManagerDlg::newCategory()
+{
+	QString category;
+	LibraryTreeWidgetItem *parent = 0;
+	if (ui.LibraryTree->selectedItems().count())
+		parent = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->selectedItems().at(0));
+	
+	bool ok = false;
+	
+	while (!ok)
+	{
+		QTreeWidgetItem *item = 0;
+		category = KInputDialog::getText(i18n("Category"), QString(), QString(), &ok, this);
+		if (!ok)
+			break;
+		if (parent)
+		{
+			for (int i = 0 ; i < parent->childCount() ; ++i)
+				if (parent->child(i)->text(0) == category)
+					break;
+		}
+		else
+		{
+			QList<QTreeWidgetItem *> rootItems = ui.LibraryTree->findItems(category, Qt::MatchExactly);
+			if (!rootItems.isEmpty())
+			{
+				QTreeWidgetItem *rootItem = rootItems.at(0);
+				item = rootItem;
+			}
+		}
+		
+		if (item)
+		{
+			KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
+			ok = false;
+		}
+	}
+	
+	if (ok)
+	{
+		LibraryTreeWidgetItem *newItem;
+		if (parent)
+			newItem = new LibraryTreeWidgetItem(parent, category);
+		else
+			newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
+		
+		QString path;
+		QFileInfo fileInfo;
+		
+		if (parent)
+		{
+			fileInfo.setFile(parent->path());
+			if (!fileInfo.isWritable())
+			{
+				path.replace(0, path.indexOf("library"), "");
+				path = KGlobal::dirs()->saveLocation("appdata", path);
+				fileInfo.setFile(path);
+			}
+		}
+		else
+		{
+			path = KGlobal::dirs()->saveLocation("appdata", "library");
+			fileInfo.setFile(path);
+		}
+		
+		if (fileInfo.dir().mkdir(category))
+		{
+			path += category;
+			path += "/";
+			newItem->addPath(path);
+		}
+		
+		ui.LibraryTree->setCurrentItem(newItem);
+	}
+}
+
+
+void LibraryManagerDlg::addLibraryToExportList()
+{
+}
+
+
+void LibraryManagerDlg::libraryProperties()
+{
+}
+
+
+void LibraryManagerDlg::pasteFromClipboard()
+{
+	LibraryTreeWidgetItem *item = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
+	Pattern *pattern = new Pattern();
+	QByteArray data = QApplication::clipboard()->mimeData()->data("application/kxstitch");
+	QDataStream stream(&data, QIODevice::ReadOnly);
+	stream >> *pattern;
+	item->addPattern(new LibraryPattern(pattern));
+	on_LibraryTree_currentItemChanged(static_cast<QTreeWidgetItem *>(item), 0);
+}
+
+
+void LibraryManagerDlg::patternProperties()
+{
+}
+
+
+void LibraryManagerDlg::addPatternToExportList()
+{
+}
+
+
+void LibraryManagerDlg::copyToClipboard()
+{
+}
+
+
+void LibraryManagerDlg::deletePattern()
+{
 }
 
 
@@ -118,49 +263,45 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 	while (fileInfoListIterator.hasNext())
 	{
 		QFileInfo fileInfo = fileInfoListIterator.next();
-		if (fileInfo.isDir() && fileInfo.fileName() != "." && fileInfo.fileName() != "..")
+		if (fileInfo.isDir())
 		{
-			QString subPath = QString("%1%2/").arg(path).arg(fileInfo.fileName());
-			if (parent)
+			if (fileInfo.fileName() != "." && fileInfo.fileName() != "..")
 			{
-				int children = parent->childCount();
-				int childIndex = 0;
-				while (childIndex < children)
-				{
-					libraryTreeWidgetItem = dynamic_cast<LibraryTreeWidgetItem *>(parent->child(childIndex));
-					if (libraryTreeWidgetItem->text(0) == fileInfo.fileName())
-						break;
-					childIndex++;
-				}
-				if (childIndex == children)
-					libraryTreeWidgetItem = 0;
-			}
-			else
-			{
-				// this is a root node
-				QList<QTreeWidgetItem *> rootNodes = ui.LibraryTree->findItems(fileInfo.fileName(), Qt::MatchExactly, 0);
-				if (!rootNodes.isEmpty())
-				{
-					libraryTreeWidgetItem = dynamic_cast<LibraryTreeWidgetItem *>(rootNodes[0]);
-				}
-			}
-
-			if (libraryTreeWidgetItem == 0)
-			{
+				libraryTreeWidgetItem = 0;
+				QString subPath = QString("%1%2/").arg(path).arg(fileInfo.fileName());
 				if (parent)
 				{
-					libraryTreeWidgetItem = new LibraryTreeWidgetItem(parent, fileInfo.fileName());
+					int children = parent->childCount();
+					int childIndex = 0;
+					while (childIndex < children)
+					{
+						libraryTreeWidgetItem = dynamic_cast<LibraryTreeWidgetItem *>(parent->child(childIndex));
+						if (libraryTreeWidgetItem->text(0) == fileInfo.fileName())
+							break;
+						childIndex++;
+					}
 				}
 				else
 				{
-					libraryTreeWidgetItem = new LibraryTreeWidgetItem(ui.LibraryTree, fileInfo.fileName());
+					QList<QTreeWidgetItem *> rootNodes = ui.LibraryTree->findItems(fileInfo.fileName(), Qt::MatchExactly, 0);
+					if (!rootNodes.isEmpty())
+						libraryTreeWidgetItem = dynamic_cast<LibraryTreeWidgetItem *>(rootNodes[0]);
 				}
-			}
 
-			libraryTreeWidgetItem->addPath(subPath);
-			recurseLibraryDirectory(libraryTreeWidgetItem, subPath);
+				if (libraryTreeWidgetItem == 0)
+				{
+					if (parent)
+						libraryTreeWidgetItem = new LibraryTreeWidgetItem(parent, fileInfo.fileName());
+					else
+					{
+						libraryTreeWidgetItem = new LibraryTreeWidgetItem(ui.LibraryTree, fileInfo.fileName());
+						ui.LibraryTree->sortItems(0, Qt::AscendingOrder);
+					}
+				}
+
+				libraryTreeWidgetItem->addPath(subPath);
+				recurseLibraryDirectory(libraryTreeWidgetItem, subPath);
+			}
 		}
 	}
 }
-
-

@@ -14,14 +14,10 @@
 
 
 #include <QListWidgetItem>
-#include <QList>
 
 
 class LibraryPattern;
-class QDropEvent;
-class QIconDragItem;
 class QListWidget;
-class QMimeSource;
 
 
 class LibraryListWidgetItem : public QListWidgetItem
@@ -31,10 +27,6 @@ class LibraryListWidgetItem : public QListWidgetItem
 
 		void setLibraryPattern(LibraryPattern *libraryPattern);
 		LibraryPattern *libraryPattern();
-		bool acceptDrop(const QMimeSource *mimeSource);
-
-	protected:
-		void dropped(QDropEvent *event, const QList<QIconDragItem> &list);
 
 	private:
 		LibraryPattern *m_libraryPattern;

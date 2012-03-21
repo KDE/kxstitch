@@ -35,6 +35,7 @@
 #include "Document.h"
 #include "Floss.h"
 #include "FlossScheme.h"
+#include "LibraryManagerDlg.h"
 #include "MainWindow.h"
 #include "Palette.h"
 #include "Preview.h"
@@ -222,22 +223,24 @@ const Stitch::Type stitchMap[][4] =
 
 
 Editor::Editor(QWidget *parent)
-	:	QWidget(parent)
+	:	QWidget(parent),
+		m_libraryManagerDlg(0),
+		m_horizontalScale(new Scale(Qt::Horizontal)),
+		m_verticalScale(new Scale(Qt::Vertical)),
+		m_renderer(new Renderer()),
+		m_toolMode(ToolPaint),
+		m_zoomFactor(1.0)
 {
-	m_horizontalScale = new Scale(Qt::Horizontal);
-	m_verticalScale = new Scale(Qt::Vertical);
-
-	m_renderer = new Renderer();
-
-	m_toolMode = ToolPaint;
-	
-	m_zoomFactor = 1.0;
+	setAcceptDrops(true);
 }
 
 
 Editor::~Editor()
 {
-	delete m_renderer;
+//	delete m_libraryManagerDlg;
+//	delete m_horizontalScale;
+//	delete m_verticalScale;
+//	delete m_renderer;
 }
 
 
@@ -296,6 +299,17 @@ void Editor::readDocumentSettings()
 }
 
 
+void Editor::libraryManager()
+{
+	if (m_libraryManagerDlg == 0)
+	{
+		m_libraryManagerDlg = new LibraryManagerDlg(this);
+		m_libraryManagerDlg->setCellSize(m_cellWidth, m_cellHeight);
+	}
+	m_libraryManagerDlg->show();
+}
+
+
 void Editor::previewClicked(const QPoint &cell)
 {
 	QRect contentsRect = parentWidget()->contentsRect();
@@ -344,6 +358,8 @@ void Editor::zoom(double factor)
 	m_verticalScale->setOffset(pos().y());
 
 	m_renderer->setCellSize(m_cellWidth, m_cellHeight);
+	if (m_libraryManagerDlg)
+		m_libraryManagerDlg->setCellSize(m_cellWidth, m_cellHeight);
 
 	this->resize(m_document->pattern()->stitches().width()*m_cellWidth, m_document->pattern()->stitches().height()*m_cellHeight);
 	m_renderer->setPaintDeviceArea(QRect(0, 0, width(), height()));
@@ -685,23 +701,36 @@ void Editor::contextMenuEvent(QContextMenuEvent *e)
 }
 
 
-void Editor::dragEnterEvent(QDragEnterEvent*)
+void Editor::dragEnterEvent(QDragEnterEvent *e)
 {
+	if (e->mimeData()->hasFormat("application/kxstitch"))
+		e->accept();
+}
+
+
+void Editor::dragMoveEvent(QDragMoveEvent *e)
+{
+	if (e->mimeData()->hasFormat("application/kxstitch"))
+		e->accept();
 }
 
 
 void Editor::dragLeaveEvent(QDragLeaveEvent*)
 {
+	// dont need to do anything here
 }
 
 
-void Editor::dragMoveEvent(QDragMoveEvent*)
+void Editor::dropEvent(QDropEvent *e)
 {
-}
-
-
-void Editor::dropEvent(QDropEvent*)
-{
+	m_pasteData = e->mimeData()->data("application/kxstitch");
+	m_pastePattern = new Pattern;
+	QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
+	stream >> *m_pastePattern;
+	m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), e->keyboardModifiers() & Qt::ShiftModifier, i18n("Drag")));
+	m_pastePattern = 0;
+	m_pasteData.clear();
+	e->accept();
 }
 
 

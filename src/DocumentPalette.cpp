@@ -164,12 +164,17 @@ void DocumentPalette::add(int flossIndex, DocumentFloss *documentFloss)
 int DocumentPalette::add(const QColor &srcColor)
 {
 	int colorIndex = -1;
-	
+
+	FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
+	Floss *floss = scheme->find(scheme->find(srcColor));
+	if (floss == 0)
+		floss = scheme->convert(srcColor);
+
 	QMapIterator<int, DocumentFloss *> flossIterator(m_documentFlosses);
 	while (flossIterator.hasNext() && colorIndex == -1)
 	{
 		flossIterator.next();
-		if (flossIterator.value()->flossColor() == srcColor)
+		if (flossIterator.value()->flossColor() == floss->color())
 		{
 			colorIndex = flossIterator.key();
 		}
@@ -177,10 +182,8 @@ int DocumentPalette::add(const QColor &srcColor)
 	
 	if (colorIndex == -1) // the color hasn't been found in the existing list
 	{
-		FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
-		Floss *floss = scheme->find(scheme->find(srcColor));
 			
-		for (colorIndex = 0 ; m_documentFlosses.contains(colorIndex) ; ++colorIndex) ; // i contains a free index
+		for (colorIndex = 0 ; m_documentFlosses.contains(colorIndex) ; ++colorIndex) ; // colorIndex contains a free index
 		
 		int c = -1;
 		bool found = false;
