@@ -21,6 +21,7 @@
 #include <KStandardDirs>
 
 #include "LibraryListWidgetItem.h"
+#include "LibraryPatternPropertiesDlg.h"
 #include "LibraryTreeWidgetItem.h"
 #include "Pattern.h"
 
@@ -224,6 +225,24 @@ void LibraryManagerDlg::pasteFromClipboard()
 
 void LibraryManagerDlg::patternProperties()
 {
+	LibraryListWidgetItem *item = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->currentItem());
+	LibraryPattern *libraryPattern = item->libraryPattern();
+	LibraryPatternPropertiesDlg *dialog = new LibraryPatternPropertiesDlg(this,
+									     libraryPattern->key(),
+									     libraryPattern->modifiers(),
+									     libraryPattern->baseline(),
+									     libraryPattern->pattern()->palette().schemeName(),
+									     libraryPattern->pattern()->stitches().width(),
+									     libraryPattern->pattern()->stitches().height(),
+									     item->icon());
+
+	if (dialog->exec())
+	{
+		libraryPattern->setKeyModifiers(dialog->key(), dialog->modifiers());
+		libraryPattern->setBaseline(dialog->baseline());
+	}
+	
+	delete dialog;
 }
 
 

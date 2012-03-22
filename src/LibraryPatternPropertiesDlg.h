@@ -23,13 +23,12 @@ class LibraryPatternPropertiesDlg : public KDialog
 	Q_OBJECT
 
 	public:
-		LibraryPatternPropertiesDlg(QWidget *);
+		LibraryPatternPropertiesDlg(QWidget *, qint32, Qt::KeyboardModifiers, qint16, const QString &, int, int, const QIcon &);
 		~LibraryPatternPropertiesDlg();
-
-	protected slots:
-		void slotButtonClicked(int);
-
-	private slots:
+		
+		qint32 key() const;
+		Qt::KeyboardModifiers modifiers() const;
+		qint16 baseline() const;
 
 	private:
 		Ui::LibraryPatternProperties	ui;

@@ -12,7 +12,7 @@
 #include "LibraryPatternPropertiesDlg.h"
 
 
-LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent)
+LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline, const QString &scheme, int width, int height, const QIcon &icon)
 	:	KDialog(parent)
 {
 	setCaption(i18n("Library Pattern Properties"));
@@ -20,6 +20,12 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent)
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);
+	ui.FlossScheme->setText(scheme);
+	ui.Width->setText(QString().setNum(width));
+	ui.Height->setText(QString().setNum(height));
+	ui.Baseline->setValue(baseline);
+	ui.KeyCode->setKeyModifiers(key, modifiers);
+	ui.Icon->setPixmap(icon.pixmap(ui.Icon->size()));
 	setMainWidget(widget);
 }
 
@@ -29,8 +35,19 @@ LibraryPatternPropertiesDlg::~LibraryPatternPropertiesDlg()
 }
 
 
-void LibraryPatternPropertiesDlg::slotButtonClicked(int button)
+qint32 LibraryPatternPropertiesDlg::key() const
 {
+	return ui.KeyCode->key();
 }
 
 
+Qt::KeyboardModifiers LibraryPatternPropertiesDlg::modifiers() const
+{
+	return ui.KeyCode->modifiers();
+}
+
+
+qint16 LibraryPatternPropertiesDlg::baseline() const
+{
+	return ui.Baseline->value();
+}
