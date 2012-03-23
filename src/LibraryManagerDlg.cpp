@@ -20,6 +20,7 @@
 #include <KMessageBox>
 #include <KStandardDirs>
 
+#include "LibraryFilePathsDlg.h"
 #include "LibraryListWidgetItem.h"
 #include "LibraryPatternPropertiesDlg.h"
 #include "LibraryTreeWidgetItem.h"
@@ -208,6 +209,10 @@ void LibraryManagerDlg::addLibraryToExportList()
 
 void LibraryManagerDlg::libraryProperties()
 {
+	LibraryTreeWidgetItem *item = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
+	LibraryFilePathsDlg *dialog = new LibraryFilePathsDlg(this, item->text(0), item->paths());
+	dialog->exec();
+	delete dialog;
 }
 
 

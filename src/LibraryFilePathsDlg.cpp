@@ -12,14 +12,20 @@
 #include "LibraryFilePathsDlg.h"
 
 
-LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent)
+LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString &category, QStringList paths)
 	:	KDialog(parent)
 {
 	setCaption(i18n("Library File Paths"));
-	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setButtons(KDialog::Ok | KDialog::Help);
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);
+	
+	QStringListIterator pathIterator(paths);
+	while (pathIterator.hasNext())
+	{
+		ui.PathList->addItem(pathIterator.next());
+	}
 	setMainWidget(widget);
 }
 

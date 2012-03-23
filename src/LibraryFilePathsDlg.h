@@ -23,7 +23,7 @@ class LibraryFilePathsDlg : public KDialog
 	Q_OBJECT
 
 	public:
-		LibraryFilePathsDlg(QWidget *);
+		LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
 		~LibraryFilePathsDlg();
 
 	protected slots:
