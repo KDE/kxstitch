@@ -125,7 +125,7 @@
   <customwidget>
    <class>KeycodeLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>KeycodeLineEdit.h</header>
+   <header>src/KeycodeLineEdit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
