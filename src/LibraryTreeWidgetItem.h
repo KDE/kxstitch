@@ -39,9 +39,8 @@ class LibraryTreeWidgetItem : public QTreeWidgetItem
 		void addPath(const QString &);
 		QString path();
 		QStringList paths();
-//		void addPattern(KXStitchDragObject *pattern);
 		void addPattern(LibraryPattern *);
-//		void deletePattern(PreviewIconViewItem *iconViewItem);
+		void deletePattern(LibraryPattern *);
 
 	private:
 		LibraryFile *writablePath();

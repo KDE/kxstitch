@@ -220,3 +220,16 @@ void LibraryTreeWidgetItem::addPattern(LibraryPattern *libraryPattern)
 {
 	writablePath()->addPattern(libraryPattern);
 }
+
+
+void LibraryTreeWidgetItem::deletePattern(LibraryPattern *libraryPattern)
+{
+	QListIterator<LibraryFile *> libraryFilesIterator(m_libraryFiles);
+	while (libraryFilesIterator.hasNext())
+	{
+		LibraryFile *file = libraryFilesIterator.next();
+		for (LibraryPattern *pattern = file->first() ; pattern ; pattern = file->next())
+			if (pattern == libraryPattern)
+				file->deletePattern(libraryPattern);
+	}
+}

@@ -61,6 +61,7 @@ void LibraryFile::deletePattern(LibraryPattern *libraryPattern)
 {
 	if (m_libraryPatterns.removeOne(libraryPattern))
 	{
+		delete libraryPattern;
 		writeFile();
 	}
 }
