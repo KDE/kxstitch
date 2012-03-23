@@ -54,6 +54,9 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
 	m_pattern->palette().setSchemeName(scheme);
 	m_pattern->stitches().resize(width, height);
 	
+	QMap<int, QColor> colors;
+	int colorIndex;
+	
 	for (int y = 0 ; y < height ; ++y)
 	{
 		for (int x = 0 ; x < width ; ++x)
@@ -66,7 +69,12 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
 				qint8 type;
 				QColor color;
 				stream >> type >> color;
-				m_pattern->stitches().addStitch(cell, static_cast<Stitch::Type>(type), m_pattern->palette().add(color));
+				if ((colorIndex = colors.key(color, -1)) == -1)
+				{
+					colorIndex = m_pattern->palette().add(color);
+					colors.insert(colorIndex, color);
+				}
+				m_pattern->stitches().addStitch(cell, static_cast<Stitch::Type>(type), colorIndex);
 			}
 		}
 	}
@@ -79,7 +87,12 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
 		QPoint end;
 		QColor color;
 		stream >> start >> end >> color;
-		m_pattern->stitches().addBackstitch(start, end, m_pattern->palette().add(color));
+		if ((colorIndex = colors.key(color, -1)) == -1)
+		{
+			colorIndex = m_pattern->palette().add(color);
+			colors.insert(colorIndex, color);
+		}
+		m_pattern->stitches().addBackstitch(start, end, colorIndex);
 	}
 	
 	qint32 knots;
@@ -89,7 +102,12 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
 		QPoint position;
 		QColor color;
 		stream >> position >> color;
-		m_pattern->stitches().addFrenchKnot(position, m_pattern->palette().add(color));
+		if ((colorIndex = colors.key(color, -1)) == -1)
+		{
+			colorIndex = m_pattern->palette().add(color);
+			colors.insert(colorIndex, color);
+		}
+		m_pattern->stitches().addFrenchKnot(position, colorIndex);
 	}
 }
 
