@@ -64,7 +64,7 @@ void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
 			-1);
 	
 	setIcon(QIcon(pixmap));
-//	setSizeHint(QSize(pixmap.width(), pixmap.height()+10));
+	setSizeHint(QSize(pixmap.width(), pixmap.height()+10));
 }
 
 
