@@ -29,8 +29,7 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
 	setMainWidget(widget);
 
 	fillSchemeList();
-	ui.SchemeList->setCurrentIndex(ui.SchemeList->findText(m_schemeName));
-	fillColorList();
+	ui.SchemeList->setCurrentItem(m_schemeName);
 }
 
 
