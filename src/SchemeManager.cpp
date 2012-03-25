@@ -197,6 +197,7 @@ bool SchemeManager::writeScheme(QString name)
 	Get a list of files that contain xml schemes, iterating each one to create a new FlossScheme instance
 	and read the scheme.  Each path found is added to the KDirWatch instance to allow automatic reload of scheme
 	data if it is changed outside of KXStitch.
+	Assumes that local resources are given before global ones and should take priority.
 	*/
 void SchemeManager::refresh()
 {
@@ -209,7 +210,17 @@ void SchemeManager::refresh()
 		FlossScheme *flossScheme = readScheme(nextResource);
 		if (flossScheme)
 		{
-			m_flossSchemes.append(flossScheme);
+			for (int i = 0 ; i < m_flossSchemes.count() ; ++i)
+			{
+				if (m_flossSchemes.at(i)->schemeName() == flossScheme->schemeName())
+				{
+					delete flossScheme;
+					flossScheme = 0;
+					break;
+				}
+			}
+			if (flossScheme)
+				m_flossSchemes.append(flossScheme);
 		}
 	}
 }
