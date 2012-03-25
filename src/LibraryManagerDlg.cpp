@@ -56,6 +56,12 @@ LibraryManagerDlg::~LibraryManagerDlg()
 }
 
 
+LibraryTreeWidgetItem *LibraryManagerDlg::currentLibrary()
+{
+	return static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
+}
+
+
 void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 {
 	ui.LibraryIcons->setCellSize(cellWidth, cellHeight);

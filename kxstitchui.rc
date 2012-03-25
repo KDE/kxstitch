@@ -97,6 +97,7 @@
 		<Action name="toolFillPolygon"/>
 		<Separator/>
 		<Action name="toolText"/>
+		<Action name="toolAlphabet"/>
 		<Separator/>
 		<Action name="toolSelectRectangle"/>
 		<Separator/>

@@ -1447,3 +1447,52 @@ void RotateSelectionCommand::undo()
 	m_document->editor()->update();
 	m_document->preview()->update();
 }
+
+
+AlphabetCommand::AlphabetCommand(Document *document)
+	:	QUndoCommand(i18n("Alphabet")),
+		m_document(document)
+{
+}
+
+
+AlphabetCommand::~AlphabetCommand()
+{
+	qDeleteAll(m_children);
+}
+
+
+void AlphabetCommand::redo()
+{
+	for (int i = 0 ; i < m_children.size() ; ++i)
+		m_children.at(i)->redo();
+}
+
+
+void AlphabetCommand::undo()
+{
+	for (int i = m_children.size()-1 ; i >= 0 ; --i)
+		m_children.at(i)->undo();
+}
+
+
+void AlphabetCommand::push(QUndoCommand *child)
+{
+	m_children.append(child);
+	child->redo();
+}
+
+
+QUndoCommand *AlphabetCommand::pop()
+{
+	if (m_children.isEmpty())
+		return 0;
+	m_children.last()->undo();
+	return m_children.takeLast();
+}
+
+
+int AlphabetCommand::childCount() const
+{
+	return m_children.count();
+}

@@ -23,6 +23,7 @@
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
 #include <QToolTip>
+#include <QX11Info>
 
 #include <KAction>
 #include <KMessageBox>
@@ -36,6 +37,8 @@
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "LibraryManagerDlg.h"
+#include "LibraryPattern.h"
+#include "LibraryTreeWidgetItem.h"
 #include "MainWindow.h"
 #include "Palette.h"
 #include "Preview.h"
@@ -43,6 +46,7 @@
 #include "Scale.h"
 #include "SchemeManager.h"
 #include "TextToolDlg.h"
+#include "XKeyLock.h"
 
 
 const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
@@ -56,6 +60,7 @@ const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
 	0,					// Fill Ellipse
 	&Editor::keyPressPolygon,		// Fill Polygon
 	0,					// Text
+	&Editor::keyPressAlphabet,		// Alphabet
 	0,					// Select
 	0,					// Backstitch
 	0,					// Color Picker
@@ -75,6 +80,7 @@ const Editor::toolInitCallPointer Editor::toolInitCallPointers[] =
 	0,					// Fill Ellipse
 	&Editor::toolInitPolygon,		// Fill Polygon
 	&Editor::toolInitText,			// Text
+	&Editor::toolInitAlphabet,		// Alphabet
 	0,					// Select
 	0,					// Backstitch
 	0,					// Color Picker
@@ -95,6 +101,7 @@ const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] =
 	0,					// Fill Ellipse
 	&Editor::toolCleanupPolygon,		// Fill Polygon
 	0,					// Text
+	&Editor::toolCleanupAlphabet,		// Alphabet
 	&Editor::toolCleanupSelect,		// Select
 	0,					// Backstitch
 	0,					// Color Picker
@@ -115,6 +122,7 @@ const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] =
 	&Editor::mousePressEvent_FillEllipse,
 	&Editor::mousePressEvent_FillPolygon,
 	&Editor::mousePressEvent_Text,
+	&Editor::mousePressEvent_Alphabet,
 	&Editor::mousePressEvent_Select,
 	&Editor::mousePressEvent_Backstitch,
 	&Editor::mousePressEvent_ColorPicker,
@@ -134,6 +142,7 @@ const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] =
 	&Editor::mouseMoveEvent_FillEllipse,
 	&Editor::mouseMoveEvent_FillPolygon,
 	&Editor::mouseMoveEvent_Text,
+	&Editor::mouseMoveEvent_Alphabet,
 	&Editor::mouseMoveEvent_Select,
 	&Editor::mouseMoveEvent_Backstitch,
 	&Editor::mouseMoveEvent_ColorPicker,
@@ -153,6 +162,7 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] =
 	&Editor::mouseReleaseEvent_FillEllipse,
 	&Editor::mouseReleaseEvent_FillPolygon,
 	&Editor::mouseReleaseEvent_Text,
+	&Editor::mouseReleaseEvent_Alphabet,
 	&Editor::mouseReleaseEvent_Select,
 	&Editor::mouseReleaseEvent_Backstitch,
 	&Editor::mouseReleaseEvent_ColorPicker,
@@ -172,6 +182,7 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	&Editor::renderRubberBandEllipse,	// Fill Ellipse
 	&Editor::renderFillPolygon,		// Fill Polygon
 	0,					// Text
+	&Editor::renderAlphabetCursor,		// Alphabet
 	&Editor::renderRubberBandRectangle,	// Select
 	&Editor::renderRubberBandLine,		// Backstitch
 	0,					// Color Picker
@@ -225,6 +236,7 @@ const Stitch::Type stitchMap[][4] =
 Editor::Editor(QWidget *parent)
 	:	QWidget(parent),
 		m_libraryManagerDlg(0),
+		m_activeCommand(0),
 		m_horizontalScale(new Scale(Qt::Horizontal)),
 		m_verticalScale(new Scale(Qt::Vertical)),
 		m_renderer(new Renderer()),
@@ -779,6 +791,120 @@ void Editor::keyPressPolygon(QKeyEvent *e)
 }
 
 
+void Editor::keyPressAlphabet(QKeyEvent *e)
+{
+	XKeyLock keylock(QX11Info::display());
+	Qt::KeyboardModifiers modifiers = e->modifiers();
+	if (keylock.getCapsLock() & Configuration::alphabet_UseCapsLock())
+		modifiers = static_cast<Qt::KeyboardModifiers>(modifiers ^ Qt::ShiftModifier);
+	int width = m_document->pattern()->stitches().width();
+	int height = m_document->pattern()->stitches().height();
+	LibraryPattern *libraryPattern = 0;
+	
+	if (m_libraryManagerDlg->currentLibrary())
+	{
+
+		switch (e->key())
+		{
+			case Qt::Key_Backspace:
+				if (m_cursorStack.count() > 1)
+				{
+					m_cellEnd = m_cursorStack.pop();
+					m_cursorCommands.remove(m_cursorStack.count());
+					update(cellToRect(m_cellEnd));
+					update(cellToRect(m_cursorStack.top()));
+					int commandsToUndo = m_cursorCommands[m_cursorStack.count()-1];
+					while (commandsToUndo--)
+					{
+						QUndoCommand *cmd = static_cast<AlphabetCommand *>(m_activeCommand)->pop();
+						m_cursorCommands[m_cursorStack.count()-1]--;
+						delete cmd;
+					}
+				}
+				e->accept();
+				break;
+				
+			case Qt::Key_Return:
+			case Qt::Key_Enter:
+				m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cursorStack.top().y()+m_libraryManagerDlg->currentLibrary()->maxHeight()+Configuration::alphabet_LineSpacing());
+				if (m_cellTracking.y() >= height)
+				{
+					static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y()-height+Configuration::alphabet_ExtendPatternHeight()));
+					m_cursorCommands[m_cursorStack.count()-1]++;
+				}
+				m_cellEnd = m_cursorStack.top();
+				m_cursorStack.push(m_cellTracking);
+				update(cellToRect(m_cellEnd));
+				update(cellToRect(m_cellTracking));
+				e->accept();
+				break;
+				
+			default:
+				libraryPattern = m_libraryManagerDlg->currentLibrary()->findCharacter(e->key(), modifiers);
+				if (libraryPattern)
+				{
+					if ((m_cursorStack.top()+QPoint(libraryPattern->pattern()->stitches().width(), 0)).x() >= width)
+					{
+						if (m_cursorCommands[m_cursorStack.count()-2])
+						{
+							static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, m_cursorStack.top().x()+libraryPattern->pattern()->stitches().width()-width+Configuration::alphabet_ExtendPatternWidth(), 0));
+							m_cursorCommands[m_cursorStack.count()-1]++;
+						}
+						else
+						{
+							m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cursorStack.top().y()+m_libraryManagerDlg->currentLibrary()->maxHeight()+Configuration::alphabet_LineSpacing());
+							if (m_cellTracking.y() >= height)
+							{
+								static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y()-height+Configuration::alphabet_ExtendPatternHeight()));
+								m_cursorCommands[m_cursorStack.count()-1]++;
+							}
+							m_cellEnd = m_cursorStack.top();
+							m_cursorStack.push(m_cellTracking);
+							update(cellToRect(m_cellEnd));
+							update(cellToRect(m_cellTracking));
+						}
+					}
+					QPoint insertionPoint = m_cursorStack.top() - QPoint(0, libraryPattern->pattern()->stitches().height()-1-libraryPattern->baseline());
+					static_cast<AlphabetCommand *>(m_activeCommand)->push(new EditPasteCommand(m_document, libraryPattern->pattern(), insertionPoint, true, i18n("Add Character")));
+					m_cursorCommands[m_cursorStack.count()-1]++;
+					m_cursorStack.push(m_cursorStack.top() + QPoint(libraryPattern->pattern()->stitches().width()+1, 0));
+				}
+				else
+				{
+					if (e->key() == Qt::Key_Space)
+					{
+						m_cellTracking = m_cursorStack.top() + QPoint(Configuration::alphabet_SpaceWidth(), 0);
+						if (m_cellTracking.x() >= width)
+						{
+							if (Configuration::alphabet_WordWrap())
+							{
+								m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cellTracking.y() + m_libraryManagerDlg->currentLibrary()->maxHeight()+Configuration::alphabet_LineSpacing());
+								if (m_cellTracking.y() >= height)
+								{
+									static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y()-height+Configuration::alphabet_ExtendPatternHeight()));
+									m_cursorCommands[m_cursorStack.count()-1]++;
+								}
+							}
+							else
+							{
+								static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, m_cellTracking.x()-width+Configuration::alphabet_ExtendPatternWidth(), 0));
+								m_cursorCommands[m_cursorStack.count()-1]++;
+							}
+						}
+						m_cursorStack.push(m_cellTracking);
+						update(cellToRect(m_cursorStack.at(m_cursorStack.size()-2)));
+						update(cellToRect(m_cellTracking));
+					}
+				}
+				e->accept();
+				break;
+		}
+	}
+	QPoint contentPoint = cellToRect(m_cursorStack.top()).center();
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(contentPoint.x(), contentPoint.y());
+}
+
+
 void Editor::keyPressPaste(QKeyEvent *e)
 {
 	switch (e->key())
@@ -936,10 +1062,24 @@ void Editor::toolInitText()
 }
 
 
+void Editor::toolInitAlphabet()
+{
+	libraryManager();
+}
+
+
 void Editor::toolCleanupPolygon()
 {
 	m_polygon.clear();
 	m_document->editor()->update();
+}
+
+
+void Editor::toolCleanupAlphabet()
+{
+	m_activeCommand = 0;
+	m_cursorStack.clear();
+	m_cursorCommands.clear();
 }
 
 
@@ -993,21 +1133,21 @@ void Editor::toolCleanupRotate()
 
 void Editor::mousePressEvent(QMouseEvent *e)
 {
-	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect)))
+	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)))
 		(this->*mousePressEventCallPointers[m_toolMode])(e);
 }
 
 
 void Editor::mouseMoveEvent(QMouseEvent *e)
 {
-	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect)))
+	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)))
 		(this->*mouseMoveEventCallPointers[m_toolMode])(e);
 }
 
 
 void Editor::mouseReleaseEvent(QMouseEvent *e)
 {
-	if ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect))
+	if ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet))
 		(this->*mouseReleaseEventCallPointers[m_toolMode])(e);
 }
 
@@ -1128,6 +1268,18 @@ void Editor::renderFillPolygon(QPainter *painter, QRect rect)
 		polyline.append(cellRect.center());
 	}
 	painter->drawPolyline(polyline);
+	painter->restore();
+}
+
+
+void Editor::renderAlphabetCursor(QPainter *painter, QRect rect)
+{
+	if (m_cursorStack.isEmpty())
+		return;
+	
+	painter->save();
+	painter->setPen(Qt::red);
+	painter->fillRect(cellToRect(m_cursorStack.top()), Qt::red);
 	painter->restore();
 }
 
@@ -1622,6 +1774,39 @@ void Editor::mouseReleaseEvent_Text(QMouseEvent *e)
 	m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
 	m_pastePattern = 0;
 	selectTool(m_oldToolMode);
+}
+
+
+void Editor::mousePressEvent_Alphabet(QMouseEvent *e)
+{
+	// nothing to do
+}
+
+
+void Editor::mouseMoveEvent_Alphabet(QMouseEvent *e)
+{
+	// nothing to do
+}
+
+
+void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
+{
+	if (m_activeCommand == 0)
+	{
+		m_activeCommand = new AlphabetCommand(m_document);
+		m_document->undoStack().push(m_activeCommand);
+	}
+	else if ((m_activeCommand->text() == i18n("Alphabet")) && static_cast<AlphabetCommand *>(m_activeCommand)->childCount())
+	{
+		toolCleanupAlphabet();
+		m_activeCommand = new AlphabetCommand(m_document);
+		m_document->undoStack().push(m_activeCommand);
+	}
+	
+	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+	m_cursorStack.push(m_cellEnd);
+	update(cellToRect(m_cellEnd));
+	setFocus(Qt::OtherFocusReason);
 }
 
 

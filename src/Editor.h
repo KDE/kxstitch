@@ -13,6 +13,7 @@
 #define Editor_H
 
 
+#include <QStack>
 #include <QWidget>
 
 #include "Stitch.h"
@@ -56,6 +57,7 @@ class Editor : public QWidget
 			ToolFillEllipse,
 			ToolFillPolygon,
 			ToolText,
+			ToolAlphabet,
 			ToolSelect,
 			ToolBackstitch,
 			ToolColorPicker,
@@ -146,6 +148,7 @@ class Editor : public QWidget
 		void zoom(double);
 
 		void keyPressPolygon(QKeyEvent *);
+		void keyPressAlphabet(QKeyEvent *);
 		void keyPressPaste(QKeyEvent *);
 		void keyPressMirror(QKeyEvent *);
 		void keyPressRotate(QKeyEvent *);
@@ -153,8 +156,10 @@ class Editor : public QWidget
 		
 		void toolInitPolygon();
 		void toolInitText();
+		void toolInitAlphabet();
 		
 		void toolCleanupPolygon();
+		void toolCleanupAlphabet();
 		void toolCleanupSelect();
 		void toolCleanupMirror();
 		void toolCleanupRotate();
@@ -168,6 +173,7 @@ class Editor : public QWidget
 		void renderRubberBandRectangle(QPainter *, QRect);
 		void renderRubberBandEllipse(QPainter *, QRect);
 		void renderFillPolygon(QPainter *, QRect);
+		void renderAlphabetCursor(QPainter *, QRect);
 		void renderPasteImage(QPainter *, QRect);
 
 		void mousePressEvent_Paint(QMouseEvent*);
@@ -206,6 +212,10 @@ class Editor : public QWidget
 		void mouseMoveEvent_Text(QMouseEvent*);
 		void mouseReleaseEvent_Text(QMouseEvent*);
 
+		void mousePressEvent_Alphabet(QMouseEvent*);
+		void mouseMoveEvent_Alphabet(QMouseEvent*);
+		void mouseReleaseEvent_Alphabet(QMouseEvent*);
+		
 		void mousePressEvent_Select(QMouseEvent*);
 		void mouseMoveEvent_Select(QMouseEvent*);
 		void mouseReleaseEvent_Select(QMouseEvent*);
@@ -301,6 +311,9 @@ class Editor : public QWidget
 		
 		QByteArray	m_pasteData;
 		Pattern		*m_pastePattern;
+		
+		QStack<QPoint>		m_cursorStack;
+		QMap<int, int>		m_cursorCommands;
 		
 		typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
 		typedef void (Editor::*toolInitCallPointer)();

@@ -48,6 +48,7 @@ set (kxstitch_SRCS
 	src/SchemeParser.cpp
 	src/Stitch.cpp
 	src/StitchData.cpp
+	src/XKeyLock.cpp
 
 	src/AlphaSelect.cpp
 	src/CalibrateFlossDlg.cpp

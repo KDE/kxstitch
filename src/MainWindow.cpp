@@ -1284,6 +1284,15 @@ void MainWindow::setupActions()
 	actionGroup->addAction(action);
 
 	action = new KAction(this);
+	action->setText(i18n("Alphabet"));
+	action->setData(Editor::ToolAlphabet);
+	action->setIcon(KIcon("alphabet"));
+	action->setCheckable(true);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
+	actions->addAction("toolAlphabet", action);
+	actionGroup->addAction(action);
+	
+	action = new KAction(this);
 	action->setText(i18nc("Select an area of the pattern", "Select"));
 	action->setData(Editor::ToolSelect);
 	action->setIcon(KIcon("s_rect"));

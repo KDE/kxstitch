@@ -197,6 +197,33 @@
 			<default>64</default>
 		</entry>
 	</group>
+	
+	<group name="alphabet">
+		<entry name="Alphabet_UseCapsLock" type="Bool">
+			<label>Should character selection honor the caps lock key</label>
+			<default>true</default>
+		</entry>
+		<entry name="Alphabet_SpaceWidth" type="Int">
+			<label>The default width of a space in cells</label>
+			<default>3</default>
+		</entry>
+		<entry name="Alphabet_WordWrap" type="Bool">
+			<label>Should a space cause word wrapping at the right edge of the pattern</label>
+			<default>true</default>
+		</entry>
+		<entry name="Alphabet_LineSpacing" type="Int">
+			<label>The number of cells between lines of text</label>
+			<default>2</default>
+		</entry>
+		<entry name="Alphabet_ExtendPatternWidth" type="Int">
+			<label>The number of cells to be added when extending the pattern right</label>
+			<default>5</default>
+		</entry>
+		<entry name="Alphabet_ExtendPatternHeight" type="Int">
+			<label>The number of cells to be added when extending the pattern down</label>
+			<default>10</default>
+		</entry>
+	</group>
 
 	<group name="printer">
 		<entry name="Page_MarginLeft" type="Int">

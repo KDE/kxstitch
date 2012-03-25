@@ -32,6 +32,8 @@ class LibraryManagerDlg : public KDialog
 	public:
 		LibraryManagerDlg(QWidget *parent);
 		~LibraryManagerDlg();
+		
+		LibraryTreeWidgetItem *currentLibrary();
 
 	public slots:
 		void setCellSize(double, double);
