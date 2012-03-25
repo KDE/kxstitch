@@ -190,5 +190,102 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>RedSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>RedSpin</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>408</x>
+     <y>140</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>GreenSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>GreenSpin</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>328</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>402</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BlueSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>BlueSpin</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>408</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RedSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>RedSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>410</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>137</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>GreenSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>GreenSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>418</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>352</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BlueSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>BlueSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
