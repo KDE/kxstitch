@@ -78,7 +78,7 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
 {
 	m_contextMenu.clear();
 	m_contextMenu.addAction(i18n("New Category"), this, SLOT(newCategory()));
-	if (ui.LibraryTree->itemAt(position))
+	if (m_contextTreeItem = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->itemAt(position)))
 	{
 		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryToExportList()));
 		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryProperties()));
@@ -94,7 +94,7 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
 void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint &position)
 {
 	m_contextMenu.clear();
-	if (ui.LibraryIcons->itemAt(position))
+	if (m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))
 	{
 		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
 		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
@@ -134,22 +134,18 @@ void LibraryManagerDlg::on_IconSizeSlider_valueChanged(int size)
 void LibraryManagerDlg::newCategory()
 {
 	QString category;
-	LibraryTreeWidgetItem *parent = 0;
-	if (ui.LibraryTree->selectedItems().count())
-		parent = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->selectedItems().at(0));
 	
 	bool ok = false;
-	
 	while (!ok)
 	{
 		QTreeWidgetItem *item = 0;
 		category = KInputDialog::getText(i18n("Category"), QString(), QString(), &ok, this);
 		if (!ok)
 			break;
-		if (parent)
+		if (m_contextTreeItem)
 		{
-			for (int i = 0 ; i < parent->childCount() ; ++i)
-				if (parent->child(i)->text(0) == category)
+			for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i)
+				if (m_contextTreeItem->child(i)->text(0) == category)
 					break;
 		}
 		else
@@ -172,17 +168,17 @@ void LibraryManagerDlg::newCategory()
 	if (ok)
 	{
 		LibraryTreeWidgetItem *newItem;
-		if (parent)
-			newItem = new LibraryTreeWidgetItem(parent, category);
+		if (m_contextTreeItem)
+			newItem = new LibraryTreeWidgetItem(m_contextTreeItem, category);
 		else
 			newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
 		
 		QString path;
 		QFileInfo fileInfo;
 		
-		if (parent)
+		if (m_contextTreeItem)
 		{
-			fileInfo.setFile(parent->path());
+			fileInfo.setFile(m_contextTreeItem->path());
 			if (!fileInfo.isWritable())
 			{
 				path.replace(0, path.indexOf("library"), "");
@@ -215,8 +211,7 @@ void LibraryManagerDlg::addLibraryToExportList()
 
 void LibraryManagerDlg::libraryProperties()
 {
-	LibraryTreeWidgetItem *item = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
-	LibraryFilePathsDlg *dialog = new LibraryFilePathsDlg(this, item->text(0), item->paths());
+	LibraryFilePathsDlg *dialog = new LibraryFilePathsDlg(this, m_contextTreeItem->text(0), m_contextTreeItem->paths());
 	dialog->exec();
 	delete dialog;
 }
@@ -236,8 +231,7 @@ void LibraryManagerDlg::pasteFromClipboard()
 
 void LibraryManagerDlg::patternProperties()
 {
-	LibraryListWidgetItem *item = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->currentItem());
-	LibraryPattern *libraryPattern = item->libraryPattern();
+	LibraryPattern *libraryPattern = m_contextListItem->libraryPattern();
 	LibraryPatternPropertiesDlg *dialog = new LibraryPatternPropertiesDlg(this,
 									     libraryPattern->key(),
 									     libraryPattern->modifiers(),
@@ -245,7 +239,7 @@ void LibraryManagerDlg::patternProperties()
 									     libraryPattern->pattern()->palette().schemeName(),
 									     libraryPattern->pattern()->stitches().width(),
 									     libraryPattern->pattern()->stitches().height(),
-									     item->icon());
+									     m_contextListItem->icon());
 
 	if (dialog->exec())
 	{
@@ -271,9 +265,8 @@ void LibraryManagerDlg::deletePattern()
 {
 	if (KMessageBox::warningYesNo(0, i18n("Delete this pattern.")) == KMessageBox::Yes)
 	{
-		LibraryListWidgetItem *listItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->currentItem());
-		static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem())->deletePattern(listItem->libraryPattern());
-		delete listItem;
+		static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem())->deletePattern(m_contextListItem->libraryPattern());
+		delete m_contextListItem;
 	}
 }
 

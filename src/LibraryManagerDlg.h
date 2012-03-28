@@ -22,6 +22,7 @@
 #include "ui_LibraryManager.h"
 
 
+class LibraryListWidgetItem;
 class LibraryTreeWidgetItem;
 
 
@@ -62,6 +63,8 @@ class LibraryManagerDlg : public KDialog
 		void recurseLibraryDirectory(LibraryTreeWidgetItem *, const QString &);
 
 		QMenu			m_contextMenu;
+		LibraryTreeWidgetItem	*m_contextTreeItem;
+		LibraryListWidgetItem	*m_contextListItem;
 		Ui::LibraryManager	ui;
 };
 
