@@ -28,6 +28,7 @@
 #include "MainWindow.h"
 #include "SchemeManager.h"
 
+#include <KDebug>
 
 const uchar swapCursor[] =
 {
@@ -244,15 +245,16 @@ void Palette::replaceColor()
 
 bool Palette::event(QEvent *event)
 {
+	kDebug() << "m_height" << m_height << "m_width" << m_width;
 	if (event->type() == QEvent::ToolTip)
 	{
 		QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
-		QPoint local = helpEvent->pos();
-		int xCell = local.x()/m_width;
-		int yCell = local.y()/m_height;
-		int i = yCell*m_cols+xCell;
 		if (m_paletteIndex.count())
 		{
+			QPoint local = helpEvent->pos();
+			int xCell = local.x()/m_width;
+			int yCell = local.y()/m_height;
+			int i = yCell*m_cols+xCell;
 			if (i < m_paletteIndex.count())
 			{
 				DocumentFloss *documentFloss = m_document->pattern()->palette().flosses()[m_paletteIndex[i]];
