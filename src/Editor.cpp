@@ -1032,13 +1032,13 @@ void Editor::toolInitText()
 	QPointer<TextToolDlg> textToolDlg = new TextToolDlg(this);
 	if (textToolDlg->exec())
 	{
-		Pattern *pattern = new Pattern;
+		m_pastePattern = new Pattern;
 		QImage image = textToolDlg->image();
 
-		pattern->palette().setSchemeName(m_document->pattern()->palette().schemeName());
+		m_pastePattern->palette().setSchemeName(m_document->pattern()->palette().schemeName());
 		int currentIndex = m_document->pattern()->palette().currentIndex();
-		pattern->palette().add(currentIndex, new DocumentFloss(m_document->pattern()->palette().currentFloss()));
-		pattern->stitches().resize(image.width(), image.height());
+		m_pastePattern->palette().add(currentIndex, new DocumentFloss(m_document->pattern()->palette().currentFloss()));
+		m_pastePattern->stitches().resize(image.width(), image.height());
 		
 		int stitchesAdded = 0;
 		for (int row = 0 ; row < image.height() ; ++row)
@@ -1048,7 +1048,7 @@ void Editor::toolInitText()
 				if (image.pixelIndex(col, row) == 1)
 				{
 					QPoint cell(col, row);
-					pattern->stitches().addStitch(cell, Stitch::Full, currentIndex);
+					m_pastePattern->stitches().addStitch(cell, Stitch::Full, currentIndex);
 					++stitchesAdded;
 				}
 			}
@@ -1057,7 +1057,10 @@ void Editor::toolInitText()
 		if (stitchesAdded)
 			pastePattern(ToolText);
 		else
-			delete pattern;
+		{
+			delete m_pastePattern;
+			m_pastePattern = 0;
+		}
 	}
 }
 
