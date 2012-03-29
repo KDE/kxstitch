@@ -59,7 +59,7 @@ const Editor::keyPressCallPointer Editor::keyPressCallPointers[] =
 	0,					// Ellipse
 	0,					// Fill Ellipse
 	&Editor::keyPressPolygon,		// Fill Polygon
-	0,					// Text
+	&Editor::keyPressText,			// Text
 	&Editor::keyPressAlphabet,		// Alphabet
 	0,					// Select
 	0,					// Backstitch
@@ -181,7 +181,7 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 	&Editor::renderRubberBandEllipse,	// Ellipse
 	&Editor::renderRubberBandEllipse,	// Fill Ellipse
 	&Editor::renderFillPolygon,		// Fill Polygon
-	0,					// Text
+	&Editor::renderPasteImage,		// Text
 	&Editor::renderAlphabetCursor,		// Alphabet
 	&Editor::renderRubberBandRectangle,	// Select
 	&Editor::renderRubberBandLine,		// Backstitch
@@ -791,6 +791,26 @@ void Editor::keyPressPolygon(QKeyEvent *e)
 }
 
 
+void Editor::keyPressText(QKeyEvent *e)
+{
+	switch (e->key())
+	{
+		case Qt::Key_Return:
+		case Qt::Key_Enter:
+			m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
+			m_pastePattern = 0;
+			m_pasteData.clear();
+			e->accept();
+			selectTool(m_oldToolMode);
+			break;
+			
+		default:
+			keyPressMovePattern(e);
+			break;
+	}
+}
+
+
 void Editor::keyPressAlphabet(QKeyEvent *e)
 {
 	XKeyLock keylock(QX11Info::display());
@@ -931,7 +951,7 @@ void Editor::keyPressMirror(QKeyEvent *e)
 	{
 		case Qt::Key_Return:
 		case Qt::Key_Enter:
-			m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(m_cellEnd), (e->modifiers() & Qt::ShiftModifier)));
+			m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
 			m_pastePattern = 0;
 			m_pasteData.clear();
 			e->accept();
@@ -951,7 +971,7 @@ void Editor::keyPressRotate(QKeyEvent *e)
 	{
 		case Qt::Key_Return:
 		case Qt::Key_Enter:
-			m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(m_cellEnd), (e->modifiers() & Qt::ShiftModifier)));
+			m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor)?m_document->pattern()->palette().currentIndex():-1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
 			m_pastePattern = 0;
 			m_pasteData.clear();
 			e->accept();
@@ -1017,7 +1037,7 @@ void Editor::keyPressMovePattern(QKeyEvent *e)
 		default:
 			e->ignore();
 			break;
-	}			
+	}
 }
 
 
@@ -1290,15 +1310,16 @@ void Editor::renderAlphabetCursor(QPainter *painter, QRect rect)
 void Editor::renderPasteImage(QPainter *painter, QRect rect)
 {
 	painter->save();
-	m_renderer->render(painter,
-			   m_pastePattern,	// the pattern data to render
-			   rect,		// update rectangle
-			   false,		// dont render the grid
-			   true,		// render stitches
-			   true,		// render backstitches
-			   true,		// render knots
-			   -1,			// all colors
-			   m_cellEnd);		// offset to the position of the mouse
+	if (m_pastePattern)
+		m_renderer->render(painter,
+				m_pastePattern,	// the pattern data to render
+				rect,		// update rectangle
+				false,		// dont render the grid
+				true,		// render stitches
+				true,		// render backstitches
+				true,		// render knots
+				-1,			// all colors
+				m_cellEnd);		// offset to the position of the mouse
 	painter->restore();
 }
 

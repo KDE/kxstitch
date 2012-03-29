@@ -148,6 +148,7 @@ class Editor : public QWidget
 		void zoom(double);
 
 		void keyPressPolygon(QKeyEvent *);
+		void keyPressText(QKeyEvent *);
 		void keyPressAlphabet(QKeyEvent *);
 		void keyPressPaste(QKeyEvent *);
 		void keyPressMirror(QKeyEvent *);
