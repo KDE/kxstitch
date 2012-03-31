@@ -235,13 +235,35 @@
     </widget>
    </item>
    <item row="2" column="3">
-    <widget class="QPushButton" name="BackstitchSymbol">
+    <widget class="KComboBox" name="BackstitchSymbol">
      <property name="enabled">
       <bool>false</bool>
      </property>
-     <property name="text">
-      <string>-------------</string>
-     </property>
+     <item>
+      <property name="text">
+       <string>Solid</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dashed</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dotted</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dash Dotted</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dash Dash Dotted</string>
+      </property>
+     </item>
     </widget>
    </item>
   </layout>

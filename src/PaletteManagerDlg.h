@@ -22,6 +22,7 @@
 
 
 class SchemeManager;
+class CharSelectorDlg;
 class DocumentFloss;
 
 
@@ -46,7 +47,7 @@ class PaletteManagerDlg : public KDialog
 		void on_StitchStrands_activated(int);
 		void on_BackstitchStrands_activated(int);
 		void on_StitchSymbol_clicked(bool);
-		void on_BackstitchSymbol_clicked(bool);
+		void on_BackstitchSymbol_activated(int);
 		void on_NewFloss_clicked(bool);
 		void on_ClearUnused_clicked(bool);
 		void on_Calibrate_clicked(bool);
@@ -56,7 +57,6 @@ class PaletteManagerDlg : public KDialog
 		void insertListWidgetItem(QListWidget *, QListWidgetItem *);
 		bool contains(const QString &);
 		int paletteIndex(const QString &);
-//		int paletteIndex(Floss *);
 		QChar freeSymbol();
 		int freeIndex();
 
@@ -71,7 +71,7 @@ class PaletteManagerDlg : public KDialog
 		QMap<int, FlossUsage>		m_flossUsage;
 		QList<QUndoCommand *>		m_changes;
 		FlossScheme			*m_scheme;
-//		CharacterSelectDlg *m_characterSelectDlg;
+		CharSelectorDlg			*m_charSelectorDlg;
 };
 
 

@@ -52,6 +52,7 @@ set (kxstitch_SRCS
 
 	src/AlphaSelect.cpp
 	src/CalibrateFlossDlg.cpp
+	src/CharSelectorDlg.cpp
 	src/ExtendPatternDlg.cpp
 	src/FilePropertiesDlg.cpp
 	src/ImportImageDlg.cpp
@@ -83,6 +84,7 @@ kde4_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 
 kde4_add_ui_files(kxstitch_SRCS
 	ui/CalibrateFloss.ui
+	ui/CharSelector.ui
 	ui/ExtendPattern.ui
 	ui/FileProperties.ui
 	ui/KeyElement.ui

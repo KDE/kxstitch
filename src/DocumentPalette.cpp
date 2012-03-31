@@ -85,6 +85,18 @@ QVector<int> DocumentPalette::sortedFlosses() const
 }
 
 
+QList<QChar> DocumentPalette::usedSymbols() const
+{
+	QList<QChar> used;
+	
+	QMapIterator<int, DocumentFloss *> iterator(m_documentFlosses);
+	while (iterator.hasNext())
+		used << iterator.next().value()->stitchSymbol();
+	
+	return used;
+}
+
+
 DocumentFloss *DocumentPalette::currentFloss() const
 {
 	DocumentFloss *documentFloss = 0;

@@ -139,7 +139,7 @@ void MainWindow::setupDocument()
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorVertical"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate90"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate180"), SLOT(setEnabled(bool)));
-	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));	
+	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
 	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
 	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
@@ -156,7 +156,7 @@ void MainWindow::setupDocument()
 	m_palette->setDocument(m_document);
 	m_preview->setDocument(m_document);
 	m_history->setStack(&(m_document->undoStack()));
-	
+
 	m_document->addView(m_editor);
 	m_document->addView(m_preview);
 	m_document->addView(m_palette);
@@ -1053,21 +1053,21 @@ void MainWindow::setupActions()
 	action->setCheckable(true);
 	connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMakesCopies(bool)));
 	actions->addAction("makesCopies", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Horizontally"));
 	action->setData(Qt::Horizontal);
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
 	action->setEnabled(false);
 	actions->addAction("mirrorHorizontal", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Vertically"));
 	action->setData(Qt::Vertical);
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
 	action->setEnabled(false);
 	actions->addAction("mirrorVertical", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("90 Degrees"));
 	action->setData(StitchData::Rotate90);
@@ -1291,7 +1291,7 @@ void MainWindow::setupActions()
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
 	actions->addAction("toolAlphabet", action);
 	actionGroup->addAction(action);
-	
+
 	action = new KAction(this);
 	action->setText(i18nc("Select an area of the pattern", "Select"));
 	action->setData(Editor::ToolSelect);
@@ -1309,7 +1309,7 @@ void MainWindow::setupActions()
 	connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
 	actions->addAction("toolBackstitch", action);
 	actionGroup->addAction(action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Color Picker"));
 	action->setData(Editor::ToolColorPicker);
@@ -1360,18 +1360,18 @@ void MainWindow::setupActions()
 	action->setIcon(KIcon("extpattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
 	actions->addAction("patternExtend", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Centre Pattern"));
 	action->setIcon(KIcon("centerpattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
 	actions->addAction("patternCentre", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Crop Canvas to Pattern"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
 	actions->addAction("patternCrop", action);
-	
+
 	action = new KAction(this);
 	action->setText(i18n("Crop Canvas to Selection"));
 	connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
@@ -1618,7 +1618,7 @@ void MainWindow::setupDockWindows()
 	dock->setWidget(m_palette);
 	addDockWidget(Qt::LeftDockWidgetArea, dock);
 	actionCollection()->addAction("showPaletteDockWidget", dock->toggleViewAction());
-	
+
 	dock = new QDockWidget(i18n("History"), this);
 	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 	m_history = new QUndoView(this);

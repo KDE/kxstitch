@@ -13,13 +13,15 @@
 
 #include <QWidget>
 
-#include <KDebug>
+#include <KCharSelect>
 
 #include "configuration.h"
 #include "CalibrateFlossDlg.h"
+#include "CharSelectorDlg.h"
 #include "Commands.h"
 #include "Floss.h"
 #include "FlossScheme.h"
+#include "MainWindow.h"
 #include "NewFlossDlg.h"
 #include "SchemeManager.h"
 
@@ -30,8 +32,8 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 		m_schemeName(document->pattern()->palette().schemeName()),
 		m_documentPalette(document->pattern()->palette().flosses()),
 		m_flossUsage(document->pattern()->stitches().flossUsage()),
-		m_scheme(SchemeManager::scheme(m_schemeName))
-//		m_characterSelectDlg(0)
+		m_scheme(SchemeManager::scheme(m_schemeName)),
+		m_charSelectorDlg(0)
 {
 	setCaption(i18n("Palette Manager"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
@@ -52,7 +54,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 
 PaletteManagerDlg::~PaletteManagerDlg()
 {
-//	delete m_characterSelectDlg;
+	delete m_charSelectorDlg;
 }
 
 
@@ -97,6 +99,21 @@ void PaletteManagerDlg::on_ColorList_currentRowChanged(int currentRow)
 }
 
 
+int mapStyleToIndex(Qt::PenStyle style)
+{
+    if (style == Qt::SolidLine)
+        return 0;
+    if (style == Qt::DashLine)
+        return 1;
+    if (style == Qt::DotLine)
+        return 2;
+    if (style == Qt::DashDotLine)
+        return 3;
+    if (style == Qt::DashDotDotLine)
+        return 4;
+}
+
+
 void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 {
 	if (currentRow != -1)
@@ -105,9 +122,11 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 		ui.StitchStrands->setCurrentIndex(m_dialogPalette[i]->stitchStrands()-1);
 		ui.BackstitchStrands->setCurrentIndex(m_dialogPalette[i]->backstitchStrands()-1);
 		ui.StitchSymbol->setText(m_dialogPalette[i]->stitchSymbol());
+		ui.BackstitchSymbol->setCurrentIndex(mapStyleToIndex(m_dialogPalette[i]->backstitchSymbol()));
 		ui.StitchStrands->setEnabled(true);
 		ui.BackstitchStrands->setEnabled(true);
 		ui.StitchSymbol->setEnabled(true);
+		ui.BackstitchSymbol->setEnabled(true);
 		ui.ClearUnused->setEnabled(true);
 		if (m_flossUsage.contains(i) && m_flossUsage[i].totalStitches() != 0)
 			ui.RemoveFloss->setEnabled(false);
@@ -120,6 +139,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 		ui.StitchStrands->setEnabled(false);
 		ui.BackstitchStrands->setEnabled(false);
 		ui.StitchSymbol->setEnabled(false);
+		ui.BackstitchSymbol->setEnabled(false);
 		ui.ClearUnused->setEnabled(false);
 	}
 }
@@ -172,11 +192,33 @@ void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
 
 void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
+	int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
+	if (m_charSelectorDlg == 0)
+		m_charSelectorDlg = new CharSelectorDlg(this, m_document->pattern()->palette().usedSymbols());
+	m_charSelectorDlg->setSelectedChar(m_dialogPalette[i]->stitchSymbol());
+	if (m_charSelectorDlg->exec() == QDialog::Accepted)
+	{
+		m_dialogPalette[i]->setStitchSymbol(m_charSelectorDlg->selectedChar());
+		ui.StitchSymbol->setText(m_dialogPalette[i]->stitchSymbol());
+	}
 }
 
 
-void PaletteManagerDlg::on_BackstitchSymbol_clicked(bool)
+void PaletteManagerDlg::on_BackstitchSymbol_activated(int index)
 {
+	Qt::PenStyle style;
+	if (index == 0)
+		style = Qt::SolidLine;
+	else if (index == 1)
+		style = Qt::DashLine;
+	else if (index == 2)
+		style = Qt::DotLine;
+	else if (index == 3)
+		style = Qt::DashDotLine;
+	else if (index == 4)
+		style = Qt::DashDotDotLine;
+
+	m_dialogPalette[paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString())]->setBackstitchSymbol(style);
 }
 
 
@@ -320,19 +362,6 @@ int PaletteManagerDlg::paletteIndex(const QString &flossName)
 	return -1;
 }
 
-#if 0
-int PaletteManagerDlg::paletteIndex(Floss *floss)
-{
-	QMapIterator<int, DocumentFloss *> i(m_dialogPalette);
-	while (i.hasNext())
-	{
-		if (i.next().value()->floss() == floss)
-		return i.key();
-	}
-
-	return -1;
-}
-#endif
 
 QChar PaletteManagerDlg::freeSymbol()
 {

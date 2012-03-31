@@ -245,7 +245,6 @@ void Palette::replaceColor()
 
 bool Palette::event(QEvent *event)
 {
-	kDebug() << "m_height" << m_height << "m_width" << m_width;
 	if (event->type() == QEvent::ToolTip)
 	{
 		QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
