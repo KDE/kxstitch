@@ -200,7 +200,7 @@ void Renderer::render(QPainter *painter,
 	d->m_pattern = pattern;
 	d->m_hilight = colorHilight;
 
-	//painter->drawRect(d->m_paintDeviceArea);
+	painter->setClipRect(d->m_paintDeviceArea, Qt::IntersectClip);
 
 	double l = d->m_paintDeviceArea.left();
 	double t = d->m_paintDeviceArea.top();
