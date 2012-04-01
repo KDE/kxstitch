@@ -623,6 +623,7 @@ void PatternElement::render(Document *document, QPainter *painter, double scale)
 
 	paintDeviceArea = QRectF(paintDeviceArea.topLeft()+offset, QSize(renderWidth, renderHeight));
 	m_renderer->setPaintDeviceArea(paintDeviceArea);
+	painter->drawRect(paintDeviceArea);
 
 	QRect rectangle(0, 0, m_patternRect.width()*cellWidth, m_patternRect.height()*cellHeight);
 	m_renderer->render(painter,
@@ -979,7 +980,6 @@ void TextElement::render(Document *document, QPainter *painter, double scale) co
 
 QString TextElement::convertedText(Document *document) const
 {
-	kDebug() << "m_text" << m_text;
 	QString replacement = m_text;
 	replacement.replace(QRegExp("\\$\\{title\\}"), document->property("title").toString());
 	replacement.replace(QRegExp("\\$\\{author\\}"), document->property("author").toString());
