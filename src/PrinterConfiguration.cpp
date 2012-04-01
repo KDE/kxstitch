@@ -76,7 +76,6 @@ void PrinterConfiguration::detach()
 
 void PrinterConfiguration::addPage(Page *page)
 {
-	kDebug() << "addPage(" << page << ")";
 	d->m_pages.append(page);
 	updatePageNumbers();
 }

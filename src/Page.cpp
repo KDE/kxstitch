@@ -14,8 +14,6 @@
 #include <QPainter>
 #include <QPrinterInfo>
 
-#include <KDebug>
-
 #include "Document.h"
 #include "Element.h"
 #include "PaperSizes.h"
@@ -130,14 +128,11 @@ void Page::render(Document *document, QPainter *painter)
 {
 	int painterWidth = painter->device()->width();
 	int painterHeight = painter->device()->height();
-	kDebug() << "painter size" << painterWidth << painterHeight;
 	int paperWidth = PaperSizes::width(m_paperSize, m_orientation);
 	int paperHeight = PaperSizes::height(m_paperSize, m_orientation);
-	kDebug() << "paper size" << paperWidth << paperHeight;
 	double scaleW = double(painterWidth)/double(paperWidth);
 	double scaleH = double(painterHeight)/double(paperHeight);
 	double scale = std::min(scaleW, scaleH); // pick the lowest for non proportional sizes
-	kDebug() << "scaleV scaleH scale" << scaleW << scaleH << scale;
 
 	QListIterator<Element *> elementIterator(m_elements);
 	while (elementIterator.hasNext())
