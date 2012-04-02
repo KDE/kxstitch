@@ -241,7 +241,8 @@ Editor::Editor(QWidget *parent)
 		m_verticalScale(new Scale(Qt::Vertical)),
 		m_renderer(new Renderer()),
 		m_toolMode(ToolPaint),
-		m_zoomFactor(1.0)
+		m_zoomFactor(1.0),
+		m_pastePattern(0)
 {
 	setAcceptDrops(true);
 }
