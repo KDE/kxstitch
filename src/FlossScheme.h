@@ -33,15 +33,18 @@ class FlossScheme
 		Floss *find(const QString &name) const;
 		QString find(const QColor &color) const;
 		QString schemeName() const;
+		QString path() const;
 		const QList<Floss *> &flosses() const;
 
 		void addFloss(Floss *floss);
 		void clearScheme();
 		Magick::Image *createImageMap();
 		void setSchemeName(const QString &name);
+		void setPath(const QString &name);
 
 	private:
 		QString		m_schemeName;
+		QString		m_path;
 		QList<Floss *>	m_flosses;
 		Magick::Image	*m_map;
 };

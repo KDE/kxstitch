@@ -17,7 +17,6 @@
 #include <QXmlInputSource>
 #include <QXmlSimpleReader>
 
-#include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
 #include <KStandardDirs>
@@ -148,6 +147,8 @@ FlossScheme *SchemeManager::readScheme(QString name)
 		delete flossScheme;
 		flossScheme = 0;
 	}
+	else
+		flossScheme->setPath(name);
 
 	return flossScheme;
 }
@@ -160,33 +161,38 @@ FlossScheme *SchemeManager::readScheme(QString name)
 	*/
 bool SchemeManager::writeScheme(QString name)
 {
-	QString writableDir = KGlobal::dirs()->saveLocation("appdata", "schemes/");
-	if (writableDir.isNull())
+	FlossScheme *flossScheme = scheme(name);
+	QFileInfo fileInfo(flossScheme->path());
+	if (!fileInfo.isWritable())
 	{
-		KMessageBox::sorry(0,i18n("Unable to locate a writable directory\nto store the scheme."));
-		// TODO Allow user to select a location to store the calibrated schemes
-	}
-	else
-	{
-		QFile schemeFile(QString("%1/%2.xml").arg(writableDir).arg(name.toLower()));
-		if (schemeFile.open(QIODevice::WriteOnly))
+		QString writableDir = KGlobal::dirs()->saveLocation("appdata", "schemes/");
+		if (writableDir.isNull())
 		{
-			QTextStream stream(&schemeFile);
-			stream << "<!DOCTYPE flossScheme SYSTEM \"flossScheme.dtd\">\n<flossScheme>\n";
-			stream << "<title>" << name << "</title>\n";
-			FlossScheme *flossScheme = scheme(name);
-			QListIterator<Floss*> it(flossScheme->flosses());
-			while (it.hasNext())
-			{
-				Floss *floss = it.next();
-				stream << "<floss><name>" << floss->name() << "</name><description>" << floss->description() << "</description>";
-				stream << "<color><red>" << floss->color().red() << "</red><green>" << floss->color().green() << "</green><blue>" << floss->color().blue() << "</blue></color></floss>\n";
-			}
-			stream << "</flossScheme>\n";
-			schemeFile.close();
-
-			return true;
+			KMessageBox::sorry(0,i18n("Unable to locate a writable directory\nto store the scheme."));
+			return false;
+			// TODO Allow user to select a location to store the calibrated schemes
 		}
+		QString writablePath = writableDir+fileInfo.fileName();
+		fileInfo.setFile(writablePath);
+	}
+
+	QFile schemeFile(fileInfo.filePath());
+	if (schemeFile.open(QIODevice::WriteOnly))
+	{
+		QTextStream stream(&schemeFile);
+		stream << "<!DOCTYPE flossScheme SYSTEM \"flossScheme.dtd\">\n<flossScheme>\n";
+		stream << "<title>" << name.replace(QChar('&'), QString("&amp;")) << "</title>\n"; // includes fixup for the J&P Coates scheme
+		QListIterator<Floss*> it(flossScheme->flosses());
+		while (it.hasNext())
+		{
+			Floss *floss = it.next();
+			stream << "<floss><name>" << floss->name() << "</name><description>" << floss->description() << "</description>";
+			stream << "<color><red>" << floss->color().red() << "</red><green>" << floss->color().green() << "</green><blue>" << floss->color().blue() << "</blue></color></floss>\n";
+		}
+		stream << "</flossScheme>\n";
+		schemeFile.close();
+
+		return true;
 	}
 
 	return false;

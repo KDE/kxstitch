@@ -91,6 +91,12 @@ QString FlossScheme::schemeName() const
 }
 
 
+QString FlossScheme::path() const
+{
+	return m_path;
+}
+
+
 const QList<Floss *> &FlossScheme::flosses() const
 {
 	return m_flosses;
@@ -115,6 +121,12 @@ void FlossScheme::clearScheme()
 void FlossScheme::setSchemeName(const QString &name)
 {
 	m_schemeName = name;
+}
+
+
+void FlossScheme::setPath(const QString &name)
+{
+	m_path = name;
 }
 
 
