@@ -27,6 +27,7 @@ Preview::Preview(QWidget *parent)
 		m_renderer(new Renderer()),
 		m_zoomFactor(1.0)
 {
+	setObjectName("Preview#");
 	m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
 	m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
 	m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None);
@@ -70,6 +71,12 @@ void Preview::readDocumentSettings()
 void Preview::setVisibleCells(const QRect &cells)
 {
 	m_visible = cells;
+	update();
+}
+
+
+void Preview::loadSettings()
+{
 	update();
 }
 

@@ -665,6 +665,12 @@ void Editor::setMakesCopies(bool set)
 }
 
 
+void Editor::loadSettings()
+{
+	update();
+}
+
+
 bool Editor::event(QEvent *e)
 {
 	if ((e->type() == QEvent::ToolTip) && (m_toolMode == ToolColorPicker))

@@ -69,7 +69,8 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
 	connect(m_pageLayoutEditor, SIGNAL(elementGeometryChanged()), this, SLOT(elementGeometryChanged()));
 	connect(m_pageLayoutEditor, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(previewContextMenuRequested(const QPoint &)));
 
-	ui.PaperSize->setCurrentIndex(4);	// A4
+	ui.PaperSize->setCurrentIndex(Configuration::page_Size());
+	ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
 	ui.Zoom->setCurrentIndex(2);		// 100%
 	ui.SelectElement->click();		// select mode
 

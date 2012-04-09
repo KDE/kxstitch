@@ -55,7 +55,10 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 	int scale = std::min(scaledWidth, scaledHeight);
 
 	ui.FlossScheme->addItems(SchemeManager::schemes());
-	ui.FlossScheme->setCurrentItem(Configuration::palette_DefaultScheme());
+	QString scheme = Configuration::palette_DefaultScheme();
+	if (SchemeManager::scheme(scheme) == 0)
+		scheme = SchemeManager::schemes().at(scheme.toInt());
+	ui.FlossScheme->setCurrentItem(scheme);
 	ui.PatternScale->setValue(scale);
 	ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
 	ui.MaximumColors->setValue(Configuration::import_MaximumColors());

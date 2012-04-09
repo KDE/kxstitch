@@ -35,6 +35,8 @@ class Preview : public QWidget
 
 	public slots:
 		void setVisibleCells(const QRect &);
+		
+		void loadSettings();
 
 	signals:
 		void clicked(QPoint);

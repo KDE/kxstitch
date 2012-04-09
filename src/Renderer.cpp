@@ -215,27 +215,31 @@ void Renderer::render(QPainter *painter,
 	{
 		int cellHorizontalGrouping = -1;
 		int cellVerticalGrouping = -1;
+		QPen thinLine = (paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.5));
+		QPen thickLine = (paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 2.0));
 		if (pattern->document())
 		{
 			cellHorizontalGrouping = pattern->document()->property("cellHorizontalGrouping").toInt();
 			cellVerticalGrouping = pattern->document()->property("cellVerticalGrouping").toInt();
+			thinLine = (paintDeviceIsScreen?QPen(pattern->document()->property("thinLineColor").value<QColor>(), pattern->document()->property("thinLineWidth").toInt()):QPen(Qt::black, 0.5));
+			thickLine = (paintDeviceIsScreen?QPen(pattern->document()->property("thickLineColor").value<QColor>(), pattern->document()->property("thickLineWidth").toInt()):QPen(Qt::black, 2.0));
 		}
 
 		for (int x = 0 ; x < d->m_patternRect.width() ; x++)
 		{
 			if ((cellHorizontalGrouping == -1) || (x % cellHorizontalGrouping))
-				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.5));
+				painter->setPen(thinLine);
 			else
-				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 2.0));
+				painter->setPen(thickLine);
 			painter->drawLine(x*dx, 0, x*dx, h);
 		}
 
 		for (int y = 0 ; y < d->m_patternRect.height() ; y++)
 		{
 			if ((cellVerticalGrouping == -1) || (y % cellVerticalGrouping))
-				painter->setPen(paintDeviceIsScreen?QPen(Qt::lightGray):QPen(Qt::black, 0.5));
+				painter->setPen(thinLine);
 			else
-				painter->setPen(paintDeviceIsScreen?QPen(Qt::darkGray):QPen(Qt::black, 2.0));
+				painter->setPen(thickLine);
 			painter->drawLine(0, y*dy, w, y*dy);
 		}
 	}

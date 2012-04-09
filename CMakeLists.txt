@@ -22,6 +22,7 @@ set (kxstitch_SRCS
 	src/BackgroundImages.cpp
 	src/Boundary.cpp
 	src/Commands.cpp
+	src/ConfigurationDialogs.cpp
 	src/Document.cpp
 	src/DocumentFloss.cpp
 	src/DocumentPalette.cpp
@@ -99,6 +100,11 @@ kde4_add_ui_files(kxstitch_SRCS
 	ui/PrintSetup.ui
 	ui/TextElement.ui
 	ui/TextTool.ui
+	ui/EditorConfigPage.ui
+	ui/PatternConfigPage.ui
+	ui/ImportConfigPage.ui
+	ui/LibraryConfigPage.ui
+	ui/PrinterConfigPage.ui
 )
 
 kde4_install_icons(${ICON_INSTALL_DIR})

@@ -54,8 +54,46 @@ void Document::initialiseNew()
 	delete m_pattern;
 	m_pattern = new Pattern(this);
 	
-	m_pattern->palette().setSchemeName(Configuration::palette_DefaultScheme());
-	m_pattern->stitches().resize(Configuration::document_Width(), Configuration::document_Height());
+	QString scheme = Configuration::palette_DefaultScheme();
+	if (SchemeManager::scheme(scheme) == 0)
+		scheme = SchemeManager::schemes().at(scheme.toInt());
+	m_pattern->palette().setSchemeName(scheme);
+
+	double documentWidth = Configuration::document_Width();
+	double documentHeight = Configuration::document_Height();
+	
+	double horizontalClothCount = Configuration::editor_HorizontalClothCount();
+	double verticalClothCount = Configuration::editor_VerticalClothCount();
+	int clothCountUnitsIndex = Configuration::editor_ClothCountUnits();
+	
+	switch (Configuration::document_UnitsFormat())
+	{
+		case 0: // Stitches
+			// nothing needs to be done to convert these values
+			break;
+			
+		case 1: // Inches
+			documentWidth *= horizontalClothCount;
+			documentHeight *= verticalClothCount;
+			if (clothCountUnitsIndex == 1) // CM
+			{
+				documentWidth *= 2.54;
+				documentHeight *= 2.54;
+			}
+			break;
+			
+		case 2: // CM
+			documentWidth *= horizontalClothCount;
+			documentHeight *= verticalClothCount;
+			if (clothCountUnitsIndex == 0) // Inches
+			{
+				documentWidth /= 2.54;
+				documentHeight /= 2.54;
+			}
+			break;
+	}
+	
+	m_pattern->stitches().resize(static_cast<int>(documentWidth), static_cast<int>(documentHeight));
 
 	setProperty("unitsFormat", Configuration::document_UnitsFormat());
 	setProperty("title", QString());
@@ -64,8 +102,8 @@ void Document::initialiseNew()
 	setProperty("fabric", QString());
 	setProperty("fabricColor", Configuration::editor_BackgroundColor());
 	setProperty("instructions", QString());
-	setProperty("cellWidth", Configuration::editor_CellWidth());
-	setProperty("cellHeight", Configuration::editor_CellHeight());
+//	setProperty("cellWidth", Configuration::editor_CellWidth());
+//	setProperty("cellHeight", Configuration::editor_CellHeight());
 	setProperty("cellHorizontalGrouping", Configuration::editor_CellHorizontalGrouping());
 	setProperty("cellVerticalGrouping", Configuration::editor_CellVerticalGrouping());
 	setProperty("horizontalClothCount", Configuration::editor_HorizontalClothCount());

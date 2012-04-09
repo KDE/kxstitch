@@ -40,6 +40,8 @@ class Palette : public QFrame
 		void showSymbols(bool);
 		void swapColors();
 		void replaceColor();
+		
+		void loadSettings();
 
 	signals:
 		void colorSelected(int);

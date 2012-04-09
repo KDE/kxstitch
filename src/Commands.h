@@ -743,21 +743,35 @@ class RotateSelectionCommand : public QUndoCommand
 
 class AlphabetCommand : public QUndoCommand
 {
-public:
-	AlphabetCommand(Document *);
-	~AlphabetCommand();
-	
-	void redo();
-	void undo();
-	
-	void push(QUndoCommand *);
-	QUndoCommand *pop();
-	
-	int childCount() const;
-	
-private:
-	Document		*m_document;
-	QList<QUndoCommand *>	m_children;
+	public:
+		AlphabetCommand(Document *);
+		~AlphabetCommand();
+		
+		void redo();
+		void undo();
+		
+		void push(QUndoCommand *);
+		QUndoCommand *pop();
+		
+		int childCount() const;
+		
+	private:
+		Document		*m_document;
+		QList<QUndoCommand *>	m_children;
+};
+
+
+class ConfigurationCommand : public QUndoCommand
+{
+	public:
+		ConfigurationCommand(MainWindow *mainWindow);
+		~ConfigurationCommand();
+		
+		void redo();
+		void undo();
+		
+	private:
+		MainWindow	*m_mainWindow;
 };
 
 

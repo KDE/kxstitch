@@ -243,6 +243,12 @@ void Palette::replaceColor()
 }
 
 
+void Palette::loadSettings()
+{
+	update();
+}
+
+
 bool Palette::event(QEvent *event)
 {
 	if (event->type() == QEvent::ToolTip)

@@ -31,6 +31,7 @@
 #include <KFileDialog>
 #include <KGlobalSettings>
 #include <KIO/NetAccess>
+#include <KConfigDialog>
 #include <KLocale>
 #include <KMessageBox>
 #include <KRecentFilesAction>
@@ -39,6 +40,7 @@
 
 #include "BackgroundImage.h"
 #include "configuration.h"
+#include "ConfigurationDialogs.h"
 #include "Commands.h"
 #include "Document.h"
 #include "Editor.h"
@@ -74,6 +76,7 @@ MainWindow::MainWindow(const KUrl &url)
 	fileOpen(url);
 	setupActionDefaults();
 	setupActionsFromDocument();
+	loadSettings();
 	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
 }
 
@@ -89,6 +92,7 @@ MainWindow::MainWindow(const Magick::Image &image)
 	convertImage(image);
 	setupActionDefaults();
 	setupActionsFromDocument();
+	loadSettings();
 	setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
 }
 
@@ -992,6 +996,67 @@ void MainWindow::formatScalesAsInches()
 }
 
 
+void MainWindow::preferences()
+{
+	if (KConfigDialog::showDialog("preferences"))
+		return;
+	KConfigDialog *dialog = new KConfigDialog(this, "preferences", Configuration::self());
+	dialog->setFaceType(KPageDialog::List);
+	m_editorConfigPage = new EditorConfigPage(0, "EditorConfigPage");
+	dialog->addPage(m_editorConfigPage, i18n("Editor"), "preferences-desktop");
+	m_patternConfigPage = new PatternConfigPage(0, "PatternConfigPage");
+	dialog->addPage(m_patternConfigPage, i18n("Pattern"), "ksnapshot");
+	m_importConfigPage = new ImportConfigPage(0, "ImportConfigPage");
+	dialog->addPage(m_importConfigPage, i18n("Import"), "preferences-desktop-color");
+	m_libraryConfigPage = new LibraryConfigPage(0, "LibraryConfigPage");
+	dialog->addPage(m_libraryConfigPage, i18n("Library"), "accessories-dictionary");
+	m_printerConfigPage = new PrinterConfigPage(0, "PrinterConfigPage");
+	dialog->addPage(m_printerConfigPage, i18n("Printer Configuration"), "preferences-desktop-printer");
+	connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(settingsChanged()));
+	dialog->show();
+}
+
+
+void MainWindow::settingsChanged()
+{
+	QList<QUndoCommand *> documentChanges;
+	
+	ConfigurationCommand *configurationCommand = new ConfigurationCommand(this);
+	if (m_document->property("cellHorizontalGrouping") != Configuration::editor_CellHorizontalGrouping())
+		documentChanges.append(new SetPropertyCommand(m_document, "cellHorizontalGrouping", Configuration::editor_CellHorizontalGrouping(), configurationCommand));
+	if (m_document->property("cellVerticalGrouping") != Configuration::editor_CellVerticalGrouping())
+		documentChanges.append(new SetPropertyCommand(m_document, "cellVerticalGrouping", Configuration::editor_CellVerticalGrouping(), configurationCommand));
+	if (m_document->property("thickLineWidth") != Configuration::editor_ThickLineWidth())
+		documentChanges.append(new SetPropertyCommand(m_document, "thickLineWidth", Configuration::editor_ThickLineWidth(), configurationCommand));
+	if (m_document->property("thinLineWidth") != Configuration::editor_ThinLineWidth())
+		documentChanges.append(new SetPropertyCommand(m_document, "thinLineWidth", Configuration::editor_ThinLineWidth(), configurationCommand));
+	if (m_document->property("thickLineColor") != Configuration::editor_ThickLineColor())
+		documentChanges.append(new SetPropertyCommand(m_document, "thickLineColor", Configuration::editor_ThickLineColor(), configurationCommand));
+	if (m_document->property("thinLineColor") != Configuration::editor_ThinLineColor())
+		documentChanges.append(new SetPropertyCommand(m_document, "thinLineColor", Configuration::editor_ThinLineColor(), configurationCommand));
+
+	if (documentChanges.count())
+		m_document->undoStack().push(configurationCommand);
+	else
+		delete configurationCommand;
+	
+	loadSettings();
+}
+
+
+void MainWindow::loadSettings()
+{
+	m_horizontalScale->setMinimumSize(0, Configuration::editor_HorizontalScaleHeight());
+	m_verticalScale->setMinimumSize(Configuration::editor_VerticalScaleWidth(), 0);
+	m_horizontalScale->setCellGrouping(Configuration::editor_CellHorizontalGrouping());
+	m_verticalScale->setCellGrouping(Configuration::editor_CellVerticalGrouping());
+
+	m_editor->loadSettings();
+	m_preview->loadSettings();
+	m_palette->loadSettings();
+}
+
+
 void MainWindow::documentModified(bool clean)
 {
 	setCaption(m_document->url().fileName(), !clean);
@@ -1386,6 +1451,7 @@ void MainWindow::setupActions()
 	actions->addAction("libraryManager", action);
 
 	// Settings Menu
+	KStandardAction::preferences(this, SLOT(preferences()), actions);
 	// formatScalesAs
 	actionGroup = new QActionGroup(this);
 	actionGroup->setExclusive(true);
@@ -1601,6 +1667,7 @@ void MainWindow::updateBackgroundImageActionLists()
 void MainWindow::setupDockWindows()
 {
 	QDockWidget *dock = new QDockWidget(i18n("Preview"), this);
+	dock->setObjectName("PreviewDock#");
 	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 	QScrollArea *scrollArea = new QScrollArea();
 	m_preview = new Preview(scrollArea);
@@ -1613,6 +1680,7 @@ void MainWindow::setupDockWindows()
 	actionCollection()->addAction("showPreviewDockWidget", dock->toggleViewAction());
 
 	dock = new QDockWidget(i18n("Palette"), this);
+	dock->setObjectName("PaletteDock#");
 	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 	m_palette = new Palette(this);
 	dock->setWidget(m_palette);
@@ -1620,6 +1688,7 @@ void MainWindow::setupDockWindows()
 	actionCollection()->addAction("showPaletteDockWidget", dock->toggleViewAction());
 
 	dock = new QDockWidget(i18n("History"), this);
+	dock->setObjectName("HistoryDock#");
 	dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 	m_history = new QUndoView(this);
 	dock->setWidget(m_history);

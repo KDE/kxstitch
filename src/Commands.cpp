@@ -1496,3 +1496,29 @@ int AlphabetCommand::childCount() const
 {
 	return m_children.count();
 }
+
+
+ConfigurationCommand::ConfigurationCommand(MainWindow *mainWindow)
+	:	QUndoCommand(i18n("Configure KXStitch")),
+		m_mainWindow(mainWindow)
+{
+}
+
+
+ConfigurationCommand::~ConfigurationCommand()
+{
+}
+
+
+void ConfigurationCommand::redo()
+{
+	QUndoCommand::redo();
+	m_mainWindow->loadSettings();
+}
+
+
+void ConfigurationCommand::undo()
+{
+	QUndoCommand::undo();
+	m_mainWindow->loadSettings();
+}

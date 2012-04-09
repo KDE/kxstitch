@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PrinterConfigPage</class>
+ <widget class="QWidget" name="PrinterConfigPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>345</width>
+    <height>686</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Printer Configuration</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_10">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Pages</string>
+      </attribute>
+      <widget class="KButtonGroup" name="kcfg_Page_Orientation">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>40</y>
+         <width>180</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="PortraitRadioButton">
+          <property name="text">
+           <string>Portrait</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="LandscapeRadioButton">
+          <property name="text">
+           <string>Landscape</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>93</y>
+         <width>148</width>
+         <height>135</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Margins</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Left</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="kcfg_Page_MarginLeft">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Right</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="kcfg_Page_MarginRight">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Top</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="kcfg_Page_MarginTop">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Bottom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="kcfg_Page_MarginBottom">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>9</y>
+         <width>194</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Default paper size</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KComboBox" name="kcfg_Page_Size">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Select a paper size</string>
+          </property>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A0</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A6</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A8</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">A9</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B0</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B6</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B8</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B9</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">B10</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">C5E</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Comm10E</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">DLE</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Executive</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Folio</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Ledger</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Legal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Letter</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string comment="Paper size">Tabloid</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Pattern Element</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>305</width>
+         <height>137</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Margins</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Left</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="kcfg_PatternElement_MarginLeft">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Right</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="kcfg_PatternElement_MarginRight">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Top</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="kcfg_PatternElement_MarginTop">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Bottom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="kcfg_PatternElement_MarginBottom">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="suffix">
+             <string>mm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Text Element</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>Text</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_8">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Text Color</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="KColorButton" name="kcfg_TextElement_TextColor">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Background</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_7">
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="kcfg_TextElement_FillBackground">
+            <property name="text">
+             <string>Fill Background</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_20">
+            <property name="text">
+             <string>Color</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="KColorButton" name="kcfg_TextElement_BackgroundColor">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_22">
+            <property name="text">
+             <string>Transparency</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="kcfg_TextElement_BackgroundTransparency">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Border</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QCheckBox" name="kcfg_TextElement_ShowBorder">
+            <property name="text">
+             <string>Show Border</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_6">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>Color</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="KColorButton" name="kcfg_TextElement_BorderColor">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>Thickness</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_TextElement_BorderThickness">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Margins</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QFormLayout" name="formLayout_3">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>Left</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="kcfg_TextElement_MarginLeft">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_11">
+              <property name="text">
+               <string>Right</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_TextElement_MarginRight">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_12">
+              <property name="text">
+               <string>Top</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="kcfg_TextElement_MarginTop">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Bottom</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="kcfg_TextElement_MarginBottom">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Key Element</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>Border</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_ShowBorder">
+            <property name="text">
+             <string>Show Border</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_9">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>Color</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="KColorButton" name="kcfg_KeyElement_BorderColor">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_24">
+              <property name="text">
+               <string>Thickness</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_KeyElement_BorderThickness">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_9">
+         <property name="title">
+          <string>Background</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_10">
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="kcfg_KeyElement_FillBackground">
+            <property name="text">
+             <string>Fill Background</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_25">
+            <property name="text">
+             <string>Color</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="KColorButton" name="kcfg_KeyElement_BackgroundColor">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>Transparency</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="kcfg_KeyElement_BackgroundTransparency">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Margins</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QFormLayout" name="formLayout_4">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_14">
+              <property name="text">
+               <string>Left</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="kcfg_KeyElement_MarginLeft">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>Right</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_KeyElement_MarginRight">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_16">
+              <property name="text">
+               <string>Top</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="kcfg_KeyElement_MarginTop">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>Bottom</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="kcfg_KeyElement_MarginBottom">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_10">
+         <property name="title">
+          <string>Elements</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_SymbolColumn">
+            <property name="text">
+             <string>Symbols</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_FlossNameColumn">
+            <property name="text">
+             <string>Floss name</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_FlossDescriptionColumn">
+            <property name="text">
+             <string>Floss description</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_StrandsColumn">
+            <property name="text">
+             <string>Strands</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_StitchesColumn">
+            <property name="text">
+             <string>Stitches</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_StitchBreakdownColumn">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Stitch breakdown</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Total stitches</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_LengthColumn">
+            <property name="text">
+             <string>Length</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_KeyElement_SkeinsColumn">
+            <property name="text">
+             <string>Skeins</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KButtonGroup</class>
+   <extends>QGroupBox</extends>
+   <header>kbuttongroup.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>kcfg_Page_Size</tabstop>
+  <tabstop>PortraitRadioButton</tabstop>
+  <tabstop>LandscapeRadioButton</tabstop>
+  <tabstop>kcfg_Page_MarginLeft</tabstop>
+  <tabstop>kcfg_Page_MarginRight</tabstop>
+  <tabstop>kcfg_Page_MarginTop</tabstop>
+  <tabstop>kcfg_Page_MarginBottom</tabstop>
+  <tabstop>kcfg_PatternElement_MarginLeft</tabstop>
+  <tabstop>kcfg_PatternElement_MarginRight</tabstop>
+  <tabstop>kcfg_PatternElement_MarginTop</tabstop>
+  <tabstop>kcfg_PatternElement_MarginBottom</tabstop>
+  <tabstop>kcfg_TextElement_TextColor</tabstop>
+  <tabstop>kcfg_TextElement_FillBackground</tabstop>
+  <tabstop>kcfg_TextElement_BackgroundColor</tabstop>
+  <tabstop>kcfg_TextElement_BackgroundTransparency</tabstop>
+  <tabstop>kcfg_TextElement_ShowBorder</tabstop>
+  <tabstop>kcfg_TextElement_BorderColor</tabstop>
+  <tabstop>kcfg_TextElement_BorderThickness</tabstop>
+  <tabstop>kcfg_TextElement_MarginLeft</tabstop>
+  <tabstop>kcfg_TextElement_MarginRight</tabstop>
+  <tabstop>kcfg_TextElement_MarginTop</tabstop>
+  <tabstop>kcfg_TextElement_MarginBottom</tabstop>
+  <tabstop>kcfg_KeyElement_ShowBorder</tabstop>
+  <tabstop>kcfg_KeyElement_BorderColor</tabstop>
+  <tabstop>kcfg_KeyElement_BorderThickness</tabstop>
+  <tabstop>kcfg_KeyElement_FillBackground</tabstop>
+  <tabstop>kcfg_KeyElement_BackgroundColor</tabstop>
+  <tabstop>kcfg_KeyElement_BackgroundTransparency</tabstop>
+  <tabstop>kcfg_KeyElement_MarginLeft</tabstop>
+  <tabstop>kcfg_KeyElement_MarginRight</tabstop>
+  <tabstop>kcfg_KeyElement_MarginTop</tabstop>
+  <tabstop>kcfg_KeyElement_MarginBottom</tabstop>
+  <tabstop>kcfg_KeyElement_SymbolColumn</tabstop>
+  <tabstop>kcfg_KeyElement_FlossNameColumn</tabstop>
+  <tabstop>kcfg_KeyElement_FlossDescriptionColumn</tabstop>
+  <tabstop>kcfg_KeyElement_StrandsColumn</tabstop>
+  <tabstop>kcfg_KeyElement_StitchesColumn</tabstop>
+  <tabstop>kcfg_KeyElement_StitchBreakdownColumn</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>kcfg_KeyElement_LengthColumn</tabstop>
+  <tabstop>kcfg_KeyElement_SkeinsColumn</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>kcfg_KeyElement_StitchesColumn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>kcfg_KeyElement_StitchBreakdownColumn</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>562</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>579</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>kcfg_KeyElement_StitchesColumn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>562</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>81</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

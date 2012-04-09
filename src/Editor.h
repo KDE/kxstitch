@@ -129,6 +129,8 @@ class Editor : public QWidget
 		void setMaskBackstitch(bool);
 		void setMaskKnot(bool);
 		void setMakesCopies(bool);
+		
+		void loadSettings();
 
 	protected:
 		bool event(QEvent *);

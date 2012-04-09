@@ -25,18 +25,18 @@ Scale::Scale(Qt::Orientation orientation)
 	if (orientation == Qt::Horizontal)
 	{
 		setContentsMargins(3, 0, 0, 0);
-		setMinimumHeight(Configuration::editor_HorizontalRulerHeight());
+		setMinimumHeight(Configuration::editor_HorizontalScaleHeight());
 	}
 	else
 	{
 		setContentsMargins(0, 3, 0, 0);
-		setMinimumWidth(Configuration::editor_VerticalRulerWidth());
+		setMinimumWidth(Configuration::editor_VerticalScaleWidth());
 	}
 
 	m_orientation = orientation;
 	m_units = Configuration::editor_FormatScalesAs();
-	m_cellSize = (m_orientation == Qt::Horizontal) ? Configuration::editor_CellWidth() : Configuration::editor_CellHeight();
-	m_cellCount = (m_orientation == Qt::Horizontal) ? Configuration::document_Width() : Configuration::document_Height();
+	m_cellSize = 0;
+	m_cellCount = 0;
 	m_offset = 0;
 }
 

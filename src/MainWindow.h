@@ -17,6 +17,7 @@
 
 #include <Magick++.h>
 
+
 class QString;
 class QUndoView;
 
@@ -28,6 +29,12 @@ class Palette;
 class Preview;
 class Scale;
 class SchemeManager;
+
+class EditorConfigPage;
+class PatternConfigPage;
+class ImportConfigPage;
+class LibraryConfigPage;
+class PrinterConfigPage;
 
 
 class MainWindow : public KXmlGuiWindow
@@ -43,6 +50,8 @@ class MainWindow : public KXmlGuiWindow
 		Editor *editor();
 		Preview *preview();
 		Palette *palette();
+
+		void loadSettings();
 
 		void updateBackgroundImageActionLists();
 
@@ -101,6 +110,8 @@ class MainWindow : public KXmlGuiWindow
 		void formatScalesAsStitches();
 		void formatScalesAsCM();
 		void formatScalesAsInches();
+		void preferences();
+		void settingsChanged();
 
 		void documentModified(bool);
 
@@ -126,6 +137,12 @@ class MainWindow : public KXmlGuiWindow
 		Scale		*m_verticalScale;
 
 		QPrinter	*m_printer;
+		
+		EditorConfigPage	*m_editorConfigPage;
+		PatternConfigPage	*m_patternConfigPage;
+		ImportConfigPage	*m_importConfigPage;
+		LibraryConfigPage	*m_libraryConfigPage;
+		PrinterConfigPage	*m_printerConfigPage;
 };
 
 

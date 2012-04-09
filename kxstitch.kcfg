@@ -45,14 +45,6 @@
 			<label>The width of the minor grid lines.</label>
 			<default>0</default>
 		</entry>
-		<entry name="Editor_CellWidth" type="Int">
-			<label>Width of the grid cells.</label>
-			<default>16</default>
-		</entry>
-		<entry name="Editor_CellHeight" type="Int">
-			<label>Height of the grid cells.</label>
-			<default>16</default>
-		</entry>
 		<entry name="Editor_CellHorizontalGrouping" type="Int">
 			<label>The number of cells making up a horizontal group.</label>
 			<default>10</default>
@@ -81,11 +73,11 @@
 			<label>Square cells</label>
 			<default>true</default>
 		</entry>
-		<entry name="Editor_HorizontalRulerHeight" type="Int">
+		<entry name="Editor_HorizontalScaleHeight" type="Int">
 			<label>The height of the horizontal ruler.</label>
 			<default>30</default>
 		</entry>
-		<entry name="Editor_VerticalRulerWidth" type="Int">
+		<entry name="Editor_VerticalScaleWidth" type="Int">
 			<label>The width of the vertical ruler.</label>
 			<default>30</default>
 		</entry>
@@ -105,6 +97,30 @@
 	</group>
 
 	<group name="renderer">
+		<entry name="Renderer_ColorHilight" type="Bool">
+			<label>Enable color hilighting mode</label>
+			<default>false</default>
+		</entry>
+		<entry name="Renderer_RenderBackgroundImages" type="Bool">
+			<label>Render the background images</label>
+			<default>true</default>
+		</entry>
+		<entry name="Renderer_RenderGrid" type="Bool">
+			<label>Render the grid</label>
+			<default>true</default>
+		</entry>
+		<entry name="Renderer_RenderStitches" type="Bool">
+			<label>Render the stitches</label>
+			<default>true</default>
+		</entry>
+		<entry name="Renderer_RenderBackstitches" type="Bool">
+			<label>Render the backstitches</label>
+			<default>true</default>
+		</entry>
+		<entry name="Renderer_RenderFrenchKnots" type="Bool">
+			<label>Render the french knots</label>
+			<default>true</default>
+		</entry>
 		<entry name="Renderer_RenderStitchesAs" type="Enum">
 			<label>How to display stitches.</label>
 			<default>Stitches</default>
@@ -143,11 +159,11 @@
 
 	<group name="document">
 		<entry name="Document_Width" type="Int">
-			<label>The default width of a new pattern.</label>
+			<label>The default width of a new pattern in the units specified.</label>
 			<default>100</default>
 		</entry>
 		<entry name="Document_Height" type="Int">
-			<label>The default height of a new pattern.</label>
+			<label>The default height of a new pattern in the units specified.</label>
 			<default>80</default>
 		</entry>
 		<entry name="Document_UnitsFormat" type="Enum">
@@ -169,6 +185,10 @@
 		<entry name="Import_MaximumColors" type="Int">
 			<label>Maximum number of colors</label>
 			<default>50</default>
+		</entry>
+		<entry name="Import_UseFractionals" type="Bool">
+			<label>Use fractional stitches for finer detail</label>
+			<default>false</default>
 		</entry>
 	</group>
 
@@ -246,7 +266,32 @@
 			<label>The grid size in mm</label>
 			<default>10</default>
 		</entry>
+		<entry name="Page_Size" type="Int">
+			<label>The default page size</label>
+			<default>4</default>
+		</entry>
+		<entry name="Page_Orientation" type="Int">
+			<label>The default page orientation</label>
+			<default>0</default>
+		</entry>
 
+		<entry name="PatternElement_MarginLeft" type="Int">
+			<label>The left margin</label>
+			<default>0</default>
+		</entry>
+		<entry name="PatternElement_MarginTop" type="Int">
+			<label>The top margin</label>
+			<default>0</default>
+		</entry>
+		<entry name="PatternElement_MarginRight" type="Int">
+			<label>The right margin</label>
+			<default>0</default>
+		</entry>
+		<entry name="PatternElement_MarginBottom" type="Int">
+			<label>The bottom margin</label>
+			<default>0</default>
+		</entry>
+       
 		<entry name="KeyElement_ShowBorder" type="Bool">
 			<label>Show a border around the key</label>
 			<default>true</default>
