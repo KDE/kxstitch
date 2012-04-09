@@ -29,7 +29,7 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
 	setMainWidget(widget);
 
 	fillSchemeList();
-	ui.SchemeList->setCurrentItem(m_schemeName);
+	ui.SchemeList->setCurrentIndex(ui.SchemeList->findText(schemeName));
 }
 
 
@@ -49,15 +49,18 @@ void CalibrateFlossDlg::slotButtonClicked(int button)
 		while (mapIterator.hasNext())
 		{
 			mapIterator.next();
-			FlossScheme *scheme = SchemeManager::scheme(mapIterator.key());
-			QListIterator<Floss *> flossIterator(scheme->flosses());
-			while (flossIterator.hasNext())
+			if (mapIterator.value().count())
 			{
-				Floss *f = flossIterator.next();
-				if (mapIterator.value().contains(f->name()))
-					f->setColor(mapIterator.value()[f->name()]);
+				FlossScheme *scheme = SchemeManager::scheme(mapIterator.key());
+				QListIterator<Floss *> flossIterator(scheme->flosses());
+				while (flossIterator.hasNext())
+				{
+					Floss *f = flossIterator.next();
+					if (mapIterator.value().contains(f->name()))
+						f->setColor(mapIterator.value()[f->name()]);
+				}
+				SchemeManager::writeScheme(mapIterator.key());
 			}
-			SchemeManager::writeScheme(mapIterator.key());
 		}
 		accept();
 	}
@@ -74,6 +77,7 @@ void CalibrateFlossDlg::fillSchemeList()
 
 void CalibrateFlossDlg::fillColorList()
 {
+	m_item = 0;
 	ui.ColorList->clear();
 	m_schemeName = ui.SchemeList->currentText();
 	FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
@@ -89,7 +93,8 @@ void CalibrateFlossDlg::fillColorList()
 		listWidgetItem->setData(Qt::CheckStateRole, Qt::Unchecked);
 		ui.ColorList->addItem(listWidgetItem);
 	}
-	on_ColorList_currentItemChanged(ui.ColorList->item(0));
+	if (ui.ColorList->count())
+		ui.ColorList->setCurrentItem(ui.ColorList->item(0));
 }
 
 
@@ -133,12 +138,15 @@ void CalibrateFlossDlg::on_ColorList_currentItemChanged(QListWidgetItem *item)
 	if (m_item)
 		commitColor();
 	m_item = item;
-	if (m_calibratedColors[m_schemeName].contains(m_item->data(Qt::UserRole).toString()))
-		m_sampleColor = m_calibratedColors[m_schemeName][m_item->data(Qt::UserRole).toString()];
-	else
-		m_sampleColor = m_item->data(Qt::DecorationRole).value<QColor>();
-	updateSample();
-	updateName(m_calibratedColors[m_schemeName].contains(m_item->data(Qt::UserRole).toString()));
+	if (item)
+	{
+		if (m_calibratedColors[m_schemeName].contains(m_item->data(Qt::UserRole).toString()))
+			m_sampleColor = m_calibratedColors[m_schemeName][m_item->data(Qt::UserRole).toString()];
+		else
+			m_sampleColor = m_item->data(Qt::DecorationRole).value<QColor>();
+		updateSample();
+		updateName(m_calibratedColors[m_schemeName].contains(m_item->data(Qt::UserRole).toString()));
+	}
 }
 
 
