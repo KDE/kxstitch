@@ -1,0 +1,84 @@
+<chapter id="kxstitch-features" >
+    <title>Features</title>
+    <para>The current feature list and other planned features is shown here.</para>
+    <itemizedlist>
+        <listitem><para>Creation of new patterns
+            <itemizedlist>
+                <listitem><para>User defined size</para></listitem>
+                <listitem><para>Selection of material type (not yet supported)</para></listitem>
+                <listitem><para>Selection of material color</para></listitem>
+                <listitem><para>Insertion of a background images for tracing</para></listitem>
+                <listitem><para>Importing of various image formats</para></listitem>
+                <listitem><para>Importing options allow
+                    <itemizedlist>
+                        <listitem><para>Limiting the number of colors</para></listitem>
+                        <listitem><para>Limiting colors to a specific palette</para></listitem>
+                        <listitem><para>Scaling to a finished size</para></listitem>
+                        <listitem><para>Cropping of the image (not yet supported)</para></listitem>
+                        <listitem><para>Support for transparency in images</para></listitem>
+                        <listitem><para>Allow the use of fractional stitches</para></listitem>
+                    </itemizedlist></para>
+                </listitem>
+            </itemizedlist></para>
+        </listitem>
+        <listitem><para>Editing of existing patterns, Editing tools will include
+            <itemizedlist>
+                <listitem><para>Open and filled rectangles</para></listitem>
+                <listitem><para>Open and filled ellipses</para></listitem>
+                <listitem><para>Filled polygons</para></listitem>
+                <listitem><para>Painting</para></listitem>
+                <listitem><para>Lines</para></listitem>
+                <listitem><para>Erasing stitches, knots and backstitches</para></listitem>
+                <listitem><para>Color selection from existing stitches</para></listitem>
+                <listitem><para>Swapping two colors</para></listitem>
+                <listitem><para>Replace one color with another</para></listitem>
+                <listitem><para>Text with user defined fonts and sizes</para></listitem>
+                <listitem><para>Cut, copy and paste of rectangular areas.</para></listitem>
+                <listitem><para>Unlimited undo and redo</para></listitem>
+                <listitem><para>Mirroring, horizontally and vertically.</para></listitem>
+                <listitem><para>Rotation, 90, 180 and 270 degrees anti clockwise.</para></listitem>
+                <listitem><para>Resizing of the canvas
+                    <itemizedlist>
+                        <listitem><para>Extend canvas left, top, right, bottom</para></listitem>
+                        <listitem><para>Cropping canvas to pattern</para></listitem>
+                        <listitem><para>Cropping canvas to selection</para></listitem>
+                        <listitem><para>Inserting rows and columns (not yet supported)</para></listitem>
+                        <listitem><para>Center the pattern on the canvas</para></listitem>
+                    </itemizedlist></para>
+                </listitem>
+                <listitem><para>Conversion between floss schemes</para></listitem>
+            </itemizedlist></para>
+        </listitem>
+        <listitem><para>Use of standard floss pallets, DMC, Anchor, etc.</para></listitem>
+        <listitem><para>Create customized floss pallets</para></listitem>
+        <listitem><para>Create new colors for any floss pallet</para></listitem>
+        <listitem><para>Save / Load current palette</para></listitem>
+        <listitem><para>Use of standard stitches</para></listitem>
+        <listitem><para>Creation of custom stitches (not yet supported)</para></listitem>
+        <listitem><para>Pattern library manager
+            <itemizedlist>
+                <listitem><para>Create new library patterns</para></listitem>
+                <listitem><para>Insert library patterns into a design</para></listitem>
+                <listitem><para>Export selected patterns (not yet supported)</para></listitem>
+                <listitem><para>Import patterns from an external source (not yet supported)</para></listitem>
+                <listitem><para>Drag and drop from the library to the pattern</para></listitem>
+                <listitem><para>Assign key press to patterns for use with the Alphabet tool</para></listitem>
+            </itemizedlist></para>
+        </listitem>
+        <listitem><para>Free use of backstitching</para></listitem>
+        <listitem><para>Printing of completed patterns and floss keys
+            <itemizedlist>
+                <listitem><para>Pattern image</para></listitem>
+                <listitem><para>Instructions</para></listitem>
+                <listitem><para>Floss key and stitch summary</para></listitem>
+                <listitem><para>Pattern chart with page map</para></listitem>
+                <listitem><para>Text boxes</para></listitem>
+            </itemizedlist></para>
+        </listitem>
+        <listitem><para>Mapping of symbols to flosses</para></listitem>
+        <listitem><para>Specify the number of threads for stitches and backstitches</para></listitem>
+        <listitem><para>Calibration of floss colors</para></listitem>
+    </itemizedlist>
+    <para>If you have anything specific you would like included, please email</para>
+    <para><email>kxstitch-features@mirramar.adsl24.co.uk</email></para>
+</chapter>

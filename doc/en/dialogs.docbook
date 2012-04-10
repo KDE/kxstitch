@@ -1,0 +1,336 @@
+<chapter id="Dialogs">
+    <title>Dialogs</title>
+
+    <sect1 id="PaletteManagerDialog" >
+        <title>The Palette Manager Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="palette-manager-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The palette manager allows you to add, remove or swap flosses from your current palette and the selected scheme.
+            You can remove all non used flosses from your current palette and you are able to add new flosses to the scheme.
+            Additionally you can bring up the floss calibration dialog from here.
+        </para>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="character-selector-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
+            symbols.  Unusable symbols are shown as a box, already used symbols are shown in red.  The symbol shown
+            on the blue background is the current symbol for the selected floss.
+        </para>
+        <para>
+            You can allocate the number of strands of cotton used for each floss, for both stitching and backstitching.
+            This information will be used in calculating the amount of floss required in the final design.
+        </para>
+    </sect1>
+
+    <sect1 id="NewColorDialog" >
+        <title>The New Color Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="new-color-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The dialog shows the name of the scheme that the new color will be added to. The color requires a name
+            and a description, which can be anything you want, although color name will usually be defined by the
+            floss manufacturer.
+        </para>
+        <para>
+            Clicking on the Color button will show a standard KDE color selection dialog. The initial color can be
+            selected and then the parameters can be adjusted to give the correct color.
+        </para>
+        <para>
+            Once added this new color will be available to be included in your patterns palette via the 'Add Color'
+            dialog. It may also be adjusted by using the 'Floss Calibration' dialog.
+        </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog" >
+        <title>The Floss Calibration Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="calibrate-color-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            This dialog has two parts.
+        </para>
+        <para>
+            On the left, a pick list of the schemes that are currently available along with a list of colors that
+            are in that scheme.  The color description will be appended with '(Calibrated)' if the color has been
+            modified by the current invocation of this dialog.
+        </para>
+        <para>
+            On the right, is the name and description of the currently selected color, this will be appended with
+            '(Modified)' if the color has been modified, a preview of the color, and the current RGB values for the color.
+        </para>
+        <para>
+            Also shown is a 'Reset Color' button. This will reset the currently selected color to the value it had
+            when the dialog was first invoked.
+        </para>
+        <para>
+            Pressing the 'OK' button will commit all of the changed colors.
+        </para>
+        <para>
+            Pressing the 'Cancel' button will restore all the changed colors back to their original values.
+        </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog" >
+        <title>The Configuration Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="configuration-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            This dialog lets you configure some of the &kapp; display parameters.
+        </para>
+        <para>
+            Most of the options are self explanatory.  The check boxes enable or disable the display of various
+            elements. The pick lists allow selection of the required format of those elements.
+        </para>
+        <para>
+            The cell size value is the size of a grid square in screen pixels. The grouping value is the number
+            of squares in a major group, i.e. between the heavier lines.  It may be necessary to change the grid line
+            colors if you work on dark materials and have set the patterns background color accordingly.
+        </para>
+        <para>
+            The scale size is the width of the border in screen pixels.  You may need to adjust this if you have
+            large patterns and want to see the full text of the scales.
+        </para>
+    </sect1>
+
+    <sect1 id="ImportImageDlg" >
+        <title>The Import Image Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="import-image-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            On the left of the dialog there is a preview of the imported image, based on the parameters on the right.
+        </para>
+        <para>
+            The floss scheme for the finished pattern can be selected, by default this is the same as the 'New
+            Pattern Dialog' defaults. The maximum colors to be used for the pattern can be enabled and changed as
+            required, by default the imported pattern will have as many colors as are defined in the original image
+            that are converted to floss colors. Checking the Ignore Color box allows you to click the dropper tool to
+            select a color in the image that will be ignored on import. This is useful to remove backgrounds that you
+            don't need converting to stitches. The ignored color will be displayed as a checker board pattern in the preview.
+        </para>
+        <para>
+            The cloth count value defaults to the 'New Pattern Properties' dialog and the scale is set such that
+            the final size is as close to the 'New Pattern Properties' pattern size as possible. These values can be
+            changed as required.
+        </para>
+        <para>
+            The Use fractionals checkbox will enable the use of fractional stitches in the imported pattern.  This
+            effectively doubles the import resolution without affecting the overall size of the pattern.
+        </para>
+        <para>
+            Clicking 'Import' will convert the image into a pattern.
+        </para>
+    </sect1>
+
+    <sect1 id="PatternPropertiesDialog" >
+        <title>The Pattern Properties Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="file-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The pattern size can be defined in units of stitches, centimeters or inches.
+            The width and height values will updated automatically to the equivalent size in the new unit type if
+            the units type is changed.
+        </para>
+        <para>
+            The cloth count is defined in units per centimeter or inches and is dependent on the units of size.
+            i.e. if CM is selected for the units then cloth count will be in units per centimeter, similarly for inches.
+            if the Stitches unit is selected then the cloth count units will remain as the last CM or inches value.
+        </para>
+        <para>
+            The Title, Author, Copyright and Fabric fields are free text, so you can enter anything you like
+            here. The fabric color can be set by pressing the color button and selecting the required color. This will
+            then be shown in the editor and preview windows.
+        </para>
+        <para>
+            The floss scheme has a pick list for all the available floss schemes, including any that you have
+            defined yourself.
+        </para>
+        <para>
+            The 'Set as default' checkbox will save the current values which will then be used as defaults
+            for all new patterns.
+        </para>
+        <para>
+            The Instructions tab can be used to enter any specific instructions for sewing the pattern.
+        </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog" >
+        <title>The Pattern Library Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="library-manager-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The Pattern Library Manager has a hierarchical tree view (more of a forest really) of categories
+            on the left with an icon view of the selected category of patterns on the right.  This dialog is non modal
+            and can be left open whilst working on the pattern.
+        </para>
+        <para>
+            The simplest way to use the library patterns is to drag and drop them onto the pattern space.  Alternatively
+            using the &RMB; on a library pattern will show a context menu with an option to copy it, this can then be pasted
+            into the pattern as many times as required.
+        </para>
+        <para>
+            Additional items on the context menu are:
+            <itemizedlist>
+                <listitem><para>Delete: Delete a library item, for which a confirmation dialog is shown.</para></listitem>
+                <listitem><para>Add to Export List: Allows you to create a list of items to export, perhaps to send to someone.</para></listitem>
+                <listitem><para>Properties: Show the properties dialog for the item.</para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="library-pattern-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The properties dialog for each item displays its size and the floss scheme used, the baseline value and the associated
+            keyboard character.  The baseline is used to position the character pattern vertically relative to the cursor position
+            when using the Alphabet tool.  Positive values move it down, negative values move it up.  The associated character is
+            only required for use with the Alphabet tool.  After clicking in the associated character text box, the next key press, including
+            modifiers (Shift, Ctrl, etc) is used as the key.
+        </para>
+        <para>
+            Create new libraries by clicking the &RMB; on either an existing category, to create a sub category, or on a blank area of the library
+            list, for a new top level category, and select the New Category option, enter the name and click OK.
+        </para>
+        <para>
+            Creating a new library pattern by selecting an area in the pattern editor, select copy, then use the &RMB; on an existing category
+            and select paste.  If necessary you can use the properties option to add an associated key if you want to use it as a character library.
+        </para>
+        <para>
+            Library patterns can be dragged and dropped to other libraries in the list to allow you to rearrange them to your needs.  Note that there
+            is no checks to ensure that the key codes assigned to library patterns is unique and you should modify any that duplicate an existing one.
+        </para>
+    </sect1>
+
+    <sect1 id="TextDialog" >
+        <title>The Text Dialog</title>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="text-tool-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <para>
+            The text dialog allows you to select a font and size, then enter the text.  Clicking OK closes the
+            dialog and returns you to the &kapp; window. Positioning the text is the same as pasting any other
+            element. Press the &LMB; on the canvas roughly where you want the text, this will show a preview of
+            the text, position the text exactly where you want it, then release the &LMB;
+        </para>
+        <screenshot><mediaobject><imageobject><imagedata fileref="text-tool-pattern.png" format="PNG" /></imageobject></mediaobject></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title>Extend Pattern Dialog</title>
+        <para>
+            This is used to extend the pattern in various directions by a number of cells.  Enter the number of cells in the spin boxes and
+            press OK to extend the pattern.
+        </para>
+        <screenshot><mediaobject><imageobject><imagedata fileref="extend-pattern-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog" >
+        <title>The Printer Dialog</title>
+        <para>
+            The dialog has a page list on the left showing a thumbnail for each of the pages.  The right panel
+            contains the layout editor where the elements can be placed. Each element is customizable using the
+            context menu and can be positioned and sized to suit your requirements.
+        </para>
+
+        <screenshot><mediaobject><imageobject><imagedata fileref="print-setup-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        <para><inlinemediaobject><imageobject><imagedata fileref="add-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Append a page - This will append a page at the end of the list.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="insert-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a page - This will insert a page before the one currently selected in the list.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="delete-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Delete a page - This will delete the page currently selected in the list.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Select an element -Used to select elements for editing or resizing.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="text-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a text element - Used to insert a text element onto the current page.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="pattern-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a pattern element - Used to insert a pattern element onto the current page.</para>
+
+        <para>
+            When adding elements, select the required element icon, then select the area of the page that the element is to occupy by clicking and
+            dragging with the &LMB; from one corner to another.  The properties of the element can be viewed and changed using the context menu
+            accessed by the &RMB;
+        </para>
+        <para>
+            The elements can be resized by selecting them using the <inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>,
+            this will provide a sizing rectangle around the element.  The corners can be dragged around to adjust the size or the whole element can be moved by
+            clicking and dragging using the &LMB;.
+        </para>
+        <para>
+            The page has an associated properties dialog which allows setting the page margin and the grid size and visibility.
+            <screenshot><mediaobject><imageobject><imagedata fileref="page-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
+        <sect2 id="PatternElement" >
+            <title>Pattern Element</title>
+            <para>
+                The pattern element will show the arrangement of stitches on the grid. The properties dialog can be used to configure how the stitches
+                will be displayed. This allows the element to display as a picture of the pattern or as the working pattern showing the symbols.
+            </para>
+            <para>
+                <inlinemediaobject><imageobject><imagedata fileref="pattern-element-properties-dialog.png" format="PNG" /></imageobject></inlinemediaobject>  <inlinemediaobject><imageobject><imagedata fileref="pattern-element-symbols-properties-dialog.png" format="PNG" /></imageobject></inlinemediaobject>
+            </para>
+            <para>
+                The pattern element defaults to showing the whole pattern when it is created. Using the properties dialog a selection of the
+                required area can be made in the preview window by clicking and dragging a selection area.
+                <screenshot><mediaobject><imageobject><imagedata fileref="pattern-element-selection.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title>Map Element</title>
+                <para>
+                    The map element is used when the pattern spans multiple sheets. It shows the area of the whole pattern that this element represents.
+                    It can be enabled in the pattern element properties.
+                    <screenshot><mediaobject><imageobject><imagedata fileref="map-element.png" format="PNG" /></imageobject></mediaobject></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement" >
+            <title>Text Element</title>
+            <para>
+                A text element can be used to add text notes to the pattern or to show titles or comments. The text is configurable with fonts, color and transparency.
+                In addition a border can be displayed.
+                <screenshot><mediaobject><imageobject><imagedata fileref="text-element-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+            <para>
+                Text elements can also utilize variables which will be converted to properties from the pattern.
+            </para>
+            <sect3 id="TextVariables" >
+                <title>Text Variables</title>
+                <simplelist type='horiz' columns='3'>
+                    <member>${title}</member>
+                    <member>${author}</member>
+                    <member>${copyright}</member>
+                    <member>${fabric}</member>
+                    <member>${instructions}</member>
+                    <member>${horizontalClothCount}</member>
+                    <member>${verticalClothCount}</member>
+                    <member>${width.stitches}</member>
+                    <member>${height.stitches}</member>
+                    <member>${width.inches}</member>
+                    <member>${height.inches}</member>
+                    <member>${width.cm}</member>
+                    <member>${height.cm}</member>
+                    <member>${scheme}</member>
+                    <member>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement" >
+            <title>Key Element</title>
+            <para>
+                The key element shows the flosses used.  The properties dialog allows the selection of the fields that can be displayed.
+                <screenshot><mediaobject><imageobject><imagedata fileref="key-element-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+                <screenshot><mediaobject><imageobject><imagedata fileref="key-element.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement" >
+            <title>Resize Element</title>
+            <para>
+                All elements can be resized by selecting them with the <inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>
+                which will show the resize boundary. The whole element can be moved by clicking and dragging inside the element. To resize, hover over the
+                corner resize handles, click and drag to the required size.
+                <screenshot><mediaobject><imageobject><imagedata fileref="element-resize.png" format="PNG" /></imageobject></mediaobject></screenshot>
+                <screenshot><mediaobject><imageobject><imagedata fileref="element-resize-handle.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

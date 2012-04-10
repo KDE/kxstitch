@@ -1,0 +1,35 @@
+<appendix id="installation" >
+    <title>Installation</title>
+
+    <sect1 id="getting-kxstitch" >
+        <title>How to obtain &kapp;</title>
+        <para>
+            &kapp; can be found at SourceForge at <ulink url="http://sourceforge.net/projects/kxstitch" >http://sourceforge.net/projects/kxstitch</ulink>.
+            The &kapp; homepage can be found at <ulink url="http://kxstitch.sourceforge.net" >http://kxstitch.sourceforge.net</ulink>
+        </para>
+    </sect1>
+
+    <sect1 id="requirements" >
+        <title>Requirements</title>
+        <para>
+            &kapp; has been written for &kde; 4.x with &Qt; 4.x.
+        </para>
+        <para>
+            For the image import functions the ImageMagick libraries are required, this includes the development headers ImageMagick and Magick++,
+            these are available with your distribution or from <ulink url="http://www.imagemagick.org/" >http://www.imagemagick.org/</ulink>.
+        </para>
+    </sect1>
+
+    <sect1 id="compilation" >
+        <title>Compilation and Installation</title>
+        <para>
+            Compilation of KXStitch requires cmake and suitable build tools, make, gcc, etc. A build script has been provided which should perform the necessary
+            compilation operations and install KXStitch for which you may be required to enter the root password.
+        </para>
+        <para>
+            <screen width="40" >
+                <prompt>bash$</prompt><command>./build.sh</command>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

@@ -80,6 +80,7 @@ set (kxstitch_SRCS
 add_subdirectory(icons)
 add_subdirectory(po)
 add_subdirectory(schemes)
+add_subdirectory(doc)
 
 kde4_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 

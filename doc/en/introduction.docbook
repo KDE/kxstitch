@@ -1,0 +1,30 @@
+<chapter id="introduction" >
+    <title>Introduction</title>
+    <para>
+        &kapp; is a program that lets you create cross stitch patterns and charts.
+        Patterns can be created from scratch on a user defined size of grid, which can be
+        enlarged or reduced in size as your pattern progresses.  Alternatively you can
+        import images from many graphics formats. When importing images you can restrict
+        the conversion to full stitches or optionally use fractional stitches.  You may
+        also use images as backgrounds resizing them to fit in a selected area. These
+        imported images can then be modified using the supplied tools to produce your final design.
+    </para>
+    <para>
+        There are many tools to aid designing your pattern, from open and filled rectangles
+        and ellipses, filled polygons and lines and backstitching.  Additionally cut, copy
+        and paste can be used to duplicate selected areas.  Selected areas can also be
+        rotated 90, 180 and 270 degrees anti clockwise, or mirrored horizontally or vertically.
+    </para>
+    <para>
+        There is also a pattern library that can be used to store small and not so small
+        portions of patterns that can then be reused in other patterns.  The patterns in these
+        libraries are stored in a hierarchical list that makes it easy to sort and navigate them
+        to find the ones you want.  These pattern libraries can also be used as alphabets by assigning
+        a character to each one.  By using the Alphabet tool, each key press is searched for in the current
+        library and if present, the associated library pattern will be inserted in the pattern.
+    </para>
+    <para>
+        Please report any problems or feature requests to the &kapp; SourceForge
+        mailing lists or forums at <ulink url="http://sourceforge.net/projects/kxstitch/" >http://sourceforge.net/projects/kxstitch/</ulink>
+    </para>
+</chapter>

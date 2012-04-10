@@ -1,0 +1,65 @@
+<?xml version = '1.0'?>
+    <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+    <!ENTITY kxstitch '<application>KXStitch</application>'>
+    <!ENTITY kapp "&kxstitch;">
+    <!ENTITY % addindex "IGNORE">
+    <!ENTITY % English "INCLUDE">
+    <!ENTITY introduction SYSTEM "introduction.docbook">
+    <!ENTITY features SYSTEM "features.docbook">
+    <!ENTITY ui SYSTEM "ui.docbook">
+    <!ENTITY commands SYSTEM "commands.docbook">
+    <!ENTITY patterns SYSTEM "patterns.docbook">
+    <!ENTITY printing SYSTEM "printing.docbook">
+    <!ENTITY dialogs SYSTEM "dialogs.docbook">
+    <!ENTITY faq SYSTEM "faq.docbook">
+    <!ENTITY credits SYSTEM "credits.docbook">
+    <!ENTITY install SYSTEM "install.docbook">
+    ]>
+
+<book lang="&language;">
+    <bookinfo>
+        <title>The &kapp; Handbook</title>
+        <authorgroup>
+            <author>
+                <firstname>Stephen</firstname>
+                <othername>P.</othername>
+                <surname>Allewell</surname>
+                <affiliation><address><email>stephen@mirramar.adsl24.co.uk</email></address></affiliation>
+            </author>
+        </authorgroup>
+        <copyright>
+            <year>2012</year>
+            <holder>Stephen P. Allewell</holder>
+        </copyright>
+        <legalnotice>&FDLNotice;</legalnotice>
+        <date>27/03/2012</date>
+        <releaseinfo>V.0.9.0</releaseinfo>
+        <abstract>
+            <para>
+                &kapp; is an application designed to allow people to create cross stitch patterns and print them.
+                These patterns can be either created from scratch on a user defined size of grid, or an image can be
+                imported from various graphic files.
+            </para>
+        </abstract>
+        <keywordset>
+            <keyword>KDE</keyword>
+            <keyword>Stitching</keyword>
+            <keyword>Pattern</keyword>
+            <keyword>Cross</keyword>
+            <keyword>Stitch</keyword>
+        </keywordset>
+    </bookinfo>
+
+    &introduction;
+    &features;
+    &ui;
+    &commands;
+    &patterns;
+    &printing;
+    &dialogs;
+    &faq;
+    &credits;
+    &install;
+
+    &documentation.index;
+</book>
