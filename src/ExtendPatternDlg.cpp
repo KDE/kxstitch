@@ -17,6 +17,7 @@ ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
 {
 	setCaption(i18n("Extend Pattern"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("ExtendDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	setMainWidget(widget);

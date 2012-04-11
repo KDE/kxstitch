@@ -17,6 +17,7 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32
 {
 	setCaption(i18n("Library Pattern Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("PatternLibraryDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);

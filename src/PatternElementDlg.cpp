@@ -26,6 +26,7 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
 {
 	setCaption(i18n("Pattern Element Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("PatternElement");
 
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);

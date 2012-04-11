@@ -22,6 +22,7 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
 {
 	setCaption(i18n("Key Element Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("KeyElement");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 

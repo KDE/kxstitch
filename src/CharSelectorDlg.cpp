@@ -23,6 +23,7 @@ CharSelectorDlg::CharSelectorDlg(QWidget *parent, QList<QChar> usedSymbols)
 {
     setCaption(i18n("Character Selector"));
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+    setHelp("CharacterSelectorDialog");
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     // Although the ui should be set up at this point, the constructor used for KCharSelect does not

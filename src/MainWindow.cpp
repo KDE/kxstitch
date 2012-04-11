@@ -1001,6 +1001,7 @@ void MainWindow::preferences()
 	if (KConfigDialog::showDialog("preferences"))
 		return;
 	KConfigDialog *dialog = new KConfigDialog(this, "preferences", Configuration::self());
+	dialog->setHelp("ConfigurationDialog");
 	dialog->setFaceType(KPageDialog::List);
 	m_editorConfigPage = new EditorConfigPage(0, "EditorConfigPage");
 	dialog->addPage(m_editorConfigPage, i18n("Editor"), "preferences-desktop");

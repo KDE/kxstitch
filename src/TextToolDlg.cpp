@@ -21,6 +21,7 @@ TextToolDlg::TextToolDlg(QWidget *parent)
 {
 	setCaption(i18n("Text Tool"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("TextDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);

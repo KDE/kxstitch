@@ -23,6 +23,7 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
 {
 	setCaption(i18n("Calibrate Floss"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("CalibrateDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);

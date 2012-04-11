@@ -34,6 +34,7 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
 {
 	setCaption(i18n("Library Manager"));
 	setButtons(KDialog::Close | KDialog::Help);
+	setHelp("PatternLibraryDialog");
 	
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);

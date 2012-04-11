@@ -21,6 +21,7 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, PagePreviewListWidgetItem 
 {
 	setCaption(i18n("Page Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel);
+	setHelp("PrinterDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);

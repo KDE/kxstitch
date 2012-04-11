@@ -19,6 +19,7 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
 {
 	setCaption(i18n("Text Element Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("TextElement");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);

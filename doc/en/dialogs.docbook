@@ -12,17 +12,20 @@
             Additionally you can bring up the floss calibration dialog from here.
         </para>
         <para>
-            <screenshot><mediaobject><imageobject><imagedata fileref="character-selector-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
-        </para>
-        <para>
-            For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
-            symbols.  Unusable symbols are shown as a box, already used symbols are shown in red.  The symbol shown
-            on the blue background is the current symbol for the selected floss.
-        </para>
-        <para>
             You can allocate the number of strands of cotton used for each floss, for both stitching and backstitching.
             This information will be used in calculating the amount of floss required in the final design.
         </para>
+        <sect2 id="CharacterSelectorDialog" >
+            <title>Character Selector</title>
+            <para>
+                <screenshot><mediaobject><imageobject><imagedata fileref="character-selector-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+            <para>
+                For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
+                symbols.  Unusable symbols are shown as a box, already used symbols are shown in red.  The symbol shown
+                on the blue background is the current symbol for the selected floss.
+            </para>
+        </sect2>
     </sect1>
 
     <sect1 id="NewColorDialog" >
@@ -97,7 +100,7 @@
         </para>
     </sect1>
 
-    <sect1 id="ImportImageDlg" >
+    <sect1 id="ImportImageDialog" >
         <title>The Import Image Dialog</title>
         <para>
             <screenshot><mediaobject><imageobject><imagedata fileref="import-image-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
@@ -127,8 +130,8 @@
         </para>
     </sect1>
 
-    <sect1 id="PatternPropertiesDialog" >
-        <title>The Pattern Properties Dialog</title>
+    <sect1 id="FilePropertiesDialog" >
+        <title>The File Properties Dialog</title>
         <para>
             <screenshot><mediaobject><imageobject><imagedata fileref="file-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
         </para>

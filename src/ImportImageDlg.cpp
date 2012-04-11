@@ -26,6 +26,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 		m_originalImage(originalImage)
 {
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help | KDialog::Reset);
+	setHelp("ImportImageDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 

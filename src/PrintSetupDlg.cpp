@@ -44,6 +44,7 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
 {
 	setCaption(i18n("Print Setup"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("PrinterDialog");
 
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);

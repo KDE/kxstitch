@@ -24,12 +24,12 @@ NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
 {
 	setCaption(i18n("New Floss"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("NewColorDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);
 	ui.SchemeName->setText(m_flossScheme->schemeName());
 	enableButtonOk(false);
-	setHelp("New Floss Dialog");
 	setMainWidget(widget);
 }
 

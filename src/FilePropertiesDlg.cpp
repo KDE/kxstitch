@@ -26,6 +26,7 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
 {
 	setCaption(i18n("File Properties"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("PatternPropertiesDialog");
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 

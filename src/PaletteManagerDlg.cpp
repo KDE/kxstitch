@@ -37,6 +37,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 {
 	setCaption(i18n("Palette Manager"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
+	setHelp("PaletteManagerDialog");
 	QMapIterator<int, DocumentFloss *> it(m_documentPalette);
 	while (it.hasNext())
 	{
