@@ -99,6 +99,9 @@
              <height>23</height>
             </size>
            </property>
+           <property name="text">
+            <string notr="true"/>
+           </property>
           </widget>
          </item>
          <item>
@@ -139,6 +142,9 @@
              <width>25</width>
              <height>23</height>
             </size>
+           </property>
+           <property name="text">
+            <string notr="true"/>
            </property>
           </widget>
          </item>

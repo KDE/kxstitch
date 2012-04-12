@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>237</width>
-    <height>689</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Key Element Properties</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox_4">
      <property name="title">
@@ -157,65 +157,69 @@
      <property name="title">
       <string>Border</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
        <widget class="QCheckBox" name="ShowBorder">
         <property name="text">
          <string>Show border</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string comment="Label for color value">Color</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="KColorCombo" name="BorderColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Line thickness</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QDoubleSpinBox" name="BorderThickness">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="toolTip">
-         <string>Thickness of the border in 1/10 mm</string>
-        </property>
-        <property name="prefix">
-         <string/>
-        </property>
-        <property name="suffix">
-         <string>mm</string>
-        </property>
-        <property name="decimals">
-         <number>1</number>
-        </property>
-        <property name="minimum">
-         <double>0.100000000000000</double>
-        </property>
-        <property name="maximum">
-         <double>10.000000000000000</double>
-        </property>
-        <property name="singleStep">
-         <double>0.100000000000000</double>
-        </property>
-        <property name="value">
-         <double>0.500000000000000</double>
-        </property>
-       </widget>
+      <item>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string comment="Label for color value">Color</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="KColorCombo" name="BorderColor">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Line thickness</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QDoubleSpinBox" name="BorderThickness">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Thickness of the border in 1/10 mm</string>
+          </property>
+          <property name="prefix">
+           <string/>
+          </property>
+          <property name="suffix">
+           <string>mm</string>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
+           <double>0.500000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -225,47 +229,51 @@
      <property name="title">
       <string comment="Groupbox title for background properties">Background</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
        <widget class="QCheckBox" name="FillBackground">
         <property name="text">
-         <string>Fill Background</string>
+         <string>Fill background</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string comment="Label for color value">Color</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="KColorCombo" name="BackgroundColor">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Transparency</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QSpinBox" name="BackgroundTransparency">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="maximum">
-         <number>255</number>
-        </property>
-        <property name="value">
-         <number>255</number>
-        </property>
-       </widget>
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string comment="Label for color value">Color</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="KColorCombo" name="BackgroundColor">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Transparency</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="BackgroundTransparency">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+          <property name="value">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -287,7 +295,7 @@
      <property name="title">
       <string>Columns</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QCheckBox" name="SymbolColumn">
         <property name="text">
@@ -298,7 +306,7 @@
       <item>
        <widget class="QCheckBox" name="FlossNameColumn">
         <property name="text">
-         <string>Floss Name</string>
+         <string>Floss name</string>
         </property>
        </widget>
       </item>
@@ -312,7 +320,7 @@
       <item>
        <widget class="QCheckBox" name="FlossDescriptionColumn">
         <property name="text">
-         <string>Floss Description</string>
+         <string>Floss description</string>
         </property>
        </widget>
       </item>
@@ -326,7 +334,7 @@
       <item>
        <widget class="QCheckBox" name="StitchBreakdownColumn">
         <property name="text">
-         <string>Stitch Breakdown</string>
+         <string>Stitch breakdown</string>
         </property>
        </widget>
       </item>
@@ -344,14 +352,14 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QCheckBox" name="TotalStitches">
+        <property name="text">
+         <string>Total stitches</string>
+        </property>
+       </widget>
+      </item>
      </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="TotalStitches">
-     <property name="text">
-      <string>Total Stitches</string>
-     </property>
     </widget>
    </item>
   </layout>
@@ -387,7 +395,6 @@
   <tabstop>StitchBreakdownColumn</tabstop>
   <tabstop>LengthColumn</tabstop>
   <tabstop>SkeinsColumn</tabstop>
-  <tabstop>TotalStitches</tabstop>
  </tabstops>
  <resources/>
  <connections>

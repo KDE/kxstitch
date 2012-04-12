@@ -44,7 +44,7 @@
        <item>
         <widget class="QCheckBox" name="kcfg_Alphabet_UseCapsLock">
          <property name="text">
-          <string>Use Caps Lock</string>
+          <string>Use caps lock</string>
          </property>
         </widget>
        </item>

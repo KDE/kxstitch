@@ -45,7 +45,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Floss Scheme</string>
+         <string>Floss scheme</string>
         </property>
        </widget>
       </item>
@@ -326,7 +326,7 @@
       <item row="3" column="1">
        <widget class="QLabel" name="FinalSize">
         <property name="text">
-         <string>TextLabel</string>
+         <string notr="true">TextLabel</string>
         </property>
        </widget>
       </item>

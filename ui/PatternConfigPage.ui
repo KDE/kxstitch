@@ -23,7 +23,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label_11">
         <property name="text">
-         <string>Floss Scheme</string>
+         <string>Floss scheme</string>
         </property>
        </widget>
       </item>

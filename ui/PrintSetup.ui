@@ -84,7 +84,7 @@
         <string/>
        </property>
        <property name="text">
-        <string/>
+        <string notr="true"/>
        </property>
        <property name="iconSize">
         <size>
@@ -123,7 +123,7 @@
         <string>Insert a page before the selected page</string>
        </property>
        <property name="text">
-        <string/>
+        <string notr="true"/>
        </property>
        <property name="iconSize">
         <size>
@@ -162,7 +162,7 @@
         <string>Delete the selected page</string>
        </property>
        <property name="text">
-        <string/>
+        <string notr="true"/>
        </property>
        <property name="iconSize">
         <size>
@@ -409,27 +409,27 @@
        </property>
        <item>
         <property name="text">
-         <string>25%</string>
+         <string notr="true">25%</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>50%</string>
+         <string notr="true">50%</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>100%</string>
+         <string notr="true">100%</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>150%</string>
+         <string notr="true">150%</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>200%</string>
+         <string notr="true">200%</string>
         </property>
        </item>
        <item>
@@ -439,12 +439,12 @@
        </item>
        <item>
         <property name="text">
-         <string>800%</string>
+         <string notr="true">800%</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>1600%</string>
+         <string notr="true">1600%</string>
         </property>
        </item>
       </widget>
@@ -468,7 +468,7 @@
         <string>Select an element</string>
        </property>
        <property name="text">
-        <string>...</string>
+        <string notr="true">...</string>
        </property>
        <property name="iconSize">
         <size>
@@ -493,7 +493,7 @@
         <string/>
        </property>
        <property name="text">
-        <string>...</string>
+        <string notr="true">...</string>
        </property>
        <property name="iconSize">
         <size>
@@ -518,7 +518,7 @@
         <string/>
        </property>
        <property name="text">
-        <string>...</string>
+        <string notr="true">...</string>
        </property>
        <property name="iconSize">
         <size>
@@ -540,7 +540,7 @@
         <string/>
        </property>
        <property name="text">
-        <string>...</string>
+        <string notr="true">...</string>
        </property>
        <property name="iconSize">
         <size>

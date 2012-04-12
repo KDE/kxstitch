@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>316</width>
+    <width>317</width>
     <height>449</height>
    </rect>
   </property>
@@ -38,7 +38,7 @@
             <item>
              <widget class="QLabel" name="label_11">
               <property name="text">
-               <string>Floss Scheme</string>
+               <string>Floss scheme</string>
               </property>
              </widget>
             </item>

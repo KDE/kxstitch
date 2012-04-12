@@ -1404,7 +1404,7 @@ void MirrorSelectionCommand::undo()
 
 
 RotateSelectionCommand::RotateSelectionCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots, StitchData::Rotation rotation, bool copies, const QByteArray &originalPatternData, Pattern *rotatedPattern, const QPoint &pasteCell, bool merge)
-	:	QUndoCommand(i18n("Rotate Selectione")),
+	:	QUndoCommand(i18n("Rotate Selection")),
 		m_document(document),
 		m_selectionArea(selectionArea),
 		m_colorMask(colorMask),
