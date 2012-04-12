@@ -300,6 +300,10 @@ void MainWindow::setupActionsFromDocument()
 			actions->action("renderKnotsAsColorBlocks")->trigger();
 			break;
 
+		case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols:
+			actions->action("renderKnotsAsColorBlocksSymbols")->trigger();
+			break;
+			
 		case Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols:
 			actions->action("renderKnotsAsColorSymbols")->trigger();
 			break;
@@ -1557,6 +1561,14 @@ void MainWindow::setupActions()
 	actions->addAction("renderKnotsAsColorBlocks", action);
 	actionGroup->addAction(action);
 
+	action = new KAction(this);
+	action->setText(i18n("Color Blocks & Symbols"));
+	action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);
+	action->setCheckable(true);
+	connect(action, SIGNAL(triggered()), m_editor, SLOT(renderKnotsAs()));
+	actions->addAction("renderKnotsAsColorBlocksSymbols", action);
+	actionGroup->addAction(action);
+	
 	action = new KAction(this);
 	action->setText(i18n("Color Symbols"));
 	action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);

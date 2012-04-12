@@ -150,6 +150,7 @@
 			<choices>
 				<choice name="None" />
 				<choice name="ColorBlocks" />
+				<choice name="ColorBlocksSymbols" />
 				<choice name="ColorSymbols" />
 				<choice name="BlackWhiteSymbols" />
 				<choice name="ColorHilight" />

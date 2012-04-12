@@ -53,6 +53,8 @@
 		<Menu name="renderKnotsAs">
 			<text>Render Knots As</text>
 			<Action name="renderKnotsAsColorBlocks"/>
+			<Action name="renderKnotsAsColorBlocksSymbols"/>
+			<Action name="renderKnotsAsColorSymbols"/>
 			<Action name="renderKnotsAsBlackWhiteSymbols"/>
 		</Menu>
 		<Separator/>
@@ -152,6 +154,8 @@
 	<Menu name="renderKnotsAs">
 		<text>Render Knots As</text>
 		<Action name="renderKnotsAsColorBlocks"/>
+		<Action name="renderKnotsAsColorBlocksSymbols"/>
+		<Action name="renderKnotsAsColorSymbols"/>
 		<Action name="renderKnotsAsBlackWhiteSymbols"/>
 	</Menu>
 	<Separator/>

@@ -76,6 +76,7 @@ class Renderer
 
 		void renderKnotsAsNone(Knot *, const QPoint &);
 		void renderKnotsAsColorBlocks(Knot *, const QPoint &);
+		void renderKnotsAsColorBlocksSymbols(Knot *, const QPoint &);
 		void renderKnotsAsColorSymbols(Knot *, const QPoint &);
 		void renderKnotsAsBlackWhiteSymbols(Knot *, const QPoint &);
 

@@ -94,6 +94,7 @@ const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] =
 {
 	&Renderer::renderKnotsAsNone,
 	&Renderer::renderKnotsAsColorBlocks,
+	&Renderer::renderKnotsAsColorBlocksSymbols,
 	&Renderer::renderKnotsAsColorSymbols,
 	&Renderer::renderKnotsAsBlackWhiteSymbols,
 };
@@ -1082,14 +1083,113 @@ void Renderer::renderKnotsAsNone(Knot *knot, const QPoint &offset)
 
 void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
 {
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	QPen outlinePen;
+	QBrush brush(Qt::SolidPattern);
+	if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight))
+	{
+		outlinePen.setColor(documentFloss->flossColor());
+		brush.setColor(documentFloss->flossColor());
+	}
+	else
+	{
+		outlinePen.setColor(Qt::lightGray);
+		brush.setColor(Qt::lightGray);
+	}
+	d->m_painter->setPen(outlinePen);
+	d->m_painter->setBrush(brush);
+
+	int knotSize = std::min(d->m_cellWidth, d->m_cellHeight)*2/3;
+	QRect rect(0, 0, knotSize, knotSize);
+	rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth)/2), static_cast<int>((knot->position.y()*d->m_cellHeight)/2)));
+	d->m_painter->drawEllipse(rect);
+}
+
+
+void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint &offset)
+{
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	QPen textPen;
+	QPen outlinePen;
+	QBrush brush(Qt::SolidPattern);
+	if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight))
+	{
+		textPen.setColor((qGray(documentFloss->flossColor().rgb()) < 128)?Qt::white:Qt::black);
+		outlinePen.setColor(documentFloss->flossColor());
+		brush.setColor(documentFloss->flossColor());
+	}
+	else
+	{
+		outlinePen.setColor(Qt::lightGray);
+		brush.setColor(Qt::lightGray);
+		textPen.setColor(Qt::darkGray);
+	}
+	d->m_painter->setPen(outlinePen);
+	d->m_painter->setBrush(brush);
+	d->m_painter->setFont(d->m_renderQtrFont);
+
+	int knotSize = std::min(d->m_cellWidth, d->m_cellHeight)*2/3;
+	QRect rect(0, 0, knotSize, knotSize);
+	rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth)/2), static_cast<int>((knot->position.y()*d->m_cellHeight)/2)));
+	d->m_painter->drawEllipse(rect);
+	d->m_painter->setPen(textPen);
+	d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
 }
 
 
 void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
 {
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	QPen textPen;
+	QPen outlinePen;
+	QBrush brush(Qt::NoBrush);
+	if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight))
+	{
+		textPen.setColor(documentFloss->flossColor());
+		outlinePen.setColor(documentFloss->flossColor());
+	}
+	else
+	{
+		outlinePen.setColor(Qt::lightGray);
+		textPen.setColor(Qt::darkGray);
+	}
+	d->m_painter->setPen(outlinePen);
+	d->m_painter->setBrush(brush);
+	d->m_painter->setFont(d->m_renderQtrFont);
+
+	int knotSize = std::min(d->m_cellWidth, d->m_cellHeight)*2/3;
+	QRect rect(0, 0, knotSize, knotSize);
+	rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth)/2), static_cast<int>((knot->position.y()*d->m_cellHeight)/2)));
+	d->m_painter->drawEllipse(rect);
+	d->m_painter->setPen(textPen);
+	d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
 }
 
 
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint &offset)
 {
+	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	QPen textPen;
+	QPen outlinePen;
+	QBrush brush(Qt::NoBrush);
+	if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight))
+	{
+		textPen.setColor(Qt::black);
+		outlinePen.setColor(Qt::black);
+	}
+	else
+	{
+		outlinePen.setColor(Qt::lightGray);
+		textPen.setColor(Qt::darkGray);
+	}
+	d->m_painter->setPen(outlinePen);
+	d->m_painter->setBrush(brush);
+	d->m_painter->setFont(d->m_renderQtrFont);
+
+	int knotSize = std::min(d->m_cellWidth, d->m_cellHeight)*2/3;
+	QRect rect(0, 0, knotSize, knotSize);
+	rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth)/2), static_cast<int>((knot->position.y()*d->m_cellHeight)/2)));
+	d->m_painter->drawEllipse(rect);
+	d->m_painter->setPen(textPen);
+	d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
 }
