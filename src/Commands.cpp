@@ -345,8 +345,12 @@ void AddStitchCommand::redo()
 
 void AddStitchCommand::undo()
 {
-	delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
-	m_original = 0;
+	delete m_document->pattern()->stitches().takeStitchQueueAt(m_cell);
+	if (m_original)
+	{
+		m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
+		m_original = 0;
+	}
 }
 
 
