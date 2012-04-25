@@ -4,6 +4,7 @@ project (kxstitch)
 
 find_package (KDE4 REQUIRED)
 find_package (ImageMagick COMPONENTS MagickCore Magick++ REQUIRED)
+find_package (X11)
 find_package (Doxygen)
 find_package (SharedMimeInfo)
 
@@ -16,6 +17,7 @@ endif (DOXYGEN_FOUND)
 
 include_directories (${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
+include_directories (${X11_INCLUDE_DIR})
 
 set (kxstitch_SRCS
 	src/BackgroundImage.cpp
@@ -114,7 +116,8 @@ kde4_add_executable (kxstitch ${kxstitch_SRCS})
 
 target_link_libraries (kxstitch ${KDE4_KDEUI_LIBS}
 				${KDE4_KIO_LIBS}
-				${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY})
+				${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
+				${X11_LIBRARIES})
 
 set (CMAKE_CXX_FLAGS "-DQT_NO_COMPAT -DKDE_NO_COMPAT")
 
