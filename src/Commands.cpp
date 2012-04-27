@@ -1250,7 +1250,8 @@ void PaletteSwapColorCommand::undo()
 
 
 UpdatePrinterConfigurationCommand::UpdatePrinterConfigurationCommand(Document *document, const PrinterConfiguration &printerConfiguration)
-	:	m_document(document),
+	:	QUndoCommand(i18n("Update Printer Configuration")),
+		m_document(document),
 		m_printerConfiguration(printerConfiguration)
 {
 }
