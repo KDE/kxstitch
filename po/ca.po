@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
-"POT-Creation-Date: 2012-04-15 00:52+0200\n"
-"PO-Revision-Date: 2012-04-16 13:22+0200\n"
+"POT-Creation-Date: 2012-04-27 18:07+0200\n"
+"PO-Revision-Date: 2012-04-27 18:10+0200\n"
 "Last-Translator: Joan Teixido Parramona <joan4@users.sourceforge.net>\n"
 "Language-Team: Catalan <>\n"
 "MIME-Version: 1.0\n"
@@ -2378,13 +2378,13 @@ msgstr "Màscara de selecció"
 
 #. i18n: file: kxstitchui.rc:23
 #. i18n: ectx: Menu (mirror)
-#: rc.cpp:273 src/Commands.cpp:1365
+#: rc.cpp:273 src/Commands.cpp:1366
 msgid "Mirror Selection"
 msgstr "Emmiralla la selecció"
 
 #. i18n: file: kxstitchui.rc:27
 #. i18n: ectx: Menu (rotate)
-#: rc.cpp:276 src/Commands.cpp:1411
+#: rc.cpp:276 src/Commands.cpp:1412
 msgid "Rotate Selection"
 msgstr "Gira la selecció"
 
@@ -3123,11 +3123,15 @@ msgstr "Substitueix color"
 msgid "Swap Colors"
 msgstr "Intercanvia colors"
 
-#: src/Commands.cpp:1457 src/Editor.cpp:1830 src/MainWindow.cpp:1357
+#: src/Commands.cpp:1253
+msgid "Update Printer Configuration"
+msgstr "Actualitza Configuració Impressora"
+
+#: src/Commands.cpp:1458 src/Editor.cpp:1830 src/MainWindow.cpp:1357
 msgid "Alphabet"
 msgstr "Alfabet"
 
-#: src/Commands.cpp:1506
+#: src/Commands.cpp:1507
 msgid "Configure KXStitch"
 msgstr "Configura KXStitch"
 
@@ -3714,4 +3718,3 @@ msgstr ""
 
 #~ msgid "Layer Mask"
 #~ msgstr "Màscara"
-
