@@ -210,8 +210,16 @@ void Renderer::render(QPainter *painter,
 	double dx = w / d->m_patternRect.width();
 	double dy = h / d->m_patternRect.height();
 
-	painter->translate(l, t);
+	int leftCell = d->m_patternRect.left();
+	int topCell = d->m_patternRect.top();
+	int rightCell = d->m_patternRect.right();
+	int bottomCell = d->m_patternRect.bottom();
 
+	double leftOffset = l-(leftCell*dx);
+	double topOffset = t-(topCell*dy);
+	
+	painter->translate(leftOffset, topOffset);
+	
 	if (renderGrid)
 	{
 		int cellHorizontalGrouping = -1;
@@ -226,29 +234,24 @@ void Renderer::render(QPainter *painter,
 			thickLine = (paintDeviceIsScreen?QPen(pattern->document()->property("thickLineColor").value<QColor>(), pattern->document()->property("thickLineWidth").toInt()):QPen(Qt::black, 2.0));
 		}
 
-		for (int x = 0 ; x < d->m_patternRect.width() ; x++)
+		for (int x = 0 ; x <= d->m_pattern->stitches().width() ; x++)
 		{
 			if ((cellHorizontalGrouping == -1) || (x % cellHorizontalGrouping))
 				painter->setPen(thinLine);
 			else
 				painter->setPen(thickLine);
-			painter->drawLine(x*dx, 0, x*dx, h);
+			painter->drawLine(x*dx, 0, x*dx, (bottomCell+1)*dy);
 		}
 
-		for (int y = 0 ; y < d->m_patternRect.height() ; y++)
+		for (int y = 0 ; y <= d->m_pattern->stitches().height() ; y++)
 		{
 			if ((cellVerticalGrouping == -1) || (y % cellVerticalGrouping))
 				painter->setPen(thinLine);
 			else
 				painter->setPen(thickLine);
-			painter->drawLine(0, y*dy, w, y*dy);
+			painter->drawLine(0, y*dy, (rightCell+1)*dx, y*dy);
 		}
 	}
-
-	int leftCell = std::max(0, int((updateRectangle.left()-l)/dx));
-	int topCell = std::max(0, int((updateRectangle.top()-t)/dy));
-	int rightCell = std::min(d->m_patternRect.width(), int((updateRectangle.right()-l)/dx));
-	int bottomCell = std::min(d->m_patternRect.height(), int((updateRectangle.bottom()-t)/dx));
 
 	d->m_renderFont = painter->font();
 	d->m_renderFont.setFamily(Configuration::editor_SymbolFont());
@@ -269,8 +272,8 @@ void Renderer::render(QPainter *painter,
 				StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y)-offset);
 				if (queue)
 				{
-					double xpos = x*d->m_cellWidth;
-					double ypos = y*d->m_cellHeight;
+					double xpos = (x-leftCell)*dx;
+					double ypos = (y-topCell)*dy;
 					painter->resetTransform();
 					painter->translate(xpos+l, ypos+t);
 					(this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
@@ -279,7 +282,7 @@ void Renderer::render(QPainter *painter,
 		}
 	}
 	painter->resetTransform();
-	painter->translate(l, t);
+	painter->translate(leftOffset, topOffset);
 	// process backstitches
 	if (renderBackstitches)
 	{
