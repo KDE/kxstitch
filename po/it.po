@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: ercole69@gmail.com\n"
 "POT-Creation-Date: 2012-04-24 22:15+0100\n"
-"PO-Revision-Date: 2012-04-25 16:04+0100\n"
+"PO-Revision-Date: 2012-04-30 07:50+0100\n"
 "Last-Translator: Ercole 'ercolinux' Carpanetto <ercole69@gmail.com>\n"
 "Language-Team: Italiano <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -2905,6 +2905,10 @@ msgstr "Cambia schema dei fili"
 msgid "Replace Color"
 msgstr "Replace Colour"
 
+#: src/Commands.cpp:1253
+msgid "Update Printer Configuration"
+msgstr "Aggiorna confiigurazione Stampante"
+
 #: src/Commands.cpp:1220 src/MainWindow.cpp:1417
 msgid "Swap Colors"
 msgstr "Swap Colours"
@@ -3070,7 +3074,7 @@ msgstr "KXStitch"
 
 #: src/Main.cpp:90
 msgid "A cross stitch pattern creator."
-msgstr "Un creatore di pattern punto-croce"
+msgstr "Un creatore di pattern punto-croce."
 
 #: src/Main.cpp:92
 msgid "(c)2010 Stephen Allewell"
@@ -3375,8 +3379,8 @@ msgid ""
 "The floss name %1 is already used.\n"
 "Overwrite with the description and color selected."
 msgstr ""
-"The floss name %1 is already used.\n"
-"Overwrite with the description and colour selected."
+"Il nome del filo %1 è già usato.\n"
+"Sovrascrivo con la descrizione e il colore selezionato."
 
 #: src/NewFlossDlg.cpp:53
 msgid "Overwrite"
@@ -3384,7 +3388,7 @@ msgstr "Sovrascrivi"
 
 #: src/Palette.cpp:279
 msgid "No colors in palette"
-msgstr "No colours in palette"
+msgstr "Nessun colore nella palette"
 
 #: src/PrintSetupDlg.cpp:278
 msgid "Properties"
