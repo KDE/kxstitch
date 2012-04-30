@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: amarok\n"
 "Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
 "POT-Creation-Date: 2012-04-28 16:00+0100\n"
-"PO-Revision-Date: 2012-04-28 16:05+0100\n"
-"Last-Translator: Stephen Allewell <stephen@mirramar.adsl24.co.uk>\n"
+"PO-Revision-Date: 2012-04-29 23:00+0200\n"
+"Last-Translator: Pavel <pavelfric@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Language: cs_CZ\n"
 
@@ -89,13 +89,13 @@ msgstr "Počet buněk tvořících svislou skupinu."
 #. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
 #: rc.cpp:36
 msgid "The horizontal cloth count."
-msgstr "Vodorovný počet látky."
+msgstr "Vodorovná hustota tkaniny."
 
 #. i18n: file: kxstitch.kcfg:61
 #. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
 #: rc.cpp:39
 msgid "The vertical cloth count."
-msgstr "Svislý počet látky."
+msgstr "Svislá hustota tkaniny."
 
 #. i18n: file: kxstitch.kcfg:65
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
@@ -107,7 +107,7 @@ msgstr "Svislý počet látky."
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
 #: rc.cpp:42 rc.cpp:93
 msgid "The cloth count units."
-msgstr "Jednotky pro počet látky"
+msgstr "Jednotky pro hustotu tkaniny"
 
 #. i18n: file: kxstitch.kcfg:73
 #. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
@@ -131,13 +131,13 @@ msgstr "Výška svislého pravítka."
 #. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
 #: rc.cpp:54
 msgid "The display units for a scale."
-msgstr "Jednotky zobrazení pro stupnici."
+msgstr "Jednotky zobrazení pro měřítko."
 
 #. i18n: file: kxstitch.kcfg:94
 #. i18n: ectx: label, entry (Editor_SymbolFont), group (editor)
 #: rc.cpp:57
 msgid "The font family to be used for symbols."
-msgstr "Písmová rodina použitá pro symboly."
+msgstr "Rodina písma použitá pro symboly."
 
 #. i18n: file: kxstitch.kcfg:101
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
@@ -197,13 +197,13 @@ msgstr "Jak zobrazit francouzské uzlíkové stehy."
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: rc.cpp:87
 msgid "The default width of a new pattern in the units specified."
-msgstr "Výchozí šířka nového vzoru zadaná v jednotkách."
+msgstr "Výchozí šířka nové předlohy zadaná v jednotkách."
 
 #. i18n: file: kxstitch.kcfg:167
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: rc.cpp:90
 msgid "The default height of a new pattern in the units specified."
-msgstr "Výchozí výška nového vzoru zadaná v jednotkách."
+msgstr "Výchozí výška nové předlohy zadaná v jednotkách."
 
 #. i18n: file: kxstitch.kcfg:183
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
@@ -221,13 +221,13 @@ msgstr "Nejvyšší počet barev"
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
 #: rc.cpp:102
 msgid "Use fractional stitches for finer detail"
-msgstr "Použít maličké stehy pro větší jemnost"
+msgstr "Použít neúplné stehy pro větší jemnost"
 
 #. i18n: file: kxstitch.kcfg:198
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: rc.cpp:105
 msgid "The default floss scheme to be used for new documents."
-msgstr "Výchozí nákres nitě k použití pro nové dokumenty."
+msgstr "Výchozí sada vyšívacích přízí k použití pro nové dokumenty."
 
 #. i18n: file: kxstitch.kcfg:202
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
@@ -269,7 +269,7 @@ msgstr "Výchozí šířka mezery v buňkách"
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
 #: rc.cpp:126
 msgid "Should a space cause word wrapping at the right edge of the pattern"
-msgstr "Zda má mezera způsobit zalomení slova při pravém okraji vzoru"
+msgstr "Zda má mezera způsobit zalomení slova při pravém okraji předlohy"
 
 #. i18n: file: kxstitch.kcfg:236
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
@@ -281,13 +281,13 @@ msgstr "Počet buněk mezi řádky textu"
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
 #: rc.cpp:132
 msgid "The number of cells to be added when extending the pattern right"
-msgstr "Počet buněk, který se má přidat při rozšíření vzoru doprava"
+msgstr "Počet buněk, který se má přidat při rozšíření předlohy doprava"
 
 #. i18n: file: kxstitch.kcfg:244
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: rc.cpp:135
 msgid "The number of cells to be added when extending the pattern down"
-msgstr "Počet buněk, který se má přidat při rozšíření vzoru dolů"
+msgstr "Počet buněk, který se má přidat při rozšíření předlohy dolů"
 
 #. i18n: file: kxstitch.kcfg:251
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
@@ -425,73 +425,73 @@ msgstr "Průhlednost pozadí"
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
 #: rc.cpp:189
 msgid "The key element left margin"
-msgstr "Levý okraj prvku klíče"
+msgstr "Levý okraj klíče"
 
 #. i18n: file: kxstitch.kcfg:325
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
 #: rc.cpp:192
 msgid "The key element top margin"
-msgstr "Horní okraj prvku klíče"
+msgstr "Horní okraj klíče"
 
 #. i18n: file: kxstitch.kcfg:329
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
 #: rc.cpp:195
 msgid "The key element right margin"
-msgstr "Pravý okraj prvku klíče"
+msgstr "Pravý okraj klíče"
 
 #. i18n: file: kxstitch.kcfg:333
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
 #: rc.cpp:198
 msgid "The key element bottom margin"
-msgstr "Dolní okraj prvku klíče"
+msgstr "Dolní okraj klíče"
 
 #. i18n: file: kxstitch.kcfg:338
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
 #: rc.cpp:201
 msgid "Show the key element symbol column"
-msgstr "Ukázat sloupec prvku klíče symbolů"
+msgstr "Ukázat sloupec s klíčem symbolů"
 
 #. i18n: file: kxstitch.kcfg:343
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
 #: rc.cpp:204
 msgid "Show the key element floss name column"
-msgstr "Ukázat sloupec prvku klíče názvů nití"
+msgstr "Ukázat sloupec s klíčem názvů vyšívacích přízí"
 
 #. i18n: file: kxstitch.kcfg:348
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
 #: rc.cpp:207
 msgid "Show the key element floss strands column"
-msgstr "Ukázat sloupec prvku klíče vláken nití"
+msgstr "Ukázat sloupec s klíčem vláken vyšívacích přízí"
 
 #. i18n: file: kxstitch.kcfg:353
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
 #: rc.cpp:210
 msgid "Show the key element floss description column"
-msgstr "Ukázat sloupec prvku klíče popisů nití"
+msgstr "Ukázat sloupec s klíčem popisů vyšívacích přízí"
 
 #. i18n: file: kxstitch.kcfg:358
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
 #: rc.cpp:213
 msgid "Show the key element stitch count column"
-msgstr "Ukázat sloupec prvku klíče počtu stehů"
+msgstr "Ukázat sloupec s klíčem počtu stehů"
 
 #. i18n: file: kxstitch.kcfg:363
 #. i18n: ectx: label, entry (KeyElement_StitchBreakdownColumn), group (printer)
 #: rc.cpp:216
 msgid "Show the key element stitch breakdown column"
-msgstr "Ukázat sloupec prvku klíče rozpisu stehů"
+msgstr "Ukázat sloupec s klíčem rozpisu stehů"
 
 #. i18n: file: kxstitch.kcfg:368
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
 #: rc.cpp:219
 msgid "Show the key element floss length column"
-msgstr "Ukázat sloupec prvku klíče délek nití"
+msgstr "Ukázat sloupec s klíčem délek vyšívacích přízí"
 
 #. i18n: file: kxstitch.kcfg:373
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
 #: rc.cpp:222
 msgid "Show the key element skeins column"
-msgstr "Ukázat sloupec prvku klíče přaden"
+msgstr "Ukázat sloupec s klíčem přaden"
 
 #. i18n: file: kxstitch.kcfg:378
 #. i18n: ectx: label, entry (KeyElement_TotalStitches), group (printer)
@@ -597,7 +597,7 @@ msgstr "&Nastavení"
 #. i18n: ectx: Menu (formatScalesAs)
 #: rc.cpp:282 rc.cpp:318
 msgid "Format Scales As"
-msgstr "Formátovat stupnici jako"
+msgstr "Formátovat měřítko jako"
 
 #. i18n: file: kxstitchui.rc:41
 #. i18n: ectx: Menu (renderStitchesAs)
@@ -693,31 +693,31 @@ msgstr "&Knihovna"
 #. i18n: ectx: Menu (pattern)
 #: rc.cpp:315
 msgid "&Pattern"
-msgstr "&Vzor"
+msgstr "&Předloha"
 
 #. i18n: file: kxstitchui.rc:187
 #. i18n: ectx: ToolBar (StitchToolBar)
 #: rc.cpp:336
 msgid "Stitch Toolbar"
-msgstr "Nástrojový pruh pro steh"
+msgstr "Panel se stehy"
 
 #. i18n: file: kxstitchui.rc:198
 #. i18n: ectx: ToolBar (ToolsToolbar)
 #: rc.cpp:339
 msgid "Tools Toolbar"
-msgstr "Ukázat nástrojový pruh pro nástroje"
+msgstr "Panel s nástroji"
 
 #. i18n: file: kxstitchui.rc:221
 #. i18n: ectx: ToolBar (ZoomToolbar)
 #: rc.cpp:342
 msgid "Zoom Toolbar"
-msgstr "Nástrojový pruh pro přiblížení"
+msgstr "Panel pro přiblížení"
 
 #. i18n: file: ui/CalibrateFloss.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
 #: rc.cpp:345 src/CalibrateFlossDlg.cpp:24
 msgid "Calibrate Floss"
-msgstr "Přesně nastavit nit"
+msgstr "Doladit vyšívací přízi"
 
 #. i18n: file: ui/CalibrateFloss.ui:20
 #. i18n: ectx: property (text), widget (QLabel, TextLabel1)
@@ -729,7 +729,7 @@ msgstr "Přesně nastavit nit"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: rc.cpp:348 rc.cpp:667
 msgid "Scheme"
-msgstr "Nákres"
+msgstr "Sada"
 
 #. i18n: file: ui/CalibrateFloss.ui:60
 #. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
@@ -834,25 +834,25 @@ msgstr "Svislá skupina buněk"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: rc.cpp:396
 msgid "Scales"
-msgstr "Stupnice"
+msgstr "Měřítka"
 
 #. i18n: file: ui/EditorConfigPage.ui:107
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: rc.cpp:399
 msgid "Horizontal scale height"
-msgstr "Výška vodorovné stupnice"
+msgstr "Výška vodorovného měřítka"
 
 #. i18n: file: ui/EditorConfigPage.ui:117
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: rc.cpp:402
 msgid "Vertical scale width"
-msgstr "Výška svislé stupnice"
+msgstr "Výška svislého  měřítka"
 
 #. i18n: file: ui/ExtendPattern.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
 #: rc.cpp:405 src/Commands.cpp:854 src/ExtendPatternDlg.cpp:18
 msgid "Extend Pattern"
-msgstr "Rozšíření vzoru"
+msgstr "Rozšíření předlohy"
 
 #. i18n: file: ui/FileProperties.ui:17
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
@@ -865,7 +865,7 @@ msgstr "Vlastnosti souboru"
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: rc.cpp:411 src/MainWindow.cpp:1013
 msgid "Pattern"
-msgstr "Vzor"
+msgstr "Předloha"
 
 #. i18n: file: ui/FileProperties.ui:33
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
@@ -901,7 +901,7 @@ msgstr "Paleta"
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: rc.cpp:417 rc.cpp:480 rc.cpp:649 rc.cpp:800
 msgid "Floss scheme"
-msgstr "Nákres niti"
+msgstr "Sada přízí"
 
 #. i18n: file: ui/FileProperties.ui:63
 #. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
@@ -913,7 +913,7 @@ msgstr "Nákres niti"
 #. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
 #: rc.cpp:420 rc.cpp:803
 msgid "Pattern Size"
-msgstr "Velikost vzorku"
+msgstr "Velikost předlohy"
 
 #. i18n: file: ui/FileProperties.ui:74
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -1001,7 +1001,7 @@ msgstr "Palce"
 #: rc.cpp:432 rc.cpp:815 rc.cpp:830 rc.cpp:908 src/Document.cpp:1146
 #: src/Document.cpp:1331 src/MainWindow.cpp:1472
 msgid "CM"
-msgstr "CM"
+msgstr "cm"
 
 #. i18n: file: ui/FileProperties.ui:100
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1045,7 +1045,7 @@ msgstr "Výška"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: rc.cpp:441 rc.cpp:824
 msgid "Cloth Count"
-msgstr "Počet látky"
+msgstr "Hustota tkaniny"
 
 #. i18n: file: ui/FileProperties.ui:172
 #. i18n: ectx: property (text), widget (QLabel, label_5)
@@ -1058,7 +1058,7 @@ msgstr "Počet látky"
 #: rc.cpp:444 rc.cpp:836
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
-msgstr "Vodorovný"
+msgstr "Vodorovně"
 
 #. i18n: file: ui/FileProperties.ui:198
 #. i18n: ectx: property (text), widget (QLabel, label_6)
@@ -1071,7 +1071,7 @@ msgstr "Vodorovný"
 #: rc.cpp:447 rc.cpp:839
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
-msgstr "Svislý"
+msgstr "Svisle"
 
 #. i18n: file: ui/FileProperties.ui:279
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -1108,7 +1108,7 @@ msgstr "Pokyny"
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
 #: rc.cpp:465
 msgid "Import Configuration"
-msgstr "Nastavení zavedení"
+msgstr "Nastavení nahrání obrázku"
 
 #. i18n: file: ui/ImportConfigPage.ui:22
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
@@ -1132,13 +1132,13 @@ msgstr "Nejvyšší počet barev"
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
 #: rc.cpp:471 rc.cpp:507
 msgid "Use fractionals"
-msgstr "Použít maličké"
+msgstr "Použít neúplné stehy"
 
 #. i18n: file: ui/ImportImage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
 #: rc.cpp:474 src/MainWindow.cpp:587 src/MainWindow.cpp:1094
 msgid "Import Image"
-msgstr "Zavést obrázek"
+msgstr "Nahrát obrázek"
 
 #. i18n: file: ui/ImportImage.ui:118
 #. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
@@ -1168,31 +1168,31 @@ msgstr "Velikost"
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: rc.cpp:495
 msgid "Horizontal cloth count"
-msgstr "Vodorovný počet látky"
+msgstr "Vodorovná hustota tkaniny"
 
 #. i18n: file: ui/ImportImage.ui:254
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: rc.cpp:498
 msgid "Vertical cloth count"
-msgstr "Svislý počet látky"
+msgstr "Svislá hustota tkaniny"
 
 #. i18n: file: ui/ImportImage.ui:283
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: rc.cpp:501
 msgid "Pattern scale"
-msgstr "Stupnice vzoru"
+msgstr "Měřítko předlohy"
 
 #. i18n: file: ui/ImportImage.ui:312
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: rc.cpp:504
 msgid "Pattern size"
-msgstr "Velikost vzoru"
+msgstr "Velikost předlohy"
 
 #. i18n: file: ui/KeyElement.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
 #: rc.cpp:510 src/KeyElementDlg.cpp:23
 msgid "Key Element Properties"
-msgstr "Vlastnosti prvku klíče"
+msgstr "Vlastnosti klíče"
 
 #. i18n: file: ui/KeyElement.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
@@ -1602,7 +1602,7 @@ msgstr "Symbol"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
 #: rc.cpp:579 rc.cpp:671 rc.cpp:1208
 msgid "Floss name"
-msgstr "Název nitě"
+msgstr "Název vyšívací příze"
 
 #. i18n: file: ui/KeyElement.ui:316
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
@@ -1626,7 +1626,7 @@ msgstr "Vlákna"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
 #: rc.cpp:585 rc.cpp:1211
 msgid "Floss description"
-msgstr "Popis nitě"
+msgstr "Popis vyšívací příze"
 
 #. i18n: file: ui/KeyElement.ui:337
 #. i18n: ectx: property (text), widget (QCheckBox, StitchBreakdownColumn)
@@ -1734,13 +1734,13 @@ msgstr "Rozestupy řádků"
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: rc.cpp:627
 msgid "Extend pattern width"
-msgstr "Šířka rozšíření vzoru"
+msgstr "Šířka rozšíření předlohy"
 
 #. i18n: file: ui/LibraryConfigPage.ui:93
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: rc.cpp:630
 msgid "Extend pattern height"
-msgstr "Výška rozšíření vzoru"
+msgstr "Výška rozšíření předlohy"
 
 #. i18n: file: ui/LibraryFilePaths.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
@@ -1764,7 +1764,7 @@ msgstr "Správce knihovny"
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
 #: rc.cpp:645 src/LibraryPatternPropertiesDlg.cpp:18
 msgid "Library Pattern Properties"
-msgstr "Vlastnosti vzoru knihovny"
+msgstr "Vlastnosti předlohy knihovny"
 
 #. i18n: file: ui/LibraryPatternProperties.ui:83
 #. i18n: ectx: property (text), widget (QLabel, label_5)
@@ -1776,13 +1776,13 @@ msgstr "Základní čára"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: rc.cpp:661
 msgid "Associated character"
-msgstr "Sdružený znak"
+msgstr "Spojený znak"
 
 #. i18n: file: ui/NewFloss.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
 #: rc.cpp:664
 msgid "Create New Floss"
-msgstr "Vytvořit novou nit"
+msgstr "Vytvořit novou vyšívací přízi"
 
 #. i18n: file: ui/NewFloss.ui:44
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -1867,19 +1867,19 @@ msgstr "Vlákna niti"
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
 #: rc.cpp:758 src/NewFlossDlg.cpp:25
 msgid "New Floss"
-msgstr "Nová nit"
+msgstr "Nová vyšívací příze"
 
 #. i18n: file: ui/PaletteManager.ui:176
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
 #: rc.cpp:761 src/MainWindow.cpp:897
 msgid "Clear Unused Flosses"
-msgstr "Smazat nepoužívané nitě"
+msgstr "Smazat nepoužívané vyšívací příze"
 
 #. i18n: file: ui/PaletteManager.ui:183
 #. i18n: ectx: property (text), widget (QPushButton, Calibrate)
 #: rc.cpp:764
 msgid "Calibrate Flosses"
-msgstr "Přesně nastavit nitě"
+msgstr "Doladit vyšívací příze"
 
 #. i18n: file: ui/PaletteManager.ui:192
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -1921,13 +1921,13 @@ msgstr "Čárkovaný a čárkovaný a tečkovaný"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: rc.cpp:794
 msgid "Pattern Configuration"
-msgstr "Nastavení vzoru"
+msgstr "Nastavení předlohy"
 
 #. i18n: file: ui/PatternElement.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
 #: rc.cpp:842 src/PatternElementDlg.cpp:27
 msgid "Pattern Element Properties"
-msgstr "Vlastnosti prvku vzoru"
+msgstr "Vlastnosti předlohy"
 
 #. i18n: file: ui/PatternElement.ui:32
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
@@ -1937,7 +1937,7 @@ msgid ""
 "displayed.<br />Grayed out areas have already been selected on this or other "
 "pages.</body></html>"
 msgstr ""
-"<html><head/><body>Klepněte a táhněte pro výběr oblasti vzoru, která se má "
+"<html><head/><body>Klepněte a táhněte pro výběr oblasti předlohy, která se má "
 "zobrazit.<br />Zešedivělé oblasti již byly vybrány na této nebo jiné straně."
 "</body></html>"
 
@@ -1982,7 +1982,7 @@ msgstr "Jako"
 #: rc.cpp:857 rc.cpp:878 rc.cpp:893 src/MainWindow.cpp:1499
 #: src/MainWindow.cpp:1544 src/MainWindow.cpp:1581
 msgid "Black & White Symbols"
-msgstr "Symboly v černé a bílé"
+msgstr "Černobílé symboly"
 
 #. i18n: file: ui/PatternElement.ui:91
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
@@ -1994,7 +1994,7 @@ msgstr "Symboly v černé a bílé"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
 #: rc.cpp:860 rc.cpp:890 src/MainWindow.cpp:1507 src/MainWindow.cpp:1573
 msgid "Color Symbols"
-msgstr "Symboly barev"
+msgstr "Barevné symboly"
 
 #. i18n: file: ui/PatternElement.ui:96
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
@@ -2006,13 +2006,13 @@ msgstr "Symboly barev"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
 #: rc.cpp:863 rc.cpp:887 src/MainWindow.cpp:1515 src/MainWindow.cpp:1556
 msgid "Color Blocks"
-msgstr "Bloky barev"
+msgstr "Barevné kostky"
 
 #. i18n: file: ui/PatternElement.ui:101
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #: rc.cpp:866 src/MainWindow.cpp:1523 src/MainWindow.cpp:1565
 msgid "Color Blocks & Symbols"
-msgstr "Bloky barev a symboly"
+msgstr "Barevné kostky a symboly"
 
 #. i18n: file: ui/PatternElement.ui:109
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
@@ -2024,7 +2024,7 @@ msgstr "Ukázat zadní stehy"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #: rc.cpp:875 src/MainWindow.cpp:1535
 msgid "Color Lines"
-msgstr "Čáry barev"
+msgstr "Barevné linky"
 
 #. i18n: file: ui/PatternElement.ui:140
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
@@ -2036,7 +2036,7 @@ msgstr "Ukázat uzly"
 #. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
 #: rc.cpp:896
 msgid "Show scales"
-msgstr "Ukázat stupnice"
+msgstr "Ukázat měřítka"
 
 #. i18n: file: ui/PatternElement.ui:222
 #. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
@@ -2072,7 +2072,7 @@ msgstr "Strany"
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #: rc.cpp:923 rc.cpp:1346
 msgid "Portrait"
-msgstr "Formát na výšku"
+msgstr "Na výšku"
 
 #. i18n: file: ui/PrinterConfigPage.ui:49
 #. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
@@ -2084,7 +2084,7 @@ msgstr "Formát na výšku"
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #: rc.cpp:926 rc.cpp:1349
 msgid "Landscape"
-msgstr "Formát na šířku"
+msgstr "Na šířku"
 
 #. i18n: file: ui/PrinterConfigPage.ui:73
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -2572,19 +2572,19 @@ msgstr "Dopis"
 #: rc.cpp:1049 rc.cpp:1340
 msgctxt "Paper size"
 msgid "Tabloid"
-msgstr "Bulvární noviny"
+msgstr "Tisk"
 
 #. i18n: file: ui/PrinterConfigPage.ui:339
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: rc.cpp:1052
 msgid "Pattern Element"
-msgstr "Prvek vzoru"
+msgstr "Předloha"
 
 #. i18n: file: ui/PrinterConfigPage.ui:443
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: rc.cpp:1082
 msgid "Text Element"
-msgstr "Prvek textu"
+msgstr "Text"
 
 #. i18n: file: ui/PrinterConfigPage.ui:449
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
@@ -2719,19 +2719,19 @@ msgstr "Vybrat prvek"
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
 #: rc.cpp:1367
 msgid "Insert a text element"
-msgstr "Vložit prvek s textem"
+msgstr "Vložit text"
 
 #. i18n: file: ui/PrintSetup.ui:515
 #. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
 #: rc.cpp:1371
 msgid "Insert a pattern element"
-msgstr "Vložit prvek se vzorem"
+msgstr "Vložit předlohu"
 
 #. i18n: file: ui/PrintSetup.ui:537
 #. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
 #: rc.cpp:1375
 msgid "Insert a key element"
-msgstr "Vložit prvek s klíčem"
+msgstr "Vložit klíč"
 
 #. i18n: file: ui/PrintSetup.ui:567
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
@@ -2743,7 +2743,7 @@ msgstr "Náhled strany"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
 #: rc.cpp:1382 src/TextElementDlg.cpp:20
 msgid "Text Element Properties"
-msgstr "Vlastnosti prvku textu"
+msgstr "Vlastnosti textu"
 
 #. i18n: file: ui/TextElement.ui:39
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
@@ -2867,7 +2867,7 @@ msgstr "Změnit velikost dokumentu"
 
 #: src/Commands.cpp:772
 msgid "Crop to Pattern"
-msgstr "Oříznout ke vzoru"
+msgstr "Oříznout k předloze"
 
 #: src/Commands.cpp:807
 msgid "Crop to Selection"
@@ -2875,11 +2875,11 @@ msgstr "Oříznout k výběru"
 
 #: src/Commands.cpp:890 src/MainWindow.cpp:1435
 msgid "Centre Pattern"
-msgstr "Vystředit vzor"
+msgstr "Vystředit předlohu"
 
 #: src/Commands.cpp:998
 msgid "Change floss scheme"
-msgstr "Změnit nákres niti"
+msgstr "Změnit sadu vyšívacích přízí"
 
 #: src/Commands.cpp:1106
 msgid "Replace Color"
@@ -2912,7 +2912,7 @@ msgid ""
 "in this version of the software.\n"
 "Please try a more recent version."
 msgstr ""
-"Verze %1 souborového formátu není v této\n"
+"Verze %1 formátu souboru není v této\n"
 "verzi programu podporována.\n"
 "Vyzkoušejte, prosím, novější verzi."
 
@@ -2999,7 +2999,7 @@ msgid ""
 "Failed to read a pattern from the library %1.\n"
 "%2"
 msgstr ""
-"Nepodařilo se přečíst vzor z knihovny %1.\n"
+"Nepodařilo se přečíst předlohu z knihovny %1.\n"
 "%2"
 
 #: src/LibraryFile.cpp:167
@@ -3040,7 +3040,7 @@ msgstr "Skupina existuje"
 
 #: src/LibraryManagerDlg.cpp:267
 msgid "Delete this pattern."
-msgstr "Smazat tento vzor."
+msgstr "Smazat tuto předlohu."
 
 #: src/Main.cpp:89
 msgid "KXStitch"
@@ -3048,7 +3048,7 @@ msgstr "KXStitch"
 
 #: src/Main.cpp:90
 msgid "A cross stitch pattern creator."
-msgstr "Tvůrce vzorů výšivek křížkovým stehem"
+msgstr "Tvůrce předloh výšivek křížkovým stehem"
 
 #: src/Main.cpp:92
 msgid "(c)2010 Stephen Allewell"
@@ -3112,13 +3112,13 @@ msgid ""
 "*.pat|PC Stitch patterns\n"
 "*|All files"
 msgstr ""
-"*.kxs|Vzory výšivek křížkovým stehem\n"
-"*.pat|Vzory PC Stitch\n"
+"*.kxs|Předlohy výšivek křížkovým stehem\n"
+"*.pat|Předlohy PC Stitch\n"
 "*|Všechny soubory"
 
 #: src/MainWindow.cpp:389
 msgid "*.kxs|Cross Stitch Patterns"
-msgstr "*.kxs|Vzory výšivek křížkovým stehem"
+msgstr "*.kxs|Předlohy výšivek křížkovým stehem"
 
 #: src/MainWindow.cpp:389
 msgid "Save As..."
@@ -3166,7 +3166,7 @@ msgstr "Editor"
 
 #: src/MainWindow.cpp:1015
 msgid "Import"
-msgstr "Zavést"
+msgstr "Nahrát"
 
 #: src/MainWindow.cpp:1017
 msgid "Library"
@@ -3295,11 +3295,11 @@ msgstr "Nahradit barvy"
 
 #: src/MainWindow.cpp:1429
 msgid "Extend Pattern..."
-msgstr "Rozšířit vzor"
+msgstr "Rozšířit předlohu"
 
 #: src/MainWindow.cpp:1441
 msgid "Crop Canvas to Pattern"
-msgstr "Oříznout plátno ke vzoru"
+msgstr "Oříznout plátno k předloze"
 
 #: src/MainWindow.cpp:1446
 msgid "Crop Canvas to Selection"
@@ -3350,7 +3350,7 @@ msgid ""
 "The floss name %1 is already used.\n"
 "Overwrite with the description and color selected."
 msgstr ""
-"Název nitě %1 se již používá.\n"
+"Název vyšívací příze %1 se již používá.\n"
 "Přepsat popisem a vybranou barvou."
 
 #: src/NewFlossDlg.cpp:53
@@ -3379,7 +3379,7 @@ msgstr ""
 
 #: src/SchemeManager.cpp:142
 msgid "Error reading floss scheme."
-msgstr "Chyba při čtení nákresu nitě."
+msgstr "Chyba při čtení sady vyšívacích přízí."
 
 #: src/SchemeManager.cpp:171
 msgid ""
