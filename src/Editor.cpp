@@ -245,6 +245,7 @@ Editor::Editor(QWidget *parent)
 		m_pastePattern(0)
 {
 	setAcceptDrops(true);
+	setFocusPolicy(Qt::StrongFocus);
 }
 
 
@@ -508,8 +509,6 @@ void Editor::pastePattern(ToolMode toolMode)
 		m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(pos);
 
 	update();
-	
-	setFocus(Qt::OtherFocusReason);
 }
 
 
@@ -1784,7 +1783,6 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
 		m_polygon.clear();
 	}
 	update(polygonToContents(m_polygon).adjusted(-5,-5,5,5));
-	setFocus(Qt::OtherFocusReason);
 }
 
 
@@ -1837,7 +1835,6 @@ void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
 	m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
 	m_cursorStack.push(m_cellEnd);
 	update(cellToRect(m_cellEnd));
-	setFocus(Qt::OtherFocusReason);
 }
 
 
