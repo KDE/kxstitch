@@ -1219,6 +1219,45 @@ void Editor::paintEvent(QPaintEvent *e)
 }
 
 
+void Editor::wheelEvent(QWheelEvent *e)
+{
+	QPoint p = e->pos();
+	QPoint offset = parentWidget()->rect().center() - pos();
+	
+	if (e->delta() > 0)
+	{
+		zoom(m_zoomFactor * 1.2);
+		offset -= (p - (p * 1.2));
+	}
+	else
+	{
+		zoom(m_zoomFactor / 1.2);
+		offset -= (p - (p / 1.2));
+	}
+		
+	int marginX = parentWidget()->width()/2;
+	int marginY = parentWidget()->height()/2;
+
+	dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
+
+	e->accept();
+}
+
+
+bool Editor::eventFilter(QObject *object, QEvent *e)
+{
+	if (object == parentWidget()->parentWidget())
+	{
+		if (e->type() == QEvent::Wheel)
+		{
+			wheelEvent(static_cast<QWheelEvent *>(e));
+			return true;
+		}
+	}
+	return false;
+}
+
+
 void Editor::renderBackgroundImages(QPainter *painter, QRect updateRectangle)
 {
 	QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages().backgroundImages();

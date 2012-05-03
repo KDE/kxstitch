@@ -145,6 +145,8 @@ class Editor : public QWidget
 		void mouseMoveEvent(QMouseEvent*);
 		void mouseReleaseEvent(QMouseEvent*);
 		void paintEvent(QPaintEvent*);
+		void wheelEvent(QWheelEvent*);
+		bool eventFilter(QObject*, QEvent*);
 
 	private:
 		void zoom(double);

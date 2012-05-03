@@ -110,6 +110,7 @@ void MainWindow::setupLayout()
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 	m_editor = new Editor(scrollArea);
+	scrollArea->installEventFilter(m_editor);
 	scrollArea->setWidget(m_editor);
 
 	m_horizontalScale = m_editor->horizontalScale();
