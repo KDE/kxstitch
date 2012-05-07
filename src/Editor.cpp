@@ -1162,21 +1162,30 @@ void Editor::toolCleanupRotate()
 
 void Editor::mousePressEvent(QMouseEvent *e)
 {
-	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)))
+	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
+		(m_toolMode == Editor::ToolSelect) ||
+		(m_toolMode == Editor::ToolAlphabet) ||
+		(m_toolMode == Editor::ToolPaste)))
 		(this->*mousePressEventCallPointers[m_toolMode])(e);
 }
 
 
 void Editor::mouseMoveEvent(QMouseEvent *e)
 {
-	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)))
+	if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
+		(m_toolMode == Editor::ToolSelect) ||
+		(m_toolMode == Editor::ToolAlphabet) ||
+		(m_toolMode == Editor::ToolPaste)))
 		(this->*mouseMoveEventCallPointers[m_toolMode])(e);
 }
 
 
 void Editor::mouseReleaseEvent(QMouseEvent *e)
 {
-	if ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet))
+	if ((m_document->pattern()->palette().currentIndex() != -1) ||
+		(m_toolMode == Editor::ToolSelect) ||
+		(m_toolMode == Editor::ToolAlphabet) ||
+		(m_toolMode == Editor::ToolPaste))
 		(this->*mouseReleaseEventCallPointers[m_toolMode])(e);
 }
 
