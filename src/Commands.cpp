@@ -375,15 +375,20 @@ void DeleteStitchCommand::redo()
 {
 	m_original = m_document->pattern()->stitches().stitchQueueAt(m_cell);
 	if (m_original)
+	{
 		m_original = m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, new StitchQueue(m_original));
-	m_document->pattern()->stitches().deleteStitch(m_cell, m_type, m_colorIndex);
+		m_document->pattern()->stitches().deleteStitch(m_cell, m_type, m_colorIndex);
+	}
 }
 
 
 void DeleteStitchCommand::undo()
 {
-	delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
-	m_original = 0;
+	if (m_original)
+	{
+		delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
+		m_original = 0;
+	}
 }
 
 

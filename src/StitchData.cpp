@@ -664,9 +664,10 @@ StitchQueue *StitchData::takeStitchQueueAt(const QPoint &position)
 
 StitchQueue *StitchData::replaceStitchQueueAt(const QPoint &position, StitchQueue *stitchQueue)
 {
-	StitchQueue *originalQueue = stitchQueueAt(position);
+	StitchQueue *originalQueue = takeStitchQueueAt(position);
 
-	m_stitches[position.x()][position.y()] = stitchQueue;
+	if (stitchQueue)
+		m_stitches[position.x()][position.y()] = stitchQueue;
 
 	return originalQueue;
 }
