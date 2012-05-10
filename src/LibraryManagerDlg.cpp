@@ -182,7 +182,7 @@ void LibraryManagerDlg::newCategory()
 			fileInfo.setFile(m_contextTreeItem->path());
 			if (!fileInfo.isWritable())
 			{
-				path.replace(0, path.indexOf("library"), "");
+				path.remove(0, path.indexOf("library"));
 				path = KGlobal::dirs()->saveLocation("appdata", path);
 				fileInfo.setFile(path);
 			}
@@ -196,7 +196,7 @@ void LibraryManagerDlg::newCategory()
 		if (fileInfo.dir().mkdir(category))
 		{
 			path += category;
-			path += "/";
+			path += '/';
 			newItem->addPath(path);
 		}
 		
@@ -212,7 +212,7 @@ void LibraryManagerDlg::addLibraryToExportList()
 
 void LibraryManagerDlg::libraryProperties()
 {
-	LibraryFilePathsDlg *dialog = new LibraryFilePathsDlg(this, m_contextTreeItem->text(0), m_contextTreeItem->paths());
+	QPointer<LibraryFilePathsDlg> dialog = new LibraryFilePathsDlg(this, m_contextTreeItem->text(0), m_contextTreeItem->paths());
 	dialog->exec();
 	delete dialog;
 }
@@ -233,7 +233,7 @@ void LibraryManagerDlg::pasteFromClipboard()
 void LibraryManagerDlg::patternProperties()
 {
 	LibraryPattern *libraryPattern = m_contextListItem->libraryPattern();
-	LibraryPatternPropertiesDlg *dialog = new LibraryPatternPropertiesDlg(this,
+	QPointer<LibraryPatternPropertiesDlg> dialog = new LibraryPatternPropertiesDlg(this,
 									     libraryPattern->key(),
 									     libraryPattern->modifiers(),
 									     libraryPattern->baseline(),

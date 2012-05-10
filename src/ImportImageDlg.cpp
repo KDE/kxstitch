@@ -168,7 +168,7 @@ void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 void ImportImageDlg::on_ColorButton_clicked(bool)
 {
 	m_alphaSelect = new AlphaSelect(ui.ImagePreview);
-	connect(m_alphaSelect, SIGNAL(clicked(const QPoint &)), this, SLOT(selectColor(const QPoint &)));
+	connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(QPoint)));
 	m_alphaSelect->show();
 }
 
@@ -323,7 +323,7 @@ void ImportImageDlg::pickColor()
 	if (m_ignoreColor)
 	{
 		m_alphaSelect = new AlphaSelect(ui.ImagePreview);
-		connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(const QPoint &)));
+		connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(QPoint)));
 		m_alphaSelect->show();
 	}
 	else

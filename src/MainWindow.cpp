@@ -146,15 +146,15 @@ void MainWindow::setupDocument()
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate180"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));
 	connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
-	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(const QString &)), this, SLOT(undoTextChanged(const QString &)));
-	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(const QString &)), this, SLOT(redoTextChanged(const QString &)));
+	connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(QString)), this, SLOT(undoTextChanged(QString)));
+	connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(QString)), this, SLOT(redoTextChanged(QString)));
 	connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
 	connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
-	connect(m_palette, SIGNAL(swapColors(int, int)), this, SLOT(paletteSwapColors(int, int)));
-	connect(m_palette, SIGNAL(replaceColor(int, int)), this, SLOT(paletteReplaceColor(int, int)));
-	connect(m_editor, SIGNAL(changedVisibleCells(const QRect &)), m_preview, SLOT(setVisibleCells(const QRect &)));
-	connect(m_preview, SIGNAL(clicked(const QPoint &)), m_editor, SLOT(previewClicked(const QPoint &)));
-	connect(m_preview, SIGNAL(clicked(const QRect &)), m_editor, SLOT(previewClicked(const QRect &)));
+	connect(m_palette, SIGNAL(swapColors(int,int)), this, SLOT(paletteSwapColors(int,int)));
+	connect(m_palette, SIGNAL(replaceColor(int,int)), this, SLOT(paletteReplaceColor(int,int)));
+	connect(m_editor, SIGNAL(changedVisibleCells(QRect)), m_preview, SLOT(setVisibleCells(QRect)));
+	connect(m_preview, SIGNAL(clicked(QPoint)), m_editor, SLOT(previewClicked(QPoint)));
+	connect(m_preview, SIGNAL(clicked(QRect)), m_editor, SLOT(previewClicked(QRect)));
 
 	m_editor->setDocument(m_document);
 	m_editor->setPreview(m_preview);
@@ -1009,7 +1009,7 @@ void MainWindow::preferences()
 	dialog->setHelp("ConfigurationDialog");
 	dialog->setFaceType(KPageDialog::List);
 	m_editorConfigPage = new EditorConfigPage(0, "EditorConfigPage");
-	dialog->addPage(m_editorConfigPage, i18n("Editor"), "preferences-desktop");
+	dialog->addPage(m_editorConfigPage, i18nc("The Editor config page", "Editor"), "preferences-desktop");
 	m_patternConfigPage = new PatternConfigPage(0, "PatternConfigPage");
 	dialog->addPage(m_patternConfigPage, i18n("Pattern"), "ksnapshot");
 	m_importConfigPage = new ImportConfigPage(0, "ImportConfigPage");
@@ -1018,7 +1018,7 @@ void MainWindow::preferences()
 	dialog->addPage(m_libraryConfigPage, i18n("Library"), "accessories-dictionary");
 	m_printerConfigPage = new PrinterConfigPage(0, "PrinterConfigPage");
 	dialog->addPage(m_printerConfigPage, i18n("Printer Configuration"), "preferences-desktop-printer");
-	connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(settingsChanged()));
+	connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()));
 	dialog->show();
 }
 
@@ -1079,7 +1079,7 @@ void MainWindow::setupActions()
 	// File menu
 	KStandardAction::openNew(this, SLOT(fileNew()), actions);
 	KStandardAction::open(this, SLOT(fileOpen()), actions);
-	KStandardAction::openRecent(this, SLOT(fileOpen(const KUrl &)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+	KStandardAction::openRecent(this, SLOT(fileOpen(KUrl)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
 	KStandardAction::save(this, SLOT(fileSave()), actions);
 	KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
 	KStandardAction::revert(this, SLOT(fileRevert()), actions);

@@ -735,7 +735,7 @@ void Editor::dragMoveEvent(QDragMoveEvent *e)
 
 void Editor::dragLeaveEvent(QDragLeaveEvent*)
 {
-	// dont need to do anything here
+	// don't need to do anything here
 }
 
 
@@ -1368,7 +1368,7 @@ void Editor::renderPasteImage(QPainter *painter, QRect rect)
 		m_renderer->render(painter,
 				m_pastePattern,	// the pattern data to render
 				rect,		// update rectangle
-				false,		// dont render the grid
+				false,		// don't render the grid
 				true,		// render stitches
 				true,		// render backstitches
 				true,		// render knots

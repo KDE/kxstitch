@@ -26,8 +26,8 @@ class LibraryPattern
 {
 	public:
 		LibraryPattern();
-		LibraryPattern(Pattern *, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
-		LibraryPattern(QByteArray, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
+		explicit LibraryPattern(Pattern *, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
+		explicit LibraryPattern(QByteArray, qint32 key = 0, Qt::KeyboardModifiers modifiers = Qt::NoModifier, qint16 baseline = 0);
 
 		qint32 key() const;
 		Qt::KeyboardModifiers modifiers() const;

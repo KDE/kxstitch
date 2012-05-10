@@ -241,17 +241,17 @@
      </property>
      <item>
       <property name="text">
-       <string>Solid</string>
+       <string comment="A solid line">Solid</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Dashed</string>
+       <string comment="A dashed line">Dashed</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Dotted</string>
+       <string comment="A dotted line">Dotted</string>
       </property>
      </item>
      <item>

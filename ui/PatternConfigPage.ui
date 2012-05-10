@@ -175,7 +175,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QComboBox" name="kcfg_Editor_ClothCountUnits">
+     <widget class="KComboBox" name="kcfg_Editor_ClothCountUnits">
       <property name="geometry">
        <rect>
         <x>80</x>

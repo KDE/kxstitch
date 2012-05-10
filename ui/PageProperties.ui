@@ -186,7 +186,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>X</string>
+         <string comment="The horizontal axis">X</string>
         </property>
        </widget>
       </item>

@@ -24,7 +24,7 @@ class EditorConfigPage : public QWidget, public Ui::EditorConfigPage
 {
 	Q_OBJECT
 	public:
-		EditorConfigPage(QWidget *parent = 0, const char *name = 0);
+		explicit EditorConfigPage(QWidget *parent = 0, const char *name = 0);
 };
 
 
@@ -32,7 +32,7 @@ class PatternConfigPage : public QWidget, public Ui::PatternConfigPage
 {
 	Q_OBJECT
 	public:
-		PatternConfigPage(QWidget *parent = 0, const char *name = 0);
+		explicit PatternConfigPage(QWidget *parent = 0, const char *name = 0);
 		
 	protected slots:
 		void on_kcfg_Editor_ClothCountUnits_activated(int);
@@ -52,7 +52,7 @@ class ImportConfigPage : public QWidget, public Ui::ImportConfigPage
 {
 	Q_OBJECT
 	public:
-		ImportConfigPage(QWidget *parent = 0, const char *name = 0);
+		explicit ImportConfigPage(QWidget *parent = 0, const char *name = 0);
 };
 
 
@@ -60,7 +60,7 @@ class LibraryConfigPage : public QWidget, public Ui::LibraryConfigPage
 {
 	Q_OBJECT
 	public:
-		LibraryConfigPage(QWidget *parent = 0, const char *name = 0);
+		explicit LibraryConfigPage(QWidget *parent = 0, const char *name = 0);
 };
 
 
@@ -68,7 +68,7 @@ class PrinterConfigPage : public QWidget, public Ui::PrinterConfigPage
 {
 	Q_OBJECT
 	public:
-		PrinterConfigPage(QWidget *parent = 0, const char *name = 0);
+		explicit PrinterConfigPage(QWidget *parent = 0, const char *name = 0);
 };
 
 
