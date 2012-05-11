@@ -11,6 +11,10 @@
 
 #include "BackgroundImage.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
+
 
 BackgroundImage::BackgroundImage()
 {
@@ -85,7 +89,6 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImage &backgroundIm
 	stream << backgroundImage.m_status;
 	stream << backgroundImage.m_image;
 	stream << backgroundImage.m_icon;
-
 	return stream;
 }
 
@@ -107,8 +110,7 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImage &backgroundImage)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Background image version %1", version)));
 			break;
 	}
 

@@ -11,6 +11,9 @@
 
 #include "DocumentPalette.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
 
@@ -271,6 +274,9 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
 		stream << *documentFlossIterator.value();
 	}
 
+	if (stream.status() != QDataStream::Ok)
+		throw FailedWriteFile();
+	
 	return stream;
 }
 
@@ -305,10 +311,12 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Palette version %1", version)));
 			break;
 	}
+	
+	if (stream.status() != QDataStream::Ok)
+		throw FailedReadFile(QString(i18n("Failed reading palette")));
 
 	return stream;
 }

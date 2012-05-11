@@ -14,8 +14,11 @@
 #include <QPainter>
 #include <QPrinterInfo>
 
+#include <KLocale>
+
 #include "Document.h"
 #include "Element.h"
+#include "Exceptions.h"
 #include "PaperSizes.h"
 
 
@@ -193,6 +196,9 @@ QDataStream &operator<<(QDataStream &stream, const Page &page)
 
 	stream	<< qreal(page.m_zoomFactor);
 
+	if (stream.status() != QDataStream::Ok)
+		throw FailedWriteFile();
+	
 	return stream;
 }
 
@@ -261,8 +267,7 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Page version %1", version)));
 			break;
 	}
 
@@ -299,8 +304,7 @@ void Page::readElements(QDataStream &stream)
 				break;
 
 			default:
-				// element type not recognised
-				// throw exception
+				throw FailedReadFile(QString(i18n("Invalid element type")));
 				break;
 		}
 		if (element)

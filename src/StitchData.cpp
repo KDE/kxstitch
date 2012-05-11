@@ -11,6 +11,10 @@
 
 #include "StitchData.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
+
 
 FlossUsage::FlossUsage()
 	:	backstitchCount(0),
@@ -907,6 +911,8 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
 	while (backstitchIterator.hasNext())
 	{
 		stream << *(backstitchIterator.next());
+		if (stream.status() != QDataStream::Ok)
+			throw FailedWriteFile();
 	}
 	
 	QListIterator<Knot *> knotIterator(stitchData.m_knots);
@@ -914,8 +920,13 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
 	while (knotIterator.hasNext())
 	{
 		stream << *(knotIterator.next());
+		if (stream.status() != QDataStream::Ok)
+			throw FailedWriteFile();
 	}
 
+	if (stream.status() != QDataStream::Ok)
+		throw FailedWriteFile();
+	
 	return stream;
 }
 
@@ -1033,10 +1044,12 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Stitch data version %1", version)));
 			break;
 	}
 
+	if (stream.status() != QDataStream::Ok)
+		throw FailedReadFile(QString(i18n("Failed reading stitch data")));
+	
 	return stream;
 }

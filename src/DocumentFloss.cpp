@@ -11,6 +11,10 @@
 
 #include "DocumentFloss.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
+
 
 DocumentFloss::DocumentFloss()
 {
@@ -161,6 +165,11 @@ QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
 			documentFloss.m_backstitchSymbol = Qt::PenStyle(backstitchSymbol);
 			documentFloss.m_stitchStrands = stitchStrands;
 			documentFloss.m_backstitchStrands = backstitchStrands;
+			break;
+			
+		default:
+			throw InvalidFileVersion(QString(i18n("Document floss version %1", version)));
+			break;
 	}
 
 	return stream;

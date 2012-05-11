@@ -11,9 +11,10 @@
 
 #include "BackgroundImages.h"
 
-#include <KDebug>
+#include <KLocale>
 
 #include "BackgroundImage.h"
+#include "Exceptions.h"
 
 
 BackgroundImages::BackgroundImages()
@@ -79,6 +80,9 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImages &backgroundI
 	{
 		stream << *backgroundImageIterator.next();
 	}
+	
+	if (stream.status() != QDataStream::Ok)
+		throw FailedWriteFile();
 
 	return stream;
 }
@@ -104,10 +108,12 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImages &backgroundImages)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Background images version %1", version)));
 			break;
 	}
-
+			
+	if (stream.status() != QDataStream::Ok)
+		throw FailedReadFile(QString(i18n("Failed reading background images")));
+			
 	return stream;
 }

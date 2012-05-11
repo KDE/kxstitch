@@ -13,7 +13,10 @@
 
 #include <QSharedData>
 
+#include <KLocale>
+
 #include "Element.h"
+#include "Exceptions.h"
 
 
 PrinterConfigurationPrivate::PrinterConfigurationPrivate()
@@ -113,6 +116,9 @@ QDataStream &operator<<(QDataStream &stream, const PrinterConfiguration &printer
 		stream << *page;
 	}
 
+	if (stream.status() != QDataStream::Ok)
+		throw FailedWriteFile();
+	
 	return stream;
 }
 
@@ -137,11 +143,13 @@ QDataStream &operator>>(QDataStream &stream, PrinterConfiguration &printerConfig
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Printer configuration %1", version)));
 			break;
 	}
 
+	if (stream.status() != QDataStream::Ok)
+		throw InvalidFileVersion(QString(i18n("Failed reading printer configuration")));
+	
 	return stream;
 }
 

@@ -17,6 +17,10 @@
 
 #include "Stitch.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
+
 
 /**
 	Constructor.
@@ -45,6 +49,7 @@ QDataStream &operator<<(QDataStream &stream, const Stitch &stitch)
 	stream << qint32(stitch.version);
 	stream << qint32(stitch.type);
 	stream << qint32(stitch.colorIndex);
+	return stream;
 }
 
 
@@ -65,8 +70,7 @@ QDataStream &operator>>(QDataStream &stream, Stitch &stitch)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Stitch version %1", version)));
 			break;
 	}
 
@@ -309,8 +313,7 @@ QDataStream &operator>>(QDataStream &stream, StitchQueue &stitchQueue)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Stitch queue version %1", version)));
 			break;
 	}
 }
@@ -367,7 +370,6 @@ QDataStream &operator<<(QDataStream &stream, const Backstitch &backstitch)
 	stream << backstitch.start;
 	stream << backstitch.end;
 	stream << qint32(backstitch.colorIndex);
-
 	return stream;
 }
 
@@ -388,8 +390,7 @@ QDataStream &operator>>(QDataStream &stream, Backstitch &backstitch)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Backstitch version %1", version)));
 			break;
 	}
 
@@ -429,7 +430,6 @@ QDataStream &operator<<(QDataStream &stream, const Knot &knot)
 	stream << qint32(knot.version);
 	stream << knot.position;
 	stream << knot.colorIndex;
-
 	return stream;
 }
 
@@ -450,8 +450,7 @@ QDataStream &operator>>(QDataStream &stream, Knot &knot)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Knot version %1", version)));
 			break;
 	}
 

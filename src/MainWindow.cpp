@@ -35,6 +35,7 @@
 #include <KLocale>
 #include <KMessageBox>
 #include <KRecentFilesAction>
+#include <KSaveFile>
 #include <KSelectAction>
 #include <KUrl>
 
@@ -350,21 +351,62 @@ void MainWindow::fileOpen()
 void MainWindow::fileOpen(const KUrl &url)
 {
 	MainWindow *window;
-	bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
+	bool docEmpty = (m_document->undoStack().isClean() && (m_document->url() == i18n("Untitled")));
 	if (url.isValid())
 	{
 		if (docEmpty)
 		{
-			if (m_document->load(url))
+			QString source;
+			if (KIO::NetAccess::download(url, source, 0))
 			{
-				setupActionsFromDocument();
-				m_editor->readDocumentSettings();
-				m_palette->readDocumentSettings();
-				m_preview->readDocumentSettings();
-				documentModified(true); // this is the clean value true
-				KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
-				action->addUrl(url);
-				action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+				QFile file(source);
+				if (file.open(QIODevice::ReadOnly))
+				{
+					QDataStream stream(&file);
+					try
+					{
+						m_document->readKXStitch(stream);
+						KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
+						action->addUrl(url);
+						action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+						m_document->setUrl(url);
+					}
+					catch (const InvalidFileType &e)
+					{
+						stream.device()->seek(0);
+						try
+						{
+							m_document->readPCStitch(stream);
+						}
+						catch (const InvalidFileType &e)
+						{
+							KMessageBox::sorry(0, i18n("The file doesn't appear to be a recognised cross stitch file."));
+						}
+					}
+					catch (const InvalidFileVersion &e)
+					{
+						KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
+					}
+					catch (const FailedReadFile &e)
+					{
+						KMessageBox::error(0, i18n("Failed to read the file.\n%1.", e.message));
+						m_document->initialiseNew();
+					}
+					setupActionsFromDocument();
+					m_editor->readDocumentSettings();
+					m_palette->readDocumentSettings();
+					m_preview->readDocumentSettings();
+					documentModified(true); // this is the clean value true
+					file.close();
+				}
+				else
+					KMessageBox::error(0, file.errorString());
+				
+				KIO::NetAccess::removeTempFile(source);
+			}
+			else
+			{
+				KMessageBox::error(0, KIO::NetAccess::lastErrorString());
 			}
 		}
 		else
@@ -378,10 +420,33 @@ void MainWindow::fileOpen(const KUrl &url)
 
 void MainWindow::fileSave()
 {
-	if (m_document->url() == i18n("Untitled"))
+	KUrl url = m_document->url();
+	if (url == i18n("Untitled"))
 		fileSaveAs();
 	else
-		m_document->save();
+	{
+		KSaveFile::backupFile(url.path());
+		KSaveFile file(url.path());
+		if (file.open(QIODevice::WriteOnly))
+		{
+			QDataStream stream(&file);
+			try
+			{
+				m_document->write(stream);
+				if (!file.finalize())
+					throw FailedWriteFile();
+				documentModified(true);
+			}
+			catch (const FailedWriteFile &e)
+			{
+				KMessageBox::error(0, QString(i18n("Failed to save the file.\n%1", file.errorString())));
+				file.abort();
+			}
+		}
+		else
+			KMessageBox::error(0, QString(i18n("Failed to open the file.\n%1", file.errorString())));
+	}
+	
 }
 
 
@@ -398,7 +463,7 @@ void MainWindow::fileSaveAs()
 			}
 		}
 		m_document->setUrl(url);
-		m_document->save();
+		fileSave();
 		KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
 		action->addUrl(url);
 		action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));

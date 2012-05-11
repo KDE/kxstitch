@@ -20,6 +20,7 @@
 
 #include "BackgroundImages.h"
 #include "configuration.h"
+#include "Exceptions.h"
 #include "Pattern.h"
 #include "PrinterConfiguration.h"
 
@@ -37,8 +38,9 @@ class Document
 
 		void initialiseNew();
 
-		bool load(const KUrl &);
-		void save();
+		void readKXStitch(QDataStream &);
+		void readPCStitch(QDataStream &);
+		void write(QDataStream &);
 
 		void setUrl(const KUrl &);
 		KUrl url() const;
@@ -62,18 +64,18 @@ class Document
 		void setPrinterConfiguration(const PrinterConfiguration &);
 
 	private:
-		bool readPCStitch5File(QDataStream &);
+		void readPCStitch5File(QDataStream &);
 		QString readPCStitchString(QDataStream &);
 
-		bool readKXStitchV2File(QDataStream &);
-		bool readKXStitchV3File(QDataStream &);
-		bool readKXStitchV4File(QDataStream &);
-		bool readKXStitchV5File(QDataStream &);
-		bool readKXStitchV6File(QDataStream &);
-		bool readKXStitchV7File(QDataStream &);
+		void readKXStitchV2File(QDataStream &);
+		void readKXStitchV3File(QDataStream &);
+		void readKXStitchV4File(QDataStream &);
+		void readKXStitchV5File(QDataStream &);
+		void readKXStitchV6File(QDataStream &);
+		void readKXStitchV7File(QDataStream &);
 
 		static const int version = 104;
-
+		
 		QMap<QString, QVariant>	m_properties;
 
 		KUrl	m_url;

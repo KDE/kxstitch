@@ -11,6 +11,10 @@
 
 #include "Pattern.h"
 
+#include <KLocale>
+
+#include "Exceptions.h"
+
 
 Pattern::Pattern(Document *document)
 	:	m_document(document)
@@ -288,8 +292,7 @@ QDataStream  &operator>>(QDataStream &stream, Pattern &pattern)
 			break;
 
 		default:
-			// not supported
-			// throw exception
+			throw InvalidFileVersion(QString(i18n("Pattern version %1", version)));
 			break;
 	}
 
