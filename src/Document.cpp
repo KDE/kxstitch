@@ -419,6 +419,8 @@ void Document::readPCStitch5File(QDataStream &stream)
 			stream.readRawData(buffer, 30);			// includes DMC,Anchor and Coates names
 			buffer[10] = '\0';
 			QString colorName = QString(buffer).trimmed();	// minus the white space
+			if (colorName == "White") colorName = "Blanc";	// fix colorName
+			if (colorName == "5200") colorName = "B5200";	// fix colorName
 			stream.readRawData(buffer, 50);			// floss description, discard as this will come from the scheme manager
 			buffer[50] = '\0';
 			QString description = QString(buffer).trimmed();
