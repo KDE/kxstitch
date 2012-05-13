@@ -26,6 +26,7 @@ class DocumentPalette
 {
 	public:
 		DocumentPalette();
+		DocumentPalette(const DocumentPalette &);
 		~DocumentPalette();
 
 		void clear();
@@ -48,6 +49,10 @@ class DocumentPalette
 		void swap(int, int);
 		void setShowSymbols(bool);
 
+		DocumentPalette &operator=(const DocumentPalette &);
+		bool operator==(const DocumentPalette &);
+		bool operator!=(const DocumentPalette &);
+		
 		friend QDataStream &operator<<(QDataStream &, const DocumentPalette &);
 		friend QDataStream &operator>>(QDataStream &, DocumentPalette &);
 

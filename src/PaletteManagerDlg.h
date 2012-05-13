@@ -34,7 +34,7 @@ class PaletteManagerDlg : public KDialog
 		PaletteManagerDlg(QWidget *, Document *);
 		~PaletteManagerDlg();
 
-		QList<QUndoCommand *> changes();
+		DocumentPalette palette() const;
 
 	protected slots:
 		virtual void slotButtonClicked(int button);
@@ -57,19 +57,13 @@ class PaletteManagerDlg : public KDialog
 		void insertListWidgetItem(QListWidget *, QListWidgetItem *);
 		bool contains(const QString &);
 		int paletteIndex(const QString &);
-		QChar freeSymbol();
-		int freeIndex();
 
 		Ui::PaletteManager	ui;
 
 		Document			*m_document;
-		QString				m_schemeName;
+		DocumentPalette			m_dialogPalette;
 		QString				m_font;
-		QChar				m_selectedChar;
-		QMap<int, DocumentFloss *>	m_documentPalette;
-		QMap<int, DocumentFloss *>	m_dialogPalette;
 		QMap<int, FlossUsage>		m_flossUsage;
-		QList<QUndoCommand *>		m_changes;
 		FlossScheme			*m_scheme;
 		CharSelectorDlg			*m_charSelectorDlg;
 };

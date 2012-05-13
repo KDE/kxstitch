@@ -915,24 +915,11 @@ void MainWindow::paletteManager()
 	QPointer<PaletteManagerDlg> paletteManagerDlg = new PaletteManagerDlg(this, m_document);
 	if (paletteManagerDlg->exec())
 	{
-		QList<QUndoCommand *> changes = paletteManagerDlg->changes();
-		if (!changes.isEmpty())
+		DocumentPalette palette = paletteManagerDlg->palette();
+		if (palette != m_document->pattern()->palette())
 		{
-			m_document->undoStack().beginMacro(i18n("Update Palette"));
-			m_document->undoStack().push(new UpdatePaletteCommand(m_palette));
-			m_document->undoStack().push(new UpdatePreviewCommand(m_preview));
-			m_document->undoStack().push(new UpdateEditorCommand(m_editor));
-			QListIterator<QUndoCommand *> it(changes);
-			while (it.hasNext())
-			{
-				m_document->undoStack().push(it.next());
-			}
-			m_document->undoStack().endMacro();
+			m_document->undoStack().push(new UpdateDocumentPaletteCommand(m_document, palette));
 		}
-
-		m_palette->update();
-		m_preview->update();
-		m_editor->update();
 	}
 	delete paletteManagerDlg;
 }

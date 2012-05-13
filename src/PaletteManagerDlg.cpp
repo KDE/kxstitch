@@ -29,21 +29,14 @@
 PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 	:	KDialog(parent),
 		m_document(document),
-		m_schemeName(document->pattern()->palette().schemeName()),
-		m_documentPalette(document->pattern()->palette().flosses()),
+		m_dialogPalette(m_document->pattern()->palette()),
 		m_flossUsage(document->pattern()->stitches().flossUsage()),
-		m_scheme(SchemeManager::scheme(m_schemeName)),
+		m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName())),
 		m_charSelectorDlg(0)
 {
 	setCaption(i18n("Palette Manager"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
 	setHelp("PaletteManagerDialog");
-	QMapIterator<int, DocumentFloss *> it(m_documentPalette);
-	while (it.hasNext())
-	{
-		it.next();
-		m_dialogPalette.insert(it.key(), new DocumentFloss(it.value()));
-	}
 	QWidget *widget = new QWidget(this);
 	ui.setupUi(widget);
 	QMetaObject::connectSlotsByName(this);
@@ -59,9 +52,9 @@ PaletteManagerDlg::~PaletteManagerDlg()
 }
 
 
-QList<QUndoCommand *> PaletteManagerDlg::changes()
+DocumentPalette PaletteManagerDlg::palette() const
 {
-	return m_changes;
+	return m_dialogPalette;
 }
 
 
@@ -69,24 +62,6 @@ void PaletteManagerDlg::slotButtonClicked(int button)
 {
 	if (button == KDialog::Ok)
 	{
-		QMap<int, DocumentFloss *>::const_iterator it;
-		for (it = m_documentPalette.begin() ; it != m_documentPalette.end() ; ++it)
-		{
-			if (m_dialogPalette.contains(it.key()))
-			{
-				if (*(it.value()) != *(m_dialogPalette.value(it.key())))
-					m_changes.append(new ReplaceDocumentFlossCommand(m_document, it.key(), m_dialogPalette.value(it.key())));
-			}
-			else
-				m_changes.append(new RemoveDocumentFlossCommand(m_document, it.key(), m_dialogPalette.value(it.key())));
-		}
-
-		for (it = m_dialogPalette.begin() ; it != m_dialogPalette.end() ; ++it)
-		{
-			if (!m_documentPalette.contains(it.key()))
-				m_changes.append(new AddDocumentFlossCommand(m_document, it.key(), it.value()));
-		}
-
 		accept();
 	}
 	else
@@ -120,10 +95,10 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 	if (currentRow != -1)
 	{
 		int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
-		ui.StitchStrands->setCurrentIndex(m_dialogPalette[i]->stitchStrands()-1);
-		ui.BackstitchStrands->setCurrentIndex(m_dialogPalette[i]->backstitchStrands()-1);
-		ui.StitchSymbol->setText(m_dialogPalette[i]->stitchSymbol());
-		ui.BackstitchSymbol->setCurrentIndex(mapStyleToIndex(m_dialogPalette[i]->backstitchSymbol()));
+		ui.StitchStrands->setCurrentIndex(m_dialogPalette.floss(i)->stitchStrands()-1);
+		ui.BackstitchStrands->setCurrentIndex(m_dialogPalette.floss(i)->backstitchStrands()-1);
+		ui.StitchSymbol->setText(m_dialogPalette.floss(i)->stitchSymbol());
+		ui.BackstitchSymbol->setCurrentIndex(mapStyleToIndex(m_dialogPalette.floss(i)->backstitchSymbol()));
 		ui.StitchStrands->setEnabled(true);
 		ui.BackstitchStrands->setEnabled(true);
 		ui.StitchSymbol->setEnabled(true);
@@ -149,18 +124,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 void PaletteManagerDlg::on_AddFloss_clicked(bool)
 {
 	QListWidgetItem *listWidgetItem = ui.ColorList->takeItem(ui.ColorList->currentRow());
-
-	int i = freeIndex();
-	DocumentFloss *documentFloss = new DocumentFloss(
-		listWidgetItem->data(Qt::UserRole).toString(),
-		freeSymbol(),
-		Qt::SolidLine,
-		Configuration::palette_StitchStrands(),
-		Configuration::palette_BackstitchStrands()
-	);
-	documentFloss->setFlossColor(m_scheme->find(listWidgetItem->data(Qt::UserRole).toString())->color());
-	m_dialogPalette.insert(i, documentFloss);
-
+	m_dialogPalette.add(listWidgetItem->data(Qt::DecorationRole).value<QColor>());
 	insertListWidgetItem(ui.CurrentList, listWidgetItem);
 	ui.CurrentList->scrollToItem(listWidgetItem, QAbstractItemView::PositionAtCenter);
 	ui.CurrentList->setCurrentItem(listWidgetItem);
@@ -181,13 +145,13 @@ void PaletteManagerDlg::on_RemoveFloss_clicked(bool)
 
 void PaletteManagerDlg::on_StitchStrands_activated(int index)
 {
-	m_dialogPalette[paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString())]->setStitchStrands(index+1);
+	m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setStitchStrands(index+1);
 }
 
 
 void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
 {
-	m_dialogPalette[paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString())]->setBackstitchStrands(index+1);
+	m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setBackstitchStrands(index+1);
 }
 
 
@@ -195,12 +159,12 @@ void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
 	int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
 	if (m_charSelectorDlg == 0)
-		m_charSelectorDlg = new CharSelectorDlg(this, m_document->pattern()->palette().usedSymbols());
-	m_charSelectorDlg->setSelectedChar(m_dialogPalette[i]->stitchSymbol());
+		m_charSelectorDlg = new CharSelectorDlg(this, m_dialogPalette.usedSymbols());
+	m_charSelectorDlg->setSelectedChar(m_dialogPalette.floss(i)->stitchSymbol());
 	if (m_charSelectorDlg->exec() == QDialog::Accepted)
 	{
-		m_dialogPalette[i]->setStitchSymbol(m_charSelectorDlg->selectedChar());
-		ui.StitchSymbol->setText(m_dialogPalette[i]->stitchSymbol());
+		m_dialogPalette.floss(i)->setStitchSymbol(m_charSelectorDlg->selectedChar());
+		ui.StitchSymbol->setText(m_dialogPalette.floss(i)->stitchSymbol());
 	}
 }
 
@@ -219,7 +183,7 @@ void PaletteManagerDlg::on_BackstitchSymbol_activated(int index)
 	else if (index == 4)
 		style = Qt::DashDotDotLine;
 
-	m_dialogPalette[paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString())]->setBackstitchSymbol(style);
+	m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setBackstitchSymbol(style);
 }
 
 
@@ -267,7 +231,7 @@ void PaletteManagerDlg::on_ClearUnused_clicked(bool)
 
 void PaletteManagerDlg::on_Calibrate_clicked(bool)
 {
-	QPointer<CalibrateFlossDlg> calibrateFlossDlg = new CalibrateFlossDlg(this, m_schemeName);
+	QPointer<CalibrateFlossDlg> calibrateFlossDlg = new CalibrateFlossDlg(this, m_dialogPalette.schemeName());
 	if (calibrateFlossDlg->exec() == QDialog::Accepted)
 	{
 		fillLists();
@@ -341,10 +305,9 @@ void PaletteManagerDlg::insertListWidgetItem(QListWidget *listWidget, QListWidge
 
 bool PaletteManagerDlg::contains(const QString &flossName)
 {
-	QMapIterator<int, DocumentFloss *> i(m_dialogPalette);
-	while (i.hasNext())
+	foreach (int index, m_dialogPalette.flosses().keys())
 	{
-		if (i.next().value()->flossName() == flossName)
+		if (m_dialogPalette.floss(index)->flossName() == flossName)
 			return true;
 	}
 	return false;
@@ -353,44 +316,10 @@ bool PaletteManagerDlg::contains(const QString &flossName)
 
 int PaletteManagerDlg::paletteIndex(const QString &flossName)
 {
-	QMapIterator<int, DocumentFloss *> i(m_dialogPalette);
-	while (i.hasNext())
+	foreach (int index, m_dialogPalette.flosses().keys())
 	{
-		if (i.next().value()->flossName() == flossName)
-		return i.key();
+		if (m_dialogPalette.floss(index)->flossName() == flossName)
+			return index;
 	}
-
 	return -1;
-}
-
-
-QChar PaletteManagerDlg::freeSymbol()
-{
-	int c = -1;
-	bool found = false;
-
-	while (!found)
-	{
-		QChar stitchSymbol(++c);
-		if (stitchSymbol.isPrint() && !stitchSymbol.isSpace() && !stitchSymbol.isPunct())
-		{
-			found = true;
-			QMapIterator<int, DocumentFloss *> i(m_dialogPalette);
-			while (i.hasNext() && found)
-			{
-				if (i.next().value()->stitchSymbol() == stitchSymbol)
-				found = false;
-			}
-		}
-	}
-
-	return QChar(c);
-}
-
-
-int PaletteManagerDlg::freeIndex()
-{
-	int i = 0;
-	while (m_dialogPalette.contains(i)) i++;
-	return i;
 }

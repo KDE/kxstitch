@@ -117,6 +117,7 @@ void DocumentFloss::setBackstitchStrands(int backstitchStrands)
 bool DocumentFloss::operator==(const DocumentFloss &other) const
 {
 	return ((m_flossName == other.m_flossName) &&
+		(m_flossColor == other.m_flossColor) &&
 		(m_stitchSymbol == other.m_stitchSymbol) &&
 		(m_backstitchSymbol == other.m_backstitchSymbol) &&
 		(m_stitchStrands == other.m_stitchStrands) &&

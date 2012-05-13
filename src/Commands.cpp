@@ -927,75 +927,33 @@ void CentrePatternCommand::CentrePatternCommand::undo()
 }
 
 
-UpdateEditorCommand::UpdateEditorCommand(Editor *editor)
-	:	QUndoCommand(),
-		m_editor(editor)
-{
-}
-
-
-UpdateEditorCommand::~UpdateEditorCommand()
-{
-}
-
-
-void UpdateEditorCommand::redo()
-{
-	m_editor->update();
-}
-
-
-void UpdateEditorCommand::undo()
-{
-	m_editor->update();
-}
-
-
-UpdatePaletteCommand::UpdatePaletteCommand(Palette *palette)
-	:	QUndoCommand(),
+UpdateDocumentPaletteCommand::UpdateDocumentPaletteCommand(Document *document, const DocumentPalette &palette)
+	:	QUndoCommand(i18n("Update Palette")),
+		m_document(document),
 		m_palette(palette)
 {
 }
 
 
-UpdatePaletteCommand::~UpdatePaletteCommand()
+UpdateDocumentPaletteCommand::~UpdateDocumentPaletteCommand()
 {
 }
 
 
-void UpdatePaletteCommand::redo()
+void UpdateDocumentPaletteCommand::redo()
 {
-	m_palette->update();
+	DocumentPalette palette = m_document->pattern()->palette();
+	m_document->pattern()->palette() = m_palette;
+	m_palette = palette;
+	m_document->editor()->update();
+	m_document->preview()->update();
+	m_document->palette()->update();
 }
 
 
-void UpdatePaletteCommand::undo()
+void UpdateDocumentPaletteCommand::undo()
 {
-	m_palette->update();
-}
-
-
-UpdatePreviewCommand::UpdatePreviewCommand(Preview *preview)
-	:	QUndoCommand(),
-		m_preview(preview)
-{
-}
-
-
-UpdatePreviewCommand::~UpdatePreviewCommand()
-{
-}
-
-
-void UpdatePreviewCommand::redo()
-{
-	m_preview->update();
-}
-
-
-void UpdatePreviewCommand::undo()
-{
-	m_preview->update();
+	redo(); // swaps the palette back
 }
 
 

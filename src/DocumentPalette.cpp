@@ -27,6 +27,12 @@ DocumentPalette::DocumentPalette()
 }
 
 
+DocumentPalette::DocumentPalette(const DocumentPalette &other)
+{
+	*this = other;
+}
+
+
 DocumentPalette::~DocumentPalette()
 {
 	clear();
@@ -256,6 +262,43 @@ void DocumentPalette::swap(int originalIndex, int swappedIndex)
 void DocumentPalette::setShowSymbols(bool show)
 {
 	m_showSymbols = show;
+}
+
+
+DocumentPalette &DocumentPalette::operator=(const DocumentPalette &other)
+{
+	m_schemeName = other.m_schemeName;
+	m_currentIndex = other.m_currentIndex;
+	m_documentFlosses.clear();
+	foreach (int index, other.m_documentFlosses.keys())
+		m_documentFlosses.insert(index, new DocumentFloss(other.m_documentFlosses.value(index)));
+	m_showSymbols = other.m_showSymbols;
+}
+
+
+bool DocumentPalette::operator==(const DocumentPalette &other)
+{
+	bool equal = (	(m_schemeName == other.m_schemeName) &&
+			(m_currentIndex == other.m_currentIndex) &&
+			(m_showSymbols == other.m_showSymbols) &&
+			(m_documentFlosses.keys() == other.m_documentFlosses.keys()) );
+	
+	if (equal)
+	{
+		foreach (int index, m_documentFlosses.keys())
+		{
+			if (*m_documentFlosses.value(index) != *other.m_documentFlosses.value(index))
+				equal = false;
+		}
+	}
+	
+	return equal;
+}
+
+
+bool DocumentPalette::operator!=(const DocumentPalette &other)
+{
+	return !(*this == other);
 }
 
 

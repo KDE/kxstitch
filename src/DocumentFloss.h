@@ -58,8 +58,8 @@ class DocumentFloss
 };
 
 
-QDataStream &operator<<(QDataStream &, DocumentFloss *);
-QDataStream &operator>>(QDataStream &, DocumentFloss *);
+QDataStream &operator<<(QDataStream &, const DocumentFloss &);
+QDataStream &operator>>(QDataStream &, DocumentFloss &);
 
 
 #endif // DocumentFloss_H

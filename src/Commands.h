@@ -21,6 +21,7 @@
 
 #include <KUrl>
 
+#include "DocumentPalette.h"
 #include "PrinterConfiguration.h"
 #include "Stitch.h"
 #include "StitchData.h"
@@ -28,7 +29,6 @@
 
 class BackgroundImage;
 class Document;
-class DocumentCrossStitch;
 class DocumentFloss;
 class Editor;
 class Floss;
@@ -501,45 +501,18 @@ private:
 };
 
 
-class UpdateEditorCommand : public QUndoCommand
+class UpdateDocumentPaletteCommand : public QUndoCommand
 {
 	public:
-		UpdateEditorCommand(Editor *);
-		~UpdateEditorCommand();
-
+		UpdateDocumentPaletteCommand(Document *, const DocumentPalette &);
+		~UpdateDocumentPaletteCommand();
+		
 		void redo();
 		void undo();
-
+		
 	private:
-		Editor	*m_editor;
-};
-
-
-class UpdatePaletteCommand : public QUndoCommand
-{
-	public:
-		UpdatePaletteCommand(Palette *);
-		~UpdatePaletteCommand();
-
-		void redo();
-		void undo();
-
-	private:
-		Palette	*m_palette;
-};
-
-
-class UpdatePreviewCommand : public QUndoCommand
-{
-	public:
-		UpdatePreviewCommand(Preview *);
-		~UpdatePreviewCommand();
-
-		void redo();
-		void undo();
-
-	private:
-		Preview	*m_preview;
+		Document	*m_document;
+		DocumentPalette	m_palette;
 };
 
 
