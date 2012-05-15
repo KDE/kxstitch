@@ -366,10 +366,10 @@ void MainWindow::fileOpen(const KUrl &url)
 					try
 					{
 						m_document->readKXStitch(stream);
+						m_document->setUrl(url);
 						KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
 						action->addUrl(url);
 						action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
-						m_document->setUrl(url);
 					}
 					catch (const InvalidFileType &e)
 					{
