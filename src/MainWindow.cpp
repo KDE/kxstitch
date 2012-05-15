@@ -435,7 +435,7 @@ void MainWindow::fileSave()
 				m_document->write(stream);
 				if (!file.finalize())
 					throw FailedWriteFile();
-				documentModified(true);
+				m_document->undoStack().setClean();
 			}
 			catch (const FailedWriteFile &e)
 			{
