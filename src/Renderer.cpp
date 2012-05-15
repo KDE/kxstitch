@@ -317,7 +317,7 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
+		const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			pen.setColor(documentFloss->flossColor());
@@ -434,7 +434,7 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
+		const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			symbolPen.setColor(Qt::black);
@@ -620,7 +620,7 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
+		const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
 		{
 			pen.setColor(documentFloss->flossColor());
@@ -767,7 +767,7 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
+		const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
 		QBrush brush(Qt::SolidPattern);
 		QPen pen;
 		if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight))
@@ -870,7 +870,7 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 	for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it)
 	{
 		Stitch *stitch = *it;
-		DocumentFloss *documentFloss = d->m_pattern->palette().floss(stitch->colorIndex);
+		const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
 		QPen textPen;
 		QPen outlinePen;
 		QBrush brush(Qt::SolidPattern);
@@ -1036,7 +1036,7 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch, const QPoi
 {
 	QPoint start(((backstitch->start.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->start.y()+offset.y())*d->m_cellHeight)/2);
 	QPoint end(((backstitch->end.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->end.y()+offset.y())*d->m_cellHeight)/2);
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(backstitch->colorIndex);
 
 	QPen pen;
 	if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight))
@@ -1059,7 +1059,7 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch, con
 {
 	QPoint start(((backstitch->start.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->start.y()+offset.y())*d->m_cellHeight)/2);
 	QPoint end(((backstitch->end.x()+offset.x())*d->m_cellWidth)/2, ((backstitch->end.y()+offset.y())*d->m_cellHeight)/2);
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(backstitch->colorIndex);
 
 	QPen pen;
 	pen.setStyle(documentFloss->backstitchSymbol());
@@ -1086,7 +1086,7 @@ void Renderer::renderKnotsAsNone(Knot *knot, const QPoint &offset)
 
 void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
 {
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen outlinePen;
 	QBrush brush(Qt::SolidPattern);
 	if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight))
@@ -1111,7 +1111,7 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
 
 void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint &offset)
 {
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
 	QPen outlinePen;
 	QBrush brush(Qt::SolidPattern);
@@ -1142,7 +1142,7 @@ void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint &offset)
 
 void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
 {
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
 	QPen outlinePen;
 	QBrush brush(Qt::NoBrush);
@@ -1171,7 +1171,7 @@ void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
 
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint &offset)
 {
-	DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
 	QPen outlinePen;
 	QBrush brush(Qt::NoBrush);

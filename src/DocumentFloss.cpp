@@ -31,7 +31,7 @@ DocumentFloss::DocumentFloss(const QString &flossName, const QChar &stitchSymbol
 }
 
 
-DocumentFloss::DocumentFloss(DocumentFloss *other)
+DocumentFloss::DocumentFloss(const DocumentFloss *other)
 	:	m_flossName(other->m_flossName),
 		m_flossColor(other->m_flossColor),
 		m_stitchSymbol(other->m_stitchSymbol),

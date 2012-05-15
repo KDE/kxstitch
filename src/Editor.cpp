@@ -695,7 +695,7 @@ bool Editor::event(QEvent *e)
 		}
 		if (colorIndex != -1)
 		{
-			DocumentFloss *documentFloss = m_document->pattern()->palette().floss(colorIndex);
+			const DocumentFloss *documentFloss = m_document->pattern()->palette().flosses().value(colorIndex);
 			Floss *floss = SchemeManager::scheme(m_document->pattern()->palette().schemeName())->find(documentFloss->flossName());
 			QToolTip::showText(helpEvent->globalPos(), QString("%1 %2").arg(floss->name()).arg(floss->description()));
 		}

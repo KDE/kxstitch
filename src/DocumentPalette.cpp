@@ -1,11 +1,11 @@
 /********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
+ * Copyright (C) 2010 by Stephen Allewell                                       *
+ * stephen@mirramar.adsl24.co.uk                                                *
+ *                                                                              *
+ * This program is free software; you can redistribute it and/or modify         *
+ * it under the terms of the GNU General Public License as published by         *
+ * the Free Software Foundation; either version 2 of the License, or            *
+ * (at your option) any later version.                                          *
  ********************************************************************************/
 
 
@@ -20,346 +20,349 @@
 #include "configuration.h"
 
 
+class DocumentPaletteData : public QSharedData
+{
+public:
+    DocumentPaletteData();
+    DocumentPaletteData(const DocumentPaletteData &);
+    ~DocumentPaletteData();
+
+    static const int version = 100;
+
+    QString                     m_schemeName;
+    int                         m_currentIndex;
+    bool                        m_showSymbols;
+    QMap<int, DocumentFloss *>  m_documentFlosses;
+};
+
+
+DocumentPaletteData::DocumentPaletteData()
+    :   QSharedData(),
+        m_schemeName(Configuration::palette_DefaultScheme()),
+        m_currentIndex(-1),
+        m_showSymbols(Configuration::palette_ShowSymbols())
+{
+}
+
+
+DocumentPaletteData::DocumentPaletteData(const DocumentPaletteData &other)
+    :   QSharedData(other),
+        m_schemeName(other.m_schemeName),
+        m_currentIndex(other.m_currentIndex),
+        m_showSymbols(other.m_showSymbols)
+{
+    foreach (int index, other.m_documentFlosses.keys())
+        m_documentFlosses.insert(index, new DocumentFloss(other.m_documentFlosses.value(index)));
+}
+
+
+DocumentPaletteData::~DocumentPaletteData()
+{
+    qDeleteAll(m_documentFlosses);
+}
+
+
 DocumentPalette::DocumentPalette()
-	:	m_currentIndex(-1),
-		m_showSymbols(Configuration::palette_ShowSymbols())
+    :   d(new DocumentPaletteData)
 {
 }
 
 
 DocumentPalette::DocumentPalette(const DocumentPalette &other)
+    :   d(other.d)
 {
-	*this = other;
 }
 
 
 DocumentPalette::~DocumentPalette()
 {
-	clear();
 }
 
 
-void DocumentPalette::clear()
+QString DocumentPalette::schemeName() const
 {
-	qDeleteAll(m_documentFlosses);
-	m_documentFlosses.clear();
-	m_currentIndex = -1;
+    return d->m_schemeName;
 }
 
 
-const QString &DocumentPalette::schemeName() const
+QMap<int, DocumentFloss *> DocumentPalette::flosses() const
 {
-	return m_schemeName;
-}
-
-
-QMap<int, DocumentFloss *> &DocumentPalette::flosses()
-{
-	return m_documentFlosses;
+    return d->m_documentFlosses;
 }
 
 
 QVector<int> DocumentPalette::sortedFlosses() const
 {
-	int colors = m_documentFlosses.count();
+    int colors = d->m_documentFlosses.count();
+    QVector<int> sorted = d->m_documentFlosses.keys().toVector();
 
-	QVector<int> sorted(colors);
-	QMapIterator<int, DocumentFloss *> iterator(m_documentFlosses);
+    bool exchanged;
+    do
+    {
+        exchanged = false;
+        for (int i = 0 ; i < colors-1 ; ++i)
+        {
+            QString flossName1(d->m_documentFlosses.value(sorted[i])->flossName());
+            QString flossName2(d->m_documentFlosses.value(sorted[i+1])->flossName());
+            int length1 = flossName1.length();
+            int length2 = flossName2.length();
+            if (((flossName1 > flossName2) && (length1 >= length2)) || (length1 > length2))
+            {
+                int tmp = sorted.value(i);
+                sorted[i] = sorted.value(i+1);
+                sorted[i+1] = tmp;
+                exchanged = true;
+            }
+        }
+    } while (exchanged);
 
-	int i = 0;
-	while (iterator.hasNext())
-		sorted[i++] = iterator.next().key();
-
-	bool exchanged;
-	do
-	{
-		exchanged = false;
-		for (i = 0 ; i < colors-1 ; ++i)
-		{
-			QString flossName1(m_documentFlosses[sorted[i]]->flossName());
-			QString flossName2(m_documentFlosses[sorted[i+1]]->flossName());
-			int length1 = flossName1.length();
-			int length2 = flossName2.length();
-			if (((flossName1 > flossName2) && (length1 >= length2)) || (length1 > length2))
-			{
-				int tmp = sorted[i];
-				sorted[i] = sorted[i+1];
-				sorted[i+1] = tmp;
-				exchanged = true;
-			}
-		}
-	} while (exchanged);
-
-	return sorted;
+    return sorted;
 }
 
 
 QList<QChar> DocumentPalette::usedSymbols() const
 {
-	QList<QChar> used;
-	
-	QMapIterator<int, DocumentFloss *> iterator(m_documentFlosses);
-	while (iterator.hasNext())
-		used << iterator.next().value()->stitchSymbol();
-	
-	return used;
+    QList<QChar> used;
+
+    foreach (int index, d->m_documentFlosses.keys())
+        used << d->m_documentFlosses.value(index)->stitchSymbol();
+
+    return used;
 }
 
 
-DocumentFloss *DocumentPalette::currentFloss() const
+const DocumentFloss *DocumentPalette::currentFloss() const
 {
-	DocumentFloss *documentFloss = 0;
+    DocumentFloss *documentFloss = 0;
 
-	if (m_currentIndex != -1)
-	{
-		documentFloss = m_documentFlosses[m_currentIndex];
-	}
+    if (d->m_currentIndex != -1)
+        documentFloss = d->m_documentFlosses.value(d->m_currentIndex);
 
-	return documentFloss;
+    return documentFloss;
 }
 
 
-DocumentFloss *DocumentPalette::floss(int colorIndex) const
+DocumentFloss *DocumentPalette::floss(int colorIndex)
 {
-	DocumentFloss *documentFloss = 0;
-	
-	if (m_documentFlosses.contains(colorIndex))
-		documentFloss = m_documentFlosses.value(colorIndex);
-	
-	return documentFloss;
+    DocumentFloss *documentFloss = 0;
+
+    if (d->m_documentFlosses.contains(colorIndex))
+        documentFloss = d->m_documentFlosses.value(colorIndex);
+
+    return documentFloss;
 }
 
 
 int DocumentPalette::currentIndex() const
 {
-	return m_currentIndex;
+    return d->m_currentIndex;
 }
 
 
 bool DocumentPalette::showSymbols() const
 {
-	return m_showSymbols;
+    return d->m_showSymbols;
 }
 
 
 void DocumentPalette::setSchemeName(const QString &schemeName)
 {
-	if (m_schemeName == schemeName)
-		return;
-	
-	m_schemeName = schemeName;
+    if (d->m_schemeName == schemeName)
+        return;
 
-	FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
+    d->m_schemeName = schemeName;
 
-	QMapIterator<int, DocumentFloss *> flossIterator(m_documentFlosses);
-	while (flossIterator.hasNext())
-	{
-		
-		int key = flossIterator.next().key();
-		DocumentFloss *documentFloss = flossIterator.value();
-		Floss *floss = scheme->convert(documentFloss->flossColor());
-		DocumentFloss *replacement = new DocumentFloss(floss->name(), documentFloss->stitchSymbol(), documentFloss->backstitchSymbol(), documentFloss->stitchStrands(), documentFloss->backstitchStrands());
-		replacement->setFlossColor(floss->color());
-		delete documentFloss;
-		replace(key, replacement);
-	}
+    FlossScheme *scheme = SchemeManager::scheme(d->m_schemeName);
+
+    foreach (int index, d->m_documentFlosses.keys())
+    {
+        DocumentFloss *documentFloss = d->m_documentFlosses.value(index);
+        Floss *floss = scheme->convert(documentFloss->flossColor());
+        DocumentFloss *replacement = new DocumentFloss(floss->name(), documentFloss->stitchSymbol(), documentFloss->backstitchSymbol(), documentFloss->stitchStrands(), documentFloss->backstitchStrands());
+        replacement->setFlossColor(floss->color());
+        delete documentFloss;
+        replace(index, replacement);
+    }
 }
 
 
 void DocumentPalette::setCurrentIndex(int currentIndex)
 {
-	m_currentIndex = currentIndex;
+    d->m_currentIndex = currentIndex;
 }
 
 
 void DocumentPalette::add(int flossIndex, DocumentFloss *documentFloss)
 {
-	m_documentFlosses.insert(flossIndex, documentFloss);
-	if (m_currentIndex == -1)
-	{
-		m_currentIndex = 0;
-	}
+    d->m_documentFlosses.insert(flossIndex, documentFloss);
+    if (d->m_currentIndex == -1)
+    {
+        d->m_currentIndex = 0;
+    }
 }
 
 
 int DocumentPalette::add(const QColor &srcColor)
 {
-	int colorIndex = -1;
+    int colorIndex = -1;
 
-	FlossScheme *scheme = SchemeManager::scheme(m_schemeName);
-	Floss *floss = scheme->find(scheme->find(srcColor));
-	if (floss == 0)
-		floss = scheme->convert(srcColor);
+    FlossScheme *scheme = SchemeManager::scheme(d->m_schemeName);
+    Floss *floss = scheme->find(scheme->find(srcColor));
+    if (floss == 0)
+        floss = scheme->convert(srcColor);
 
-	QMapIterator<int, DocumentFloss *> flossIterator(m_documentFlosses);
-	while (flossIterator.hasNext() && colorIndex == -1)
-	{
-		flossIterator.next();
-		if (flossIterator.value()->flossColor() == floss->color())
-		{
-			colorIndex = flossIterator.key();
-		}
-	}
-	
-	if (colorIndex == -1) // the color hasn't been found in the existing list
-	{
-			
-		for (colorIndex = 0 ; m_documentFlosses.contains(colorIndex) ; ++colorIndex) ; // colorIndex contains a free index
-		
-		int c = -1;
-		bool found = false;
-		QChar symbol;
-		while (!found)
-		{
-			symbol = QChar(++c);
-			if (symbol.isPrint() && !symbol.isSpace() && !symbol.isPunct())
-			{
-				found = true;
-				QMapIterator<int, DocumentFloss *> i(m_documentFlosses);
-				while (i.hasNext() && found)
-				{
-					if (i.next().value()->stitchSymbol() == symbol)
-					found = false;
-				}
-			}
-		}
+    foreach (int index, d->m_documentFlosses.keys())
+    {
+        if (d->m_documentFlosses.value(index)->flossColor() == floss->color())
+            colorIndex = index;
+    }
 
-		DocumentFloss *documentFloss = new DocumentFloss(floss->name(), symbol, Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
-		documentFloss->setFlossColor(floss->color());
-		add(colorIndex, documentFloss);
-	}
-	
-	return colorIndex;
+    if (colorIndex == -1) // the color hasn't been found in the existing list
+    {
+        colorIndex = freeIndex();
+        DocumentFloss *documentFloss = new DocumentFloss(floss->name(), freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        documentFloss->setFlossColor(floss->color());
+        add(colorIndex, documentFloss);
+    }
+
+    return colorIndex;
 }
 
 
 DocumentFloss *DocumentPalette::remove(int flossIndex)
 {
-	DocumentFloss documentFloss = m_documentFlosses.take(flossIndex);
-	if (m_documentFlosses.count() == 0)
-	{
-		m_currentIndex = -1;
-	}
+    DocumentFloss documentFloss = d->m_documentFlosses.take(flossIndex);
+    if (d->m_documentFlosses.count() == 0)
+    {
+        d->m_currentIndex = -1;
+    }
 }
 
 
 DocumentFloss *DocumentPalette::replace(int flossIndex, DocumentFloss *documentFloss)
 {
-	DocumentFloss *old = m_documentFlosses.take(flossIndex);
-	m_documentFlosses.insert(flossIndex, documentFloss);
-	return old;
+    DocumentFloss *old = d->m_documentFlosses.take(flossIndex);
+    d->m_documentFlosses.insert(flossIndex, documentFloss);
+    return old;
 }
 
 
 void DocumentPalette::swap(int originalIndex, int swappedIndex)
 {
-	DocumentFloss *original = m_documentFlosses.take(originalIndex);
-	m_documentFlosses.insert(originalIndex, m_documentFlosses.take(swappedIndex));
-	m_documentFlosses.insert(swappedIndex, original);
+    DocumentFloss *original = d->m_documentFlosses.take(originalIndex);
+    d->m_documentFlosses.insert(originalIndex, d->m_documentFlosses.take(swappedIndex));
+    d->m_documentFlosses.insert(swappedIndex, original);
 }
 
 
 void DocumentPalette::setShowSymbols(bool show)
 {
-	m_showSymbols = show;
+    d->m_showSymbols = show;
 }
 
 
 DocumentPalette &DocumentPalette::operator=(const DocumentPalette &other)
 {
-	m_schemeName = other.m_schemeName;
-	m_currentIndex = other.m_currentIndex;
-	m_documentFlosses.clear();
-	foreach (int index, other.m_documentFlosses.keys())
-		m_documentFlosses.insert(index, new DocumentFloss(other.m_documentFlosses.value(index)));
-	m_showSymbols = other.m_showSymbols;
+    d = other.d;
+    return *this;
 }
 
 
 bool DocumentPalette::operator==(const DocumentPalette &other)
 {
-	bool equal = (	(m_schemeName == other.m_schemeName) &&
-			(m_currentIndex == other.m_currentIndex) &&
-			(m_showSymbols == other.m_showSymbols) &&
-			(m_documentFlosses.keys() == other.m_documentFlosses.keys()) );
-	
-	if (equal)
-	{
-		foreach (int index, m_documentFlosses.keys())
-		{
-			if (*m_documentFlosses.value(index) != *other.m_documentFlosses.value(index))
-				equal = false;
-		}
-	}
-	
-	return equal;
+    return d == other.d;
 }
 
 
 bool DocumentPalette::operator!=(const DocumentPalette &other)
 {
-	return !(*this == other);
+    return d != other.d;
 }
 
 
 QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPalette)
 {
-	stream << qint32(documentPalette.version);
-	stream << documentPalette.m_schemeName;
-	stream << qint32(documentPalette.m_currentIndex);
-	stream << documentPalette.m_showSymbols;
-	stream << qint32(documentPalette.m_documentFlosses.count());
-	QMapIterator<int, DocumentFloss *> documentFlossIterator(documentPalette.m_documentFlosses);
-	while (documentFlossIterator.hasNext())
-	{
-		documentFlossIterator.next();
-		stream << qint32(documentFlossIterator.key());
-		stream << *documentFlossIterator.value();
-	}
+    stream << qint32(DocumentPaletteData::version);
+    stream << documentPalette.d->m_schemeName;
+    stream << qint32(documentPalette.d->m_currentIndex);
+    stream << documentPalette.d->m_showSymbols;
+    stream << qint32(documentPalette.d->m_documentFlosses.count());
+    foreach (int index, documentPalette.d->m_documentFlosses.keys())
+    {
+        stream << qint32(index);
+        stream << *documentPalette.d->m_documentFlosses.value(index);
+    }
 
-	if (stream.status() != QDataStream::Ok)
-		throw FailedWriteFile();
-	
-	return stream;
+    if (stream.status() != QDataStream::Ok)
+        throw FailedWriteFile();
+
+    return stream;
 }
 
 
 QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 {
-	qint32 version;
-	qint32 currentIndex;
-	qint32 documentPaletteCount;
+    qint32 version;
+    qint32 currentIndex;
+    qint32 documentPaletteCount;
 
-	qint32 key;
-	DocumentFloss *documentFloss;
+    qint32 key;
+    DocumentFloss *documentFloss;
 
-	documentPalette.clear();
-	
-	stream >> version;
-	switch (version)
-	{
-		case 100:
-			stream >> documentPalette.m_schemeName;
-			stream >> currentIndex;
-			documentPalette.m_currentIndex = currentIndex;
-			stream >> documentPalette.m_showSymbols;
-			stream >> documentPaletteCount;
-			while (documentPaletteCount--)
-			{
-				documentFloss = new DocumentFloss;
-				stream >> key;
-				stream >> *documentFloss;
-				documentPalette.m_documentFlosses.insert(key, documentFloss);
-			}
-			break;
+    documentPalette = DocumentPalette();
 
-		default:
-			throw InvalidFileVersion(QString(i18n("Palette version %1", version)));
-			break;
-	}
-	
-	if (stream.status() != QDataStream::Ok)
-		throw FailedReadFile(QString(i18n("Failed reading palette")));
+    stream >> version;
+    switch (version)
+    {
+        case 100:
+            stream >> documentPalette.d->m_schemeName;
+            stream >> currentIndex;
+            documentPalette.d->m_currentIndex = currentIndex;
+            stream >> documentPalette.d->m_showSymbols;
+            stream >> documentPaletteCount;
+            while (documentPaletteCount--)
+            {
+                documentFloss = new DocumentFloss;
+                stream >> key;
+                stream >> *documentFloss;
+                documentPalette.d->m_documentFlosses.insert(key, documentFloss);
+            }
+            break;
 
-	return stream;
+        default:
+            throw InvalidFileVersion(QString(i18n("Palette version %1", version)));
+            break;
+    }
+
+    if (stream.status() != QDataStream::Ok)
+        throw FailedReadFile(QString(i18n("Failed reading palette")));
+
+    return stream;
+}
+
+
+int DocumentPalette::freeIndex() const
+{
+    int i = 0;
+    while (d->m_documentFlosses.contains(i))
+        ++i;
+    return i;
+}
+
+
+QChar DocumentPalette::freeSymbol() const
+{
+    QList<QChar> used = usedSymbols();
+
+    int c = -1;
+    bool found = false;
+    QChar symbol;
+    while (!found)
+    {
+        symbol = QChar(++c);
+        if (symbol.isPrint() && !symbol.isSpace() && !symbol.isPunct())
+            found = !used.contains(symbol);
+    }
+
+    return symbol;
 }

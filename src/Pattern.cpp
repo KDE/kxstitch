@@ -29,7 +29,7 @@ Pattern::~Pattern()
 
 void Pattern::clear()
 {
-	m_documentPalette.clear();
+	m_documentPalette = DocumentPalette();
 	m_stitchData.clear();
 }
 
@@ -64,7 +64,7 @@ void Pattern::constructPalette(Pattern *pattern)
 		double length = flossIterator.value().totalLength();
 		if (length > 0)
 		{
-			pattern->palette().add(index, new DocumentFloss(palette().floss(index)));
+			pattern->palette().add(index, new DocumentFloss(palette().flosses().value(index)));
 		}
 	}
 }
@@ -237,7 +237,7 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 				while (stitchIterator.hasNext())
 				{
 					Stitch *stitch = stitchIterator.next();
-					int colorIndex = palette().add(pattern->palette().floss(stitch->colorIndex)->flossColor());
+					int colorIndex = palette().add(pattern->palette().flosses().value(stitch->colorIndex)->flossColor());
 					dstQ->add(stitch->type, colorIndex);
 				}
 				stitches().replaceStitchQueueAt(dst, dstQ);
@@ -252,7 +252,7 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 	while (backstitchIterator.hasNext())
 	{
 		Backstitch *backstitch = backstitchIterator.next();
-		int colorIndex = palette().add(pattern->palette().floss(backstitch->colorIndex)->flossColor());
+		int colorIndex = palette().add(pattern->palette().flosses().value(backstitch->colorIndex)->flossColor());
 		if (snapArea.contains(backstitch->start+targetOffset) && snapArea.contains(backstitch->end+targetOffset))
 			stitches().addBackstitch(backstitch->start+targetOffset, backstitch->end+targetOffset, colorIndex);
 	}
@@ -261,7 +261,7 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 	while (knotIterator.hasNext())
 	{
 		Knot *knot = knotIterator.next();
-		int colorIndex = palette().add(pattern->palette().floss(knot->colorIndex)->flossColor());
+		int colorIndex = palette().add(pattern->palette().flosses().value(knot->colorIndex)->flossColor());
 		if (snapArea.contains(knot->position+targetOffset))
 			stitches().addFrenchKnot(knot->position+targetOffset, knot->colorIndex);
 	}

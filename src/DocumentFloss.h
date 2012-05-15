@@ -24,7 +24,7 @@ class DocumentFloss
 	public:
 		DocumentFloss();
 		DocumentFloss(const QString &, const QChar &, Qt::PenStyle, int, int);
-		DocumentFloss(DocumentFloss *);
+		DocumentFloss(const DocumentFloss *);
 
 		QString flossName() const;
 		QColor flossColor() const;
