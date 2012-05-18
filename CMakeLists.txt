@@ -119,7 +119,16 @@ target_link_libraries (kxstitch ${KDE4_KDEUI_LIBS}
 				${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
 				${X11_LIBRARIES})
 
-set (CMAKE_CXX_FLAGS "-DQT_NO_COMPAT -DKDE_NO_COMPAT")
+set (WITH_PROFILING OFF CACHE BOOL "Build with profiling support")
+
+if (WITH_PROFILING)
+	add_definitions( -pg )
+	set_target_properties (kxstitch PROPERTIES LINK_FLAGS -pg)
+endif (WITH_PROFILING)
+
+add_definitions( -DQT_NO_COMPAT )
+add_definitions( -DKDE_NO_COMPAT )
+add_definitions( -fexceptions )
 
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${DATA_INSTALL_DIR}/kxstitch)
