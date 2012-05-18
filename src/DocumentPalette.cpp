@@ -231,11 +231,12 @@ int DocumentPalette::add(const QColor &srcColor)
 
 DocumentFloss *DocumentPalette::remove(int flossIndex)
 {
-    DocumentFloss documentFloss = d->m_documentFlosses.take(flossIndex);
+    DocumentFloss *documentFloss = d->m_documentFlosses.take(flossIndex);
     if (d->m_documentFlosses.count() == 0)
     {
         d->m_currentIndex = -1;
     }
+    return documentFloss;
 }
 
 
