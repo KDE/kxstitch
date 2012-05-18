@@ -178,6 +178,7 @@ QDataStream &operator<<(QDataStream &stream, const LibraryPattern &libraryPatter
 	stream << qint32(libraryPattern.m_modifiers);
 	stream << libraryPattern.m_baseline;
 	stream << *(libraryPattern.m_pattern);
+	return stream;
 }
 
 
