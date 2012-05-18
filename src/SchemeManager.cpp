@@ -72,7 +72,7 @@ FlossScheme *SchemeManager::createScheme(QString schemeName)
 
 	if (scheme(schemeName) == 0)
 	{
-		if (flossScheme = new FlossScheme)
+		if ((flossScheme = new FlossScheme))
 		{
 			flossScheme->setSchemeName(schemeName);
 			self().m_flossSchemes.append(flossScheme);

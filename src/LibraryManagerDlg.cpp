@@ -79,7 +79,7 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
 {
 	m_contextMenu.clear();
 	m_contextMenu.addAction(i18n("New Category"), this, SLOT(newCategory()));
-	if (m_contextTreeItem = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->itemAt(position)))
+	if ((m_contextTreeItem = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->itemAt(position))))
 	{
 		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryToExportList()));
 		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryProperties()));
@@ -95,7 +95,7 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
 void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint &position)
 {
 	m_contextMenu.clear();
-	if (m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))
+	if ((m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position))))
 	{
 		m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
 		m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
