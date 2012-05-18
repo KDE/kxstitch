@@ -97,7 +97,7 @@ QSize Scale::sizeHint() const
 }
 
 
-void Scale::paintEvent(QPaintEvent *event)
+void Scale::paintEvent(QPaintEvent*)
 {
 	double length = m_cellSize * m_cellCount;
 	double halfLength = length/2;

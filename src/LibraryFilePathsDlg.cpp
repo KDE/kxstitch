@@ -12,7 +12,7 @@
 #include "LibraryFilePathsDlg.h"
 
 
-LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString &category, QStringList paths)
+LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStringList paths)
 	:	KDialog(parent)
 {
 	setCaption(i18n("Library File Paths"));

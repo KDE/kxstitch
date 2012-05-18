@@ -216,9 +216,6 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
 	qint32 showGrid;
 	qint32 gridX;
 	qint32 gridY;
-	qint32 elements;
-	qint32 type;
-	Element *element;
 	qreal zoomFactor;
 
 	stream >> version;

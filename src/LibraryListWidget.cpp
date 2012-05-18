@@ -55,17 +55,17 @@ void LibraryListWidget::changeIconSize(int size)
 }
 
 
-void LibraryListWidget::dragEnterEvent(QDragEnterEvent *e)
+void LibraryListWidget::dragEnterEvent(QDragEnterEvent*)
 {
 }
 
 
-void LibraryListWidget::dragMoveEvent(QDragMoveEvent *e)
+void LibraryListWidget::dragMoveEvent(QDragMoveEvent*)
 {
 }
 
 
-void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent *e)
+void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent*)
 {
 }
 

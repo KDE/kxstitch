@@ -89,7 +89,7 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
 }
 
 
-void SelectArea::mouseReleaseEvent(QMouseEvent *event)
+void SelectArea::mouseReleaseEvent(QMouseEvent*)
 {
 	m_patternRect.setTopLeft(m_cellStart);
 	m_patternRect.setBottomRight(m_cellEnd);

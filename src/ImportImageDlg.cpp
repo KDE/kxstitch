@@ -137,7 +137,7 @@ void ImportImageDlg::slotButtonClicked(int button)
 }
 
 
-void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString &selectedScheme)
+void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString&)
 {
 	createImageMap();
 	renderPixmap();
@@ -219,7 +219,7 @@ void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
 }
 
 
-void ImportImageDlg::on_PatternScale_valueChanged(int patternScale)
+void ImportImageDlg::on_PatternScale_valueChanged(int)
 {
 	killTimer(m_timer);
 	m_timer = startTimer(500);
@@ -311,7 +311,7 @@ void ImportImageDlg::renderPixmap()
 }
 
 
-void ImportImageDlg::timerEvent(QTimerEvent *event)
+void ImportImageDlg::timerEvent(QTimerEvent*)
 {
 	killTimer(m_timer);;
 	renderPixmap();
