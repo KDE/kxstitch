@@ -48,11 +48,13 @@ QRect Boundary::rectangle() const
 Qt::CursorShape Boundary::cursor(const QPoint *node)
 {
 	static const Qt::CursorShape nodeCursors[2] = {Qt::SizeFDiagCursor, Qt::SizeBDiagCursor};
+	Qt::CursorShape shape = Qt::ArrowCursor;
 	for (int i = 0 ; i < 4 ; i++)
 	{
 		if (m_nodes[i] == *node)
-			return nodeCursors[i%2];
+			shape = nodeCursors[i%2];
 	}
+	return shape;
 }
 
 
