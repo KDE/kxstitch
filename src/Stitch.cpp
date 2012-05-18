@@ -133,19 +133,19 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
 
 	switch (type) // add the new stitch checking for illegal types
 	{
-		case 3: // TLQtr and TRQtr
+		case Stitch::TLQtr | Stitch::TRQtr:
 			enqueue(new Stitch(Stitch::TLQtr, colorIndex));
 			enqueue(new Stitch(Stitch::TRQtr, colorIndex));
 			break;
-		case 5: // TLQtr and BLQtr
+		case Stitch::TLQtr | Stitch::BLQtr:
 			enqueue(new Stitch(Stitch::TLQtr, colorIndex));
 			enqueue(new Stitch(Stitch::BLQtr, colorIndex));
 			break;
-		case 10: // TRQtr and BRQtr
+		case Stitch::TRQtr | Stitch::BRQtr:
 			enqueue(new Stitch(Stitch::TRQtr, colorIndex));
 			enqueue(new Stitch(Stitch::BRQtr, colorIndex));
 			break;
-		case 12: // BLQtr and BRQtr
+		case Stitch::BLQtr | Stitch::BRQtr:
 			enqueue(new Stitch(Stitch::BLQtr, colorIndex));
 			enqueue(new Stitch(Stitch::BRQtr, colorIndex));
 			break;
@@ -172,22 +172,22 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
 			{
 				// changeMask contains what is left of the original stitch after being overwritten
 				// it may contain illegal values, so these are checked for
-				case 3:
+				case Stitch::TLQtr | Stitch::TRQtr:
 					enqueue(new Stitch(Stitch::TLQtr, currentColorIndex));
 					enqueue(new Stitch(Stitch::TRQtr, currentColorIndex));
 					changeMask = Stitch::Delete;
 					break;
-				case 5:
+				case Stitch::TLQtr | Stitch::BLQtr:
 					enqueue(new Stitch(Stitch::TLQtr, currentColorIndex));
 					enqueue(new Stitch(Stitch::BLQtr, currentColorIndex));
 					changeMask = Stitch::Delete;
 					break;
-				case 10:
+				case Stitch::TRQtr | Stitch::BRQtr:
 					enqueue(new Stitch(Stitch::TRQtr, currentColorIndex));
 					enqueue(new Stitch(Stitch::BRQtr, currentColorIndex));
 					changeMask = Stitch::Delete;
 					break;
-				case 12:
+				case Stitch::BLQtr | Stitch::BRQtr:
 					enqueue(new Stitch(Stitch::BLQtr, currentColorIndex));
 					enqueue(new Stitch(Stitch::BRQtr, currentColorIndex));
 					changeMask = Stitch::Delete;
@@ -248,19 +248,19 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
 					{
 						// changeMask contains what is left of the original stitch after deleting the maskStitch
 						// it may contain illegal values, so these are checked for
-						case 3:
+						case Stitch::TLQtr | Stitch::TRQtr:
 							enqueue(new Stitch(Stitch::TLQtr, index));
 							enqueue(new Stitch(Stitch::TRQtr, index));
 							break;
-						case 5:
+						case Stitch::TLQtr | Stitch::BLQtr:
 							enqueue(new Stitch(Stitch::TLQtr, index));
 							enqueue(new Stitch(Stitch::BLQtr, index));
 							break;
-						case 10:
+						case Stitch::TRQtr | Stitch::BRQtr:
 							enqueue(new Stitch(Stitch::TRQtr, index));
 							enqueue(new Stitch(Stitch::BRQtr, index));
 							break;
-						case 12:
+						case Stitch::BLQtr | Stitch::BRQtr:
 							enqueue(new Stitch(Stitch::BLQtr, index));
 							enqueue(new Stitch(Stitch::BRQtr, index));
 							break;
@@ -316,6 +316,7 @@ QDataStream &operator>>(QDataStream &stream, StitchQueue &stitchQueue)
 			throw InvalidFileVersion(QString(i18n("Stitch queue version %1", version)));
 			break;
 	}
+	return stream;
 }
 
 
