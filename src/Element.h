@@ -33,7 +33,7 @@ class Element
 
 		Element(Page *, Element::Type, const QRect &);
 		Element(const Element &);
-		~Element();
+		virtual ~Element();
 
 		virtual Element *clone() const = 0;
 		virtual void render(Document *, QPainter *, double) const = 0;
@@ -69,7 +69,7 @@ class KeyElement : public Element
 	public:
 		KeyElement(Page *, const QRect &);
 		KeyElement(const KeyElement &);
-		~KeyElement();
+		virtual ~KeyElement();
 
 		virtual KeyElement *clone() const;
 		virtual void render(Document *, QPainter *painter, double) const;
@@ -109,7 +109,7 @@ class PlanElement : public Element
 	public:
 		PlanElement(Page *, const QRect &);
 		PlanElement(const PlanElement &);
-		~PlanElement();
+		virtual ~PlanElement();
 
 		QRect patternRect() const;
 		void setPatternRect(const QRect &);
@@ -133,7 +133,7 @@ class PatternElement : public Element
 	public:
 		PatternElement(Page *, const QRect &);
 		PatternElement(const PatternElement &);
-		~PatternElement();
+		virtual ~PatternElement();
 
 		virtual PatternElement *clone() const;
 		virtual void render(Document *, QPainter *painter, double) const;
@@ -194,7 +194,7 @@ class TextElement : public Element
 	public:
 		TextElement(Page *, const QRect &);
 		TextElement(const TextElement &);
-		~TextElement();
+		virtual ~TextElement();
 
 		virtual TextElement *clone() const;
 		virtual void render(Document *, QPainter *painter, double) const;
