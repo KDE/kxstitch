@@ -37,10 +37,10 @@ static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
 	:	KDialog(parent),
+		m_printerConfiguration(document->printerConfiguration()),
 		m_elementUnderCursor(0),
 		m_document(document),
-		m_printer(printer),
-		m_printerConfiguration(document->printerConfiguration())
+		m_printer(printer)
 {
 	setCaption(i18n("Print Setup"));
 	setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
@@ -250,6 +250,9 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
 
 		case Key:
 			page->addElement(new KeyElement(page, rectangle));
+			break;
+			
+		default:
 			break;
 	}
 
