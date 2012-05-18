@@ -46,10 +46,10 @@ class LibraryPattern
 	private:
 		static const int version = 100;
 
+		Pattern			*m_pattern;
 		qint32			m_key;
 		Qt::KeyboardModifiers	m_modifiers;
 		qint16			m_baseline;
-		Pattern			*m_pattern;
 		LibraryListWidgetItem	*m_libraryListWidgetItem;
 		bool			m_changed;
 };
