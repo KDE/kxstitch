@@ -21,7 +21,8 @@
 
 
 RendererPrivate::RendererPrivate()
-	:	m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
+	:	QSharedData(),
+		m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
 		m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
 		m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
 		m_painter(0),
@@ -192,6 +193,7 @@ void Renderer::render(QPainter *painter,
 		      int colorHilight,
 		      const QPoint &offset)
 {
+	// TODO this isn't taking account of the updateRectangle which will be causing a performance problem
 	bool paintDeviceIsScreen = (painter->device()->paintEngine()->type() == QPaintEngine::X11); // test for other types
 	
 	QPoint snapOffset(offset.x()*2, offset.y()*2);
@@ -420,6 +422,9 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 				d->m_painter->drawLine(d->m_renderCell.center().x(), d->m_renderCell.bottom(), d->m_renderCell.right(), d->m_renderCell.center().y());
 				d->m_painter->drawLine(d->m_renderCell.bottomRight(), d->m_renderCell.center());
 				break;
+				
+			default: // Avoid compiler warnings about unhandled values
+				break;
 		}
 	}
 }
@@ -608,6 +613,9 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 				d->m_painter->setPen(symbolPen);
 				d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
 				break;
+				
+			default: // Avoid compiler warnings about unhandled values
+				break;
 		}
 	}
 }
@@ -756,6 +764,9 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 				d->m_painter->drawLine(d->m_renderBRCell.bottomLeft(), d->m_renderBRCell.topRight());
 				d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
 				break;
+				
+			default: // Avoid compiler warnings about unhandled values
+				break;
 		}
 	}
 }
@@ -858,6 +869,9 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 
 			case Stitch::BRSmallFull:
 				d->m_painter->fillRect(d->m_renderBRCell, brush);
+				break;
+				
+			default: // Avoid compiler warnings about unhandled values
 				break;
 		}
 	}
@@ -1022,12 +1036,15 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 				d->m_painter->setFont(d->m_renderQtrFont);
 				d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
 				break;
+				
+			default: // Avoid compiler warnings about unhandled values
+				break;
 		}
 	}
 }
 
 
-void Renderer::renderBackstitchesAsNone(Backstitch *backstitch, const QPoint &offset)
+void Renderer::renderBackstitchesAsNone(Backstitch*, const QPoint&)
 {
 }
 
@@ -1079,12 +1096,12 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch, con
 }
 
 
-void Renderer::renderKnotsAsNone(Knot *knot, const QPoint &offset)
+void Renderer::renderKnotsAsNone(Knot*, const QPoint&)
 {
 }
 
 
-void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
+void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint&)
 {
 	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen outlinePen;
@@ -1109,7 +1126,7 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint &offset)
 }
 
 
-void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint &offset)
+void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint&)
 {
 	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
@@ -1140,7 +1157,7 @@ void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint &offset)
 }
 
 
-void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
+void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint&)
 {
 	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
@@ -1169,7 +1186,7 @@ void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint &offset)
 }
 
 
-void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint &offset)
+void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint&)
 {
 	const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
 	QPen textPen;
