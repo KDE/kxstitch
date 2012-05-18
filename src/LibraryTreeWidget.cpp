@@ -22,33 +22,34 @@
 
 
 LibraryTreeWidget::LibraryTreeWidget(QWidget *parent)
-	:	QTreeWidget()
+	:	QTreeWidget(parent)
 {
 }
 
 
-void LibraryTreeWidget::contentsDragEnterEvent(QDragEnterEvent *event)
+void LibraryTreeWidget::contentsDragEnterEvent(QDragEnterEvent*)
 {
 }
 
 
-void LibraryTreeWidget::contentsDragMoveEvent(QDragMoveEvent *event)
+void LibraryTreeWidget::contentsDragMoveEvent(QDragMoveEvent*)
 {
 }
 
 
-void LibraryTreeWidget::contentsDragLeaveEvent(QDragLeaveEvent *event)
+void LibraryTreeWidget::contentsDragLeaveEvent(QDragLeaveEvent*)
 {
 }
 
 
-void LibraryTreeWidget::contentsDropEvent(QDropEvent *event)
+void LibraryTreeWidget::contentsDropEvent(QDropEvent*)
 {
 }
 
 
-bool LibraryTreeWidget::acceptDrag(QDropEvent *event) const
+bool LibraryTreeWidget::acceptDrag(QDropEvent*) const
 {
+	return false;
 }
 
 
