@@ -235,13 +235,13 @@ const Stitch::Type stitchMap[][4] =
 
 Editor::Editor(QWidget *parent)
 	:	QWidget(parent),
-		m_libraryManagerDlg(0),
-		m_activeCommand(0),
+		m_renderer(new Renderer()),
 		m_horizontalScale(new Scale(Qt::Horizontal)),
 		m_verticalScale(new Scale(Qt::Vertical)),
-		m_renderer(new Renderer()),
-		m_toolMode(ToolPaint),
+		m_libraryManagerDlg(0),
 		m_zoomFactor(1.0),
+		m_toolMode(ToolPaint),
+		m_activeCommand(0),
 		m_pastePattern(0)
 {
 	setAcceptDrops(true);
@@ -409,7 +409,7 @@ void Editor::fitToPage()
 	double visibleHeight = visibleArea.height();
 	bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 	double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches)?m_horizontalClothCount:m_horizontalClothCount*2.54) / physicalDpiX();
-	double heightScaleFactor = visibleHeight / m_document->pattern()->stitches().height() * ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54) / physicalDpiY();
+	double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches)?m_verticalClothCount:m_verticalClothCount*2.54) / physicalDpiY();
 
 	zoom(std::min(widthScaleFactor, heightScaleFactor));
 }
@@ -1267,7 +1267,7 @@ bool Editor::eventFilter(QObject *object, QEvent *e)
 }
 
 
-void Editor::renderBackgroundImages(QPainter *painter, QRect updateRectangle)
+void Editor::renderBackgroundImages(QPainter *painter, const QRect &updateRectangle)
 {
 	QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages().backgroundImages();
 	while (backgroundImages.hasNext())
@@ -1286,7 +1286,7 @@ void Editor::renderBackgroundImages(QPainter *painter, QRect updateRectangle)
 }
 
 
-void Editor::renderRubberBandLine(QPainter *painter, QRect)
+void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
 {
 	painter->save();
 	if (m_rubberBand.isValid())
@@ -1302,7 +1302,7 @@ void Editor::renderRubberBandLine(QPainter *painter, QRect)
 }
 
 
-void Editor::renderRubberBandRectangle(QPainter *painter, QRect)
+void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
 {
 	painter->save();
 	if (m_rubberBand.isValid())
@@ -1318,7 +1318,7 @@ void Editor::renderRubberBandRectangle(QPainter *painter, QRect)
 }
 
 
-void Editor::renderRubberBandEllipse(QPainter *painter, QRect)
+void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
 {
 	painter->save();
 	if (m_rubberBand.isValid())
@@ -1333,7 +1333,7 @@ void Editor::renderRubberBandEllipse(QPainter *painter, QRect)
 }
 
 
-void Editor::renderFillPolygon(QPainter *painter, QRect rect)
+void Editor::renderFillPolygon(QPainter *painter, const QRect&)
 {
 	QPolygon polyline;
 	painter->save();
@@ -1349,7 +1349,7 @@ void Editor::renderFillPolygon(QPainter *painter, QRect rect)
 }
 
 
-void Editor::renderAlphabetCursor(QPainter *painter, QRect rect)
+void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
 {
 	if (m_cursorStack.isEmpty())
 		return;
@@ -1361,7 +1361,7 @@ void Editor::renderAlphabetCursor(QPainter *painter, QRect rect)
 }
 
 
-void Editor::renderPasteImage(QPainter *painter, QRect rect)
+void Editor::renderPasteImage(QPainter *painter, const QRect &rect)
 {
 	painter->save();
 	if (m_pastePattern)
@@ -1675,7 +1675,7 @@ void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
 }
 
 
-void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent *e)
+void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent*)
 {
 	m_selectionArea = QRect(m_cellStart, m_cellEnd).normalized();
 
@@ -1854,13 +1854,13 @@ void Editor::mouseReleaseEvent_Text(QMouseEvent *e)
 }
 
 
-void Editor::mousePressEvent_Alphabet(QMouseEvent *e)
+void Editor::mousePressEvent_Alphabet(QMouseEvent*)
 {
 	// nothing to do
 }
 
 
-void Editor::mouseMoveEvent_Alphabet(QMouseEvent *e)
+void Editor::mouseMoveEvent_Alphabet(QMouseEvent*)
 {
 	// nothing to do
 }
@@ -1943,7 +1943,7 @@ void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 }
 
 
-void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
+void Editor::mouseReleaseEvent_Backstitch(QMouseEvent*)
 {
 	m_rubberBand = QRect();
 	if (m_cellStart != m_cellEnd)
@@ -1951,13 +1951,13 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *e)
 }
 
 
-void Editor::mousePressEvent_ColorPicker(QMouseEvent *e)
+void Editor::mousePressEvent_ColorPicker(QMouseEvent*)
 {
 	// nothing to be done
 }
 
 
-void Editor::mouseMoveEvent_ColorPicker(QMouseEvent *e)
+void Editor::mouseMoveEvent_ColorPicker(QMouseEvent*)
 {
 	// nothing to be done
 }
@@ -2098,7 +2098,7 @@ QPoint Editor::snapToContents(const QPoint &p) const
 }
 
 
-QRect Editor::cellToRect(QPoint cell)
+QRect Editor::cellToRect(const QPoint &cell)
 {
 	int x = cell.x()*m_cellWidth;
 	int y = cell.y()*m_cellHeight;
@@ -2113,7 +2113,7 @@ QRect Editor::polygonToContents(const QPolygon &polygon)
 }
 
 
-void Editor::processBitmap(QUndoCommand *parent, QBitmap &canvas)
+void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
 {
 	QImage image;
 	image = canvas.toImage();

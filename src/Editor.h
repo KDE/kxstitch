@@ -66,13 +66,13 @@ class Editor : public QWidget
 			ToolRotate
 		};
 
-		Editor(QWidget *);
+		Editor(QWidget*);
 		~Editor();
 
-		void setDocument(Document *);
+		void setDocument(Document*);
 		Document *document();
 
-		void setPreview(Preview *);
+		void setPreview(Preview*);
 
 		void readDocumentSettings();
 
@@ -83,13 +83,13 @@ class Editor : public QWidget
 
 	signals:
 		void selectionMade(bool);
-		void changedVisibleCells(const QRect &);
+		void changedVisibleCells(const QRect&);
 
 	public slots:
 		void libraryManager();
 		
-		void previewClicked(const QPoint &);
-		void previewClicked(const QRect &);
+		void previewClicked(const QPoint&);
+		void previewClicked(const QRect&);
 
 		void zoomIn();
 		void zoomOut();
@@ -133,7 +133,7 @@ class Editor : public QWidget
 		void loadSettings();
 
 	protected:
-		bool event(QEvent *);
+		bool event(QEvent*);
 		void contextMenuEvent(QContextMenuEvent*);
 		void dragEnterEvent(QDragEnterEvent*);
 		void dragLeaveEvent(QDragLeaveEvent*);
@@ -151,13 +151,13 @@ class Editor : public QWidget
 	private:
 		void zoom(double);
 
-		void keyPressPolygon(QKeyEvent *);
-		void keyPressText(QKeyEvent *);
-		void keyPressAlphabet(QKeyEvent *);
-		void keyPressPaste(QKeyEvent *);
-		void keyPressMirror(QKeyEvent *);
-		void keyPressRotate(QKeyEvent *);
-		void keyPressMovePattern(QKeyEvent *);
+		void keyPressPolygon(QKeyEvent*);
+		void keyPressText(QKeyEvent*);
+		void keyPressAlphabet(QKeyEvent*);
+		void keyPressPaste(QKeyEvent*);
+		void keyPressMirror(QKeyEvent*);
+		void keyPressRotate(QKeyEvent*);
+		void keyPressMovePattern(QKeyEvent*);
 		
 		void toolInitPolygon();
 		void toolInitText();
@@ -169,17 +169,17 @@ class Editor : public QWidget
 		void toolCleanupMirror();
 		void toolCleanupRotate();
 		
-		void renderBackgroundImages(QPainter *, QRect);
-		void renderStitches(QPainter *, QRect);
-		void renderBackstitches(QPainter *, QRect);
-		void renderFrenchKnots(QPainter *, QRect);
+		void renderBackgroundImages(QPainter*, const QRect&);
+		void renderStitches(QPainter*, const QRect&);
+		void renderBackstitches(QPainter*, const QRect&);
+		void renderFrenchKnots(QPainter*, const QRect&);
 
-		void renderRubberBandLine(QPainter *, QRect);
-		void renderRubberBandRectangle(QPainter *, QRect);
-		void renderRubberBandEllipse(QPainter *, QRect);
-		void renderFillPolygon(QPainter *, QRect);
-		void renderAlphabetCursor(QPainter *, QRect);
-		void renderPasteImage(QPainter *, QRect);
+		void renderRubberBandLine(QPainter*, const QRect&);
+		void renderRubberBandRectangle(QPainter*, const QRect&);
+		void renderRubberBandEllipse(QPainter*, const QRect&);
+		void renderFillPolygon(QPainter*, const QRect&);
+		void renderAlphabetCursor(QPainter*, const QRect&);
+		void renderPasteImage(QPainter*, const QRect&);
 
 		void mousePressEvent_Paint(QMouseEvent*);
 		void mouseMoveEvent_Paint(QMouseEvent*);
@@ -233,26 +233,26 @@ class Editor : public QWidget
 		void mouseMoveEvent_ColorPicker(QMouseEvent*);
 		void mouseReleaseEvent_ColorPicker(QMouseEvent*);
 		
-		void mousePressEvent_Paste(QMouseEvent *);
-		void mouseMoveEvent_Paste(QMouseEvent *);
-		void mouseReleaseEvent_Paste(QMouseEvent *);
+		void mousePressEvent_Paste(QMouseEvent*);
+		void mouseMoveEvent_Paste(QMouseEvent*);
+		void mouseReleaseEvent_Paste(QMouseEvent*);
 		
-		void mousePressEvent_Mirror(QMouseEvent *);
-		void mouseMoveEvent_Mirror(QMouseEvent *);
-		void mouseReleaseEvent_Mirror(QMouseEvent *);
+		void mousePressEvent_Mirror(QMouseEvent*);
+		void mouseMoveEvent_Mirror(QMouseEvent*);
+		void mouseReleaseEvent_Mirror(QMouseEvent*);
 		
-		void mousePressEvent_Rotate(QMouseEvent *);
-		void mouseMoveEvent_Rotate(QMouseEvent *);
-		void mouseReleaseEvent_Rotate(QMouseEvent *);
+		void mousePressEvent_Rotate(QMouseEvent*);
+		void mouseMoveEvent_Rotate(QMouseEvent*);
+		void mouseReleaseEvent_Rotate(QMouseEvent*);
 
-		QPoint contentsToCell(const QPoint &) const;
-		int contentsToZone(const QPoint &) const;
-		QPoint contentsToSnap(const QPoint &) const;
-		QPoint snapToContents(const QPoint &) const;
-		QRect cellToRect(QPoint);
-		QRect polygonToContents(const QPolygon &);
+		QPoint contentsToCell(const QPoint&) const;
+		int contentsToZone(const QPoint&) const;
+		QPoint contentsToSnap(const QPoint&) const;
+		QPoint snapToContents(const QPoint&) const;
+		QRect cellToRect(const QPoint&);
+		QRect polygonToContents(const QPolygon&);
 		
-		void processBitmap(QUndoCommand *, QBitmap &);
+		void processBitmap(QUndoCommand*, const QBitmap&);
 		QRect visibleCells();
 		QList<Stitch::Type> maskStitches() const;
 
@@ -320,11 +320,11 @@ class Editor : public QWidget
 		QStack<QPoint>		m_cursorStack;
 		QMap<int, int>		m_cursorCommands;
 		
-		typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
+		typedef void (Editor::*keyPressCallPointer)(QKeyEvent*);
 		typedef void (Editor::*toolInitCallPointer)();
 		typedef void (Editor::*toolCleanupCallPointer)();
 		typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
-		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, QRect);
+		typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter*, const QRect&);
 
 		static const keyPressCallPointer	keyPressCallPointers[];
 		
