@@ -595,8 +595,6 @@ PatternElement *PatternElement::clone() const
 
 void PatternElement::render(Document *document, QPainter *painter, double scale) const
 {
-	int xCell = m_patternRect.left();	// cell in the top left corner
-	int yCell = m_patternRect.top();	// cell in the top left corner
 	int xCells = m_patternRect.width();	// width of the pattern to be printed
 	int yCells = m_patternRect.height();	// height of the pattern to be printed
 
