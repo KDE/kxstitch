@@ -260,6 +260,9 @@ void MainWindow::setupActionsFromDocument()
 		case Configuration::EnumEditor_FormatScalesAs::CM:
 			actions->action("formatScalesAsCM")->trigger();
 			break;
+			
+		default:
+			break;
 	}
 
 	switch (static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(m_document->property("renderStitchesAs").toInt()))
@@ -283,6 +286,9 @@ void MainWindow::setupActionsFromDocument()
 		case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols:
 			actions->action("renderStitchesAsColorBlocksSymbols")->trigger();
 			break;
+			
+		default:
+			break;
 	}
 
 	switch (static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(m_document->property("renderBackstitchesAs").toInt()))
@@ -293,6 +299,9 @@ void MainWindow::setupActionsFromDocument()
 
 		case Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols:
 			actions->action("renderBackstitchesAsBlackWhiteSymbols")->trigger();
+			break;
+			
+		default:
 			break;
 	}
 
@@ -312,6 +321,9 @@ void MainWindow::setupActionsFromDocument()
 
 		case Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols:
 			actions->action("renderKnotsAsBlackWhiteSymbols")->trigger();
+			break;
+			
+		default:
 			break;
 	}
 

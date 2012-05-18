@@ -183,6 +183,9 @@ void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 			}
 			m_clothCountUnits = Configuration::EnumEditor_ClothCountUnits::CM;
 			break;
+			
+		default: // Avoid compilation warnings about unhandled values
+			break;
 	}
 	updatePatternSizes();
 }
