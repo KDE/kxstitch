@@ -135,7 +135,7 @@ void LibraryFile::readFile()
 				qint32 modifier;	// version 1 of library format
 				qint16 baseline;	// version 1 of library format
 				quint16 checksum;	// version 1 of library format
-				bool ok = true;
+				ok = true;
 				QByteArray data;
 				LibraryPattern *libraryPattern;
 				
@@ -160,7 +160,7 @@ void LibraryFile::readFile()
 							if (modifier & 0x0200) replacedModifiers |= Qt::ControlModifier;
 							if (modifier & 0x0400) replacedModifiers |= Qt::AltModifier;
 							if (modifier & 0x0800) replacedModifiers |= Qt::MetaModifier;
-							if (checksum = qChecksum(data.data(), data.size()))
+							if (checksum == qChecksum(data.data(), data.size()))
 								m_libraryPatterns.append(new LibraryPattern(data, key, replacedModifiers, baseline));
 							else
 							{
