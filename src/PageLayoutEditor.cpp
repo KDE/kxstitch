@@ -28,10 +28,11 @@ PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
 	:	QWidget(parent),
 		m_document(document),
 		m_selecting(false),
+		m_resizing(false),
 		m_moved(false),
-		m_zoomFactor(1.0),
 		m_node(0),
-		m_gridSize(Configuration::page_GridSize())
+		m_gridSize(Configuration::page_GridSize()),
+		m_zoomFactor(1.0)
 {
 	setContextMenuPolicy(Qt::CustomContextMenu);
 	setPagePreview(0);
@@ -52,7 +53,7 @@ double PageLayoutEditor::zoomFactor() const
 
 void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
 {
-	if (m_pagePreview = pagePreview)
+	if ((m_pagePreview = pagePreview))
 	{
 		m_boundary.setElement(0);
 		show();
