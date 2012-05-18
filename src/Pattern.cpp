@@ -217,6 +217,7 @@ Pattern *Pattern::copy(const QRect &area,  int colorMask, const QList<Stitch::Ty
 
 void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 {	
+	// TODO merge isn't being used
 	pattern->palette().setSchemeName(palette().schemeName());
 	
 	for (int row = 0 ; row < pattern->stitches().height() ; ++row)
@@ -263,7 +264,7 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 		Knot *knot = knotIterator.next();
 		int colorIndex = palette().add(pattern->palette().flosses().value(knot->colorIndex)->flossColor());
 		if (snapArea.contains(knot->position+targetOffset))
-			stitches().addFrenchKnot(knot->position+targetOffset, knot->colorIndex);
+			stitches().addFrenchKnot(knot->position+targetOffset, colorIndex);
 	}
 }
 
