@@ -92,6 +92,9 @@ void Document::initialiseNew()
 				documentHeight /= 2.54;
 			}
 			break;
+			
+		default: // Avoid compiler warning about unhandled value
+			break;
 	}
 	
 	m_pattern->stitches().resize(static_cast<int>(documentWidth), static_cast<int>(documentHeight));
@@ -339,12 +342,14 @@ void Document::write(QDataStream &stream)
 
 QVariant Document::property(const QString &name) const
 {
+	QVariant p;
 	if (m_properties.contains(name))
 	{
-		return m_properties[name];
+		p = m_properties[name];
 	}
 	else
 		kDebug() << "Asked for non existing property" << name;
+	return p;
 }
 
 
@@ -449,7 +454,6 @@ void Document::readPCStitch5File(QDataStream &stream)
 	int documentWidth = m_pattern->stitches().width();
 	int documentHeight = m_pattern->stitches().height();
 	int cells = documentWidth * documentHeight;
-	qint64 fileSize = stream.device()->size();
 	qint16 cellCount;
 	quint8 color;
 	quint8 type;
