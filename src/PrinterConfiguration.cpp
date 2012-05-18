@@ -26,6 +26,7 @@ PrinterConfigurationPrivate::PrinterConfigurationPrivate()
 
 
 PrinterConfigurationPrivate::PrinterConfigurationPrivate(const PrinterConfigurationPrivate &other)
+	:	QSharedData(other)
 {
 	QListIterator<Page *> pageIterator(other.m_pages);
 	while (pageIterator.hasNext())
