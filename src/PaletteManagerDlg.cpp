@@ -77,16 +77,16 @@ void PaletteManagerDlg::on_ColorList_currentRowChanged(int currentRow)
 
 int mapStyleToIndex(Qt::PenStyle style)
 {
-    if (style == Qt::SolidLine)
-        return 0;
+    int index = 0;
     if (style == Qt::DashLine)
-        return 1;
+        index = 1;
     if (style == Qt::DotLine)
-        return 2;
+        index = 2;
     if (style == Qt::DashDotLine)
-        return 3;
+        index = 3;
     if (style == Qt::DashDotDotLine)
-        return 4;
+        index = 4;
+    return index;
 }
 
 
@@ -173,10 +173,8 @@ void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 
 void PaletteManagerDlg::on_BackstitchSymbol_activated(int index)
 {
-    Qt::PenStyle style;
-    if (index == 0)
-        style = Qt::SolidLine;
-    else if (index == 1)
+    Qt::PenStyle style = Qt::SolidLine;
+    if (index == 1)
         style = Qt::DashLine;
     else if (index == 2)
         style = Qt::DotLine;
