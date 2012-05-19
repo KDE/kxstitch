@@ -382,7 +382,7 @@ void KeycodeLineEdit::keyPressEvent(QKeyEvent *e)
 QString KeycodeLineEdit::findQtText(int qtKey)
 {
 	QString string;
-	for (unsigned i = 0 ; i < sizeof(keyCodes)/sizeof(struct KEYCODE) ; i++)
+	for (unsigned i = 0 ; i < sizeof(keyCodes)/sizeof(struct KEYCODE) ; ++i)
 	{
 		if (keyCodes[i].qtKey == qtKey)
 		string = string+keyCodes[i].qtText;
