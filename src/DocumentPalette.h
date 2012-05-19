@@ -53,8 +53,8 @@ public:
     void setShowSymbols(bool);
 
     DocumentPalette &operator=(const DocumentPalette &);
-    bool operator==(const DocumentPalette &);
-    bool operator!=(const DocumentPalette &);
+    bool operator==(const DocumentPalette &) const;
+    bool operator!=(const DocumentPalette &) const;
 
     friend QDataStream &operator<<(QDataStream &, const DocumentPalette &);
     friend QDataStream &operator>>(QDataStream &, DocumentPalette &);

@@ -51,8 +51,8 @@ DocumentPaletteData::DocumentPaletteData(const DocumentPaletteData &other)
         m_currentIndex(other.m_currentIndex),
         m_showSymbols(other.m_showSymbols)
 {
-    foreach (int index, other.m_documentFlosses.keys())
-        m_documentFlosses.insert(index, new DocumentFloss(other.m_documentFlosses.value(index)));
+    for (QMap<int, DocumentFloss*>::const_iterator i = other.m_documentFlosses.constBegin() ; i != other.m_documentFlosses.constEnd() ; ++i)
+        m_documentFlosses.insert(i.key(), new DocumentFloss(other.m_documentFlosses.value(i.key())));
 }
 
 
@@ -124,8 +124,8 @@ QList<QChar> DocumentPalette::usedSymbols() const
 {
     QList<QChar> used;
 
-    foreach (int index, d->m_documentFlosses.keys())
-        used << d->m_documentFlosses.value(index)->stitchSymbol();
+    for (QMap<int, DocumentFloss*>::const_iterator i = d->m_documentFlosses.constBegin() ; i != d->m_documentFlosses.constEnd() ; ++i)
+        used << i.value()->stitchSymbol();
 
     return used;
 }
@@ -174,14 +174,14 @@ void DocumentPalette::setSchemeName(const QString &schemeName)
 
     FlossScheme *scheme = SchemeManager::scheme(d->m_schemeName);
 
-    foreach (int index, d->m_documentFlosses.keys())
+    for (QMap<int, DocumentFloss*>::const_iterator i = d->m_documentFlosses.constBegin() ; i != d->m_documentFlosses.constEnd() ; ++i)
     {
-        DocumentFloss *documentFloss = d->m_documentFlosses.value(index);
+        DocumentFloss *documentFloss = i.value();
         Floss *floss = scheme->convert(documentFloss->flossColor());
         DocumentFloss *replacement = new DocumentFloss(floss->name(), documentFloss->stitchSymbol(), documentFloss->backstitchSymbol(), documentFloss->stitchStrands(), documentFloss->backstitchStrands());
         replacement->setFlossColor(floss->color());
         delete documentFloss;
-        replace(index, replacement);
+        replace(i.key(), replacement);
     }
 }
 
@@ -211,10 +211,10 @@ int DocumentPalette::add(const QColor &srcColor)
     if (floss == 0)
         floss = scheme->convert(srcColor);
 
-    foreach (int index, d->m_documentFlosses.keys())
+    for (QMap<int, DocumentFloss*>::const_iterator i = d->m_documentFlosses.constBegin() ; i != d->m_documentFlosses.constEnd() ; ++i)
     {
-        if (d->m_documentFlosses.value(index)->flossColor() == floss->color())
-            colorIndex = index;
+        if (i.value()->flossColor() == floss->color())
+            colorIndex = i.key();
     }
 
     if (colorIndex == -1) // the color hasn't been found in the existing list
@@ -269,13 +269,13 @@ DocumentPalette &DocumentPalette::operator=(const DocumentPalette &other)
 }
 
 
-bool DocumentPalette::operator==(const DocumentPalette &other)
+bool DocumentPalette::operator==(const DocumentPalette &other) const
 {
     return d == other.d;
 }
 
 
-bool DocumentPalette::operator!=(const DocumentPalette &other)
+bool DocumentPalette::operator!=(const DocumentPalette &other) const
 {
     return d != other.d;
 }
@@ -288,10 +288,10 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
     stream << qint32(documentPalette.d->m_currentIndex);
     stream << documentPalette.d->m_showSymbols;
     stream << qint32(documentPalette.d->m_documentFlosses.count());
-    foreach (int index, documentPalette.d->m_documentFlosses.keys())
+    for (QMap<int, DocumentFloss*>::const_iterator i = documentPalette.d->m_documentFlosses.constBegin() ; i != documentPalette.d->m_documentFlosses.constEnd() ; ++i)
     {
-        stream << qint32(index);
-        stream << *documentPalette.d->m_documentFlosses.value(index);
+        stream << qint32(i.key());
+        stream << *i.value();
     }
 
     if (stream.status() != QDataStream::Ok)
