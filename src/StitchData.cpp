@@ -745,7 +745,7 @@ void StitchData::addFrenchKnot(Knot *knot)
 
 Knot *StitchData::takeFrenchKnot(const QPoint &position, int colorIndex)
 {
-	Knot *removed;
+	Knot *removed = 0;
 
 	QMutableListIterator<Knot *> iterator(m_knots);
 	while (iterator.hasNext())
