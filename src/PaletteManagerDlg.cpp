@@ -244,7 +244,7 @@ void PaletteManagerDlg::fillLists()
     ui.ColorList->clear();
     ui.CurrentList->clear();
 
-    foreach (Floss *floss, m_scheme->flosses())
+    foreach (const Floss *floss, m_scheme->flosses())
     {
         QListWidgetItem *listWidgetItem = new QListWidgetItem;
         listWidgetItem->setText(QString("%1 %2").arg(floss->name()).arg(floss->description()));
@@ -302,9 +302,9 @@ void PaletteManagerDlg::insertListWidgetItem(QListWidget *listWidget, QListWidge
 
 bool PaletteManagerDlg::contains(const QString &flossName) const
 {
-    foreach (int index, m_dialogPalette.flosses().keys())
+    for (QMap<int, DocumentFloss*>::const_iterator i = m_dialogPalette.flosses().constBegin() ; i != m_dialogPalette.flosses().constEnd() ; ++i)
     {
-        if (flossName == m_dialogPalette.flosses().value(index)->flossName())
+        if (flossName == i.value()->flossName())
             return true;
     }
     return false;
@@ -313,10 +313,10 @@ bool PaletteManagerDlg::contains(const QString &flossName) const
 
 int PaletteManagerDlg::paletteIndex(const QString &flossName) const
 {
-    foreach (int index, m_dialogPalette.flosses().keys())
+    for (QMap<int, DocumentFloss*>::const_iterator i = m_dialogPalette.flosses().constBegin() ; i != m_dialogPalette.flosses().constEnd() ; ++i)
     {
-        if (flossName == m_dialogPalette.flosses().value(index)->flossName())
-            return index;
+        if (flossName == i.value()->flossName())
+            return i.key();
     }
     return -1;
 }
