@@ -907,7 +907,7 @@ CentrePatternCommand::~CentrePatternCommand()
 }
 
 
-void CentrePatternCommand::CentrePatternCommand::redo()
+void CentrePatternCommand::redo()
 {
     QRect extents = m_document->pattern()->stitches().extents();
 
@@ -922,7 +922,7 @@ void CentrePatternCommand::CentrePatternCommand::redo()
 
 
 
-void CentrePatternCommand::CentrePatternCommand::undo()
+void CentrePatternCommand::undo()
 {
     m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 
