@@ -1,12 +1,12 @@
-/***************************************************************************
- *   Copyright (C) 2009 by Stephen Allewell                                *
- *   stephen@mirramar.fsnet.co.uk                                          *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- ***************************************************************************/
+/*
+ * Copyright (C) 2009 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef LibraryTreeWidgetItem_H
@@ -27,26 +27,26 @@ class QTreeWidget;
 
 class LibraryTreeWidgetItem : public QTreeWidgetItem
 {
-	public:
-		LibraryTreeWidgetItem(QTreeWidget *, const QString &);
-		LibraryTreeWidgetItem(LibraryTreeWidgetItem *, const QString &);
+public:
+    LibraryTreeWidgetItem(QTreeWidget *, const QString &);
+    LibraryTreeWidgetItem(LibraryTreeWidgetItem *, const QString &);
 
-		int maxHeight();
-		LibraryPattern *findCharacter(int, Qt::KeyboardModifiers);
-		LibraryPattern *first();
-		LibraryPattern *next();
+    int maxHeight();
+    LibraryPattern *findCharacter(int, Qt::KeyboardModifiers);
+    LibraryPattern *first();
+    LibraryPattern *next();
 
-		void addPath(const QString &);
-		QString path();
-		QStringList paths();
-		void addPattern(LibraryPattern *);
-		void deletePattern(LibraryPattern *);
+    void addPath(const QString &);
+    QString path();
+    QStringList paths();
+    void addPattern(LibraryPattern *);
+    void deletePattern(LibraryPattern *);
 
-	private:
-		LibraryFile *writablePath();
+private:
+    LibraryFile *writablePath();
 
-		int			m_libraryFilesIndex;
-		QList<LibraryFile *>	m_libraryFiles;
+    int         m_libraryFilesIndex;
+    QList<LibraryFile *>    m_libraryFiles;
 };
 
 

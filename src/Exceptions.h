@@ -1,12 +1,12 @@
-/********************************************************************************
- * Copyright (C) 2011 by Stephen Allewell                                       *
- * stephen@mirramar.adsl24.co.uk                                                *
- *                                                                              *
- * This program is free software; you can redistribute it and/or modify         *
- * it under the terms of the GNU General Public License as published by         *
- * the Free Software Foundation; either version 2 of the License, or            *
- * (at your option) any later version.                                          *
- ********************************************************************************/
+/*
+ * Copyright (C) 2011 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 /**
@@ -43,7 +43,9 @@ public:
 class InvalidFileVersion
 {
 public:
-    InvalidFileVersion(const QString &v) { version = v; }
+    InvalidFileVersion(const QString &v) {
+        version = v;
+    }
 
     QString version;           /**< the version of the file or element read */
 };
@@ -57,7 +59,9 @@ public:
 class FailedReadFile
 {
 public:
-    FailedReadFile(const QString &m) { message = m; }
+    FailedReadFile(const QString &m) {
+        message = m;
+    }
 
     QString message;           /**< message indicating the source of the error */
 };

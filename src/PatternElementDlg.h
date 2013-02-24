@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef PatternElementDlg_H
@@ -29,30 +29,30 @@ class SelectArea;
 
 class PatternElementDlg : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		PatternElementDlg(QWidget *, PatternElement *, Document *, const QList<QRect> &);
-		~PatternElementDlg();
+public:
+    PatternElementDlg(QWidget *, PatternElement *, Document *, const QList<QRect> &);
+    ~PatternElementDlg();
 
-		bool showPlan() const;
-		PlanElement *planElement() const;
+    bool showPlan() const;
+    PlanElement *planElement() const;
 
-	protected slots:
-		void slotButtonClicked(int);
+protected slots:
+    void slotButtonClicked(int);
 
-	private slots:
+private slots:
 
-	private:
-		SelectArea	*m_selectArea;
+private:
+    SelectArea  *m_selectArea;
 
-		PatternElement	*m_patternElement;
-		Document	*m_document;
+    PatternElement  *m_patternElement;
+    Document    *m_document;
 
-		QRect		m_patternRect;
-		QList<QRect>	m_patternRects;
+    QRect       m_patternRect;
+    QList<QRect>    m_patternRects;
 
-		Ui::PatternElement	ui;
+    Ui::PatternElement  ui;
 };
 
 

@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef LibraryFilePathsDlg_H
@@ -20,17 +20,17 @@
 
 class LibraryFilePathsDlg : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
-		~LibraryFilePathsDlg();
+public:
+    LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
+    ~LibraryFilePathsDlg();
 
-	protected slots:
-		void slotButtonClicked(int);
+protected slots:
+    void slotButtonClicked(int);
 
-	private:
-		Ui::LibraryFilePaths	ui;
+private:
+    Ui::LibraryFilePaths    ui;
 };
 
 

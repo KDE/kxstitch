@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef StitchData_H
@@ -26,85 +26,85 @@
 
 class FlossUsage
 {
-	public:
-		FlossUsage();
+public:
+    FlossUsage();
 
-		double totalLength() const;
-		double stitchLength() const;
-		int totalStitches() const;
-		int stitchCount() const;
+    double totalLength() const;
+    double stitchLength() const;
+    int totalStitches() const;
+    int stitchCount() const;
 
-		QMap<Stitch::Type, int>	stitchCounts;
-		QMap<Stitch::Type, double> stitchLengths;
-		int	backstitchCount;
-		double	backstitchLength;
+    QMap<Stitch::Type, int> stitchCounts;
+    QMap<Stitch::Type, double> stitchLengths;
+    int backstitchCount;
+    double  backstitchLength;
 };
 
 
 class StitchData
 {
-	public:
-		enum Rotation {
-			Rotate90,
-			Rotate180,
-			Rotate270
-		};
-		
-		StitchData();
-		~StitchData();
+public:
+    enum Rotation {
+        Rotate90,
+        Rotate180,
+        Rotate270
+    };
 
-		void clear();
+    StitchData();
+    ~StitchData();
 
-		int width() const;
-		int height() const;
-		
-		void resize(int, int);
-		
-		QRect extents() const;
-		void movePattern(int dx, int dy);
-		void mirror(Qt::Orientation);
-		void rotate(Rotation);
+    void clear();
 
-		void addStitch(const QPoint &, Stitch::Type, int);
-		void deleteStitch(const QPoint &, Stitch::Type, int);
+    int width() const;
+    int height() const;
 
-		StitchQueue *stitchQueueAt(const QPoint &);
-		StitchQueue *takeStitchQueueAt(const QPoint &);
-		StitchQueue *replaceStitchQueueAt(const QPoint &, StitchQueue *);
+    void resize(int, int);
 
-		void addBackstitch(const QPoint &, const QPoint &, int);
-		void addBackstitch(Backstitch *);
-		Backstitch *takeBackstitch(const QPoint &, const QPoint &, int);
-		Backstitch *takeBackstitch(Backstitch *);
+    QRect extents() const;
+    void movePattern(int dx, int dy);
+    void mirror(Qt::Orientation);
+    void rotate(Rotation);
 
-		void addFrenchKnot(const QPoint &, int);
-		void addFrenchKnot(Knot *);
-		Knot *takeFrenchKnot(const QPoint &, int);
-		Knot *takeFrenchKnot(Knot *);
+    void addStitch(const QPoint &, Stitch::Type, int);
+    void deleteStitch(const QPoint &, Stitch::Type, int);
 
-		QListIterator<Backstitch *> backstitchIterator();
-		QMutableListIterator<Backstitch *> mutableBackstitchIterator();
-		QListIterator<Knot *> knotIterator();
-		QMutableListIterator<Knot *> mutableKnotIterator();
+    StitchQueue *stitchQueueAt(const QPoint &);
+    StitchQueue *takeStitchQueueAt(const QPoint &);
+    StitchQueue *replaceStitchQueueAt(const QPoint &, StitchQueue *);
 
-		QMap<int, FlossUsage> flossUsage();
+    void addBackstitch(const QPoint &, const QPoint &, int);
+    void addBackstitch(Backstitch *);
+    Backstitch *takeBackstitch(const QPoint &, const QPoint &, int);
+    Backstitch *takeBackstitch(Backstitch *);
 
-		friend QDataStream &operator<<(QDataStream &, const StitchData &);
-		friend QDataStream &operator>>(QDataStream &, StitchData &);
+    void addFrenchKnot(const QPoint &, int);
+    void addFrenchKnot(Knot *);
+    Knot *takeFrenchKnot(const QPoint &, int);
+    Knot *takeFrenchKnot(Knot *);
 
-	private:
-		void	deleteStitches();
-		void	invertQueue(Qt::Orientation, StitchQueue *);
-		void	rotateQueue(Rotation, StitchQueue *);
+    QListIterator<Backstitch *> backstitchIterator();
+    QMutableListIterator<Backstitch *> mutableBackstitchIterator();
+    QListIterator<Knot *> knotIterator();
+    QMutableListIterator<Knot *> mutableKnotIterator();
 
-		static const int version = 102;
+    QMap<int, FlossUsage> flossUsage();
 
-		int m_width;
-		int m_height;
+    friend QDataStream &operator<<(QDataStream &, const StitchData &);
+    friend QDataStream &operator>>(QDataStream &, StitchData &);
 
-		QHash<int, QHash<int, StitchQueue *> >	m_stitches;
-		QList<Backstitch *>			m_backstitches;
-		QList<Knot *>				m_knots;
+private:
+    void    deleteStitches();
+    void    invertQueue(Qt::Orientation, StitchQueue *);
+    void    rotateQueue(Rotation, StitchQueue *);
+
+    static const int version = 102;
+
+    int m_width;
+    int m_height;
+
+    QHash<int, QHash<int, StitchQueue *> >  m_stitches;
+    QList<Backstitch *>                     m_backstitches;
+    QList<Knot *>                           m_knots;
 };
 
 

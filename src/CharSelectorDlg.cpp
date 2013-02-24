@@ -1,12 +1,12 @@
-/***************************************************************************
- *   Copyright (C) 2012 by Stephen Allewell                                *
- *   stephen@mirramar.fsnet.co.uk                                          *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- ***************************************************************************/
+/*
+ * Copyright (C) 2012 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #include "CharSelectorDlg.h"
@@ -55,8 +55,7 @@ QChar CharSelectorDlg::selectedChar()
 
 void CharSelectorDlg::on_CharSelect_currentCharChanged(const QChar &c)
 {
-    if (!c.isPrint() || c.isSpace() || m_usedSymbols.contains(c))
-    {
+    if (!c.isPrint() || c.isSpace() || m_usedSymbols.contains(c)) {
         ui.CharSelect->setCurrentChar(m_currentChar);
         return;
     }

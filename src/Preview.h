@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef Preview_H
@@ -22,44 +22,44 @@ class Renderer;
 
 class Preview : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		Preview(QWidget *);
-		~Preview();
+public:
+    Preview(QWidget *);
+    ~Preview();
 
-		void setDocument(Document *);
-		Document *document();
+    void setDocument(Document *);
+    Document *document();
 
-		void readDocumentSettings();
+    void readDocumentSettings();
 
-	public slots:
-		void setVisibleCells(const QRect &);
-		
-		void loadSettings();
+public slots:
+    void setVisibleCells(const QRect &);
 
-	signals:
-		void clicked(QPoint);
-		void clicked(QRect);
+    void loadSettings();
 
-	protected:
-		virtual void mousePressEvent(QMouseEvent *);
-		virtual void mouseMoveEvent(QMouseEvent *);
-		virtual void mouseReleaseEvent(QMouseEvent *);
-		virtual void paintEvent(QPaintEvent *);
+signals:
+    void clicked(QPoint);
+    void clicked(QRect);
 
-		Document	*m_document;
-		Renderer	*m_renderer;
-		QRect		m_visible;
-		QPoint		m_start;
-		QPoint		m_tracking;
-		QPoint		m_end;
-		QRect		m_rubberBand;
-		double		m_cellWidth;
-		double		m_cellHeight;
-		double		m_previewWidth;
-		double		m_previewHeight;
-		double		m_zoomFactor;
+protected:
+    virtual void mousePressEvent(QMouseEvent *);
+    virtual void mouseMoveEvent(QMouseEvent *);
+    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual void paintEvent(QPaintEvent *);
+
+    Document    *m_document;
+    Renderer    *m_renderer;
+    QRect       m_visible;
+    QPoint      m_start;
+    QPoint      m_tracking;
+    QPoint      m_end;
+    QRect       m_rubberBand;
+    double      m_cellWidth;
+    double      m_cellHeight;
+    double      m_previewWidth;
+    double      m_previewHeight;
+    double      m_zoomFactor;
 };
 
 

@@ -1,25 +1,23 @@
-/********************************************************************************
- * Copyright (C) 2010 by Stephen Allewell                                       *
- * stephen@mirramar.adsl24.co.uk                                                *
- *                                                                              *
- * This program is free software; you can redistribute it and/or modify         *
- * it under the terms of the GNU General Public License as published by         *
- * the Free Software Foundation; either version 2 of the License, or            *
- * (at your option) any later version.                                          *
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #include "PaperSizes.h"
 
 
-static struct PaperSize
-{
+static struct PaperSize {
     QPrinter::PaperSize size;
     const char          *name;
     int                 width;
     int                 height;
-} PaperSizeList[] =
-{
+} PaperSizeList[] = {
     { QPrinter::A0,         "A0",       841,    1189 },
     { QPrinter::A1,         "A1",       594,    841  },
     { QPrinter::A2,         "A2",       420,    594  },
@@ -44,7 +42,7 @@ static struct PaperSize
     { QPrinter::C5E,        "C5E",      163,    229  },
     { QPrinter::Comm10E,    "Comm10E",  105,    241  },
     { QPrinter::DLE,        "DLE",      110,    220  },
-    { QPrinter::Executive,  "Executive",191,    254  },
+    { QPrinter::Executive,  "Executive", 191,    254  },
     { QPrinter::Folio,      "Folio",    210,    330  },
     { QPrinter::Ledger,     "Ledger",   432,    279  },
     { QPrinter::Legal,      "Legal",    216,    356  },
@@ -57,12 +55,15 @@ static struct PaperSize
 QPrinter::PaperSize PaperSizes::size(const QString &name)
 {
     int i = 0;
-    while (PaperSizeList[i].size != QPrinter::Custom)
-    {
-        if (PaperSizeList[i].name == name)
+
+    while (PaperSizeList[i].size != QPrinter::Custom) {
+        if (PaperSizeList[i].name == name) {
             break;
+        }
+
         ++i;
     }
+
     return PaperSizeList[i].size; // will return QPrinter::Custom if name isn't found
 }
 
@@ -70,12 +71,15 @@ QPrinter::PaperSize PaperSizes::size(const QString &name)
 QString PaperSizes::name(QPrinter::PaperSize size)
 {
     int i = 0;
-    while (PaperSizeList[i].size != QPrinter::Custom)
-    {
-        if (PaperSizeList[i].size == size)
+
+    while (PaperSizeList[i].size != QPrinter::Custom) {
+        if (PaperSizeList[i].size == size) {
             break;
+        }
+
         ++i;
     }
+
     return QString(PaperSizeList[i].name);
 }
 
@@ -83,24 +87,30 @@ QString PaperSizes::name(QPrinter::PaperSize size)
 int PaperSizes::width(QPrinter::PaperSize size, QPrinter::Orientation orientation)
 {
     int i = 0;
-    while (PaperSizeList[i].size != QPrinter::Custom)
-    {
-        if (PaperSizeList[i].size == size)
+
+    while (PaperSizeList[i].size != QPrinter::Custom) {
+        if (PaperSizeList[i].size == size) {
             break;
+        }
+
         ++i;
     }
-    return (orientation == QPrinter::Portrait)?PaperSizeList[i].width:PaperSizeList[i].height;
+
+    return (orientation == QPrinter::Portrait) ? PaperSizeList[i].width : PaperSizeList[i].height;
 }
 
 
 int PaperSizes::height(QPrinter::PaperSize size, QPrinter::Orientation orientation)
 {
     int i = 0;
-    while (PaperSizeList[i].size != QPrinter::Custom)
-    {
-        if (PaperSizeList[i].size == size)
+
+    while (PaperSizeList[i].size != QPrinter::Custom) {
+        if (PaperSizeList[i].size == size) {
             break;
+        }
+
         ++i;
     }
-    return (orientation == QPrinter::Portrait)?PaperSizeList[i].height:PaperSizeList[i].width;
+
+    return (orientation == QPrinter::Portrait) ? PaperSizeList[i].height : PaperSizeList[i].width;
 }

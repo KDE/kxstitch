@@ -25,39 +25,48 @@
 // X11 includes
 extern "C"
 {
-  #include <X11/Xlib.h>
-  #include <X11/keysym.h>
+#include <X11/Xlib.h>
+#include <X11/keysym.h>
 //  #include <X11/extensions/XTest.h>
 }
-      
+
 
 XKeyLock::XKeyLock(Display *a_display)
-  : numlock_mask(0), capslock_mask(0), scrolllock_mask(0)
+    : numlock_mask(0), capslock_mask(0), scrolllock_mask(0)
 {
-  display = a_display;
+    display = a_display;
 
-  KeyCode keycode;
+    KeyCode keycode;
 
-  keycode = XKeysymToKeycode(display, XK_Num_Lock);
-  if (keycode != NoSymbol)
-  {
-    numlock_mask = getModifierMapping(keycode);
-    if (numlock_mask == 0) numlock_mask = setModifierMapping(keycode);
-  }
+    keycode = XKeysymToKeycode(display, XK_Num_Lock);
 
-  keycode = XKeysymToKeycode(display, XK_Caps_Lock);
-  if (keycode != NoSymbol)
-  {
-    capslock_mask = getModifierMapping(keycode);
-    if (capslock_mask == 0) capslock_mask = setModifierMapping(keycode);
-  }
+    if (keycode != NoSymbol) {
+        numlock_mask = getModifierMapping(keycode);
 
-  keycode = XKeysymToKeycode(display, XK_Scroll_Lock);
-  if (keycode != NoSymbol)
-  {
-    scrolllock_mask = getModifierMapping(keycode);
-    if (scrolllock_mask == 0) scrolllock_mask = setModifierMapping(keycode);
-  }
+        if (numlock_mask == 0) {
+            numlock_mask = setModifierMapping(keycode);
+        }
+    }
+
+    keycode = XKeysymToKeycode(display, XK_Caps_Lock);
+
+    if (keycode != NoSymbol) {
+        capslock_mask = getModifierMapping(keycode);
+
+        if (capslock_mask == 0) {
+            capslock_mask = setModifierMapping(keycode);
+        }
+    }
+
+    keycode = XKeysymToKeycode(display, XK_Scroll_Lock);
+
+    if (keycode != NoSymbol) {
+        scrolllock_mask = getModifierMapping(keycode);
+
+        if (scrolllock_mask == 0) {
+            scrolllock_mask = setModifierMapping(keycode);
+        }
+    }
 }
 
 XKeyLock::~XKeyLock()
@@ -66,75 +75,80 @@ XKeyLock::~XKeyLock()
 
 unsigned int XKeyLock::getModifierMapping(KeyCode keycode)
 {
-  unsigned int mask = 0;
+    unsigned int mask = 0;
 
-  XModifierKeymap* map = XGetModifierMapping(display);
+    XModifierKeymap* map = XGetModifierMapping(display);
 
-  for(int i = 0 ; i < 8; ++i)
-    if (map->modifiermap[map->max_keypermod * i] == keycode) 
-      mask = 1 << i;
+    for (int i = 0 ; i < 8; ++i) {
+        if (map->modifiermap[map->max_keypermod * i] == keycode) {
+            mask = 1 << i;
+        }
+    }
 
-  XFreeModifiermap(map);
-  return mask;
+    XFreeModifiermap(map);
+    return mask;
 }
 
 unsigned int XKeyLock::setModifierMapping(KeyCode keycode)
 {
-  unsigned int mask = 0;
-  XModifierKeymap* map = XGetModifierMapping(display);
+    unsigned int mask = 0;
+    XModifierKeymap* map = XGetModifierMapping(display);
 
-  for(int i = 0 ; i < 8; ++i)
-    if (map->modifiermap[map->max_keypermod * i] == 0) 
-    {
-      map->modifiermap[map->max_keypermod * i] = keycode;
-      XSetModifierMapping(display, map);
-      mask = 1 << i;
-      break;
+    for (int i = 0 ; i < 8; ++i) {
+        if (map->modifiermap[map->max_keypermod * i] == 0) {
+            map->modifiermap[map->max_keypermod * i] = keycode;
+            XSetModifierMapping(display, map);
+            mask = 1 << i;
+            break;
+        }
     }
 
-  XFreeModifiermap(map);
-  return mask;
+    XFreeModifiermap(map);
+    return mask;
 }
 
 
 bool XKeyLock::isNumLockReadable()
 {
-  return (numlock_mask != 0);
+    return (numlock_mask != 0);
 }
 
 bool XKeyLock::isCapsLockReadable()
 {
-  return (capslock_mask != 0);
+    return (capslock_mask != 0);
 }
 
 bool XKeyLock::isScrollLockReadable()
 {
-  return (scrolllock_mask != 0);
+    return (scrolllock_mask != 0);
 }
 
 
 bool XKeyLock::getNumLock()
 {
-  if (!XKeyLock::isNumLockReadable()) 
-    return false;
-  else 
-    return (bool) (getIndicatorStates() & numlock_mask);
+    if (!XKeyLock::isNumLockReadable()) {
+        return false;
+    } else {
+        return (bool)(getIndicatorStates() & numlock_mask);
+    }
 }
 
 bool XKeyLock::getCapsLock()
 {
-  if (!XKeyLock::isCapsLockReadable()) 
-    return false;
-  else
-    return (bool) (getIndicatorStates() & capslock_mask);
+    if (!XKeyLock::isCapsLockReadable()) {
+        return false;
+    } else {
+        return (bool)(getIndicatorStates() & capslock_mask);
+    }
 }
 
 bool XKeyLock::getScrollLock()
 {
-  if (!XKeyLock::isScrollLockReadable()) 
-    return false;
-  else
-    return (bool) (getIndicatorStates() & scrolllock_mask);
+    if (!XKeyLock::isScrollLockReadable()) {
+        return false;
+    } else {
+        return (bool)(getIndicatorStates() & scrolllock_mask);
+    }
 }
 
 /*
@@ -177,12 +191,12 @@ void XKeyLock::setScrollLock(bool state)
 
 unsigned int XKeyLock::getIndicatorStates()
 {
-  Window dummy1, dummy2;
-  int dummy3, dummy4, dummy5, dummy6;
-  unsigned int indicatorStates;
+    Window dummy1, dummy2;
+    int dummy3, dummy4, dummy5, dummy6;
+    unsigned int indicatorStates;
 
-  XQueryPointer(display, DefaultRootWindow(display), &dummy1, &dummy2,&dummy3, &dummy4, &dummy5, &dummy6, &indicatorStates);
+    XQueryPointer(display, DefaultRootWindow(display), &dummy1, &dummy2, &dummy3, &dummy4, &dummy5, &dummy6, &indicatorStates);
 
-  return indicatorStates;
+    return indicatorStates;
 }
 

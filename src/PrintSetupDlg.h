@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef PrintSetupDlg_H
@@ -33,57 +33,57 @@ class PageLayoutEditor;
 
 class PrintSetupDlg : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		PrintSetupDlg(QWidget *, Document *, QPrinter *);
-		~PrintSetupDlg();
+public:
+    PrintSetupDlg(QWidget *, Document *, QPrinter *);
+    ~PrintSetupDlg();
 
-		PrinterConfiguration printerConfiguration() const;
+    PrinterConfiguration printerConfiguration() const;
 
-	protected:
-		void showEvent(QShowEvent *);
+protected:
+    void showEvent(QShowEvent *);
 
-	private slots:
-		void on_PaperSize_currentIndexChanged(const QString &);
-		void on_Orientation_currentIndexChanged(int);
-		void on_Zoom_currentIndexChanged(int);
-		void on_Pages_currentItemChanged(QListWidgetItem *, QListWidgetItem *);
-		void on_AddPage_clicked();
-		void on_InsertPage_clicked();
-		void on_DeletePage_clicked();
-		void on_SelectElement_clicked();
-		void on_TextElement_clicked();
-		void on_PatternElement_clicked();
-		void on_KeyElement_clicked();
-		void selectionMade(const QRect &);
-		void elementGeometryChanged();
-		void previewContextMenuRequested(const QPoint &);
+private slots:
+    void on_PaperSize_currentIndexChanged(const QString &);
+    void on_Orientation_currentIndexChanged(int);
+    void on_Zoom_currentIndexChanged(int);
+    void on_Pages_currentItemChanged(QListWidgetItem *, QListWidgetItem *);
+    void on_AddPage_clicked();
+    void on_InsertPage_clicked();
+    void on_DeletePage_clicked();
+    void on_SelectElement_clicked();
+    void on_TextElement_clicked();
+    void on_PatternElement_clicked();
+    void on_KeyElement_clicked();
+    void selectionMade(const QRect &);
+    void elementGeometryChanged();
+    void previewContextMenuRequested(const QPoint &);
 
-		void properties();
-		void deleteElement();
+    void properties();
+    void deleteElement();
 
-	private:
-		enum ElementMode {Select, Text, Pattern, Key};
-		void initialiseFromConfig();
-		void addPage(int, Page *);
+private:
+    enum ElementMode {Select, Text, Pattern, Key};
+    void initialiseFromConfig();
+    void addPage(int, Page *);
 
-		QPrinter::PaperSize selectedPaperSize();
-		QPrinter::Orientation selectedOrientation();
-		double selectedZoom();
+    QPrinter::PaperSize selectedPaperSize();
+    QPrinter::Orientation selectedOrientation();
+    double selectedZoom();
 
-		Ui::PrintSetup	ui;
+    Ui::PrintSetup  ui;
 
-		PrinterConfiguration	m_printerConfiguration;
+    PrinterConfiguration    m_printerConfiguration;
 
-		double		m_scale;
-		QButtonGroup	m_buttonGroup;
-		ElementMode	m_elementMode;
-		Element		*m_elementUnderCursor;
-		Document	*m_document;
-		QPrinter	*m_printer;
+    double          m_scale;
+    QButtonGroup    m_buttonGroup;
+    ElementMode     m_elementMode;
+    Element         *m_elementUnderCursor;
+    Document        *m_document;
+    QPrinter        *m_printer;
 
-		PageLayoutEditor	*m_pageLayoutEditor;
+    PageLayoutEditor    *m_pageLayoutEditor;
 };
 
 

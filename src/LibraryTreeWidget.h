@@ -1,12 +1,12 @@
-/***************************************************************************
- *   Copyright (C) 2009 by Stephen Allewell                                *
- *   stephen@mirramar.fsnet.co.uk                                          *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- ***************************************************************************/
+/*
+ * Copyright (C) 2009 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef LibraryTreeWidget_H
@@ -28,25 +28,25 @@ class QWidget;
 
 class LibraryTreeWidget : public QTreeWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		LibraryTreeWidget(QWidget *parent);
+public:
+    LibraryTreeWidget(QWidget *parent);
 
-	protected:
-		virtual void contentsDragEnterEvent(QDragEnterEvent *event);
-		virtual void contentsDragMoveEvent(QDragMoveEvent *event);
-		virtual void contentsDragLeaveEvent(QDragLeaveEvent *event);
-		virtual void contentsDropEvent(QDropEvent *event);
-		virtual bool acceptDrag(QDropEvent *event) const;
+protected:
+    virtual void contentsDragEnterEvent(QDragEnterEvent *event);
+    virtual void contentsDragMoveEvent(QDragMoveEvent *event);
+    virtual void contentsDragLeaveEvent(QDragLeaveEvent *event);
+    virtual void contentsDropEvent(QDropEvent *event);
+    virtual bool acceptDrag(QDropEvent *event) const;
 
-	private slots:
-		void openBranch();
+private slots:
+    void openBranch();
 
-	private:
-		QTreeWidgetItem	*m_dropItem;
-		QTreeWidgetItem	*m_currentItem;
-		QTimer		*m_openBranchTimer;
+private:
+    QTreeWidgetItem *m_dropItem;
+    QTreeWidgetItem *m_currentItem;
+    QTimer          *m_openBranchTimer;
 };
 
 

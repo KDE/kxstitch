@@ -1,15 +1,15 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- *										*
- *	Copied from								*
- *	http://blog.bigpixel.ro/2010/04/23/storing-pointer-in-qvariant/		*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * Copied from
+ * http://blog.bigpixel.ro/2010/04/23/storing-pointer-in-qvariant/
+ */
 
 
 #ifndef QVariantPtr_H
@@ -18,16 +18,14 @@
 
 template <class T> class QVariantPtr
 {
-	public:
-		static T* asPtr(QVariant v)
-		{
-			return (T *) v.value<void *>();
-		}
+public:
+    static T* asPtr(QVariant v) {
+        return (T *) v.value<void *>();
+    }
 
-		static QVariant asQVariant(T *ptr)
-		{
-			return qVariantFromValue((void *) ptr);
-		}
+    static QVariant asQVariant(T *ptr) {
+        return qVariantFromValue((void *) ptr);
+    }
 };
 
 

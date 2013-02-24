@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #include "Palette.h"
@@ -30,159 +30,155 @@
 
 #include <KDebug>
 
-const uchar swapCursor[] =
-{
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x08, 0x00,
-  0x00, 0x00, 0x18, 0x00,
-  0x00, 0x00, 0x3f, 0x80,
-  0x00, 0x00, 0x7f, 0xc0,
-  0x3f, 0xff, 0x3f, 0xe0,
-  0x3f, 0xff, 0x19, 0xe0,
-  0x3f, 0xff, 0x08, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x03, 0xf8,
-  0x3f, 0xff, 0x01, 0xf0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0x40,
-  0x3f, 0xff, 0x00, 0x00,
-  0x3f, 0xff, 0xff, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x1f, 0xff, 0x80,
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x00, 0x00
+const uchar swapCursor[] = {
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x08, 0x00,
+    0x00, 0x00, 0x18, 0x00,
+    0x00, 0x00, 0x3f, 0x80,
+    0x00, 0x00, 0x7f, 0xc0,
+    0x3f, 0xff, 0x3f, 0xe0,
+    0x3f, 0xff, 0x19, 0xe0,
+    0x3f, 0xff, 0x08, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x03, 0xf8,
+    0x3f, 0xff, 0x01, 0xf0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0x40,
+    0x3f, 0xff, 0x00, 0x00,
+    0x3f, 0xff, 0xff, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x1f, 0xff, 0x80,
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00
 };
 
 
-const uchar swapCursorMask[] =
-{
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x1c, 0x00,
-  0x00, 0x00, 0x3c, 0x00,
-  0x00, 0x00, 0x7f, 0xc0,
-  0x00, 0x00, 0xff, 0xe0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xbf, 0xf0,
-  0x7f, 0xff, 0x9d, 0xf0,
-  0x7f, 0xff, 0x87, 0xfc,
-  0x7f, 0xff, 0x87, 0xfc,
-  0x7f, 0xff, 0x87, 0xfc,
-  0x7f, 0xff, 0x83, 0xf8,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0xff, 0xe0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x00, 0x00, 0x00
+const uchar swapCursorMask[] = {
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x1c, 0x00,
+    0x00, 0x00, 0x3c, 0x00,
+    0x00, 0x00, 0x7f, 0xc0,
+    0x00, 0x00, 0xff, 0xe0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xbf, 0xf0,
+    0x7f, 0xff, 0x9d, 0xf0,
+    0x7f, 0xff, 0x87, 0xfc,
+    0x7f, 0xff, 0x87, 0xfc,
+    0x7f, 0xff, 0x87, 0xfc,
+    0x7f, 0xff, 0x83, 0xf8,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0xff, 0xe0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x00, 0x00, 0x00
 };
 
 
-const uchar replaceCursor[] =
-{
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x08, 0x00,
-  0x00, 0x00, 0x18, 0x00,
-  0x00, 0x00, 0x3f, 0x80,
-  0x00, 0x00, 0x7f, 0xc0,
-  0x3f, 0xff, 0x3f, 0xe0,
-  0x3f, 0xff, 0x19, 0xe0,
-  0x3f, 0xff, 0x08, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0xe0,
-  0x3f, 0xff, 0x00, 0x00,
-  0x3f, 0xff, 0xff, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x3f, 0xff, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x10, 0x00, 0x80,
-  0x00, 0x1f, 0xff, 0x80,
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x00, 0x00
+const uchar replaceCursor[] = {
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x08, 0x00,
+    0x00, 0x00, 0x18, 0x00,
+    0x00, 0x00, 0x3f, 0x80,
+    0x00, 0x00, 0x7f, 0xc0,
+    0x3f, 0xff, 0x3f, 0xe0,
+    0x3f, 0xff, 0x19, 0xe0,
+    0x3f, 0xff, 0x08, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0xe0,
+    0x3f, 0xff, 0x00, 0x00,
+    0x3f, 0xff, 0xff, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x3f, 0xff, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x10, 0x00, 0x80,
+    0x00, 0x1f, 0xff, 0x80,
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00
 };
 
 
-const uchar replaceCursorMask[] =
-{
-  0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x1c, 0x00,
-  0x00, 0x00, 0x3c, 0x00,
-  0x00, 0x00, 0x7f, 0xc0,
-  0x00, 0x00, 0xff, 0xe0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xff, 0xf0,
-  0x7f, 0xff, 0xbf, 0xf0,
-  0x7f, 0xff, 0x9d, 0xf0,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0x81, 0xf0,
-  0x7f, 0xff, 0xff, 0xe0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x7f, 0xff, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x3f, 0xff, 0xc0,
-  0x00, 0x00, 0x00, 0x00
+const uchar replaceCursorMask[] = {
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x1c, 0x00,
+    0x00, 0x00, 0x3c, 0x00,
+    0x00, 0x00, 0x7f, 0xc0,
+    0x00, 0x00, 0xff, 0xe0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xff, 0xf0,
+    0x7f, 0xff, 0xbf, 0xf0,
+    0x7f, 0xff, 0x9d, 0xf0,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0x81, 0xf0,
+    0x7f, 0xff, 0xff, 0xe0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x7f, 0xff, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x3f, 0xff, 0xc0,
+    0x00, 0x00, 0x00, 0x00
 };
 
 
 Palette::Palette(QWidget *parent)
-	:	QFrame(parent),
-		m_mode(Select)
+    :   QFrame(parent),
+        m_mode(Select)
 {
-	setObjectName("Palette#");
+    setObjectName("Palette#");
 }
 
 
@@ -193,227 +189,224 @@ Palette::~Palette()
 
 QSize Palette::sizeHint() const
 {
-	return QSize(400, 600);
+    return QSize(400, 600);
 }
 
 
 void Palette::setDocument(Document *document)
 {
-	m_document = document;
-	readDocumentSettings();
+    m_document = document;
+    readDocumentSettings();
 }
 
 
 Document *Palette::document() const
 {
-	return m_document;
+    return m_document;
 }
 
 
 void Palette::readDocumentSettings()
 {
-	showSymbols(m_document->pattern()->palette().showSymbols());
+    showSymbols(m_document->pattern()->palette().showSymbols());
 }
 
 
 void Palette::showSymbols(bool show)
 {
-	m_showSymbols = show;
-	update();
+    m_showSymbols = show;
+    update();
 }
 
 
 void Palette::swapColors()
 {
-	if (m_paletteIndex.count() > 1) // can't swap if there is less than two colors
-	{
-		m_mode = Swap;
-		setCursor(QCursor(QBitmap().fromData(QSize(32, 32), swapCursor, QImage::Format_Mono), QBitmap().fromData(QSize(32, 32), swapCursorMask, QImage::Format_Mono)));
-	}
+    if (m_paletteIndex.count() > 1) { // can't swap if there is less than two colors
+        m_mode = Swap;
+        setCursor(QCursor(QBitmap().fromData(QSize(32, 32), swapCursor, QImage::Format_Mono), QBitmap().fromData(QSize(32, 32), swapCursorMask, QImage::Format_Mono)));
+    }
 }
 
 
 void Palette::replaceColor()
 {
-	if (m_paletteIndex.count() > 1) // can't replace if there is less than two colors
-	{
-		m_mode = Replace;
-		setCursor(QCursor(QBitmap().fromData(QSize(32, 32), replaceCursor, QImage::Format_Mono), QBitmap().fromData(QSize(32, 32), replaceCursorMask, QImage::Format_Mono)));
-	}
+    if (m_paletteIndex.count() > 1) { // can't replace if there is less than two colors
+        m_mode = Replace;
+        setCursor(QCursor(QBitmap().fromData(QSize(32, 32), replaceCursor, QImage::Format_Mono), QBitmap().fromData(QSize(32, 32), replaceCursorMask, QImage::Format_Mono)));
+    }
 }
 
 
 void Palette::loadSettings()
 {
-	update();
+    update();
 }
 
 
 bool Palette::event(QEvent *event)
 {
-	if (event->type() == QEvent::ToolTip)
-	{
-		QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
-		if (m_paletteIndex.count())
-		{
-			QPoint local = helpEvent->pos();
-			int xCell = local.x()/m_width;
-			int yCell = local.y()/m_height;
-			int i = yCell*m_cols+xCell;
-			if (i < m_paletteIndex.count())
-			{
-				DocumentFloss *documentFloss = m_document->pattern()->palette().flosses()[m_paletteIndex[i]];
-				FlossScheme *flossScheme = SchemeManager::scheme(m_document->pattern()->palette().schemeName());
-				Floss *floss = flossScheme->find(documentFloss->flossName());
-				FlossUsage flossUsage = m_document->pattern()->stitches().flossUsage()[m_paletteIndex[i]];
-				QString tip = QString("%1 %2\n%3 Stitches").arg(floss->name()).arg(floss->description()).arg(flossUsage.stitchCount()+flossUsage.backstitchCount);
-				QToolTip::showText(helpEvent->globalPos(), tip);
-			}
-			else
-			{
-				QToolTip::hideText();
-				event->ignore();
-			}
-		}
-		else
-			QToolTip::showText(helpEvent->globalPos(), i18n("No colors in palette"));
+    if (event->type() == QEvent::ToolTip) {
+        QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
 
-		return true;
-	}
-	return QWidget::event(event);
+        if (m_paletteIndex.count()) {
+            QPoint local = helpEvent->pos();
+            int xCell = local.x() / m_width;
+            int yCell = local.y() / m_height;
+            int i = yCell * m_cols + xCell;
+
+            if (i < m_paletteIndex.count()) {
+                DocumentFloss *documentFloss = m_document->pattern()->palette().flosses()[m_paletteIndex[i]];
+                FlossScheme *flossScheme = SchemeManager::scheme(m_document->pattern()->palette().schemeName());
+                Floss *floss = flossScheme->find(documentFloss->flossName());
+                FlossUsage flossUsage = m_document->pattern()->stitches().flossUsage()[m_paletteIndex[i]];
+                QString tip = QString("%1 %2\n%3 Stitches").arg(floss->name()).arg(floss->description()).arg(flossUsage.stitchCount() + flossUsage.backstitchCount);
+                QToolTip::showText(helpEvent->globalPos(), tip);
+            } else {
+                QToolTip::hideText();
+                event->ignore();
+            }
+        } else {
+            QToolTip::showText(helpEvent->globalPos(), i18n("No colors in palette"));
+        }
+
+        return true;
+    }
+
+    return QWidget::event(event);
 }
 
 
 void Palette::paintEvent(QPaintEvent *)
 {
-	if (m_document == 0) return;
+    if (m_document == 0) {
+        return;
+    }
 
-	QMap<int, DocumentFloss *> palette = m_document->pattern()->palette().flosses();
-	m_flosses = palette.count();
-	m_paletteIndex = m_document->pattern()->palette().sortedFlosses();
+    QMap<int, DocumentFloss *> palette = m_document->pattern()->palette().flosses();
+    m_flosses = palette.count();
+    m_paletteIndex = m_document->pattern()->palette().sortedFlosses();
 
-	int currentFlossIndex = m_document->pattern()->palette().currentIndex();
+    int currentFlossIndex = m_document->pattern()->palette().currentIndex();
 
-	QPainter painter;
+    QPainter painter;
 
-	if (m_flosses)
-	{
-		static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty", KXMLGUIClient::StateReverse);
+    if (m_flosses) {
+        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty", KXMLGUIClient::StateReverse);
 
-		m_cols = 5;
-		while (true)
-		{
-			while ((m_width = contentsRect().width()/m_cols) > 40)
-				m_cols++;
-			m_rows = m_flosses/m_cols;
-			if (m_flosses%m_cols)
-				m_rows++;
-			m_height = std::min(contentsRect().height()/m_rows, m_width);
-			if ((m_width-m_height) > m_height)
-				m_cols++;
-			else
-				break;
-		}
+        m_cols = 5;
 
-		painter.begin(this);
-		QFont font = painter.font();
-		font.setFamily(Configuration::editor_SymbolFont());
-		font.setPixelSize(std::min(m_width, m_height));
-		painter.setFont(font);
+        while (true) {
+            while ((m_width = contentsRect().width() / m_cols) > 40) {
+                m_cols++;
+            }
 
-		for (int flossIndex = 0 ; flossIndex < m_flosses ; flossIndex++)
-		{
-			QColor color = palette[m_paletteIndex[flossIndex]]->flossColor();
-			int x = (flossIndex%m_cols)*m_width;
-			int y = (flossIndex/m_cols)*m_height;
-			QRect rect(x, y, m_width, m_height);
+            m_rows = m_flosses / m_cols;
 
-			painter.fillRect(rect, color);
+            if (m_flosses % m_cols) {
+                m_rows++;
+            }
 
-			if (currentFlossIndex == -1)
-			{
-				m_document->pattern()->palette().setCurrentIndex(m_paletteIndex[flossIndex]);
-				currentFlossIndex = m_paletteIndex[flossIndex];
-			}
+            m_height = std::min(contentsRect().height() / m_rows, m_width);
 
-			if (m_paletteIndex[flossIndex] == currentFlossIndex)
-			{
-				painter.setPen(Qt::black);
-				painter.drawLine(rect.topLeft(), rect.topRight());
-				painter.drawLine(rect.topLeft(), rect.bottomLeft());
-				painter.setPen(Qt::white);
-				painter.drawLine(rect.topRight(), rect.bottomRight());
-				painter.drawLine(rect.bottomLeft(), rect.bottomRight());
-			}
-			else
-			{
-				painter.setPen(Qt::black);
-				painter.drawLine(rect.topRight(), rect.bottomRight());
-				painter.drawLine(rect.bottomLeft(), rect.bottomRight());
-				painter.setPen(Qt::white);
-				painter.drawLine(rect.topLeft(), rect.topRight());
-				painter.drawLine(rect.topLeft(), rect.bottomLeft());
-			}
+            if ((m_width - m_height) > m_height) {
+                m_cols++;
+            } else {
+                break;
+            }
+        }
 
-			if (m_showSymbols)
-			{
-				if (qGray(color.rgb()) < 128)
-					painter.setPen(Qt::white);
-				else
-					painter.setPen(Qt::black);
-				painter.drawText(rect, Qt::AlignCenter, palette[m_paletteIndex[flossIndex]]->stitchSymbol());
-			}
-		}
+        painter.begin(this);
+        QFont font = painter.font();
+        font.setFamily(Configuration::editor_SymbolFont());
+        font.setPixelSize(std::min(m_width, m_height));
+        painter.setFont(font);
 
-		painter.end();
-	}
-	else
-	{
-		static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty");
-	}
+        for (int flossIndex = 0 ; flossIndex < m_flosses ; flossIndex++) {
+            QColor color = palette[m_paletteIndex[flossIndex]]->flossColor();
+            int x = (flossIndex % m_cols) * m_width;
+            int y = (flossIndex / m_cols) * m_height;
+            QRect rect(x, y, m_width, m_height);
+
+            painter.fillRect(rect, color);
+
+            if (currentFlossIndex == -1) {
+                m_document->pattern()->palette().setCurrentIndex(m_paletteIndex[flossIndex]);
+                currentFlossIndex = m_paletteIndex[flossIndex];
+            }
+
+            if (m_paletteIndex[flossIndex] == currentFlossIndex) {
+                painter.setPen(Qt::black);
+                painter.drawLine(rect.topLeft(), rect.topRight());
+                painter.drawLine(rect.topLeft(), rect.bottomLeft());
+                painter.setPen(Qt::white);
+                painter.drawLine(rect.topRight(), rect.bottomRight());
+                painter.drawLine(rect.bottomLeft(), rect.bottomRight());
+            } else {
+                painter.setPen(Qt::black);
+                painter.drawLine(rect.topRight(), rect.bottomRight());
+                painter.drawLine(rect.bottomLeft(), rect.bottomRight());
+                painter.setPen(Qt::white);
+                painter.drawLine(rect.topLeft(), rect.topRight());
+                painter.drawLine(rect.topLeft(), rect.bottomLeft());
+            }
+
+            if (m_showSymbols) {
+                if (qGray(color.rgb()) < 128) {
+                    painter.setPen(Qt::white);
+                } else {
+                    painter.setPen(Qt::black);
+                }
+
+                painter.drawText(rect, Qt::AlignCenter, palette[m_paletteIndex[flossIndex]]->stitchSymbol());
+            }
+        }
+
+        painter.end();
+    } else {
+        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty");
+    }
 }
 
 
 void Palette::contextMenuEvent(QContextMenuEvent *event)
 {
-	MainWindow *mainwindow = qobject_cast<MainWindow *>(topLevelWidget());
-	QMenu *context = static_cast<QMenu *>(mainwindow->guiFactory()->container("PalettePopup", mainwindow));
-	context->popup(event->globalPos());
-	event->accept();
+    MainWindow *mainwindow = qobject_cast<MainWindow *>(topLevelWidget());
+    QMenu *context = static_cast<QMenu *>(mainwindow->guiFactory()->container("PalettePopup", mainwindow));
+    context->popup(event->globalPos());
+    event->accept();
 }
 
 
 void Palette::mousePressEvent(QMouseEvent *event)
 {
-	if ((event->button() & Qt::LeftButton) && m_flosses)
-	{
-		QPoint p = event->pos();
-		int x = (p.x()/m_width);
-		int y = (p.y()/m_height);
-		int i = y*m_cols+x;
-		int selectedIndex = m_paletteIndex[i];
-		if (i < m_flosses)
-		{
-			if (m_mode == Swap)
-			{
-				int currentIndex = m_document->pattern()->palette().currentIndex();
-				emit(swapColors(currentIndex, selectedIndex));
-				setCursor(Qt::ArrowCursor);
-				m_mode = Select;
-				selectedIndex = currentIndex;
-			}
-			if (m_mode == Replace)
-			{
-				emit(replaceColor(m_document->pattern()->palette().currentIndex(), selectedIndex));
-				setCursor(Qt::ArrowCursor);
-				m_mode = Select;
-			}
-			if (m_mode == Select)
-			{
-				m_document->pattern()->palette().setCurrentIndex(selectedIndex);
-				emit colorSelected(i);
-			}
-		}
-		repaint();
-	}
+    if ((event->button() & Qt::LeftButton) && m_flosses) {
+        QPoint p = event->pos();
+        int x = (p.x() / m_width);
+        int y = (p.y() / m_height);
+        int i = y * m_cols + x;
+        int selectedIndex = m_paletteIndex[i];
+
+        if (i < m_flosses) {
+            if (m_mode == Swap) {
+                int currentIndex = m_document->pattern()->palette().currentIndex();
+                emit(swapColors(currentIndex, selectedIndex));
+                setCursor(Qt::ArrowCursor);
+                m_mode = Select;
+                selectedIndex = currentIndex;
+            }
+
+            if (m_mode == Replace) {
+                emit(replaceColor(m_document->pattern()->palette().currentIndex(), selectedIndex));
+                setCursor(Qt::ArrowCursor);
+                m_mode = Select;
+            }
+
+            if (m_mode == Select) {
+                m_document->pattern()->palette().setCurrentIndex(selectedIndex);
+                emit colorSelected(i);
+            }
+        }
+
+        repaint();
+    }
 }

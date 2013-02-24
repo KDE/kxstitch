@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef PageLayoutEditor_H
@@ -25,57 +25,56 @@ class QMouseEvent;
 
 class PageLayoutEditor : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		PageLayoutEditor(QWidget *, Document *);
-		~PageLayoutEditor();
+public:
+    PageLayoutEditor(QWidget *, Document *);
+    ~PageLayoutEditor();
 
-		double zoomFactor() const;
+    double zoomFactor() const;
 
-		void setPagePreview(PagePreviewListWidgetItem *);
-		void updatePagePreview();
-		void setZoomFactor(double);
-		void setSelecting(bool);
+    void setPagePreview(PagePreviewListWidgetItem *);
+    void updatePagePreview();
+    void setZoomFactor(double);
+    void setSelecting(bool);
 
-		int scale(int) const;
-		int unscale(int) const;
-		QPoint scale(const QPoint &) const;
-		QPoint unscale(const QPoint &) const;
-		QRect scale(const QRect &) const;
-		QRect unscale(const QRect &) const;
+    int scale(int) const;
+    int unscale(int) const;
+    QPoint scale(const QPoint &) const;
+    QPoint unscale(const QPoint &) const;
+    QRect scale(const QRect &) const;
+    QRect unscale(const QRect &) const;
 
-	signals:
-		void selectionMade(QRect);
-		void elementGeometryChanged();
+signals:
+    void selectionMade(QRect);
+    void elementGeometryChanged();
 
-	protected:
-		virtual void mousePressEvent(QMouseEvent *);
-		virtual void mouseMoveEvent(QMouseEvent *);
-		virtual void mouseReleaseEvent(QMouseEvent *);
-		virtual void paintEvent(QPaintEvent *);
+protected:
+    virtual void mousePressEvent(QMouseEvent *);
+    virtual void mouseMoveEvent(QMouseEvent *);
+    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual void paintEvent(QPaintEvent *);
 
-	private:
-		QPoint toSnap(const QPoint &) const;
+private:
+    QPoint toSnap(const QPoint &) const;
 
-		Document			*m_document;
-		PagePreviewListWidgetItem	*m_pagePreview;
+    Document            *m_document;
+    PagePreviewListWidgetItem   *m_pagePreview;
 
-		int	m_paperWidth;
-		int	m_paperHeight;
+    int m_paperWidth;
+    int m_paperHeight;
 
-		bool		m_selecting;
-		bool		m_resizing;
-		bool		m_moved;
-		Boundary	m_boundary;
-		QRect		m_rubberBand;
-		QPoint		m_start;
-		QPoint		m_end;
-		const QPoint	*m_node;
+    bool        m_selecting;
+    bool        m_resizing;
+    bool        m_moved;
+    Boundary    m_boundary;
+    QRect       m_rubberBand;
+    QPoint      m_start;
+    QPoint      m_end;
+    const QPoint    *m_node;
 
-		int	m_gridSize;
-
-		double	m_zoomFactor;
+    int     m_gridSize;
+    double  m_zoomFactor;
 };
 
 

@@ -1,12 +1,12 @@
-/********************************************************************************
- *	Copyright (C) 2010 by Stephen Allewell					*
- *	stephen@mirramar.adsl24.co.uk						*
- *										*
- *	This program is free software; you can redistribute it and/or modify	*
- *	it under the terms of the GNU General Public License as published by	*
- *	the Free Software Foundation; either version 2 of the License, or	*
- *	(at your option) any later version.					*
- ********************************************************************************/
+/*
+ * Copyright (C) 2010 by Stephen Allewell
+ * stephen@mirramar.adsl24.co.uk
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
 
 
 #ifndef TextElementDlg_H
@@ -21,22 +21,22 @@ class TextElement;
 
 class TextElementDlg : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		TextElementDlg(QWidget *, TextElement *);
-		~TextElementDlg();
+public:
+    TextElementDlg(QWidget *, TextElement *);
+    ~TextElementDlg();
 
-	protected slots:
-		void slotButtonClicked(int);
+protected slots:
+    void slotButtonClicked(int);
 
-	private slots:
-		void on_BackgroundTransparency_valueChanged(int);
+private slots:
+    void on_BackgroundTransparency_valueChanged(int);
 
-	private:
-		Ui::TextElement	ui;
+private:
+    Ui::TextElement ui;
 
-		TextElement	*m_textElement;
+    TextElement *m_textElement;
 };
 
 
