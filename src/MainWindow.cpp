@@ -651,12 +651,18 @@ void MainWindow::fileImportImage()
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
     KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Import Image"));
 
-    if (!url.path().isNull()) {
-        if (docEmpty) {
-            convertImage(Magick::Image(url.pathOrUrl().toStdString()));
+    if (url.isValid()) {
+        QString source;
+        if (KIO::NetAccess::download(url, source, 0)) {
+            if (docEmpty) {
+                convertImage(Magick::Image(url.pathOrUrl().toStdString()));
+            } else {
+                window = new MainWindow(Magick::Image(url.pathOrUrl().toStdString()));
+                window->show();
+            }
+            KIO::NetAccess::removeTempFile(source);
         } else {
-            window = new MainWindow(Magick::Image(url.pathOrUrl().toStdString()));
-            window->show();
+            KMessageBox::error(0, KIO::NetAccess::lastErrorString());
         }
     }
 }
