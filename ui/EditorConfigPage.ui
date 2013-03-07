@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>223</width>
-    <height>353</height>
+    <width>242</width>
+    <height>436</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -120,6 +120,25 @@
       </item>
       <item row="1" column="1">
        <widget class="QSpinBox" name="kcfg_Editor_VerticalScaleWidth"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
+      <string>Fractionals</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="kcfg_ToolShapes_UseFractionals">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string>Tool Fractionals</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

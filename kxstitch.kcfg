@@ -1,437 +1,425 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-			    http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-	<kcfgfile name="kxstitchrc"/>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name="kxstitchrc"/>
 
-	<group name="kxstitch">
-		<entry name="Application_Width" type="Int">
-			<label>The width of the application</label>
-			<default>1200</default>
-		</entry>
-		<entry name="Application_Height" type="Int">
-			<label>The height of the application</label>
-			<default>800</default>
-		</entry>
-		<entry name="Application_HorizontalSplitterSizes" type="IntList">
-			<label>The horizontal splitter values</label>
-			<default>300,900</default>
-		</entry>
-		<entry name="Application_VerticalSplitterSizes" type="IntList">
-			<label>The vertical splitter sizes</label>
-			<default>200,600</default>
-		</entry>
-	</group>
+    <group name="kxstitch">
+        <entry name="Application_Width" type="Int">
+            <label>The width of the application</label>
+            <default>1200</default>
+        </entry>
+        <entry name="Application_Height" type="Int">
+            <label>The height of the application</label>
+            <default>800</default>
+        </entry>
+        <entry name="Application_HorizontalSplitterSizes" type="IntList">
+            <label>The horizontal splitter values</label>
+            <default>300,900</default>
+        </entry>
+        <entry name="Application_VerticalSplitterSizes" type="IntList">
+            <label>The vertical splitter sizes</label>
+            <default>200,600</default>
+        </entry>
+    </group>
 
-	<group name="editor">
-		<entry name="Editor_BackgroundColor" type="Color">
-			<label>The background color.</label>
-			<default>#ffffff</default>
-		</entry>
-		<entry name="Editor_ThickLineColor" type="Color">
-			<label>The color of the editors thick lines.</label>
-			<default>#808080</default>
-		</entry>
-		<entry name="Editor_ThinLineColor" type="Color">
-			<label>The color of the editors thin lines.</label>
-			<default>#c0c0c0</default>
-		</entry>
-		<entry name="Editor_ThickLineWidth" type="Int">
-			<label>The width of the major grid lines.</label>
-			<default>0</default>
-		</entry>
-		<entry name="Editor_ThinLineWidth" type="Int">
-			<label>The width of the minor grid lines.</label>
-			<default>0</default>
-		</entry>
-		<entry name="Editor_CellHorizontalGrouping" type="Int">
-			<label>The number of cells making up a horizontal group.</label>
-			<default>10</default>
-		</entry>
-		<entry name="Editor_CellVerticalGrouping" type="Int">
-			<label>The number of cells making up a vertical group.</label>
-			<default>10</default>
-		</entry>
-		<entry name="Editor_HorizontalClothCount" type="Double">
-			<label>The horizontal cloth count.</label>
-			<default>16</default>
-		</entry>
-		<entry name="Editor_VerticalClothCount" type="Double">
-			<label>The vertical cloth count.</label>
-			<default>16</default>
-		</entry>
-		<entry name="Editor_ClothCountUnits" type="Enum">
-			<label>The cloth count units.</label>
-			<default>Inches</default>
-			<choices>
-				<choice name="Inches" />
-				<choice name="CM" />
-			</choices>
-		</entry>
-		<entry name="Editor_ClothCountLink" type="Bool">
-			<label>Square cells</label>
-			<default>true</default>
-		</entry>
-		<entry name="Editor_HorizontalScaleHeight" type="Int">
-			<label>The height of the horizontal ruler.</label>
-			<default>30</default>
-		</entry>
-		<entry name="Editor_VerticalScaleWidth" type="Int">
-			<label>The width of the vertical ruler.</label>
-			<default>30</default>
-		</entry>
-		<entry name="Editor_FormatScalesAs" type="Enum">
-			<label>The display units for a scale.</label>
-			<default>Stitches</default>
-			<choices>
-				<choice name="Stitches" />
-				<choice name="Inches" />
-				<choice name="CM" />
-			</choices>
-		</entry>
-		<entry name="Editor_SymbolFont" type="String">
-			<label>The font family to be used for symbols.</label>
-			<default>Arial</default>
-		</entry>
-	</group>
+    <group name="editor">
+        <entry name="Editor_BackgroundColor" type="Color">
+            <label>The background color.</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="Editor_ThickLineColor" type="Color">
+            <label>The color of the editors thick lines.</label>
+            <default>#808080</default>
+        </entry>
+        <entry name="Editor_ThinLineColor" type="Color">
+            <label>The color of the editors thin lines.</label>
+            <default>#c0c0c0</default>
+        </entry>
+        <entry name="Editor_ThickLineWidth" type="Int">
+            <label>The width of the major grid lines.</label>
+            <default>0</default>
+        </entry>
+        <entry name="Editor_ThinLineWidth" type="Int">
+            <label>The width of the minor grid lines.</label>
+            <default>0</default>
+        </entry>
+        <entry name="Editor_CellHorizontalGrouping" type="Int">
+            <label>The number of cells making up a horizontal group.</label>
+            <default>10</default>
+        </entry>
+        <entry name="Editor_CellVerticalGrouping" type="Int">
+            <label>The number of cells making up a vertical group.</label>
+            <default>10</default>
+        </entry>
+        <entry name="Editor_HorizontalClothCount" type="Double">
+            <label>The horizontal cloth count.</label>
+            <default>16</default>
+        </entry>
+        <entry name="Editor_VerticalClothCount" type="Double">
+            <label>The vertical cloth count.</label>
+            <default>16</default>
+        </entry>
+        <entry name="Editor_ClothCountUnits" type="Enum">
+            <label>The cloth count units.</label>
+            <default>Inches</default>
+            <choices>
+                <choice name="Inches" />
+                <choice name="CM" />
+            </choices>
+        </entry>
+        <entry name="Editor_ClothCountLink" type="Bool">
+            <label>Square cells</label>
+            <default>true</default>
+        </entry>
+        <entry name="Editor_HorizontalScaleHeight" type="Int">
+            <label>The height of the horizontal ruler.</label>
+            <default>30</default>
+        </entry>
+        <entry name="Editor_VerticalScaleWidth" type="Int">
+            <label>The width of the vertical ruler.</label>
+            <default>30</default>
+        </entry>
+        <entry name="Editor_FormatScalesAs" type="Enum">
+            <label>The display units for a scale.</label>
+            <default>Stitches</default>
+            <choices>
+                <choice name="Stitches" />
+                <choice name="Inches" />
+                <choice name="CM" />
+            </choices>
+        </entry>
+        <entry name="Editor_SymbolFont" type="String">
+            <label>The font family to be used for symbols.</label>
+            <default>Arial</default>
+        </entry>
+    </group>
 
-	<group name="renderer">
-		<entry name="Renderer_ColorHilight" type="Bool">
-			<label>Enable color hilighting mode</label>
-			<default>false</default>
-		</entry>
-		<entry name="Renderer_RenderBackgroundImages" type="Bool">
-			<label>Render the background images</label>
-			<default>true</default>
-		</entry>
-		<entry name="Renderer_RenderGrid" type="Bool">
-			<label>Render the grid</label>
-			<default>true</default>
-		</entry>
-		<entry name="Renderer_RenderStitches" type="Bool">
-			<label>Render the stitches</label>
-			<default>true</default>
-		</entry>
-		<entry name="Renderer_RenderBackstitches" type="Bool">
-			<label>Render the backstitches</label>
-			<default>true</default>
-		</entry>
-		<entry name="Renderer_RenderFrenchKnots" type="Bool">
-			<label>Render the french knots</label>
-			<default>true</default>
-		</entry>
-		<entry name="Renderer_RenderStitchesAs" type="Enum">
-			<label>How to display stitches.</label>
-			<default>Stitches</default>
-			<choices>
-				<choice name="None" />
-				<choice name="Stitches" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorSymbols" />
-				<choice name="ColorBlocks" />
-				<choice name="ColorBlocksSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
-		</entry>
-		<entry name="Renderer_RenderBackstitchesAs" type="Enum">
-			<label>How to display backstitches.</label>
-			<default>ColorLines</default>
-			<choices>
-				<choice name="None" />
-				<choice name="ColorLines" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
-		</entry>
-		<entry name="Renderer_RenderKnotsAs" type="Enum">
-			<label>How to display french knots.</label>
-			<default>ColorBlocks</default>
-			<choices>
-				<choice name="None" />
-				<choice name="ColorBlocks" />
-				<choice name="ColorBlocksSymbols" />
-				<choice name="ColorSymbols" />
-				<choice name="BlackWhiteSymbols" />
-				<choice name="ColorHilight" />
-			</choices>
-		</entry>
-	</group>
+    <group name="renderer">
+        <entry name="Renderer_ColorHilight" type="Bool">
+            <label>Enable color hilighting mode</label>
+            <default>false</default>
+        </entry>
+        <entry name="Renderer_RenderBackgroundImages" type="Bool">
+            <label>Render the background images</label>
+            <default>true</default>
+        </entry>
+        <entry name="Renderer_RenderGrid" type="Bool">
+            <label>Render the grid</label>
+            <default>true</default>
+        </entry>
+        <entry name="Renderer_RenderStitches" type="Bool">
+            <label>Render the stitches</label>
+            <default>true</default>
+        </entry>
+        <entry name="Renderer_RenderBackstitches" type="Bool">
+            <label>Render the backstitches</label>
+            <default>true</default>
+        </entry>
+        <entry name="Renderer_RenderFrenchKnots" type="Bool">
+            <label>Render the french knots</label>
+            <default>true</default>
+        </entry>
+        <entry name="Renderer_RenderStitchesAs" type="Enum">
+            <label>How to display stitches.</label>
+            <default>Stitches</default>
+            <choices>
+                <choice name="None" />
+                <choice name="Stitches" />
+                <choice name="BlackWhiteSymbols" />
+                <choice name="ColorSymbols" />
+                <choice name="ColorBlocks" />
+                <choice name="ColorBlocksSymbols" />
+                <choice name="ColorHilight" />
+            </choices>
+        </entry>
+        <entry name="Renderer_RenderBackstitchesAs" type="Enum">
+            <label>How to display backstitches.</label>
+            <default>ColorLines</default>
+            <choices>
+                <choice name="None" />
+                <choice name="ColorLines" />
+                <choice name="BlackWhiteSymbols" />
+                <choice name="ColorHilight" />
+            </choices>
+        </entry>
+        <entry name="Renderer_RenderKnotsAs" type="Enum">
+            <label>How to display french knots.</label>
+            <default>ColorBlocks</default>
+            <choices>
+                <choice name="None" />
+                <choice name="ColorBlocks" />
+                <choice name="ColorBlocksSymbols" />
+                <choice name="ColorSymbols" />
+                <choice name="BlackWhiteSymbols" />
+                <choice name="ColorHilight" />
+            </choices>
+        </entry>
+    </group>
 
-	<group name="document">
-		<entry name="Document_Width" type="Int">
-			<label>The default width of a new pattern in the units specified.</label>
-			<default>100</default>
-		</entry>
-		<entry name="Document_Height" type="Int">
-			<label>The default height of a new pattern in the units specified.</label>
-			<default>80</default>
-		</entry>
-		<entry name="Document_UnitsFormat" type="Enum">
-			<label>The cloth count units.</label>
-			<default>Stitches</default>
-			<choices>
-				<choice name="Stitches" />
-				<choice name="Inches" />
-				<choice name="CM" />
-			</choices>
-		</entry>
-	</group>
+    <group name="document">
+        <entry name="Document_Width" type="Int">
+            <label>The default width of a new pattern in the units specified.</label>
+            <default>100</default>
+        </entry>
+        <entry name="Document_Height" type="Int">
+            <label>The default height of a new pattern in the units specified.</label>
+            <default>80</default>
+        </entry>
+        <entry name="Document_UnitsFormat" type="Enum">
+            <label>The cloth count units.</label>
+            <default>Stitches</default>
+            <choices>
+                <choice name="Stitches" />
+                <choice name="Inches" />
+                <choice name="CM" />
+            </choices>
+        </entry>
+    </group>
 
-	<group name="import">
-		<entry name="Import_UseMaximumColors" type="Bool">
-			<label>Use a maximum number of colors</label>
-			<default>true</default>
-		</entry>
-		<entry name="Import_MaximumColors" type="Int">
-			<label>Maximum number of colors</label>
-			<default>50</default>
-		</entry>
-		<entry name="Import_UseFractionals" type="Bool">
-			<label>Use fractional stitches for finer detail</label>
-			<default>false</default>
-		</entry>
-	</group>
+    <group name="import">
+        <entry name="Import_UseMaximumColors" type="Bool">
+            <label>Use a maximum number of colors</label>
+            <default>true</default>
+        </entry>
+        <entry name="Import_MaximumColors" type="Int">
+            <label>Maximum number of colors</label>
+            <default>50</default>
+        </entry>
+        <entry name="Import_UseFractionals" type="Bool">
+            <label>Use fractional stitches for finer detail</label>
+            <default>false</default>
+        </entry>
+    </group>
 
-	<group name="palette">
-		<entry name="Palette_DefaultScheme" type="String">
-			<label>The default floss scheme to be used for new documents.</label>
-			<default>DMC</default>
-		</entry>
-		<entry name="Palette_StitchStrands" type="Int">
-			<label>The default number of strands used for stitches.</label>
-			<default>2</default>
-		</entry>
-		<entry name="Palette_BackstitchStrands" type="Int">
-			<label>The default number of strands used for backstitches.</label>
-			<default>2</default>
-		</entry>
-		<entry name="Palette_ShowSymbols" type="Bool">
-			<label>Display the symbols in the palette.</label>
-			<default>false</default>
-		</entry>
-	</group>
-	
-	<group name="library">
-		<entry name="Icon_DefaultSize" type="Int">
-			<label>The default size of icons shown in the icon view</label>
-			<default>64</default>
-		</entry>
-	</group>
-	
-	<group name="alphabet">
-		<entry name="Alphabet_UseCapsLock" type="Bool">
-			<label>Should character selection honor the caps lock key</label>
-			<default>true</default>
-		</entry>
-		<entry name="Alphabet_SpaceWidth" type="Int">
-			<label>The default width of a space in cells</label>
-			<default>3</default>
-		</entry>
-		<entry name="Alphabet_WordWrap" type="Bool">
-			<label>Should a space cause word wrapping at the right edge of the pattern</label>
-			<default>true</default>
-		</entry>
-		<entry name="Alphabet_LineSpacing" type="Int">
-			<label>The number of cells between lines of text</label>
-			<default>2</default>
-		</entry>
-		<entry name="Alphabet_ExtendPatternWidth" type="Int">
-			<label>The number of cells to be added when extending the pattern right</label>
-			<default>5</default>
-		</entry>
-		<entry name="Alphabet_ExtendPatternHeight" type="Int">
-			<label>The number of cells to be added when extending the pattern down</label>
-			<default>10</default>
-		</entry>
-	</group>
+    <group name="palette">
+        <entry name="Palette_DefaultScheme" type="String">
+            <label>The default floss scheme to be used for new documents.</label>
+            <default>DMC</default>
+        </entry>
+        <entry name="Palette_StitchStrands" type="Int">
+            <label>The default number of strands used for stitches.</label>
+            <default>2</default>
+        </entry>
+        <entry name="Palette_BackstitchStrands" type="Int">
+            <label>The default number of strands used for backstitches.</label>
+            <default>2</default>
+        </entry>
+        <entry name="Palette_ShowSymbols" type="Bool">
+            <label>Display the symbols in the palette.</label>
+            <default>false</default>
+        </entry>
+    </group>
 
-	<group name="printer">
-		<entry name="Page_MarginLeft" type="Int">
-			<label>The page left margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="Page_MarginTop" type="Int">
-			<label>The page top margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="Page_MarginRight" type="Int">
-			<label>The page right margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="Page_MarginBottom" type="Int">
-			<label>The page bottom margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="Page_GridSize" type="Int">
-			<label>The grid size in mm</label>
-			<default>10</default>
-		</entry>
-		<entry name="Page_Size" type="Int">
-			<label>The default page size</label>
-			<default>4</default>
-		</entry>
-		<entry name="Page_Orientation" type="Int">
-			<label>The default page orientation</label>
-			<default>0</default>
-		</entry>
+    <group name="library">
+        <entry name="Icon_DefaultSize" type="Int">
+            <label>The default size of icons shown in the icon view</label>
+            <default>64</default>
+        </entry>
+    </group>
 
-		<entry name="PatternElement_MarginLeft" type="Int">
-			<label>The left margin</label>
-			<default>0</default>
-		</entry>
-		<entry name="PatternElement_MarginTop" type="Int">
-			<label>The top margin</label>
-			<default>0</default>
-		</entry>
-		<entry name="PatternElement_MarginRight" type="Int">
-			<label>The right margin</label>
-			<default>0</default>
-		</entry>
-		<entry name="PatternElement_MarginBottom" type="Int">
-			<label>The bottom margin</label>
-			<default>0</default>
-		</entry>
-       
-		<entry name="KeyElement_ShowBorder" type="Bool">
-			<label>Show a border around the key</label>
-			<default>true</default>
-		</entry>
-		<entry name="KeyElement_BorderColor" type="Color">
-			<label>The color of the border</label>
-			<default>#000000</default>
-		</entry>
-		<entry name="KeyElement_BorderThickness" type="Int">
-			<label>The thickness of the border in 1/10 mm</label>
-			<default>5</default>
-		</entry>
-		<entry name="KeyElement_FillBackground" type="Bool">
-			<label>Fill the background</label>
-			<default>false</default>
-		</entry>
-		<entry name="KeyElement_BackgroundColor" type="Color">
-			<label>The color of the background</label>
-			<default>#ffffff</default>
-		</entry>
-		<entry name="KeyElement_BackgroundTransparency" type="Int">
-			<label>Transparency of the background</label>
-			<default>255</default>
-		</entry>
-		<entry name="KeyElement_MarginLeft" type="Int">
-			<label>The key element left margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="KeyElement_MarginTop" type="Int">
-			<label>The key element top margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="KeyElement_MarginRight" type="Int">
-			<label>The key element right margin</label>
-			<default>5</default>
-		</entry>
-		<entry name="KeyElement_MarginBottom" type="Int">
-			<label>The key element bottom margin</label>
-			<default>5</default>
-		</entry>
+    <group name="alphabet">
+        <entry name="Alphabet_UseCapsLock" type="Bool">
+            <label>Should character selection honor the caps lock key</label>
+            <default>true</default>
+        </entry>
+        <entry name="Alphabet_SpaceWidth" type="Int">
+            <label>The default width of a space in cells</label>
+            <default>3</default>
+        </entry>
+        <entry name="Alphabet_WordWrap" type="Bool">
+            <label>Should a space cause word wrapping at the right edge of the pattern</label>
+            <default>true</default>
+        </entry>
+        <entry name="Alphabet_LineSpacing" type="Int">
+            <label>The number of cells between lines of text</label>
+            <default>2</default>
+        </entry>
+        <entry name="Alphabet_ExtendPatternWidth" type="Int">
+            <label>The number of cells to be added when extending the pattern right</label>
+            <default>5</default>
+        </entry>
+        <entry name="Alphabet_ExtendPatternHeight" type="Int">
+            <label>The number of cells to be added when extending the pattern down</label>
+            <default>10</default>
+        </entry>
+    </group>
 
-		<entry name="KeyElement_SymbolColumn" type="Bool">
-			<label>Show the key element symbol column</label>
-			<default>true</default>
-		</entry>
+    <group name="tool">
+        <entry name="ToolShapes_UseFractionals" type="Bool">
+            <label>Should the shapes tools use fractional stitches</label>
+            <default>false</default>
+        </entry>
+    </group>
 
-		<entry name="KeyElement_FlossNameColumn" type="Bool">
-			<label>Show the key element floss name column</label>
-			<default>true</default>
-		</entry>
+    <group name="printer">
+        <entry name="Page_MarginLeft" type="Int">
+            <label>The page left margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="Page_MarginTop" type="Int">
+            <label>The page top margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="Page_MarginRight" type="Int">
+            <label>The page right margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="Page_MarginBottom" type="Int">
+            <label>The page bottom margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="Page_GridSize" type="Int">
+            <label>The grid size in mm</label>
+            <default>10</default>
+        </entry>
+        <entry name="Page_Size" type="Int">
+            <label>The default page size</label>
+            <default>4</default>
+        </entry>
+        <entry name="Page_Orientation" type="Int">
+            <label>The default page orientation</label>
+            <default>0</default>
+        </entry>
 
-		<entry name="KeyElement_StrandsColumn" type="Bool">
-			<label>Show the key element floss strands column</label>
-			<default>true</default>
-		</entry>
+        <entry name="PatternElement_MarginLeft" type="Int">
+            <label>The left margin</label>
+            <default>0</default>
+        </entry>
+        <entry name="PatternElement_MarginTop" type="Int">
+            <label>The top margin</label>
+            <default>0</default>
+        </entry>
+        <entry name="PatternElement_MarginRight" type="Int">
+            <label>The right margin</label>
+            <default>0</default>
+        </entry>
+        <entry name="PatternElement_MarginBottom" type="Int">
+            <label>The bottom margin</label>
+            <default>0</default>
+        </entry>
 
-		<entry name="KeyElement_FlossDescriptionColumn" type="Bool">
-			<label>Show the key element floss description column</label>
-			<default>true</default>
-		</entry>
+        <entry name="KeyElement_ShowBorder" type="Bool">
+            <label>Show a border around the key</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_BorderColor" type="Color">
+            <label>The color of the border</label>
+            <default>#000000</default>
+        </entry>
+        <entry name="KeyElement_BorderThickness" type="Int">
+            <label>The thickness of the border in 1/10 mm</label>
+            <default>5</default>
+        </entry>
+        <entry name="KeyElement_FillBackground" type="Bool">
+            <label>Fill the background</label>
+            <default>false</default>
+        </entry>
+        <entry name="KeyElement_BackgroundColor" type="Color">
+            <label>The color of the background</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="KeyElement_BackgroundTransparency" type="Int">
+            <label>Transparency of the background</label>
+            <default>255</default>
+        </entry>
+        <entry name="KeyElement_MarginLeft" type="Int">
+            <label>The key element left margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="KeyElement_MarginTop" type="Int">
+            <label>The key element top margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="KeyElement_MarginRight" type="Int">
+            <label>The key element right margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="KeyElement_MarginBottom" type="Int">
+            <label>The key element bottom margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="KeyElement_SymbolColumn" type="Bool">
+            <label>Show the key element symbol column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_FlossNameColumn" type="Bool">
+            <label>Show the key element floss name column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_StrandsColumn" type="Bool">
+            <label>Show the key element floss strands column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_FlossDescriptionColumn" type="Bool">
+            <label>Show the key element floss description column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_StitchesColumn" type="Bool">
+            <label>Show the key element stitch count column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_StitchBreakdownColumn" type="Bool">
+            <label>Show the key element stitch breakdown column</label>
+            <default>false</default>
+        </entry>
+        <entry name="KeyElement_LengthColumn" type="Bool">
+            <label>Show the key element floss length column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_SkeinsColumn" type="Bool">
+            <label>Show the key element skeins column</label>
+            <default>true</default>
+        </entry>
+        <entry name="KeyElement_TotalStitches" type="Bool">
+            <label>Show the total number of stitches</label>
+            <default>true</default>
+        </entry>
 
-		<entry name="KeyElement_StitchesColumn" type="Bool">
-			<label>Show the key element stitch count column</label>
-			<default>true</default>
-		</entry>
-
-		<entry name="KeyElement_StitchBreakdownColumn" type="Bool">
-			<label>Show the key element stitch breakdown column</label>
-			<default>false</default>
-		</entry>
-
-		<entry name="KeyElement_LengthColumn" type="Bool">
-			<label>Show the key element floss length column</label>
-			<default>true</default>
-		</entry>
-
-		<entry name="KeyElement_SkeinsColumn" type="Bool">
-			<label>Show the key element skeins column</label>
-			<default>true</default>
-		</entry>
-
-		<entry name="KeyElement_TotalStitches" type="Bool">
-			<label>Show the total number of stitches</label>
-			<default>true</default>
-		</entry>
-
-		<entry name="TextElement_ShowBorder" type="Bool">
-			<label>Show the border</label>
-			<default>true</default>
-		</entry>
-
-		<entry name="TextElement_BorderColor" type="Color">
-			<label>The border color</label>
-			<default>#000000</default>
-		</entry>
-
-		<entry name="TextElement_BorderThickness" type="Int">
-			<label>Thickness of the border in 1/10 mm</label>
-			<default>5</default>
-		</entry>
-
-		<entry name="TextElement_FillBackground" type="Bool">
-			<label>Fill the background</label>
-			<default>false</default>
-		</entry>
-
-		<entry name="TextElement_BackgroundColor" type="Color">
-			<label>Color of the background</label>
-			<default>#ffffff</default>
-		</entry>
-
-		<entry name="TextElement_BackgroundTransparency" type="Int">
-			<label>The transparency value</label>
-			<default>255</default>
-		</entry>
-
-		<entry name="TextElement_MarginTop" type="Int">
-			<label>The top margin</label>
-			<default>5</default>
-		</entry>
-
-		<entry name="TextElement_MarginLeft" type="Int">
-			<label>The left margin</label>
-			<default>5</default>
-		</entry>
-
-		<entry name="TextElement_MarginRight" type="Int">
-			<label>The right margin</label>
-			<default>5</default>
-		</entry>
-
-		<entry name="TextElement_MarginBottom" type="Int">
-			<label>The bottom margin</label>
-			<default>5</default>
-		</entry>
-
-		<entry name="TextElement_TextColor" type="Color">
-			<label>The text color</label>
-			<default>#000000</default>
-		</entry>
-	</group>
+        <entry name="TextElement_ShowBorder" type="Bool">
+            <label>Show the border</label>
+            <default>true</default>
+        </entry>
+        <entry name="TextElement_BorderColor" type="Color">
+            <label>The border color</label>
+            <default>#000000</default>
+        </entry>
+        <entry name="TextElement_BorderThickness" type="Int">
+            <label>Thickness of the border in 1/10 mm</label>
+            <default>5</default>
+        </entry>
+        <entry name="TextElement_FillBackground" type="Bool">
+            <label>Fill the background</label>
+            <default>false</default>
+        </entry>
+        <entry name="TextElement_BackgroundColor" type="Color">
+            <label>Color of the background</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="TextElement_BackgroundTransparency" type="Int">
+            <label>The transparency value</label>
+            <default>255</default>
+        </entry>
+        <entry name="TextElement_MarginTop" type="Int">
+            <label>The top margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="TextElement_MarginLeft" type="Int">
+            <label>The left margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="TextElement_MarginRight" type="Int">
+            <label>The right margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="TextElement_MarginBottom" type="Int">
+            <label>The bottom margin</label>
+            <default>5</default>
+        </entry>
+        <entry name="TextElement_TextColor" type="Color">
+            <label>The text color</label>
+            <default>#000000</default>
+        </entry>
+    </group>
 </kcfg>

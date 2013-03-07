@@ -1368,14 +1368,14 @@ void Editor::renderPasteImage(QPainter *painter, const QRect &rect)
 
     if (m_pastePattern) {
         m_renderer->render(painter,
-                           m_pastePattern, // the pattern data to render
-                           rect,       // update rectangle
-                           false,      // don't render the grid
-                           true,       // render stitches
-                           true,       // render backstitches
-                           true,       // render knots
-                           -1,         // all colors
-                           m_cellEnd);     // offset to the position of the mouse
+                           m_pastePattern,  // the pattern data to render
+                           rect,            // update rectangle
+                           false,           // don't render the grid
+                           true,            // render stitches
+                           true,            // render backstitches
+                           true,            // render knots
+                           -1,              // all colors
+                           m_cellEnd);      // offset to the position of the mouse
     }
 
     painter->restore();
@@ -1473,14 +1473,24 @@ void Editor::mouseMoveEvent_Draw(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 {
-    QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
-    QPainter painter;
+    int bitmapWidth = m_document->pattern()->stitches().width();
+    int bitmapHeight = m_document->pattern()->stitches().height();
+    bool useFractionals = Configuration::toolShapes_UseFractionals();
 
-    m_rubberBand = QRect();
+    if (useFractionals) {
+        bitmapWidth *= 2;
+        bitmapHeight *= 2;
+        m_cellStart *= 2;
+        m_cellEnd *= 2;
+    }
 
     if (m_cellStart != m_cellEnd) {
+        QBitmap canvas(bitmapWidth, bitmapHeight);
+        QPainter painter;
+
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
+        painter.setRenderHint(QPainter::Antialiasing, false);
         painter.setPen(QPen(Qt::color1));
         painter.drawLine(m_cellStart, m_cellEnd);
         painter.end();
@@ -1490,6 +1500,8 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 
         m_document->undoStack().push(cmd);
     }
+
+    m_rubberBand = QRect();
 }
 
 
@@ -1668,16 +1680,11 @@ void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent*)
 {
     m_selectionArea = QRect(m_cellStart, m_cellEnd).normalized();
 
-    int x = m_selectionArea.left();
-    int y = m_selectionArea.top();
-    QPoint cell(x, y);
-
     QUndoCommand *cmd = new FillRectangleCommand(m_document);
 
     for (int y = m_selectionArea.top() ; y <= m_selectionArea.bottom() ; y++) {
         for (int x = m_selectionArea.left() ; x <= m_selectionArea.right() ; x++) {
-            QPoint cell(x, y);
-            new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
+            new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         }
     }
 
@@ -1711,24 +1718,37 @@ void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
 {
-    QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
-    QPainter painter;
+    int bitmapWidth = m_document->pattern()->stitches().width();
+    int bitmapHeight = m_document->pattern()->stitches().height();
+    bool useFractionals = Configuration::toolShapes_UseFractionals();
 
-    canvas.fill(Qt::color0);
-    painter.begin(&canvas);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.setPen(QPen(Qt::color1));
-    painter.setBrush(Qt::NoBrush);
-    painter.drawEllipse(QRect(m_cellStart, m_cellEnd).normalized());
-    painter.end();
+    if (useFractionals) {
+        bitmapWidth *= 2;
+        bitmapHeight *= 2;
+        m_cellStart *= 2;
+        m_cellEnd *= 2;
+    }
 
-    QUndoCommand *cmd = new DrawEllipseCommand(m_document);
-    processBitmap(cmd, canvas);
+    if (m_cellStart != m_cellEnd) {
+        QBitmap canvas(bitmapWidth, bitmapHeight);
+        QPainter painter;
+
+        canvas.fill(Qt::color0);
+        painter.begin(&canvas);
+        painter.setRenderHint(QPainter::Antialiasing, !Configuration::toolShapes_UseFractionals());
+        painter.setPen(QPen(Qt::color1));
+        painter.setBrush(Qt::NoBrush);
+        painter.drawEllipse(QRect(m_cellStart, m_cellEnd).normalized());
+        painter.end();
+
+        QUndoCommand *cmd = new DrawEllipseCommand(m_document);
+        processBitmap(cmd, canvas);
+
+        m_document->undoStack().push(cmd);
+    }
 
     m_rubberBand = QRect();
     m_selectionArea = QRect();
-
-    m_document->undoStack().push(cmd);
 }
 
 
@@ -1755,24 +1775,37 @@ void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
 {
-    QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
-    QPainter painter;
+    int bitmapWidth = m_document->pattern()->stitches().width();
+    int bitmapHeight = m_document->pattern()->stitches().height();
+    bool useFractionals = Configuration::toolShapes_UseFractionals();
 
-    canvas.fill(Qt::color0);
-    painter.begin(&canvas);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.setPen(QPen(Qt::color1));
-    painter.setBrush(Qt::color1);
-    painter.drawEllipse(QRect(m_cellStart, m_cellEnd).normalized());
-    painter.end();
+    if (useFractionals) {
+        bitmapWidth *= 2;
+        bitmapHeight *= 2;
+        m_cellStart *= 2;
+        m_cellEnd *= 2;
+    }
 
-    QUndoCommand *cmd = new FillEllipseCommand(m_document);
-    processBitmap(cmd, canvas);
+    if (m_cellStart != m_cellEnd) {
+        QBitmap canvas(bitmapWidth, bitmapHeight);
+        QPainter painter;
+
+        canvas.fill(Qt::color0);
+        painter.begin(&canvas);
+        painter.setRenderHint(QPainter::Antialiasing, !useFractionals);
+        painter.setPen(QPen(Qt::color1));
+        painter.setBrush(Qt::color1);
+        painter.drawEllipse(QRect(m_cellStart, m_cellEnd).normalized());
+        painter.end();
+
+        QUndoCommand *cmd = new FillEllipseCommand(m_document);
+        processBitmap(cmd, canvas);
+
+        m_document->undoStack().push(cmd);
+    }
 
     m_rubberBand = QRect();
     m_selectionArea = QRect();
-
-    m_document->undoStack().push(cmd);
 }
 
 
@@ -1799,14 +1832,32 @@ void Editor::mouseMoveEvent_FillPolygon(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
 {
+    int bitmapWidth = m_document->pattern()->stitches().width();
+    int bitmapHeight = m_document->pattern()->stitches().height();
+    bool useFractionals = Configuration::toolShapes_UseFractionals();
+
+    if (useFractionals) {
+        bitmapWidth *= 2;
+        bitmapHeight *= 2;
+        m_cellStart *= 2;
+        m_cellEnd *= 2;
+    }
+
     m_cellEnd = contentsToCell(e->pos());
 
     if ((m_cellEnd == m_polygon.point(0)) && (m_polygon.count() > 2)) {
-        QBitmap canvas(m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
+        QBitmap canvas(bitmapWidth, bitmapHeight);
         QPainter painter;
+
+        if (useFractionals) {
+            for (int i = 0 ; i < m_polygon.size() ; ++i) {
+                m_polygon[i] *= 2;
+            }
+        }
 
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
+        painter.setRenderHint(QPainter::Antialiasing, false);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
         painter.drawPolygon(m_polygon);
@@ -2103,14 +2154,18 @@ QRect Editor::polygonToContents(const QPolygon &polygon)
 
 void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
 {
-    QImage image;
-    image = canvas.toImage();
+    QImage image = canvas.toImage();
+    int colorIndex = m_document->pattern()->palette().currentIndex();
 
     for (int y = 0 ; y < image.height() ; y++) {
         for (int x = 0 ; x < image.width() ; x++) {
             if (image.pixelIndex(x, y) == 1) {
-                QPoint cell(x, y);
-                new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), parent);
+                int zone = (y%2)*2+(x%2);
+                if (Configuration::toolShapes_UseFractionals()) {
+                    new AddStitchCommand(m_document, QPoint(x/2, y/2), stitchMap[0][zone], colorIndex, parent);
+                } else {
+                    new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, colorIndex, parent);
+                }
             }
         }
     }
