@@ -116,4 +116,44 @@ QDataStream &operator<<(QDataStream &, const Knot &);
 QDataStream &operator>>(QDataStream &, Knot &);
 
 
+const Stitch::Type stitchMap[][4] = {
+    {
+        Stitch::TLQtr,
+        Stitch::TRQtr,
+        Stitch::BLQtr,
+        Stitch::BRQtr
+    },
+    {
+        Stitch::TBHalf,
+        Stitch::BTHalf,
+        Stitch::BTHalf,
+        Stitch::TBHalf
+    },
+    {
+        Stitch::TL3Qtr,
+        Stitch::TR3Qtr,
+        Stitch::BL3Qtr,
+        Stitch::BR3Qtr
+    },
+    {
+        Stitch::Full,
+        Stitch::Full,
+        Stitch::Full,
+        Stitch::Full
+    },
+    {
+        Stitch::TLSmallHalf,
+        Stitch::TRSmallHalf,
+        Stitch::BLSmallHalf,
+        Stitch::BRSmallHalf
+    },
+    {
+        Stitch::TLSmallFull,
+        Stitch::TRSmallFull,
+        Stitch::BLSmallFull,
+        Stitch::BRSmallFull
+    }
+};
+
+
 #endif // Stitch_H

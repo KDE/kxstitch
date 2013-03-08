@@ -761,21 +761,10 @@ void MainWindow::convertImage(const Magick::Image &image)
                         }
 
                         // at this point
-                        //   flossIndex will be the index for the found colorHilight
+                        //   flossIndex will be the index for the found color
                         if (useFractionals) {
-                            if (dx % 2) {
-                                if (dy % 2) {
-                                    m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), Stitch::BRQtr, flossIndex);
-                                } else {
-                                    m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), Stitch::TRQtr, flossIndex);
-                                }
-                            } else {
-                                if (dx % 2) {
-                                    m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), Stitch::BLQtr, flossIndex);
-                                } else {
-                                    m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), Stitch::TLQtr, flossIndex);
-                                }
-                            }
+                            int zone = (dy%2)*2+(dx%2);
+                            m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), stitchMap[0][zone], flossIndex);
                         } else {
                             m_document->pattern()->stitches().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
                         }

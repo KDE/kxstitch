@@ -185,46 +185,6 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
 };
 
 
-const Stitch::Type stitchMap[][4] = {
-    {
-        Stitch::TLQtr,
-        Stitch::TRQtr,
-        Stitch::BLQtr,
-        Stitch::BRQtr
-    },
-    {
-        Stitch::TBHalf,
-        Stitch::BTHalf,
-        Stitch::BTHalf,
-        Stitch::TBHalf
-    },
-    {
-        Stitch::TL3Qtr,
-        Stitch::TR3Qtr,
-        Stitch::BL3Qtr,
-        Stitch::BR3Qtr
-    },
-    {
-        Stitch::Full,
-        Stitch::Full,
-        Stitch::Full,
-        Stitch::Full
-    },
-    {
-        Stitch::TLSmallHalf,
-        Stitch::TRSmallHalf,
-        Stitch::BLSmallHalf,
-        Stitch::BRSmallHalf
-    },
-    {
-        Stitch::TLSmallFull,
-        Stitch::TRSmallFull,
-        Stitch::BLSmallFull,
-        Stitch::BRSmallFull
-    }
-};
-
-
 Editor::Editor(QWidget *parent)
     :   QWidget(parent),
         m_renderer(new Renderer()),
