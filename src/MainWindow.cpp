@@ -718,7 +718,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                 Magick::PixelPacket packet = *pixels++;
 
                 if (!(packet.opacity)) {
-                    if (!(ignoreColor && packet == ignoreColorValue)) {
+                    if (!(ignoreColor && Magick::Color(packet) == ignoreColorValue)) {
                         int flossIndex;
                         QColor color(packet.red / 257, packet.green / 257, packet.blue / 257);
 
