@@ -2,198 +2,200 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kxstitch" version="0.9.0">
 <MenuBar>
-	<Menu name="file"><text>&amp;File</text>
-		<Action name="filePrintSetup" append="print_merge"/>
-		<Action name="fileImportImage"/>
-		<Action name="fileProperties"/>
-		<Action name="fileAddBackgroundImage"/>
-		<Menu name="fileRemoveBackgroundImage"><text>Remove Background Image</text>
-			<ActionList name="removeBackgroundImageActions" />
-		</Menu>
-	</Menu>
-	<Menu name="edit"><text>&amp;Edit</text>
-		<Menu name="selectionMasks"><text>Selection Masks</text>
-			<Action name="maskStitch"/>
-			<Action name="maskColor"/>
-			<Action name="maskBackstitch"/>
-			<Action name="maskKnot"/>
-		</Menu>
-		<Separator/>
-		<Action name="makesCopies"/>
-		<Menu name="mirror"><text>Mirror Selection</text>
-			<Action name="mirrorHorizontal"/>
-			<Action name="mirrorVertical"/>
-		</Menu>
-		<Menu name="rotate"><Text>Rotate Selection</Text>
-			<Action name="rotate90"/>
-			<Action name="rotate180"/>
-			<action name="rotate270"/>
-		</Menu>
-	</Menu>
-	<Menu name="settings"><text>&amp;Settings</text>
-		<Menu name="formatScalesAs">
-			<text>Format Scales As</text>
-			<Action name="formatScalesAsStitches"/>
-			<Action name="formatScalesAsCM"/>
-			<Action name="formatScalesAsInches"/>
-		</Menu>
-		<Menu name="renderStitchesAs">
-			<text>Render Stitches As</text>
-			<Action name="renderStitchesAsRegularStitches"/>
-			<Action name="renderStitchesAsBlackWhiteSymbols"/>
-			<Action name="renderStitchesAsColorSymbols"/>
-			<Action name="renderStitchesAsColorBlocks"/>
-			<Action name="renderStitchesAsColorBlocksSymbols"/>
-		</Menu>
-		<Menu name="renderBackstitchesAs">
-			<text>Render Backstitches As</text>
-			<Action name="renderBackstitchesAsColorLines"/>
-			<Action name="renderBackstitchesAsBlackWhiteSymbols"/>
-		</Menu>
-		<Menu name="renderKnotsAs">
-			<text>Render Knots As</text>
-			<Action name="renderKnotsAsColorBlocks"/>
-			<Action name="renderKnotsAsColorBlocksSymbols"/>
-			<Action name="renderKnotsAsColorSymbols"/>
-			<Action name="renderKnotsAsBlackWhiteSymbols"/>
-		</Menu>
-		<Separator/>
-		<Action name="colorHilight"/>
-		<Action name="renderStitches"/>
-		<Action name="renderBackstitches"/>
-		<Action name="renderFrenchKnots"/>
-		<Action name="renderGrid"/>
-		<Action name="renderBackgroundImages"/>
-	</Menu>
-	<Menu name="view"><text>&amp;View</text>
-		<Action name="showPreviewDockWidget"/>
-		<Action name="showPaletteDockWidget"/>
-		<Action name="showHistoryDockWidget"/>
-		<Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
-			<ActionList name="showBackgroundImageActions" />
-		</Menu>
-		<Menu name="viewFitBackgroundImage"><text>Fit Background Image to Selection</text>
-			<ActionList name="fitBackgroundImageActions" />
-		</Menu>
-	</Menu>
-	<Menu name="stitches"><text>&amp;Stitches</text>
-		<Action name="stitchQuarter"/>
-		<Action name="stitchHalf"/>
-		<Action name="stitch3Quarter"/>
-		<Action name="stitchFull"/>
-		<Separator/>
-		<Action name="stitchSmallHalf"/>
-		<Action name="stitchSmallFull"/>
-		<Separator/>
-		<Action name="stitchFrenchKnot"/>
-	</Menu>
-	<Menu name="Tools"><text>&amp;Tools</text>
-		<Action name="toolPaint"/>
-		<Action name="toolDraw"/>
-		<Action name="toolErase"/>
-		<Separator/>
-		<Action name="toolRectangle"/>
-		<Action name="toolFillRectangle"/>
-		<Action name="toolEllipse"/>
-		<Action name="toolFillEllipse"/>
-		<Action name="toolFillPolygon"/>
-		<Separator/>
-		<Action name="toolText"/>
-		<Action name="toolAlphabet"/>
-		<Separator/>
-		<Action name="toolSelectRectangle"/>
-		<Separator/>
-		<Action name="toolColorPicker"/>
-		<Separator/>
-		<Action name="toolBackstitch"/>
-	</Menu>
-	<Menu name="palette"><text>&amp;Palette</text>
-		<Action name="paletteManager"/>
-		<Separator/>
-		<Action name="paletteShowSymbols"/>
-		<Separator/>
-		<Action name="paletteClearUnused"/>
-		<Separator/>
-		<Action name="paletteSwapColors"/>
-		<Action name="paletteReplaceColor"/>
-	</Menu>
-	<Menu name="library"><text>&amp;Library Manager</text>
-		<Action name="libraryManager"/>
-	</Menu>
-	<Menu name="pattern"><text>&amp;Pattern</text>
-		<Action name="patternExtend"/>
-		<Action name="patternCentre"/>
-		<Action name="patternCrop"/>
-		<Action name="patternCropToSelection"/>
-	</Menu>
+    <Menu name="file"><text>&amp;File</text>
+        <Action name="filePrintSetup" append="print_merge"/>
+        <Action name="fileImportImage"/>
+        <Action name="fileProperties"/>
+        <Action name="fileAddBackgroundImage"/>
+        <Menu name="fileRemoveBackgroundImage"><text>Remove Background Image</text>
+            <ActionList name="removeBackgroundImageActions" />
+        </Menu>
+    </Menu>
+    <Menu name="edit"><text>&amp;Edit</text>
+        <Menu name="selectionMasks"><text>Selection Masks</text>
+            <Action name="maskStitch"/>
+            <Action name="maskColor"/>
+            <Action name="maskBackstitch"/>
+            <Action name="maskKnot"/>
+        </Menu>
+        <Separator/>
+        <Action name="makesCopies"/>
+        <Menu name="mirror"><text>Mirror Selection</text>
+            <Action name="mirrorHorizontal"/>
+            <Action name="mirrorVertical"/>
+        </Menu>
+        <Menu name="rotate"><Text>Rotate Selection</Text>
+            <Action name="rotate90"/>
+            <Action name="rotate180"/>
+            <action name="rotate270"/>
+        </Menu>
+    </Menu>
+    <Menu name="settings"><text>&amp;Settings</text>
+        <Menu name="formatScalesAs">
+            <text>Format Scales As</text>
+            <Action name="formatScalesAsStitches"/>
+            <Action name="formatScalesAsCM"/>
+            <Action name="formatScalesAsInches"/>
+        </Menu>
+        <Menu name="renderStitchesAs">
+            <text>Render Stitches As</text>
+            <Action name="renderStitchesAsRegularStitches"/>
+            <Action name="renderStitchesAsBlackWhiteSymbols"/>
+            <Action name="renderStitchesAsColorSymbols"/>
+            <Action name="renderStitchesAsColorBlocks"/>
+            <Action name="renderStitchesAsColorBlocksSymbols"/>
+        </Menu>
+        <Menu name="renderBackstitchesAs">
+            <text>Render Backstitches As</text>
+            <Action name="renderBackstitchesAsColorLines"/>
+            <Action name="renderBackstitchesAsBlackWhiteSymbols"/>
+        </Menu>
+        <Menu name="renderKnotsAs">
+            <text>Render Knots As</text>
+            <Action name="renderKnotsAsColorBlocks"/>
+            <Action name="renderKnotsAsColorBlocksSymbols"/>
+            <Action name="renderKnotsAsColorSymbols"/>
+            <Action name="renderKnotsAsBlackWhiteSymbols"/>
+        </Menu>
+        <Separator/>
+        <Action name="colorHilight"/>
+        <Action name="renderStitches"/>
+        <Action name="renderBackstitches"/>
+        <Action name="renderFrenchKnots"/>
+        <Action name="renderGrid"/>
+        <Action name="renderBackgroundImages"/>
+    </Menu>
+    <Menu name="view"><text>&amp;View</text>
+        <Action name="showPreviewDockWidget"/>
+        <Action name="showPaletteDockWidget"/>
+        <Action name="showHistoryDockWidget"/>
+        <Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
+            <ActionList name="showBackgroundImageActions" />
+        </Menu>
+        <Menu name="viewFitBackgroundImage"><text>Fit Background Image to Selection</text>
+            <ActionList name="fitBackgroundImageActions" />
+        </Menu>
+    </Menu>
+    <Menu name="stitches"><text>&amp;Stitches</text>
+        <Action name="stitchQuarter"/>
+        <Action name="stitchHalf"/>
+        <Action name="stitch3Quarter"/>
+        <Action name="stitchFull"/>
+        <Separator/>
+        <Action name="stitchSmallHalf"/>
+        <Action name="stitchSmallFull"/>
+        <Separator/>
+        <Action name="stitchFrenchKnot"/>
+    </Menu>
+    <Menu name="Tools"><text>&amp;Tools</text>
+        <Action name="toolPaint"/>
+        <Action name="toolDraw"/>
+        <Action name="toolErase"/>
+        <Separator/>
+        <Action name="toolRectangle"/>
+        <Action name="toolFillRectangle"/>
+        <Action name="toolEllipse"/>
+        <Action name="toolFillEllipse"/>
+        <Action name="toolFillPolygon"/>
+        <Separator/>
+        <Action name="toolText"/>
+        <Action name="toolAlphabet"/>
+        <Separator/>
+        <Action name="toolSelectRectangle"/>
+        <Separator/>
+        <Action name="toolColorPicker"/>
+        <Separator/>
+        <Action name="toolBackstitch"/>
+    </Menu>
+    <Menu name="palette"><text>&amp;Palette</text>
+        <Action name="paletteManager"/>
+        <Separator/>
+        <Action name="paletteShowSymbols"/>
+        <Separator/>
+        <Action name="paletteClearUnused"/>
+        <Separator/>
+        <Action name="paletteSwapColors"/>
+        <Action name="paletteReplaceColor"/>
+    </Menu>
+    <Menu name="library"><text>&amp;Library Manager</text>
+        <Action name="libraryManager"/>
+    </Menu>
+    <Menu name="pattern"><text>&amp;Pattern</text>
+        <Action name="patternExtend"/>
+        <Action name="patternCentre"/>
+        <Action name="patternCrop"/>
+        <Action name="patternCropToSelection"/>
+    </Menu>
 </MenuBar>
 <Menu name="EditorPopup">
-	<Action name="edit_cut"/>
-	<Action name="edit_copy"/>
-	<Action name="edit_paste"/>
-	<Separator/>
-	<Menu name="formatScalesAs">
-		<text>Format Scales As</text>
-		<Action name="formatScalesAsStitches"/>
-		<Action name="formatScalesAsCM"/>
-		<Action name="formatScalesAsInches"/>
-	</Menu>
-	<Menu name="renderStitchesAs">
-	<text>Render Stitches As</text>
-		<Action name="renderStitchesAsRegularStitches"/>
-		<Action name="renderStitchesAsBlackWhiteSymbols"/>
-		<Action name="renderStitchesAsColorSymbols"/>
-		<Action name="renderStitchesAsColorBlocks"/>
-		<Action name="renderStitchesAsColorBlocksSymbols"/>
-	</Menu>
-	<Menu name="renderBackstitchesAs">
-		<text>Render Backstitches As</text>
-		<Action name="renderBackstitchesAsColorLines"/>
-		<Action name="renderBackstitchesAsBlackWhiteSymbols"/>
-	</Menu>
-	<Menu name="renderKnotsAs">
-		<text>Render Knots As</text>
-		<Action name="renderKnotsAsColorBlocks"/>
-		<Action name="renderKnotsAsColorBlocksSymbols"/>
-		<Action name="renderKnotsAsColorSymbols"/>
-		<Action name="renderKnotsAsBlackWhiteSymbols"/>
-	</Menu>
-	<Separator/>
-	<Action name="colorHilight"/>
-	<Action name="renderStitches"/>
-	<Action name="renderBackstitches"/>
-	<Action name="renderFrenchKnots"/>
-	<Action name="renderGrid"/>
-	<Action name="renderBackgroundImages"/>
-	<Separator/>
-	<Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
-		<ActionList name="showBackgroundImageActions" />
-	</Menu>
-	<Menu name="viewFitBackgroundImage"><text>Fit Background Image to Selection</text>
-		<ActionList name="fitBackgroundImageActions" />
-	</Menu>
+    <Action name="edit_cut"/>
+    <Action name="edit_copy"/>
+    <Action name="edit_paste"/>
+    <Separator/>
+    <Menu name="formatScalesAs">
+        <text>Format Scales As</text>
+        <Action name="formatScalesAsStitches"/>
+        <Action name="formatScalesAsCM"/>
+        <Action name="formatScalesAsInches"/>
+    </Menu>
+    <Menu name="renderStitchesAs">
+    <text>Render Stitches As</text>
+        <Action name="renderStitchesAsRegularStitches"/>
+        <Action name="renderStitchesAsBlackWhiteSymbols"/>
+        <Action name="renderStitchesAsColorSymbols"/>
+        <Action name="renderStitchesAsColorBlocks"/>
+        <Action name="renderStitchesAsColorBlocksSymbols"/>
+    </Menu>
+    <Menu name="renderBackstitchesAs">
+        <text>Render Backstitches As</text>
+        <Action name="renderBackstitchesAsColorLines"/>
+        <Action name="renderBackstitchesAsBlackWhiteSymbols"/>
+    </Menu>
+    <Menu name="renderKnotsAs">
+        <text>Render Knots As</text>
+        <Action name="renderKnotsAsColorBlocks"/>
+        <Action name="renderKnotsAsColorBlocksSymbols"/>
+        <Action name="renderKnotsAsColorSymbols"/>
+        <Action name="renderKnotsAsBlackWhiteSymbols"/>
+    </Menu>
+    <Separator/>
+    <Action name="colorHilight"/>
+    <Action name="renderStitches"/>
+    <Action name="renderBackstitches"/>
+    <Action name="renderFrenchKnots"/>
+    <Action name="renderGrid"/>
+    <Action name="renderBackgroundImages"/>
+    <Separator/>
+    <Menu name="viewShowBackgroundImage"><text>Show Background Image</text>
+        <ActionList name="showBackgroundImageActions" />
+    </Menu>
+    <Menu name="viewFitBackgroundImage"><text>Fit Background Image to Selection</text>
+        <ActionList name="fitBackgroundImageActions" />
+    </Menu>
 </Menu>
 <Menu name="PalettePopup">
-	<Action name="paletteManager"/>
-	<Action name="toolColorPicker"/>
-	<Separator/>
-	<Action name="paletteShowSymbols"/>
-	<Separator/>
-	<Action name="paletteClearUnused"/>
-	<Separator/>
-	<Action name="paletteSwapColors"/>
-	<Action name="paletteReplaceColor"/>
+    <Action name="paletteManager"/>
+    <Action name="toolColorPicker"/>
+    <Separator/>
+    <Action name="paletteShowSymbols"/>
+    <Separator/>
+    <Action name="paletteClearUnused"/>
+    <Separator/>
+    <Action name="paletteSwapColors"/>
+    <Action name="paletteReplaceColor"/>
+    <Separator/>
+    <Action name="colorHilight"/>
 </Menu>
 <ToolBar name="StitchToolBar" fullWidth="false"><text>Stitch Toolbar</text>
-	<Action name="stitchQuarter"/>
-	<Action name="stitchHalf"/>
-	<Action name="stitch3Quarter"/>
-	<Action name="stitchFull"/>
-	<Separator/>
-	<Action name="stitchSmallHalf"/>
-	<Action name="stitchSmallFull"/>
-	<Separator/>
-	<Action name="stitchFrenchKnot"/>
+    <Action name="stitchQuarter"/>
+    <Action name="stitchHalf"/>
+    <Action name="stitch3Quarter"/>
+    <Action name="stitchFull"/>
+    <Separator/>
+    <Action name="stitchSmallHalf"/>
+    <Action name="stitchSmallFull"/>
+    <Separator/>
+    <Action name="stitchFrenchKnot"/>
 </ToolBar>
 <ToolBar name="ToolsToolbar" fullWidth="false"><text>Tools Toolbar</text>
     <Action name="toolPaint"/>
@@ -219,16 +221,16 @@
     <Action name="colorPicker"/>
 </ToolBar>
 <ToolBar name="ZoomToolbar" fullWidth="false"><text>Zoom Toolbar</text>
-	<Action name="view_zoom_in"/>
-	<Action name="view_zoom_out"/>
-	<Separator/>
-	<Action name="view_actual_size"/>
-	<Action name="view_fit_to_page"/>
-	<Action name="view_fit_to_width"/>
-	<action name="view_fit_to_height"/>
+    <Action name="view_zoom_in"/>
+    <Action name="view_zoom_out"/>
+    <Separator/>
+    <Action name="view_actual_size"/>
+    <Action name="view_fit_to_page"/>
+    <Action name="view_fit_to_width"/>
+    <action name="view_fit_to_height"/>
 </ToolBar>
 <State name="palette_empty">
-  <disable>
+<disable>
     <Action name="toolPaint"/>
     <Action name="toolDraw"/>
     <Action name="toolErase"/>
@@ -246,11 +248,11 @@
     <Action name="showSymbols"/>
     <Action name="savePalette"/>
     <Action name="removeColors"/>
-  </disable>
-  <enable>
+</disable>
+<enable>
     <Action name="loadpalette"/>
     <Action name="createpalette"/>
-  </enable>
+</enable>
 </State>
 </kpartgui>
 
