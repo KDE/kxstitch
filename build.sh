@@ -6,7 +6,7 @@ VERBOSE=""
 THREADS=`cat /proc/cpuinfo | grep processor | wc -l`
 
 readopt='getopts $opts opt;rc=$?;[ $rc$opt == 0? ]&&exit 1;[ $rc == 0 ]||{ shift $[OPTIND-1];false; }'
-opts=dhpv
+opts=dhpsv
 while eval $readopt
 do
     if [ $opt == "d" ]
@@ -22,6 +22,11 @@ do
     if [ $opt == "p" ]
     then
         WITH_PROFILE="-DWITH_PROFILING=On"
+    fi
+
+    if [ $opt == "s" ]
+    then
+        THREADS=1
     fi
 
     if [ $opt == "v" ]
@@ -42,6 +47,7 @@ then
     echo "  -d : Build with debugging enabled"
     echo "  -h : Show this help"
     echo "  -p : Build with profiling enabled"
+    echo "  -s : Build with single thread"
     echo "  -v : Build with verbose compiler output"
 else
     rm -rf build
