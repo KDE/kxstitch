@@ -37,7 +37,7 @@ public:
     void setRectangle(const QRect &);
     void moveNode(const QPoint *, const QPoint &);
 
-    void render(QPainter *, double scale);
+    void render(QPainter *);
 
 private:
     Element *m_element;
