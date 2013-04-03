@@ -77,4 +77,4 @@ public:
 };
 
 
-#endif // CharSelectorDlg_H
+#endif // ConfigurationDialogs_H
