@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
                          ki18n("A cross stitch pattern creator."),
                          KAboutData::License_GPL_V2,
                          ki18n("(c)2010 Stephen Allewell"),
-                         ki18n("Some free text."),
+                         ki18n(""),
                          "http://kxstitch.sourceforge.net/kxstitch",
                          "kxstitch-bugs@mirramar.adsl24.co.uk");
     aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "stephen@mirramar.adsl24.co.uk");
