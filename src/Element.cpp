@@ -22,6 +22,9 @@
 #include "Page.h"
 #include "Renderer.h"
 #include "SchemeManager.h"
+#include "Symbol.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 
 /**
@@ -37,18 +40,19 @@ double round_n(double v, int n)
 }
 
 
-Element::Element(Page *parent, Element::Type type, const QRect &rectangle)
+Element::Element(Page *parent, const QRect &rectangle, Element::Type type)
     :   m_parent(parent),
-        m_type(type),
         m_rectangle(rectangle),
+        m_type(type),
         m_visible(true)
 {
 }
 
 
 Element::Element(const Element &other)
-    :   m_type(other.m_type),
+    :   m_parent(0),                    // needs to be reparented by cloner
         m_rectangle(other.m_rectangle),
+        m_type(other.m_type),
         m_visible(other.m_visible)
 {
 }
@@ -154,25 +158,23 @@ QDataStream &Element::streamIn(QDataStream &stream)
 }
 
 
-KeyElement::KeyElement(Page *parent, const QRect &rectangle)
-    :   Element(parent, Element::Key, rectangle)
+KeyElement::KeyElement(Page *parent, const QRect &rectangle, Element::Type type)
+    :   Element(parent, rectangle, type),
+        m_showBorder(Configuration::keyElement_ShowBorder()),
+        m_borderColor(Configuration::keyElement_BorderColor()),
+        m_borderThickness(Configuration::keyElement_BorderThickness()),
+        m_fillBackground(Configuration::keyElement_FillBackground()),
+        m_backgroundColor(Configuration::keyElement_BackgroundColor()),
+        m_backgroundTransparency(Configuration::keyElement_BackgroundTransparency()),
+        m_margins(QMargins(Configuration::keyElement_MarginLeft(), Configuration::keyElement_MarginTop(), Configuration::keyElement_MarginRight(), Configuration::keyElement_MarginBottom())),
+        m_symbolColumn(Configuration::keyElement_SymbolColumn()),
+        m_flossNameColumn(Configuration::keyElement_FlossNameColumn()),
+        m_strandsColumn(Configuration::keyElement_StrandsColumn()),
+        m_flossDescriptionColumn(Configuration::keyElement_FlossDescriptionColumn()),
+        m_stitchesColumn(Configuration::keyElement_StitchesColumn()),
+        m_lengthColumn(Configuration::keyElement_LengthColumn()),
+        m_skeinsColumn(Configuration::keyElement_SkeinsColumn())
 {
-    m_showBorder = Configuration::keyElement_ShowBorder();
-    m_borderColor = Configuration::keyElement_BorderColor();
-    m_borderThickness = Configuration::keyElement_BorderThickness();
-    m_fillBackground = Configuration::keyElement_FillBackground();
-    m_backgroundColor = Configuration::keyElement_BackgroundColor();
-    m_backgroundTransparency = Configuration::keyElement_BackgroundTransparency();
-    m_margins = QMargins(Configuration::keyElement_MarginLeft(), Configuration::keyElement_MarginTop(), Configuration::keyElement_MarginRight(), Configuration::keyElement_MarginBottom());
-    m_symbolColumn = Configuration::keyElement_SymbolColumn();
-    m_flossNameColumn = Configuration::keyElement_FlossNameColumn();
-    m_strandsColumn = Configuration::keyElement_StrandsColumn();
-    m_flossDescriptionColumn = Configuration::keyElement_FlossDescriptionColumn();
-    m_stitchesColumn = Configuration::keyElement_StitchesColumn();
-    m_stitchBreakdownColumn = Configuration::keyElement_StitchBreakdownColumn();
-    m_lengthColumn = Configuration::keyElement_LengthColumn();
-    m_skeinsColumn = Configuration::keyElement_SkeinsColumn();
-    m_totalStitches = Configuration::keyElement_TotalStitches();
 }
 
 
@@ -185,16 +187,15 @@ KeyElement::KeyElement(const KeyElement &other)
         m_backgroundColor(other.m_backgroundColor),
         m_backgroundTransparency(other.m_backgroundTransparency),
         m_margins(other.m_margins),
+        m_textColor(other.m_textColor),
         m_textFont(other.m_textFont),
         m_symbolColumn(other.m_symbolColumn),
         m_flossNameColumn(other.m_flossNameColumn),
         m_strandsColumn(other.m_strandsColumn),
         m_flossDescriptionColumn(other.m_flossDescriptionColumn),
         m_stitchesColumn(other.m_stitchesColumn),
-        m_stitchBreakdownColumn(other.m_stitchBreakdownColumn),
         m_lengthColumn(other.m_lengthColumn),
-        m_skeinsColumn(other.m_skeinsColumn),
-        m_totalStitches(other.m_totalStitches)
+        m_skeinsColumn(other.m_skeinsColumn)
 {
 }
 
@@ -210,7 +211,7 @@ KeyElement *KeyElement::clone() const
 }
 
 
-void KeyElement::render(Document *document, QPainter *painter, double scale) const
+void KeyElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
@@ -221,8 +222,20 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
 
     FlossScheme *scheme = SchemeManager::scheme(document->pattern()->palette().schemeName());
 
+    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
+    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
+
+    // set the viewport to be the rectangle converted to device coordinates
+    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
+    painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
+    painter->setClipRect(0, 0, m_rectangle.width(), m_rectangle.height());
+
+    QFont font = m_textFont;
+    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceHRatio));
+
     QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness)*painter->device()->physicalDpiX() / 254); // m_borderThickness in 1/10 mm
+    pen.setWidthF(double(m_borderThickness) / 10.0);
 
     if (m_showBorder) {
         painter->setPen(pen);
@@ -235,42 +248,39 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
 
     if (m_fillBackground) {
         painter->setBrush(backgroundColor);
+    } else {
+        painter->setBrush(Qt::NoBrush);
     }
 
-    QRectF keyRectangle(m_rectangle.topLeft()*scale, m_rectangle.size()*scale);
-    painter->drawRect(keyRectangle);
+    painter->drawRect(painter->window());
 
-    QPen textPen(m_textColor);
-    painter->setPen(textPen);
+    QRect deviceTextArea = painter->combinedTransform().mapRect(QRect(0, 0, m_rectangle.width(), m_rectangle.height()).adjusted(m_margins.left(), m_margins.top(), -m_margins.left(), -m_margins.bottom()));
 
-    keyRectangle.adjust(scale * m_margins.left(), scale * m_margins.top(), -(scale * m_margins.right()), -(scale * m_margins.bottom()));
+    painter->save();
+    painter->resetTransform();
 
-    QFont font = m_textFont;
-    double scaledFontSize = font.pointSizeF() / 72 * 25.4 * scale;
-    font.setPixelSize(scaledFontSize);
-    QFontMetricsF fontMetrics(font, painter->device());
+    pen.setColor(m_textColor);
+    painter->setPen(pen);
 
-    double dy = fontMetrics.lineSpacing();
-    double y = dy;
+    painter->setFont(font);
 
-    double symbolWidth = 0;
-    double flossNameWidth = 0;
-    double strandsWidth = 0;
-    double flossDescriptionWidth = 0;
-    double stitchesWidth = 0;
-    double stitchBreakdownWidth = 0;
-    double lengthWidth = 0;
-    double skeinsWidth = 0;
+    QFontMetrics fontMetrics(painter->font(), painter->device());
+    int lineSpacing = fontMetrics.lineSpacing();
+    int ascent = fontMetrics.ascent();
+    int y = lineSpacing;
+    int symbolWidth = 0;
+    int flossNameWidth = 0;
+    int strandsWidth = 0;
+    int flossDescriptionWidth = 0;
+    int stitchesWidth = 0;
+    int lengthWidth = 0;
+    int skeinsWidth = 0;
 
     QVectorIterator<int> sortedFlossesIterator(sortedFlosses);
 
     while (sortedFlossesIterator.hasNext()) {
         int index = sortedFlossesIterator.next();
         FlossUsage usage = flossUsage[index];
-
-        if (m_symbolColumn) {
-            symbolWidth = std::max(symbolWidth, fontMetrics.width(flosses[index]->stitchSymbol()));
-        }
 
         if (m_flossNameColumn) {
             flossNameWidth = std::max(flossNameWidth, fontMetrics.width(flosses[index]->flossName()));
@@ -288,10 +298,6 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
             stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString("%1").arg(usage.totalStitches())));
         }
 
-        if (m_stitchBreakdownColumn) {
-            stitchBreakdownWidth = std::max(stitchBreakdownWidth, fontMetrics.width(QString("0000")));
-        }
-
         double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(), 2);
 
         if (m_lengthColumn) {
@@ -304,7 +310,7 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
     }
 
     font.setBold(true);
-    fontMetrics = QFontMetricsF(font, painter->device());
+    fontMetrics = QFontMetrics(font, painter->device());
 
     if (m_symbolColumn) {
         symbolWidth = std::max(symbolWidth, fontMetrics.width(i18n("Symbol")));
@@ -326,10 +332,6 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
         stitchesWidth = std::max(stitchesWidth, fontMetrics.width(i18n("Stitches")));
     }
 
-    if (m_stitchBreakdownColumn) {
-        stitchBreakdownWidth = std::max(stitchBreakdownWidth, fontMetrics.width("AAAA"));
-    }
-
     if (m_lengthColumn) {
         lengthWidth = std::max(lengthWidth, fontMetrics.width(i18n("Length(m)")));
     }
@@ -338,56 +340,50 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
         skeinsWidth = std::max(skeinsWidth, fontMetrics.width(i18n("Skeins (8m)")));
     }
 
-    double spacing = fontMetrics.averageCharWidth();
+    int spacing = fontMetrics.averageCharWidth() * 2;
 
     symbolWidth += spacing;
     flossNameWidth += spacing;
     strandsWidth += spacing;
     flossDescriptionWidth += spacing;
     stitchesWidth += spacing;
-    stitchBreakdownWidth += spacing;
     lengthWidth += spacing;
     skeinsWidth += spacing;
 
     painter->setFont(font);
 
-    painter->drawText(keyRectangle.topLeft() + QPoint(0, y), QString("%1 Flosses").arg(scheme->schemeName()));
-    y += (2 * dy);
+    painter->drawText(deviceTextArea.topLeft() + QPoint(0, y), QString("%1 Flosses").arg(scheme->schemeName()));
+    y += (2 * lineSpacing);
 
     if (m_symbolColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(0, y), i18n("Symbol"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(0, y), i18n("Symbol"));
     }
 
     if (m_flossNameColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth, y), i18nc("The name of the floss", "Name"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth, y), i18nc("The name of the floss", "Name"));
     }
 
     if (m_strandsColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth, y), i18n("Strands"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), i18n("Strands"));
     }
 
     if (m_flossDescriptionColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), i18n("Description"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), i18n("Description"));
     }
 
     if (m_stitchesColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), i18n("Stitches"));
-    }
-
-    int stitchBreakdownColumns = 0;
-
-    if (m_stitchBreakdownColumn) {
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), i18n("Stitches"));
     }
 
     if (m_lengthColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), i18n("Length(m)"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), i18n("Length(m)"));
     }
 
     if (m_skeinsColumn) {
-        painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + stitchBreakdownWidth * stitchBreakdownColumns + lengthWidth, y), i18n("Skeins (8m)"));
+        painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), i18n("Skeins (8m)"));
     }
 
-    y += dy;
+    y += (1.5 * lineSpacing);
 
     font.setBold(false);
     painter->setFont(font);
@@ -399,41 +395,62 @@ void KeyElement::render(Document *document, QPainter *painter, double scale) con
         FlossUsage usage = flossUsage[index];
 
         if (m_symbolColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(0, y), flosses[index]->stitchSymbol());
+            Symbol symbol = SymbolManager::library("kxstitch")->symbol(flosses[index]->stitchSymbol());
+            QPixmap symbolPixmap(lineSpacing-2, lineSpacing-2);
+            symbolPixmap.fill(Qt::white);
+
+            QPainter symbolPainter(&symbolPixmap);
+            symbolPainter.setRenderHint(QPainter::Antialiasing, true);
+            symbolPainter.setWindow(0, 0, 1, 1);
+            symbolPainter.drawRect(0, 0, 1, 1);
+
+            QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
+            QPen pen(Qt::black);
+
+            if (!symbol.filled()) {
+                pen.setWidthF(symbol.lineWidth());
+                pen.setCapStyle(symbol.capStyle());
+                pen.setJoinStyle(symbol.joinStyle());
+            }
+
+            symbolPainter.setBrush(brush);
+            symbolPainter.setPen(pen);
+            symbolPainter.drawPath(symbol.path());
+            symbolPainter.end();
+
+            painter->drawPixmap(deviceTextArea.topLeft() + QPointF(symbolWidth / 3, y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2))), symbolPixmap);
         }
 
         if (m_flossNameColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth, y), flosses[index]->flossName());
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth, y), flosses[index]->flossName());
         }
 
         if (m_strandsColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
         }
 
         if (m_flossDescriptionColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), scheme->find(flosses[index]->flossName())->description());
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), scheme->find(flosses[index]->flossName())->description());
         }
 
         if (m_stitchesColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString("%1").arg(usage.totalStitches()));
-        }
-
-        if (m_stitchBreakdownColumn) {
-            // TODO
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString("%1").arg(usage.totalStitches()));
         }
 
         double totalLength = usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands();
 
         if (m_lengthColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString("%1").arg(round_n(totalLength, 2)));
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString("%1").arg(round_n(totalLength, 2)));
         }
 
         if (m_skeinsColumn) {
-            painter->drawText(keyRectangle.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + stitchBreakdownWidth * stitchBreakdownColumns + lengthWidth, y), QString("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
+            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), QString("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
         }
 
-        y += dy;
+        y += lineSpacing;
     }
+
+    painter->restore(); // additional save used before text writing
 
     painter->restore();
 }
@@ -462,10 +479,8 @@ QDataStream &KeyElement::streamOut(QDataStream &stream) const
             << qint32(m_strandsColumn)
             << qint32(m_flossDescriptionColumn)
             << qint32(m_stitchesColumn)
-            << qint32(m_stitchBreakdownColumn)
             << qint32(m_lengthColumn)
-            << qint32(m_skeinsColumn)
-            << qint32(m_totalStitches);
+            << qint32(m_skeinsColumn);
 
     return stream;
 }
@@ -492,11 +507,45 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
     qint32 stitchBreakdownColumn;
     qint32 lengthColumn;
     qint32 skeinsColumn;
-    qint32 totalStitches;
+    qint32 totalStitchesColumn;
 
     stream >> version;
 
     switch (version) {
+    case 101:
+        stream  >> showBorder
+                >> m_borderColor
+                >> borderThickness
+                >> fillBackground
+                >> m_backgroundColor
+                >> backgroundTransparency
+                >> left
+                >> top
+                >> right
+                >> bottom
+                >> m_textColor
+                >> m_textFont
+                >> symbolColumn
+                >> flossNameColumn
+                >> strandsColumn
+                >> flossDescriptionColumn
+                >> stitchesColumn
+                >> lengthColumn
+                >> skeinsColumn;
+        m_showBorder = (bool)showBorder;
+        m_borderThickness = borderThickness;
+        m_fillBackground = (bool)fillBackground;
+        m_backgroundTransparency = backgroundTransparency;
+        m_margins = QMargins(left, top, right, bottom);
+        m_symbolColumn = bool(symbolColumn);
+        m_flossNameColumn = bool(flossNameColumn);
+        m_strandsColumn = bool(strandsColumn);
+        m_flossDescriptionColumn = bool(flossDescriptionColumn);
+        m_stitchesColumn = bool(stitchesColumn);
+        m_lengthColumn = bool(lengthColumn);
+        m_skeinsColumn = bool(skeinsColumn);
+        break;
+
     case 100:
         stream  >> showBorder
                 >> m_borderColor
@@ -518,7 +567,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
                 >> stitchBreakdownColumn
                 >> lengthColumn
                 >> skeinsColumn
-                >> totalStitches;
+                >> totalStitchesColumn;
         m_showBorder = (bool)showBorder;
         m_borderThickness = borderThickness;
         m_fillBackground = (bool)fillBackground;
@@ -529,10 +578,10 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_strandsColumn = bool(strandsColumn);
         m_flossDescriptionColumn = bool(flossDescriptionColumn);
         m_stitchesColumn = bool(stitchesColumn);
-        m_stitchBreakdownColumn = bool(stitchBreakdownColumn);
+//        m_stitchBreakdownColumn = bool(stitchBreakdownColumn);
         m_lengthColumn = bool(lengthColumn);
         m_skeinsColumn = bool(skeinsColumn);
-        m_totalStitches = bool(totalStitches);
+//        m_totalStitchesColumn = bool(totalStitchesColumn);
         break;
 
     default:
@@ -545,8 +594,8 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
 }
 
 
-PlanElement::PlanElement(Page *parent, const QRect &rectangle)
-    :   Element(parent, Element::Plan, rectangle)
+PlanElement::PlanElement(Page *parent, const QRect &rectangle, Element::Type type)
+    :   Element(parent, rectangle, type)
 {
 }
 
@@ -575,39 +624,49 @@ PlanElement *PlanElement::clone() const
 }
 
 
-void PlanElement::render(Document *document, QPainter *painter, double scale) const
+void PlanElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
+
+    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
+    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
+
+    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
+
+    painter->setPen(Qt::black);
+
     int documentWidth = document->pattern()->stitches().width();
     int documentHeight = document->pattern()->stitches().height();
     double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
-    double mapWidth = m_rectangle.width() - 6;
+    double mapWidth = m_rectangle.width() - 1;
     double cellWidth = mapWidth / documentWidth;
     double cellHeight = cellWidth * aspect;
-    double mapHeight = cellHeight * documentHeight;
+    double patternHeight = cellHeight * documentHeight;
+    double mapHeight = patternHeight * aspect;
 
-    if (mapHeight > m_rectangle.height() - 6) {
-        mapHeight = m_rectangle.height() - 6;
+    if (mapHeight > m_rectangle.height() - 1) {
+        mapHeight = m_rectangle.height() - 1;
         mapWidth = ((mapHeight / documentHeight) / aspect) * documentWidth;
     }
 
     cellWidth = mapWidth / documentWidth;
     cellHeight = mapHeight / documentHeight;
 
-    double hOffset = (m_rectangle.width() - mapWidth) / 2;
-    double vOffset = (m_rectangle.height() - mapHeight) / 2;
+    double hOffset = ((m_rectangle.width() - mapWidth - 1) / 2);
+    double vOffset = ((m_rectangle.height() - mapHeight - 1) / 2);
+
+    QRectF page(hOffset, vOffset, mapWidth, mapHeight);
+    QRectF pattern(m_patternRect.left() * cellWidth, m_patternRect.top() * cellHeight, m_patternRect.width() * cellWidth, m_patternRect.height() * cellHeight);
 
     painter->setPen(Qt::black);
-    painter->setBrush(Qt::black);
-    QRect map((m_rectangle.topLeft() + QPoint(hOffset, vOffset))*scale, QSize(mapWidth, mapHeight)*scale);
-
-    QRect rect(map.topLeft() + (m_patternRect.topLeft()*scale), QSize(m_patternRect.width()*cellWidth * scale, m_patternRect.height()*cellHeight * scale));
-
-    painter->drawRect(map.translated(2, 2));
+    painter->setBrush(Qt::darkGray);
+    painter->drawRect(page.translated(0.5, 0.5)); // drop shadow
     painter->setBrush(Qt::white);
-    painter->drawRect(map);
+    painter->drawRect(page);
     painter->setBrush(Qt::lightGray);
-    painter->drawRect(rect);
+    painter->drawRect(pattern.translated(hOffset, vOffset));
+
     painter->restore();
 }
 
@@ -630,8 +689,8 @@ QDataStream &PlanElement::streamIn(QDataStream &stream)
 }
 
 
-PatternElement::PatternElement(Page *parent, const QRect &rectangle)
-    :   Element(parent, Element::Pattern, rectangle),
+PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Type type)
+    :   Element(parent, rectangle, type),
         m_showScales(false),
         m_showPlan(false),
         m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols),
@@ -644,11 +703,9 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle)
         m_planElement(0)
 {
     m_renderer = new Renderer();
-    m_renderer->setPatternRect(m_patternRect);
     m_renderer->setRenderStitchesAs(m_renderStitchesAs);
     m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
     m_renderer->setRenderKnotsAs(m_renderKnotsAs);
-    m_renderer->setPaintDeviceArea(QRectF());
 }
 
 
@@ -676,6 +733,7 @@ PatternElement::PatternElement(const PatternElement &other)
 
 PatternElement::~PatternElement()
 {
+    delete m_renderer;
 }
 
 
@@ -685,46 +743,48 @@ PatternElement *PatternElement::clone() const
 }
 
 
-void PatternElement::render(Document *document, QPainter *painter, double scale) const
+void PatternElement::render(Document *document, QPainter *painter) const
 {
-    int xCells = m_patternRect.width(); // width of the pattern to be printed
-    int yCells = m_patternRect.height();    // height of the pattern to be printed
+    painter->save();
 
-    QRectF paintDeviceArea(m_rectangle.left()*scale, m_rectangle.top()*scale, m_rectangle.width()*scale, m_rectangle.height()*scale);
-    double paintDeviceAreaWidth = paintDeviceArea.width();
-    double paintDeviceAreaHeight = paintDeviceArea.height();
+    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
+    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
 
-    double cellWidth = paintDeviceAreaWidth / xCells;
-    double cellHeight = paintDeviceAreaHeight / yCells;
+    // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
+    double patternWidth = m_rectangle.width();
+    double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
+    double cellWidth = patternWidth / m_patternRect.width();
+    double cellHeight = cellWidth * aspect;
+    double patternHeight = cellHeight * m_patternRect.height();
 
-    double aspectRatio = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
-
-    if ((cellWidth * aspectRatio) > cellHeight) {
-        cellWidth = cellHeight / aspectRatio;
-    } else {
-        cellHeight = cellWidth * aspectRatio;
+    if (patternHeight > m_rectangle.height()) {
+        patternHeight = m_rectangle.height();
+        patternWidth = ((patternHeight / m_patternRect.height()) / aspect) * m_patternRect.width();
     }
 
-    m_renderer->setCellSize(cellWidth, cellHeight);
+    // find the position of the top left coordinate of the top left cell of the cells to be printed
+    double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth)) / 2);
+    double patternVOffset = ((double(m_rectangle.height()) - double(patternHeight)) / 2);
 
-    double renderWidth = xCells * cellWidth;
-    double renderHeight = yCells * cellHeight;
+    int vpl = int(deviceHRatio * (patternHOffset + m_rectangle.left()));
+    int vpt = int(deviceVRatio * (patternVOffset + m_rectangle.top()));
+    int vpw = int(patternWidth * deviceHRatio);
+    int vph = int(patternHeight * deviceVRatio);
 
-    QPointF offset((paintDeviceAreaWidth - renderWidth) / 2, (paintDeviceAreaHeight - renderHeight) / 2);
+    painter->setViewport(vpl, vpt, vpw, vph);
+    painter->setWindow(m_patternRect);
+    painter->setClipRect(m_patternRect);
 
-    paintDeviceArea = QRectF(paintDeviceArea.topLeft() + offset, QSize(renderWidth, renderHeight));
-    m_renderer->setPaintDeviceArea(paintDeviceArea);
-    painter->drawRect(paintDeviceArea);
-
-    QRect rectangle(0, 0, m_patternRect.width()*cellWidth, m_patternRect.height()*cellHeight);
     m_renderer->render(painter,
                        document->pattern(),
-                       paintDeviceArea.toRect(), // scaled to suit the dimensions of the paint area
+                       QRect(0, 0, patternWidth, patternHeight),
                        m_showGrid,
                        m_showStitches,
                        m_showBackstitches,
                        m_showKnots,
-                       -1); // no color hilight
+                       -1);
+
+    painter->restore();
 }
 
 
@@ -743,6 +803,12 @@ bool PatternElement::showScales() const
 bool PatternElement::showPlan() const
 {
     return m_showPlan;
+}
+
+
+Element *PatternElement::planElement() const
+{
+    return m_planElement;
 }
 
 
@@ -791,7 +857,6 @@ bool PatternElement::showKnots() const
 void PatternElement::setPatternRect(const QRect &patternRect)
 {
     m_patternRect = patternRect;
-    m_renderer->setPatternRect(patternRect);
 }
 
 
@@ -926,7 +991,7 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
         m_showBackstitches = bool(showBackstitches);
         m_showKnots = bool(showKnots);
 
-        if (bool(planElement)) {
+        if (m_showPlan) {
             m_planElement = new PlanElement(parent(), QRect());
             stream >> *m_planElement;
             m_planElement->setPatternRect(m_patternRect);
@@ -934,11 +999,9 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             m_planElement = 0;
         }
 
-        m_renderer->setPatternRect(m_patternRect);
         m_renderer->setRenderStitchesAs(m_renderStitchesAs);
         m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
         m_renderer->setRenderKnotsAs(m_renderKnotsAs);
-        m_renderer->setPaintDeviceArea(QRectF());
         break;
 
     case 100:
@@ -976,11 +1039,9 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             m_planElement = 0;
         }
 
-        m_renderer->setPatternRect(m_patternRect);
         m_renderer->setRenderStitchesAs(m_renderStitchesAs);
         m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
         m_renderer->setRenderKnotsAs(m_renderKnotsAs);
-        m_renderer->setPaintDeviceArea(QRectF());
         break;
 
     default:
@@ -993,8 +1054,80 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
 }
 
 
-TextElement::TextElement(Page *parent, const QRect &rectangle)
-    :   Element(parent, Element::Text, rectangle),
+ImageElement::ImageElement(Page *parent, const QRect &rectangle, Element::Type type)
+    :   PatternElement(parent, rectangle, type)
+{
+    setShowScales(false);
+    setShowPlan(false);
+    setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
+    setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+    setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
+    setShowGrid(false);
+    setShowStitches(true);
+    setShowBackstitches(true);
+    setShowKnots(true);
+}
+
+
+ImageElement::ImageElement(const ImageElement &other)
+    :   PatternElement(other)
+{
+}
+
+
+ImageElement::~ImageElement()
+{
+}
+
+
+ImageElement *ImageElement::clone() const
+{
+    return new ImageElement(*this);
+}
+
+
+void ImageElement::render(Document *document, QPainter *painter) const
+{
+    PatternElement::render(document, painter);
+}
+
+
+QDataStream &ImageElement::streamOut(QDataStream &stream) const
+{
+    PatternElement::streamOut(stream);
+
+    stream << qint32(version);  // stream the version in case of future expansion
+    // All other variables held in the base class
+
+    return stream;
+}
+
+
+QDataStream &ImageElement::streamIn(QDataStream &stream)
+{
+    PatternElement::streamIn(stream);
+
+    qint32 version;
+
+    stream >> version;
+
+    switch (version) {
+    case 100:
+        // nothing to stream in for this version
+        break;
+
+    default:
+        // not supported
+        // throw exception
+        break;
+    }
+
+    return stream;
+}
+
+
+TextElement::TextElement(Page *parent, const QRect &rectangle, Element::Type type)
+    :   Element(parent, rectangle, type),
         m_showBorder(Configuration::textElement_ShowBorder()),
         m_borderColor(Configuration::textElement_BorderColor()),
         m_borderThickness(Configuration::textElement_BorderThickness()),
@@ -1035,15 +1168,23 @@ TextElement *TextElement::clone() const
 }
 
 
-void TextElement::render(Document *document, QPainter *painter, double scale) const
+void TextElement::render(Document *document, QPainter *painter) const
 {
-    QFont scaledFont = m_textFont;
-    int scaledFontSize = int(m_textFont.pointSizeF() / 72 * 25.4 * scale);
-    scaledFont.setPixelSize(scaledFontSize);
-    painter->setFont(scaledFont);
+    painter->save();
+
+    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
+    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
+
+    // set the viewport to be the rectangle converted to device coordinates
+    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
+    painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
+
+    QFont font = m_textFont;
+    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceHRatio));
 
     QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness)*painter->device()->physicalDpiX() / 254); // m_borderThickness in 1/10 mm
+    pen.setWidthF(double(m_borderThickness) / 10.0);
 
     if (m_showBorder) {
         painter->setPen(pen);
@@ -1058,14 +1199,21 @@ void TextElement::render(Document *document, QPainter *painter, double scale) co
         painter->setBrush(backgroundColor);
     }
 
-    painter->drawRect(QRectF(m_rectangle.topLeft() * scale, m_rectangle.size() * scale));
+    painter->drawRect(painter->window());
 
-    QPen textPen(m_textColor);
-    painter->setPen(textPen);
+    QRect deviceTextArea = painter->combinedTransform().mapRect(QRect(0, 0, m_rectangle.width(), m_rectangle.height()).adjusted(m_margins.left(), m_margins.top(), -m_margins.right(), -m_margins.bottom()));
 
-    QRect area = m_rectangle.adjusted(m_margins.left(), m_margins.top(), -m_margins.right(), -m_margins.bottom());
-    area = QRect(QPoint(area.topLeft()) * scale, QSize(area.width(), area.height()) * scale);
-    painter->drawText(area, m_alignment | Qt::AlignVCenter, convertedText(document));
+    painter->save();
+    painter->resetTransform();
+
+    pen.setColor(m_textColor);
+    painter->setPen(pen);
+
+    painter->setFont(font);
+    painter->drawText(deviceTextArea, m_alignment | Qt::TextWordWrap, convertedText(document));
+
+    painter->restore();
+    painter->restore(); // additional save used before text writing
 }
 
 
@@ -1095,8 +1243,8 @@ QString TextElement::convertedText(Document *document) const
                          ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
     replacement.replace(QRegExp("\\$\\{scheme\\}"), document->pattern()->palette().schemeName());
     replacement.replace(QRegExp("\\$\\{page\\}"), QString("%1").arg(parent()->pageNumber()));
-
     // repeat for all possible values
+
     return replacement;
 }
 

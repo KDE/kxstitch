@@ -27,6 +27,8 @@
 #include "FlossScheme.h"
 #include "MainWindow.h"
 #include "SchemeManager.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 #include <KDebug>
 
@@ -288,6 +290,10 @@ void Palette::paintEvent(QPaintEvent *)
 
     int currentFlossIndex = m_document->pattern()->palette().currentIndex();
 
+    SymbolLibrary *library = SymbolManager::library("kxstitch");
+
+    QTransform scale = QTransform::fromScale(m_width, m_height);
+
     QPainter painter;
 
     if (m_flosses) {
@@ -316,10 +322,7 @@ void Palette::paintEvent(QPaintEvent *)
         }
 
         painter.begin(this);
-        QFont font = painter.font();
-        font.setFamily(Configuration::editor_SymbolFont());
-        font.setPixelSize(std::min(m_width, m_height));
-        painter.setFont(font);
+        painter.setRenderHint(QPainter::Antialiasing, Configuration::palette_SymbolsAntialiased());
 
         for (int flossIndex = 0 ; flossIndex < m_flosses ; flossIndex++) {
             QColor color = palette[m_paletteIndex[flossIndex]]->flossColor();
@@ -351,13 +354,28 @@ void Palette::paintEvent(QPaintEvent *)
             }
 
             if (m_showSymbols) {
+                QTransform transform = scale * QTransform::fromTranslate(x, y);
+                painter.setTransform(transform);
+
+                Symbol symbol = library->symbol(palette[m_paletteIndex[flossIndex]]->stitchSymbol());
+                QPen pen = symbol.pen();
+                QBrush brush = symbol.brush();
+
+//                if (qGray(color.rgb()) < 128) {
+//                    painter.setPen(Qt::white);
+//                } else {
+//                    painter.setPen(Qt::black);
+//                }
+
                 if (qGray(color.rgb()) < 128) {
-                    painter.setPen(Qt::white);
-                } else {
-                    painter.setPen(Qt::black);
+                    pen.setColor(Qt::white);
+                    brush.setColor(Qt::white);
                 }
 
-                painter.drawText(rect, Qt::AlignCenter, palette[m_paletteIndex[flossIndex]]->stitchSymbol());
+                painter.setPen(pen);
+                painter.setBrush(brush);
+                painter.drawPath(symbol.path(Stitch::BTHalf));
+                painter.setTransform(QTransform());
             }
         }
 

@@ -17,13 +17,15 @@
 
 #include "configuration.h"
 #include "CalibrateFlossDlg.h"
-#include "CharSelectorDlg.h"
 #include "Commands.h"
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "MainWindow.h"
 #include "NewFlossDlg.h"
 #include "SchemeManager.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
+#include "SymbolSelectorDlg.h"
 
 
 PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
@@ -32,7 +34,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
         m_dialogPalette(m_document->pattern()->palette()),
         m_flossUsage(document->pattern()->stitches().flossUsage()),
         m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName())),
-        m_charSelectorDlg(0)
+        m_symbolSelectorDlg(0)
 {
     setCaption(i18n("Palette Manager"));
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
@@ -48,7 +50,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 
 PaletteManagerDlg::~PaletteManagerDlg()
 {
-    delete m_charSelectorDlg;
+    delete m_symbolSelectorDlg;
 }
 
 
@@ -105,7 +107,8 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
         const DocumentFloss *floss = m_dialogPalette.flosses().value(i);
         ui.StitchStrands->setCurrentIndex(floss->stitchStrands() - 1);
         ui.BackstitchStrands->setCurrentIndex(floss->backstitchStrands() - 1);
-        ui.StitchSymbol->setText(floss->stitchSymbol());
+        Symbol symbol = SymbolManager::library("kxstitch")->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol());  // TODO option for other symbol libraries
+        ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(symbol, 22));
         ui.BackstitchSymbol->setCurrentIndex(mapStyleToIndex(floss->backstitchSymbol()));
         ui.StitchStrands->setEnabled(true);
         ui.BackstitchStrands->setEnabled(true);
@@ -167,16 +170,15 @@ void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
     int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
 
-    if (m_charSelectorDlg == 0) {
-        m_charSelectorDlg = new CharSelectorDlg(this, m_dialogPalette.usedSymbols());
+    if (m_symbolSelectorDlg == 0) {
+        m_symbolSelectorDlg = new SymbolSelectorDlg(this);
     }
 
-    m_charSelectorDlg->setSelectedChar(m_dialogPalette.flosses().value(i)->stitchSymbol());
+    m_symbolSelectorDlg->setSelectedSymbol(m_dialogPalette.flosses().value(i)->stitchSymbol(), m_dialogPalette.usedSymbols());
 
-    if (m_charSelectorDlg->exec() == QDialog::Accepted) {
-        QChar c = m_charSelectorDlg->selectedChar();
-        m_dialogPalette.floss(i)->setStitchSymbol(c);
-        ui.StitchSymbol->setText(c);
+    if (m_symbolSelectorDlg->exec() == QDialog::Accepted) {
+        m_dialogPalette.floss(i)->setStitchSymbol(m_symbolSelectorDlg->selectedSymbol());
+        ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(SymbolManager::library("kxstitch")->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol()), 22));  // TODO option for other symbol libraries
     }
 }
 

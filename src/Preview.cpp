@@ -61,9 +61,6 @@ void Preview::readDocumentSettings()
     m_cellHeight = 4 * m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
     m_previewWidth = m_cellWidth * width * m_zoomFactor;
     m_previewHeight = m_cellHeight * height * m_zoomFactor;
-    m_renderer->setPatternRect(QRect(0, 0, width, height));
-    m_renderer->setCellSize(m_cellWidth, m_cellHeight);
-    m_renderer->setPaintDeviceArea(QRectF(0, 0, m_previewWidth, m_previewHeight));
     resize(m_previewWidth, m_previewHeight);
 }
 
@@ -84,7 +81,7 @@ void Preview::loadSettings()
 void Preview::mousePressEvent(QMouseEvent *e)
 {
     if (e->buttons() & Qt::LeftButton) {
-        m_start = m_tracking = m_end = e->pos(); // QPoint(e->pos().x()/m_cellWidth, e->pos().y()/m_cellHeight);
+        m_start = m_tracking = m_end = QPoint(e->pos().x() / m_cellWidth, e->pos().y() / m_cellHeight);
     }
 }
 
@@ -92,13 +89,13 @@ void Preview::mousePressEvent(QMouseEvent *e)
 void Preview::mouseMoveEvent(QMouseEvent *e)
 {
     if (e->buttons() & Qt::LeftButton) {
-        m_tracking = e->pos(); // QPoint(e->pos().x()/m_cellWidth, e->pos().y()/m_cellHeight);
+        m_tracking = QPoint(e->pos().x() / m_cellWidth, e->pos().y() / m_cellHeight);
 
         if (m_tracking != m_start) {
-            QRect updateArea = QRect(m_start, m_end).normalized();
+            QRect updateArea = QRect(m_start * m_cellWidth, m_end * m_cellWidth).normalized();
             m_end = m_tracking;
             m_rubberBand = QRect(m_start, m_end).normalized();
-            update(updateArea.united(m_rubberBand));
+            update(updateArea.united(QRect(m_rubberBand.left() * m_cellWidth, m_rubberBand.top() * m_cellHeight, m_rubberBand.width() * m_cellWidth, m_rubberBand.height() * m_cellHeight)));
         }
     }
 }
@@ -109,12 +106,12 @@ void Preview::mouseReleaseEvent(QMouseEvent *e)
     QPoint p = e->pos();
 
     if (m_start == m_end) {
-        emit clicked(QPoint(m_start.x() / m_cellWidth, m_start.y() / m_cellHeight));
+        emit clicked(m_start);
     } else {
-        emit clicked(QRect(QPoint(m_start.x() / m_cellWidth, m_start.y() / m_cellHeight), QPoint(m_end.x() / m_cellWidth, m_end.y() / m_cellHeight)).normalized());
+        emit clicked(QRect(m_start, m_end).normalized());
     }
 
-    QRect updateArea = m_rubberBand;
+    QRect updateArea = QRect(m_rubberBand.left() * m_cellWidth, m_rubberBand.height() * m_cellHeight, m_rubberBand.width() * m_cellWidth, m_rubberBand.height() * m_cellHeight);
     m_rubberBand = QRect();
     update(updateArea);
 }
@@ -130,13 +127,15 @@ void Preview::paintEvent(QPaintEvent *e)
     painter.begin(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
+    painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
+
     m_renderer->render(&painter, m_document->pattern(), e->rect(), false, true, true, true, -1);
 
-    if (m_visible.width()*m_cellWidth < m_previewWidth || m_visible.height()*m_cellHeight < m_previewHeight) {
+    if (m_visible.width() * m_cellWidth < m_previewWidth || m_visible.height() * m_cellHeight < m_previewHeight) {
         painter.setPen(Qt::white);
         painter.setBrush(Qt::NoBrush);
         painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
-        painter.drawRect(m_visible.left()*m_cellWidth, m_visible.top()*m_cellHeight, m_visible.width()*m_cellWidth, m_visible.height()*m_cellHeight);
+        painter.drawRect(m_visible);
     }
 
     if (m_rubberBand.isValid()) {

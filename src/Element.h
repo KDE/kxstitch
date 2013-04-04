@@ -29,14 +29,14 @@ class Renderer;
 class Element
 {
 public:
-    enum Type {Text, Pattern, Plan, Key};
+    enum Type {Text, Pattern, Plan, Key, Image};
 
-    Element(Page *, Element::Type, const QRect &);
+    Element(Page *, const QRect &, Element::Type);
     Element(const Element &);
     virtual ~Element();
 
     virtual Element *clone() const = 0;
-    virtual void render(Document *, QPainter *, double) const = 0;
+    virtual void render(Document *, QPainter *) const = 0;
 
     Page *parent() const;
     Element::Type type() const;
@@ -58,8 +58,8 @@ protected:
     static const int version = 100;
 
     Page            *m_parent;
-    Element::Type   m_type;
     QRect           m_rectangle; // area to be used on the page, in mm, top, left, width, height
+    Element::Type   m_type;
     bool            m_visible;
 };
 
@@ -67,12 +67,12 @@ protected:
 class KeyElement : public Element
 {
 public:
-    KeyElement(Page *, const QRect &);
+    KeyElement(Page *, const QRect &, Element::Type type = Element::Key);
     KeyElement(const KeyElement &);
     virtual ~KeyElement();
 
     virtual KeyElement *clone() const;
-    virtual void render(Document *, QPainter *painter, double) const;
+    virtual void render(Document *, QPainter *painter) const;
 
     friend class KeyElementDlg;
 
@@ -81,7 +81,7 @@ protected:
     virtual QDataStream &streamIn(QDataStream &);
 
 private:
-    static const int version = 100;
+    static const int version = 101;
 
     bool        m_showBorder;
     QColor      m_borderColor;
@@ -97,17 +97,15 @@ private:
     bool        m_strandsColumn;
     bool        m_flossDescriptionColumn;
     bool        m_stitchesColumn;
-    bool        m_stitchBreakdownColumn;
     bool        m_lengthColumn;
     bool        m_skeinsColumn;
-    bool        m_totalStitches;
 };
 
 
 class PlanElement : public Element
 {
 public:
-    PlanElement(Page *, const QRect &);
+    PlanElement(Page *, const QRect &, Element::Type type = Element::Plan);
     PlanElement(const PlanElement &);
     virtual ~PlanElement();
 
@@ -115,7 +113,7 @@ public:
     void setPatternRect(const QRect &);
 
     virtual PlanElement *clone() const;
-    virtual void render(Document *, QPainter *painter, double) const;
+    virtual void render(Document *, QPainter *painter) const;
 
 protected:
     virtual QDataStream &streamOut(QDataStream &) const;
@@ -131,16 +129,17 @@ private:
 class PatternElement : public Element
 {
 public:
-    PatternElement(Page *, const QRect &);
+    PatternElement(Page *, const QRect &, Element::Type type = Element::Pattern);
     PatternElement(const PatternElement &);
     virtual ~PatternElement();
 
     virtual PatternElement *clone() const;
-    virtual void render(Document *, QPainter *painter, double) const;
+    virtual void render(Document *, QPainter *painter) const;
 
     QRect patternRect() const;
     bool showScales() const;
     bool showPlan() const;
+    Element *planElement() const;
     Configuration::EnumRenderer_RenderStitchesAs::type renderStitchesAs() const;
     Configuration::EnumRenderer_RenderBackstitchesAs::type renderBackstitchesAs() const;
     Configuration::EnumRenderer_RenderKnotsAs::type renderKnotsAs() const;
@@ -189,15 +188,35 @@ private:
 };
 
 
+class ImageElement : public PatternElement
+{
+public:
+    ImageElement(Page *, const QRect &, Element::Type type = Element::Image);
+    ImageElement(const ImageElement &);
+    virtual ~ImageElement();
+
+    virtual ImageElement *clone() const;
+    virtual void render(Document *, QPainter *painter) const;
+
+    friend class ImageElementDlg;
+
+protected:
+    static const int version = 100;
+
+    virtual QDataStream &streamOut(QDataStream &) const;
+    virtual QDataStream &streamIn(QDataStream &);
+};
+
+
 class TextElement : public Element
 {
 public:
-    TextElement(Page *, const QRect &);
+    TextElement(Page *, const QRect &, Element::Type type = Element::Text);
     TextElement(const TextElement &);
     virtual ~TextElement();
 
     virtual TextElement *clone() const;
-    virtual void render(Document *, QPainter *painter, double) const;
+    virtual void render(Document *, QPainter *painter) const;
 
     friend class TextElementDlg;
 

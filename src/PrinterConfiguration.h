@@ -14,13 +14,9 @@
 
 
 #include <QDataStream>
-#include <QExplicitlySharedDataPointer>
 #include <QList>
 
 #include "Page.h"
-
-
-#include "PrinterConfiguration_p.h"
 
 
 class PrinterConfiguration
@@ -30,14 +26,15 @@ public:
     PrinterConfiguration(const PrinterConfiguration &);
     ~PrinterConfiguration();
 
+    PrinterConfiguration &operator=(const PrinterConfiguration &);
+
     void clear();
-    void detach();
 
     void addPage(Page *);
     void insertPage(int, Page *);
     void removePage(Page *);
 
-    QList<Page *> &pages();
+    QList<Page *> pages() const;
 
     friend QDataStream &operator<<(QDataStream &, const PrinterConfiguration &);
     friend QDataStream &operator>>(QDataStream &, PrinterConfiguration &);
@@ -47,7 +44,7 @@ private:
 
     static const int version = 100;
 
-    QExplicitlySharedDataPointer<PrinterConfigurationPrivate>   d;
+    QList<Page *>   m_pages;
 };
 
 

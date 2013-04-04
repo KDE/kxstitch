@@ -11,97 +11,70 @@
 
 #include "PrinterConfiguration.h"
 
-#include <QSharedData>
-
 #include <KLocale>
 
 #include "Element.h"
 #include "Exceptions.h"
 
 
-PrinterConfigurationPrivate::PrinterConfigurationPrivate()
-    :   QSharedData()
-{
-}
-
-
-PrinterConfigurationPrivate::PrinterConfigurationPrivate(const PrinterConfigurationPrivate &other)
-    :   QSharedData(other)
-{
-    QListIterator<Page *> pageIterator(other.m_pages);
-
-    while (pageIterator.hasNext()) {
-        Page *page = pageIterator.next();
-        m_pages.append(new Page(*page));
-    }
-}
-
-
-PrinterConfigurationPrivate::~PrinterConfigurationPrivate()
-{
-    clear();
-}
-
-
-void PrinterConfigurationPrivate::clear()
-{
-    qDeleteAll(m_pages);
-}
-
-
 PrinterConfiguration::PrinterConfiguration()
-    :   d(new PrinterConfigurationPrivate)
 {
 }
 
 
 PrinterConfiguration::PrinterConfiguration(const PrinterConfiguration &other)
-    :   d(other.d)
 {
+    *this = other;
 }
 
 
 PrinterConfiguration::~PrinterConfiguration()
 {
-}
-
-
-void PrinterConfiguration::clear()
-{
-    d->clear();
-}
-
-
-void PrinterConfiguration::detach()
-{
-    d.detach();
+    qDeleteAll(m_pages);
 }
 
 
 void PrinterConfiguration::addPage(Page *page)
 {
-    d->m_pages.append(page);
+    m_pages.append(page);
     updatePageNumbers();
 }
 
 
 void PrinterConfiguration::insertPage(int position, Page *page)
 {
-    d->m_pages.insert(position, page);
+    m_pages.insert(position, page);
     updatePageNumbers();
 }
 
 
 void PrinterConfiguration::removePage(Page *page)
 {
-    d->m_pages.takeAt(d->m_pages.indexOf(page));
+    m_pages.takeAt(m_pages.indexOf(page));
     updatePageNumbers();
 }
 
 
-QList<Page *> &PrinterConfiguration::pages()
+QList<Page *> PrinterConfiguration::pages() const
 {
-    return d->m_pages;
+    return m_pages;
+}
+
+
+PrinterConfiguration &PrinterConfiguration::operator=(const PrinterConfiguration &other)
+{
+    if (this != &other) {
+        qDeleteAll(m_pages);
+        m_pages.clear();
+
+        QListIterator<Page *> pageIterator(other.m_pages);
+
+        while (pageIterator.hasNext()) {
+            m_pages.append(new Page(*pageIterator.next()));
+        }
+    }
+
+    return *this;
 }
 
 
@@ -109,16 +82,15 @@ QDataStream &operator<<(QDataStream &stream, const PrinterConfiguration &printer
 {
     stream << qint32(printerConfiguration.version);
 
-    stream << printerConfiguration.d->m_pages.count();
-    QListIterator<Page *> pageIterator(printerConfiguration.d->m_pages);
+    stream << printerConfiguration.m_pages.count();
+    QListIterator<Page *> pageIterator(printerConfiguration.m_pages);
 
     while (pageIterator.hasNext()) {
-        Page *page = pageIterator.next();
-        stream << *page;
+        stream << *pageIterator.next();
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 
     return stream;
@@ -151,7 +123,7 @@ QDataStream &operator>>(QDataStream &stream, PrinterConfiguration &printerConfig
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw InvalidFileVersion(QString(i18n("Failed reading printer configuration")));
+        throw FailedReadFile(stream.status());
     }
 
     return stream;
@@ -161,7 +133,7 @@ QDataStream &operator>>(QDataStream &stream, PrinterConfiguration &printerConfig
 void PrinterConfiguration::updatePageNumbers()
 {
     int p = 1;
-    QListIterator<Page *> pageIterator(d->m_pages);
+    QListIterator<Page *> pageIterator(m_pages);
 
     while (pageIterator.hasNext()) {
         pageIterator.next()->setPageNumber(p++);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>237</width>
-    <height>650</height>
+    <width>251</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -285,7 +285,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="KFontRequester" name="KeyFont"/>
+       <widget class="KFontRequester" name="KeyFont" native="true"/>
       </item>
      </layout>
     </widget>
@@ -332,13 +332,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="StitchBreakdownColumn">
-        <property name="text">
-         <string>Stitch breakdown</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="LengthColumn">
         <property name="text">
          <string>Length</string>
@@ -349,13 +342,6 @@
        <widget class="QCheckBox" name="SkeinsColumn">
         <property name="text">
          <string>Skeins</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QCheckBox" name="TotalStitches">
-        <property name="text">
-         <string>Total stitches</string>
         </property>
        </widget>
       </item>
@@ -392,7 +378,6 @@
   <tabstop>StrandsColumn</tabstop>
   <tabstop>FlossDescriptionColumn</tabstop>
   <tabstop>StitchesColumn</tabstop>
-  <tabstop>StitchBreakdownColumn</tabstop>
   <tabstop>LengthColumn</tabstop>
   <tabstop>SkeinsColumn</tabstop>
  </tabstops>

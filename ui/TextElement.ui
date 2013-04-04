@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>241</width>
-    <height>605</height>
+    <width>246</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Text Element Properties</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_5">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QGroupBox" name="groupBox_4">
      <property name="title">
       <string>Margins</string>
@@ -152,7 +152,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Border</string>
@@ -217,7 +217,7 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string comment="Groupbox title for background properties">Background</string>
@@ -267,19 +267,22 @@
      </layout>
     </widget>
    </item>
-   <item row="3" column="0">
+   <item>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
       <string>Text</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_3">
+     <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="0" colspan="3">
        <widget class="KTextEdit" name="Text"/>
       </item>
       <item row="1" column="0" colspan="2">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
          <widget class="QToolButton" name="AlignLeft">
+          <property name="toolTip">
+           <string>Align left</string>
+          </property>
           <property name="text">
            <string notr="true">...</string>
           </property>
@@ -293,12 +296,15 @@
            <bool>true</bool>
           </property>
           <property name="autoExclusive">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="0" column="1">
          <widget class="QToolButton" name="AlignHCenter">
+          <property name="toolTip">
+           <string>Align horizontal center</string>
+          </property>
           <property name="text">
            <string notr="true">...</string>
           </property>
@@ -311,32 +317,19 @@
           <property name="checkable">
            <bool>true</bool>
           </property>
-          <property name="autoExclusive">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="AlignJustify">
-          <property name="text">
-           <string notr="true">...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
+          <property name="checked">
            <bool>true</bool>
           </property>
           <property name="autoExclusive">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="0" column="2">
          <widget class="QToolButton" name="AlignRight">
+          <property name="toolTip">
+           <string>Align right</string>
+          </property>
           <property name="text">
            <string notr="true">...</string>
           </property>
@@ -350,6 +343,88 @@
            <bool>true</bool>
           </property>
           <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QToolButton" name="AlignJustify">
+          <property name="toolTip">
+           <string>Justify</string>
+          </property>
+          <property name="text">
+           <string notr="true">...</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QToolButton" name="AlignTop">
+          <property name="toolTip">
+           <string>Align top</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QToolButton" name="AlignVCenter">
+          <property name="toolTip">
+           <string>Align vertical center</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QToolButton" name="AlignBottom">
+          <property name="toolTip">
+           <string>Align bottom</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
            <bool>true</bool>
           </property>
          </widget>
@@ -363,7 +438,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>82</width>
+          <width>56</width>
           <height>20</height>
          </size>
         </property>
@@ -386,7 +461,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1" colspan="2">
+      <item row="3" column="1">
        <widget class="KFontRequester" name="TextFont"/>
       </item>
      </layout>
@@ -396,14 +471,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KFontRequester</class>
-   <extends>QWidget</extends>
-   <header>kfontrequester.h</header>
-  </customwidget>
-  <customwidget>
    <class>KColorCombo</class>
    <extends>QComboBox</extends>
    <header>kcolorcombo.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KFontRequester</class>
+   <extends>QWidget</extends>
+   <header>kfontrequester.h</header>
   </customwidget>
   <customwidget>
    <class>KTextEdit</class>
@@ -425,7 +500,6 @@
   <tabstop>Text</tabstop>
   <tabstop>AlignLeft</tabstop>
   <tabstop>AlignHCenter</tabstop>
-  <tabstop>AlignJustify</tabstop>
   <tabstop>AlignRight</tabstop>
   <tabstop>TextColor</tabstop>
  </tabstops>

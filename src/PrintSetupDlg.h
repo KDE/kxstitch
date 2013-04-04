@@ -39,7 +39,7 @@ public:
     PrintSetupDlg(QWidget *, Document *, QPrinter *);
     ~PrintSetupDlg();
 
-    PrinterConfiguration printerConfiguration() const;
+    const PrinterConfiguration &printerConfiguration() const;
 
 protected:
     void showEvent(QShowEvent *);
@@ -55,6 +55,7 @@ private slots:
     void on_SelectElement_clicked();
     void on_TextElement_clicked();
     void on_PatternElement_clicked();
+    void on_ImageElement_clicked();
     void on_KeyElement_clicked();
     void selectionMade(const QRect &);
     void elementGeometryChanged();
@@ -64,7 +65,8 @@ private slots:
     void deleteElement();
 
 private:
-    enum ElementMode {Select, Text, Pattern, Key};
+    enum ElementMode {Select, Text, Pattern, Key, Image};
+
     void initialiseFromConfig();
     void addPage(int, Page *);
 

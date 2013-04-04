@@ -11,13 +11,15 @@
 
 #include "PagePropertiesDlg.h"
 
+#include <KDebug>
+
 #include "Page.h"
+#include "PageLayoutEditor.h"
 #include "PagePreviewListWidgetItem.h"
 
 
-PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, PagePreviewListWidgetItem *pagePreview)
-    :   KDialog(parent),
-        m_pagePreview(pagePreview)
+PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, bool showGrid, int gridSize)
+    :   KDialog(parent)
 {
     setCaption(i18n("Page Properties"));
     setButtons(KDialog::Ok | KDialog::Cancel);
@@ -26,15 +28,13 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, PagePreviewListWidgetItem 
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
 
-    Page *page = pagePreview->page();
-    ui.MarginTop->setValue(page->m_margins.top());
-    ui.MarginLeft->setValue(page->m_margins.left());
-    ui.MarginRight->setValue(page->m_margins.right());
-    ui.MarginBottom->setValue(page->m_margins.bottom());
+    ui.MarginTop->setValue(margins.top());
+    ui.MarginLeft->setValue(margins.left());
+    ui.MarginRight->setValue(margins.right());
+    ui.MarginBottom->setValue(margins.bottom());
 
-    ui.ShowGrid->setChecked(page->m_showGrid);
-    ui.GridX->setValue(page->m_gridX);
-    ui.GridY->setValue(page->m_gridY);
+    ui.ShowGrid->setChecked(showGrid);
+    ui.GridSize->setValue(gridSize);
 
     setMainWidget(widget);
 }
@@ -48,13 +48,26 @@ PagePropertiesDlg::~PagePropertiesDlg()
 void PagePropertiesDlg::slotButtonClicked(int button)
 {
     if (button == KDialog::Ok) {
-        Page *page = m_pagePreview->page();
-        page->m_margins = QMargins(ui.MarginTop->value(), ui.MarginLeft->value(), ui.MarginRight->value(), ui.MarginBottom->value());
-        page->m_showGrid = ui.ShowGrid->isChecked();
-        page->m_gridX = ui.GridX->value();
-        page->m_gridY = ui.GridY->value();
         accept();
     } else {
         KDialog::slotButtonClicked(button);
     }
+}
+
+
+QMargins PagePropertiesDlg::margins() const
+{
+    return QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
+}
+
+
+bool PagePropertiesDlg::showGrid() const
+{
+    return ui.ShowGrid->isChecked();
+}
+
+
+int PagePropertiesDlg::gridSize() const
+{
+    return ui.GridSize->value();
 }

@@ -259,8 +259,6 @@ void Editor::readDocumentSettings()
     m_verticalScale->setClothCount(m_verticalClothCount);
     m_verticalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
 
-    m_renderer->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
-
     zoom(m_zoomFactor);
 }
 
@@ -323,14 +321,11 @@ void Editor::zoom(double factor)
     m_horizontalScale->setOffset(pos().x());
     m_verticalScale->setOffset(pos().y());
 
-    m_renderer->setCellSize(m_cellWidth, m_cellHeight);
-
     if (m_libraryManagerDlg) {
         m_libraryManagerDlg->setCellSize(m_cellWidth, m_cellHeight);
     }
 
     this->resize(m_document->pattern()->stitches().width()*m_cellWidth, m_document->pattern()->stitches().height()*m_cellHeight);
-    m_renderer->setPaintDeviceArea(QRect(0, 0, width(), height()));
 
     emit changedVisibleCells(visibleCells());
 }
@@ -1153,6 +1148,8 @@ void Editor::paintEvent(QPaintEvent *e)
     painter->begin(this);
 
     painter->fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
 
     if (m_renderBackgroundImages) {
         renderBackgroundImages(painter, e->rect());
@@ -1233,7 +1230,7 @@ void Editor::renderBackgroundImages(QPainter *painter, const QRect &updateRectan
             r.setHeight(r.height()*m_cellHeight);
 
             if (r.intersects(updateRectangle)) {
-                painter->drawImage(r, background->image());
+                painter->drawImage(background->location(), background->image());
             }
         }
     }
@@ -1249,9 +1246,9 @@ void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
         pen.setWidth(4);
 
         if (m_toolMode == ToolBackstitch) {
-            painter->drawLine(snapToContents(m_cellStart), snapToContents(m_cellEnd));
+            painter->drawLine(QPointF(m_cellStart) / 2, QPointF(m_cellEnd) / 2);
         } else {
-            painter->drawLine(cellToRect(m_cellStart).center(), cellToRect(m_cellEnd).center());
+            painter->drawLine(QPointF(m_cellStart) + QPointF(0.5, 0.5), QPointF(m_cellEnd) + QPointF(0.5, 0.5));
         }
     }
 
@@ -1268,7 +1265,7 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
         opt.opaque = false;
-        opt.rect = m_rubberBand;
+        opt.rect = m_rubberBand.adjusted(0, 0, 1, 1);
         style()->drawControl(QStyle::CE_RubberBand, &opt, painter);
     }
 
@@ -1294,14 +1291,20 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
 
 void Editor::renderFillPolygon(QPainter *painter, const QRect&)
 {
-    QPolygon polyline;
+    QPolygonF polyline;
     painter->save();
+
+    painter->setPen(Qt::green);         // use green for the first point
+    painter->setBrush(Qt::green);
+
     QVector<QPoint>::const_iterator i;
 
     for (i = m_polygon.constBegin() ; i != m_polygon.constEnd() ; ++i) {
-        QRect cellRect = cellToRect(*i);
-        painter->drawEllipse(cellRect);
-        polyline.append(cellRect.center());
+        QPointF cell = QPointF(*i) + QPointF(0.5, 0.5);
+        painter->drawEllipse(QRectF(-0.5, -0.5, 1, 1).translated(cell));
+        painter->setPen(Qt::blue);      // use blue for subsequent points
+        painter->setBrush(Qt::blue);
+        polyline.append(cell);
     }
 
     painter->drawPolyline(polyline);
@@ -1573,42 +1576,39 @@ void Editor::mouseMoveEvent_Rectangle(QMouseEvent *e)
     m_cellTracking = contentsToCell(p);
     QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
     m_cellEnd = m_cellTracking;
-    m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
-    update(updateArea.united(m_rubberBand).adjusted(-5, -5, 5, 5));
+    m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
+    update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
 }
 
 
 void Editor::mouseReleaseEvent_Rectangle(QMouseEvent*)
 {
-    m_selectionArea = QRect(m_cellStart, m_cellEnd).normalized();
-
-    int x = m_selectionArea.left();
-    int y = m_selectionArea.top();
+    int x = m_rubberBand.left();
+    int y = m_rubberBand.top();
     QPoint cell(x, y);
 
     QUndoCommand *cmd = new DrawRectangleCommand(m_document);
 
-    while (++x <= m_selectionArea.right()) {
+    while (++x <= m_rubberBand.right()) {
         new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         cell.setX(x);
     }
 
-    while (++y <= m_selectionArea.bottom()) {
+    while (++y <= m_rubberBand.bottom()) {
         new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         cell.setY(y);
     }
 
-    while (--x >= m_selectionArea.left()) {
+    while (--x >= m_rubberBand.left()) {
         new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         cell.setX(x);
     }
 
-    while (--y >= m_selectionArea.top()) {
+    while (--y >= m_rubberBand.top()) {
         new AddStitchCommand(m_document, cell, Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         cell.setY(y);
     }
 
-    m_selectionArea = QRect();  // this will clear the selection area rectangle on the next repaint
     m_rubberBand = QRect();     // this will clear the rubber band rectangle on the next repaint
 
     m_document->undoStack().push(cmd);
@@ -1631,24 +1631,21 @@ void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
     m_cellTracking = contentsToCell(p);
     QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
     m_cellEnd = m_cellTracking;
-    m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
-    update(updateArea.united(m_rubberBand).adjusted(-5, -5, 5, 5));
+    m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
+    update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
 }
 
 
 void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent*)
 {
-    m_selectionArea = QRect(m_cellStart, m_cellEnd).normalized();
-
     QUndoCommand *cmd = new FillRectangleCommand(m_document);
 
-    for (int y = m_selectionArea.top() ; y <= m_selectionArea.bottom() ; y++) {
-        for (int x = m_selectionArea.left() ; x <= m_selectionArea.right() ; x++) {
+    for (int y = m_rubberBand.top() ; y <= m_rubberBand.bottom() ; y++) {
+        for (int x = m_rubberBand.left() ; x <= m_rubberBand.right() ; x++) {
             new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         }
     }
 
-    m_selectionArea = QRect();  // this will clear the selection area rectangle on the next repaint
     m_rubberBand = QRect();     // this will clear the rubber band rectangle on the next repaint
 
     m_document->undoStack().push(cmd);
@@ -1671,8 +1668,8 @@ void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
     m_cellTracking = contentsToCell(p);
     QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
     m_cellEnd = m_cellTracking;
-    m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
-    update(updateArea.united(m_rubberBand).adjusted(-5, -5, 5, 5));
+    m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
+    update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
 }
 
 
@@ -1698,7 +1695,7 @@ void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
         painter.setRenderHint(QPainter::Antialiasing, !Configuration::toolShapes_UseFractionals());
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::NoBrush);
-        painter.drawEllipse(QRect(m_cellStart, m_cellEnd).normalized());
+        painter.drawEllipse(m_rubberBand);
         painter.end();
 
         QUndoCommand *cmd = new DrawEllipseCommand(m_document);
@@ -1708,7 +1705,6 @@ void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
     }
 
     m_rubberBand = QRect();
-    m_selectionArea = QRect();
 }
 
 
@@ -1728,8 +1724,8 @@ void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
     m_cellTracking = contentsToCell(p);
     QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
     m_cellEnd = m_cellTracking;
-    m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
-    update(updateArea.united(m_rubberBand).adjusted(-5, -5, 5, 5));
+    m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
+    update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
 }
 
 
@@ -1765,7 +1761,6 @@ void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
     }
 
     m_rubberBand = QRect();
-    m_selectionArea = QRect();
 }
 
 
@@ -1887,7 +1882,7 @@ void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
 void Editor::mousePressEvent_Select(QMouseEvent *e)
 {
     if (m_rubberBand.isValid()) {
-        QRect r = m_rubberBand;
+        QRect r = rectToContents(m_rubberBand);
         m_rubberBand = QRect();
         update(r.adjusted(-5, -5, 5, 5));
     }
@@ -1906,8 +1901,8 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
     m_cellTracking = contentsToCell(p);
     QRect updateArea = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
     m_cellEnd = m_cellTracking;
-    m_rubberBand = cellToRect(m_cellStart).united(cellToRect(m_cellEnd)).normalized();
-    update(updateArea.united(m_rubberBand).adjusted(-5, -5, 5, 5));
+    m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
+    update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
 }
 
 
@@ -2097,7 +2092,25 @@ QPoint Editor::snapToContents(const QPoint &p) const
 }
 
 
-QRect Editor::cellToRect(const QPoint &cell)
+QPointF Editor::physicalToLogical(const QPoint &p) const
+{
+    double x = double(p.x()) / m_cellWidth;
+    double y = double(p.y()) / m_cellHeight;
+
+    return QPointF(x, y);
+}
+
+
+QPoint Editor::logicalToPhysical(const QPointF &p) const
+{
+    int x = int(p.x() * m_cellWidth);
+    int y = int(p.y() * m_cellHeight);
+
+    return QPoint(x, y);
+}
+
+
+QRect Editor::cellToRect(const QPoint &cell) const
 {
     int x = cell.x() * m_cellWidth;
     int y = cell.y() * m_cellHeight;
@@ -2105,10 +2118,16 @@ QRect Editor::cellToRect(const QPoint &cell)
 }
 
 
-QRect Editor::polygonToContents(const QPolygon &polygon)
+QRect Editor::polygonToContents(const QPolygon &polygon) const
 {
     QRect updateArea = polygon.boundingRect();
     return QRect(updateArea.left() * m_cellWidth, updateArea.top() * m_cellHeight, updateArea.width() * m_cellWidth, updateArea.height() * m_cellHeight);
+}
+
+
+QRect Editor::rectToContents(const QRect &rect) const
+{
+    return QRect(rect.left() * m_cellWidth, rect.top() * m_cellHeight, rect.width() * m_cellWidth, rect.height() * m_cellHeight);
 }
 
 
@@ -2120,9 +2139,10 @@ void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
     for (int y = 0 ; y < image.height() ; y++) {
         for (int x = 0 ; x < image.width() ; x++) {
             if (image.pixelIndex(x, y) == 1) {
-                int zone = (y%2)*2+(x%2);
+                int zone = (y % 2) * 2 + (x % 2);
+
                 if (Configuration::toolShapes_UseFractionals()) {
-                    new AddStitchCommand(m_document, QPoint(x/2, y/2), stitchMap[0][zone], colorIndex, parent);
+                    new AddStitchCommand(m_document, QPoint(x / 2, y / 2), stitchMap[0][zone], colorIndex, parent);
                 } else {
                     new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, colorIndex, parent);
                 }

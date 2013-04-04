@@ -24,15 +24,17 @@ class PagePropertiesDlg : public KDialog
     Q_OBJECT
 
 public:
-    PagePropertiesDlg(QWidget *, PagePreviewListWidgetItem *);
+    PagePropertiesDlg(QWidget *, const QMargins &, bool, int);
     ~PagePropertiesDlg();
+
+    QMargins margins() const;
+    bool showGrid() const;
+    int gridSize() const;
 
 protected slots:
     void slotButtonClicked(int);
 
 private:
-    PagePreviewListWidgetItem   *m_pagePreview;
-
     Ui::PageProperties  ui;
 };
 

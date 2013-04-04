@@ -45,14 +45,12 @@ void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
 
     StitchData &stitches = libraryPattern->pattern()->stitches();
     int cellSize = 256 / std::max(stitches.width(), stitches.height());
-    QPixmap pixmap(stitches.width()*cellSize + 1, stitches.height()*cellSize + 1);
-    renderer->setCellSize(cellSize, cellSize);
+    QPixmap pixmap(stitches.width() * cellSize, stitches.height() * cellSize);
     pixmap.fill(Qt::white);
 
-    renderer->setPatternRect(QRect(0, 0, stitches.width(), stitches.height()));
-    renderer->setPaintDeviceArea(QRect(0, 0, pixmap.width(), pixmap.height()));
-
     QPainter painter(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setWindow(0, 0, stitches.width(), stitches.height());
 
     renderer->render(&painter,
                      libraryPattern->pattern(),

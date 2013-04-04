@@ -82,6 +82,9 @@ public:
     Knot *takeFrenchKnot(const QPoint &, int);
     Knot *takeFrenchKnot(Knot *);
 
+    QList<Backstitch *> &backstitches();
+    QList<Knot *> &knots();
+
     QListIterator<Backstitch *> backstitchIterator();
     QMutableListIterator<Backstitch *> mutableBackstitchIterator();
     QListIterator<Knot *> knotIterator();

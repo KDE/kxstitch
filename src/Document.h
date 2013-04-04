@@ -60,7 +60,7 @@ public:
 
     BackgroundImages &backgroundImages();
     Pattern *pattern();
-    PrinterConfiguration printerConfiguration() const;
+    const PrinterConfiguration &printerConfiguration() const;
     void setPrinterConfiguration(const PrinterConfiguration &);
 
 private:

@@ -101,15 +101,13 @@ void SelectArea::paintEvent(QPaintEvent *event)
     painter.begin(this);
 
     painter.fillRect(event->rect(), Qt::white);
-    m_fullPatternElement->render(m_document, &painter, 1.0);
+    m_fullPatternElement->render(m_document, &painter);
 
     QListIterator<QRect> patternRectIterator(m_patternRects);
     QColor color(Qt::gray);
     color.setAlpha(100);
 
     while (patternRectIterator.hasNext()) {
-        // TODO this works, but picks up the image element as a full pattern selection and doesn't give the required result.
-        // need to differentiate between pattern elements used for images and those used for the pattern
         QRect rect = patternRectIterator.next();
         QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
         painter.setPen(color);

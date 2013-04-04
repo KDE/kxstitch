@@ -21,10 +21,10 @@
 #include "ui_PaletteManager.h"
 
 
-class CharSelectorDlg;
 class Document;
 class DocumentFloss;
 class SchemeManager;
+class SymbolSelectorDlg;
 
 
 class PaletteManagerDlg : public KDialog
@@ -58,15 +58,16 @@ private:
     void insertListWidgetItem(QListWidget *, QListWidgetItem *);
     bool contains(const QString &) const;
     int paletteIndex(const QString &) const;
+    qint16 freeSymbol();
+    int freeIndex();
 
     Ui::PaletteManager  ui;
 
     Document                *m_document;
     DocumentPalette         m_dialogPalette;
-    QString                 m_font;
     QMap<int, FlossUsage>   m_flossUsage;
     FlossScheme             *m_scheme;
-    CharSelectorDlg         *m_charSelectorDlg;
+    SymbolSelectorDlg       *m_symbolSelectorDlg;
 };
 
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>716</width>
-    <height>565</height>
+    <height>779</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -532,6 +532,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QToolButton" name="ImageElement">
+       <property name="toolTip">
+        <string>Insert a picture element</string>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QToolButton" name="KeyElement">
        <property name="toolTip">
         <string>Insert a key element</string>
@@ -582,7 +592,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>106</y>
         <width>470</width>
         <height>496</height>
        </rect>

@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CharSelector</class>
- <widget class="QWidget" name="CharSelector">
-  <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
-  </property>
+ <class>SymbolSelector</class>
+ <widget class="QWidget" name="SymbolSelector">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>753</width>
-    <height>276</height>
+    <width>651</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Character Selector</string>
+   <string>Symbol Selection</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="KCharSelect" name="CharSelect"/>
+    <widget class="SymbolListWidget" name="SymbolTable"/>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KCharSelect</class>
-   <extends>QWidget</extends>
-   <header>kcharselect.h</header>
+   <class>SymbolListWidget</class>
+   <extends>QListWidget</extends>
+   <header>src/SymbolListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
