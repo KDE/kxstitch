@@ -27,26 +27,27 @@ class QPainter;
 class Page
 {
 public:
-    Page();
-    Page(QPrinter::PaperSize, QPrinter::Orientation, double);
+    Page(QPrinter::PaperSize paperSize = QPrinter::A4, QPrinter::Orientation orientation = QPrinter::Portrait);
     Page(const Page &);
     ~Page();
+
+    Page &operator=(const Page &);
 
     int pageNumber() const;
     QPrinter::PaperSize paperSize() const;
     QPrinter::Orientation orientation() const;
-    double zoomFactor() const;
-    QList<Element *> elements();
+    const QMargins &margins() const;
+    const QList<Element *> elements() const;
 
     void setPageNumber(int);
     void setPaperSize(QPrinter::PaperSize);
     void setOrientation(QPrinter::Orientation);
-    void setZoomFactor(double);
+    void setMargins(const QMargins &);
 
     void addElement(Element *);
     void removeElement(Element *);
 
-    void render(Document *, QPainter *);
+    void render(Document *, QPainter *) const;
 
     Element *itemAt(const QPoint &) const;
 
@@ -58,7 +59,7 @@ public:
 private:
     void readElements(QDataStream &);
 
-    static const int version = 101;
+    static const int version = 102;
 
     int     m_pageNumber;
 
@@ -67,13 +68,7 @@ private:
 
     QMargins    m_margins;
 
-    bool    m_showGrid;
-    int     m_gridX;
-    int     m_gridY;
-
-    QList<Element *>    m_elements;
-
-    double  m_zoomFactor;
+    QList<Element *>  m_elements;
 };
 
 

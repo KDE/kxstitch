@@ -175,6 +175,9 @@
        <property name="enabled">
         <bool>false</bool>
        </property>
+       <property name="toolTip">
+        <string>Not currently implemented</string>
+       </property>
        <property name="text">
         <string>Show scales</string>
        </property>

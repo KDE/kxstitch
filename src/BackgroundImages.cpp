@@ -82,7 +82,7 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImages &backgroundI
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 
     return stream;
@@ -115,7 +115,7 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImages &backgroundImages)
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedReadFile(QString(i18n("Failed reading background images")));
+        throw FailedReadFile(stream.status());
     }
 
     return stream;

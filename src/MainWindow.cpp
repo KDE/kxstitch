@@ -52,6 +52,7 @@
 #include "ImportImageDlg.h"
 #include "Palette.h"
 #include "PaletteManagerDlg.h"
+#include "PaperSizes.h"
 #include "Preview.h"
 #include "PrintSetupDlg.h"
 #include "QVariantPtr.h"
@@ -381,18 +382,18 @@ void MainWindow::fileOpen(const KUrl &url)
                         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
                         action->addUrl(url);
                         action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
-                    } catch (const InvalidFileType &e) {
+                    } catch (const InvalidFile &e) {
                         stream.device()->seek(0);
 
                         try {
                             m_document->readPCStitch(stream);
-                        } catch (const InvalidFileType &e) {
+                        } catch (const InvalidFile &e) {
                             KMessageBox::sorry(0, i18n("The file doesn't appear to be a recognised cross stitch file."));
                         }
                     } catch (const InvalidFileVersion &e) {
                         KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
                     } catch (const FailedReadFile &e) {
-                        KMessageBox::error(0, i18n("Failed to read the file.\n%1.", e.message));
+                        KMessageBox::error(0, i18n("Failed to read the file.\n%1.", e.status));
                         m_document->initialiseNew();
                     }
 
@@ -435,7 +436,7 @@ void MainWindow::fileSave()
                 m_document->write(stream);
 
                 if (!file.finalize()) {
-                    throw FailedWriteFile();
+                    throw FailedWriteFile(stream.status());
                 }
 
                 m_document->undoStack().setClean();
@@ -503,7 +504,7 @@ void MainWindow::filePrint()
     QListIterator<Page *> pageIterator(m_document->printerConfiguration().pages());
 
     if (pageIterator.hasNext()) {
-        Page *page = pageIterator.next();
+        const Page *page = pageIterator.next();
         m_printer->setPaperSize(page->paperSize());
         m_printer->setOrientation(page->orientation());
 
@@ -527,11 +528,17 @@ void MainWindow::printPages(QPrinter *printer)
 
     QPainter painter;
     painter.begin(printer);
+    painter.setRenderHint(QPainter::Antialiasing, true);
 
-    Page *page = pages.at(0);
+    const Page *page = pages.at(0);
 
     for (int p = 0 ; p < totalPages ;) {
         // for the first page, the orientation and size will have been set
+        int paperWidth = PaperSizes::width(page->paperSize(), page->orientation());
+        int paperHeight = PaperSizes::height(page->paperSize(), page->orientation());
+
+        painter.setWindow(0, 0, paperWidth, paperHeight);
+
         page->render(m_document, &painter);
 
         if (++p < totalPages) {
@@ -653,6 +660,7 @@ void MainWindow::fileImportImage()
 
     if (url.isValid()) {
         QString source;
+
         if (KIO::NetAccess::download(url, source, 0)) {
             if (docEmpty) {
                 convertImage(Magick::Image(url.pathOrUrl().toStdString()));
@@ -660,6 +668,7 @@ void MainWindow::fileImportImage()
                 window = new MainWindow(Magick::Image(url.pathOrUrl().toStdString()));
                 window->show();
             }
+
             KIO::NetAccess::removeTempFile(source);
         } else {
             KMessageBox::error(0, KIO::NetAccess::lastErrorString());
@@ -671,7 +680,7 @@ void MainWindow::fileImportImage()
 void MainWindow::convertImage(const Magick::Image &image)
 {
     QMap<int, QColor> documentFlosses;
-    QMap<int, QChar> flossSymbols;
+    QMap<int, qint16> flossSymbols;
 
     QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 
@@ -729,28 +738,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                         }
 
                         if (flossIndex == documentFlosses.count()) { // reached the end of the list
-                            int c = -1;
-                            bool found = false;
-
-                            while (!found) {
-                                QChar symbol(++c);
-
-                                if (symbol.isPrint() && !symbol.isSpace() && !symbol.isPunct()) {
-                                    found = true;
-                                    QMapIterator<int, QChar> i(flossSymbols);
-
-                                    while (i.hasNext() && found) {
-                                        i.next();
-                                        QChar existingSymbol = i.value();
-
-                                        if (symbol == existingSymbol) {
-                                            found = false;
-                                        }
-                                    }
-                                }
-                            }
-
-                            QChar stitchSymbol(c);
+                            qint16 stitchSymbol = m_document->pattern()->palette().freeSymbol();
                             Qt::PenStyle backstitchSymbol(Qt::SolidLine);
 
                             DocumentFloss *documentFloss = new DocumentFloss(flossScheme->find(color), stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
@@ -763,8 +751,8 @@ void MainWindow::convertImage(const Magick::Image &image)
                         // at this point
                         //   flossIndex will be the index for the found color
                         if (useFractionals) {
-                            int zone = (dy%2)*2+(dx%2);
-                            m_document->pattern()->stitches().addStitch(QPoint(dx/2, dy/2), stitchMap[0][zone], flossIndex);
+                            int zone = (dy % 2) * 2 + (dx % 2);
+                            m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), stitchMap[0][zone], flossIndex);
                         } else {
                             m_document->pattern()->stitches().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
                         }

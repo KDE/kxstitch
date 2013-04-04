@@ -24,30 +24,35 @@
 
 
 /**
- * @brief Invalid file type exception class.
+ * @brief Invalid file exception class.
  *
- * This is thrown when the file being opened is not a supported cross stitch file.
+ * This is thrown when the file being opened is not a supported cross
+ * stitch file type or symbol library.
  */
-class InvalidFileType
+class InvalidFile
 {
 public:
-    InvalidFileType() {};
+    InvalidFile();
+    ~InvalidFile();
+
+private:
 };
 
 
 /**
  * @brief Invalid file version exception class.
  *
- * This is thrown when the file opened is a version that is not known.
+ * This is thrown when the file being opened is not a supported version
+ * of a cross stitch or library file or one of the elements is an
+ * unsupported version.
  */
 class InvalidFileVersion
 {
 public:
-    InvalidFileVersion(const QString &v) {
-        version = v;
-    }
+    InvalidFileVersion(const QString &v);
+    ~InvalidFileVersion();
 
-    QString version;           /**< the version of the file or element read */
+    QString version;    /**< the version of the file read */
 };
 
 
@@ -59,24 +64,44 @@ public:
 class FailedReadFile
 {
 public:
-    FailedReadFile(const QString &m) {
-        message = m;
-    }
+    FailedReadFile(QDataStream::Status s);
+    FailedReadFile(const QString &s);
+    ~FailedReadFile();
 
-    QString message;           /**< message indicating the source of the error */
+    QString status;   /**< the status of the error */
 };
 
 
 /**
  * @brief Failed to write the file exception class.
  *
- * This is thrown when there was an error writing to the file.
- * The error message should be recovered from the QFile::errorString() function.
+ * This is thrown when there was an error writing to the QDataStream.
  */
 class FailedWriteFile
 {
 public:
-    FailedWriteFile() {};
+    FailedWriteFile(QDataStream::Status status);
+    ~FailedWriteFile();
+
+    QString statusMessage() const;
+
+private:
+    QDataStream::Status m_status;   /**< the status of the error */
+};
+
+
+/**
+ * @brief Found an invalid symbol version.
+ *
+ * This is thrown when the symbol being read was not a known version.
+ */
+class InvalidSymbolVersion
+{
+public:
+    InvalidSymbolVersion(qint32 v);
+    ~InvalidSymbolVersion();
+
+    qint32  version;    /** the version of the symbol read */
 };
 
 

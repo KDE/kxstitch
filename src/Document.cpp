@@ -50,7 +50,7 @@ void Document::initialiseNew()
     m_undoStack.clear();
 
     m_backgroundImages.clear();
-    m_printerConfiguration.clear();
+    m_printerConfiguration = PrinterConfiguration();
 
     delete m_pattern;
     m_pattern = new Pattern(this);
@@ -205,7 +205,7 @@ Pattern *Document::pattern()
 }
 
 
-PrinterConfiguration Document::printerConfiguration() const
+const PrinterConfiguration &Document::printerConfiguration() const
 {
     return m_printerConfiguration;
 }
@@ -310,7 +310,7 @@ void Document::readKXStitch(QDataStream &stream)
             break;
         }
     } else {
-        throw InvalidFileType();
+        throw InvalidFile();
     }
 }
 
@@ -325,7 +325,7 @@ void Document::readPCStitch(QDataStream &stream)
     if (strncmp(header, "PCStitch 5 Pattern File", 23) == 0) {
         readPCStitch5File(stream);
     } else {
-        throw InvalidFileType();
+        throw InvalidFile();
     }
 }
 
@@ -341,7 +341,7 @@ void Document::write(QDataStream &stream)
     stream << m_printerConfiguration;
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 }
 
@@ -454,11 +454,10 @@ void Document::readPCStitch5File(QDataStream &stream)
             if (floss == 0) {
                 throw FailedReadFile(QString(i18n("The floss name %1 was not found", colorName)));
             } else {
-                DocumentFloss *documentFloss = new DocumentFloss(colorName, QChar(symbol), Qt::SolidLine, 2, 1);
+                DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, 2, 1);
                 documentFloss->setFlossColor(floss->color());
                 m_pattern->palette().add(i, documentFloss);
             }
-
         }
     } else {
         throw FailedReadFile(QString(i18n("Invalid data read.")));
@@ -562,7 +561,7 @@ QString Document::readPCStitchString(QDataStream &stream)
 
 void Document::readKXStitchV2File(QDataStream &stream)
 {
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -603,7 +602,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
         // there were no knots supported in this version
         */
 
-    /** this is currently untested */
+    /* this is currently untested */
     // read header
     QString title;
     QString author;
@@ -687,7 +686,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex++, documentFloss);
     }
@@ -735,7 +734,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
 
 void Document::readKXStitchV3File(QDataStream &stream)
 {
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -776,7 +775,7 @@ void Document::readKXStitchV3File(QDataStream &stream)
         */
 
 
-    /** this is currently untested */
+    /* this is currently untested */
     // read header
     QString title;
     QString author;
@@ -853,7 +852,7 @@ void Document::readKXStitchV3File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
@@ -903,7 +902,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
 {
     // version 4 wasn't used in the release versions.
     // but was available in cvs
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -947,7 +946,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
         */
 
 
-    /** this is currently untested */
+    /* this is currently untested */
     // read header
     QString title;
     QString author;
@@ -1024,7 +1023,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
@@ -1084,7 +1083,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
 
 void Document::readKXStitchV5File(QDataStream &stream)
 {
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -1132,7 +1131,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
         */
 
 
-    /** this is currently untested */
+    /* this is currently untested */
     // read header
     QString sizeUnits;
     qint32 width;
@@ -1230,7 +1229,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
@@ -1289,7 +1288,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
 
 void Document::readKXStitchV6File(QDataStream &stream)
 {
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -1338,7 +1337,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
             qint16(colorIndex)  ] each backstitch
         */
 
-    /** Working */
+    /* Working */
     // read header
     QString sizeUnits;
     qint32 width;
@@ -1440,7 +1439,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, stitchStrands, backstitchStrands);
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, stitchStrands, backstitchStrands);
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
@@ -1499,7 +1498,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
 
 void Document::readKXStitchV7File(QDataStream &stream)
 {
-    /** File format
+    /* File format
         // header
         #QString("KXStitch")        // read in the load function
         #qint16(FILE_FORMAT_VERSION)    // read in the load function
@@ -1548,7 +1547,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
             qint16(colorIndex)  ] each backstitch
         */
 
-    /** Working */
+    /* Working */
     Configuration::EnumDocument_UnitsFormat::type convertSizeUnits[] = {
         Configuration::EnumDocument_UnitsFormat::Stitches,
         Configuration::EnumDocument_UnitsFormat::CM,        // was MM
@@ -1643,7 +1642,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, QChar(symbol), Qt::SolidLine, stitchStrands, backstitchStrands);
+        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, stitchStrands, backstitchStrands);
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }

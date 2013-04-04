@@ -14,6 +14,7 @@
 #include <QPainter>
 #include <QPrinterInfo>
 
+#include <KDebug>
 #include <KLocale>
 
 #include "Document.h"
@@ -22,42 +23,60 @@
 #include "PaperSizes.h"
 
 
-Page::Page()
-{
-}
-
-
-Page::Page(QPrinter::PaperSize paperSize, QPrinter::Orientation orientation, double zoomFactor)
-    :   m_paperSize(paperSize),
+Page::Page(QPrinter::PaperSize paperSize, QPrinter::Orientation orientation)
+    :   m_pageNumber(0),
+        m_paperSize(paperSize),
         m_orientation(orientation),
-        m_zoomFactor(zoomFactor)
+        m_margins(QMargins(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom()))
 {
-    m_margins = QMargins(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom());
 }
 
 
 Page::Page(const Page &other)
-    :   m_paperSize(other.m_paperSize),
-        m_orientation(other.m_orientation),
-        m_margins(other.m_margins),
-        m_zoomFactor(other.m_zoomFactor)
 {
-    QListIterator<Element *> elementIterator(other.m_elements);
-
-    while (elementIterator.hasNext()) {
-        Element *element = elementIterator.next();
-
-        if (element->type() != Element::Plan) {
-            Element *cloned = element->clone();
-            cloned->setParent(this);
-            m_elements.append(cloned);
-        }
-    }
+    *this = other;
 }
 
 
 Page::~Page()
 {
+    qDeleteAll(m_elements);
+}
+
+
+Page &Page::operator=(const Page &other)
+{
+    if (this != &other) {
+        qDeleteAll(m_elements);
+        m_elements.clear();
+
+        m_pageNumber = other.m_pageNumber;
+        m_paperSize = other.m_paperSize;
+        m_orientation = other.m_orientation;
+        m_margins = other.m_margins;
+
+        QListIterator<Element *> elementIterator(other.m_elements);
+
+        while (elementIterator.hasNext()) {
+            Element *element = elementIterator.next();
+
+            if (element->type() != Element::Plan) {
+                Element *cloned = element->clone();
+                cloned->setParent(this);
+                m_elements.append(cloned);
+
+                if (cloned->type() == Element::Pattern) {
+                    if (dynamic_cast<PatternElement *>(cloned)->showPlan()) {
+                        cloned = dynamic_cast<PatternElement *>(cloned)->planElement();
+                        cloned->setParent(this);
+                        m_elements.append(cloned);
+                    }
+                }
+            }
+        }
+    }
+
+    return *this;
 }
 
 
@@ -79,13 +98,13 @@ QPrinter::Orientation Page::orientation() const
 }
 
 
-double Page::zoomFactor() const
+const QMargins &Page::margins() const
 {
-    return m_zoomFactor;
+    return m_margins;
 }
 
 
-QList<Element *> Page::elements()
+const QList<Element *> Page::elements() const
 {
     return m_elements;
 }
@@ -109,9 +128,9 @@ void Page::setOrientation(QPrinter::Orientation orientation)
 }
 
 
-void Page::setZoomFactor(double zoomFactor)
+void Page::setMargins(const QMargins &margins)
 {
-    m_zoomFactor = zoomFactor;
+    m_margins = margins;
 }
 
 
@@ -127,22 +146,19 @@ void Page::removeElement(Element *element)
 }
 
 
-void Page::render(Document *document, QPainter *painter)
+void Page::render(Document *document, QPainter *painter) const
 {
-    int painterWidth = painter->device()->width();
-    int painterHeight = painter->device()->height();
-    int paperWidth = PaperSizes::width(m_paperSize, m_orientation);
-    int paperHeight = PaperSizes::height(m_paperSize, m_orientation);
-    double scaleW = double(painterWidth) / double(paperWidth);
-    double scaleH = double(painterHeight) / double(paperHeight);
-    double scale = std::min(scaleW, scaleH); // pick the lowest for non proportional sizes
+    painter->save();
+    painter->drawRect(0, 0, painter->window().width(), painter->window().height());
 
     QListIterator<Element *> elementIterator(m_elements);
 
     while (elementIterator.hasNext()) {
         Element *element = elementIterator.next();
-        element->render(document, painter, scale);
+        element->render(document, painter);
     }
+
+    painter->restore();
 }
 
 
@@ -179,15 +195,12 @@ QDataStream &operator<<(QDataStream &stream, const Page &page)
             << qint32(page.m_margins.top())
             << qint32(page.m_margins.right())
             << qint32(page.m_margins.bottom())
-            << qint32(page.m_showGrid)
-            << qint32(page.m_gridX)
-            << qint32(page.m_gridY)
             << qint32(page.m_elements.count());
 
     QListIterator<Element *> elementIterator(page.m_elements);
 
     while (elementIterator.hasNext()) {
-        Element *element = elementIterator.next();
+        const Element *element = elementIterator.next();
         stream  << qint32(element->type());
 
         if (element->type() != Element::Plan) {
@@ -195,10 +208,8 @@ QDataStream &operator<<(QDataStream &stream, const Page &page)
         }
     }
 
-    stream  << qreal(page.m_zoomFactor);
-
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 
     return stream;
@@ -223,6 +234,22 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
     stream >> version;
 
     switch (version) {
+    case 102:
+        stream  >> pageNumber
+                >> paperSize
+                >> orientation
+                >> left
+                >> top
+                >> right
+                >> bottom;
+        page.m_pageNumber = pageNumber;
+        page.m_paperSize = static_cast<QPrinter::PaperSize>(paperSize);
+        page.m_orientation = static_cast<QPrinter::Orientation>(orientation);
+        page.m_margins = QMargins(left, top, right, bottom);
+
+        page.readElements(stream);
+        break;
+
     case 101:
         stream  >> pageNumber
                 >> paperSize
@@ -238,14 +265,10 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
         page.m_paperSize = static_cast<QPrinter::PaperSize>(paperSize);
         page.m_orientation = static_cast<QPrinter::Orientation>(orientation);
         page.m_margins = QMargins(left, top, right, bottom);
-        page.m_showGrid = bool(showGrid);
-        page.m_gridX = gridX;
-        page.m_gridY = gridY;
 
         page.readElements(stream);
 
         stream >> zoomFactor;
-        page.m_zoomFactor = zoomFactor;
         break;
 
     case 100:
@@ -262,7 +285,6 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
         page.readElements(stream);
 
         stream >> zoomFactor;
-        page.m_zoomFactor = zoomFactor;
         break;
 
     default:
@@ -302,6 +324,10 @@ void Page::readElements(QDataStream &stream)
             element = new KeyElement(this, QRect());
             break;
 
+        case Element::Image:
+            element = new ImageElement(this, QRect());
+            break;
+
         default:
             throw FailedReadFile(QString(i18n("Invalid element type")));
             break;
@@ -310,6 +336,11 @@ void Page::readElements(QDataStream &stream)
         if (element) {
             stream >> *element;
             m_elements.append(element);
+            if (element->type() == Element::Pattern) {
+                if (dynamic_cast<PatternElement *>(element)->showPlan()) {
+                    m_elements.append(dynamic_cast<PatternElement *>(element)->planElement());
+                }
+            }
         }
     }
 }

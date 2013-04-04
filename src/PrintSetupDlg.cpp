@@ -23,6 +23,7 @@
 
 #include "Document.h"
 #include "Element.h"
+#include "ImageElementDlg.h"
 #include "KeyElementDlg.h"
 #include "Page.h"
 #include "PageLayoutEditor.h"
@@ -57,11 +58,13 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     ui.SelectElement->setIcon(KIcon("edit-select"));
     ui.TextElement->setIcon(KIcon("insert-text"));
     ui.PatternElement->setIcon(KIcon("insert-table"));
+    ui.ImageElement->setIcon(KIcon("insert-image"));
     ui.KeyElement->setIcon(KIcon("documentation"));
 
     m_buttonGroup.addButton(ui.SelectElement);
     m_buttonGroup.addButton(ui.TextElement);
     m_buttonGroup.addButton(ui.PatternElement);
+    m_buttonGroup.addButton(ui.ImageElement);
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
 
@@ -72,12 +75,10 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
 
     ui.PaperSize->setCurrentIndex(Configuration::page_Size());
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
-    ui.Zoom->setCurrentIndex(2);    // 100%
+    ui.Zoom->setCurrentIndex(4);    // 200%
     ui.SelectElement->click();      // select mode
 
     setMainWidget(widget);
-
-    m_printerConfiguration.detach();
 }
 
 
@@ -87,7 +88,7 @@ PrintSetupDlg::~PrintSetupDlg()
 }
 
 
-PrinterConfiguration PrintSetupDlg::printerConfiguration() const
+const PrinterConfiguration &PrintSetupDlg::printerConfiguration() const
 {
     return m_printerConfiguration;
 }
@@ -131,11 +132,8 @@ void PrintSetupDlg::on_Orientation_currentIndexChanged(int orientation)
 
 void PrintSetupDlg::on_Zoom_currentIndexChanged(int zoomIndex)
 {
-    if (ui.Pages->currentRow() != -1) {
-        PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
-        pagePreview->setZoomFactor(zoomFactors[zoomIndex]);
-        m_pageLayoutEditor->updatePagePreview();
-    }
+    m_pageLayoutEditor->setZoomFactor(zoomFactors[zoomIndex]);
+    m_pageLayoutEditor->updatePagePreview();
 }
 
 
@@ -146,14 +144,6 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
         m_pageLayoutEditor->setPagePreview(pagePreview);
         ui.PaperSize->setCurrentItem(PaperSizes::name(pagePreview->paperSize()));
         ui.Orientation->setCurrentIndex((pagePreview->orientation() == QPrinter::Portrait) ? 0 : 1);
-
-        for (int i = 0 ; i < 6 ; i++) {
-            if (zoomFactors[i] == m_pageLayoutEditor->zoomFactor()) {
-                ui.Zoom->setCurrentIndex(i);
-                break;
-            }
-        }
-
         ui.InsertPage->setEnabled(true);
         ui.DeletePage->setEnabled(true);
     } else {
@@ -166,7 +156,7 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
 
 void PrintSetupDlg::on_AddPage_clicked()
 {
-    Page *page = new Page(selectedPaperSize(), selectedOrientation(), selectedZoom());
+    Page *page = new Page(selectedPaperSize(), selectedOrientation());
     m_printerConfiguration.addPage(page);
     addPage(ui.Pages->count(), page);
 }
@@ -174,7 +164,7 @@ void PrintSetupDlg::on_AddPage_clicked()
 
 void PrintSetupDlg::on_InsertPage_clicked()
 {
-    Page *page = new Page(selectedPaperSize(), selectedOrientation(), selectedZoom());
+    Page *page = new Page(selectedPaperSize(), selectedOrientation());
     m_printerConfiguration.insertPage(ui.Pages->currentRow(), page);
     addPage(ui.Pages->currentRow(), page);
 }
@@ -219,6 +209,13 @@ void PrintSetupDlg::on_PatternElement_clicked()
 }
 
 
+void PrintSetupDlg::on_ImageElement_clicked()
+{
+    m_elementMode = Image;
+    m_pageLayoutEditor->setSelecting(false);
+}
+
+
 void PrintSetupDlg::on_KeyElement_clicked()
 {
     m_elementMode = Key;
@@ -232,6 +229,7 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
     Page *page = pagePreview->page();
 
     PatternElement *patternElement;
+    ImageElement *imageElement;
 
     switch (m_elementMode) {
     case Text:
@@ -244,6 +242,12 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
         patternElement->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
         break;
 
+    case Image:
+        imageElement = new ImageElement(page, rectangle);
+        page->addElement(imageElement);
+        imageElement->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
+        break;
+
     case Key:
         page->addElement(new KeyElement(page, rectangle));
         break;
@@ -254,6 +258,8 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
 
     pagePreview->generatePreviewIcon();
     m_pageLayoutEditor->update();
+
+    ui.SelectElement->click();      // select mode
 }
 
 
@@ -276,7 +282,6 @@ void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
         contextMenu->addAction(i18n("Properties"), this, SLOT(properties()));
 
         if (m_elementUnderCursor) {
-//          contextMenu->addAction(i18n("Hide"), this, SLOT(hideElement()));
             contextMenu->addSeparator();
             contextMenu->addAction(i18n("Delete Element"), this, SLOT(deleteElement()));
         }
@@ -331,18 +336,29 @@ void PrintSetupDlg::properties()
             delete patternElementDlg;
         }
 
+        if (m_elementUnderCursor->type() == Element::Image) {
+            QPointer<ImageElementDlg> imageElementDlg = new ImageElementDlg(this, static_cast<ImageElement *>(m_elementUnderCursor), m_document);
+            updatePreviews = (imageElementDlg->exec() == QDialog::Accepted);
+            delete imageElementDlg;
+        }
+
         if (m_elementUnderCursor->type() == Element::Key) {
             QPointer<KeyElementDlg> keyElementDlg = new KeyElementDlg(this, static_cast<KeyElement *>(m_elementUnderCursor));
             updatePreviews = (keyElementDlg->exec() == QDialog::Accepted);
             delete keyElementDlg;
         }
     } else {
-        QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview);
-        updatePreviews = (pagePropertiesDlg->exec() == QDialog::Accepted);
+        QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview->page()->margins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
+        if (pagePropertiesDlg->exec() == QDialog::Accepted) {
+            updatePreviews = true;
+            pagePreview->page()->setMargins(pagePropertiesDlg->margins());
+            m_pageLayoutEditor->setShowGrid(pagePropertiesDlg->showGrid());
+            m_pageLayoutEditor->setGridSize(pagePropertiesDlg->gridSize());
+        }
     }
 
     if (updatePreviews) {
-//      PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
+        PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
         m_pageLayoutEditor->update();
         pagePreview->generatePreviewIcon();
     }

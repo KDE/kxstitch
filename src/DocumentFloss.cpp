@@ -11,9 +11,13 @@
 
 #include "DocumentFloss.h"
 
+#include <QMap>
+
 #include <KLocale>
 
 #include "Exceptions.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 
 DocumentFloss::DocumentFloss()
@@ -21,7 +25,7 @@ DocumentFloss::DocumentFloss()
 }
 
 
-DocumentFloss::DocumentFloss(const QString &flossName, const QChar &stitchSymbol, Qt::PenStyle backstitchSymbol, int stitchStrands, int backstitchStrands)
+DocumentFloss::DocumentFloss(const QString &flossName, qint16 stitchSymbol, Qt::PenStyle backstitchSymbol, int stitchStrands, int backstitchStrands)
     :   m_flossName(flossName),
         m_stitchSymbol(stitchSymbol),
         m_backstitchSymbol(backstitchSymbol),
@@ -54,7 +58,7 @@ QColor DocumentFloss::flossColor() const
 }
 
 
-QChar DocumentFloss::stitchSymbol() const
+qint16 DocumentFloss::stitchSymbol() const
 {
     return m_stitchSymbol;
 }
@@ -90,7 +94,7 @@ void DocumentFloss::setFlossColor(const QColor &flossColor)
 }
 
 
-void DocumentFloss::setStitchSymbol(const QChar &stitchSymbol)
+void DocumentFloss::setStitchSymbol(qint16 stitchSymbol)
 {
     m_stitchSymbol = stitchSymbol;
 }
@@ -152,11 +156,13 @@ QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
     qint32 backstitchSymbol;
     qint32 stitchStrands;
     qint32 backstitchStrands;
+    QChar oldStitchSymbol;
+    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();  // WIP excludes this line
 
     stream >> version;
 
     switch (version) {
-    case 100:
+    case 101:
         stream >> documentFloss.m_flossName;
         stream >> documentFloss.m_flossColor;
         stream >> documentFloss.m_stitchSymbol;
@@ -166,6 +172,19 @@ QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
         documentFloss.m_backstitchSymbol = Qt::PenStyle(backstitchSymbol);
         documentFloss.m_stitchStrands = stitchStrands;
         documentFloss.m_backstitchStrands = backstitchStrands;
+        break;
+
+    case 100:
+        stream >> documentFloss.m_flossName;
+        stream >> documentFloss.m_flossColor;
+        stream >> oldStitchSymbol;
+        stream >> backstitchSymbol;
+        stream >> stitchStrands;
+        stream >> backstitchStrands;
+        documentFloss.m_backstitchSymbol = Qt::PenStyle(backstitchSymbol);
+        documentFloss.m_stitchStrands = stitchStrands;
+        documentFloss.m_backstitchStrands = backstitchStrands;
+        documentFloss.m_stitchSymbol = indexes.takeFirst(); // WIP sets this to 0
         break;
 
     default:

@@ -26,23 +26,27 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
 
     ui.AlignLeft->setIcon(KIcon("format-justify-left"));
     ui.AlignHCenter->setIcon(KIcon("format-justify-center"));
-    ui.AlignJustify->setIcon(KIcon("format-justify-fill"));
     ui.AlignRight->setIcon(KIcon("format-justify-right"));
+    ui.AlignJustify->setIcon(KIcon("format-justify-fill"));
 
-    ui.MarginLeft->setValue(m_textElement->m_margins.left());
-    ui.MarginTop->setValue(m_textElement->m_margins.top());
-    ui.MarginRight->setValue(m_textElement->m_margins.right());
-    ui.MarginBottom->setValue(m_textElement->m_margins.bottom());
+    QButtonGroup *group = new QButtonGroup(this);
+    group->addButton(ui.AlignLeft);
+    group->addButton(ui.AlignHCenter);
+    group->addButton(ui.AlignRight);
+    group->addButton(ui.AlignJustify);
+    group->setExclusive(true);
 
-    ui.ShowBorder->setChecked(m_textElement->m_showBorder);
-    ui.BorderColor->setColor(m_textElement->m_borderColor);
-    ui.BorderThickness->setValue(double(m_textElement->m_borderThickness) / 10);
-    ui.FillBackground->setChecked(m_textElement->m_fillBackground);
-    ui.BackgroundColor->setColor(m_textElement->m_backgroundColor);
-    ui.BackgroundTransparency->setValue(m_textElement->m_backgroundTransparency);
-    ui.Text->setText(m_textElement->m_text);
+    ui.AlignTop->setIcon(KIcon("format-justify-top"));
+    ui.AlignVCenter->setIcon(KIcon("format-justify-middle"));
+    ui.AlignBottom->setIcon(KIcon("format-justify-bottom"));
 
-    switch (m_textElement->m_alignment) {
+    group = new QButtonGroup(this);
+    group->addButton(ui.AlignTop);
+    group->addButton(ui.AlignVCenter);
+    group->addButton(ui.AlignBottom);
+    group->setExclusive(true);
+
+    switch (m_textElement->m_alignment & Qt::AlignHorizontal_Mask) {
     case Qt::AlignLeft:
         ui.AlignLeft->setChecked(true);
         break;
@@ -59,6 +63,33 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
         ui.AlignRight->setChecked(true);
         break;
     }
+
+    switch (m_textElement->m_alignment & Qt::AlignVertical_Mask) {
+    case Qt::AlignTop:
+        ui.AlignTop->setChecked(true);
+        break;
+
+    case Qt::AlignVCenter:
+        ui.AlignVCenter->setChecked(true);
+        break;
+
+    case Qt::AlignBottom:
+        ui.AlignBottom->setChecked(true);
+        break;
+    }
+
+    ui.MarginLeft->setValue(m_textElement->m_margins.left());
+    ui.MarginTop->setValue(m_textElement->m_margins.top());
+    ui.MarginRight->setValue(m_textElement->m_margins.right());
+    ui.MarginBottom->setValue(m_textElement->m_margins.bottom());
+
+    ui.ShowBorder->setChecked(m_textElement->m_showBorder);
+    ui.BorderColor->setColor(m_textElement->m_borderColor);
+    ui.BorderThickness->setValue(double(m_textElement->m_borderThickness) / 10);
+    ui.FillBackground->setChecked(m_textElement->m_fillBackground);
+    ui.BackgroundColor->setColor(m_textElement->m_backgroundColor);
+    ui.BackgroundTransparency->setValue(m_textElement->m_backgroundTransparency);
+    ui.Text->setText(m_textElement->m_text);
 
     ui.TextColor->setColor(m_textElement->m_textColor);
     ui.TextFont->setFont(m_textElement->m_textFont);
@@ -87,18 +118,20 @@ void TextElementDlg::slotButtonClicked(int button)
 
         if (ui.AlignLeft->isChecked()) {
             m_textElement->m_alignment = Qt::AlignLeft;
-        }
-
-        if (ui.AlignHCenter->isChecked()) {
+        } else if (ui.AlignHCenter->isChecked()) {
             m_textElement->m_alignment = Qt::AlignHCenter;
-        }
-
-        if (ui.AlignJustify->isChecked()) {
+        } else if (ui.AlignRight->isChecked()) {
+            m_textElement->m_alignment = Qt::AlignRight;
+        } else if (ui.AlignJustify->isChecked()) {
             m_textElement->m_alignment = Qt::AlignJustify;
         }
 
-        if (ui.AlignRight->isChecked()) {
-            m_textElement->m_alignment = Qt::AlignRight;
+        if (ui.AlignTop->isChecked()) {
+            m_textElement->m_alignment |= Qt::AlignTop;
+        } else if (ui.AlignVCenter->isChecked()) {
+            m_textElement->m_alignment |= Qt::AlignVCenter;
+        } else if (ui.AlignBottom->isChecked()) {
+            m_textElement->m_alignment |= Qt::AlignBottom;
         }
 
         m_textElement->m_textColor = ui.TextColor->color();

@@ -16,6 +16,8 @@
 #include "Exceptions.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 #include "configuration.h"
 
@@ -27,7 +29,7 @@ public:
     DocumentPaletteData(const DocumentPaletteData &);
     ~DocumentPaletteData();
 
-    static const int version = 100;
+    static const int version = 101;
 
     QString                     m_schemeName;
     int                         m_currentIndex;
@@ -121,12 +123,13 @@ QVector<int> DocumentPalette::sortedFlosses() const
 }
 
 
-QList<QChar> DocumentPalette::usedSymbols() const
+QList<qint16> DocumentPalette::usedSymbols() const
 {
-    QList<QChar> used;
+    QList<qint16> used;
+    QList<int> keys = d->m_documentFlosses.keys();
 
-    for (QMap<int, DocumentFloss*>::const_iterator i = d->m_documentFlosses.constBegin() ; i != d->m_documentFlosses.constEnd() ; ++i) {
-        used << i.value()->stitchSymbol();
+    foreach (int index, keys) {
+        used << d->m_documentFlosses[index]->stitchSymbol();
     }
 
     return used;
@@ -301,7 +304,7 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 
     return stream;
@@ -322,6 +325,22 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     stream >> version;
 
     switch (version) {
+    case 101:
+        stream >> documentPalette.d->m_schemeName;
+        stream >> currentIndex;
+        documentPalette.d->m_currentIndex = currentIndex;
+        stream >> documentPalette.d->m_showSymbols;
+        stream >> documentPaletteCount;
+
+        while (documentPaletteCount--) {
+            documentFloss = new DocumentFloss;
+            stream >> key;
+            stream >> *documentFloss;
+            documentPalette.d->m_documentFlosses.insert(key, documentFloss);
+        }
+
+        break;
+
     case 100:
         stream >> documentPalette.d->m_schemeName;
         stream >> currentIndex;
@@ -333,6 +352,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
             documentFloss = new DocumentFloss;
             stream >> key;
             stream >> *documentFloss;
+            documentFloss->setStitchSymbol(documentPalette.freeSymbol());
             documentPalette.d->m_documentFlosses.insert(key, documentFloss);
         }
 
@@ -363,21 +383,14 @@ int DocumentPalette::freeIndex() const
 }
 
 
-QChar DocumentPalette::freeSymbol() const
+qint16 DocumentPalette::freeSymbol() const
 {
-    QList<QChar> used = usedSymbols();
+    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();
+    QList<int> keys = d->m_documentFlosses.keys();
 
-    int c = -1;
-    bool found = false;
-    QChar symbol;
-
-    while (!found) {
-        symbol = QChar(++c);
-
-        if (symbol.isPrint() && !symbol.isSpace() && !symbol.isPunct()) {
-            found = !used.contains(symbol);
-        }
+    foreach (int index, keys) {
+        indexes.removeOne(d->m_documentFlosses[index]->stitchSymbol());
     }
 
-    return symbol;
+    return indexes.first();
 }

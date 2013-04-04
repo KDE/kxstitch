@@ -793,6 +793,18 @@ Knot *StitchData::takeFrenchKnot(Knot *knot)
 }
 
 
+QList<Backstitch *> &StitchData::backstitches()
+{
+    return m_backstitches;
+}
+
+
+QList<Knot *> &StitchData::knots()
+{
+    return m_knots;
+}
+
+
 QListIterator<Backstitch *> StitchData::backstitchIterator()
 {
     return QListIterator<Backstitch *>(m_backstitches);
@@ -921,7 +933,7 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
         stream << *(backstitchIterator.next());
 
         if (stream.status() != QDataStream::Ok) {
-            throw FailedWriteFile();
+            throw FailedWriteFile(stream.status());
         }
     }
 
@@ -932,12 +944,12 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
         stream << *(knotIterator.next());
 
         if (stream.status() != QDataStream::Ok) {
-            throw FailedWriteFile();
+            throw FailedWriteFile(stream.status());
         }
     }
 
     if (stream.status() != QDataStream::Ok) {
-        throw FailedWriteFile();
+        throw FailedWriteFile(stream.status());
     }
 
     return stream;

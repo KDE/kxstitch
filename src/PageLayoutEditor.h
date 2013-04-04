@@ -32,10 +32,14 @@ public:
     ~PageLayoutEditor();
 
     double zoomFactor() const;
+    int gridSize() const;
+    bool showGrid() const;
 
     void setPagePreview(PagePreviewListWidgetItem *);
     void updatePagePreview();
     void setZoomFactor(double);
+    void setGridSize(int);
+    void setShowGrid(bool);
     void setSelecting(bool);
 
     int scale(int) const;
@@ -58,21 +62,23 @@ protected:
 private:
     QPoint toSnap(const QPoint &) const;
 
-    Document            *m_document;
+    Document                    *m_document;
     PagePreviewListWidgetItem   *m_pagePreview;
+    Element                     *m_elementUnderCursor;
 
     int m_paperWidth;
     int m_paperHeight;
 
-    bool        m_selecting;
-    bool        m_resizing;
-    bool        m_moved;
-    Boundary    m_boundary;
-    QRect       m_rubberBand;
-    QPoint      m_start;
-    QPoint      m_end;
+    bool            m_selecting;
+    bool            m_resizing;
+    bool            m_moved;
+    Boundary        m_boundary;
+    QRect           m_rubberBand;
+    QPoint          m_start;
+    QPoint          m_end;
     const QPoint    *m_node;
 
+    bool    m_showGrid;
     int     m_gridSize;
     double  m_zoomFactor;
 };

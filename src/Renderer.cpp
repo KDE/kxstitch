@@ -14,32 +14,132 @@
 #include <QPaintEngine>
 #include <QPainter>
 #include <QPen>
+#include <QWidget>
 
 #include "Document.h"
 #include "DocumentFloss.h"
 #include "Stitch.h"
+#include "Symbol.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 
-RendererPrivate::RendererPrivate()
+class RendererData : public QSharedData
+{
+public:
+    RendererData();
+    RendererData(const RendererData &);
+    ~RendererData();
+
+    friend class Renderer;
+
+private:
+    Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
+    Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
+    Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
+
+    QPainter    *m_painter;
+
+    Document        *m_document;
+    Pattern         *m_pattern;
+    SymbolLibrary   *m_symbolLibrary;
+
+    int     m_hilight;
+
+    QPointF m_topLeft;
+    QPointF m_topRight;
+    QPointF m_bottomLeft;
+    QPointF m_bottomRight;
+    QPointF m_center;
+    QPointF m_centerTop;
+    QPointF m_centerLeft;
+    QPointF m_centerRight;
+    QPointF m_centerBottom;
+
+    QRectF  m_renderCell;
+    QRectF  m_renderTLCell;
+    QRectF  m_renderTL3Cell;
+    QRectF  m_renderTRCell;
+    QRectF  m_renderTR3Cell;
+    QRectF  m_renderBLCell;
+    QRectF  m_renderBL3Cell;
+    QRectF  m_renderBRCell;
+    QRectF  m_renderBR3Cell;
+
+    QPolygonF   m_renderTLQ;
+    QPolygonF   m_renderTRQ;
+    QPolygonF   m_renderBLQ;
+    QPolygonF   m_renderBRQ;
+
+    QPolygonF   m_renderBLTRH;
+    QPolygonF   m_renderTLBRH;
+
+    QPolygonF   m_renderTL3Q;
+    QPolygonF   m_renderTR3Q;
+    QPolygonF   m_renderBL3Q;
+    QPolygonF   m_renderBR3Q;
+};
+
+
+RendererData::RendererData()
     :   QSharedData(),
         m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
         m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
         m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
         m_painter(0),
-        m_pattern(0)
+        m_document(0),
+        m_pattern(0),
+        m_symbolLibrary(0)
 {
+    m_topLeft = QPointF(0.0, 0.0);
+    m_topRight = QPointF(1.0, 0.0);
+    m_bottomLeft = QPointF(0.0, 1.0);
+    m_bottomRight = QPointF(1.0, 1.0);
+    m_center = QPointF(0.5, 0.5);
+    m_centerTop = QPointF(0.5, 0.0);
+    m_centerLeft = QPointF(0.0, 0.5);
+    m_centerRight = QPointF(1.0, 0.5);
+    m_centerBottom = QPointF(0.5, 1.0);
+
+    double oneThird = 1.0 / 3.0;
+    double twoThird = 2.0 / 3.0;
+
+    m_renderCell = QRectF(m_topLeft, m_bottomRight);
+    m_renderTLCell = QRectF(m_topLeft, m_center);
+    m_renderTL3Cell = QRectF(m_topLeft, QSize(twoThird, twoThird));
+    m_renderTRCell = QRectF(m_centerTop, m_centerRight);
+    m_renderTR3Cell = QRectF(oneThird, 0, twoThird, twoThird);
+    m_renderBLCell = QRectF(m_centerLeft, m_centerBottom);
+    m_renderBL3Cell = QRectF(0, oneThird, twoThird, twoThird);
+    m_renderBRCell = QRectF(m_center, m_bottomRight);
+    m_renderBR3Cell = QRectF(oneThird, oneThird, twoThird, twoThird);
+
+    m_renderTLQ << m_topLeft << m_centerTop << m_centerLeft;
+    m_renderTRQ << m_centerTop << m_topRight << m_centerRight;
+    m_renderBLQ << m_centerLeft << m_centerBottom << m_bottomLeft;
+    m_renderBRQ << m_centerRight << m_bottomRight << m_centerBottom;
+    m_renderBLTRH << m_bottomLeft << m_centerLeft << m_centerTop << m_topRight << m_centerRight << m_centerBottom;
+    m_renderTLBRH << m_topLeft << m_centerTop << m_centerRight << m_bottomRight << m_centerBottom << m_centerLeft;
+    m_renderTL3Q << m_topLeft << m_topRight << m_centerRight << m_centerBottom << m_bottomLeft;
+    m_renderTR3Q << m_topLeft << m_topRight << m_bottomRight << m_centerBottom << m_centerLeft;
+    m_renderBL3Q << m_topLeft << m_centerTop << m_centerRight << m_bottomRight << m_bottomLeft;
+    m_renderBR3Q << m_centerTop << m_topRight << m_bottomRight << m_bottomLeft << m_centerLeft;
 }
 
 
-RendererPrivate::RendererPrivate(const RendererPrivate &other)
+RendererData::RendererData(const RendererData &other)
     :   QSharedData(other),
         m_renderStitchesAs(other.m_renderStitchesAs),
         m_renderBackstitchesAs(other.m_renderBackstitchesAs),
         m_renderKnotsAs(other.m_renderKnotsAs),
+        m_document(other.m_document),
         m_pattern(other.m_pattern),
-        m_patternRect(other.m_patternRect),
-        m_cellWidth(other.m_cellWidth),
-        m_cellHeight(other.m_cellHeight),
+        m_symbolLibrary(other.m_symbolLibrary),
+        m_topLeft(other.m_topLeft),
+        m_topRight(other.m_topRight),
+        m_bottomLeft(other.m_bottomLeft),
+        m_bottomRight(other.m_bottomRight),
+        m_center(other.m_center),
         m_renderCell(other.m_renderCell),
         m_renderTLCell(other.m_renderTLCell),
         m_renderTL3Cell(other.m_renderTL3Cell),
@@ -58,18 +158,12 @@ RendererPrivate::RendererPrivate(const RendererPrivate &other)
         m_renderTL3Q(other.m_renderTL3Q),
         m_renderTR3Q(other.m_renderTR3Q),
         m_renderBL3Q(other.m_renderBL3Q),
-        m_renderBR3Q(other.m_renderBR3Q),
-        m_renderFont(other.m_renderFont),
-        m_renderQtrFont(other.m_renderQtrFont),
-        m_render3QtrFont(other.m_render3QtrFont),
-        m_renderFontSize(other.m_renderFontSize),
-        m_renderQtrFontSize(other.m_renderQtrFontSize),
-        m_render3QtrFontSize(other.m_render3QtrFontSize)
+        m_renderBR3Q(other.m_renderBR3Q)
 {
 }
 
 
-RendererPrivate::~RendererPrivate()
+RendererData::~RendererData()
 {
 }
 
@@ -99,7 +193,7 @@ const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] = {
 
 
 Renderer::Renderer()
-    :   d(new RendererPrivate)
+    :   d(new RendererData)
 {
 }
 
@@ -110,48 +204,8 @@ Renderer::Renderer(const Renderer &other)
 }
 
 
-void Renderer::setCellSize(double cellWidth, double cellHeight)
+Renderer::~Renderer()
 {
-    if ((cellWidth != d->m_cellWidth) || (cellHeight != d->m_cellHeight)) {
-        double halfWidth = cellWidth / 2;
-        double halfHeight = cellHeight / 2;
-        double thirdWidth = cellWidth / 3;
-        double thirdHeight = cellHeight / 3;
-
-        d->m_renderCell = QRectF(0, 0, cellWidth, cellHeight);
-        d->m_renderTLCell = QRectF(0, 0, halfWidth, halfHeight);
-        d->m_renderTL3Cell = QRectF(0, 0, cellWidth - thirdWidth, cellHeight - thirdHeight);
-        d->m_renderTRCell = QRectF(halfWidth, 0, halfWidth, halfHeight);
-        d->m_renderTR3Cell = QRectF(thirdWidth, 0, cellWidth - thirdWidth, cellHeight - thirdHeight);
-        d->m_renderBLCell = QRectF(0, halfHeight, halfWidth, halfHeight);
-        d->m_renderBL3Cell = QRectF(0, thirdHeight, cellWidth - thirdWidth, cellHeight - thirdHeight);
-        d->m_renderBRCell = QRectF(halfWidth, halfHeight, halfWidth, halfHeight);
-        d->m_renderBR3Cell = QRectF(thirdWidth, thirdHeight, cellWidth - thirdWidth, cellHeight - thirdHeight);
-
-        d->m_renderTLQ << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(0, halfHeight);
-        d->m_renderTRQ << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight);
-        d->m_renderBLQ << QPointF(0, halfHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, cellHeight);
-        d->m_renderBRQ << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight);
-        d->m_renderBLTRH << QPointF(0, cellHeight) << QPointF(0, halfHeight) << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(halfWidth, cellHeight);
-        d->m_renderTLBRH << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, halfWidth);
-        d->m_renderTL3Q << QPointF(0, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, cellHeight);
-        d->m_renderTR3Q << QPointF(0, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, cellHeight) << QPointF(halfWidth, cellHeight) << QPointF(0, halfHeight);
-        d->m_renderBL3Q << QPointF(0, 0) << QPointF(halfWidth, 0) << QPointF(cellWidth, halfHeight) << QPointF(cellWidth, cellHeight) << QPointF(0, cellHeight);
-        d->m_renderBR3Q << QPointF(halfWidth, 0) << QPointF(cellWidth, 0) << QPointF(cellWidth, cellHeight) << QPointF(0, cellHeight) << QPointF(0, halfHeight);
-
-        d->m_renderFontSize = std::min(cellWidth, cellHeight);
-        d->m_renderQtrFontSize = d->m_renderFontSize / 2;
-        d->m_render3QtrFontSize = d->m_renderFontSize * 3 / 4;
-
-        d->m_cellWidth = cellWidth;
-        d->m_cellHeight = cellHeight;
-    }
-}
-
-
-void Renderer::setPatternRect(const QRect &rect)
-{
-    d->m_patternRect = rect;
 }
 
 
@@ -173,12 +227,6 @@ void Renderer::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type 
 }
 
 
-void Renderer::setPaintDeviceArea(const QRectF &rect)
-{
-    d->m_paintDeviceArea = rect;
-}
-
-
 void Renderer::render(QPainter *painter,
                       Pattern *pattern,
                       const QRect &updateRectangle,
@@ -189,113 +237,67 @@ void Renderer::render(QPainter *painter,
                       int colorHilight,
                       const QPoint &offset)
 {
-    // TODO this isn't taking account of the updateRectangle which will be causing a performance problem
-    bool paintDeviceIsScreen = (painter->device()->paintEngine()->type() == QPaintEngine::X11); // test for other types
-
-    QPoint snapOffset(offset.x() * 2, offset.y() * 2);
-
     painter->save();
+
     d->m_painter = painter;
     d->m_pattern = pattern;
+    d->m_symbolLibrary = SymbolManager::library("kxstitch");    // TODO option for symbol library selection
     d->m_hilight = colorHilight;
 
-    painter->setClipRect(d->m_paintDeviceArea, Qt::IntersectClip);
+    int patternLeft = painter->window().left();
+    int patternRight = painter->window().right();
+    int patternTop = painter->window().top();
+    int patternBottom = painter->window().bottom();
+    int patternWidth = painter->window().width();
+    int patternHeight = painter->window().height();
 
-    double l = d->m_paintDeviceArea.left();
-    double t = d->m_paintDeviceArea.top();
-    double w = d->m_paintDeviceArea.width();
-    double h = d->m_paintDeviceArea.height();
-    double dx = w / d->m_patternRect.width();
-    double dy = h / d->m_patternRect.height();
-
-    int leftCell = d->m_patternRect.left();
-    int topCell = d->m_patternRect.top();
-    int rightCell = d->m_patternRect.right();
-    int bottomCell = d->m_patternRect.bottom();
-
-    double leftOffset = l - (leftCell * dx);
-    double topOffset = t - (topCell * dy);
-
-    painter->translate(leftOffset, topOffset);
-
+    // draw grid
     if (renderGrid) {
-        int cellHorizontalGrouping = -1;
-        int cellVerticalGrouping = -1;
-        QPen thinLine = (paintDeviceIsScreen ? QPen(Qt::lightGray) : QPen(Qt::black, 0.5));
-        QPen thickLine = (paintDeviceIsScreen ? QPen(Qt::darkGray) : QPen(Qt::black, 2.0));
+        QPen thickPen;
+        QPen thinPen;
+        thickPen.setWidthF(0.15);
+        thinPen.setWidthF(0.025);
 
-        if (pattern->document()) {
-            cellHorizontalGrouping = pattern->document()->property("cellHorizontalGrouping").toInt();
-            cellVerticalGrouping = pattern->document()->property("cellVerticalGrouping").toInt();
-            thinLine = (paintDeviceIsScreen ? QPen(pattern->document()->property("thinLineColor").value<QColor>(), pattern->document()->property("thinLineWidth").toInt()) : QPen(Qt::black, 0.5));
-            thickLine = (paintDeviceIsScreen ? QPen(pattern->document()->property("thickLineColor").value<QColor>(), pattern->document()->property("thickLineWidth").toInt()) : QPen(Qt::black, 2.0));
+        for (int y = patternTop ; y <= patternTop + patternHeight ; ++y) {
+            painter->setPen((y % 10) ? thinPen : thickPen);
+            painter->drawLine(patternLeft, y, patternLeft + patternWidth, y);
         }
 
-        for (int x = 0 ; x <= d->m_pattern->stitches().width() ; x++) {
-            if ((cellHorizontalGrouping == -1) || (x % cellHorizontalGrouping)) {
-                painter->setPen(thinLine);
-            } else {
-                painter->setPen(thickLine);
-            }
-
-            painter->drawLine(x * dx, 0, x * dx, (bottomCell + 1)*dy);
-        }
-
-        for (int y = 0 ; y <= d->m_pattern->stitches().height() ; y++) {
-            if ((cellVerticalGrouping == -1) || (y % cellVerticalGrouping)) {
-                painter->setPen(thinLine);
-            } else {
-                painter->setPen(thickLine);
-            }
-
-            painter->drawLine(0, y * dy, (rightCell + 1)*dx, y * dy);
+        for (int x = patternLeft ; x <= patternLeft + patternWidth ; ++x) {
+            painter->setPen((x % 10) ? thinPen : thickPen);
+            painter->drawLine(x, patternTop, x, patternTop + patternHeight);
         }
     }
 
-    d->m_renderFont = painter->font();
-    d->m_renderFont.setFamily(Configuration::editor_SymbolFont());
-    d->m_renderFont.setPixelSize(d->m_renderFontSize);
-    d->m_renderQtrFont = d->m_renderFont;
-    d->m_renderQtrFont.setPixelSize(d->m_renderQtrFontSize);
-    d->m_render3QtrFont = d->m_renderFont;
-    d->m_render3QtrFont.setPixelSize(d->m_render3QtrFontSize);
-
-    QRect snapUpdateRectangle(leftCell * 2, topCell * 2, (rightCell - leftCell) * 2, (bottomCell - topCell) * 2);
-
+    QTransform transform = painter->transform();
     if (renderStitches) {
-        for (int y =  topCell ; y <= bottomCell ; y++) {
-            for (int x = leftCell ; x <= rightCell ; x++) {
-                StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y) - offset);
+        for (int y = patternTop ; y <= patternBottom ; ++y) {
+            for (int x = patternLeft ; x <= patternRight ; ++x) {
+                QTransform tranform = painter->transform();
+                painter->translate(x, y);
 
-                if (queue) {
-                    double xpos = (x - leftCell) * dx;
-                    double ypos = (y - topCell) * dy;
-                    painter->resetTransform();
-                    painter->translate(xpos + l, ypos + t);
+                if (StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y))) {
                     (this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
                 }
+
+                painter->setTransform(transform);
             }
         }
     }
 
-    painter->resetTransform();
-    painter->translate(leftOffset, topOffset);
-
-    // process backstitches
     if (renderBackstitches) {
-        QListIterator<Backstitch *> backstitchIterator = pattern->stitches().backstitchIterator();
+        QList<Backstitch*> backstitches = pattern->stitches().backstitches();
 
-        while (backstitchIterator.hasNext()) {
-            (this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitchIterator.next(), snapOffset);
+        for (int i = 0 ; i < backstitches.count() ; ++i) {
+            (this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitches.at(i));
         }
     }
 
-    // process knots
     if (renderKnots) {
-        QListIterator<Knot *> knotIterator = pattern->stitches().knotIterator();
+        QList<Knot*> knots = pattern->stitches().knots();
 
-        while (knotIterator.hasNext()) {
-            (this->*renderKnotCallPointers[d->m_renderKnotsAs])(knotIterator.next(), snapOffset);
+        for (int i = 0 ; i < knots.count() ; ++i) {
+            (this->*renderKnotCallPointers[d->m_renderKnotsAs])(knots.at(i));
         }
     }
 
@@ -310,21 +312,23 @@ void Renderer::renderStitchesAsNone(StitchQueue *)
 
 void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 {
-    QPen pen;
-    StitchQueue::const_iterator it;
+    int i = stitchQueue->count();
 
-    for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it) {
-        Stitch *stitch = *it;
-        const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+    while (i) {
+        Stitch *stitch = stitchQueue->at(--i);
+        DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+
+        QPen pen;
 
         if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
             pen.setColor(documentFloss->flossColor());
-            pen.setWidth(documentFloss->stitchStrands());
+            pen.setWidthF(documentFloss->stitchStrands() / 10.0);
         } else {
             pen.setColor(Qt::lightGray);
-            pen.setWidth(0);
+            pen.setWidthF(0);
         }
 
+        pen.setCapStyle(Qt::RoundCap);
         d->m_painter->setPen(pen);
 
         switch (stitch->type) {
@@ -332,91 +336,88 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
             break;
 
         case Stitch::TLQtr:
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::TRQtr:
-            d->m_painter->drawLine(d->m_renderCell.topRight(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_topRight, d->m_center);
             break;
 
         case Stitch::BLQtr:
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BTHalf:
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
             break;
 
         case Stitch::TL3Qtr:
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::BRQtr:
-            d->m_painter->drawLine(d->m_renderCell.bottomRight(), d->m_renderCell.center());
+             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::TBHalf:
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
             break;
 
         case Stitch::TR3Qtr:
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderCell.topRight(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_topRight, d->m_center);
             break;
 
         case Stitch::BL3Qtr:
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BR3Qtr:
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
-            d->m_painter->drawLine(d->m_renderCell.bottomRight(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::Full:
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
             break;
 
         case Stitch::TLSmallHalf:
-            d->m_painter->drawLine(d->m_renderCell.left(), d->m_renderCell.center().y(), d->m_renderCell.center().x(), d->m_renderCell.top());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerTop);
             break;
 
         case Stitch::TRSmallHalf:
-            d->m_painter->drawLine(d->m_renderCell.center().x(), d->m_renderCell.top(), d->m_renderCell.right(), d->m_renderCell.center().y());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
             break;
 
         case Stitch::BLSmallHalf:
-            d->m_painter->drawLine(d->m_renderCell.left(), d->m_renderCell.center().y(), d->m_renderCell.center().x(), d->m_renderCell.bottom());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
             break;
 
         case Stitch::BRSmallHalf:
-            d->m_painter->drawLine(d->m_renderCell.center().x(), d->m_renderCell.bottom(), d->m_renderCell.right(), d->m_renderCell.center().y());
+            d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
             break;
 
         case Stitch::TLSmallFull:
-            d->m_painter->drawLine(d->m_renderCell.left(), d->m_renderCell.center().y(), d->m_renderCell.center().x(), d->m_renderCell.top());
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerTop);
             break;
 
         case Stitch::TRSmallFull:
-            d->m_painter->drawLine(d->m_renderCell.center().x(), d->m_renderCell.top(), d->m_renderCell.right(), d->m_renderCell.center().y());
-            d->m_painter->drawLine(d->m_renderCell.topRight(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
+            d->m_painter->drawLine(d->m_center, d->m_topRight);
             break;
 
         case Stitch::BLSmallFull:
-            d->m_painter->drawLine(d->m_renderCell.left(), d->m_renderCell.center().y(), d->m_renderCell.center().x(), d->m_renderCell.bottom());
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.center());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
             break;
 
         case Stitch::BRSmallFull:
-            d->m_painter->drawLine(d->m_renderCell.center().x(), d->m_renderCell.bottom(), d->m_renderCell.right(), d->m_renderCell.center().y());
-            d->m_painter->drawLine(d->m_renderCell.bottomRight(), d->m_renderCell.center());
-            break;
-
-        default: // Avoid compiler warnings about unhandled values
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
             break;
         }
     }
@@ -425,186 +426,116 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 
 void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 {
-    QPen symbolPen;
-    QPen outlinePen(Qt::lightGray);
-    outlinePen.setWidth(0);
-    StitchQueue::const_iterator it;
+    int i = stitchQueue->count();
 
-    for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it) {
-        Stitch *stitch = *it;
-        const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+    while (i) {
+        Stitch *stitch = stitchQueue->at(--i);
+        DocumentFloss *floss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+        Symbol symbol = d->m_symbolLibrary->symbol(floss->stitchSymbol());
+
+        QPen outlinePen(Qt::lightGray);
+        QPen symbolPen = symbol.pen();
+        QBrush symbolBrush = symbol.brush();
 
         if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
-            symbolPen.setColor(Qt::black);
-            symbolPen.setWidth(documentFloss->stitchStrands());
+            // the symbolPen and symbolBrush are already set up as black at this point
         } else {
             symbolPen.setColor(Qt::lightGray);
-            symbolPen.setWidth(0);
+            symbolBrush.setColor(Qt::lightGray);
         }
+
+        d->m_painter->setPen(symbolPen);
+        d->m_painter->setBrush(symbolBrush);
+
+        d->m_painter->drawPath(symbol.path(stitch->type));
+
+        d->m_painter->setPen(outlinePen);
 
         switch (stitch->type) {
         case Stitch::Delete:
             break;
 
         case Stitch::TLQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTLCell.topLeft(), d->m_renderTLCell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::TRQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTRCell.bottomLeft(), d->m_renderTRCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_center, d->m_topRight);
             break;
 
         case Stitch::BLQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBLCell.bottomLeft(), d->m_renderBLCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BTHalf:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
             break;
 
         case Stitch::TL3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTL3Cell.bottomLeft(), d->m_renderTL3Cell.topRight());
-            d->m_painter->drawLine(d->m_renderTL3Cell.center(), d->m_renderTL3Cell.topLeft());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topRight, d->m_bottomLeft);
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::BRQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBRCell.topLeft(), d->m_renderBRCell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::TBHalf:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
             break;
 
         case Stitch::TR3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTR3Cell.topLeft(), d->m_renderTR3Cell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTR3Cell.center(), d->m_renderTR3Cell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_topRight, d->m_center);
             break;
 
         case Stitch::BL3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBL3Cell.topLeft(), d->m_renderBL3Cell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBL3Cell.center(), d->m_renderBL3Cell.bottomLeft());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BR3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBR3Cell.bottomLeft(), d->m_renderBR3Cell.topRight());
-            d->m_painter->drawLine(d->m_renderBR3Cell.center(), d->m_renderBR3Cell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::Full:
-            d->m_painter->setFont(d->m_renderFont);
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TLSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTLCell.bottomLeft(), d->m_renderTLCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerTop);
             break;
 
         case Stitch::TRSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTRCell.topLeft(), d->m_renderTRCell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
             break;
 
         case Stitch::BLSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBLCell.topLeft(), d->m_renderBLCell.bottomRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
             break;
 
         case Stitch::BRSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBRCell.bottomLeft(), d->m_renderBRCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
             break;
 
         case Stitch::TLSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTLCell.topLeft(), d->m_renderTLCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTLCell.bottomLeft(), d->m_renderTLCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerLeft);
             break;
 
         case Stitch::TRSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderTRCell.topLeft(), d->m_renderTRCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTRCell.bottomLeft(), d->m_renderTRCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
+            d->m_painter->drawLine(d->m_center, d->m_topRight);
             break;
 
         case Stitch::BLSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBLCell.topLeft(), d->m_renderBLCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBLCell.bottomLeft(), d->m_renderBLCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BRSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(outlinePen);
-            d->m_painter->drawLine(d->m_renderBRCell.topLeft(), d->m_renderBRCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBRCell.bottomLeft(), d->m_renderBRCell.topRight());
-            d->m_painter->setPen(symbolPen);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
-            break;
-
-        default: // Avoid compiler warnings about unhandled values
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
             break;
         }
     }
@@ -613,147 +544,117 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 
 void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 {
-    QPen pen;
-    StitchQueue::const_iterator it;
+    int i = stitchQueue->count();
 
-    for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it) {
-        Stitch *stitch = *it;
-        const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+    while (i) {
+        Stitch *stitch = stitchQueue->at(--i);
+        DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+        Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+        QPen outlinePen(Qt::lightGray);
+        QPen symbolPen = symbol.pen();
+        QBrush symbolBrush = symbol.brush();
 
         if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
-            pen.setColor(documentFloss->flossColor());
+            symbolPen.setColor(documentFloss->flossColor());
+            symbolBrush.setColor(documentFloss->flossColor());
         } else {
-            pen.setColor(Qt::lightGray);
+            symbolPen.setColor(Qt::lightGray);
+            symbolBrush.setColor(Qt::lightGray);
         }
 
-        d->m_painter->setPen(pen);
+        d->m_painter->setPen(symbolPen);
+        d->m_painter->setBrush(symbolBrush);
+
+        d->m_painter->drawPath(symbol.path(stitch->type));
+
+        d->m_painter->setPen(outlinePen);
 
         switch (stitch->type) {
         case Stitch::Delete:
             break;
 
         case Stitch::TLQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTLCell.topLeft(), d->m_renderTLCell.bottomRight());
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::TRQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTRCell.bottomLeft(), d->m_renderTRCell.topRight());
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_center, d->m_topRight);
             break;
 
         case Stitch::BLQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBLCell.bottomLeft(), d->m_renderBLCell.topRight());
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BTHalf:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderCell.bottomLeft(), d->m_renderCell.topRight());
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
             break;
 
         case Stitch::TL3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderTL3Cell.bottomLeft(), d->m_renderTL3Cell.topRight());
-            d->m_painter->drawLine(d->m_renderTL3Cell.center(), d->m_renderTL3Cell.topLeft());
-            d->m_painter->drawText(d->m_renderTL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topRight, d->m_bottomLeft);
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
             break;
 
         case Stitch::BRQtr:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBRCell.topLeft(), d->m_renderBRCell.bottomRight());
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::TBHalf:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderCell.topLeft(), d->m_renderCell.bottomRight());
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
             break;
 
         case Stitch::TR3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderTR3Cell.topLeft(), d->m_renderTR3Cell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTR3Cell.center(), d->m_renderTR3Cell.topRight());
-            d->m_painter->drawText(d->m_renderTR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_topRight, d->m_center);
             break;
 
         case Stitch::BL3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderBL3Cell.topLeft(), d->m_renderBL3Cell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBL3Cell.center(), d->m_renderBL3Cell.bottomLeft());
-            d->m_painter->drawText(d->m_renderBL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BR3Qtr:
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawLine(d->m_renderBR3Cell.bottomLeft(), d->m_renderBR3Cell.topRight());
-            d->m_painter->drawLine(d->m_renderBR3Cell.center(), d->m_renderBR3Cell.bottomRight());
-            d->m_painter->drawText(d->m_renderBR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_topRight);
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::Full:
-            d->m_painter->setFont(d->m_renderFont);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TLSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTLCell.bottomLeft(), d->m_renderTLCell.topRight());
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerTop);
             break;
 
         case Stitch::TRSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTRCell.topLeft(), d->m_renderTRCell.bottomRight());
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
             break;
 
         case Stitch::BLSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBLCell.topLeft(), d->m_renderBLCell.bottomRight());
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
             break;
 
         case Stitch::BRSmallHalf:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBRCell.bottomLeft(), d->m_renderBRCell.topRight());
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
             break;
 
         case Stitch::TLSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTLCell.topLeft(), d->m_renderTLCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTLCell.bottomLeft(), d->m_renderTLCell.topRight());
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_topLeft, d->m_center);
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerLeft);
             break;
 
         case Stitch::TRSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderTRCell.topLeft(), d->m_renderTRCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderTRCell.bottomLeft(), d->m_renderTRCell.topRight());
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerTop, d->m_centerRight);
+            d->m_painter->drawLine(d->m_center, d->m_topRight);
             break;
 
         case Stitch::BLSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBLCell.topLeft(), d->m_renderBLCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBLCell.bottomLeft(), d->m_renderBLCell.topRight());
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->drawLine(d->m_centerLeft, d->m_centerBottom);
+            d->m_painter->drawLine(d->m_bottomLeft, d->m_center);
             break;
 
         case Stitch::BRSmallFull:
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawLine(d->m_renderBRCell.topLeft(), d->m_renderBRCell.bottomRight());
-            d->m_painter->drawLine(d->m_renderBRCell.bottomLeft(), d->m_renderBRCell.topRight());
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
-            break;
-
-        default: // Avoid compiler warnings about unhandled values
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
             break;
         }
     }
@@ -762,24 +663,25 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 
 void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 {
-    StitchQueue::const_iterator it;
+    int i = stitchQueue->count();
 
-    for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it) {
-        Stitch *stitch = *it;
-        const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
-        QBrush brush(Qt::SolidPattern);
-        QPen pen;
+    while (i) {
+        Stitch *stitch = stitchQueue->at(--i);
+        DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+
+        QPen blockPen;
+        QBrush blockBrush(Qt::SolidPattern);
 
         if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
-            brush.setColor(documentFloss->flossColor());
-            pen.setColor(documentFloss->flossColor());
+            blockPen.setColor(documentFloss->flossColor());
+            blockBrush.setColor(documentFloss->flossColor());
         } else {
-            brush.setColor(Qt::lightGray);
-            pen.setColor(Qt::lightGray);
+            blockPen.setColor(Qt::lightGray);
+            blockBrush.setColor(documentFloss->flossColor());
         }
 
-        d->m_painter->setBrush(brush);
-        d->m_painter->setPen(pen);
+        d->m_painter->setPen(blockPen);
+        d->m_painter->setBrush(blockBrush);
 
         switch (stitch->type) {
         case Stitch::Delete:
@@ -826,38 +728,39 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
             break;
 
         case Stitch::Full:
-            d->m_painter->fillRect(d->m_renderCell, brush);
+            d->m_painter->fillRect(d->m_renderCell, blockBrush);
             break;
 
         case Stitch::TLSmallHalf:
+            d->m_painter->fillRect(d->m_renderTLCell, blockBrush);
             break;
 
         case Stitch::TRSmallHalf:
+            d->m_painter->fillRect(d->m_renderTRCell, blockBrush);
             break;
 
         case Stitch::BLSmallHalf:
+            d->m_painter->fillRect(d->m_renderBLCell, blockBrush);
             break;
 
         case Stitch::BRSmallHalf:
+            d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
 
         case Stitch::TLSmallFull:
-            d->m_painter->fillRect(d->m_renderTLCell, brush);
+            d->m_painter->fillRect(d->m_renderTLCell, blockBrush);
             break;
 
         case Stitch::TRSmallFull:
-            d->m_painter->fillRect(d->m_renderTRCell, brush);
+            d->m_painter->fillRect(d->m_renderTRCell, blockBrush);
             break;
 
         case Stitch::BLSmallFull:
-            d->m_painter->fillRect(d->m_renderBLCell, brush);
+            d->m_painter->fillRect(d->m_renderBLCell, blockBrush);
             break;
 
         case Stitch::BRSmallFull:
-            d->m_painter->fillRect(d->m_renderBRCell, brush);
-            break;
-
-        default: // Avoid compiler warnings about unhandled values
+            d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
         }
     }
@@ -866,27 +769,34 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 
 void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 {
-    StitchQueue::const_iterator it;
+    int i = stitchQueue->count();
 
-    for (it = stitchQueue->begin() ; it != stitchQueue->end() ; ++it) {
-        Stitch *stitch = *it;
-        const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
-        QPen textPen;
-        QPen outlinePen;
-        QBrush brush(Qt::SolidPattern);
+    while (i) {
+        Stitch *stitch = stitchQueue->at(--i);
+        DocumentFloss *floss = d->m_pattern->palette().flosses().value(stitch->colorIndex);
+        Symbol symbol = d->m_symbolLibrary->symbol(floss->stitchSymbol());
+
+        QPen symbolPen = symbol.pen();
+        QBrush symbolBrush = symbol.brush();
+        QPen blockPen;
+        QBrush blockBrush(Qt::SolidPattern);
 
         if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
-            textPen.setColor((qGray(documentFloss->flossColor().rgb()) < 128) ? Qt::white : Qt::black);
-            outlinePen.setColor(documentFloss->flossColor());
-            brush.setColor(documentFloss->flossColor());
+            QColor flossColor = floss->flossColor();
+            QColor symbolColor = (qGray(flossColor.rgb()) < 128) ? Qt::white : Qt::black;
+            symbolPen.setColor(symbolColor);
+            symbolBrush.setColor(symbolColor);
+            blockPen.setColor(flossColor);
+            blockBrush.setColor(flossColor);
         } else {
-            outlinePen.setColor(Qt::lightGray);
-            brush.setColor(Qt::lightGray);
-            textPen.setColor(Qt::darkGray);
+            symbolPen.setColor(Qt::darkGray);
+            symbolBrush.setColor(Qt::darkGray);
+            blockPen.setColor(Qt::lightGray);
+            blockBrush.setColor(Qt::lightGray);
         }
 
-        d->m_painter->setPen(outlinePen);
-        d->m_painter->setBrush(brush);
+        d->m_painter->setPen(blockPen);
+        d->m_painter->setBrush(blockBrush);
 
         switch (stitch->type) {
         case Stitch::Delete:
@@ -894,156 +804,108 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 
         case Stitch::TLQtr:
             d->m_painter->drawPolygon(d->m_renderTLQ);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TRQtr:
             d->m_painter->drawPolygon(d->m_renderTRQ);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::BLQtr:
             d->m_painter->drawPolygon(d->m_renderBLQ);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->setPen(textPen);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::BTHalf:
             d->m_painter->drawPolygon(d->m_renderBLTRH);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TL3Qtr:
             d->m_painter->drawPolygon(d->m_renderTL3Q);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderTL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::BRQtr:
             d->m_painter->drawPolygon(d->m_renderBRQ);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TBHalf:
             d->m_painter->drawPolygon(d->m_renderTLBRH);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::TR3Qtr:
             d->m_painter->drawPolygon(d->m_renderTR3Q);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderTR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::BL3Qtr:
             d->m_painter->drawPolygon(d->m_renderBL3Q);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderBL3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::BR3Qtr:
             d->m_painter->drawPolygon(d->m_renderBR3Q);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_render3QtrFont);
-            d->m_painter->drawText(d->m_renderBR3Cell, Qt::AlignCenter, documentFloss->stitchSymbol());
             break;
 
         case Stitch::Full:
-            d->m_painter->fillRect(d->m_renderCell, brush);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderFont);
-            d->m_painter->drawText(d->m_renderCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderCell, blockBrush);
             break;
 
         case Stitch::TLSmallHalf:
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderTLCell, blockBrush);
             break;
 
         case Stitch::TRSmallHalf:
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderTRCell, blockBrush);
             break;
 
         case Stitch::BLSmallHalf:
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderBLCell, blockBrush);
             break;
 
         case Stitch::BRSmallHalf:
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
 
         case Stitch::TLSmallFull:
-            d->m_painter->fillRect(d->m_renderTLCell, brush);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderTLCell, blockBrush);
             break;
 
         case Stitch::TRSmallFull:
-            d->m_painter->fillRect(d->m_renderTRCell, brush);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderTRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderTRCell, blockBrush);
             break;
 
         case Stitch::BLSmallFull:
-            d->m_painter->fillRect(d->m_renderBLCell, brush);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderBLCell, Qt::AlignCenter, documentFloss->stitchSymbol());
+            d->m_painter->fillRect(d->m_renderBLCell, blockBrush);
             break;
 
         case Stitch::BRSmallFull:
-            d->m_painter->fillRect(d->m_renderBRCell, brush);
-            d->m_painter->setPen(textPen);
-            d->m_painter->setFont(d->m_renderQtrFont);
-            d->m_painter->drawText(d->m_renderBRCell, Qt::AlignCenter, documentFloss->stitchSymbol());
-            break;
-
-        default: // Avoid compiler warnings about unhandled values
+            d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
         }
+
+        d->m_painter->setPen(symbolPen);
+        d->m_painter->setBrush(symbolBrush);
+
+        d->m_painter->drawPath(symbol.path(stitch->type));
     }
 }
 
 
-void Renderer::renderBackstitchesAsNone(Backstitch*, const QPoint&)
+void Renderer::renderBackstitchesAsNone(Backstitch*)
 {
 }
 
 
-void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch, const QPoint &offset)
+void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 {
-    QPoint start(((backstitch->start.x() + offset.x())*d->m_cellWidth) / 2, ((backstitch->start.y() + offset.y())*d->m_cellHeight) / 2);
-    QPoint end(((backstitch->end.x() + offset.x())*d->m_cellWidth) / 2, ((backstitch->end.y() + offset.y())*d->m_cellHeight) / 2);
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(backstitch->colorIndex);
+    QPointF start(QPointF(backstitch->start) / 2);
+    QPointF end(QPointF(backstitch->end) / 2);
+
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
 
     QPen pen;
 
     if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
         pen.setColor(documentFloss->flossColor());
-        pen.setWidth(documentFloss->backstitchStrands());
+//        pen.setWidthF(documentFloss->backstitchStrands() / 10.0);
+        pen.setWidthF(double(documentFloss->backstitchStrands()) / 5);
+        pen.setCapStyle(Qt::RoundCap);
     } else {
         pen.setColor(Qt::lightGray);
         pen.setWidth(0);
@@ -1054,18 +916,19 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch, const QPoi
 }
 
 
-void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch, const QPoint &offset)
+void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 {
-    QPoint start(((backstitch->start.x() + offset.x())*d->m_cellWidth) / 2, ((backstitch->start.y() + offset.y())*d->m_cellHeight) / 2);
-    QPoint end(((backstitch->end.x() + offset.x())*d->m_cellWidth) / 2, ((backstitch->end.y() + offset.y())*d->m_cellHeight) / 2);
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(backstitch->colorIndex);
+    QPointF start(QPointF(backstitch->start) / 2);
+    QPointF end(QPointF(backstitch->end) / 2);
+
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(backstitch->colorIndex);
 
     QPen pen;
     pen.setStyle(documentFloss->backstitchSymbol());
 
     if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
         pen.setColor(Qt::black);
-        pen.setWidth(documentFloss->backstitchStrands());
+        pen.setWidth(documentFloss->backstitchStrands() / 10);
     } else {
         pen.setColor(Qt::lightGray);
         pen.setWidth(0);
@@ -1076,14 +939,14 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch, con
 }
 
 
-void Renderer::renderKnotsAsNone(Knot*, const QPoint&)
+void Renderer::renderKnotsAsNone(Knot*)
 {
 }
 
 
-void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint&)
+void Renderer::renderKnotsAsColorBlocks(Knot *knot)
 {
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
     QPen outlinePen;
     QBrush brush(Qt::SolidPattern);
 
@@ -1098,94 +961,30 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot, const QPoint&)
     d->m_painter->setPen(outlinePen);
     d->m_painter->setBrush(brush);
 
-    int knotSize = std::min(d->m_cellWidth, d->m_cellHeight) * 2 / 3;
-    QRect rect(0, 0, knotSize, knotSize);
-    rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth) / 2), static_cast<int>((knot->position.y()*d->m_cellHeight) / 2)));
+    double knotSize = 0.25;
+    QRectF rect(0, 0, knotSize, knotSize);
+    rect.moveCenter(QPointF(knot->position) / 2);
     d->m_painter->drawEllipse(rect);
 }
 
 
-void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot, const QPoint&)
+void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
 {
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
-    QPen textPen;
-    QPen outlinePen;
-    QBrush brush(Qt::SolidPattern);
-
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
-        textPen.setColor((qGray(documentFloss->flossColor().rgb()) < 128) ? Qt::white : Qt::black);
-        outlinePen.setColor(documentFloss->flossColor());
-        brush.setColor(documentFloss->flossColor());
-    } else {
-        outlinePen.setColor(Qt::lightGray);
-        brush.setColor(Qt::lightGray);
-        textPen.setColor(Qt::darkGray);
-    }
-
-    d->m_painter->setPen(outlinePen);
-    d->m_painter->setBrush(brush);
-    d->m_painter->setFont(d->m_renderQtrFont);
-
-    int knotSize = std::min(d->m_cellWidth, d->m_cellHeight) * 2 / 3;
-    QRect rect(0, 0, knotSize, knotSize);
-    rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth) / 2), static_cast<int>((knot->position.y()*d->m_cellHeight) / 2)));
-    d->m_painter->drawEllipse(rect);
-    d->m_painter->setPen(textPen);
-    d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
 }
 
 
-void Renderer::renderKnotsAsColorSymbols(Knot *knot, const QPoint&)
+void Renderer::renderKnotsAsColorSymbols(Knot *knot)
 {
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
-    QPen textPen;
-    QPen outlinePen;
-    QBrush brush(Qt::NoBrush);
-
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
-        textPen.setColor(documentFloss->flossColor());
-        outlinePen.setColor(documentFloss->flossColor());
-    } else {
-        outlinePen.setColor(Qt::lightGray);
-        textPen.setColor(Qt::darkGray);
-    }
-
-    d->m_painter->setPen(outlinePen);
-    d->m_painter->setBrush(brush);
-    d->m_painter->setFont(d->m_renderQtrFont);
-
-    int knotSize = std::min(d->m_cellWidth, d->m_cellHeight) * 2 / 3;
-    QRect rect(0, 0, knotSize, knotSize);
-    rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth) / 2), static_cast<int>((knot->position.y()*d->m_cellHeight) / 2)));
-    d->m_painter->drawEllipse(rect);
-    d->m_painter->setPen(textPen);
-    d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
 }
 
 
-void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot, const QPoint&)
+void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
 {
-    const DocumentFloss *documentFloss = d->m_pattern->palette().flosses().value(knot->colorIndex);
-    QPen textPen;
-    QPen outlinePen;
-    QBrush brush(Qt::NoBrush);
+}
 
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
-        textPen.setColor(Qt::black);
-        outlinePen.setColor(Qt::black);
-    } else {
-        outlinePen.setColor(Qt::lightGray);
-        textPen.setColor(Qt::darkGray);
-    }
 
-    d->m_painter->setPen(outlinePen);
-    d->m_painter->setBrush(brush);
-    d->m_painter->setFont(d->m_renderQtrFont);
-
-    int knotSize = std::min(d->m_cellWidth, d->m_cellHeight) * 2 / 3;
-    QRect rect(0, 0, knotSize, knotSize);
-    rect.moveCenter(QPoint(static_cast<int>((knot->position.x()*d->m_cellWidth) / 2), static_cast<int>((knot->position.y()*d->m_cellHeight) / 2)));
-    d->m_painter->drawEllipse(rect);
-    d->m_painter->setPen(textPen);
-    d->m_painter->drawText(rect, Qt::AlignCenter, documentFloss->stitchSymbol());
+Renderer &Renderer::operator=(const Renderer &other)
+{
+    d = other.d;
+    return *this;
 }

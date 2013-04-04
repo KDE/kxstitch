@@ -31,11 +31,9 @@ public:
     QPrinter::Orientation orientation() const;
     int paperWidth() const;
     int paperHeight() const;
-    double zoomFactor() const;
 
     void setPaperSize(QPrinter::PaperSize);
     void setOrientation(QPrinter::Orientation);
-    void setZoomFactor(double);
 
     Page *page() const;
     void generatePreviewIcon();

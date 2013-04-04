@@ -23,19 +23,19 @@ class DocumentFloss
 {
 public:
     DocumentFloss();
-    DocumentFloss(const QString &, const QChar &, Qt::PenStyle, int, int);
-    DocumentFloss(const DocumentFloss *);
+    DocumentFloss(const QString &, qint16, Qt::PenStyle, int, int);
+    explicit DocumentFloss(const DocumentFloss *);
 
     QString flossName() const;
     QColor flossColor() const;
-    QChar stitchSymbol() const;
+    qint16 stitchSymbol() const;
     Qt::PenStyle backstitchSymbol() const;
     int stitchStrands() const;
     int backstitchStrands() const;
 
     void setFlossName(const QString &);
     void setFlossColor(const QColor &);
-    void setStitchSymbol(const QChar &);
+    void setStitchSymbol(qint16);
     void setBackstitchSymbol(Qt::PenStyle);
     void setStitchStrands(int);
     void setBackstitchStrands(int);
@@ -47,11 +47,11 @@ public:
     friend QDataStream &operator>>(QDataStream &, DocumentFloss &);
 
 private:
-    static const int version = 100;
+    static const int version = 101;
 
     QString         m_flossName;
     QColor          m_flossColor;
-    QChar           m_stitchSymbol;
+    qint16          m_stitchSymbol;
     Qt::PenStyle    m_backstitchSymbol;
     int             m_stitchStrands;
     int             m_backstitchStrands;

@@ -144,7 +144,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string notr="true">A</string>
+      <string notr="true"/>
      </property>
     </widget>
    </item>

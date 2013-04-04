@@ -87,14 +87,18 @@ bool SchemeParser::startDocument()
 
 /**
     Start a new element. Reimplemented from QXmlDefaultHandler.
-    @param
-    @param
+    @param namespaceURI not used
+    @param localName not used
     @param qName name of the tag.
-    @param
+    @param qxmlAttributes not used
     @return true if the tag is valid, false otherwise.
     */
-bool SchemeParser::startElement(const QString &, const QString &, const QString &qName, const QXmlAttributes &)
+bool SchemeParser::startElement(const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &qxmlAttributes)
 {
+    Q_UNUSED(namespaceURI);
+    Q_UNUSED(localName);
+    Q_UNUSED(qxmlAttributes);
+
     QString name = qName.simplified();
 
     int tag = 0;
@@ -147,13 +151,16 @@ bool SchemeParser::characters(const QString &d)
 
 /**
     End an element. Reimplemented from QXmlDefaultHandler.
-    @param
-    @param
+    @param namespaceURI not used
+    @param localName not used
     @param qName name of the tag.
     @return true if the tag is valid, false otherwise.
     */
-bool SchemeParser::endElement(const QString &, const QString &, const QString &qName)
+bool SchemeParser::endElement(const QString &namespaceURI, const QString &localName, const QString &qName)
 {
+    Q_UNUSED(namespaceURI);
+    Q_UNUSED(localName);
+
     QString name = qName.simplified();
     QString *s = m_elements.pop();
 

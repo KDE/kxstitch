@@ -37,7 +37,7 @@ public:
     QString schemeName() const;
     QMap<int, DocumentFloss *> flosses() const;
     QVector<int> sortedFlosses() const;
-    QList<QChar> usedSymbols() const;
+    QList<qint16> usedSymbols() const;
     const DocumentFloss *currentFloss() const;
     DocumentFloss *floss(int);
     int currentIndex() const;
@@ -51,6 +51,7 @@ public:
     DocumentFloss *replace(int, DocumentFloss *);
     void swap(int, int);
     void setShowSymbols(bool);
+    qint16 freeSymbol() const;
 
     DocumentPalette &operator=(const DocumentPalette &);
     bool operator==(const DocumentPalette &) const;
@@ -61,7 +62,6 @@ public:
 
 private:
     int freeIndex() const;
-    QChar freeSymbol() const;
 
     QSharedDataPointer<DocumentPaletteData> d;
 };

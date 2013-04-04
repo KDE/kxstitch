@@ -90,10 +90,6 @@
                 <choice name="CM" />
             </choices>
         </entry>
-        <entry name="Editor_SymbolFont" type="String">
-            <label>The font family to be used for symbols.</label>
-            <default>Arial</default>
-        </entry>
     </group>
 
     <group name="renderer">
@@ -210,6 +206,10 @@
             <label>Display the symbols in the palette.</label>
             <default>false</default>
         </entry>
+        <entry name="Palette_SymbolsAntialiased" type="Bool">
+            <label>Display the symbols antialiased</label>
+            <default>true</default>
+        </entry>
     </group>
 
     <group name="library">
@@ -269,6 +269,10 @@
         <entry name="Page_MarginBottom" type="Int">
             <label>The page bottom margin</label>
             <default>5</default>
+        </entry>
+        <entry name="Page_ShowGrid" type="Bool">
+            <label>Show the layout editor</label>
+            <default>true</default>
         </entry>
         <entry name="Page_GridSize" type="Int">
             <label>The grid size in mm</label>
@@ -360,20 +364,12 @@
             <label>Show the key element stitch count column</label>
             <default>true</default>
         </entry>
-        <entry name="KeyElement_StitchBreakdownColumn" type="Bool">
-            <label>Show the key element stitch breakdown column</label>
-            <default>false</default>
-        </entry>
         <entry name="KeyElement_LengthColumn" type="Bool">
             <label>Show the key element floss length column</label>
             <default>true</default>
         </entry>
         <entry name="KeyElement_SkeinsColumn" type="Bool">
             <label>Show the key element skeins column</label>
-            <default>true</default>
-        </entry>
-        <entry name="KeyElement_TotalStitches" type="Bool">
-            <label>Show the total number of stitches</label>
             <default>true</default>
         </entry>
 

@@ -42,10 +42,8 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.StrandsColumn->setChecked(m_keyElement->m_strandsColumn);
     ui.FlossDescriptionColumn->setChecked(m_keyElement->m_flossDescriptionColumn);
     ui.StitchesColumn->setChecked(m_keyElement->m_stitchesColumn);
-    ui.StitchBreakdownColumn->setChecked(m_keyElement->m_stitchBreakdownColumn);
     ui.LengthColumn->setChecked(m_keyElement->m_lengthColumn);
     ui.SkeinsColumn->setChecked(m_keyElement->m_skeinsColumn);
-    ui.TotalStitches->setChecked(m_keyElement->m_totalStitches);
 
     QMetaObject::connectSlotsByName(this);
 
@@ -74,10 +72,8 @@ void KeyElementDlg::slotButtonClicked(int button)
         m_keyElement->m_strandsColumn = ui.StrandsColumn->isChecked();
         m_keyElement->m_flossDescriptionColumn = ui.FlossDescriptionColumn->isChecked();
         m_keyElement->m_stitchesColumn = ui.StitchesColumn->isChecked();
-        m_keyElement->m_stitchBreakdownColumn = ui.StitchBreakdownColumn->isChecked();
         m_keyElement->m_lengthColumn = ui.LengthColumn->isChecked();
         m_keyElement->m_skeinsColumn = ui.SkeinsColumn->isChecked();
-        m_keyElement->m_totalStitches = ui.TotalStitches->isChecked();
         accept();
     } else {
         KDialog::slotButtonClicked(button);

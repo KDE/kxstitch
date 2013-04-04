@@ -11,26 +11,37 @@
 
 #include "PageLayoutEditor.h"
 
+#include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QPointer>
 #include <QRubberBand>
+
+#include <KLocale>
 
 #include <math.h>
 
 #include "configuration.h"
 #include "Document.h"
 #include "Element.h"
+#include "KeyElementDlg.h"
 #include "Page.h"
+#include "PagePropertiesDlg.h"
+#include "PatternElementDlg.h"
 #include "PagePreviewListWidgetItem.h"
+#include "TextElementDlg.h"
 
 
 PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
     :   QWidget(parent),
         m_document(document),
+        m_pagePreview(0),
+        m_elementUnderCursor(0),
         m_selecting(false),
         m_resizing(false),
         m_moved(false),
         m_node(0),
+        m_showGrid(Configuration::page_ShowGrid()),
         m_gridSize(Configuration::page_GridSize()),
         m_zoomFactor(1.0)
 {
@@ -51,6 +62,18 @@ double PageLayoutEditor::zoomFactor() const
 }
 
 
+int PageLayoutEditor::gridSize() const
+{
+    return m_gridSize;
+}
+
+
+bool PageLayoutEditor::showGrid() const
+{
+    return m_showGrid;
+}
+
+
 void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
 {
     if ((m_pagePreview = pagePreview)) {
@@ -65,12 +88,13 @@ void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
 
 void PageLayoutEditor::updatePagePreview()
 {
-    m_paperWidth = m_pagePreview->paperWidth();
-    m_paperHeight = m_pagePreview->paperHeight();
-    m_zoomFactor = m_pagePreview->zoomFactor();
-    setMinimumSize(scale(m_paperWidth), scale(m_paperHeight));
-    resize(minimumSize());
-    update();
+    if (m_pagePreview) {
+        m_paperWidth = m_pagePreview->paperWidth();
+        m_paperHeight = m_pagePreview->paperHeight();
+        setMinimumSize(scale(m_paperWidth), scale(m_paperHeight));
+        resize(minimumSize());
+        update();
+    }
 }
 
 
@@ -83,6 +107,20 @@ void PageLayoutEditor::setZoomFactor(double zoomFactor)
         resize(minimumSize());
     }
 
+    repaint();
+}
+
+
+void PageLayoutEditor::setGridSize(int size)
+{
+    m_gridSize = size;
+    repaint();
+}
+
+
+void PageLayoutEditor::setShowGrid(bool show)
+{
+    m_showGrid = show;
     repaint();
 }
 
@@ -118,26 +156,24 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
 
     if (event->buttons() & Qt::LeftButton) {
         if (m_selecting) {
-            QPoint offset = unscale(m_end) - unscale(m_start);
+            QPoint offset = m_end - m_start;
 
             if (offset != QPoint(0, 0) && m_boundary.element()) {
                 if (m_node) {
-                    m_boundary.moveNode(m_node, unscale(m_end));
+                    m_boundary.moveNode(m_node, m_end);
                 } else {
                     m_boundary.element()->move(offset);
+                    m_boundary.setRectangle(m_boundary.rectangle().translated(offset));
                 }
 
                 m_moved = true;
                 m_start = m_end;
                 update();
-//              emit elementGeometryChanged();
             }
         } else {
             m_rubberBand = QRect(m_start, m_end).normalized();
             update();
         }
-
-//      update();
     } else {
         if (m_boundary.element() && (m_node = m_boundary.node(unscale(event->pos())))) {
             setCursor(m_boundary.cursor(m_node));
@@ -153,8 +189,7 @@ void PageLayoutEditor::mouseReleaseEvent(QMouseEvent *event)
     if (!m_selecting) {
         if (m_rubberBand.isValid()) {
             m_end = toSnap(event->pos());
-            m_rubberBand = QRect(m_start, m_end).normalized();
-            QRect selection = unscale(m_rubberBand).adjusted(0, 0, -1, -1);
+            QRect selection = QRect(m_start, m_end).normalized();
             m_rubberBand = QRect();
 
             if (selection.isValid()) {
@@ -173,30 +208,24 @@ void PageLayoutEditor::mouseReleaseEvent(QMouseEvent *event)
 void PageLayoutEditor::paintEvent(QPaintEvent *event)
 {
     QPainter painter;
+    QRect updateRect = event->rect();               // in device coordinates
+
     painter.begin(this);
-    QRect updateRect = event->rect();
     painter.fillRect(updateRect, Qt::white);
-    int w = updateRect.width();
-    int h = updateRect.height();
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setWindow(0, 0, m_paperWidth, m_paperHeight);
 
-    painter.setPen(Qt::black);
-    painter.setBrush(Qt::NoBrush);
-    painter.drawRect(0, 0, width() - 1, height() - 1); // bounding rect for the page
+    m_pagePreview->page()->render(m_document, &painter);
 
-    if (m_document && m_pagePreview && !m_moved) {
-        m_pagePreview->page()->render(m_document, &painter);
-    }
+    // draw snap grid
+    if (m_showGrid) {
+        int xOffset = (m_paperWidth / 2) % m_gridSize;
+        int yOffset = (m_paperHeight / 2) % m_gridSize;
 
-    painter.resetTransform();
-
-    // draw grid
-    int scaledGridSize = scale(m_gridSize);
-    int xOffset = (width() / 2) % scaledGridSize;
-    int yOffset = (height() / 2) % scaledGridSize;
-
-    for (int y = yOffset ; y < h ; y += scaledGridSize) {
-        for (int x = xOffset ; x < w ; x += scaledGridSize) {
-            painter.drawPoint(x, y);
+        for (int y = yOffset ; y < m_paperHeight ; y += m_gridSize) {
+            for (int x = xOffset ; x < m_paperWidth ; x += m_gridSize) {
+                painter.drawPoint(x, y);
+            }
         }
     }
 
@@ -210,7 +239,11 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
     }
 
     if (m_boundary.isValid()) {
-        m_boundary.render(&painter, m_zoomFactor);
+        if (m_pagePreview->page()->elements().contains(m_boundary.element())) {
+            m_boundary.render(&painter);
+        } else {
+            m_boundary.setElement(0);
+        }
     }
 
     painter.end();
@@ -222,8 +255,8 @@ QPoint PageLayoutEditor::toSnap(const QPoint &pos) const
     int scaledGridSize = scale(m_gridSize);
     int xOffset = (width() / 2) % scaledGridSize;
     int yOffset = (height() / 2) % scaledGridSize;
-    int xSnap = (((pos.x() - xOffset + 5) / scaledGridSize) * scaledGridSize) + xOffset;
-    int ySnap = (((pos.y() - yOffset + 5) / scaledGridSize) * scaledGridSize) + yOffset;
+    int xSnap = unscale((((pos.x() - xOffset + 5) / scaledGridSize) * scaledGridSize) + xOffset);
+    int ySnap = unscale((((pos.y() - yOffset + 5) / scaledGridSize) * scaledGridSize) + yOffset);
     return QPoint(xSnap, ySnap);
 }
 

@@ -43,8 +43,6 @@ void LibraryListWidget::setCellSize(double cellWidth, double cellHeight)
 {
     m_cellWidth = cellWidth;
     m_cellHeight = cellHeight;
-
-    m_renderer->setCellSize(cellWidth, cellHeight);
 }
 
 
@@ -98,9 +96,11 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
 
             QPixmap pixmap(pattern->stitches().width()*m_cellWidth, pattern->stitches().height()*m_cellHeight);
             pixmap.fill(Qt::white);
-            m_renderer->setPatternRect(QRect(0, 0, pattern->stitches().width(), pattern->stitches().height()));
-            m_renderer->setPaintDeviceArea(QRect(0, 0, pixmap.width(), pixmap.height()));
+
             QPainter painter(&pixmap);
+            painter.setWindow(0, 0, pattern->stitches().width(), pattern->stitches().height());
+            painter.setRenderHint(QPainter::Antialiasing, true);
+
             m_renderer->render(&painter,
                                pattern,
                                QRect(QPoint(0, 0), pixmap.size()),
@@ -109,6 +109,7 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
                                true,       // render backstitches
                                true,       // render knots
                                -1);        // no color mask
+
             painter.end();
             pixmap.setMask(pixmap.createMaskFromColor(Qt::white));
 

@@ -31,7 +31,7 @@ Element *Boundary::element() const
 const QPoint *Boundary::node(const QPoint &pos) const
 {
     for (int node = 0 ; node < 4 ; node++) {
-        if (QRect(0, 0, 5, 5).translated(m_nodes[node]).contains(pos)) {
+        if (QRect(-4, -4, 8, 8).translated(m_nodes[node]).contains(pos)) {
             return &m_nodes[node];
         }
     }
@@ -127,27 +127,30 @@ void Boundary::moveNode(const QPoint *node, const QPoint &pos)
 }
 
 
-void Boundary::render(QPainter *painter, double scale)
+void Boundary::render(QPainter *painter)
 {
     if (!m_element) {
         return;
     }
 
-    setRectangle(m_element->rectangle());
     painter->save();
-    QPen pen = painter->pen();
-    pen.setColor(Qt::blue);
-    pen.setWidth(2);
+
+    QTransform transform = painter->combinedTransform();
+    painter->resetTransform();
+
+    QPen pen(Qt::blue);
+    pen.setWidth(0);
     painter->setPen(pen);
-    painter->setBrush(Qt::NoBrush);
+    painter->setBrush(Qt::blue);
 
     for (int node = 0 ; node < 4 ; node++) {
-        painter->drawEllipse(QRect(m_nodes[node] * scale, QSize(9, 9)).adjusted(-5, -5, -5, -5));
+        painter->drawRect(QRect(-2, -2, 4, 4).translated(transform.map(QPoint(m_nodes[node]))));
     }
 
-    painter->drawLine(m_nodes[0] * scale + QPoint(5, 0), m_nodes[1] * scale - QPoint(5, 0));
-    painter->drawLine(m_nodes[1] * scale + QPoint(0, 5), m_nodes[2] * scale - QPoint(0, 5));
-    painter->drawLine(m_nodes[2] * scale - QPoint(5, 0), m_nodes[3] * scale + QPoint(5, 0));
-    painter->drawLine(m_nodes[3] * scale - QPoint(0, 5), m_nodes[0] * scale + QPoint(0, 5));
+    painter->drawLine(transform.map(QLine(m_nodes[0], m_nodes[1])));
+    painter->drawLine(transform.map(QLine(m_nodes[1], m_nodes[2])));
+    painter->drawLine(transform.map(QLine(m_nodes[2], m_nodes[3])));
+    painter->drawLine(transform.map(QLine(m_nodes[3], m_nodes[0])));
+
     painter->restore();
 }

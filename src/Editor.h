@@ -249,8 +249,11 @@ private:
     int contentsToZone(const QPoint&) const;
     QPoint contentsToSnap(const QPoint&) const;
     QPoint snapToContents(const QPoint&) const;
-    QRect cellToRect(const QPoint&);
-    QRect polygonToContents(const QPolygon&);
+    QPointF physicalToLogical(const QPoint&) const;
+    QPoint logicalToPhysical(const QPointF&) const;
+    QRect cellToRect(const QPoint&) const;
+    QRect polygonToContents(const QPolygon&) const;
+    QRect rectToContents(const QRect&) const;
 
     void processBitmap(QUndoCommand*, const QBitmap&);
     QRect visibleCells();

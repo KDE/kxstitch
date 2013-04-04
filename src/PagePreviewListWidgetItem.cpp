@@ -60,12 +60,6 @@ int PagePreviewListWidgetItem::paperHeight() const
 }
 
 
-double PagePreviewListWidgetItem::zoomFactor() const
-{
-    return m_page->zoomFactor();
-}
-
-
 void PagePreviewListWidgetItem::setPaperSize(QPrinter::PaperSize paperSize)
 {
     m_page->setPaperSize(paperSize);
@@ -80,12 +74,6 @@ void PagePreviewListWidgetItem::setOrientation(QPrinter::Orientation orientation
 }
 
 
-void PagePreviewListWidgetItem::setZoomFactor(double zoomFactor)
-{
-    m_page->setZoomFactor(zoomFactor);
-}
-
-
 Page *PagePreviewListWidgetItem::page() const
 {
     return m_page;
@@ -96,18 +84,12 @@ void PagePreviewListWidgetItem::generatePreviewIcon()
 {
     m_paperWidth = PaperSizes::width(m_page->paperSize(), m_page->orientation());
     m_paperHeight = PaperSizes::height(m_page->paperSize(), m_page->orientation());
-    QSize iconSize(140, 140);
-    float widthScale = float(iconSize.width()) / m_paperWidth;
-    float heightScale = float(iconSize.height()) / m_paperHeight;
-    float scale = std::min(widthScale, heightScale);
 
-    QPixmap pixmap(m_paperWidth * scale, m_paperHeight * scale);
+    QPixmap pixmap(m_paperWidth, m_paperHeight);
+    pixmap.fill(Qt::white);
 
     QPainter painter;
     painter.begin(&pixmap);
-    painter.setPen(Qt::black);
-    painter.setBrush(Qt::white);
-    painter.drawRect(0, 0, pixmap.width() - 1, pixmap.height() - 1);
     m_page->render(m_document, &painter);
     painter.end();
     setIcon(pixmap);

@@ -42,7 +42,7 @@ static struct PaperSize {
     { QPrinter::C5E,        "C5E",      163,    229  },
     { QPrinter::Comm10E,    "Comm10E",  105,    241  },
     { QPrinter::DLE,        "DLE",      110,    220  },
-    { QPrinter::Executive,  "Executive", 191,    254  },
+    { QPrinter::Executive,  "Executive",191,    254  },
     { QPrinter::Folio,      "Folio",    210,    330  },
     { QPrinter::Ledger,     "Ledger",   432,    279  },
     { QPrinter::Legal,      "Legal",    216,    356  },

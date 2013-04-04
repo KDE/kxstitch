@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>258</width>
-    <height>255</height>
+    <width>270</width>
+    <height>228</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -170,6 +170,9 @@
       <string>Grid</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
       <item row="0" column="0" colspan="2">
        <widget class="QCheckBox" name="ShowGrid">
         <property name="text">
@@ -186,12 +189,12 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string comment="The horizontal axis">X</string>
+         <string comment="The horizontal axis">Size</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="GridX">
+       <widget class="QSpinBox" name="GridSize">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -212,48 +215,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Y</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QSpinBox" name="GridY">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="toolTip">
-         <string>Grid Y spacing in mm</string>
-        </property>
-        <property name="suffix">
-         <string>mm</string>
-        </property>
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>100</number>
-        </property>
-        <property name="value">
-         <number>10</number>
-        </property>
-       </widget>
-      </item>
      </layout>
     </widget>
    </item>
   </layout>
-  <zorder>groupBox</zorder>
-  <zorder>groupBox_2</zorder>
-  <zorder>MarginTop</zorder>
  </widget>
  <tabstops>
   <tabstop>MarginTop</tabstop>
@@ -261,15 +226,14 @@
   <tabstop>MarginRight</tabstop>
   <tabstop>MarginBottom</tabstop>
   <tabstop>ShowGrid</tabstop>
-  <tabstop>GridX</tabstop>
-  <tabstop>GridY</tabstop>
+  <tabstop>GridSize</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>ShowGrid</sender>
    <signal>toggled(bool)</signal>
-   <receiver>GridX</receiver>
+   <receiver>GridSize</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -279,22 +243,6 @@
     <hint type="destinationlabel">
      <x>71</x>
      <y>240</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ShowGrid</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>GridY</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>54</x>
-     <y>183</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>59</x>
-     <y>265</y>
     </hint>
    </hints>
   </connection>
