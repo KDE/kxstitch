@@ -412,7 +412,6 @@ QList<Stitch::Type> Editor::maskStitches() const
 void Editor::editCut()
 {
     m_document->undoStack().push(new EditCutCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot));
-    m_selectionArea = QRect();
 }
 
 
@@ -429,7 +428,6 @@ void Editor::editCopy()
 
     QApplication::clipboard()->setMimeData(mimeData);
 
-    m_selectionArea = QRect();
     update();
 }
 
@@ -571,9 +569,7 @@ void Editor::selectTool()
 
 void Editor::selectTool(ToolMode toolMode)
 {
-    if (toolCleanupCallPointers[m_toolMode]) {
-        (this->*toolCleanupCallPointers[m_toolMode])();
-    }
+    resetTool();
 
     m_toolMode = toolMode;
 
@@ -616,6 +612,14 @@ void Editor::setMaskKnot(bool set)
 void Editor::setMakesCopies(bool set)
 {
     m_makesCopies = set;
+}
+
+
+void Editor::resetTool()
+{
+    if (toolCleanupCallPointers[m_toolMode]) {
+        (this->*toolCleanupCallPointers[m_toolMode])();
+    }
 }
 
 
@@ -1910,7 +1914,6 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 void Editor::mouseReleaseEvent_Select(QMouseEvent*)
 {
     m_selectionArea = QRect(m_cellStart, m_cellEnd).normalized();
-    m_rubberBand = QRect();
     emit(selectionMade(true));
 }
 

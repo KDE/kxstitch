@@ -113,6 +113,8 @@ protected slots:
     void preferences();
     void settingsChanged();
 
+    void actionTriggered(QAction *);
+
     void documentModified(bool);
 
 private:

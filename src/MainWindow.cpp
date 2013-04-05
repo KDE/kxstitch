@@ -1141,6 +1141,12 @@ void MainWindow::loadSettings()
 }
 
 
+void MainWindow::actionTriggered(QAction *)
+{
+    m_editor->resetTool();
+}
+
+
 void MainWindow::documentModified(bool clean)
 {
     setCaption(m_document->url().fileName(), !clean);
@@ -1153,6 +1159,7 @@ void MainWindow::setupActions()
     QActionGroup *actionGroup;
 
     KActionCollection *actions = actionCollection();
+    connect(actions, SIGNAL(actionTriggered(QAction*)), this, SLOT(actionTriggered(QAction*)));
 
     // File menu
     KStandardAction::openNew(this, SLOT(fileNew()), actions);

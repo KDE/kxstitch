@@ -130,6 +130,8 @@ public slots:
     void setMaskKnot(bool);
     void setMakesCopies(bool);
 
+    void resetTool();
+
     void loadSettings();
 
 protected:
