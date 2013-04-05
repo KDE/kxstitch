@@ -1328,6 +1328,7 @@ void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
 void Editor::renderPasteImage(QPainter *painter, const QRect &rect)
 {
     painter->save();
+    painter->translate(m_cellEnd);
 
     if (m_pastePattern) {
         m_renderer->render(painter,
