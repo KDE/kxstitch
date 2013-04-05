@@ -222,17 +222,12 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     FlossScheme *scheme = SchemeManager::scheme(document->pattern()->palette().schemeName());
 
-    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
     double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
 
     // set the viewport to be the rectangle converted to device coordinates
-    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
-    painter->setClipRect(0, 0, m_rectangle.width(), m_rectangle.height());
-
-    QFont font = m_textFont;
-    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceHRatio));
 
     QPen pen(m_borderColor);
     pen.setWidthF(double(m_borderThickness) / 10.0);
@@ -254,10 +249,13 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     painter->drawRect(painter->window());
 
+    QFont font = m_textFont;
+    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceVRatio));
+
     QRect deviceTextArea = painter->combinedTransform().mapRect(QRect(0, 0, m_rectangle.width(), m_rectangle.height()).adjusted(m_margins.left(), m_margins.top(), -m_margins.left(), -m_margins.bottom()));
 
-    painter->save();
     painter->resetTransform();
+    painter->setClipRect(deviceTextArea);
 
     pen.setColor(m_textColor);
     painter->setPen(pen);
@@ -449,8 +447,6 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
         y += lineSpacing;
     }
-
-    painter->restore(); // additional save used before text writing
 
     painter->restore();
 }
