@@ -128,6 +128,10 @@ void PageLayoutEditor::setShowGrid(bool show)
 void PageLayoutEditor::setSelecting(bool selecting)
 {
     m_selecting = selecting;
+
+    if (!selecting) {
+        m_boundary.setElement(0);
+    }
 }
 
 
