@@ -574,10 +574,8 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_strandsColumn = bool(strandsColumn);
         m_flossDescriptionColumn = bool(flossDescriptionColumn);
         m_stitchesColumn = bool(stitchesColumn);
-//        m_stitchBreakdownColumn = bool(stitchBreakdownColumn);
         m_lengthColumn = bool(lengthColumn);
         m_skeinsColumn = bool(skeinsColumn);
-//        m_totalStitchesColumn = bool(totalStitchesColumn);
         break;
 
     default:
@@ -624,10 +622,7 @@ void PlanElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
-    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
-
-    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
     painter->setPen(Qt::black);
@@ -1168,16 +1163,12 @@ void TextElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
     double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
 
     // set the viewport to be the rectangle converted to device coordinates
-    painter->setViewport(deviceHRatio * m_rectangle.left(), deviceVRatio * m_rectangle.top(), deviceHRatio * m_rectangle.width(), deviceVRatio * m_rectangle.height());
+    painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
-
-    QFont font = m_textFont;
-    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceHRatio));
 
     QPen pen(m_borderColor);
     pen.setWidthF(double(m_borderThickness) / 10.0);
@@ -1197,10 +1188,13 @@ void TextElement::render(Document *document, QPainter *painter) const
 
     painter->drawRect(painter->window());
 
+    QFont font = m_textFont;
+    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceVRatio));
+
     QRect deviceTextArea = painter->combinedTransform().mapRect(QRect(0, 0, m_rectangle.width(), m_rectangle.height()).adjusted(m_margins.left(), m_margins.top(), -m_margins.right(), -m_margins.bottom()));
 
-    painter->save();
     painter->resetTransform();
+    painter->setClipRect(deviceTextArea);
 
     pen.setColor(m_textColor);
     painter->setPen(pen);
@@ -1209,7 +1203,6 @@ void TextElement::render(Document *document, QPainter *painter) const
     painter->drawText(deviceTextArea, m_alignment | Qt::TextWordWrap, convertedText(document));
 
     painter->restore();
-    painter->restore(); // additional save used before text writing
 }
 
 
