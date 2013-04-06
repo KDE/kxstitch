@@ -41,11 +41,9 @@ public:
     Page *parent() const;
     Element::Type type() const;
     const QRect &rectangle() const;
-    bool isVisible() const;
 
     void setParent(Page *);
     void setRectangle(const QRect &);
-    void setVisible(bool);
     void move(const QPoint &);
 
     friend QDataStream &operator<<(QDataStream &, const Element &);
@@ -55,12 +53,11 @@ protected:
     virtual QDataStream &streamOut(QDataStream &) const = 0;
     virtual QDataStream &streamIn(QDataStream &) = 0;
 
-    static const int version = 100;
+    static const int version = 101; // removed m_visible
 
     Page            *m_parent;
     QRect           m_rectangle; // area to be used on the page, in mm, top, left, width, height
     Element::Type   m_type;
-    bool            m_visible;
 };
 
 

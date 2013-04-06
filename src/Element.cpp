@@ -43,8 +43,7 @@ double round_n(double v, int n)
 Element::Element(Page *parent, const QRect &rectangle, Element::Type type)
     :   m_parent(parent),
         m_rectangle(rectangle),
-        m_type(type),
-        m_visible(true)
+        m_type(type)
 {
 }
 
@@ -52,8 +51,7 @@ Element::Element(Page *parent, const QRect &rectangle, Element::Type type)
 Element::Element(const Element &other)
     :   m_parent(0),                    // needs to be reparented by cloner
         m_rectangle(other.m_rectangle),
-        m_type(other.m_type),
-        m_visible(other.m_visible)
+        m_type(other.m_type)
 {
 }
 
@@ -81,12 +79,6 @@ const QRect &Element::rectangle() const
 }
 
 
-bool Element::isVisible() const
-{
-    return m_visible;
-}
-
-
 void Element::setParent(Page *parent)
 {
     m_parent = parent;
@@ -96,12 +88,6 @@ void Element::setParent(Page *parent)
 void Element::setRectangle(const QRect &rectangle)
 {
     m_rectangle = rectangle;
-}
-
-
-void Element::setVisible(bool visible)
-{
-    m_visible = visible;
 }
 
 
@@ -127,8 +113,7 @@ QDataStream &Element::streamOut(QDataStream &stream) const
 {
     stream << qint32(version);
 
-    stream  << m_rectangle
-            << qint32(m_visible);
+    stream  << m_rectangle;
 
     return stream;
 }
@@ -142,10 +127,13 @@ QDataStream &Element::streamIn(QDataStream &stream)
     stream >> version;
 
     switch (version) {
+    case 101:
+        stream  >> m_rectangle;
+        break;
+
     case 100:
         stream  >> m_rectangle
-                >> visible;
-        m_visible = bool(visible);
+                >> visible;     // ignore
         break;
 
     default:
