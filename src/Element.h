@@ -81,7 +81,7 @@ protected:
     virtual QDataStream &streamIn(QDataStream &);
 
 private:
-    static const int version = 101;
+    static const int version = 102; // added m_indexStart and m_indexCount
 
     bool        m_showBorder;
     QColor      m_borderColor;
@@ -92,6 +92,8 @@ private:
     QMargins    m_margins;
     QColor      m_textColor;
     QFont       m_textFont;
+    int         m_indexStart;
+    int         m_indexCount;
     bool        m_symbolColumn;
     bool        m_flossNameColumn;
     bool        m_strandsColumn;

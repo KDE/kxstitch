@@ -167,6 +167,8 @@ KeyElement::KeyElement(Page *parent, const QRect &rectangle, Element::Type type)
         m_backgroundColor(Configuration::keyElement_BackgroundColor()),
         m_backgroundTransparency(Configuration::keyElement_BackgroundTransparency()),
         m_margins(QMargins(Configuration::keyElement_MarginLeft(), Configuration::keyElement_MarginTop(), Configuration::keyElement_MarginRight(), Configuration::keyElement_MarginBottom())),
+        m_indexStart(0),
+        m_indexCount(-1),
         m_symbolColumn(Configuration::keyElement_SymbolColumn()),
         m_flossNameColumn(Configuration::keyElement_FlossNameColumn()),
         m_strandsColumn(Configuration::keyElement_StrandsColumn()),
@@ -189,6 +191,8 @@ KeyElement::KeyElement(const KeyElement &other)
         m_margins(other.m_margins),
         m_textColor(other.m_textColor),
         m_textFont(other.m_textFont),
+        m_indexStart(other.m_indexStart),
+        m_indexCount(other.m_indexCount),
         m_symbolColumn(other.m_symbolColumn),
         m_flossNameColumn(other.m_flossNameColumn),
         m_strandsColumn(other.m_strandsColumn),
@@ -387,65 +391,70 @@ void KeyElement::render(Document *document, QPainter *painter) const
     painter->setFont(font);
 
     sortedFlossesIterator.toFront();
+    int currentSortedFloss = 0;
 
     while (sortedFlossesIterator.hasNext()) {
         int index = sortedFlossesIterator.next();
-        FlossUsage usage = flossUsage[index];
+        if (currentSortedFloss >= m_indexStart && (m_indexCount == -1 || currentSortedFloss < m_indexStart + m_indexCount)) {
+            FlossUsage usage = flossUsage[index];
 
-        if (m_symbolColumn) {
-            Symbol symbol = SymbolManager::library("kxstitch")->symbol(flosses[index]->stitchSymbol());
-            QPixmap symbolPixmap(lineSpacing-2, lineSpacing-2);
-            symbolPixmap.fill(Qt::white);
+            if (m_symbolColumn) {
+                Symbol symbol = SymbolManager::library("kxstitch")->symbol(flosses[index]->stitchSymbol());
+                QPixmap symbolPixmap(lineSpacing-2, lineSpacing-2);
+                symbolPixmap.fill(Qt::white);
 
-            QPainter symbolPainter(&symbolPixmap);
-            symbolPainter.setRenderHint(QPainter::Antialiasing, true);
-            symbolPainter.setWindow(0, 0, 1, 1);
-            symbolPainter.drawRect(0, 0, 1, 1);
+                QPainter symbolPainter(&symbolPixmap);
+                symbolPainter.setRenderHint(QPainter::Antialiasing, true);
+                symbolPainter.setWindow(0, 0, 1, 1);
+                symbolPainter.drawRect(0, 0, 1, 1);
 
-            QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
-            QPen pen(Qt::black);
+                QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
+                QPen pen(Qt::black);
 
-            if (!symbol.filled()) {
-                pen.setWidthF(symbol.lineWidth());
-                pen.setCapStyle(symbol.capStyle());
-                pen.setJoinStyle(symbol.joinStyle());
+                if (!symbol.filled()) {
+                    pen.setWidthF(symbol.lineWidth());
+                    pen.setCapStyle(symbol.capStyle());
+                    pen.setJoinStyle(symbol.joinStyle());
+                }
+
+                symbolPainter.setBrush(brush);
+                symbolPainter.setPen(pen);
+                symbolPainter.drawPath(symbol.path());
+                symbolPainter.end();
+
+                painter->drawPixmap(deviceTextArea.topLeft() + QPointF(symbolWidth / 3, y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2))), symbolPixmap);
             }
 
-            symbolPainter.setBrush(brush);
-            symbolPainter.setPen(pen);
-            symbolPainter.drawPath(symbol.path());
-            symbolPainter.end();
+            if (m_flossNameColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth, y), flosses[index]->flossName());
+            }
 
-            painter->drawPixmap(deviceTextArea.topLeft() + QPointF(symbolWidth / 3, y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2))), symbolPixmap);
+            if (m_strandsColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
+            }
+
+            if (m_flossDescriptionColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), scheme->find(flosses[index]->flossName())->description());
+            }
+
+            if (m_stitchesColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString("%1").arg(usage.totalStitches()));
+            }
+
+            double totalLength = usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands();
+
+            if (m_lengthColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString("%1").arg(round_n(totalLength, 2)));
+            }
+
+            if (m_skeinsColumn) {
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), QString("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
+            }
+
+            y += lineSpacing;
         }
 
-        if (m_flossNameColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth, y), flosses[index]->flossName());
-        }
-
-        if (m_strandsColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
-        }
-
-        if (m_flossDescriptionColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth, y), scheme->find(flosses[index]->flossName())->description());
-        }
-
-        if (m_stitchesColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString("%1").arg(usage.totalStitches()));
-        }
-
-        double totalLength = usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands();
-
-        if (m_lengthColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString("%1").arg(round_n(totalLength, 2)));
-        }
-
-        if (m_skeinsColumn) {
-            painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), QString("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
-        }
-
-        y += lineSpacing;
+        ++currentSortedFloss;
     }
 
     painter->restore();
@@ -470,6 +479,8 @@ QDataStream &KeyElement::streamOut(QDataStream &stream) const
             << qint32(m_margins.bottom())
             << m_textColor
             << m_textFont
+            << qint32(m_indexStart)
+            << qint32(m_indexCount)
             << qint32(m_symbolColumn)
             << qint32(m_flossNameColumn)
             << qint32(m_strandsColumn)
@@ -495,6 +506,8 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
     qint32 top;
     qint32 right;
     qint32 bottom;
+    qint32 indexStart;
+    qint32 indexCount;
     qint32 symbolColumn;
     qint32 flossNameColumn;
     qint32 strandsColumn;
@@ -508,6 +521,44 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
     stream >> version;
 
     switch (version) {
+    case 102:
+        stream  >> showBorder
+                >> m_borderColor
+                >> borderThickness
+                >> fillBackground
+                >> m_backgroundColor
+                >> backgroundTransparency
+                >> left
+                >> top
+                >> right
+                >> bottom
+                >> m_textColor
+                >> m_textFont
+                >> indexStart
+                >> indexCount
+                >> symbolColumn
+                >> flossNameColumn
+                >> strandsColumn
+                >> flossDescriptionColumn
+                >> stitchesColumn
+                >> lengthColumn
+                >> skeinsColumn;
+        m_showBorder = (bool)showBorder;
+        m_borderThickness = borderThickness;
+        m_fillBackground = (bool)fillBackground;
+        m_backgroundTransparency = backgroundTransparency;
+        m_margins = QMargins(left, top, right, bottom);
+        m_indexStart = indexStart;
+        m_indexCount = indexCount;
+        m_symbolColumn = bool(symbolColumn);
+        m_flossNameColumn = bool(flossNameColumn);
+        m_strandsColumn = bool(strandsColumn);
+        m_flossDescriptionColumn = bool(flossDescriptionColumn);
+        m_stitchesColumn = bool(stitchesColumn);
+        m_lengthColumn = bool(lengthColumn);
+        m_skeinsColumn = bool(skeinsColumn);
+        break;
+
     case 101:
         stream  >> showBorder
                 >> m_borderColor
@@ -533,6 +584,8 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_fillBackground = (bool)fillBackground;
         m_backgroundTransparency = backgroundTransparency;
         m_margins = QMargins(left, top, right, bottom);
+        m_indexStart = 0;
+        m_indexCount = -1;
         m_symbolColumn = bool(symbolColumn);
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
@@ -569,6 +622,8 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_fillBackground = (bool)fillBackground;
         m_backgroundTransparency = backgroundTransparency;
         m_margins = QMargins(left, top, right, bottom);
+        m_indexStart = 0;
+        m_indexCount = -1;
         m_symbolColumn = bool(symbolColumn);
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);

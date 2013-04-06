@@ -37,6 +37,8 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.BackgroundColor->setColor(keyElement->m_backgroundColor);
     ui.BackgroundTransparency->setValue(keyElement->m_backgroundTransparency);
     ui.KeyFont->setFont(keyElement->m_textFont);
+    ui.IndexStart->setValue(keyElement->m_indexStart);
+    ui.IndexCount->setValue(keyElement->m_indexCount);
     ui.SymbolColumn->setChecked(keyElement->m_symbolColumn);
     ui.FlossNameColumn->setChecked(keyElement->m_flossNameColumn);
     ui.StrandsColumn->setChecked(m_keyElement->m_strandsColumn);
@@ -67,6 +69,8 @@ void KeyElementDlg::slotButtonClicked(int button)
         m_keyElement->m_backgroundColor = ui.BackgroundColor->color();
         m_keyElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
         m_keyElement->m_textFont = ui.KeyFont->font();
+        m_keyElement->m_indexStart = ui.IndexStart->value();
+        m_keyElement->m_indexCount = ui.IndexCount->value();
         m_keyElement->m_symbolColumn = ui.SymbolColumn->isChecked();
         m_keyElement->m_flossNameColumn = ui.FlossNameColumn->isChecked();
         m_keyElement->m_strandsColumn = ui.StrandsColumn->isChecked();
