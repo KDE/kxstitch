@@ -193,7 +193,7 @@ void PageLayoutEditor::mouseReleaseEvent(QMouseEvent *event)
             m_rubberBand = QRect();
 
             if (selection.isValid()) {
-                emit selectionMade(selection);
+                emit selectionMade(selection.adjusted(0, 0, -1, -1));
             }
         }
     } else if (m_boundary.element() && m_moved) {
