@@ -48,8 +48,7 @@ public:
                 bool renderStitches,
                 bool renderBackstitches,
                 bool renderKnots,
-                int colorHilight,
-                const QPoint &offset = QPoint(0, 0));
+                int colorHilight);
 
     Renderer &operator=(const Renderer &);
 

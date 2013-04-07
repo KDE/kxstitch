@@ -234,8 +234,7 @@ void Renderer::render(QPainter *painter,
                       bool renderStitches,
                       bool renderBackstitches,
                       bool renderKnots,
-                      int colorHilight,
-                      const QPoint &offset)
+                      int colorHilight)
 {
     painter->save();
 

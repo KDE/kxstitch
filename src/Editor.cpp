@@ -1357,8 +1357,7 @@ void Editor::renderPasteImage(QPainter *painter, const QRect &rect)
                            true,            // render stitches
                            true,            // render backstitches
                            true,            // render knots
-                           -1,              // all colors
-                           m_cellEnd);      // offset to the position of the mouse
+                           -1);             // all colors
     }
 
     painter->restore();
