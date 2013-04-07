@@ -48,6 +48,8 @@ PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
     setContextMenuPolicy(Qt::CustomContextMenu);
     setPagePreview(0);
     setMouseTracking(true);
+
+    connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(contextMenuRequestedOn(const QPoint&)));
 }
 
 
@@ -251,6 +253,22 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
     }
 
     painter.end();
+}
+
+
+void PageLayoutEditor::contextMenuRequestedOn(const QPoint &pos)
+{
+    Element *element = m_pagePreview->page()->itemAt(unscale(pos));
+
+    if (element) {
+        if (m_boundary.element() != element) {
+            m_boundary.setElement(element);
+        }
+    } else {
+        m_boundary.setElement(0);
+    }
+
+    update();
 }
 
 

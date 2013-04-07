@@ -59,6 +59,9 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent *);
     virtual void paintEvent(QPaintEvent *);
 
+private slots:
+    void contextMenuRequestedOn(const QPoint &);
+
 private:
     QPoint toSnap(const QPoint &) const;
 
