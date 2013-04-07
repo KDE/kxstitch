@@ -130,8 +130,6 @@ public slots:
     void setMaskKnot(bool);
     void setMakesCopies(bool);
 
-    void resetTool();
-
     void loadSettings();
 
 protected:
@@ -300,6 +298,8 @@ private:
     QPoint  m_cellStart;
     QPoint  m_cellTracking;
     QPoint  m_cellEnd;
+
+    QPoint  m_pasteOffset;
 
     int m_zoneStart;
     int m_zoneTracking;

@@ -198,6 +198,7 @@ Editor::Editor(QWidget *parent)
 {
     setAcceptDrops(true);
     setFocusPolicy(Qt::StrongFocus);
+    setMouseTracking(true);
 }
 
 
@@ -412,12 +413,16 @@ QList<Stitch::Type> Editor::maskStitches() const
 void Editor::editCut()
 {
     m_document->undoStack().push(new EditCutCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot));
+
+    toolCleanupSelect();
 }
 
 
 void Editor::editCopy()
 {
     Pattern *pattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+
+    toolCleanupSelect();
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
@@ -472,6 +477,8 @@ void Editor::mirrorSelection()
         m_pastePattern = m_document->pattern()->cut(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
     }
 
+    toolCleanupSelect();
+
     m_pastePattern->stitches().mirror(m_orientation);
     pastePattern(ToolMirror);
 }
@@ -489,6 +496,8 @@ void Editor::rotateSelection()
     } else {
         m_pastePattern = m_document->pattern()->cut(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
     }
+
+    toolCleanupSelect();
 
     m_pastePattern->stitches().rotate(m_rotation);
     pastePattern(ToolRotate);
@@ -569,7 +578,9 @@ void Editor::selectTool()
 
 void Editor::selectTool(ToolMode toolMode)
 {
-    resetTool();
+    if (toolCleanupCallPointers[m_toolMode]) {
+        (this->*toolCleanupCallPointers[m_toolMode])();
+    }
 
     m_toolMode = toolMode;
 
@@ -612,14 +623,6 @@ void Editor::setMaskKnot(bool set)
 void Editor::setMakesCopies(bool set)
 {
     m_makesCopies = set;
-}
-
-
-void Editor::resetTool()
-{
-    if (toolCleanupCallPointers[m_toolMode]) {
-        (this->*toolCleanupCallPointers[m_toolMode])();
-    }
 }
 
 
@@ -1129,6 +1132,15 @@ void Editor::mouseMoveEvent(QMouseEvent *e)
                                             (m_toolMode == Editor::ToolAlphabet) ||
                                             (m_toolMode == Editor::ToolPaste))) {
         (this->*mouseMoveEventCallPointers[m_toolMode])(e);
+    } else if (m_toolMode == Editor::ToolPaste ||
+               m_toolMode == Editor::ToolMirror ||
+               m_toolMode == Editor::ToolRotate ||
+               m_toolMode == Editor::ToolText) {
+        if (m_pastePattern && rectToContents(m_pastePattern->stitches().extents().translated(m_cellStart)).contains(e->pos())) {
+            setCursor(Qt::SizeAllCursor);
+        } else {
+            setCursor(Qt::ArrowCursor);
+        }
     }
 }
 
@@ -1332,9 +1344,12 @@ void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
 void Editor::renderPasteImage(QPainter *painter, const QRect &rect)
 {
     painter->save();
-    painter->translate(m_cellEnd);
 
     if (m_pastePattern) {
+        painter->translate(m_cellEnd);
+        painter->setPen(Qt::red);
+        painter->drawRect(0, 0, m_pastePattern->stitches().width(), m_pastePattern->stitches().height());
+
         m_renderer->render(painter,
                            m_pastePattern,  // the pattern data to render
                            rect,            // update rectangle
@@ -1849,8 +1864,9 @@ void Editor::mouseMoveEvent_Text(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Text(QMouseEvent *e)
 {
-    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
+    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
     m_pastePattern = 0;
+    setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
@@ -1990,7 +2006,13 @@ void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
 
 void Editor::mousePressEvent_Paste(QMouseEvent *e)
 {
-    m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
+    QPoint cell = contentsToCell(e->pos());
+    if (!m_pastePattern->stitches().extents().translated(m_cellStart).contains(cell)) {
+        m_cellStart = m_cellTracking = m_cellEnd = cell;
+    }
+
+    m_pasteOffset = cell - m_cellStart;
+
     update();
 }
 
@@ -2001,7 +2023,7 @@ void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
 
     dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
 
-    m_cellTracking = contentsToCell(p);
+    m_cellTracking = contentsToCell(p) - m_pasteOffset;
 
     if (m_cellTracking != m_cellEnd) {
         m_cellEnd = m_cellTracking;
@@ -2012,9 +2034,10 @@ void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Paste(QMouseEvent *e)
 {
-    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
+    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
     m_pasteData.clear();
     m_pastePattern = 0;
+    setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
@@ -2033,9 +2056,10 @@ void Editor::mouseMoveEvent_Mirror(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Mirror(QMouseEvent *e)
 {
-    m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
+    m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
     m_pasteData.clear();
     m_pastePattern = 0;
+    setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
@@ -2054,9 +2078,10 @@ void Editor::mouseMoveEvent_Rotate(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Rotate(QMouseEvent *e)
 {
-    m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()), (e->modifiers() & Qt::ShiftModifier)));
+    m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
     m_pastePattern = 0;
     m_pasteData.clear();
+    setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
