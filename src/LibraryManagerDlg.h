@@ -31,7 +31,7 @@ class LibraryManagerDlg : public KDialog
     Q_OBJECT
 
 public:
-    LibraryManagerDlg(QWidget *parent);
+    explicit LibraryManagerDlg(QWidget *parent);
     ~LibraryManagerDlg();
 
     LibraryTreeWidgetItem *currentLibrary();

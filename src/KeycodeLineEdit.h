@@ -25,7 +25,7 @@ class KeycodeLineEdit : public KLineEdit
     Q_OBJECT
 
 public:
-    KeycodeLineEdit(QWidget *parent);
+    explicit KeycodeLineEdit(QWidget *parent);
 
     int key();
     Qt::KeyboardModifiers modifiers();

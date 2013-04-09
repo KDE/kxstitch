@@ -23,7 +23,7 @@ class Document;
 class Pattern
 {
 public:
-    Pattern(Document *document = 0);
+    explicit Pattern(Document *document = 0);
     ~Pattern();
 
     void clear();

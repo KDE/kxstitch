@@ -21,7 +21,7 @@ class ExtendPatternDlg : public KDialog
     Q_OBJECT
 
 public:
-    ExtendPatternDlg(QWidget *);
+    explicit ExtendPatternDlg(QWidget *);
     ~ExtendPatternDlg();
 
     int top() const;

@@ -25,7 +25,7 @@ class AlphaSelect : public QLabel
     Q_OBJECT
 
 public:
-    AlphaSelect(QLabel *);
+    explicit AlphaSelect(QLabel *);
 
 signals:
     void clicked(QPoint);

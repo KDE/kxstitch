@@ -37,7 +37,7 @@ class XKeyLock
 {
 //   Q_OBJECT
 public:
-    XKeyLock(Display *display);
+    explicit XKeyLock(Display *display);
     ~XKeyLock();
 
     bool isNumLockReadable();

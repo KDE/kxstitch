@@ -31,7 +31,7 @@ class LibraryTreeWidget : public QTreeWidget
     Q_OBJECT
 
 public:
-    LibraryTreeWidget(QWidget *parent);
+    explicit LibraryTreeWidget(QWidget *parent);
 
 protected:
     virtual void contentsDragEnterEvent(QDragEnterEvent *event);

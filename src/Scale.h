@@ -23,7 +23,7 @@ class Scale : public QWidget
     Q_OBJECT
 
 public:
-    Scale(Qt::Orientation);
+    explicit Scale(Qt::Orientation);
     ~Scale();
 
     void setUnits(Configuration::EnumEditor_FormatScalesAs::type);

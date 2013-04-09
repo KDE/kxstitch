@@ -26,7 +26,7 @@ class TextToolDlg : public KDialog
     Q_OBJECT
 
 public:
-    TextToolDlg(QWidget *);
+    explicit TextToolDlg(QWidget *);
     ~TextToolDlg();
 
     QImage image();

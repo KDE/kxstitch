@@ -27,7 +27,7 @@ class QPainter;
 class Page
 {
 public:
-    Page(QPrinter::PaperSize paperSize = QPrinter::A4, QPrinter::Orientation orientation = QPrinter::Portrait);
+    explicit Page(QPrinter::PaperSize paperSize = QPrinter::A4, QPrinter::Orientation orientation = QPrinter::Portrait);
     Page(const Page &);
     ~Page();
 

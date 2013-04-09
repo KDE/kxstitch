@@ -23,7 +23,7 @@ class LibraryPattern;
 class LibraryFile
 {
 public:
-    LibraryFile(const QString &);
+    explicit LibraryFile(const QString &);
     ~LibraryFile();
 
     QString path() const;

@@ -26,7 +26,7 @@ class Palette : public QFrame
 public:
     enum Mode {Select, Replace, Swap};
 
-    Palette(QWidget *);
+    explicit Palette(QWidget *);
     virtual ~Palette();
 
     virtual QSize sizeHint() const;

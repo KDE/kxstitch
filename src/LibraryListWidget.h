@@ -26,7 +26,7 @@ class Renderer;
 class LibraryListWidget : public QListWidget
 {
 public:
-    LibraryListWidget(QWidget *parent);
+    explicit LibraryListWidget(QWidget *parent);
     ~LibraryListWidget();
 
     void setCellSize(double, double);

@@ -66,7 +66,7 @@ public:
         ToolRotate
     };
 
-    Editor(QWidget*);
+    explicit Editor(QWidget*);
     ~Editor();
 
     void setDocument(Document*);

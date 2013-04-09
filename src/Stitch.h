@@ -62,7 +62,7 @@ class StitchQueue : public QQueue<Stitch *>
 {
 public:
     StitchQueue();
-    StitchQueue(StitchQueue *);
+    explicit StitchQueue(StitchQueue *);
     ~StitchQueue();
 
     int add(Stitch::Type, int);

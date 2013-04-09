@@ -41,7 +41,7 @@ class Preview;
 class FilePropertiesCommand : public QUndoCommand
 {
 public:
-    FilePropertiesCommand(Document *);
+    explicit FilePropertiesCommand(Document *);
     virtual ~FilePropertiesCommand();
 
     virtual void redo();
@@ -55,7 +55,7 @@ private:
 class PaintStitchesCommand : public QUndoCommand
 {
 public:
-    PaintStitchesCommand(Document *);
+    explicit PaintStitchesCommand(Document *);
     virtual ~PaintStitchesCommand();
 
     virtual void redo();
@@ -69,7 +69,7 @@ private:
 class PaintKnotsCommand : public QUndoCommand
 {
 public:
-    PaintKnotsCommand(Document *);
+    explicit PaintKnotsCommand(Document *);
     virtual ~PaintKnotsCommand();
 
     virtual void redo();
@@ -83,7 +83,7 @@ private:
 class DrawLineCommand : public QUndoCommand
 {
 public:
-    DrawLineCommand(Document *);
+    explicit DrawLineCommand(Document *);
     virtual ~DrawLineCommand();
 
     virtual void redo();
@@ -97,7 +97,7 @@ private:
 class EraseStitchesCommand : public QUndoCommand
 {
 public:
-    EraseStitchesCommand(Document *);
+    explicit EraseStitchesCommand(Document *);
     virtual ~EraseStitchesCommand();
 
     virtual void redo();
@@ -111,7 +111,7 @@ private:
 class DrawRectangleCommand : public QUndoCommand
 {
 public:
-    DrawRectangleCommand(Document *document);
+    explicit DrawRectangleCommand(Document *document);
     virtual ~DrawRectangleCommand();
 
     virtual void redo();
@@ -125,7 +125,7 @@ private:
 class FillRectangleCommand : public QUndoCommand
 {
 public:
-    FillRectangleCommand(Document *document);
+    explicit FillRectangleCommand(Document *document);
     virtual ~FillRectangleCommand();
 
     virtual void redo();
@@ -139,7 +139,7 @@ private:
 class DrawEllipseCommand : public QUndoCommand
 {
 public:
-    DrawEllipseCommand(Document *document);
+    explicit DrawEllipseCommand(Document *document);
     virtual ~DrawEllipseCommand();
 
     virtual void redo();
@@ -153,7 +153,7 @@ private:
 class FillEllipseCommand : public QUndoCommand
 {
 public:
-    FillEllipseCommand(Document *document);
+    explicit FillEllipseCommand(Document *document);
     virtual ~FillEllipseCommand();
 
     virtual void redo();
@@ -167,7 +167,7 @@ private:
 class FillPolygonCommand : public QUndoCommand
 {
 public:
-    FillPolygonCommand(Document *);
+    explicit FillPolygonCommand(Document *);
     virtual ~FillPolygonCommand();
 
     virtual void redo();
@@ -435,7 +435,7 @@ private:
 class CropToPatternCommand : public QUndoCommand
 {
 public:
-    CropToPatternCommand(Document *);
+    explicit CropToPatternCommand(Document *);
     ~CropToPatternCommand();
 
     void redo();
@@ -488,7 +488,7 @@ private:
 class CentrePatternCommand : public QUndoCommand
 {
 public:
-    CentrePatternCommand(Document *);
+    explicit CentrePatternCommand(Document *);
     ~CentrePatternCommand();
 
     void redo();
@@ -535,7 +535,7 @@ private:
 class EditorReadDocumentSettingsCommand : public QUndoCommand
 {
 public:
-    EditorReadDocumentSettingsCommand(Editor *);
+    explicit EditorReadDocumentSettingsCommand(Editor *);
     ~EditorReadDocumentSettingsCommand();
 
     void redo();
@@ -549,7 +549,7 @@ private:
 class PaletteReadDocumentSettingsCommand : public QUndoCommand
 {
 public:
-    PaletteReadDocumentSettingsCommand(Palette *);
+    explicit PaletteReadDocumentSettingsCommand(Palette *);
     ~PaletteReadDocumentSettingsCommand();
 
     void redo();
@@ -563,7 +563,7 @@ private:
 class PreviewReadDocumentSettingsCommand : public QUndoCommand
 {
 public:
-    PreviewReadDocumentSettingsCommand(Preview *);
+    explicit PreviewReadDocumentSettingsCommand(Preview *);
     ~PreviewReadDocumentSettingsCommand();
 
     void redo();
@@ -717,7 +717,7 @@ private:
 class AlphabetCommand : public QUndoCommand
 {
 public:
-    AlphabetCommand(Document *);
+    explicit AlphabetCommand(Document *);
     ~AlphabetCommand();
 
     void redo();
@@ -737,7 +737,7 @@ private:
 class ConfigurationCommand : public QUndoCommand
 {
 public:
-    ConfigurationCommand(MainWindow *mainWindow);
+    explicit ConfigurationCommand(MainWindow *mainWindow);
     ~ConfigurationCommand();
 
     void redo();

@@ -43,8 +43,8 @@ class MainWindow : public KXmlGuiWindow
 
 public:
     MainWindow();
-    MainWindow(const KUrl &);
-    MainWindow(const Magick::Image &);
+    explicit MainWindow(const KUrl &);
+    explicit MainWindow(const Magick::Image &);
     ~MainWindow();
 
     Editor *editor();

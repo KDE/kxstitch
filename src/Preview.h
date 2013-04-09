@@ -25,7 +25,7 @@ class Preview : public QWidget
     Q_OBJECT
 
 public:
-    Preview(QWidget *);
+    explicit Preview(QWidget *);
     ~Preview();
 
     void setDocument(Document *);
