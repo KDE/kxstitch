@@ -902,7 +902,6 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 
     if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
         pen.setColor(documentFloss->flossColor());
-//        pen.setWidthF(documentFloss->backstitchStrands() / 10.0);
         pen.setWidthF(double(documentFloss->backstitchStrands()) / 5);
         pen.setCapStyle(Qt::RoundCap);
     } else {
@@ -927,7 +926,8 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 
     if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
         pen.setColor(Qt::black);
-        pen.setWidth(documentFloss->backstitchStrands() / 10);
+        pen.setWidthF(double(documentFloss->backstitchStrands()) / 5);
+        pen.setCapStyle(Qt::RoundCap);
     } else {
         pen.setColor(Qt::lightGray);
         pen.setWidth(0);
