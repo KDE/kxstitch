@@ -779,35 +779,209 @@ PatternElement *PatternElement::clone() const
 
 void PatternElement::render(Document *document, QPainter *painter) const
 {
+    int scaleSize = (m_showScales) ? 6 : 0;
+
     painter->save();
+    painter->setBrush(Qt::black);
 
     double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
     double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
 
+    int documentWidth = document->pattern()->stitches().width();
+    int documentHeight = document->pattern()->stitches().height();
+
+    double horizontalClothCount = document->property("horizontalClothCount").toDouble();
+    double verticalClothCount = document->property("verticalClothCount").toDouble();
+
+    if (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) {
+        horizontalClothCount *= 2.54;
+        verticalClothCount *= 2.54;
+    }
+
     // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
-    double patternWidth = m_rectangle.width();
-    double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
+    double patternWidth = m_rectangle.width() - scaleSize;
+    double aspect =  horizontalClothCount / verticalClothCount;
     double cellWidth = patternWidth / m_patternRect.width();
     double cellHeight = cellWidth * aspect;
     double patternHeight = cellHeight * m_patternRect.height();
 
-    if (patternHeight > m_rectangle.height()) {
-        patternHeight = m_rectangle.height();
+    if (patternHeight > m_rectangle.height() - scaleSize) {
+        patternHeight = m_rectangle.height() - scaleSize;
         patternWidth = ((patternHeight / m_patternRect.height()) / aspect) * m_patternRect.width();
+        cellWidth = patternWidth / m_patternRect.width();
+        cellHeight = patternHeight / m_patternRect.height();
     }
 
+    int cellHorizontalGrouping = document->property("cellHorizontalGrouping").toInt();
+    int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
+
     // find the position of the top left coordinate of the top left cell of the cells to be printed
-    double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth)) / 2);
-    double patternVOffset = ((double(m_rectangle.height()) - double(patternHeight)) / 2);
+    double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth + scaleSize)) / 2);
+    double patternVOffset = ((double(m_rectangle.height()) - double(patternHeight + scaleSize)) / 2);
 
-    int vpl = int(deviceHRatio * (patternHOffset + m_rectangle.left()));
-    int vpt = int(deviceVRatio * (patternVOffset + m_rectangle.top()));
-    int vpw = int(patternWidth * deviceHRatio);
-    int vph = int(patternHeight * deviceVRatio);
+    int vpLeft = int(deviceHRatio * (patternHOffset + m_rectangle.left()));
+    int vpTop = int(deviceVRatio * (patternVOffset + m_rectangle.top()));
+    int vpWidth = int((patternWidth + scaleSize) * deviceHRatio);
+    int vpHeight = int((patternHeight + scaleSize) * deviceVRatio);
 
-    painter->setViewport(vpl, vpt, vpw, vph);
-    painter->setWindow(m_patternRect);
-    painter->setClipRect(m_patternRect);
+    double vpCellWidth = deviceHRatio * cellWidth;
+    double vpCellHeight = deviceVRatio * cellHeight;
+    double vpScaleWidth = deviceHRatio * scaleSize;
+    double vpScaleHeight = deviceVRatio * scaleSize;
+
+    if (m_showScales) {
+        QFont font = painter->font();
+        font.setPixelSize(int(deviceVRatio * 2));
+        painter->setFont(font);
+
+        // draw horizontal ruler
+        double subTick;
+        int minorTicks;
+        int majorTicks;
+
+        int textValueIncrement;
+
+        switch (m_formatScalesAs) {
+        case Configuration::EnumEditor_FormatScalesAs::Stitches:
+            subTick = 1.0;
+            minorTicks = 1;
+            majorTicks = cellHorizontalGrouping;
+            textValueIncrement = cellHorizontalGrouping;
+            break;
+
+        case Configuration::EnumEditor_FormatScalesAs::CM:
+            subTick = horizontalClothCount / 25.4;
+            minorTicks = 5;
+            majorTicks = 10;
+            textValueIncrement = 1;
+            break;
+
+        case Configuration::EnumEditor_FormatScalesAs::Inches:
+            subTick = horizontalClothCount / 16;
+            minorTicks = 4;
+            majorTicks = 16;
+            textValueIncrement = 1;
+            break;
+
+        default:
+            break;
+        }
+
+        painter->setViewport(vpLeft + vpScaleWidth, vpTop, vpWidth - vpScaleWidth, vpScaleHeight);
+        painter->setWindow(m_patternRect.left(), 0, m_patternRect.width(), 1);
+        painter->drawLine(QLineF(m_patternRect.left(), 0.9, m_patternRect.right() + 1, 0.9));
+
+        int ticks = int(double(documentWidth) / subTick);
+
+        for (int i = 0 ; i <= ticks ; ++i) {
+            double ticklen = 0.8;
+            double tickPosition = subTick * i;
+
+            if ((i % minorTicks) == 0) {
+                ticklen = 0.7;
+            }
+
+            if ((i % majorTicks) == 0) {
+                ticklen = 0.6;
+            }
+
+            if (tickPosition >= m_patternRect.left() && tickPosition <= m_patternRect.right() + 1) {
+                painter->drawLine(QPointF(tickPosition, ticklen), QPointF(tickPosition, 0.9));
+            }
+        }
+
+        double patternHCenter = double(documentWidth) / 2;
+        QPolygonF patternHCenterMarker;
+        patternHCenterMarker << QPointF(patternHCenter, 0.9) << QPointF(patternHCenter - 0.35, 0.65) << QPointF(patternHCenter + 0.35, 0.65);
+
+        painter->drawPolygon(patternHCenterMarker);
+
+        QTransform transform = painter->combinedTransform();
+        painter->resetTransform();
+
+        for (int i = 0 ; i <= ticks ; ++i) {
+            int tickPosition = transform.map(QPointF(subTick * i, 0)).toPoint().x();
+
+            if (tickPosition >= vpLeft + vpScaleWidth && tickPosition <= vpLeft + vpWidth && (i % majorTicks) == 0) {
+                painter->drawText(QRect(tickPosition - vpCellWidth, vpTop, vpCellWidth * 2, int(3 * deviceVRatio)), Qt::AlignHCenter | Qt::AlignBottom, QString("%1").arg((i / majorTicks) * textValueIncrement));
+            }
+        }
+
+        // draw vertical ruler
+        switch (m_formatScalesAs) {
+        case Configuration::EnumEditor_FormatScalesAs::Stitches:
+            subTick = 1.0;
+            minorTicks = 1;
+            majorTicks = cellVerticalGrouping;
+            textValueIncrement = cellVerticalGrouping;
+            break;
+
+        case Configuration::EnumEditor_FormatScalesAs::CM:
+            subTick = verticalClothCount / 25.4;
+            minorTicks = 5;
+            majorTicks = 10;
+            textValueIncrement = 1;
+            break;
+
+        case Configuration::EnumEditor_FormatScalesAs::Inches:
+            subTick = verticalClothCount / 16;
+            minorTicks = 4;
+            majorTicks = 16;
+            textValueIncrement = 1;
+            break;
+
+        default:
+            break;
+        }
+
+        painter->setViewport(vpLeft, vpTop + vpScaleHeight, vpScaleWidth, vpHeight - vpScaleHeight);
+        painter->setWindow(0, m_patternRect.top(), 1, m_patternRect.height());
+        painter->drawLine(QLineF(0.9, m_patternRect.top(), 0.9, m_patternRect.bottom() + 1));
+
+        ticks = int(double(documentHeight) / subTick);
+
+        for (int i = 0 ; i <= ticks ; ++i) {
+            double ticklen = 0.8;
+            double tickPosition = subTick * i;
+
+            if ((i % minorTicks) == 0) {
+                ticklen = 0.7;
+            }
+
+            if ((i % majorTicks) == 0) {
+                ticklen = 0.6;
+            }
+
+            if (tickPosition >= m_patternRect.top() && tickPosition <= m_patternRect.bottom() + 1) {
+                painter->drawLine(QPointF(ticklen, tickPosition), QPointF(0.9, tickPosition));
+            }
+        }
+
+        double patternVCenter = double(documentHeight) / 2;
+        QPolygonF patternVCenterMarker;
+        patternVCenterMarker << QPointF(0.9, patternVCenter) << QPointF(0.65, patternVCenter - 0.35) << QPointF(0.65, patternVCenter + 0.35);
+
+        painter->drawPolygon(patternVCenterMarker);
+
+        transform = painter->combinedTransform();
+        painter->resetTransform();
+
+        for (int i = 0 ; i <= ticks ; ++i) {
+            int tickPosition = transform.map(QPointF(0, subTick * i)).toPoint().y();
+
+            if (tickPosition >= vpTop + vpScaleHeight && tickPosition <= vpTop + vpHeight && (i % majorTicks) == 0) {
+                painter->drawText(QRect(vpLeft, tickPosition - vpScaleHeight, int(3 * deviceHRatio), vpScaleHeight * 2), Qt::AlignRight | Qt::AlignVCenter, QString("%1").arg((i / majorTicks) * textValueIncrement));
+            }
+        }
+
+        painter->setViewport(vpLeft + vpScaleWidth, vpTop + vpScaleHeight, vpWidth - vpScaleWidth, vpHeight - vpScaleHeight);
+        painter->setWindow(m_patternRect);
+        painter->setClipRect(m_patternRect);
+    } else {
+        painter->setViewport(vpLeft, vpTop, vpWidth, vpHeight);
+        painter->setWindow(m_patternRect);
+        painter->setClipRect(m_patternRect);
+    }
 
     m_renderer->render(painter,
                        document->pattern(),
