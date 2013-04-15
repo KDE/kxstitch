@@ -104,6 +104,8 @@ void PrintSetupDlg::showEvent(QShowEvent *event)
 
     if (ui.Pages->count()) {
         ui.Pages->setCurrentRow(0);
+    } else {
+        on_AddPage_clicked();
     }
 }
 
