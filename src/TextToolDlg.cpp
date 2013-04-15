@@ -15,6 +15,8 @@
 #include <QPainter>
 #include <QPen>
 
+#include "configuration.h"
+
 
 TextToolDlg::TextToolDlg(QWidget *parent)
     :   KDialog(parent)
@@ -24,6 +26,10 @@ TextToolDlg::TextToolDlg(QWidget *parent)
     setHelp("TextDialog");
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
+
+    ui.TextToolFont->setCurrentFont(QFont(Configuration::textTool_FontFamily()));
+    ui.TextToolSize->setValue(Configuration::textTool_FontSize());
+
     QMetaObject::connectSlotsByName(this);
     setMainWidget(widget);
 }
@@ -40,6 +46,11 @@ void TextToolDlg::slotButtonClicked(int button)
         m_font = ui.TextToolFont->currentFont();
         m_text = ui.TextToolText->text();
         m_size = ui.TextToolSize->value();
+
+        Configuration::setTextTool_FontFamily(ui.TextToolFont->currentFont().family());
+        Configuration::setTextTool_FontSize(ui.TextToolSize->value());
+        Configuration::self()->writeConfig();
+
         accept();
     } else {
         KDialog::slotButtonClicked(button);

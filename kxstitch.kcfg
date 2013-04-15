@@ -251,6 +251,14 @@
             <label>Should the shapes tools use fractional stitches</label>
             <default>false</default>
         </entry>
+        <entry name="TextTool_FontFamily" type="String">
+            <label>The font family to be used in the TextToolDlg</label>
+            <default>Courier</default>
+        </entry>
+        <entry name="TextTool_FontSize" type="Int">
+            <label>The text size in pixels</label>
+            <default>10</default>
+        </entry>
     </group>
 
     <group name="printer">
