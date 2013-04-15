@@ -281,14 +281,21 @@ void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
     if (pagePreview) {
         m_elementUnderCursor = pagePreview->page()->itemAt(m_pageLayoutEditor->unscale(pos));
         QMenu *contextMenu = new QMenu(this);
-        contextMenu->addAction(i18n("Properties"), this, SLOT(properties()));
 
-        if (m_elementUnderCursor) {
-            contextMenu->addSeparator();
-            contextMenu->addAction(i18n("Delete Element"), this, SLOT(deleteElement()));
+        if (m_elementUnderCursor == 0 || m_elementUnderCursor->type() != Element::Plan) {
+            contextMenu->addAction(i18n("Properties"), this, SLOT(properties()));
+
+            if (m_elementUnderCursor) {
+                contextMenu->addSeparator();
+                contextMenu->addAction(i18n("Delete Element"), this, SLOT(deleteElement()));
+            }
         }
 
-        contextMenu->popup(m_pageLayoutEditor->mapToGlobal(pos));
+        if (contextMenu->isEmpty()) {
+            delete contextMenu;
+        } else {
+            contextMenu->popup(m_pageLayoutEditor->mapToGlobal(pos));
+        }
     }
 }
 
