@@ -93,7 +93,7 @@ void PatternElementDlg::slotButtonClicked(int button)
         m_patternElement->m_showScales = ui.ShowScales->isChecked();
 
         if (ui.ShowPlan->isChecked() && m_patternElement->m_planElement == 0) {
-            m_patternElement->m_planElement = new PlanElement(m_patternElement->parent(), QRect(m_patternElement->rectangle().topRight() - QPoint(50, 50), QSize(50, 50)));
+            m_patternElement->m_planElement = new PlanElement(m_patternElement->parent(), QRect(m_patternElement->rectangle().topLeft(), QSize(25, 25)));
         }
 
         if (m_patternElement->m_planElement) {
