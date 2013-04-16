@@ -17,6 +17,7 @@
 #include <QPixmap>
 
 #include <KDebug>
+#include <KLocale>
 
 #include "Page.h"
 #include "PaperSizes.h"

@@ -187,6 +187,8 @@ void PrintSetupDlg::on_DeletePage_clicked()
             on_Pages_currentItemChanged(0, pagePreview);
         }
     }
+
+    updatePageNumbers();
 }
 
 
@@ -398,6 +400,8 @@ void PrintSetupDlg::addPage(int position, Page *page)
     PagePreviewListWidgetItem *pagePreview = new PagePreviewListWidgetItem(m_document, page);
     ui.Pages->insertItem(position, pagePreview);
     ui.Pages->setCurrentRow(position);
+
+    updatePageNumbers();
 }
 
 
@@ -416,4 +420,13 @@ QPrinter::Orientation PrintSetupDlg::selectedOrientation()
 double PrintSetupDlg::selectedZoom()
 {
     return zoomFactors[ui.Zoom->currentIndex()];
+}
+
+
+void PrintSetupDlg::updatePageNumbers()
+{
+    for (int i = 0 ; i < ui.Pages->count() ; ++i) {
+        PagePreviewListWidgetItem *pagePreview = dynamic_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i));
+        pagePreview->setText(i18n("Page %1 / %2", pagePreview->page()->pageNumber(), ui.Pages->count()));
+    }
 }

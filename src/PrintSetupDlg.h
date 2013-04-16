@@ -69,6 +69,7 @@ private:
 
     void initialiseFromConfig();
     void addPage(int, Page *);
+    void updatePageNumbers();
 
     QPrinter::PaperSize selectedPaperSize();
     QPrinter::Orientation selectedOrientation();
