@@ -14,6 +14,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QRubberBand>
+#include <QScrollArea>
 #include <QStyleOptionRubberBand>
 
 #include <KDebug>
@@ -76,7 +77,11 @@ void SelectArea::mousePressEvent(QMouseEvent *event)
 
 void SelectArea::mouseMoveEvent(QMouseEvent *event)
 {
-    m_cellTracking = contentsToCell(event->pos());
+    QPoint p = event->pos();
+
+    dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
+
+    m_cellTracking = contentsToCell(p);
 
     if (m_cellTracking != m_cellEnd) {
         m_cellEnd = m_cellTracking;
