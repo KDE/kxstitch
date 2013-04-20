@@ -91,6 +91,7 @@ void PagePreviewListWidgetItem::generatePreviewIcon()
 
     QPainter painter;
     painter.begin(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing, true);
     m_page->render(m_document, &painter);
     painter.end();
     setIcon(pixmap);
