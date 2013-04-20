@@ -34,6 +34,18 @@ PrinterConfiguration::~PrinterConfiguration()
 }
 
 
+bool PrinterConfiguration::isEmpty() const
+{
+    foreach (Page *page, m_pages) {
+        if (!page->elements().isEmpty()) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
 void PrinterConfiguration::addPage(Page *page)
 {
     m_pages.append(page);

@@ -28,7 +28,7 @@ public:
 
     PrinterConfiguration &operator=(const PrinterConfiguration &);
 
-    void clear();
+    bool isEmpty() const;
 
     void addPage(Page *);
     void insertPage(int, Page *);
