@@ -15,15 +15,14 @@
             You can allocate the number of strands of cotton used for each floss, for both stitching and backstitching.
             This information will be used in calculating the amount of floss required in the final design.
         </para>
-        <sect2 id="CharacterSelectorDialog" >
-            <title>Character Selector</title>
+        <sect2 id="SymbolSelectorDialog" >
+            <title>Symbol Selector</title>
             <para>
-                <screenshot><mediaobject><imageobject><imagedata fileref="character-selector-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+                <screenshot><mediaobject><imageobject><imagedata fileref="symbol-selector-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
             </para>
             <para>
                 For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
-                symbols.  Unusable symbols are shown as a box, already used symbols are shown in red.  The symbol shown
-                on the blue background is the current symbol for the selected floss.
+                symbols.  Used symbols are shown grayed out and a tooltip will show [Used] when the symbol is hovered over.
             </para>
         </sect2>
     </sect1>
@@ -242,6 +241,7 @@
         </para>
 
         <screenshot><mediaobject><imageobject><imagedata fileref="print-setup-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        <para><inlinemediaobject><imageobject><imagedata fileref="printer-template.png" format="PNG" /></imageobject></inlinemediaobject>Select a printer configuration template.  Currently a similar one to KDE3 is included.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="add-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Append a page - This will append a page at the end of the list.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="insert-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a page - This will insert a page before the one currently selected in the list.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="delete-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Delete a page - This will delete the page currently selected in the list.</para>
@@ -320,7 +320,8 @@
         <sect2 id="KeyElement" >
             <title>Key Element</title>
             <para>
-                The key element shows the flosses used.  The properties dialog allows the selection of the fields that can be displayed.
+                The key element shows the flosses used.  The properties dialog allows the selection of the fields that can be displayed.  The 'First element' and 'No. elements'
+                can be used for large keys that may span multiple pages and allows some symbols to be on one page and others to be on another page.
                 <screenshot><mediaobject><imageobject><imagedata fileref="key-element-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
                 <screenshot><mediaobject><imageobject><imagedata fileref="key-element.png" format="PNG" /></imageobject></mediaobject></screenshot>
             </para>
