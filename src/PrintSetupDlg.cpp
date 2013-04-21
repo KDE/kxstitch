@@ -11,8 +11,11 @@
 
 #include "PrintSetupDlg.h"
 
+#include <math.h>
+
 #include <QFontDialog>
 #include <QInputDialog>
+#include <QMargins>
 #include <QMenu>
 #include <QPainter>
 #include <QPrinter>
@@ -20,6 +23,7 @@
 
 #include <KColorDialog>
 #include <KDebug>
+#include <KMessageBox>
 
 #include "Document.h"
 #include "Element.h"
@@ -428,5 +432,192 @@ void PrintSetupDlg::updatePageNumbers()
     for (int i = 0 ; i < ui.Pages->count() ; ++i) {
         PagePreviewListWidgetItem *pagePreview = dynamic_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i));
         pagePreview->setText(i18n("Page %1 / %2", pagePreview->page()->pageNumber(), ui.Pages->count()));
+    }
+}
+
+
+void PrintSetupDlg::on_Templates_clicked()
+{
+//    QString templateName = qobject_cast<QAction *>(sender())->data().toString();
+
+    bool okToCreate = true;
+
+    if (!m_printerConfiguration.isEmpty()) {
+        okToCreate = (KMessageBox::questionYesNo(this, i18n("Overwrite the current configuration?"), i18n("Overwrite")) == KMessageBox::Yes);
+    }
+
+    if (okToCreate) {
+        // TODO this section is currently a hack to allow creation of a printerConfiguration
+        // based on the KDE3 version of KXStitch.  It is intended to create a template based
+        // functionality so that various templates can be created and selected as required.
+
+        // clear the current configuration
+        m_printerConfiguration = PrinterConfiguration();
+        ui.Pages->clear();
+        // create pages based on template
+        // Cover sheet
+        Page *page = new Page(QPrinter::A4, QPrinter::Portrait);
+        m_printerConfiguration.addPage(page);
+        addPage(ui.Pages->count(), page);
+
+        QRect printableArea(page->margins().left(), page->margins().top(), 210 - page->margins().left() - page->margins().right(), 297 - page->margins().top() - page->margins().bottom());
+        QRect headerTitleArea(printableArea.topLeft(), QSize(printableArea.width(), 10));
+        QRect patternArea(headerTitleArea.bottomLeft() + QPoint(0, 5), QSize(printableArea.width(), printableArea.height() - 10 - 35));
+        QRect mapArea(patternArea.bottomRight() - QPoint(30, 5), QSize(30, 30));
+        QRect pageNumberArea(printableArea.bottomLeft() - QPoint(0, 10), QSize(printableArea.width(), 10));
+
+        Element *element = new TextElement(page, QRect(printableArea.topLeft(), QSize(printableArea.width(), 30)));
+        QFont font = static_cast<TextElement *>(element)->textFont();
+        font.setPointSize(16);
+        static_cast<TextElement *>(element)->setTextFont(font);
+        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+        static_cast<TextElement *>(element)->setText("${title}");
+        page->addElement(element);
+
+        element = new ImageElement(page, QRect(printableArea.topLeft() + QPoint(0, 60), QSize(printableArea.width(), printableArea.height() / 3)));
+        static_cast<ImageElement *>(element)->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
+        static_cast<ImageElement *>(element)->setShowBorder(true);
+        static_cast<ImageElement *>(element)->setBorderThickness(2);
+        page->addElement(element);
+
+        element = new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
+        static_cast<TextElement *>(element)->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+        static_cast<TextElement *>(element)->setText(i18n("Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
+        page->addElement(element);
+
+        element = new TextElement(page, pageNumberArea);
+        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+        static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+        page->addElement(element);
+
+        // pattern sheets
+        int documentWidth = m_document->pattern()->stitches().width();
+        int documentHeight = m_document->pattern()->stitches().height();
+
+        double horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
+        double verticalClothCount = m_document->property("verticalClothCount").toDouble();
+
+        if (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) {
+            horizontalClothCount *= 2.54;
+            verticalClothCount *= 2.54;
+        }
+
+        // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
+        double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
+        double physicalWidth = documentWidth * cellWidth;
+        double aspect =  horizontalClothCount / verticalClothCount;
+        double cellHeight = cellWidth * aspect;
+        double physicalHeight = documentHeight * cellHeight;
+
+        if (cellHeight < cellWidth) {
+            cellHeight = cellWidth;
+            cellWidth = cellHeight / aspect;
+            physicalWidth = documentWidth * cellWidth;
+            physicalHeight = documentHeight * cellHeight;
+        }
+
+        // at this point, based on a minimum cell size of 3mm a physical width and height have been calculated
+        // which can be used to calculate the number of pages wide and tall that the pattern needs to occupy
+        // based on the size of the pattern area on the page.
+        int horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
+        int verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
+        int horizontalOverflow = documentWidth % horizontalCellsPerPage;
+        int verticalOverflow = documentHeight % verticalCellsPerPage;
+
+        int pagesWide = (documentWidth / horizontalCellsPerPage) + ((documentWidth % horizontalCellsPerPage) ? 1 : 0);
+        int pagesTall = (documentHeight / verticalCellsPerPage) + ((documentHeight % verticalCellsPerPage) ? 1 : 0);
+
+        bool adjusted = false;
+        // the number of pages wide and tall has been calculated but it is possible that there may be a small number of
+        // cells spanning over a new page so this needs to be checked for and the cell size shrunk to fit so it will be
+        // slightly smaller than the minimum but not much.
+        if (horizontalOverflow < Configuration::patternElement_MinimumOverflow()) {
+            pagesWide--;
+            horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0);
+            cellWidth = double(patternArea.width()) / horizontalCellsPerPage;
+            cellHeight = cellWidth * aspect;
+            verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
+            pagesTall = (documentHeight / verticalCellsPerPage) + ((documentHeight % verticalCellsPerPage) ? 1 : 0);
+            verticalOverflow = documentHeight % verticalCellsPerPage;
+
+            adjusted = true;
+        }
+
+        if (verticalOverflow < Configuration::patternElement_MinimumOverflow()) {
+            pagesTall--;
+            verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
+            cellHeight = double(patternArea.height()) / verticalCellsPerPage;
+            cellWidth = cellHeight / aspect;
+            horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
+            pagesWide = (documentWidth / horizontalCellsPerPage) + ((documentWidth % horizontalCellsPerPage) ? 1 : 0);
+            horizontalOverflow = documentWidth % horizontalCellsPerPage;
+
+            adjusted = true;
+        }
+
+        // Expand the size of the cell to make best use of the space.
+
+        if (!adjusted) {
+            int expandedHorizontalCellsPerPage = int(double(documentWidth) / pagesWide);
+            double expandedCellWidth = double(patternArea.width()) / expandedHorizontalCellsPerPage;
+            double expandedCellHeight = expandedCellWidth * aspect;
+            int expandedVerticalCellsPerPage = int(double(patternArea.height()) / expandedCellHeight);
+            int expandedPagesTall = (documentHeight / expandedVerticalCellsPerPage) + ((documentHeight % expandedVerticalCellsPerPage) ? 1 : 0);
+            if (expandedPagesTall > pagesTall) {
+                // increasing the width has forced an increase in page height so this needs to be reduced
+                expandedVerticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
+                cellHeight = double(patternArea.height()) / expandedVerticalCellsPerPage;
+                cellWidth = cellHeight / aspect;
+                expandedHorizontalCellsPerPage = int(double(patternArea.width()) / cellWidth) + ((documentWidth % pagesWide) ? 1 : 0);
+                pagesWide = (documentWidth / expandedHorizontalCellsPerPage) + ((documentWidth % expandedHorizontalCellsPerPage) ? 1 : 0);
+            }
+            horizontalCellsPerPage = expandedHorizontalCellsPerPage;
+            verticalCellsPerPage = expandedVerticalCellsPerPage;
+        }
+
+        for (int verticalPage = 0 ; verticalPage < pagesTall ; ++verticalPage) {
+            for (int horizontalPage = 0 ; horizontalPage < pagesWide ; ++horizontalPage) {
+                page = new Page(QPrinter::A4, QPrinter::Portrait);
+                m_printerConfiguration.addPage(page);
+                addPage(ui.Pages->count(), page);
+
+                element = new TextElement(page, headerTitleArea);
+                static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+                static_cast<TextElement *>(element)->setText("${title}");
+                page->addElement(element);
+
+                element = new PatternElement(page, patternArea);
+                static_cast<PatternElement *>(element)->setPatternRect(QRect(horizontalPage * horizontalCellsPerPage, verticalPage * verticalCellsPerPage, std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)), std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
+                static_cast<PatternElement *>(element)->setShowScales(true);
+                page->addElement(element);
+
+                element = new TextElement(page, pageNumberArea);
+                static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+                static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+                page->addElement(element);
+            }
+        }
+
+        // key page
+        page = new Page(QPrinter::A4, QPrinter::Portrait);
+        m_printerConfiguration.addPage(page);
+        addPage(ui.Pages->count(), page);
+
+        element = new TextElement(page, headerTitleArea);
+        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+        static_cast<TextElement *>(element)->setText("${title}");
+        page->addElement(element);
+
+        element = new KeyElement(page, patternArea.adjusted(20, 0, -20, 0));
+        page->addElement(element);
+
+        element = new TextElement(page, pageNumberArea);
+        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+        static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+        page->addElement(element);
+
+        for (int i = 0 ; i < ui.Pages->count() ; ++i) {
+            static_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i))->generatePreviewIcon();
+        }
     }
 }

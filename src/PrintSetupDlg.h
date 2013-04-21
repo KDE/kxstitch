@@ -49,6 +49,7 @@ private slots:
     void on_Orientation_currentIndexChanged(int);
     void on_Zoom_currentIndexChanged(int);
     void on_Pages_currentItemChanged(QListWidgetItem *, QListWidgetItem *);
+    void on_Templates_clicked();
     void on_AddPage_clicked();
     void on_InsertPage_clicked();
     void on_DeletePage_clicked();
@@ -70,6 +71,7 @@ private:
     void initialiseFromConfig();
     void addPage(int, Page *);
     void updatePageNumbers();
+//    void selectTemplate();
 
     QPrinter::PaperSize selectedPaperSize();
     QPrinter::Orientation selectedOrientation();

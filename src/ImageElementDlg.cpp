@@ -33,9 +33,12 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
     ui.setupUi(widget);
 
     m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QList<QRect>());
-    ui.PreviewFrame->setWidget(m_selectArea);
-
     m_selectArea->setPatternRect(imageElement->patternRect());
+
+    ui.PreviewFrame->setWidget(m_selectArea);
+    ui.ShowBorder->setChecked(imageElement->showBorder());
+    ui.BorderColor->setColor(imageElement->borderColor());
+    ui.BorderThickness->setValue(double(imageElement->borderThickness()) / 10);
 
     QMetaObject::connectSlotsByName(this);
 
@@ -52,6 +55,10 @@ void ImageElementDlg::slotButtonClicked(int button)
 {
     if (button == KDialog::Ok) {
         m_imageElement->setPatternRect(m_selectArea->patternRect());
+        m_imageElement->setShowBorder(ui.ShowBorder->isChecked());
+        m_imageElement->setBorderColor(ui.BorderColor->color());
+        m_imageElement->setBorderThickness(int(ui.BorderThickness->value() * 10));
+
         accept();
     } else {
         KDialog::slotButtonClicked(button);

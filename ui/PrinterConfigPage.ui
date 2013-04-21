@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>345</width>
-    <height>686</height>
+    <width>265</width>
+    <height>670</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,426 +17,469 @@
    <item>
     <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>Pages</string>
       </attribute>
-      <widget class="KButtonGroup" name="kcfg_Page_Orientation">
-       <property name="geometry">
-        <rect>
-         <x>9</x>
-         <y>40</y>
-         <width>180</width>
-         <height>42</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QRadioButton" name="PortraitRadioButton">
-          <property name="text">
-           <string>Portrait</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="LandscapeRadioButton">
-          <property name="text">
-           <string>Landscape</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="geometry">
-        <rect>
-         <x>9</x>
-         <y>93</y>
-         <width>148</width>
-         <height>135</height>
-        </rect>
-       </property>
-       <property name="title">
-        <string>Margins</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_2">
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Default paper size</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="KComboBox" name="kcfg_Page_Size">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Select a paper size</string>
+           </property>
+           <item>
             <property name="text">
-             <string comment="Left margin">Left</string>
+             <string comment="Paper size">A0</string>
             </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QSpinBox" name="kcfg_Page_MarginLeft">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_3">
+           </item>
+           <item>
             <property name="text">
-             <string comment="Right margin">Right</string>
+             <string comment="Paper size">A1</string>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="kcfg_Page_MarginRight">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_4">
+           </item>
+           <item>
             <property name="text">
-             <string comment="Top margin">Top</string>
+             <string comment="Paper size">A2</string>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="kcfg_Page_MarginTop">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_5">
+           </item>
+           <item>
             <property name="text">
-             <string comment="Bottom margin">Bottom</string>
+             <string comment="Paper size">A3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A8</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">A9</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B0</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B8</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B9</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">B10</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">C5E</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Comm10E</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">DLE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Executive</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Folio</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Ledger</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Legal</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Letter</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string comment="Paper size">Tabloid</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="KButtonGroup" name="kcfg_Page_Orientation">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QRadioButton" name="PortraitRadioButton">
+            <property name="text">
+             <string>Portrait</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="kcfg_Page_MarginBottom">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
+          <item>
+           <widget class="QRadioButton" name="LandscapeRadioButton">
+            <property name="text">
+             <string>Landscape</string>
             </property>
            </widget>
           </item>
          </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>9</y>
-         <width>194</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Default paper size</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KComboBox" name="kcfg_Page_Size">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="toolTip">
-           <string>Select a paper size</string>
-          </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Margins</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <property name="text">
-            <string comment="Paper size">A0</string>
-           </property>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string comment="Left margin">Left</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="kcfg_Page_MarginLeft">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string comment="Right margin">Right</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_Page_MarginRight">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string comment="Top margin">Top</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="kcfg_Page_MarginTop">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string comment="Bottom margin">Bottom</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="kcfg_Page_MarginBottom">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A5</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A6</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A7</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A8</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">A9</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B0</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B5</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B6</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B7</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B8</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B9</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">B10</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">C5E</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Comm10E</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">DLE</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Executive</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Folio</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Ledger</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Legal</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Letter</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string comment="Paper size">Tabloid</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>407</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
        <string>Pattern Element</string>
       </attribute>
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>305</width>
-         <height>137</height>
-        </rect>
-       </property>
-       <property name="title">
-        <string>Margins</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <layout class="QFormLayout" name="formLayout_2">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string comment="Left margin">Left</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QSpinBox" name="kcfg_PatternElement_MarginLeft">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string comment="Right margin">Right</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="kcfg_PatternElement_MarginRight">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string comment="Top margin">Top</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="kcfg_PatternElement_MarginTop">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string comment="Bottom margin">Bottom</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="kcfg_PatternElement_MarginBottom">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="suffix">
-             <string>mm</string>
-            </property>
-           </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Margins</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QFormLayout" name="formLayout_2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string comment="Left margin">Left</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MarginLeft">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string comment="Right margin">Right</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MarginRight">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string comment="Top margin">Top</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MarginTop">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string comment="Bottom margin">Bottom</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MarginBottom">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="suffix">
+               <string>mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
-        </item>
-       </layout>
-      </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_11">
+         <property name="title">
+          <string>Cells</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_27">
+              <property name="text">
+               <string>Minimum cell size (mm)</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MinimumCellSize"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_28">
+              <property name="text">
+               <string>Minimum overflow</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="kcfg_PatternElement_MinimumOverflow"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>396</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
@@ -475,13 +518,9 @@
           <string comment="Fill the background">Background</string>
          </property>
          <layout class="QFormLayout" name="formLayout_7">
-          <item row="0" column="0" colspan="2">
-           <widget class="QCheckBox" name="kcfg_TextElement_FillBackground">
-            <property name="text">
-             <string>Fill background</string>
-            </property>
-           </widget>
-          </item>
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::ExpandingFieldsGrow</enum>
+          </property>
           <item row="1" column="0">
            <widget class="QLabel" name="label_20">
             <property name="text">
@@ -516,6 +555,13 @@
             </property>
             <property name="maximum">
              <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="kcfg_TextElement_FillBackground">
+            <property name="text">
+             <string>Fill background</string>
             </property>
            </widget>
           </item>
@@ -671,6 +717,19 @@
           </item>
          </layout>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>159</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -933,26 +992,6 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="kcfg_KeyElement_StitchBreakdownColumn">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>Stitch breakdown</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="checkBox">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>Total stitches</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QCheckBox" name="kcfg_KeyElement_LengthColumn">
             <property name="text">
              <string>Length</string>
@@ -1041,44 +1080,9 @@
   <tabstop>kcfg_KeyElement_FlossDescriptionColumn</tabstop>
   <tabstop>kcfg_KeyElement_StrandsColumn</tabstop>
   <tabstop>kcfg_KeyElement_StitchesColumn</tabstop>
-  <tabstop>kcfg_KeyElement_StitchBreakdownColumn</tabstop>
-  <tabstop>checkBox</tabstop>
   <tabstop>kcfg_KeyElement_LengthColumn</tabstop>
   <tabstop>kcfg_KeyElement_SkeinsColumn</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>kcfg_KeyElement_StitchesColumn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>kcfg_KeyElement_StitchBreakdownColumn</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>62</x>
-     <y>562</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>62</x>
-     <y>579</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>kcfg_KeyElement_StitchesColumn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>checkBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>79</x>
-     <y>562</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>81</x>
-     <y>601</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -295,6 +295,18 @@
             <default>0</default>
         </entry>
 
+        <entry name="PatternElement_ShowBorder" type="Bool">
+            <label>Show a border around the pattern</label>
+            <default>false</default>
+        </entry>
+        <entry name="PatternElement_BorderColor" type="Color">
+            <label>The color of the border</label>
+            <default>#000000</default>
+        </entry>
+        <entry name="PatternElement_BorderThickness" type="Int">
+            <label>The thickness of the border in 1/10 mm</label>
+            <default>2</default>
+        </entry>
         <entry name="PatternElement_MarginLeft" type="Int">
             <label>The left margin</label>
             <default>0</default>
@@ -311,10 +323,31 @@
             <label>The bottom margin</label>
             <default>0</default>
         </entry>
+        <entry name="PatternElement_MinimumCellSize" type="Int">
+            <label>Minimum cell size in mm for template generated printer configurations</label>
+            <default>3</default>
+        </entry>
+        <entry name="PatternElement_MinimumOverflow" type="Int">
+            <label>Minimum number of cells that can be on a page of its own</label>
+            <default>10</default>
+        </entry>
+
+        <entry name="ImageElement_ShowBorder" type="Bool">
+            <label>Show a border around the image</label>
+            <default>true</default>
+        </entry>
+        <entry name="ImageElement_BorderColor" type="Color">
+            <label>The color of the border</label>
+            <default>#000000</default>
+        </entry>
+        <entry name="ImageElement_BorderThickness" type="Int">
+            <label>The thickness of the border in 1/10 mm</label>
+            <default>2</default>
+        </entry>
 
         <entry name="KeyElement_ShowBorder" type="Bool">
             <label>Show a border around the key</label>
-            <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="KeyElement_BorderColor" type="Color">
             <label>The color of the border</label>
@@ -322,7 +355,7 @@
         </entry>
         <entry name="KeyElement_BorderThickness" type="Int">
             <label>The thickness of the border in 1/10 mm</label>
-            <default>5</default>
+            <default>2</default>
         </entry>
         <entry name="KeyElement_FillBackground" type="Bool">
             <label>Fill the background</label>
@@ -338,19 +371,19 @@
         </entry>
         <entry name="KeyElement_MarginLeft" type="Int">
             <label>The key element left margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="KeyElement_MarginTop" type="Int">
             <label>The key element top margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="KeyElement_MarginRight" type="Int">
             <label>The key element right margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="KeyElement_MarginBottom" type="Int">
             <label>The key element bottom margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="KeyElement_SymbolColumn" type="Bool">
             <label>Show the key element symbol column</label>
@@ -383,7 +416,7 @@
 
         <entry name="TextElement_ShowBorder" type="Bool">
             <label>Show the border</label>
-            <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="TextElement_BorderColor" type="Color">
             <label>The border color</label>
@@ -391,7 +424,7 @@
         </entry>
         <entry name="TextElement_BorderThickness" type="Int">
             <label>Thickness of the border in 1/10 mm</label>
-            <default>5</default>
+            <default>2</default>
         </entry>
         <entry name="TextElement_FillBackground" type="Bool">
             <label>Fill the background</label>
@@ -407,19 +440,19 @@
         </entry>
         <entry name="TextElement_MarginTop" type="Int">
             <label>The top margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="TextElement_MarginLeft" type="Int">
             <label>The left margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="TextElement_MarginRight" type="Int">
             <label>The right margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="TextElement_MarginBottom" type="Int">
             <label>The bottom margin</label>
-            <default>5</default>
+            <default>0</default>
         </entry>
         <entry name="TextElement_TextColor" type="Color">
             <label>The text color</label>

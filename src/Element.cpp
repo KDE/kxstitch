@@ -197,6 +197,223 @@ KeyElement::~KeyElement()
 }
 
 
+bool KeyElement::showBorder() const
+{
+    return m_showBorder;
+}
+
+
+QColor KeyElement::borderColor() const
+{
+    return m_borderColor;
+}
+
+
+int KeyElement::borderThickness() const
+{
+    return m_borderThickness;
+}
+
+
+bool KeyElement::fillBackground() const
+{
+    return m_fillBackground;
+}
+
+
+QColor KeyElement::backgroundColor() const
+{
+    return m_backgroundColor;
+}
+
+
+int KeyElement::backgroundTransparency() const
+{
+    return m_backgroundTransparency;
+}
+
+
+QMargins KeyElement::margins() const
+{
+    return m_margins;
+}
+
+
+QColor KeyElement::textColor() const
+{
+    return m_textColor;
+}
+
+
+QFont KeyElement::textFont() const
+{
+    return m_textFont;
+}
+
+
+int KeyElement::indexStart() const
+{
+    return m_indexStart;
+}
+
+
+int KeyElement::indexCount() const
+{
+    return m_indexCount;
+}
+
+
+bool KeyElement::symbolColoumn() const
+{
+    return m_symbolColumn;
+}
+
+
+bool KeyElement::flossNameColumn() const
+{
+    return m_flossNameColumn;
+}
+
+
+bool KeyElement::strandsColumn() const
+{
+    return m_strandsColumn;
+}
+
+
+bool KeyElement::flossDescriptionColumn() const
+{
+    return m_flossDescriptionColumn;
+}
+
+
+bool KeyElement::stitchesColumn() const
+{
+    return m_stitchesColumn;
+}
+
+
+bool KeyElement::lengthColumn() const
+{
+    return m_lengthColumn;
+}
+
+
+bool KeyElement::skeinsColumn() const
+{
+    return m_skeinsColumn;
+}
+
+
+void KeyElement::setShowBorder(bool showBorder)
+{
+    m_showBorder = showBorder;
+}
+
+
+void KeyElement::setBorderColor(const QColor &borderColor)
+{
+    m_borderColor = borderColor;
+}
+
+
+void KeyElement::setBorderThickness(int borderThickness)
+{
+    m_borderThickness = borderThickness;
+}
+
+
+void KeyElement::setFillBackground(bool fillBackground)
+{
+    m_fillBackground = fillBackground;
+}
+
+
+
+void KeyElement::setBackgroundColor(const QColor &backgroundColor)
+{
+    m_backgroundColor = backgroundColor;
+}
+
+
+void KeyElement::setBackgroundTransparency(int backgroundTransparency)
+{
+    m_backgroundTransparency = backgroundTransparency;
+}
+
+
+void KeyElement::setMargins(const QMargins &margins)
+{
+    m_margins = margins;
+}
+
+
+void KeyElement::setTextColor(const QColor &textColor)
+{
+    m_textColor = textColor;
+}
+
+
+void KeyElement::setTextFont(const QFont &textFont)
+{
+    m_textFont = textFont;
+}
+
+
+void KeyElement::setIndexStart(int indexStart)
+{
+    m_indexStart = indexStart;
+}
+
+
+void KeyElement::setIndexCount(int indexCount)
+{
+    m_indexCount = indexCount;
+}
+
+
+void KeyElement::setSymbolColoumn(bool symbolColoumn)
+{
+    m_symbolColumn = symbolColoumn;
+}
+
+
+void KeyElement::setFlossNameColumn(bool flossNameColumn)
+{
+    m_flossNameColumn = flossNameColumn;
+}
+
+
+void KeyElement::setStrandsColumn(bool strandsColumn)
+{
+    m_strandsColumn = strandsColumn;
+}
+
+
+void KeyElement::setFlossDescriptionColumn(bool flossDescriptionColumn)
+{
+    m_flossDescriptionColumn = flossDescriptionColumn;
+}
+
+
+void KeyElement::setStitchesColumn(bool stitchesColumn)
+{
+    m_stitchesColumn = stitchesColumn;
+}
+
+
+void KeyElement::setLengthColumn(bool lengthColumn)
+{
+    m_lengthColumn = lengthColumn;
+}
+
+
+void KeyElement::setSkeinsColumn(bool skeinsColumn)
+{
+    m_skeinsColumn = skeinsColumn;
+}
+
+
 KeyElement *KeyElement::clone() const
 {
     return new KeyElement(*this);
@@ -725,8 +942,12 @@ QDataStream &PlanElement::streamIn(QDataStream &stream)
 
 PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Type type)
     :   Element(parent, rectangle, type),
+        m_showBorder(Configuration::patternElement_ShowBorder()),
+        m_borderColor(Configuration::patternElement_BorderColor()),
+        m_borderThickness(Configuration::patternElement_BorderThickness()),
         m_showScales(false),
         m_showPlan(false),
+        m_formatScalesAs(Configuration::EnumEditor_FormatScalesAs::Stitches),
         m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols),
         m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols),
         m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols),
@@ -745,6 +966,9 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Ty
 
 PatternElement::PatternElement(const PatternElement &other)
     :   Element(other),
+        m_showBorder(other.m_showBorder),
+        m_borderColor(other.m_borderColor),
+        m_borderThickness(other.m_borderThickness),
         m_patternRect(other.m_patternRect),
         m_showScales(other.m_showScales),
         m_showPlan(other.m_showPlan),
@@ -768,6 +992,42 @@ PatternElement::PatternElement(const PatternElement &other)
 PatternElement::~PatternElement()
 {
     delete m_renderer;
+}
+
+
+bool PatternElement::showBorder() const
+{
+    return m_showBorder;
+}
+
+
+QColor PatternElement::borderColor() const
+{
+    return m_borderColor;
+}
+
+
+int PatternElement::borderThickness() const
+{
+    return m_borderThickness;
+}
+
+
+void PatternElement::setShowBorder(bool showBorder)
+{
+    m_showBorder = showBorder;
+}
+
+
+void PatternElement::setBorderColor(const QColor &borderColor)
+{
+    m_borderColor = borderColor;
+}
+
+
+void PatternElement::setBorderThickness(int borderThickness)
+{
+    m_borderThickness = borderThickness;
 }
 
 
@@ -992,6 +1252,14 @@ void PatternElement::render(Document *document, QPainter *painter) const
                        m_showKnots,
                        -1);
 
+    if (m_showBorder) {
+        QPen pen(m_borderColor);
+        pen.setWidthF(m_borderThickness / 10.0);
+        painter->setPen(pen);
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRect(m_patternRect);
+    }
+
     painter->restore();
 }
 
@@ -1131,7 +1399,10 @@ QDataStream &PatternElement::streamOut(QDataStream &stream) const
 
     stream << qint32(version);
 
-    stream  << m_patternRect
+    stream  << qint32(m_showBorder)
+            << m_borderColor
+            << qint32(m_borderThickness)
+            << m_patternRect
             << qint32(m_showScales)
             << qint32(m_showPlan)
             << qint32(m_formatScalesAs)
@@ -1157,6 +1428,8 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
     Element::streamIn(stream);
 
     qint32 version;
+    qint32 showBorder;
+    qint32 borderThickness;
     qint32 showScales;
     qint32 showPlan;
     qint32 formatScalesAs;
@@ -1174,6 +1447,49 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
     stream >> version;
 
     switch (version) {
+    case 102:
+        stream  >> showBorder
+                >> m_borderColor
+                >> borderThickness
+                >> m_patternRect
+                >> showScales
+                >> showPlan
+                >> formatScalesAs
+                >> renderStitchesAs
+                >> renderBackstitchesAs
+                >> renderKnotsAs
+                >> showGrid
+                >> showStitches
+                >> showBackstitches
+                >> showKnots
+                >> planElement;
+
+        m_showBorder = bool(showBorder);
+        m_borderThickness = borderThickness;
+        m_showScales = bool(showScales);
+        m_showPlan = bool(showPlan);
+        m_formatScalesAs = static_cast<Configuration::EnumEditor_FormatScalesAs::type>(formatScalesAs);
+        m_renderStitchesAs = static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(renderStitchesAs);
+        m_renderBackstitchesAs = static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(renderBackstitchesAs);
+        m_renderKnotsAs = static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(renderKnotsAs);
+        m_showGrid = bool(showGrid);
+        m_showStitches = bool(showStitches);
+        m_showBackstitches = bool(showBackstitches);
+        m_showKnots = bool(showKnots);
+
+        if (m_showPlan) {
+            m_planElement = new PlanElement(parent(), QRect());
+            stream >> *m_planElement;
+            m_planElement->setPatternRect(m_patternRect);
+        } else {
+            m_planElement = 0;
+        }
+
+        m_renderer->setRenderStitchesAs(m_renderStitchesAs);
+        m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
+        m_renderer->setRenderKnotsAs(m_renderKnotsAs);
+        break;
+
     case 101:
         stream  >> m_patternRect
                 >> showScales
@@ -1265,6 +1581,9 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
 ImageElement::ImageElement(Page *parent, const QRect &rectangle, Element::Type type)
     :   PatternElement(parent, rectangle, type)
 {
+    setShowBorder(Configuration::imageElement_ShowBorder());
+    setBorderColor(Configuration::imageElement_BorderColor());
+    setBorderThickness(Configuration::imageElement_BorderThickness());
     setShowScales(false);
     setShowPlan(false);
     setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
@@ -1367,6 +1686,138 @@ TextElement::TextElement(const TextElement &other)
 
 TextElement::~TextElement()
 {
+}
+
+
+bool TextElement::showBorder() const
+{
+    return m_showBorder;
+}
+
+
+QColor TextElement::borderColor() const
+{
+    return m_borderColor;
+}
+
+
+int TextElement::borderThickness() const
+{
+    return m_borderThickness;
+}
+
+
+bool TextElement::fillBackground() const
+{
+    return m_fillBackground;
+}
+
+
+QColor TextElement::backgroundColor() const
+{
+    return m_backgroundColor;
+}
+
+
+int TextElement::backgroundTransparency() const
+{
+    return m_backgroundTransparency;
+}
+
+
+QMargins TextElement::margins() const
+{
+    return m_margins;
+}
+
+
+QFont TextElement::textFont() const
+{
+    return m_textFont;
+}
+
+
+QColor TextElement::textColor() const
+{
+    return m_textColor;
+}
+
+
+Qt::Alignment TextElement::alignment() const
+{
+    return m_alignment;
+}
+
+
+QString TextElement::text() const
+{
+    return m_text;
+}
+
+
+void TextElement::setShowBorder(bool showBorder)
+{
+    m_showBorder = showBorder;
+}
+
+
+void TextElement::setBorderColor(const QColor &borderColor)
+{
+    m_borderColor = borderColor;
+}
+
+
+void TextElement::setBorderThickness(int borderThickness)
+{
+    m_borderThickness = borderThickness;;
+}
+
+
+void TextElement::setFillBackground(bool fillBackground)
+{
+    m_fillBackground = fillBackground;
+}
+
+
+void TextElement::setBackgroundColor(const QColor &backgroundColor)
+{
+    m_backgroundColor = backgroundColor;
+}
+
+
+void TextElement::setBackgroundTransparency(int backgroundTransparency)
+{
+    m_backgroundTransparency = backgroundTransparency;
+}
+
+
+void TextElement::setMargins(const QMargins &margins)
+{
+    m_margins = margins;
+}
+
+
+void TextElement::setTextFont(const QFont &textFont)
+{
+    m_textFont = textFont;
+}
+
+
+void TextElement::setTextColor(const QColor &textColor)
+{
+    m_textColor = textColor;
+}
+
+
+void TextElement::setAlignment(Qt::Alignment alignment)
+{
+    m_alignment = alignment;
+}
+
+
+void TextElement::setText(const QString &text)
+{
+    m_text = text;
 }
 
 
