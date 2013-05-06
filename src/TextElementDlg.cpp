@@ -4,12 +4,19 @@
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
+ * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
+ *
+ * Some of the concepts and code behind the rich text editor have been
+ * copied / modified from the TextEdit example program from here:
+ * http://qt-project.org/doc/qt-4.8/demos-textedit.html
  */
 
 
 #include "TextElementDlg.h"
+
+#include <KColorDialog>
+
 #include "Element.h"
 
 
@@ -24,6 +31,9 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
 
+    ui.BoldButton->setIcon(KIcon("format-text-bold"));
+    ui.UnderlineButton->setIcon(KIcon("format-text-underline"));
+    ui.ItalicButton->setIcon(KIcon("format-text-italic"));
     ui.AlignLeft->setIcon(KIcon("format-justify-left"));
     ui.AlignHCenter->setIcon(KIcon("format-justify-center"));
     ui.AlignRight->setIcon(KIcon("format-justify-right"));
@@ -35,48 +45,8 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     group->addButton(ui.AlignRight);
     group->addButton(ui.AlignJustify);
     group->setExclusive(true);
-
-    ui.AlignTop->setIcon(KIcon("format-justify-top"));
-    ui.AlignVCenter->setIcon(KIcon("format-justify-middle"));
-    ui.AlignBottom->setIcon(KIcon("format-justify-bottom"));
-
-    group = new QButtonGroup(this);
-    group->addButton(ui.AlignTop);
-    group->addButton(ui.AlignVCenter);
-    group->addButton(ui.AlignBottom);
-    group->setExclusive(true);
-
-    switch (m_textElement->m_alignment & Qt::AlignHorizontal_Mask) {
-    case Qt::AlignLeft:
-        ui.AlignLeft->setChecked(true);
-        break;
-
-    case Qt::AlignHCenter:
-        ui.AlignHCenter->setChecked(true);
-        break;
-
-    case Qt::AlignJustify:
-        ui.AlignJustify->setChecked(true);
-        break;
-
-    case Qt::AlignRight:
-        ui.AlignRight->setChecked(true);
-        break;
-    }
-
-    switch (m_textElement->m_alignment & Qt::AlignVertical_Mask) {
-    case Qt::AlignTop:
-        ui.AlignTop->setChecked(true);
-        break;
-
-    case Qt::AlignVCenter:
-        ui.AlignVCenter->setChecked(true);
-        break;
-
-    case Qt::AlignBottom:
-        ui.AlignBottom->setChecked(true);
-        break;
-    }
+    connect(group, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(textAlign(QAbstractButton*)));
+    alignmentChanged(m_textElement->m_alignment);
 
     ui.MarginLeft->setValue(m_textElement->m_margins.left());
     ui.MarginTop->setValue(m_textElement->m_margins.top());
@@ -86,13 +56,17 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     ui.ShowBorder->setChecked(m_textElement->m_showBorder);
     ui.BorderColor->setColor(m_textElement->m_borderColor);
     ui.BorderThickness->setValue(double(m_textElement->m_borderThickness) / 10);
-    ui.FillBackground->setChecked(m_textElement->m_fillBackground);
+
     ui.BackgroundColor->setColor(m_textElement->m_backgroundColor);
     ui.BackgroundTransparency->setValue(m_textElement->m_backgroundTransparency);
-    ui.Text->setText(m_textElement->m_text);
+    ui.FillBackground->setChecked(m_textElement->m_fillBackground);
 
-    ui.TextColor->setColor(m_textElement->m_textColor);
-    ui.TextFont->setFont(m_textElement->m_textFont);
+    if (!m_textElement->m_text.isEmpty()) {
+        ui.Text->setHtml(m_textElement->m_text);
+    }
+
+    fontChanged(m_textElement->m_textFont);
+    colorChanged(m_textElement->m_textColor);
 
     setMainWidget(widget);
 }
@@ -107,14 +81,13 @@ void TextElementDlg::slotButtonClicked(int button)
 {
     if (button == KDialog::Ok) {
         m_textElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
-
         m_textElement->m_showBorder = ui.ShowBorder->isChecked();
         m_textElement->m_borderColor = ui.BorderColor->color();
         m_textElement->m_borderThickness = int(ui.BorderThickness->value() * 10);
         m_textElement->m_fillBackground = ui.FillBackground->isChecked();
         m_textElement->m_backgroundColor = ui.BackgroundColor->color();
         m_textElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
-        m_textElement->m_text = ui.Text->toPlainText();
+        m_textElement->m_text = ui.Text->toHtml();
 
         if (ui.AlignLeft->isChecked()) {
             m_textElement->m_alignment = Qt::AlignLeft;
@@ -126,16 +99,8 @@ void TextElementDlg::slotButtonClicked(int button)
             m_textElement->m_alignment = Qt::AlignJustify;
         }
 
-        if (ui.AlignTop->isChecked()) {
-            m_textElement->m_alignment |= Qt::AlignTop;
-        } else if (ui.AlignVCenter->isChecked()) {
-            m_textElement->m_alignment |= Qt::AlignVCenter;
-        } else if (ui.AlignBottom->isChecked()) {
-            m_textElement->m_alignment |= Qt::AlignBottom;
-        }
+        m_textElement->m_textFont = ui.Text->font();
 
-        m_textElement->m_textColor = ui.TextColor->color();
-        m_textElement->m_textFont = ui.TextFont->font();
         accept();
     } else {
         KDialog::slotButtonClicked(button);
@@ -143,7 +108,147 @@ void TextElementDlg::slotButtonClicked(int button)
 }
 
 
+void TextElementDlg::on_FillBackground_toggled(bool checked)
+{
+    ui.Text->setAutoFillBackground(checked);
+    on_BackgroundColor_activated((checked) ? ui.BackgroundColor->color() : QWidget().palette().color(QPalette::Window));
+}
+
+
+void TextElementDlg::on_BackgroundColor_activated(const QColor &color)
+{
+    QPalette pal = ui.Text->palette();
+    pal.setColor(QPalette::Base, color);
+    ui.Text->setPalette(pal);
+}
+
+
 void TextElementDlg::on_BackgroundTransparency_valueChanged(int value)
 {
     ui.Text->setWindowOpacity(value);
+}
+
+
+void TextElementDlg::on_BoldButton_clicked()
+{
+    QTextCharFormat fmt;
+    fmt.setFontWeight(ui.BoldButton->isChecked() ? QFont::Bold : QFont::Normal);
+    mergeFormatOnWordOrSelection(fmt);
+}
+
+
+void TextElementDlg::on_UnderlineButton_clicked()
+{
+    QTextCharFormat fmt;
+    fmt.setFontUnderline(ui.UnderlineButton->isChecked());
+    mergeFormatOnWordOrSelection(fmt);
+}
+
+
+void TextElementDlg::on_ItalicButton_clicked()
+{
+    QTextCharFormat fmt;
+    fmt.setFontItalic(ui.ItalicButton->isChecked());
+    mergeFormatOnWordOrSelection(fmt);
+}
+
+
+void TextElementDlg::on_FontFamily_currentFontChanged(const QFont &font)
+{
+    QTextCharFormat fmt;
+    fmt.setFontFamily(font.family());
+    mergeFormatOnWordOrSelection(fmt);
+}
+
+
+void TextElementDlg::on_PointSize_valueChanged(int size)
+{
+    QTextCharFormat fmt;
+    fmt.setFontPointSize(double(size));
+    mergeFormatOnWordOrSelection(fmt);
+}
+
+
+void TextElementDlg::on_TextColor_clicked()
+{
+    QColor color = ui.Text->textColor();
+
+    if (KColorDialog::getColor(color, this) == KColorDialog::Accepted && color.isValid()) {
+        QTextCharFormat fmt;
+        fmt.setForeground(color);
+        mergeFormatOnWordOrSelection(fmt);
+        colorChanged(color);
+    }
+}
+
+
+void TextElementDlg::textAlign(QAbstractButton *button)
+{
+    if (button == ui.AlignLeft) {
+        ui.Text->setAlignment(Qt::AlignLeft | Qt::AlignAbsolute);
+    } else if (button == ui.AlignHCenter) {
+        ui.Text->setAlignment(Qt::AlignHCenter);
+    } else if (button == ui.AlignRight) {
+        ui.Text->setAlignment(Qt::AlignRight | Qt::AlignAbsolute);
+    } else if (button == ui.AlignJustify) {
+        ui.Text->setAlignment(Qt::AlignJustify);
+    }
+}
+
+
+void TextElementDlg::on_Text_currentCharFormatChanged(const QTextCharFormat &format)
+{
+    fontChanged(format.font());
+    colorChanged(format.foreground().color());
+}
+
+
+void TextElementDlg::on_Text_cursorPositionChanged()
+{
+    alignmentChanged(ui.Text->alignment());
+}
+
+
+void TextElementDlg::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
+{
+    QTextCursor cursor = ui.Text->textCursor();
+
+    if (!cursor.hasSelection()) {
+        cursor.select(QTextCursor::WordUnderCursor);
+    }
+
+    cursor.mergeCharFormat(format);
+    ui.Text->mergeCurrentCharFormat(format);
+}
+
+
+void TextElementDlg::fontChanged(const QFont &f)
+{
+    ui.FontFamily->setCurrentFont(QFontInfo(f).family());
+    ui.PointSize->setValue(f.pointSize());
+    ui.BoldButton->setChecked(f.bold());
+    ui.ItalicButton->setChecked(f.italic());
+    ui.UnderlineButton->setChecked(f.underline());
+}
+
+
+void TextElementDlg::colorChanged(const QColor &color)
+{
+    QPixmap pix(22, 22);
+    pix.fill(color);
+    ui.TextColor->setIcon(pix);
+}
+
+
+void TextElementDlg::alignmentChanged(Qt::Alignment align)
+{
+    if (align & Qt::AlignLeft) {
+        ui.AlignLeft->setChecked(true);
+    } else if (align & Qt::AlignHCenter) {
+        ui.AlignHCenter->setChecked(true);
+    } else if (align & Qt::AlignRight) {
+        ui.AlignRight->setChecked(true);
+    } else if (align & Qt::AlignJustify) {
+        ui.AlignJustify->setChecked(true);
+    }
 }

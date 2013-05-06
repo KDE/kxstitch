@@ -18,9 +18,11 @@
 #include <QGridLayout>
 #include <QMimeData>
 #include <QPainter>
+#include <QPaintEngine>
 #include <QProgressDialog>
 #include <QPrintDialog>
 #include <QPrinter>
+#include <QPrintEngine>
 #include <QPrintPreviewDialog>
 #include <QScrollArea>
 #include <QTemporaryFile>
@@ -61,14 +63,14 @@
 
 
 MainWindow::MainWindow()
-    :   m_printer(new QPrinter(QPrinter::HighResolution))
+    :   m_printer(new QPrinter())
 {
     setupActions();
 }
 
 
 MainWindow::MainWindow(const KUrl &url)
-    :   m_printer(new QPrinter(QPrinter::HighResolution))
+    :   m_printer(new QPrinter())
 {
     setupMainWindow();
     setupLayout();
@@ -84,7 +86,7 @@ MainWindow::MainWindow(const KUrl &url)
 
 
 MainWindow::MainWindow(const Magick::Image &image)
-    :   m_printer(new QPrinter(QPrinter::HighResolution))
+    :   m_printer(new QPrinter())
 {
     setupMainWindow();
     setupLayout();
@@ -497,21 +499,14 @@ void MainWindow::filePrintSetup()
 void MainWindow::filePrint()
 {
     m_printer->setFullPage(true);
-    m_printer->setResolution(300);
     m_printer->setPrintRange(QPrinter::AllPages);
     m_printer->setFromTo(1, m_document->printerConfiguration().pages().count());
 
-    QListIterator<Page *> pageIterator(m_document->printerConfiguration().pages());
-
-    if (pageIterator.hasNext()) {
-        const Page *page = pageIterator.next();
-        m_printer->setPaperSize(page->paperSize());
-        m_printer->setOrientation(page->orientation());
-
+    if (!m_document->printerConfiguration().pages().isEmpty()) {
         QPointer<QPrintDialog> printDialog = new QPrintDialog(m_printer, this);
 
         if (printDialog->exec() == QDialog::Accepted) {
-            printPages(m_printer);
+            printPages();
         }
 
         delete printDialog;
@@ -521,19 +516,24 @@ void MainWindow::filePrint()
 }
 
 
-void MainWindow::printPages(QPrinter *printer)
+void MainWindow::printPages()
 {
     QList<Page *> pages = m_document->printerConfiguration().pages();
     int totalPages = pages.count();
 
     QPainter painter;
-    painter.begin(printer);
-    painter.setRenderHint(QPainter::Antialiasing, true);
 
     const Page *page = pages.at(0);
 
+    m_printer->setPaperSize(page->paperSize());
+    m_printer->setOrientation(page->orientation());
+
     for (int p = 0 ; p < totalPages ;) {
-        // for the first page, the orientation and size will have been set
+        if (!painter.isActive()) {
+            painter.begin(m_printer);
+            painter.setRenderHint(QPainter::Antialiasing, true);
+        }
+
         int paperWidth = PaperSizes::width(page->paperSize(), page->orientation());
         int paperHeight = PaperSizes::height(page->paperSize(), page->orientation());
 
@@ -543,11 +543,16 @@ void MainWindow::printPages(QPrinter *printer)
 
         if (++p < totalPages) {
             page = pages.at(p);
-            printer->setPaperSize(page->paperSize());
-            printer->setOrientation(page->orientation());
-            printer->newPage();
-        }
 
+            if (painter.device()->paintEngine()->type() == QPaintEngine::PostScript) {
+                painter.end();
+            }
+
+            m_printer->setPaperSize(page->paperSize());
+            m_printer->setOrientation(page->orientation());
+
+            m_printer->newPage();
+        }
     }
 
     painter.end();

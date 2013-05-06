@@ -149,7 +149,6 @@ void Page::removeElement(Element *element)
 void Page::render(Document *document, QPainter *painter) const
 {
     painter->save();
-    painter->drawRect(0, 0, painter->window().width(), painter->window().height());
 
     QListIterator<Element *> elementIterator(m_elements);
 

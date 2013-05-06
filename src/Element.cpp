@@ -13,7 +13,10 @@
 
 #include <math.h>
 
+#include <QAbstractTextDocumentLayout>
 #include <QPainter>
+#include <QPaintEngine>
+#include <QTextDocument>
 
 #include <KLocale>
 
@@ -156,7 +159,7 @@ KeyElement::KeyElement(Page *parent, const QRect &rectangle, Element::Type type)
         m_backgroundTransparency(Configuration::keyElement_BackgroundTransparency()),
         m_margins(QMargins(Configuration::keyElement_MarginLeft(), Configuration::keyElement_MarginTop(), Configuration::keyElement_MarginRight(), Configuration::keyElement_MarginBottom())),
         m_indexStart(0),
-        m_indexCount(-1),
+        m_indexCount(0),
         m_symbolColumn(Configuration::keyElement_SymbolColumn()),
         m_flossNameColumn(Configuration::keyElement_FlossNameColumn()),
         m_strandsColumn(Configuration::keyElement_StrandsColumn()),
@@ -443,8 +446,10 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     if (m_showBorder) {
         painter->setPen(pen);
+    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
+        painter->setPen(Qt::lightGray); // When not drawing a border, draw an outline to show where the element is during setup
     } else {
-        painter->setPen(Qt::NoPen);
+        painter->setPen(Qt::NoPen);     // but not during printing
     }
 
     QColor backgroundColor = m_backgroundColor;
@@ -600,18 +605,14 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     while (sortedFlossesIterator.hasNext()) {
         int index = sortedFlossesIterator.next();
-        if (currentSortedFloss >= m_indexStart && (m_indexCount == -1 || currentSortedFloss < m_indexStart + m_indexCount)) {
+        if (currentSortedFloss >= m_indexStart && (m_indexCount == 0 || currentSortedFloss < m_indexStart + m_indexCount)) {
             FlossUsage usage = flossUsage[index];
 
             if (m_symbolColumn) {
                 Symbol symbol = SymbolManager::library("kxstitch")->symbol(flosses[index]->stitchSymbol());
-                QPixmap symbolPixmap(lineSpacing-2, lineSpacing-2);
-                symbolPixmap.fill(Qt::white);
 
-                QPainter symbolPainter(&symbolPixmap);
-                symbolPainter.setRenderHint(QPainter::Antialiasing, true);
-                symbolPainter.setWindow(0, 0, 1, 1);
-                symbolPainter.drawRect(0, 0, 1, 1);
+                painter->setViewport(deviceTextArea.left() + symbolWidth / 3, deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
+                painter->setWindow(0, 0, 1, 1);
 
                 QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
                 QPen pen(Qt::black);
@@ -622,12 +623,10 @@ void KeyElement::render(Document *document, QPainter *painter) const
                     pen.setJoinStyle(symbol.joinStyle());
                 }
 
-                symbolPainter.setBrush(brush);
-                symbolPainter.setPen(pen);
-                symbolPainter.drawPath(symbol.path());
-                symbolPainter.end();
-
-                painter->drawPixmap(deviceTextArea.topLeft() + QPointF(symbolWidth / 3, y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2))), symbolPixmap);
+                painter->setBrush(brush);
+                painter->setPen(pen);
+                painter->drawPath(symbol.path());
+                painter->resetTransform();
             }
 
             if (m_flossNameColumn) {
@@ -754,7 +753,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_backgroundTransparency = backgroundTransparency;
         m_margins = QMargins(left, top, right, bottom);
         m_indexStart = indexStart;
-        m_indexCount = indexCount;
+        m_indexCount = (indexCount == -1) ? 0 : indexCount;
         m_symbolColumn = bool(symbolColumn);
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
@@ -790,7 +789,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_backgroundTransparency = backgroundTransparency;
         m_margins = QMargins(left, top, right, bottom);
         m_indexStart = 0;
-        m_indexCount = -1;
+        m_indexCount = 0;
         m_symbolColumn = bool(symbolColumn);
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
@@ -828,7 +827,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_backgroundTransparency = backgroundTransparency;
         m_margins = QMargins(left, top, right, bottom);
         m_indexStart = 0;
-        m_indexCount = -1;
+        m_indexCount = 0;
         m_symbolColumn = bool(symbolColumn);
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
@@ -1085,7 +1084,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int vpHeight = int((patternHeight + scaleSize) * deviceVRatio);
 
     double vpCellWidth = deviceHRatio * cellWidth;
-    double vpCellHeight = deviceVRatio * cellHeight;
+//    double vpCellHeight = deviceVRatio * cellHeight;
     double vpScaleWidth = deviceHRatio * scaleSize;
     double vpScaleHeight = deviceVRatio * scaleSize;
 
@@ -1831,7 +1830,15 @@ void TextElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    double deviceVRatio = double(painter->device()->height()) / double(painter->window().height());
+    double pageWidthMM = painter->window().width();
+    double pageHeightMM = painter->window().height();
+    double deviceWidthPixels = painter->device()->width();
+    double deviceHeightPixels = painter->device()->height();
+    double devicePageWidthPixels = (double(pageWidthMM) / 25.4) * painter->device()->logicalDpiX();
+    double devicePageHeightPixels = (double(pageHeightMM) / 25.4) * painter->device()->logicalDpiY();
+
+    double deviceHRatio = devicePageWidthPixels / deviceWidthPixels;
+//    double deviceVRatio = devicePageHeightPixels / deviceHeightPixels;
 
     // set the viewport to be the rectangle converted to device coordinates
     painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
@@ -1843,8 +1850,10 @@ void TextElement::render(Document *document, QPainter *painter) const
 
     if (m_showBorder) {
         painter->setPen(pen);
+    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
+        painter->setPen(Qt::lightGray); // when not drawing a border, draw an outline to show where the element is during setup
     } else {
-        painter->setPen(Qt::NoPen);
+        painter->setPen(Qt::NoPen);     // but not during printing
     }
 
     QColor backgroundColor = m_backgroundColor;
@@ -1856,19 +1865,17 @@ void TextElement::render(Document *document, QPainter *painter) const
 
     painter->drawRect(painter->window());
 
-    QFont font = m_textFont;
-    font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceVRatio));
-
     QRect deviceTextArea = painter->combinedTransform().mapRect(QRect(0, 0, m_rectangle.width(), m_rectangle.height()).adjusted(m_margins.left(), m_margins.top(), -m_margins.right(), -m_margins.bottom()));
 
     painter->resetTransform();
-    painter->setClipRect(deviceTextArea);
+    painter->translate(deviceTextArea.topLeft());
+    painter->scale(deviceWidthPixels / devicePageWidthPixels, deviceHeightPixels / devicePageHeightPixels);
 
-    pen.setColor(m_textColor);
-    painter->setPen(pen);
-
-    painter->setFont(font);
-    painter->drawText(deviceTextArea, m_alignment | Qt::TextWordWrap, convertedText(document));
+    QTextDocument textDocument;
+    textDocument.documentLayout()->setPaintDevice(painter->device());
+    textDocument.setHtml(convertedText(document));
+    textDocument.setTextWidth(deviceHRatio * deviceTextArea.width());
+    textDocument.drawContents(painter);
 
     painter->restore();
 }

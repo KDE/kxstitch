@@ -69,7 +69,7 @@ protected slots:
     void fileRevert();
     void filePrintSetup();
     void filePrint();
-    void printPages(QPrinter *);
+    void printPages();
     void fileImportImage();
     void fileProperties();
     void fileAddBackgroundImage();

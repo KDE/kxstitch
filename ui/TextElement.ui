@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>246</width>
-    <height>634</height>
+    <width>774</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Text Element Properties</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox_4">
      <property name="title">
       <string>Margins</string>
@@ -152,7 +152,7 @@
      </layout>
     </widget>
    </item>
-   <item>
+   <item row="0" column="1" colspan="3">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Border</string>
@@ -160,6 +160,9 @@
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QCheckBox" name="ShowBorder">
+        <property name="toolTip">
+         <string>Show border around the text box</string>
+        </property>
         <property name="text">
          <string>Show border</string>
         </property>
@@ -176,6 +179,9 @@
        <widget class="KColorCombo" name="BorderColor">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>The border color</string>
         </property>
        </widget>
       </item>
@@ -217,7 +223,7 @@
      </layout>
     </widget>
    </item>
-   <item>
+   <item row="0" column="5" colspan="6">
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string comment="Groupbox title for background properties">Background</string>
@@ -225,6 +231,9 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QCheckBox" name="FillBackground">
+        <property name="toolTip">
+         <string>Fill the background with a color</string>
+        </property>
         <property name="text">
          <string>Fill background</string>
         </property>
@@ -242,6 +251,9 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="toolTip">
+         <string>Background color</string>
+        </property>
        </widget>
       </item>
       <item row="2" column="0">
@@ -256,6 +268,9 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="toolTip">
+         <string>Transparency of the text box</string>
+        </property>
         <property name="maximum">
          <number>255</number>
         </property>
@@ -267,204 +282,196 @@
      </layout>
     </widget>
    </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="title">
-      <string>Text</string>
+   <item row="1" column="0">
+    <widget class="QFontComboBox" name="FontFamily">
+     <property name="toolTip">
+      <string>Text font family</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_5">
-      <item row="0" column="0" colspan="3">
-       <widget class="KTextEdit" name="Text"/>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <widget class="QToolButton" name="AlignLeft">
-          <property name="toolTip">
-           <string>Align left</string>
-          </property>
-          <property name="text">
-           <string notr="true">...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QToolButton" name="AlignHCenter">
-          <property name="toolTip">
-           <string>Align horizontal center</string>
-          </property>
-          <property name="text">
-           <string notr="true">...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QToolButton" name="AlignRight">
-          <property name="toolTip">
-           <string>Align right</string>
-          </property>
-          <property name="text">
-           <string notr="true">...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QToolButton" name="AlignJustify">
-          <property name="toolTip">
-           <string>Justify</string>
-          </property>
-          <property name="text">
-           <string notr="true">...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QToolButton" name="AlignTop">
-          <property name="toolTip">
-           <string>Align top</string>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QToolButton" name="AlignVCenter">
-          <property name="toolTip">
-           <string>Align vertical center</string>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QToolButton" name="AlignBottom">
-          <property name="toolTip">
-           <string>Align bottom</string>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>22</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="2">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>56</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string comment="Label for color value">Color</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="KColorCombo" name="TextColor"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Font</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="KFontRequester" name="TextFont"/>
-      </item>
-     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QSpinBox" name="PointSize">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>Text point size</string>
+     </property>
+     <property name="minimum">
+      <number>5</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="value">
+      <number>10</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>138</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="3">
+    <widget class="QToolButton" name="BoldButton">
+     <property name="toolTip">
+      <string>Bold text</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QToolButton" name="ItalicButton">
+     <property name="toolTip">
+      <string>Italics text</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QToolButton" name="UnderlineButton">
+     <property name="toolTip">
+      <string>Underline text</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <widget class="QToolButton" name="AlignLeft">
+     <property name="toolTip">
+      <string>Align left</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="7">
+    <widget class="QToolButton" name="AlignHCenter">
+     <property name="toolTip">
+      <string>Align centrally</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="8">
+    <widget class="QToolButton" name="AlignRight">
+     <property name="toolTip">
+      <string>Align right</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="9">
+    <widget class="QToolButton" name="AlignJustify">
+     <property name="toolTip">
+      <string>Align justified</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="10">
+    <widget class="QToolButton" name="TextColor">
+     <property name="toolTip">
+      <string>Text color</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="11">
+    <widget class="QTextEdit" name="Text">
+     <property name="autoFormatting">
+      <set>QTextEdit::AutoAll</set>
+     </property>
     </widget>
    </item>
   </layout>
@@ -475,34 +482,7 @@
    <extends>QComboBox</extends>
    <header>kcolorcombo.h</header>
   </customwidget>
-  <customwidget>
-   <class>KFontRequester</class>
-   <extends>QWidget</extends>
-   <header>kfontrequester.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTextEdit</class>
-   <extends>QTextEdit</extends>
-   <header>ktextedit.h</header>
-  </customwidget>
  </customwidgets>
- <tabstops>
-  <tabstop>MarginTop</tabstop>
-  <tabstop>MarginLeft</tabstop>
-  <tabstop>MarginRight</tabstop>
-  <tabstop>MarginBottom</tabstop>
-  <tabstop>ShowBorder</tabstop>
-  <tabstop>BorderColor</tabstop>
-  <tabstop>BorderThickness</tabstop>
-  <tabstop>FillBackground</tabstop>
-  <tabstop>BackgroundColor</tabstop>
-  <tabstop>BackgroundTransparency</tabstop>
-  <tabstop>Text</tabstop>
-  <tabstop>AlignLeft</tabstop>
-  <tabstop>AlignHCenter</tabstop>
-  <tabstop>AlignRight</tabstop>
-  <tabstop>TextColor</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -512,44 +492,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>45</x>
-     <y>182</y>
+     <x>254</x>
+     <y>45</y>
     </hint>
     <hint type="destinationlabel">
-     <x>220</x>
-     <y>209</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>FillBackground</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>BackgroundColor</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>56</x>
-     <y>301</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>220</x>
-     <y>328</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>FillBackground</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>BackgroundTransparency</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>89</x>
-     <y>301</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>220</x>
-     <y>354</y>
+     <x>364</x>
+     <y>73</y>
     </hint>
    </hints>
   </connection>
@@ -560,12 +508,44 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>29</x>
-     <y>178</y>
+     <x>293</x>
+     <y>44</y>
     </hint>
     <hint type="destinationlabel">
-     <x>132</x>
-     <y>223</y>
+     <x>375</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FillBackground</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BackgroundColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>607</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FillBackground</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BackgroundTransparency</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>516</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>619</x>
+     <y>106</y>
     </hint>
    </hints>
   </connection>
