@@ -1084,7 +1084,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int vpHeight = int((patternHeight + scaleSize) * deviceVRatio);
 
     double vpCellWidth = deviceHRatio * cellWidth;
-//    double vpCellHeight = deviceVRatio * cellHeight;
+    double vpCellHeight = deviceVRatio * cellHeight;
     double vpScaleWidth = deviceHRatio * scaleSize;
     double vpScaleHeight = deviceVRatio * scaleSize;
 
@@ -1149,14 +1149,19 @@ void PatternElement::render(Document *document, QPainter *painter) const
             }
         }
 
-        double patternHCenter = double(documentWidth) / 2;
-        QPolygonF patternHCenterMarker;
-        patternHCenterMarker << QPointF(patternHCenter, 0.9) << QPointF(patternHCenter - 0.35, 0.65) << QPointF(patternHCenter + 0.35, 0.65);
-
-        painter->drawPolygon(patternHCenterMarker);
-
         QTransform transform = painter->combinedTransform();
+
+        double patternHCenter = double(documentWidth) / 2;
+        QPoint vpPatternHCenter = transform.map(QPointF(patternHCenter, 0.9)).toPoint();
+
         painter->resetTransform();
+
+        if (patternHCenter >= m_patternRect.left() && patternHCenter <= m_patternRect.right() + 1) {
+            QPolygon patternHCenterMarker;
+            int markerSize = deviceHRatio * scaleSize / 3;
+            patternHCenterMarker << vpPatternHCenter << vpPatternHCenter + QPoint(-markerSize / 2, -markerSize) << vpPatternHCenter + QPoint(markerSize / 2, -markerSize);
+            painter->drawPolygon(patternHCenterMarker);
+        }
 
         for (int i = 0 ; i <= ticks ; ++i) {
             int tickPosition = transform.map(QPointF(subTick * i, 0)).toPoint().x();
@@ -1216,14 +1221,19 @@ void PatternElement::render(Document *document, QPainter *painter) const
             }
         }
 
-        double patternVCenter = double(documentHeight) / 2;
-        QPolygonF patternVCenterMarker;
-        patternVCenterMarker << QPointF(0.9, patternVCenter) << QPointF(0.65, patternVCenter - 0.35) << QPointF(0.65, patternVCenter + 0.35);
-
-        painter->drawPolygon(patternVCenterMarker);
-
         transform = painter->combinedTransform();
+
+        double patternVCenter = double(documentHeight) / 2;
+        QPoint vpPatternVCenter = transform.map(QPointF(0.9, patternVCenter)).toPoint();
+
         painter->resetTransform();
+
+        if (patternVCenter >= m_patternRect.top() && patternVCenter <= m_patternRect.bottom() + 1) {
+            QPolygon patternVCenterMarker;
+            int markerSize = deviceVRatio * scaleSize / 3;
+            patternVCenterMarker << vpPatternVCenter << vpPatternVCenter + QPoint(-markerSize, -markerSize / 2) << vpPatternVCenter + QPoint(-markerSize, markerSize / 2);
+            painter->drawPolygon(patternVCenterMarker);
+        }
 
         for (int i = 0 ; i <= ticks ; ++i) {
             int tickPosition = transform.map(QPointF(0, subTick * i)).toPoint().y();
