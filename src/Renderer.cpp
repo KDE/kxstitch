@@ -269,10 +269,10 @@ void Renderer::render(QPainter *painter,
     }
 
     QTransform transform = painter->transform();
+
     if (renderStitches) {
         for (int y = patternTop ; y <= patternBottom ; ++y) {
             for (int x = patternLeft ; x <= patternRight ; ++x) {
-                QTransform tranform = painter->transform();
                 painter->translate(x, y);
 
                 if (StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y))) {
