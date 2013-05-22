@@ -1,7 +1,7 @@
 <chapter id="credits" >
     <title>Credits and License</title>
     <para>&kapp;</para>
-    <para>Program copyright 2002 Stephen P. Allewell  <email>stephen@mirramar.fsnet.co.uk</email></para>
+    <para>Program copyright 2002 Stephen P. Allewell  <email>sallewell@users.sourceforge.net</email></para>
     <para>
         Contributors:
         <itemizedlist>
@@ -13,7 +13,7 @@
         </itemizedlist>
     </para>
     <para>
-        Documentation copyright 2012 Stephen P. Allewell <email>stephen@mirramar.fsnet.co.uk</email>
+        Documentation copyright 2012 Stephen P. Allewell <email>sallewell@users.sourceforge.net</email>
         Dutch translation copyright 2009 Ronald Stroethoff <email>stroet43@zonnet.nl</email>
     </para>
     &underFDL;

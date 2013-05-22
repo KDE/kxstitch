@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 #: src/Main.cpp:93
-# Stephen Allewell <stephen@mirramar.adsl24.co.uk>, 2011, 2012.
+# Stephen Allewell <sallewell@users.sourceforge.net>, 2011, 2012.
 # Pavel Fric <pavelfric@seznam.cz>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: amarok\n"
-"Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
+"Report-Msgid-Bugs-To: sallewell@users.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-22 20:18+0200\n"
 "PO-Revision-Date: 2013-04-22 21:14+0200\n"
 "Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"

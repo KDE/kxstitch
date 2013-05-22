@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
+"Report-Msgid-Bugs-To: sallewell@users.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 18:07+0200\n"
 "PO-Revision-Date: 2012-04-27 18:10+0200\n"
 "Last-Translator: Joan Teixido Parramona <joan4@users.sourceforge.net>\n"

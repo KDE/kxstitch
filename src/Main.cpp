@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010 by Stephen Allewell
- * stephen@mirramar.adsl24.co.uk
+ * sallewell@users.sourceforge.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -92,8 +92,8 @@ int main(int argc, char *argv[])
                          ki18n("(c)2010 Stephen Allewell"),
                          ki18n(""),
                          "http://kxstitch.sourceforge.net/kxstitch",
-                         "kxstitch-bugs@mirramar.adsl24.co.uk");
-    aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "stephen@mirramar.adsl24.co.uk");
+                         "sallewell@users.sourceforge.net");
+    aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "sallewell@users.sourceforge.net");
     aboutData.addCredit(ki18n("Pierre Brua"), ki18n("Bug fixes, application icons"), "kxstitchdev@paralline.com");
     aboutData.addCredit(ki18n("Eric Pareja"), ki18n("Man page"), "xenos@upm.edu.ph");
     aboutData.addCredit(ki18n("Adam Gundy"), ki18n("Bug fixes, improvements"), "adam@starsilk.net");

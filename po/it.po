@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stephen Allewell <stephen@mirramar.adsl24.co.uk>, 2011, 2012.
+# Stephen Allewell <sallewell@users.sourceforge.net>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"

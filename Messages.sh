@@ -3,7 +3,7 @@
 BASEDIR="."		# root of translatable sources
 PODIR="po"		# folder for po files
 PROJECT="kxstitch"	# project name
-BUGADDR="kxstitch-bugs@mirramar.adsl24.co.uk"    # MSGID-Bugs
+BUGADDR="sallewell@users.sourceforge.net"    # MSGID-Bugs
 WDIR=`pwd`		# working dir
 
 

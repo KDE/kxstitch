@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stephen Allewell <stephen@mirramar.adsl24.co.uk>, 2011, 2012.
+# Stephen Allewell <sallewell@users.sourceforge.net>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: kxstitch-bugs@mirramar.adsl24.co.uk\n"
+"Report-Msgid-Bugs-To: sallewell@users.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-12 23:13+0100\n"
 "PO-Revision-Date: 2012-04-12 23:04+0100\n"
-"Last-Translator: Stephen Allewell <stephen@mirramar.adsl24.co.uk>\n"
+"Last-Translator: Stephen Allewell <sallewell@users.sourceforge.net>\n"
 "Language-Team: British English <kde-i18n-doc@kde.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
