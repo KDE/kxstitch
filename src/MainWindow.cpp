@@ -63,14 +63,14 @@
 
 
 MainWindow::MainWindow()
-    :   m_printer(new QPrinter())
+    :   m_printer(0)
 {
     setupActions();
 }
 
 
 MainWindow::MainWindow(const KUrl &url)
-    :   m_printer(new QPrinter())
+    :   m_printer(0)
 {
     setupMainWindow();
     setupLayout();
@@ -86,7 +86,7 @@ MainWindow::MainWindow(const KUrl &url)
 
 
 MainWindow::MainWindow(const Magick::Image &image)
-    :   m_printer(new QPrinter())
+    :   m_printer(0)
 {
     setupMainWindow();
     setupLayout();
@@ -486,6 +486,10 @@ void MainWindow::fileRevert()
 
 void MainWindow::filePrintSetup()
 {
+    if (m_printer == 0) {
+        m_printer = new QPrinter();
+    }
+
     QPointer<PrintSetupDlg> printSetupDlg = new PrintSetupDlg(this, m_document, m_printer);
 
     if (printSetupDlg->exec() == QDialog::Accepted) {
@@ -498,11 +502,15 @@ void MainWindow::filePrintSetup()
 
 void MainWindow::filePrint()
 {
-    m_printer->setFullPage(true);
-    m_printer->setPrintRange(QPrinter::AllPages);
-    m_printer->setFromTo(1, m_document->printerConfiguration().pages().count());
+    if (m_printer == 0) {
+        filePrintSetup();
+    }
 
     if (!m_document->printerConfiguration().pages().isEmpty()) {
+        m_printer->setFullPage(true);
+        m_printer->setPrintRange(QPrinter::AllPages);
+        m_printer->setFromTo(1, m_document->printerConfiguration().pages().count());
+
         QPointer<QPrintDialog> printDialog = new QPrintDialog(m_printer, this);
 
         if (printDialog->exec() == QDialog::Accepted) {
