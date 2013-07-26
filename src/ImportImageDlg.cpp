@@ -305,7 +305,7 @@ void ImportImageDlg::renderPixmap()
 
             if (!(packet.opacity)) {
                 if (!(m_ignoreColor && packet == m_ignoreColorValue)) {
-                    QColor color(packet.red / 257, packet.green / 257, packet.blue / 257);
+                    QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
                     painter.setPen(QPen(color));
                     painter.drawPoint(dx, dy);
                 }
@@ -347,7 +347,7 @@ void ImportImageDlg::selectColor(const QPoint &p)
     int x = p.x() - ((ui.ImagePreview->width() - m_pixmap.width()) / 2);
     int y = p.y() - ((ui.ImagePreview->height() - m_pixmap.height()) / 2);
     m_ignoreColorValue = m_convertedImage.pixelColor(x, y);
-    swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 257, m_ignoreColorValue.greenQuantum() / 257, m_ignoreColorValue.blueQuantum() / 257));
+    swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 256, m_ignoreColorValue.greenQuantum() / 256, m_ignoreColorValue.blueQuantum() / 256));
     ui.ColorButton->setIcon(swatch);
     renderPixmap();
 }

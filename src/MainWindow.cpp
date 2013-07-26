@@ -720,6 +720,7 @@ void MainWindow::convertImage(const Magick::Image &image)
         m_document->pattern()->stitches().resize(documentWidth, documentHeight);
 
         QString schemeName = importImageDlg->flossScheme();
+        
         FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
         m_document->pattern()->palette().setSchemeName(schemeName);
 
@@ -727,7 +728,8 @@ void MainWindow::convertImage(const Magick::Image &image)
         progress.setWindowModality(Qt::WindowModal);
         Magick::Pixels cache(convertedImage);
         const Magick::PixelPacket *pixels = cache.getConst(0, 0, imageWidth, imageHeight);
-
+        bool colorNotFound = false;
+        
         for (int dy = 0 ; dy < imageHeight ; dy++) {
             progress.setValue(dy * imageWidth);
             QApplication::processEvents();
@@ -742,8 +744,8 @@ void MainWindow::convertImage(const Magick::Image &image)
                 if (!(packet.opacity)) {
                     if (!(ignoreColor && Magick::Color(packet) == ignoreColorValue)) {
                         int flossIndex;
-                        QColor color(packet.red / 257, packet.green / 257, packet.blue / 257);
-
+                        QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
+                        
                         for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; flossIndex++) {
                             if (documentFlosses[flossIndex] == color) {
                                 break;
@@ -753,8 +755,13 @@ void MainWindow::convertImage(const Magick::Image &image)
                         if (flossIndex == documentFlosses.count()) { // reached the end of the list
                             qint16 stitchSymbol = m_document->pattern()->palette().freeSymbol();
                             Qt::PenStyle backstitchSymbol(Qt::SolidLine);
+                            QString foundName = flossScheme->find(color);
 
-                            DocumentFloss *documentFloss = new DocumentFloss(flossScheme->find(color), stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+                            if (foundName.isEmpty()) {
+                                colorNotFound = true;
+                            }
+                            
+                            DocumentFloss *documentFloss = new DocumentFloss(foundName, stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
                             documentFloss->setFlossColor(color);
                             m_document->pattern()->palette().add(flossIndex, documentFloss);
                             documentFlosses.insert(flossIndex, color);
@@ -773,6 +780,21 @@ void MainWindow::convertImage(const Magick::Image &image)
                 }
             }
         }
+        
+        if (colorNotFound) {
+            // Examples of imported images have missing color names
+            // This will fix those that are found by changing the scheme to something else and then back to the required one
+            // A fix has been introduced, but this is a final catch if there are any still found
+            kDebug() << "Found a missing color name and attempting to fix";
+            
+            if (schemeName == "DMC") {
+                m_document->pattern()->palette().setSchemeName("Anchor");
+            } else {
+                m_document->pattern()->palette().setSchemeName("DMC");
+            }
+            
+            m_document->pattern()->palette().setSchemeName(schemeName);
+        }              
 
         m_document->setProperty("horizontalClothCount", importImageDlg->horizontalClothCount());
         m_document->setProperty("verticalClothCount", importImageDlg->verticalClothCount());
