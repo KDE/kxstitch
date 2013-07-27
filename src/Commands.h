@@ -396,7 +396,7 @@ private:
 class RemoveDocumentFlossCommand : public QUndoCommand
 {
 public:
-    RemoveDocumentFlossCommand(Document *, int, DocumentFloss *);
+    RemoveDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = 0);
     ~RemoveDocumentFlossCommand();
 
     virtual void redo();
@@ -422,6 +422,20 @@ private:
     Document        *m_document;
     int             m_key;
     DocumentFloss   *m_documentFloss;
+};
+
+
+class ClearUnusedFlossesCommand : public QUndoCommand
+{
+public:
+    explicit ClearUnusedFlossesCommand(Document *);
+    ~ClearUnusedFlossesCommand();
+    
+    virtual void redo();
+    virtual void undo();
+    
+private:
+    Document    *m_document;
 };
 
 

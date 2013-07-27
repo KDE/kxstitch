@@ -977,28 +977,22 @@ void MainWindow::paletteShowSymbols(bool show)
 
 void MainWindow::paletteClearUnused()
 {
-    QList<QUndoCommand *> changes;
-
     QMap<int, FlossUsage> flossUsage = m_document->pattern()->stitches().flossUsage();
     QMapIterator<int, DocumentFloss *> flosses(m_document->pattern()->palette().flosses());
-
+    ClearUnusedFlossesCommand *clearUnusedFlossesCommand = new ClearUnusedFlossesCommand(m_document);
+    
     while (flosses.hasNext()) {
         flosses.next();
 
         if (flossUsage[flosses.key()].totalStitches() == 0) {
-            changes.append(new RemoveDocumentFlossCommand(m_document, flosses.key(), flosses.value()));
+            new RemoveDocumentFlossCommand(m_document, flosses.key(), flosses.value(), clearUnusedFlossesCommand);
         }
     }
 
-    if (!changes.isEmpty()) {
-        m_document->undoStack().beginMacro(i18n("Clear Unused Flosses"));
-        QListIterator<QUndoCommand *> it(changes);
-
-        while (it.hasNext()) {
-            m_document->undoStack().push(it.next());
-        }
-
-        m_document->undoStack().endMacro();
+    if (clearUnusedFlossesCommand->childCount()) {
+        m_document->undoStack().push(clearUnusedFlossesCommand);
+    } else {
+        delete clearUnusedFlossesCommand;
     }
 }
 

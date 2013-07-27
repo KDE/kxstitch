@@ -724,8 +724,8 @@ void AddDocumentFlossCommand::undo()
 }
 
 
-RemoveDocumentFlossCommand::RemoveDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss)
-    :   QUndoCommand(),
+RemoveDocumentFlossCommand::RemoveDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss, QUndoCommand *parent)
+    :   QUndoCommand(parent),
         m_document(document),
         m_key(key),
         m_documentFloss(documentFloss)
@@ -775,6 +775,32 @@ void ReplaceDocumentFlossCommand::redo()
 void ReplaceDocumentFlossCommand::undo()
 {
     m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
+}
+
+
+ClearUnusedFlossesCommand::ClearUnusedFlossesCommand(Document *document)
+    :   QUndoCommand(i18n("Clear Unused Flosses")),
+        m_document(document)
+{
+}
+
+
+ClearUnusedFlossesCommand::~ClearUnusedFlossesCommand()
+{
+}
+
+
+void ClearUnusedFlossesCommand::redo()
+{
+    QUndoCommand::redo();
+    m_document->palette()->update();
+}
+
+
+void ClearUnusedFlossesCommand::undo()
+{
+    QUndoCommand::undo();
+    m_document->palette()->update();
 }
 
 
