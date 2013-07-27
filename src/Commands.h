@@ -52,6 +52,20 @@ private:
 };
 
 
+class ImportImageCommand : public QUndoCommand
+{
+public:
+    explicit ImportImageCommand(Document *);
+    virtual ~ImportImageCommand();
+
+    virtual void redo();
+    virtual void undo();
+    
+private:
+    Document    *m_document;
+};
+
+
 class PaintStitchesCommand : public QUndoCommand
 {
 public:
@@ -366,7 +380,7 @@ private:
 class AddDocumentFlossCommand : public QUndoCommand
 {
 public:
-    AddDocumentFlossCommand(Document *, int, DocumentFloss *);
+    AddDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = 0);
     ~AddDocumentFlossCommand();
 
     virtual void redo();

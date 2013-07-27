@@ -64,6 +64,42 @@ void FilePropertiesCommand::undo()
 }
 
 
+ImportImageCommand::ImportImageCommand(Document *document)
+    :   QUndoCommand(i18n("Import Image")),
+        m_document(document)
+{
+}
+                      
+                      
+ImportImageCommand::~ImportImageCommand()
+{
+}
+                      
+                      
+void ImportImageCommand::redo()
+{
+    QUndoCommand::redo();
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+    m_document->palette()->readDocumentSettings();
+    m_document->editor()->update();
+    m_document->preview()->update();
+    m_document->palette()->update();
+}
+                      
+                      
+void ImportImageCommand::undo()
+{
+    QUndoCommand::undo();
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+    m_document->palette()->readDocumentSettings();
+    m_document->editor()->update();
+    m_document->preview()->update();
+    m_document->palette()->update();
+}
+                      
+                      
 PaintStitchesCommand::PaintStitchesCommand(Document *document)
     :   QUndoCommand(i18n("Paint Stitches")),
         m_document(document)
@@ -662,8 +698,8 @@ void RemoveBackgroundImageCommand::undo()
 }
 
 
-AddDocumentFlossCommand::AddDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss)
-    :   QUndoCommand(),
+AddDocumentFlossCommand::AddDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss, QUndoCommand *parent)
+    :   QUndoCommand(parent),
         m_document(document),
         m_key(key),
         m_documentFloss(documentFloss)

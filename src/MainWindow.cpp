@@ -717,12 +717,12 @@ void MainWindow::convertImage(const Magick::Image &image)
             documentHeight /= 2;
         }
 
-        m_document->pattern()->stitches().resize(documentWidth, documentHeight);
-
         QString schemeName = importImageDlg->flossScheme();
-        
         FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
-        m_document->pattern()->palette().setSchemeName(schemeName);
+
+        QUndoCommand *importImageCommand = new ImportImageCommand(m_document);        
+        new ResizeDocumentCommand(m_document, documentWidth, documentHeight, importImageCommand);
+        new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
 
         QProgressDialog progress(i18n("Converting to stitches"), i18n("Cancel"), 0, pixelCount, this);
         progress.setWindowModality(Qt::WindowModal);
@@ -735,7 +735,9 @@ void MainWindow::convertImage(const Magick::Image &image)
             QApplication::processEvents();
 
             if (progress.wasCanceled()) {
-                break;
+                delete importImageDlg;
+                delete importImageCommand;
+                return;
             }
 
             for (int dx = 0 ; dx < imageWidth ; dx++) {
@@ -763,7 +765,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                             
                             DocumentFloss *documentFloss = new DocumentFloss(foundName, stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
                             documentFloss->setFlossColor(color);
-                            m_document->pattern()->palette().add(flossIndex, documentFloss);
+                            new AddDocumentFlossCommand(m_document, flossIndex, documentFloss, importImageCommand);
                             documentFlosses.insert(flossIndex, color);
                             flossSymbols.insert(flossIndex, stitchSymbol);
                         }
@@ -772,9 +774,9 @@ void MainWindow::convertImage(const Magick::Image &image)
                         //   flossIndex will be the index for the found color
                         if (useFractionals) {
                             int zone = (dy % 2) * 2 + (dx % 2);
-                            m_document->pattern()->stitches().addStitch(QPoint(dx / 2, dy / 2), stitchMap[0][zone], flossIndex);
+                            new AddStitchCommand(m_document, QPoint(dx / 2, dy / 2), stitchMap[0][zone], flossIndex, importImageCommand);
                         } else {
-                            m_document->pattern()->stitches().addStitch(QPoint(dx, dy), Stitch::Full, flossIndex);
+                            new AddStitchCommand(m_document, QPoint(dx, dy), Stitch::Full, flossIndex, importImageCommand);
                         }
                     }
                 }
@@ -788,22 +790,17 @@ void MainWindow::convertImage(const Magick::Image &image)
             kDebug() << "Found a missing color name and attempting to fix";
             
             if (schemeName == "DMC") {
-                m_document->pattern()->palette().setSchemeName("Anchor");
+                new ChangeSchemeCommand(m_document, "Anchor", importImageCommand);
             } else {
-                m_document->pattern()->palette().setSchemeName("DMC");
+                new ChangeSchemeCommand(m_document, "DMC", importImageCommand);
             }
-            
-            m_document->pattern()->palette().setSchemeName(schemeName);
+  
+            new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
         }              
 
-        m_document->setProperty("horizontalClothCount", importImageDlg->horizontalClothCount());
-        m_document->setProperty("verticalClothCount", importImageDlg->verticalClothCount());
-        m_editor->readDocumentSettings();
-        m_palette->readDocumentSettings();
-        m_preview->readDocumentSettings();
-        m_editor->update();
-        m_palette->update();
-        m_preview->update();
+        new SetPropertyCommand(m_document, "horizontalClothCount", importImageDlg->horizontalClothCount(), importImageCommand);
+        new SetPropertyCommand(m_document, "verticalClothCount", importImageDlg->verticalClothCount(), importImageCommand);
+        m_document->undoStack().push(importImageCommand);
     }
 
     delete importImageDlg;
