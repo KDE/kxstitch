@@ -43,7 +43,7 @@ fi
 
 if (${SHOW_HELP:=false})
 then
-    echo "Usage build.sh -dhpv"
+    echo "Usage build.sh -dhpsv"
     echo "  -d : Build with debugging enabled"
     echo "  -h : Show this help"
     echo "  -p : Build with profiling enabled"
