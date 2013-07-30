@@ -60,6 +60,8 @@
 #include "QVariantPtr.h"
 #include "Scale.h"
 #include "SchemeManager.h"
+#include "SymbolLibrary.h"
+#include "SymbolManager.h"
 
 
 MainWindow::MainWindow()
@@ -693,7 +695,7 @@ void MainWindow::fileImportImage()
 void MainWindow::convertImage(const Magick::Image &image)
 {
     QMap<int, QColor> documentFlosses;
-    QMap<int, qint16> flossSymbols;
+    QList<qint16> symbolIndexes = SymbolManager::library("kxstitch")->indexes();
 
     QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 
@@ -755,7 +757,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                         }
 
                         if (flossIndex == documentFlosses.count()) { // reached the end of the list
-                            qint16 stitchSymbol = m_document->pattern()->palette().freeSymbol();
+                            qint16 stitchSymbol = symbolIndexes.takeFirst();
                             Qt::PenStyle backstitchSymbol(Qt::SolidLine);
                             QString foundName = flossScheme->find(color);
 
@@ -767,7 +769,6 @@ void MainWindow::convertImage(const Magick::Image &image)
                             documentFloss->setFlossColor(color);
                             new AddDocumentFlossCommand(m_document, flossIndex, documentFloss, importImageCommand);
                             documentFlosses.insert(flossIndex, color);
-                            flossSymbols.insert(flossIndex, stitchSymbol);
                         }
 
                         // at this point
