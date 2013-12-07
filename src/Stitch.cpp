@@ -364,6 +364,12 @@ bool Backstitch::contains(const QPoint &point) const
 }
 
 
+void Backstitch::move(int dx, int dy)
+{
+    move(QPoint(dx, dy));
+}
+
+
 void Backstitch::move(const QPoint &offset)
 {
     start += offset;
@@ -423,6 +429,12 @@ Knot::Knot(const QPoint &p, int i)
     :   position(p),
         colorIndex(i)
 {
+}
+
+
+void Knot::move(int dx, int dy)
+{
+    move(QPoint(dx, dy));
 }
 
 

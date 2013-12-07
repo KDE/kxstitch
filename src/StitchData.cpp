@@ -60,6 +60,8 @@ int FlossUsage::stitchCount() const
 
 
 StitchData::StitchData()
+    :   m_width(0),
+        m_height(0)
 {
 }
 
@@ -72,15 +74,8 @@ StitchData::~StitchData()
 
 void StitchData::clear()
 {
-    QHashIterator<int, QHash<int, StitchQueue *> > rowIterator(m_stitches);
-
-    while (rowIterator.hasNext()) {
-        rowIterator.next();
-        qDeleteAll(m_stitches[rowIterator.key()]);
-        m_stitches[rowIterator.key()].clear();
-    }
-
-    m_stitches.clear();
+    qDeleteAll(m_stitches);
+    m_stitches.fill(0);
 
     qDeleteAll(m_backstitches);
     m_backstitches.clear();
@@ -104,6 +99,16 @@ int StitchData::height() const
 
 void StitchData::resize(int width, int height)
 {
+    QVector<StitchQueue *> newVector(width * height);
+    QRect extentsRect = extents();
+
+    for (int y = extentsRect.top() ; y <= extentsRect.bottom() ; ++y) {
+        for (int x = extentsRect.left() ; x <= extentsRect.right() ; ++x) {
+            newVector[y * width + x] = takeStitchQueueAt(x, y);
+        }
+    }
+
+    m_stitches = newVector;
     m_width = width;
     m_height = height;
 }
@@ -113,193 +118,65 @@ QRect StitchData::extents() const
 {
     QRect extentsRect;
 
-    bool first = true;
-    QHashIterator<int, QHash<int, StitchQueue *> > columnIterator(m_stitches);
-
-    while (columnIterator.hasNext()) {
-        columnIterator.next();
-        int x = columnIterator.key();
-        QHashIterator<int, StitchQueue *> rowIterator(columnIterator.value());
-
-        while (rowIterator.hasNext()) {
-            rowIterator.next();
-            int y = rowIterator.key();
-
-            if (first) {
-                extentsRect = QRect(x * 2, y * 2, 2, 2);        // initialise in snap coordinates
-                first = false;
-            } else {
-                extentsRect = extentsRect.unite(QRect(x * 2, y * 2, 2, 2));    // update with snap coordinates
+    for (int y = 0 ; y < m_height ; ++y) {
+        for (int x = 0 ; x < m_width ; ++x) {
+            if (m_stitches.at(index(x, y))) {
+                extentsRect |= QRect(x * 2, y * 2, 2, 2);
             }
         }
     }
-
-    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
-
-    if (backstitchIterator.hasNext()) {
-        Backstitch *backstitch = backstitchIterator.next();
-        int minX = std::min(backstitch->start.x(), backstitch->end.x());
-        int minY = std::min(backstitch->start.y(), backstitch->end.y());
-        int maxX = std::max(backstitch->start.x(), backstitch->end.x());
-        int maxY = std::max(backstitch->start.y(), backstitch->end.y());
-
-        while (backstitchIterator.hasNext()) {
-            backstitch = backstitchIterator.next();
-            minX = std::min(minX, std::min(backstitch->start.x(), backstitch->end.x()));
-            minY = std::min(minY, std::min(backstitch->start.y(), backstitch->end.y()));
-            maxX = std::max(maxX, std::max(backstitch->start.x(), backstitch->end.x()));
-            maxY = std::max(maxY, std::max(backstitch->start.y(), backstitch->end.y()));
-        }
-
-        if (extentsRect.isValid()) {
-            if (minX < extentsRect.left()) {
-                extentsRect.setLeft(minX);
-            }
-
-            if (minY < extentsRect.top()) {
-                extentsRect.setTop(minY);
-            }
-
-            if (maxX > extentsRect.right()) {
-                extentsRect.setRight(maxX);
-            }
-
-            if (maxY > extentsRect.bottom()) {
-                extentsRect.setBottom(maxY);
-            }
-        } else {
-            extentsRect.setLeft(minX);
-            extentsRect.setTop(minY);
-            extentsRect.setRight(maxX);
-            extentsRect.setBottom(maxY);
-        }
-    }
-
-    QListIterator<Knot *> knotIterator(m_knots);
-
-    if (knotIterator.hasNext()) {
-        Knot *knot = knotIterator.next();
-        int minX = knot->position.x();
-        int maxX = minX;
-        int minY = knot->position.y();
-        int maxY = minY;
-
-        while (knotIterator.hasNext()) {
-            knot = knotIterator.next();
-            int x = knot->position.x();
-            int y = knot->position.y();
-            minX = std::min(x, minX);
-            minY = std::min(y, minY);
-            maxX = std::max(x, maxX);
-            maxY = std::max(y, maxY);
-        }
-
-        if (extentsRect.isValid()) {
-            if (minX < extentsRect.left()) {
-                extentsRect.setLeft(minX);
-            }
-
-            if (minY < extentsRect.top()) {
-                extentsRect.setTop(minY);
-            }
-
-            if (maxX > extentsRect.right()) {
-                extentsRect.setRight(maxX);
-            }
-
-            if (maxY > extentsRect.bottom()) {
-                extentsRect.setBottom(maxY);
-            }
-        } else {
-            extentsRect.setLeft(minX);
-            extentsRect.setTop(minY);
-            extentsRect.setRight(maxX);
-            extentsRect.setBottom(maxY);
-        }
-    }
-
-    // extentsRect is in snap coordinates
-    // if width or height is zero, change to 2;
-    if (extentsRect.width() == 0) {
-        extentsRect.setWidth(2);
-    }
-
-    if (extentsRect.height() == 0) {
-        extentsRect.setHeight(2);
-    }
-
-    extentsRect.adjust(-(extentsRect.left() % 2), -(extentsRect.top() % 2), extentsRect.right() % 2, extentsRect.bottom() % 2);
-
-    return QRect(extentsRect.left() / 2, extentsRect.top() / 2, extentsRect.width() / 2, extentsRect.height() / 2);
-}
-
-
-void StitchData::movePattern(int dx, int dy)
-{
-    QRect extentsRect = extents();
-    int xStart = extentsRect.left();
-    int yStart = extentsRect.top();
-    int xEnd = extentsRect.right();
-    int yEnd = extentsRect.bottom();
-    int xInc;
-    int yInc;
-
-    if (dx < 0) { // moving left
-        ++xEnd;
-        xInc = 1;
-    } else { // moving right
-        int x = xStart;
-        xStart = xEnd;
-        xEnd = x - 1;
-        xInc = -1;
-    }
-
-    if (dy < 0) { // moving up
-        ++yEnd;
-        yInc = 1;
-    } else { // moving down
-        int y = yStart;
-        yStart = yEnd;
-        yEnd = y - 1;
-        yInc = -1;
-    }
-
-
-    for (int x = xStart ; x != xEnd ; x += xInc) {
-        if (m_stitches.contains(x)) {
-            QHash<int, StitchQueue *> column = m_stitches.take(x);
-
-            for (int y = yStart ; y != yEnd ; y += yInc) {
-                if (column.contains(y)) {
-                    StitchQueue *stitchQueue = column.take(y);
-
-                    if (!stitchQueue->isEmpty()) {
-                        column.insert(y + dy, stitchQueue);
-                    }
-                }
-            }
-
-            m_stitches.insert(x + dx, column);
-        }
-    }
-
-    dx *= 2;
-    dy *= 2;
-
-    QPoint offset(dx, dy);
 
     QListIterator<Backstitch *> backstitchIterator(m_backstitches);
 
     while (backstitchIterator.hasNext()) {
         Backstitch *backstitch = backstitchIterator.next();
-        backstitch->move(QPoint(dx, dy));
+        extentsRect |= QRect(backstitch->start, backstitch->end).normalized();
     }
 
     QListIterator<Knot *> knotIterator(m_knots);
 
     while (knotIterator.hasNext()) {
         Knot *knot = knotIterator.next();
-        knot->move(QPoint(dx, dy));
+        extentsRect |= QRect(knot->position, QSize(0, 0));
+    }
+
+    extentsRect.adjust(-(extentsRect.left() % 2), -(extentsRect.top() % 2), extentsRect.right() % 2, extentsRect.bottom() % 2);
+
+    if (extentsRect.isValid()) {
+        extentsRect = QRect(extentsRect.left() / 2, extentsRect.top() / 2, extentsRect.width() / 2, extentsRect.height() / 2);
+    }
+
+    return extentsRect;
+}
+
+
+void StitchData::movePattern(int dx, int dy)
+{
+    QRect extentsRect = extents();
+
+    QVector<StitchQueue *> newVector(m_width * m_height);
+
+    for (int y = extentsRect.top() ; y <= extentsRect.bottom() ; ++y) {
+        for (int x = extentsRect.left() ; x <= extentsRect.right() ; ++x) {
+            newVector[index(x + dx, y + dy)] = takeStitchQueueAt(x, y);
+        }
+    }
+
+    m_stitches = newVector;
+
+    dx *= 2;
+    dy *= 2;
+
+    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+
+    while (backstitchIterator.hasNext()) {
+        backstitchIterator.next()->move(dx, dy);
+    }
+
+    QListIterator<Knot *> knotIterator(m_knots);
+
+    while (knotIterator.hasNext()) {
+        knotIterator.next()->move(dx, dy);
     }
 }
 
@@ -376,57 +253,41 @@ void StitchData::rotate(Rotation rotation)
     int rows = m_height;
     int cols = m_width;
 
-    QHash<int, QHash<int, StitchQueue *> > rotatedData;
+    QVector<StitchQueue *> rotatedData(m_width * m_height);
 
-    for (int row = 0 ; row < rows ; ++row) {
-        for (int col = 0 ; col < cols ; ++col) {
-            QPoint srcCell(col, row);
-            QPoint dstCell;
+    for (int y = 0 ; y < rows ; ++y) {
+        for (int x = 0 ; x < cols ; ++x) {
+            StitchQueue *src = takeStitchQueueAt(x, y);
+            int index;
 
             switch (rotation) {
             case Rotate90:
-                dstCell = QPoint(row, cols - col - 1);
+                index = (cols - x - 1) * rows + x;
                 break;
 
             case Rotate180:
-                dstCell = QPoint(cols - col - 1, rows - row - 1);
+                index = (rows - y - 1) * cols + (cols - x - 1);
                 break;
 
             case Rotate270:
-                dstCell = QPoint(rows - row - 1, col);
+                index = x * rows + (rows - y - 1);
                 break;
             }
 
-            StitchQueue *src = takeStitchQueueAt(srcCell);
-
             if (src) {
                 rotateQueue(rotation, src);
-                rotatedData[dstCell.x()][dstCell.y()] = src;
+                rotatedData[index] = src;
             }
         }
     }
 
     if ((rotation == Rotate90) || (rotation == Rotate270)) {
-        resize(m_height, m_width);
+        int height = m_height;
+        m_height = m_width;
+        m_width = height;
     }
 
-    QMutableHashIterator<int, QHash<int, StitchQueue *> > columnIterator(m_stitches);
-
-    while (columnIterator.hasNext()) {
-        columnIterator.next().value().clear();
-    }
-
-    m_stitches.clear();
-
-    QMutableHashIterator<int, QHash<int, StitchQueue *> > rotatedColumnIterator(rotatedData);
-
-    while (rotatedColumnIterator.hasNext()) {
-        rotatedColumnIterator.next();
-        m_stitches[rotatedColumnIterator.key()] = rotatedColumnIterator.value();
-        rotatedColumnIterator.value().clear();
-    }
-
-    rotatedData.clear();
+    m_stitches = rotatedData;
 
     int maxXSnap = m_width * 2;
     int maxYSnap = m_height * 2;
@@ -607,19 +468,26 @@ void StitchData::rotateQueue(Rotation rotation, StitchQueue *queue)
 }
 
 
+int StitchData::index(int x, int y) const
+{
+    return y * m_width + x;
+}
+
+
+int StitchData::index(const QPoint &cell) const
+{
+    return index(cell.x(), cell.y());
+}
+
+
 void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
-    StitchQueue *stitchQueue = 0;
-    int x = position.x();
-    int y = position.y();
-
-    if (m_stitches.contains(x) && m_stitches[x].contains(y)) {
-        stitchQueue = m_stitches[x][y];
-    }
+    int i = index(position);
+    StitchQueue *stitchQueue = m_stitches.at(i);
 
     if (stitchQueue == 0) {
         stitchQueue = new StitchQueue;
-        m_stitches[x][y] = stitchQueue;
+        m_stitches[i] = stitchQueue;
     }
 
     stitchQueue->add(type, colorIndex);
@@ -628,34 +496,35 @@ void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorI
 
 void StitchData::deleteStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
-    int x = position.x();
-    int y = position.y();
+    int i = index(position);
+    StitchQueue *stitchQueue = m_stitches.at(i);
 
-    if (m_stitches.contains(x) && m_stitches[x].contains(y)) {
-        StitchQueue *stitchQueue = m_stitches[x][y];
-
-        if (stitchQueue) {
-            if (stitchQueue->remove(type, colorIndex) == 0) {
-                m_stitches[x].remove(y);
-
-                if (m_stitches[x].count() == 0) {
-                    m_stitches.remove(x);
-                }
-            }
+    if (stitchQueue) {
+        if (stitchQueue->remove(type, colorIndex) == 0) {
+            m_stitches[i] = 0;
+            delete stitchQueue;
         }
     }
 }
 
 
+StitchQueue *StitchData::stitchQueueAt(int x, int y)
+{
+    return m_stitches.at(index(x, y));
+}
+
+
 StitchQueue *StitchData::stitchQueueAt(const QPoint &position)
 {
-    StitchQueue *stitchQueue = 0;
-    int x = position.x();
-    int y = position.y();
+    return stitchQueueAt(position.x(), position.y());
+}
 
-    if (m_stitches.contains(x) && m_stitches[x].contains(y)) {
-        stitchQueue = m_stitches[x][y];
-    }
+
+StitchQueue *StitchData::takeStitchQueueAt(int x, int y)
+{
+    StitchQueue *stitchQueue = stitchQueueAt(x, y);
+
+    m_stitches[index(x, y)] = 0;
 
     return stitchQueue;
 }
@@ -663,29 +532,23 @@ StitchQueue *StitchData::stitchQueueAt(const QPoint &position)
 
 StitchQueue *StitchData::takeStitchQueueAt(const QPoint &position)
 {
-    StitchQueue *stitchQueue = stitchQueueAt(position);
+    return takeStitchQueueAt(position.x(), position.y());
+}
 
-    if (stitchQueue) {
-        m_stitches[position.x()].remove(position.y());
 
-        if (m_stitches[position.x()].isEmpty()) {
-            m_stitches.remove(position.x());
-        }
-    }
+StitchQueue *StitchData::replaceStitchQueueAt(int x, int y, StitchQueue *stitchQueue)
+{
+    StitchQueue *originalQueue = takeStitchQueueAt(x, y);
 
-    return stitchQueue;
+    m_stitches[index(x, y)] = stitchQueue;
+
+    return originalQueue;
 }
 
 
 StitchQueue *StitchData::replaceStitchQueueAt(const QPoint &position, StitchQueue *stitchQueue)
 {
-    StitchQueue *originalQueue = takeStitchQueueAt(position);
-
-    if (stitchQueue) {
-        m_stitches[position.x()][position.y()] = stitchQueue;
-    }
-
-    return originalQueue;
+    return replaceStitchQueueAt(position.x(), position.y(), stitchQueue);
 }
 
 
@@ -858,24 +721,18 @@ QMap<int, FlossUsage> StitchData::flossUsage()
         lengths.insert(Stitch::FrenchKnot, 2.0);
     }
 
-    QHashIterator<int, QHash<int, StitchQueue *> > columnIterator(m_stitches);
+    QVectorIterator<StitchQueue *> stitchesIterator(m_stitches);
 
-    while (columnIterator.hasNext()) {
-        columnIterator.next();
-        QHashIterator<int, StitchQueue *> rowIterator(columnIterator.value());
+    while (stitchesIterator.hasNext()) {
+        StitchQueue *stitchQueue = stitchesIterator.next();
 
-        while (rowIterator.hasNext()) {
-            rowIterator.next();
-            StitchQueue *stitchQueue = rowIterator.value();
+        if (stitchQueue) {
+            QListIterator<Stitch *> stitchIterator(*stitchQueue);
 
-            if (stitchQueue) {
-                QListIterator<Stitch *> stitchIterator(*stitchQueue);
-
-                while (stitchIterator.hasNext()) {
-                    Stitch *stitch = stitchIterator.next();
-                    usage[stitch->colorIndex].stitchCounts[stitch->type]++;
-                    usage[stitch->colorIndex].stitchLengths[stitch->type] += lengths[stitch->type];
-                }
+            while (stitchIterator.hasNext()) {
+                Stitch *stitch = stitchIterator.next();
+                usage[stitch->colorIndex].stitchCounts[stitch->type]++;
+                usage[stitch->colorIndex].stitchLengths[stitch->type] += lengths[stitch->type];
             }
         }
     }
@@ -907,22 +764,24 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
     stream << qint32(stitchData.m_width);
     stream << qint32(stitchData.m_height);
 
-    QHashIterator<int, QHash<int, StitchQueue *> > columnIterator(stitchData.m_stitches);
-    stream << qint32(stitchData.m_stitches.count());
+    QVectorIterator<StitchQueue *> stitchesIterator(stitchData.m_stitches);
+    int queues = 0;
 
-    while (columnIterator.hasNext()) {
-        columnIterator.next();
-        int column = columnIterator.key();
-        QHashIterator<int, StitchQueue *> rowIterator(columnIterator.value());
-        stream << qint32(stitchData.m_stitches[column].count());
+    while (stitchesIterator.hasNext()) {
+        if (stitchesIterator.next()) {
+            ++queues;
+        }
+    }
 
-        while (rowIterator.hasNext()) {
-            rowIterator.next();
-            int row = rowIterator.key();
-            StitchQueue *stitchQueue = rowIterator.value();
-            stream << qint32(column);
-            stream << qint32(row);
-            stream << *stitchQueue;
+    stream << qint32(queues);
+
+    for (int row = 0 ; row < stitchData.m_height ; ++row) {
+        for (int column = 0 ; column < stitchData.m_width ; ++column) {
+            if (StitchQueue *stitchQueue = stitchData.m_stitches[stitchData.index(column, row)]) {
+                stream << qint32(column);
+                stream << qint32(row);
+                stream << *stitchQueue;
+            }
         }
     }
 
@@ -956,7 +815,7 @@ QDataStream &operator<<(QDataStream &stream, const StitchData &stitchData)
 }
 
 
-QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
+QDataStream &operator>>(QDataStream &stream, StitchData &stitchData)
 {
     qint32 version;
     qint32 width;
@@ -965,17 +824,49 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
     qint32 columns;
     qint32 rows;
     qint32 count;
+    QHash<int, QHash<int, StitchQueue *> > stitches;
 
     stitchData.clear();
 
     stream >> version;
 
     switch (version) {
+    case 103:
+        stream >> width;
+        stream >> height;
+        stitchData.resize(width, height);
+        stream >> count;
+
+        while (count--) {
+            stream >> columns;
+            stream >> rows;
+            StitchQueue *stitchQueue = new StitchQueue;
+            stitchData.replaceStitchQueueAt(columns, rows, stitchQueue);
+            stream >> *stitchQueue;
+        }
+
+        stream >> count;
+
+        while (count--) {
+            Backstitch *backstitch = new Backstitch;
+            stream >> *(backstitch);
+            stitchData.addBackstitch(backstitch);
+        }
+
+        stream >> count;
+
+        while (count--) {
+            Knot *knot = new Knot;
+            stream >> *knot;
+            stitchData.addFrenchKnot(knot);
+        }
+
+        break;
+
     case 102:
         stream >> width;
         stream >> height;
-        stitchData.m_width = width;
-        stitchData.m_height = height;
+        stitchData.resize(width, height);
 
         stream >> columns;
 
@@ -990,8 +881,16 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
                 stream >> row;
 
                 StitchQueue *stitchQueue = new StitchQueue;
-                stitchData.m_stitches[column][row] = stitchQueue;
+                stitches[column][row] = stitchQueue;
                 stream >> *stitchQueue;
+            }
+        }
+
+        for (int y = 0 ; y < height ; ++y) {
+            for (int x = 0 ; x < width ; ++x) {
+                if (stitches[x][y]) {
+                    stitchData.replaceStitchQueueAt(x, y, stitches[x][y]);
+                }
             }
         }
 
@@ -1016,8 +915,7 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
     case 101:
         stream >> width;
         stream >> height;
-        stitchData.m_width = width;
-        stitchData.m_height = height;
+        stitchData.resize(width, height);
 
         stream >> columns;
 
@@ -1032,8 +930,16 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
                 stream >> row;
 
                 StitchQueue *stitchQueue = new StitchQueue;
-                stitchData.m_stitches[column][row] = stitchQueue;
+                stitches[column][row] = stitchQueue;
                 stream >> *stitchQueue;
+            }
+        }
+
+        for (int y = 0 ; y < height ; ++y) {
+            for (int x = 0 ; x < width ; ++x) {
+                if (stitches[x][y]) {
+                    stitchData.replaceStitchQueueAt(x, y, stitches[x][y]);
+                }
             }
         }
 
@@ -1063,8 +969,16 @@ QDataStream  &operator>>(QDataStream &stream, StitchData &stitchData)
                     stream >> row;
 
                     StitchQueue *stitchQueue = new StitchQueue;
-                    stitchData.m_stitches[column][row] = stitchQueue;
+                    stitches[column][row] = stitchQueue;
                     stream >> *stitchQueue;
+                }
+            }
+        }
+
+        for (int y = 0 ; y < height ; ++y) {
+            for (int x = 0 ; x < width ; ++x) {
+                if (stitches[x][y]) {
+                    stitchData.replaceStitchQueueAt(x, y, stitches[x][y]);
                 }
             }
         }

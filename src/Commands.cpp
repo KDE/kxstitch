@@ -26,6 +26,7 @@
 #include "Palette.h"
 #include "Preview.h"
 #include "SchemeManager.h"
+#include "StitchData.h"
 
 
 FilePropertiesCommand::FilePropertiesCommand(Document *document)
@@ -834,8 +835,8 @@ void ResizeDocumentCommand::redo()
 
 void ResizeDocumentCommand::undo()
 {
-    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
     m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
+    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 }
 
 
@@ -867,8 +868,8 @@ void CropToPatternCommand::redo()
 
 void CropToPatternCommand::undo()
 {
-    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
     m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
+    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -896,10 +897,10 @@ void CropToSelectionCommand::redo()
                  << Stitch::BLSmallFull << Stitch::BRSmallFull;
 
     QDataStream stream(&m_originalPattern, QIODevice::WriteOnly);
-    stream << *(m_document->pattern());
+    stream << m_document->pattern()->stitches();
 
     Pattern *pattern = m_document->pattern()->copy(m_selectionArea, -1, maskStitches, false, false);
-    m_document->pattern()->clear();
+    m_document->pattern()->stitches().clear();
     m_document->pattern()->stitches().resize(m_selectionArea.width(), m_selectionArea.height());
     m_document->pattern()->paste(pattern, QPoint(0, 0), true);
     delete pattern;
@@ -911,9 +912,8 @@ void CropToSelectionCommand::redo()
 
 void CropToSelectionCommand::undo()
 {
-    m_document->pattern()->clear();
     QDataStream stream(&m_originalPattern, QIODevice::ReadOnly);
-    stream >> *(m_document->pattern());
+    stream >> m_document->pattern()->stitches();
     m_originalPattern.clear();
 
     m_document->editor()->readDocumentSettings();

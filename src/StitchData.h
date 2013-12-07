@@ -13,13 +13,13 @@
 #define StitchData_H
 
 
-#include <QHash>
 #include <QList>
 #include <QListIterator>
 #include <QMap>
 #include <QPoint>
 #include <QRect>
 #include <QSharedDataPointer>
+#include <QVector>
 
 #include "Stitch.h"
 
@@ -68,8 +68,11 @@ public:
     void addStitch(const QPoint &, Stitch::Type, int);
     void deleteStitch(const QPoint &, Stitch::Type, int);
 
+    StitchQueue *stitchQueueAt(int, int);
     StitchQueue *stitchQueueAt(const QPoint &);
+    StitchQueue *takeStitchQueueAt(int, int);
     StitchQueue *takeStitchQueueAt(const QPoint &);
+    StitchQueue *replaceStitchQueueAt(int, int, StitchQueue *);
     StitchQueue *replaceStitchQueueAt(const QPoint &, StitchQueue *);
 
     void addBackstitch(const QPoint &, const QPoint &, int);
@@ -99,13 +102,15 @@ private:
     void    deleteStitches();
     void    invertQueue(Qt::Orientation, StitchQueue *);
     void    rotateQueue(Rotation, StitchQueue *);
+    int     index(int, int) const;
+    int     index(const QPoint &) const;
 
-    static const int version = 102;
+    static const int version = 103;
 
     int m_width;
     int m_height;
 
-    QHash<int, QHash<int, StitchQueue *> >  m_stitches;
+    QVector<StitchQueue *>                  m_stitches;
     QList<Backstitch *>                     m_backstitches;
     QList<Knot *>                           m_knots;
 };

@@ -83,6 +83,7 @@ public:
     Backstitch(const QPoint &, const QPoint &, int);
 
     bool contains(const QPoint &) const;
+    void move(int, int);
     void move(const QPoint &);
 
     static const int version = 100;
@@ -103,6 +104,7 @@ public:
     Knot();
     Knot(const QPoint &, int);
 
+    void move(int, int);
     void move(const QPoint &);
 
     static const int version = 100;
