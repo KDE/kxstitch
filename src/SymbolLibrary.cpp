@@ -336,6 +336,7 @@ QDataStream &operator>>(QDataStream &stream, SymbolLibrary &library)
                 symbol.setPath(paths_v100[index]);
                 library.setSymbol(index, symbol);
             }
+
             break;
 
         default:
