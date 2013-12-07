@@ -90,6 +90,14 @@
                 <choice name="CM" />
             </choices>
         </entry>
+        <entry name="Editor_MinimumZoomScale" type="Double">
+            <label>The minimum zoom scale</label>
+            <default>0.5</default>
+        </entry>
+        <entry name="Editor_MaximumZoomScale" type="Double">
+            <label>The maximum zoom scale</label>
+            <default>3.0</default>
+        </entry>
     </group>
 
     <group name="renderer">

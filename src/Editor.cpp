@@ -304,8 +304,12 @@ void Editor::previewClicked(const QRect &cells)
 }
 
 
-void Editor::zoom(double factor)
+bool Editor::zoom(double factor)
 {
+    if (factor < Configuration::editor_MinimumZoomScale() || factor > Configuration::editor_MaximumZoomScale()) {
+        return false;
+    }
+    
     m_zoomFactor = factor;
 
     double dpiX = physicalDpiX();
@@ -329,6 +333,8 @@ void Editor::zoom(double factor)
     this->resize(m_document->pattern()->stitches().width()*m_cellWidth, m_document->pattern()->stitches().height()*m_cellHeight);
 
     emit changedVisibleCells(visibleCells());
+    
+    return true;
 }
 
 
@@ -1199,22 +1205,25 @@ void Editor::paintEvent(QPaintEvent *e)
 
 void Editor::wheelEvent(QWheelEvent *e)
 {
+    bool zoomed;
     QPoint p = e->pos();
     QPoint offset = parentWidget()->rect().center() - pos();
 
     if (e->delta() > 0) {
-        zoom(m_zoomFactor * 1.2);
+        zoomed = zoom(m_zoomFactor * 1.2);
         offset -= (p - (p * 1.2));
     } else {
-        zoom(m_zoomFactor / 1.2);
+        zoomed = zoom(m_zoomFactor / 1.2);
         offset -= (p - (p / 1.2));
     }
 
-    int marginX = parentWidget()->width() / 2;
-    int marginY = parentWidget()->height() / 2;
+    if (zoomed) {
+        int marginX = parentWidget()->width() / 2;
+        int marginY = parentWidget()->height() / 2;
 
-    dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
-
+        dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
+    }
+    
     e->accept();
 }
 

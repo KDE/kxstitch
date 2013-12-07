@@ -149,7 +149,7 @@ protected:
     bool eventFilter(QObject*, QEvent*);
 
 private:
-    void zoom(double);
+    bool zoom(double);
 
     void keyPressPolygon(QKeyEvent*);
     void keyPressText(QKeyEvent*);
