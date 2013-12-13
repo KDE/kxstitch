@@ -495,6 +495,36 @@ private:
 };
 
 
+class InsertColumnsCommand : public QUndoCommand
+{
+public:
+    InsertColumnsCommand(Document *, const QRect &);
+    ~InsertColumnsCommand();
+    
+    void redo();
+    void undo();
+    
+private:
+    Document    *m_document;
+    QRect       m_selectionArea;
+};
+
+
+class InsertRowsCommand : public QUndoCommand
+{
+public:
+    InsertRowsCommand(Document *, const QRect &);
+    ~InsertRowsCommand();
+    
+    void redo();
+    void undo();
+    
+private:
+    Document    *m_document;
+    QRect       m_selectionArea;
+};
+
+
 class ExtendPatternCommand : public QUndoCommand
 {
 public:

@@ -70,13 +70,13 @@ ImportImageCommand::ImportImageCommand(Document *document)
         m_document(document)
 {
 }
-                      
-                      
+
+
 ImportImageCommand::~ImportImageCommand()
 {
 }
-                      
-                      
+
+
 void ImportImageCommand::redo()
 {
     QUndoCommand::redo();
@@ -87,8 +87,8 @@ void ImportImageCommand::redo()
     m_document->preview()->update();
     m_document->palette()->update();
 }
-                      
-                      
+
+
 void ImportImageCommand::undo()
 {
     QUndoCommand::undo();
@@ -99,8 +99,8 @@ void ImportImageCommand::undo()
     m_document->preview()->update();
     m_document->palette()->update();
 }
-                      
-                      
+
+
 PaintStitchesCommand::PaintStitchesCommand(Document *document)
     :   QUndoCommand(i18n("Paint Stitches")),
         m_document(document)
@@ -915,6 +915,68 @@ void CropToSelectionCommand::undo()
     QDataStream stream(&m_originalPattern, QIODevice::ReadOnly);
     stream >> m_document->pattern()->stitches();
     m_originalPattern.clear();
+
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+}
+
+
+InsertColumnsCommand::InsertColumnsCommand(Document *document, const QRect &selectionArea)
+    :   QUndoCommand(i18n("Insert Columns")),
+        m_document(document),
+        m_selectionArea(selectionArea)
+{
+}
+
+
+InsertColumnsCommand::~InsertColumnsCommand()
+{
+}
+
+
+void InsertColumnsCommand::redo()
+{
+    m_document->pattern()->stitches().insertColumns(m_selectionArea.left(), m_selectionArea.width());
+
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+}
+
+
+void InsertColumnsCommand::undo()
+{
+    m_document->pattern()->stitches().removeColumns(m_selectionArea.left(), m_selectionArea.width());
+
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+}
+
+
+InsertRowsCommand::InsertRowsCommand(Document *document, const QRect &selectionArea)
+    :   QUndoCommand(i18n("Insert Rows")),
+        m_document(document),
+        m_selectionArea(selectionArea)
+{
+}
+
+
+InsertRowsCommand::~InsertRowsCommand()
+{
+}
+
+
+void InsertRowsCommand::redo()
+{
+    m_document->pattern()->stitches().insertRows(m_selectionArea.top(), m_selectionArea.height());
+
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
+}
+
+
+void InsertRowsCommand::undo()
+{
+    m_document->pattern()->stitches().removeRows(m_selectionArea.top(), m_selectionArea.height());
 
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();

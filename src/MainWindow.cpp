@@ -152,6 +152,8 @@ void MainWindow::setupDocument()
     connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate180"), SLOT(setEnabled(bool)));
     connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));
     connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("insertColumns"), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("insertRows"), SLOT(setEnabled(bool)));
     connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(QString)), this, SLOT(undoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(QString)), this, SLOT(redoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
@@ -1070,6 +1072,18 @@ void MainWindow::patternCropToSelection()
 }
 
 
+void MainWindow::insertColumns()
+{
+    m_document->undoStack().push(new InsertColumnsCommand(m_document, m_editor->selectionArea()));
+}
+
+
+void MainWindow::insertRows()
+{
+    m_document->undoStack().push(new InsertRowsCommand(m_document, m_editor->selectionArea()));
+}
+
+
 void MainWindow::formatScalesAsStitches()
 {
     m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
@@ -1553,6 +1567,18 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
     actions->addAction("patternCropToSelection", action);
+    
+    action = new KAction(this);
+    action->setText(i18n("Insert Rows"));
+    connect(action, SIGNAL(triggered()), this, SLOT(insertRows()));
+    action->setEnabled(false);
+    actions->addAction("insertRows", action);
+    
+    action = new KAction(this);
+    action->setText(i18n("Insert Columns"));
+    connect(action, SIGNAL(triggered()), this, SLOT(insertColumns()));
+    action->setEnabled(false);
+    actions->addAction("insertColumns", action);
 
 
     // Library Menu

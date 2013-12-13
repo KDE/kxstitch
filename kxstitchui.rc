@@ -125,6 +125,9 @@
         <Action name="patternCentre"/>
         <Action name="patternCrop"/>
         <Action name="patternCropToSelection"/>
+        <Separator/>
+        <Action name="insertRows"/>
+        <Action name="insertColumns"/>
     </Menu>
 </MenuBar>
 <Menu name="EditorPopup">

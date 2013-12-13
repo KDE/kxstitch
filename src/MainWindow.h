@@ -105,6 +105,8 @@ protected slots:
     void patternCentre();
     void patternCrop();
     void patternCropToSelection();
+    void insertColumns();
+    void insertRows();
 
     // Settings menu
     void formatScalesAsStitches();

@@ -15,6 +15,8 @@
 
 #include "Exceptions.h"
 
+#include <KDebug>
+
 
 FlossUsage::FlossUsage()
     :   backstitchCount(0),
@@ -111,6 +113,169 @@ void StitchData::resize(int width, int height)
     m_stitches = newVector;
     m_width = width;
     m_height = height;
+}
+
+
+void StitchData::insertColumns(int startColumn, int columns)
+{
+    int originalWidth = m_width;
+
+    resize(originalWidth + columns, m_height);
+
+    for (int y = 0 ; y < m_height ; ++y) {
+        for (int destinationColumn = m_width - 1, sourceColumn = originalWidth - 1 ; sourceColumn >= startColumn ; --destinationColumn, --sourceColumn) {
+            m_stitches[index(destinationColumn, y)] = takeStitchQueueAt(sourceColumn, y);
+        }
+    }
+
+    startColumn *= 2;
+    columns *= 2;
+
+    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+
+    while (backstitchIterator.hasNext()) {
+        Backstitch *backstitch = backstitchIterator.next();
+
+        if (backstitch->start.x() >= startColumn) {
+            backstitch->start.setX(backstitch->start.x() + columns);
+        }
+
+        if (backstitch->end.x() >= startColumn) {
+            backstitch->end.setX(backstitch->end.x() + columns);
+        }
+    }
+
+    QListIterator<Knot *> knotIterator(m_knots);
+
+    while (knotIterator.hasNext()) {
+        Knot *knot = knotIterator.next();
+
+        if (knot->position.x() >= startColumn) {
+            knot->position.setX(knot->position.x() + columns);
+        }
+    }
+}
+
+
+void StitchData::insertRows(int startRow, int rows)
+{
+    int originalHeight = m_height;
+
+    resize(m_width, originalHeight + rows);
+
+    for (int destinationRow = m_height - 1, sourceRow = originalHeight - 1; sourceRow >= startRow ; --destinationRow, --sourceRow) {
+        for (int x = 0 ; x < m_width ; ++x) {
+            m_stitches[index(x, destinationRow)] = takeStitchQueueAt(x, sourceRow);
+        }
+    }
+
+    startRow *= 2;
+    rows *= 2;
+
+    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+
+    while (backstitchIterator.hasNext()) {
+        Backstitch *backstitch = backstitchIterator.next();
+
+        if (backstitch->start.y() >= startRow) {
+            backstitch->start.setY(backstitch->start.y() + rows);
+        }
+
+        if (backstitch->end.y() >= startRow) {
+            backstitch->end.setY(backstitch->end.y() + rows);
+        }
+    }
+
+    QListIterator<Knot *> knotIterator(m_knots);
+
+    while (knotIterator.hasNext()) {
+        Knot *knot = knotIterator.next();
+        if (knot->position.y() >= startRow) {
+            knot->position.setY(knot->position.y() + rows);
+        }
+    }
+}
+
+
+void StitchData::removeColumns(int startColumn, int columns)
+{
+    kDebug() << "Removing" << columns << "starting from" << startColumn;
+    kDebug() << "  current width" << m_width;
+
+    for (int y = 0 ; y < m_height ; ++y) {
+        for (int destinationColumn = startColumn, sourceColumn = startColumn + columns ; sourceColumn < m_width ; ++destinationColumn, ++sourceColumn) {
+            m_stitches[index(destinationColumn, y)] = takeStitchQueueAt(sourceColumn, y);
+        }
+    }
+
+    int snapStartColumn = startColumn * 2;
+    int snapColumns = columns * 2;
+
+    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+
+    while (backstitchIterator.hasNext()) {
+        Backstitch *backstitch = backstitchIterator.next();
+
+        if (backstitch->start.x() >= snapStartColumn + snapColumns) {
+            backstitch->start.setX(backstitch->start.x() - snapColumns);
+        }
+
+        if (backstitch->end.x() >= snapStartColumn + snapColumns) {
+            backstitch->end.setX(backstitch->end.x() - snapColumns);
+        }
+    }
+
+    QListIterator<Knot *> knotIterator(m_knots);
+
+    while (knotIterator.hasNext()) {
+        Knot *knot = knotIterator.next();
+
+        if (knot->position.x() >= snapStartColumn + snapColumns) {
+            knot->position.setX(knot->position.x() - snapColumns);
+        }
+    }
+
+    kDebug() << "  resizing to" << m_width - columns << "x" << m_height;
+
+    resize(m_width - columns, m_height);
+}
+
+
+void StitchData::removeRows(int startRow, int rows)
+{
+    for (int destinationRow = startRow, sourceRow = startRow + rows ; sourceRow < m_height ; ++destinationRow, ++sourceRow) {
+        for (int x = 0 ; x < m_width ; ++x) {
+            m_stitches[index(x, destinationRow)] = takeStitchQueueAt(x, sourceRow);
+        }
+    }
+
+    int snapStartRow = startRow * 2;
+    int snapRows = rows * 2;
+
+    QListIterator<Backstitch *> backstitchIterator(m_backstitches);
+
+    while (backstitchIterator.hasNext()) {
+        Backstitch *backstitch = backstitchIterator.next();
+
+        if (backstitch->start.y() >= snapStartRow + snapRows) {
+            backstitch->start.setY(backstitch->start.y() - snapRows);
+        }
+
+        if (backstitch->end.y() >= snapStartRow + snapRows) {
+            backstitch->end.setY(backstitch->end.y() - snapRows);
+        }
+    }
+
+    QListIterator<Knot *> knotIterator(m_knots);
+
+    while (knotIterator.hasNext()) {
+        Knot *knot = knotIterator.next();
+        if (knot->position.y() >= snapStartRow + snapRows) {
+            knot->position.setY(knot->position.y() - snapRows);
+        }
+    }
+
+    resize(m_width, m_height - rows);
 }
 
 

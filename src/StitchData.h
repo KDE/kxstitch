@@ -59,6 +59,10 @@ public:
     int height() const;
 
     void resize(int, int);
+    void insertColumns(int, int);
+    void insertRows(int, int);
+    void removeColumns(int, int);
+    void removeRows(int, int);
 
     QRect extents() const;
     void movePattern(int dx, int dy);
