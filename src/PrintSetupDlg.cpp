@@ -364,6 +364,7 @@ void PrintSetupDlg::properties()
         }
     } else {
         QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview->page()->margins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
+
         if (pagePropertiesDlg->exec() == QDialog::Accepted) {
             updatePreviews = true;
             pagePreview->page()->setMargins(pagePropertiesDlg->margins());
@@ -528,6 +529,7 @@ void PrintSetupDlg::on_Templates_clicked()
         int pagesTall = (documentHeight / verticalCellsPerPage) + ((documentHeight % verticalCellsPerPage) ? 1 : 0);
 
         bool adjusted = false;
+
         // the number of pages wide and tall has been calculated but it is possible that there may be a small number of
         // cells spanning over a new page so this needs to be checked for and the cell size shrunk to fit so it will be
         // slightly smaller than the minimum but not much.
@@ -563,6 +565,7 @@ void PrintSetupDlg::on_Templates_clicked()
             double expandedCellHeight = expandedCellWidth * aspect;
             int expandedVerticalCellsPerPage = int(double(patternArea.height()) / expandedCellHeight);
             int expandedPagesTall = (documentHeight / expandedVerticalCellsPerPage) + ((documentHeight % expandedVerticalCellsPerPage) ? 1 : 0);
+
             if (expandedPagesTall > pagesTall) {
                 // increasing the width has forced an increase in page height so this needs to be reduced
                 expandedVerticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
@@ -571,6 +574,7 @@ void PrintSetupDlg::on_Templates_clicked()
                 expandedHorizontalCellsPerPage = int(double(patternArea.width()) / cellWidth) + ((documentWidth % pagesWide) ? 1 : 0);
                 pagesWide = (documentWidth / expandedHorizontalCellsPerPage) + ((documentWidth % expandedHorizontalCellsPerPage) ? 1 : 0);
             }
+
             horizontalCellsPerPage = expandedHorizontalCellsPerPage;
             verticalCellsPerPage = expandedVerticalCellsPerPage;
         }

@@ -190,6 +190,7 @@ void StitchData::insertRows(int startRow, int rows)
 
     while (knotIterator.hasNext()) {
         Knot *knot = knotIterator.next();
+
         if (knot->position.y() >= startRow) {
             knot->position.setY(knot->position.y() + rows);
         }
@@ -270,6 +271,7 @@ void StitchData::removeRows(int startRow, int rows)
 
     while (knotIterator.hasNext()) {
         Knot *knot = knotIterator.next();
+
         if (knot->position.y() >= snapStartRow + snapRows) {
             knot->position.setY(knot->position.y() - snapRows);
         }

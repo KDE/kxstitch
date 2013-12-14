@@ -19,11 +19,13 @@
 template <class T> class QVariantPtr
 {
 public:
-    static T* asPtr(QVariant v) {
+    static T* asPtr(QVariant v)
+    {
         return (T *) v.value<void *>();
     }
 
-    static QVariant asQVariant(T *ptr) {
+    static QVariant asQVariant(T *ptr)
+    {
         return qVariantFromValue((void *) ptr);
     }
 };

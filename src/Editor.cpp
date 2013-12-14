@@ -309,7 +309,7 @@ bool Editor::zoom(double factor)
     if (factor < Configuration::editor_MinimumZoomScale() || factor > Configuration::editor_MaximumZoomScale()) {
         return false;
     }
-    
+
     m_zoomFactor = factor;
 
     double dpiX = physicalDpiX();
@@ -333,7 +333,7 @@ bool Editor::zoom(double factor)
     this->resize(m_document->pattern()->stitches().width()*m_cellWidth, m_document->pattern()->stitches().height()*m_cellHeight);
 
     emit changedVisibleCells(visibleCells());
-    
+
     return true;
 }
 
@@ -1223,7 +1223,7 @@ void Editor::wheelEvent(QWheelEvent *e)
 
         dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
     }
-    
+
     e->accept();
 }
 
@@ -2015,6 +2015,7 @@ void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
 void Editor::mousePressEvent_Paste(QMouseEvent *e)
 {
     QPoint cell = contentsToCell(e->pos());
+
     if (!m_pastePattern->stitches().extents().translated(m_cellStart).contains(cell)) {
         m_cellStart = m_cellTracking = m_cellEnd = cell;
     }

@@ -356,7 +356,7 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
             break;
 
         case Stitch::BRQtr:
-             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
+            d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             break;
 
         case Stitch::TBHalf:

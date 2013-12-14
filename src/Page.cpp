@@ -335,6 +335,7 @@ void Page::readElements(QDataStream &stream)
         if (element) {
             stream >> *element;
             m_elements.append(element);
+
             if (element->type() == Element::Pattern) {
                 if (dynamic_cast<PatternElement *>(element)->showPlan()) {
                     m_elements.append(dynamic_cast<PatternElement *>(element)->planElement());

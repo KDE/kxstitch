@@ -605,6 +605,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     while (sortedFlossesIterator.hasNext()) {
         int index = sortedFlossesIterator.next();
+
         if (currentSortedFloss >= m_indexStart && (m_indexCount == 0 || currentSortedFloss < m_indexStart + m_indexCount)) {
             FlossUsage usage = flossUsage[index];
 
