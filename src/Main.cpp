@@ -86,10 +86,10 @@ int main(int argc, char *argv[])
 {
     KAboutData aboutData("kxstitch",
                          "kxstitch",
-                         ki18n("KXStitch"), "0.9.2",
+                         ki18n("KXStitch"), "1.0.0",
                          ki18n("A cross stitch pattern creator."),
                          KAboutData::License_GPL_V2,
-                         ki18n("(c)2010 Stephen Allewell"),
+                         ki18n("(c)2010-2014 Stephen Allewell"),
                          KLocalizedString(),
                          "http://kxstitch.sourceforge.net/kxstitch",
                          "sallewell@users.sourceforge.net");
