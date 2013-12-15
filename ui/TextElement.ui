@@ -468,7 +468,7 @@
     </widget>
    </item>
    <item row="2" column="0" colspan="11">
-    <widget class="QTextEdit" name="Text">
+    <widget class="KTextEdit" name="Text">
      <property name="autoFormatting">
       <set>QTextEdit::AutoAll</set>
      </property>
