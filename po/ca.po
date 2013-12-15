@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: sallewell@users.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 18:07+0200\n"
+"POT-Creation-Date: 2013-12-15 22:22+0000\n"
 "PO-Revision-Date: 2012-04-27 18:10+0200\n"
 "Last-Translator: Joan Teixido Parramona <joan4@users.sourceforge.net>\n"
 "Language-Team: Catalan <>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +19,7 @@ msgstr ""
 
 #. i18n: file: ui/CalibrateFloss.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
-#: build/ui_CalibrateFloss.h:191 rc.cpp:345 src/CalibrateFlossDlg.cpp:24
+#: build/ui_CalibrateFloss.h:191 rc.cpp:381 src/CalibrateFlossDlg.cpp:24
 msgid "Calibrate Floss"
 msgstr "Calibra Fil"
 
@@ -30,13 +31,13 @@ msgstr "Calibra Fil"
 #. i18n: ectx: property (text), widget (QLabel, TextLabel1)
 #. i18n: file: ui/NewFloss.ui:20
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_CalibrateFloss.h:192 build/ui_NewFloss.h:99 rc.cpp:348 rc.cpp:667
+#: build/ui_CalibrateFloss.h:192 build/ui_NewFloss.h:99 rc.cpp:384 rc.cpp:738
 msgid "Scheme"
 msgstr "Esquema"
 
 #. i18n: file: ui/CalibrateFloss.ui:60
 #. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
-#: build/ui_CalibrateFloss.h:193 rc.cpp:351
+#: build/ui_CalibrateFloss.h:193 rc.cpp:387
 msgid "Currently selected color"
 msgstr "Color seleccionat actualment"
 
@@ -54,19 +55,13 @@ msgstr "Blau"
 
 #. i18n: file: ui/CalibrateFloss.ui:158
 #. i18n: ectx: property (text), widget (QPushButton, ResetColor)
-#: build/ui_CalibrateFloss.h:197 rc.cpp:363
+#: build/ui_CalibrateFloss.h:197 rc.cpp:399
 msgid "Reset Color"
 msgstr "Reinícia color"
 
-#. i18n: file: ui/CharSelector.ui:17
-#. i18n: ectx: property (windowTitle), widget (QWidget, CharSelector)
-#: build/ui_CharSelector.h:54 rc.cpp:366 src/CharSelectorDlg.cpp:24
-msgid "Character Selector"
-msgstr "Selector de Caràcters"
-
 #. i18n: file: ui/EditorConfigPage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
-#: build/ui_EditorConfigPage.h:175 rc.cpp:369
+#: build/ui_EditorConfigPage.h:192 rc.cpp:402
 msgid "Editor Configuration"
 msgstr "Editor de Configuració"
 
@@ -78,82 +73,103 @@ msgstr "Editor de Configuració"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: file: ui/PageProperties.ui:170
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: build/ui_EditorConfigPage.h:176 build/ui_PageProperties.h:205 rc.cpp:372
-#: rc.cpp:710
+#: build/ui_EditorConfigPage.h:193 build/ui_PageProperties.h:183 rc.cpp:405
+#: rc.cpp:780
 msgid "Grid"
 msgstr "Quadrícula"
 
 #. i18n: file: ui/EditorConfigPage.ui:26
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_EditorConfigPage.h:177 rc.cpp:375
+#: build/ui_EditorConfigPage.h:194 rc.cpp:408
 msgid "Thick line width"
 msgstr "Ample línia grossa"
 
 #. i18n: file: ui/EditorConfigPage.ui:36
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: build/ui_EditorConfigPage.h:178 rc.cpp:378
+#: build/ui_EditorConfigPage.h:195 rc.cpp:411
 msgid "Thick line color"
 msgstr "Color línia grossa"
 
 #. i18n: file: ui/EditorConfigPage.ui:46
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_EditorConfigPage.h:179 rc.cpp:381
+#: build/ui_EditorConfigPage.h:196 rc.cpp:414
 msgid "Thin line width"
 msgstr "Ample línia fina"
 
 #. i18n: file: ui/EditorConfigPage.ui:56
 #. i18n: ectx: property (text), widget (QLabel, label_8)
-#: build/ui_EditorConfigPage.h:180 rc.cpp:384
+#: build/ui_EditorConfigPage.h:197 rc.cpp:417
 msgid "Thin line color"
 msgstr "Color línia fina"
 
 #. i18n: file: ui/EditorConfigPage.ui:69
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: build/ui_EditorConfigPage.h:181 rc.cpp:387
+#. i18n: file: ui/PrinterConfigPage.ui:433
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
+#. i18n: file: ui/EditorConfigPage.ui:69
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: file: ui/PrinterConfigPage.ui:433
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
+#: build/ui_EditorConfigPage.h:198 build/ui_PrinterConfigPage.h:819 rc.cpp:420
+#: rc.cpp:1131
 msgid "Cells"
 msgstr "Cel·les"
 
 #. i18n: file: ui/EditorConfigPage.ui:78
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: build/ui_EditorConfigPage.h:182 rc.cpp:390
+#: build/ui_EditorConfigPage.h:199 rc.cpp:423
 msgid "Horizontal cell group"
 msgstr "Grup horitzontal de cel·les"
 
 #. i18n: file: ui/EditorConfigPage.ui:88
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: build/ui_EditorConfigPage.h:183 rc.cpp:393
+#: build/ui_EditorConfigPage.h:200 rc.cpp:426
 msgid "Vertical cell group"
 msgstr "Grup vertical de cel·les"
 
 #. i18n: file: ui/EditorConfigPage.ui:101
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: build/ui_EditorConfigPage.h:184 rc.cpp:396
+#: build/ui_EditorConfigPage.h:201 rc.cpp:429
 msgid "Scales"
 msgstr "Escales"
 
 #. i18n: file: ui/EditorConfigPage.ui:107
 #. i18n: ectx: property (text), widget (QLabel, label_9)
-#: build/ui_EditorConfigPage.h:185 rc.cpp:399
+#: build/ui_EditorConfigPage.h:202 rc.cpp:432
 msgid "Horizontal scale height"
 msgstr "Alçada de l'escala horitzontal"
 
 #. i18n: file: ui/EditorConfigPage.ui:117
 #. i18n: ectx: property (text), widget (QLabel, label_10)
-#: build/ui_EditorConfigPage.h:186 rc.cpp:402
+#: build/ui_EditorConfigPage.h:203 rc.cpp:435
 msgid "Vertical scale width"
 msgstr "Ample de l'escala vertical"
 
+#. i18n: file: ui/EditorConfigPage.ui:130
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: build/ui_EditorConfigPage.h:204 rc.cpp:438
+#, fuzzy
+msgid "Fractionals"
+msgstr "Usa fraccionaris"
+
+#. i18n: file: ui/EditorConfigPage.ui:139
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
+#: build/ui_EditorConfigPage.h:208 rc.cpp:441
+#, fuzzy
+msgid "Tool Fractionals"
+msgstr "Usa fraccionaris"
+
 #. i18n: file: ui/ExtendPattern.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
-#: build/ui_ExtendPattern.h:152 rc.cpp:405 src/Commands.cpp:854
+#: build/ui_ExtendPattern.h:152 rc.cpp:444 src/Commands.cpp:987
 #: src/ExtendPatternDlg.cpp:18
 msgid "Extend Pattern"
 msgstr "Amplia patró"
 
 #. i18n: file: ui/FileProperties.ui:17
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: build/ui_FileProperties.h:322 rc.cpp:408 src/Commands.cpp:32
-#: src/FilePropertiesDlg.cpp:27 src/MainWindow.cpp:1099
+#: build/ui_FileProperties.h:322 rc.cpp:447 src/Commands.cpp:33
+#: src/FilePropertiesDlg.cpp:27 src/MainWindow.cpp:1219
 msgid "File Properties"
 msgstr "Propietats d'Arxiu"
 
@@ -170,8 +186,8 @@ msgstr "Propietats d'Arxiu"
 #. i18n: file: ui/PatternConfigPage.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
 #: build/ui_FileProperties.h:323 build/ui_ImportImage.h:240
-#: build/ui_PatternConfigPage.h:198 rc.cpp:414 rc.cpp:477 rc.cpp:797
-#: src/MainWindow.cpp:1695
+#: build/ui_PatternConfigPage.h:197 rc.cpp:453 rc.cpp:540 rc.cpp:843
+#: src/MainWindow.cpp:1826
 msgid "Palette"
 msgstr "Paleta"
 
@@ -192,8 +208,8 @@ msgstr "Paleta"
 #. i18n: file: ui/PatternConfigPage.ui:26
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: build/ui_FileProperties.h:324 build/ui_ImportImage.h:241
-#: build/ui_LibraryPatternProperties.h:138 build/ui_PatternConfigPage.h:199
-#: rc.cpp:417 rc.cpp:480 rc.cpp:649 rc.cpp:800
+#: build/ui_LibraryPatternProperties.h:138 build/ui_PatternConfigPage.h:198
+#: rc.cpp:456 rc.cpp:543 rc.cpp:720 rc.cpp:846
 msgid "Floss scheme"
 msgstr "Esquema de fil"
 
@@ -205,8 +221,8 @@ msgstr "Esquema de fil"
 #. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
 #. i18n: file: ui/PatternConfigPage.ui:46
 #. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
-#: build/ui_FileProperties.h:325 build/ui_PatternConfigPage.h:200 rc.cpp:420
-#: rc.cpp:803
+#: build/ui_FileProperties.h:325 build/ui_PatternConfigPage.h:199 rc.cpp:459
+#: rc.cpp:849
 msgid "Pattern Size"
 msgstr "Mida del patró"
 
@@ -222,41 +238,41 @@ msgstr "Mida del patró"
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: file: ui/PatternConfigPage.ui:214
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: build/ui_FileProperties.h:326 build/ui_PatternConfigPage.h:201
-#: build/ui_PatternConfigPage.h:216 rc.cpp:423 rc.cpp:806 rc.cpp:833
+#: build/ui_FileProperties.h:326 build/ui_PatternConfigPage.h:200
+#: build/ui_PatternConfigPage.h:215 rc.cpp:462 rc.cpp:852 rc.cpp:879
 msgid "Units"
 msgstr "Unitats"
 
 #. i18n: file: ui/FileProperties.ui:82
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
-#. i18n: file: ui/KeyElement.ui:330
+#. i18n: file: ui/KeyElement.ui:386
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: file: ui/PatternConfigPage.ui:66
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternElement.ui:81
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: file: ui/PatternElement.ui:197
+#. i18n: file: ui/PatternElement.ui:200
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#. i18n: file: ui/PrinterConfigPage.ui:931
+#. i18n: file: ui/PrinterConfigPage.ui:990
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
 #. i18n: file: ui/FileProperties.ui:82
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
-#. i18n: file: ui/KeyElement.ui:330
+#. i18n: file: ui/KeyElement.ui:386
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: file: ui/PatternConfigPage.ui:66
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternElement.ui:81
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: file: ui/PatternElement.ui:197
+#. i18n: file: ui/PatternElement.ui:200
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#. i18n: file: ui/PrinterConfigPage.ui:931
+#. i18n: file: ui/PrinterConfigPage.ui:990
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
-#: build/ui_FileProperties.h:329 build/ui_KeyElement.h:360
-#: build/ui_PatternConfigPage.h:204 build/ui_PatternElement.h:184
-#: build/ui_PatternElement.h:209 build/ui_PrinterConfigPage.h:813 rc.cpp:426
-#: rc.cpp:588 rc.cpp:809 rc.cpp:854 rc.cpp:902 rc.cpp:1217
-#: src/Document.cpp:1145 src/Document.cpp:1330 src/Element.cpp:286
-#: src/Element.cpp:311 src/ImportImageDlg.cpp:192 src/MainWindow.cpp:1465
+#: build/ui_FileProperties.h:329 build/ui_KeyElement.h:400
+#: build/ui_PatternConfigPage.h:203 build/ui_PatternElement.h:184
+#: build/ui_PatternElement.h:212 build/ui_PrinterConfigPage.h:867 rc.cpp:465
+#: rc.cpp:666 rc.cpp:855 rc.cpp:900 rc.cpp:951 rc.cpp:1275
+#: src/Document.cpp:1143 src/Document.cpp:1349 src/Element.cpp:544
+#: src/Element.cpp:587 src/ImportImageDlg.cpp:192 src/MainWindow.cpp:1597
 msgid "Stitches"
 msgstr "Punts"
 
@@ -265,21 +281,21 @@ msgstr "Punts"
 #. i18n: file: ui/PatternConfigPage.ui:71
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:189
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: file: ui/PatternElement.ui:202
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: file: ui/PatternElement.ui:205
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #. i18n: file: ui/FileProperties.ui:87
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:71
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:189
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: file: ui/PatternElement.ui:202
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: file: ui/PatternElement.ui:205
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: build/ui_FileProperties.h:330 build/ui_PatternConfigPage.h:205
-#: build/ui_PatternConfigPage.h:213 build/ui_PatternElement.h:210 rc.cpp:429
-#: rc.cpp:812 rc.cpp:827 rc.cpp:905 src/Document.cpp:1147
-#: src/Document.cpp:1332 src/MainWindow.cpp:1479
+#: build/ui_FileProperties.h:330 build/ui_PatternConfigPage.h:204
+#: build/ui_PatternConfigPage.h:212 build/ui_PatternElement.h:213 rc.cpp:468
+#: rc.cpp:858 rc.cpp:873 rc.cpp:954 src/Document.cpp:1151
+#: src/Document.cpp:1357 src/MainWindow.cpp:1611
 msgid "Inches"
 msgstr "Polzades"
 
@@ -288,21 +304,21 @@ msgstr "Polzades"
 #. i18n: file: ui/PatternConfigPage.ui:76
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:194
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: file: ui/PatternElement.ui:207
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: file: ui/PatternElement.ui:210
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #. i18n: file: ui/FileProperties.ui:92
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:76
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
 #. i18n: file: ui/PatternConfigPage.ui:194
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: file: ui/PatternElement.ui:207
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: file: ui/PatternElement.ui:210
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: build/ui_FileProperties.h:331 build/ui_PatternConfigPage.h:206
-#: build/ui_PatternConfigPage.h:214 build/ui_PatternElement.h:211 rc.cpp:432
-#: rc.cpp:815 rc.cpp:830 rc.cpp:908 src/Document.cpp:1146
-#: src/Document.cpp:1331 src/MainWindow.cpp:1472
+#: build/ui_FileProperties.h:331 build/ui_PatternConfigPage.h:205
+#: build/ui_PatternConfigPage.h:213 build/ui_PatternElement.h:214 rc.cpp:471
+#: rc.cpp:861 rc.cpp:876 rc.cpp:957 src/Document.cpp:1147
+#: src/Document.cpp:1353 src/MainWindow.cpp:1604
 msgid "CM"
 msgstr "CM"
 
@@ -319,7 +335,7 @@ msgstr "CM"
 #. i18n: file: ui/PatternConfigPage.ui:84
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: build/ui_FileProperties.h:333 build/ui_LibraryPatternProperties.h:140
-#: build/ui_PatternConfigPage.h:208 rc.cpp:435 rc.cpp:652 rc.cpp:818
+#: build/ui_PatternConfigPage.h:207 rc.cpp:474 rc.cpp:723 rc.cpp:864
 msgid "Width"
 msgstr "Amplada"
 
@@ -336,7 +352,7 @@ msgstr "Amplada"
 #. i18n: file: ui/PatternConfigPage.ui:107
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: build/ui_FileProperties.h:334 build/ui_LibraryPatternProperties.h:142
-#: build/ui_PatternConfigPage.h:209 rc.cpp:438 rc.cpp:655 rc.cpp:821
+#: build/ui_PatternConfigPage.h:208 rc.cpp:477 rc.cpp:726 rc.cpp:867
 msgid "Height"
 msgstr "Altura"
 
@@ -348,16 +364,16 @@ msgstr "Altura"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: file: ui/PatternConfigPage.ui:139
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: build/ui_FileProperties.h:335 build/ui_PatternConfigPage.h:210 rc.cpp:441
-#: rc.cpp:824
+#: build/ui_FileProperties.h:335 build/ui_PatternConfigPage.h:209 rc.cpp:480
+#: rc.cpp:870
 msgid "Cloth Count"
 msgstr "Compta la tela"
 
-#: build/ui_FileProperties.h:336 build/ui_PatternConfigPage.h:217
+#: build/ui_FileProperties.h:336 build/ui_PatternConfigPage.h:216
 msgid "Horizontal"
 msgstr "Horitzontal"
 
-#: build/ui_FileProperties.h:337 build/ui_PatternConfigPage.h:218
+#: build/ui_FileProperties.h:337 build/ui_PatternConfigPage.h:217
 msgid "Vertical"
 msgstr "Vertical"
 
@@ -367,37 +383,325 @@ msgstr "Títol"
 
 #. i18n: file: ui/FileProperties.ui:292
 #. i18n: ectx: property (text), widget (QLabel, label_8)
-#: build/ui_FileProperties.h:340 rc.cpp:453
+#: build/ui_FileProperties.h:340 rc.cpp:492
 msgid "Author"
 msgstr "Autor"
 
 #. i18n: file: ui/FileProperties.ui:305
 #. i18n: ectx: property (text), widget (QLabel, label_9)
-#: build/ui_FileProperties.h:341 rc.cpp:456
+#: build/ui_FileProperties.h:341 rc.cpp:495
 msgid "Copyright"
 msgstr "Copyright"
 
 #. i18n: file: ui/FileProperties.ui:318
 #. i18n: ectx: property (text), widget (QLabel, label_10)
-#: build/ui_FileProperties.h:342 rc.cpp:459
+#: build/ui_FileProperties.h:342 rc.cpp:498
 msgid "Fabric"
 msgstr "Tela"
 
 #. i18n: file: ui/FileProperties.ui:27
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: build/ui_FileProperties.h:343 rc.cpp:411 src/MainWindow.cpp:1013
+#: build/ui_FileProperties.h:343 rc.cpp:450 src/MainWindow.cpp:1120
 msgid "Pattern"
 msgstr "Patró"
 
 #. i18n: file: ui/FileProperties.ui:338
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: build/ui_FileProperties.h:344 rc.cpp:462
+#: build/ui_FileProperties.h:344 rc.cpp:501
 msgid "Instructions"
 msgstr "Instruccions"
 
+#. i18n: file: ui/ImageElement.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
+#: build/ui_ImageElement.h:125 rc.cpp:504 src/ImageElementDlg.cpp:28
+#, fuzzy
+msgid "Image Element Properties"
+msgstr "Propietats dels elements clau"
+
+#. i18n: file: ui/ImageElement.ui:32
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#. i18n: file: ui/PatternElement.ui:32
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#. i18n: file: ui/ImageElement.ui:32
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#. i18n: file: ui/PatternElement.ui:32
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#: build/ui_ImageElement.h:127 build/ui_PatternElement.h:178 rc.cpp:507
+#: rc.cpp:891
+msgid ""
+"<html><head/><body>Click and drag to select the area of the pattern to be "
+"displayed.<br />Grayed out areas have already been selected on this or other "
+"pages.</body></html>"
+msgstr ""
+"<html><head/><body>Prem i arrossega per a seleccionar la zona del patró "
+"mostrat.<br />Les zones ombrejades ja han estat seleccionades en aquesta o "
+"en altres pàgines.</body></html>"
+
+#. i18n: file: ui/ImageElement.ui:61
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: file: ui/KeyElement.ui:158
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: file: ui/PrinterConfigPage.ui:574
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: file: ui/PrinterConfigPage.ui:744
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
+#. i18n: file: ui/TextElement.ui:158
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: file: ui/ImageElement.ui:61
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: file: ui/KeyElement.ui:158
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: file: ui/PrinterConfigPage.ui:574
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: file: ui/PrinterConfigPage.ui:744
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
+#. i18n: file: ui/TextElement.ui:158
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: build/ui_ImageElement.h:129 build/ui_KeyElement.h:372
+#: build/ui_PrinterConfigPage.h:829 build/ui_PrinterConfigPage.h:844
+#: build/ui_TextElement.h:327 rc.cpp:510 rc.cpp:603 rc.cpp:1161 rc.cpp:1206
+#: rc.cpp:1464
+msgid "Border"
+msgstr "Vora"
+
+#. i18n: file: ui/ImageElement.ui:67
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#. i18n: file: ui/KeyElement.ui:164
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#. i18n: file: ui/PrinterConfigPage.ui:580
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
+#. i18n: file: ui/PrinterConfigPage.ui:750
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
+#. i18n: file: ui/TextElement.ui:167
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#. i18n: file: ui/ImageElement.ui:67
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#. i18n: file: ui/KeyElement.ui:164
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#. i18n: file: ui/PrinterConfigPage.ui:580
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
+#. i18n: file: ui/PrinterConfigPage.ui:750
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
+#. i18n: file: ui/TextElement.ui:167
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#: build/ui_ImageElement.h:130 build/ui_KeyElement.h:373
+#: build/ui_PrinterConfigPage.h:830 build/ui_PrinterConfigPage.h:845
+#: build/ui_TextElement.h:331 rc.cpp:513 rc.cpp:606 rc.cpp:1164 rc.cpp:1209
+#: rc.cpp:1470
+msgid "Show border"
+msgstr "Mostra vora"
+
+#: build/ui_ImageElement.h:131 build/ui_KeyElement.h:374
+#: build/ui_KeyElement.h:383 build/ui_NewFloss.h:105
+#: build/ui_PrinterConfigPage.h:826 build/ui_PrinterConfigPage.h:831
+#: build/ui_PrinterConfigPage.h:846 build/ui_PrinterConfigPage.h:851
+#: build/ui_TextElement.h:332 build/ui_TextElement.h:346
+msgid "Color"
+msgstr "Color"
+
+#. i18n: file: ui/ImageElement.ui:88
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/KeyElement.ui:187
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: file: ui/TextElement.ui:191
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/ImageElement.ui:88
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/KeyElement.ui:187
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: file: ui/TextElement.ui:191
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: build/ui_ImageElement.h:132 build/ui_KeyElement.h:375
+#: build/ui_TextElement.h:336 rc.cpp:519 rc.cpp:612 rc.cpp:1479
+msgid "Line thickness"
+msgstr "Gruix línia"
+
+#. i18n: file: kxstitch.kcfg:434
+#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
+#. i18n: file: ui/ImageElement.ui:98
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/KeyElement.ui:197
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/TextElement.ui:201
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: kxstitch.kcfg:434
+#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
+#. i18n: file: ui/ImageElement.ui:98
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/KeyElement.ui:197
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/TextElement.ui:201
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#: build/ui_ImageElement.h:134 build/ui_KeyElement.h:377
+#: build/ui_TextElement.h:338 rc.cpp:270 rc.cpp:522 rc.cpp:615 rc.cpp:1482
+msgid "Thickness of the border in 1/10 mm"
+msgstr "Gruix de la vora en 1/10 mm"
+
+#. i18n: file: ui/ImageElement.ui:101
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/KeyElement.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/KeyElement.ui:74
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/KeyElement.ui:103
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/KeyElement.ui:132
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/KeyElement.ui:203
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/PageProperties.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/PageProperties.ui:77
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/PageProperties.ui:109
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/PageProperties.ui:141
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/PageProperties.ui:205
+#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
+#. i18n: file: ui/PrinterConfigPage.ui:248
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:268
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:288
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:308
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:361
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:381
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:401
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:421
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:619
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
+#. i18n: file: ui/PrinterConfigPage.ui:652
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:672
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:692
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:712
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:789
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
+#. i18n: file: ui/PrinterConfigPage.ui:875
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:895
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:915
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:935
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
+#. i18n: file: ui/TextElement.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/TextElement.ui:74
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/TextElement.ui:103
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/TextElement.ui:132
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/TextElement.ui:204
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/ImageElement.ui:101
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/KeyElement.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/KeyElement.ui:74
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/KeyElement.ui:103
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/KeyElement.ui:132
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/KeyElement.ui:203
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: file: ui/PageProperties.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/PageProperties.ui:77
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/PageProperties.ui:109
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/PageProperties.ui:141
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/PageProperties.ui:205
+#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
+#. i18n: file: ui/PrinterConfigPage.ui:248
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:268
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:288
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:308
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:361
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:381
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:401
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:421
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:619
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
+#. i18n: file: ui/PrinterConfigPage.ui:652
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:672
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:692
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:712
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
+#. i18n: file: ui/PrinterConfigPage.ui:789
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
+#. i18n: file: ui/PrinterConfigPage.ui:875
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
+#. i18n: file: ui/PrinterConfigPage.ui:895
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
+#. i18n: file: ui/PrinterConfigPage.ui:915
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
+#. i18n: file: ui/PrinterConfigPage.ui:935
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
+#. i18n: file: ui/TextElement.ui:45
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: file: ui/TextElement.ui:74
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: file: ui/TextElement.ui:103
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: file: ui/TextElement.ui:132
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: file: ui/TextElement.ui:204
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#: build/ui_ImageElement.h:136 build/ui_KeyElement.h:359
+#: build/ui_KeyElement.h:363 build/ui_KeyElement.h:367
+#: build/ui_KeyElement.h:371 build/ui_KeyElement.h:380
+#: build/ui_PageProperties.h:170 build/ui_PageProperties.h:174
+#: build/ui_PageProperties.h:178 build/ui_PageProperties.h:182
+#: build/ui_PageProperties.h:189 build/ui_PrinterConfigPage.h:802
+#: build/ui_PrinterConfigPage.h:804 build/ui_PrinterConfigPage.h:806
+#: build/ui_PrinterConfigPage.h:808 build/ui_PrinterConfigPage.h:812
+#: build/ui_PrinterConfigPage.h:814 build/ui_PrinterConfigPage.h:816
+#: build/ui_PrinterConfigPage.h:818 build/ui_PrinterConfigPage.h:833
+#: build/ui_PrinterConfigPage.h:836 build/ui_PrinterConfigPage.h:838
+#: build/ui_PrinterConfigPage.h:840 build/ui_PrinterConfigPage.h:842
+#: build/ui_PrinterConfigPage.h:848 build/ui_PrinterConfigPage.h:855
+#: build/ui_PrinterConfigPage.h:857 build/ui_PrinterConfigPage.h:859
+#: build/ui_PrinterConfigPage.h:861 build/ui_TextElement.h:314
+#: build/ui_TextElement.h:318 build/ui_TextElement.h:322
+#: build/ui_TextElement.h:326 build/ui_TextElement.h:340 rc.cpp:525 rc.cpp:582
+#: rc.cpp:588 rc.cpp:594 rc.cpp:600 rc.cpp:618 rc.cpp:759 rc.cpp:765
+#: rc.cpp:771 rc.cpp:777 rc.cpp:792 rc.cpp:1080 rc.cpp:1086 rc.cpp:1092
+#: rc.cpp:1098 rc.cpp:1110 rc.cpp:1116 rc.cpp:1122 rc.cpp:1128 rc.cpp:1173
+#: rc.cpp:1182 rc.cpp:1188 rc.cpp:1194 rc.cpp:1200 rc.cpp:1218 rc.cpp:1239
+#: rc.cpp:1245 rc.cpp:1251 rc.cpp:1257 rc.cpp:1443 rc.cpp:1449 rc.cpp:1455
+#: rc.cpp:1461 rc.cpp:1485
+msgid "mm"
+msgstr "mm"
+
 #. i18n: file: ui/ImportConfigPage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
-#: build/ui_ImportConfigPage.h:83 rc.cpp:465
+#: build/ui_ImportConfigPage.h:83 rc.cpp:528
 msgid "Import Configuration"
 msgstr "Importa Configuració"
 
@@ -409,8 +713,8 @@ msgstr "Importa Configuració"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
 #. i18n: file: ui/ImportImage.ui:71
 #. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
-#: build/ui_ImportConfigPage.h:84 build/ui_ImportImage.h:248 rc.cpp:468
-#: rc.cpp:483
+#: build/ui_ImportConfigPage.h:84 build/ui_ImportImage.h:248 rc.cpp:531
+#: rc.cpp:546
 msgid "Maximum colors"
 msgstr "Màxim de colors"
 
@@ -422,27 +726,27 @@ msgstr "Màxim de colors"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
 #. i18n: file: ui/ImportImage.ui:322
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
-#: build/ui_ImportConfigPage.h:85 build/ui_ImportImage.h:272 rc.cpp:471
-#: rc.cpp:507
+#: build/ui_ImportConfigPage.h:85 build/ui_ImportImage.h:272 rc.cpp:534
+#: rc.cpp:570
 msgid "Use fractionals"
 msgstr "Usa fraccionaris"
 
 #. i18n: file: ui/ImportImage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: build/ui_ImportImage.h:238 rc.cpp:474 src/MainWindow.cpp:587
-#: src/MainWindow.cpp:1094
+#: build/ui_ImportImage.h:238 rc.cpp:537 src/Commands.cpp:69
+#: src/MainWindow.cpp:676 src/MainWindow.cpp:1214
 msgid "Import Image"
 msgstr "Importa Imatge"
 
 #. i18n: file: ui/ImportImage.ui:118
 #. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
-#: build/ui_ImportImage.h:255 rc.cpp:486
+#: build/ui_ImportImage.h:255 rc.cpp:549
 msgid "Ignore color"
 msgstr "Ignora Color"
 
 #. i18n: file: ui/ImportImage.ui:165
 #. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
-#: build/ui_ImportImage.h:260 rc.cpp:489
+#: build/ui_ImportImage.h:260 rc.cpp:552
 msgid "Set as default"
 msgstr "Selecciona per defecte"
 
@@ -454,37 +758,38 @@ msgstr "Selecciona per defecte"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: file: ui/TextTool.ui:38
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: build/ui_ImportImage.h:261 build/ui_TextTool.h:100 rc.cpp:492 rc.cpp:1461
+#: build/ui_ImportImage.h:261 build/ui_PageProperties.h:185
+#: build/ui_TextTool.h:100 rc.cpp:555 rc.cpp:1569
 msgid "Size"
 msgstr "Dimensions"
 
 #. i18n: file: ui/ImportImage.ui:191
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_ImportImage.h:262 rc.cpp:495
+#: build/ui_ImportImage.h:262 rc.cpp:558
 msgid "Horizontal cloth count"
 msgstr "Recompte de tela horitzontal"
 
 #. i18n: file: ui/ImportImage.ui:254
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: build/ui_ImportImage.h:266 rc.cpp:498
+#: build/ui_ImportImage.h:266 rc.cpp:561
 msgid "Vertical cloth count"
 msgstr "Recompte de tela vertical"
 
 #. i18n: file: ui/ImportImage.ui:283
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: build/ui_ImportImage.h:267 rc.cpp:501
+#: build/ui_ImportImage.h:267 rc.cpp:564
 msgid "Pattern scale"
 msgstr "Escala patró"
 
 #. i18n: file: ui/ImportImage.ui:312
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: build/ui_ImportImage.h:268 rc.cpp:504
+#: build/ui_ImportImage.h:268 rc.cpp:567
 msgid "Pattern size"
 msgstr "Dimensions patró"
 
 #. i18n: file: ui/KeyElement.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
-#: build/ui_KeyElement.h:323 rc.cpp:510 src/KeyElementDlg.cpp:23
+#: build/ui_KeyElement.h:354 rc.cpp:573 src/KeyElementDlg.cpp:23
 msgid "Key Element Properties"
 msgstr "Propietats dels elements clau"
 
@@ -492,13 +797,13 @@ msgstr "Propietats dels elements clau"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #. i18n: file: ui/PageProperties.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: ui/PrinterConfigPage.ui:65
+#. i18n: file: ui/PrinterConfigPage.ui:227
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: ui/PrinterConfigPage.ui:351
+#. i18n: file: ui/PrinterConfigPage.ui:340
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: file: ui/PrinterConfigPage.ui:585
+#. i18n: file: ui/PrinterConfigPage.ui:631
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: file: ui/PrinterConfigPage.ui:795
+#. i18n: file: ui/PrinterConfigPage.ui:854
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #. i18n: file: ui/TextElement.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
@@ -506,21 +811,21 @@ msgstr "Propietats dels elements clau"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #. i18n: file: ui/PageProperties.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: ui/PrinterConfigPage.ui:65
+#. i18n: file: ui/PrinterConfigPage.ui:227
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: ui/PrinterConfigPage.ui:351
+#. i18n: file: ui/PrinterConfigPage.ui:340
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: file: ui/PrinterConfigPage.ui:585
+#. i18n: file: ui/PrinterConfigPage.ui:631
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: file: ui/PrinterConfigPage.ui:795
+#. i18n: file: ui/PrinterConfigPage.ui:854
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #. i18n: file: ui/TextElement.ui:20
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
-#: build/ui_KeyElement.h:324 build/ui_PageProperties.h:188
-#: build/ui_PrinterConfigPage.h:712 build/ui_PrinterConfigPage.h:759
-#: build/ui_PrinterConfigPage.h:780 build/ui_PrinterConfigPage.h:799
-#: build/ui_TextElement.h:322 rc.cpp:513 rc.cpp:683 rc.cpp:929 rc.cpp:1055
-#: rc.cpp:1118 rc.cpp:1175 rc.cpp:1385
+#: build/ui_KeyElement.h:355 build/ui_PageProperties.h:166
+#: build/ui_PrinterConfigPage.h:800 build/ui_PrinterConfigPage.h:810
+#: build/ui_PrinterConfigPage.h:834 build/ui_PrinterConfigPage.h:853
+#: build/ui_TextElement.h:310 rc.cpp:576 rc.cpp:753 rc.cpp:1074 rc.cpp:1104
+#: rc.cpp:1176 rc.cpp:1233 rc.cpp:1437
 msgid "Margins"
 msgstr "Marges"
 
@@ -532,173 +837,11 @@ msgstr "Marges"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
 #. i18n: file: ui/PageProperties.ui:39
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
-#: build/ui_KeyElement.h:326 build/ui_PageProperties.h:190 rc.cpp:516
-#: rc.cpp:686
+#: build/ui_KeyElement.h:357 build/ui_PageProperties.h:168 rc.cpp:579
+#: rc.cpp:756
 msgid "Top margin in mm"
 msgstr "Marge superior en mm"
 
-#. i18n: file: ui/KeyElement.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/KeyElement.ui:74
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/KeyElement.ui:103
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/KeyElement.ui:132
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/KeyElement.ui:203
-#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: ui/PageProperties.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/PageProperties.ui:77
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/PageProperties.ui:109
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/PageProperties.ui:141
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/PageProperties.ui:202
-#. i18n: ectx: property (suffix), widget (QSpinBox, GridX)
-#. i18n: file: ui/PageProperties.ui:237
-#. i18n: ectx: property (suffix), widget (QSpinBox, GridY)
-#. i18n: file: ui/PrinterConfigPage.ui:86
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:106
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:126
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:146
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:372
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:392
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:412
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:432
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:573
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
-#. i18n: file: ui/PrinterConfigPage.ui:606
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:626
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:646
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:666
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:730
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
-#. i18n: file: ui/PrinterConfigPage.ui:816
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:836
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:856
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:876
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
-#. i18n: file: ui/TextElement.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/TextElement.ui:74
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/TextElement.ui:103
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/TextElement.ui:132
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/TextElement.ui:198
-#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: ui/KeyElement.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/KeyElement.ui:74
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/KeyElement.ui:103
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/KeyElement.ui:132
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/KeyElement.ui:203
-#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: ui/PageProperties.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/PageProperties.ui:77
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/PageProperties.ui:109
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/PageProperties.ui:141
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/PageProperties.ui:202
-#. i18n: ectx: property (suffix), widget (QSpinBox, GridX)
-#. i18n: file: ui/PageProperties.ui:237
-#. i18n: ectx: property (suffix), widget (QSpinBox, GridY)
-#. i18n: file: ui/PrinterConfigPage.ui:86
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:106
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:126
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:146
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:372
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:392
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:412
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:432
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:573
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
-#. i18n: file: ui/PrinterConfigPage.ui:606
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:626
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:646
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:666
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
-#. i18n: file: ui/PrinterConfigPage.ui:730
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
-#. i18n: file: ui/PrinterConfigPage.ui:816
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
-#. i18n: file: ui/PrinterConfigPage.ui:836
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
-#. i18n: file: ui/PrinterConfigPage.ui:856
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
-#. i18n: file: ui/PrinterConfigPage.ui:876
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
-#. i18n: file: ui/TextElement.ui:45
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: file: ui/TextElement.ui:74
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: file: ui/TextElement.ui:103
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: file: ui/TextElement.ui:132
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: file: ui/TextElement.ui:198
-#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
-#: build/ui_KeyElement.h:328 build/ui_KeyElement.h:332
-#: build/ui_KeyElement.h:336 build/ui_KeyElement.h:340
-#: build/ui_KeyElement.h:349 build/ui_PageProperties.h:192
-#: build/ui_PageProperties.h:196 build/ui_PageProperties.h:200
-#: build/ui_PageProperties.h:204 build/ui_PageProperties.h:211
-#: build/ui_PageProperties.h:216 build/ui_PrinterConfigPage.h:714
-#: build/ui_PrinterConfigPage.h:716 build/ui_PrinterConfigPage.h:718
-#: build/ui_PrinterConfigPage.h:720 build/ui_PrinterConfigPage.h:761
-#: build/ui_PrinterConfigPage.h:763 build/ui_PrinterConfigPage.h:765
-#: build/ui_PrinterConfigPage.h:767 build/ui_PrinterConfigPage.h:779
-#: build/ui_PrinterConfigPage.h:782 build/ui_PrinterConfigPage.h:784
-#: build/ui_PrinterConfigPage.h:786 build/ui_PrinterConfigPage.h:788
-#: build/ui_PrinterConfigPage.h:794 build/ui_PrinterConfigPage.h:801
-#: build/ui_PrinterConfigPage.h:803 build/ui_PrinterConfigPage.h:805
-#: build/ui_PrinterConfigPage.h:807 build/ui_TextElement.h:326
-#: build/ui_TextElement.h:330 build/ui_TextElement.h:334
-#: build/ui_TextElement.h:338 build/ui_TextElement.h:346 rc.cpp:519 rc.cpp:525
-#: rc.cpp:531 rc.cpp:537 rc.cpp:555 rc.cpp:689 rc.cpp:695 rc.cpp:701
-#: rc.cpp:707 rc.cpp:722 rc.cpp:731 rc.cpp:935 rc.cpp:941 rc.cpp:947
-#: rc.cpp:953 rc.cpp:1061 rc.cpp:1067 rc.cpp:1073 rc.cpp:1079 rc.cpp:1115
-#: rc.cpp:1124 rc.cpp:1130 rc.cpp:1136 rc.cpp:1142 rc.cpp:1160 rc.cpp:1181
-#: rc.cpp:1187 rc.cpp:1193 rc.cpp:1199 rc.cpp:1391 rc.cpp:1397 rc.cpp:1403
-#: rc.cpp:1409 rc.cpp:1427
-msgid "mm"
-msgstr "mm"
-
 #. i18n: file: ui/KeyElement.ui:68
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #. i18n: file: ui/PageProperties.ui:71
@@ -707,8 +850,8 @@ msgstr "mm"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #. i18n: file: ui/PageProperties.ui:71
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
-#: build/ui_KeyElement.h:330 build/ui_PageProperties.h:194 rc.cpp:522
-#: rc.cpp:692
+#: build/ui_KeyElement.h:361 build/ui_PageProperties.h:172 rc.cpp:585
+#: rc.cpp:762
 msgid "Left margin in mm"
 msgstr "Marge esquerra en mm"
 
@@ -720,8 +863,8 @@ msgstr "Marge esquerra en mm"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
 #. i18n: file: ui/PageProperties.ui:103
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
-#: build/ui_KeyElement.h:334 build/ui_PageProperties.h:198 rc.cpp:528
-#: rc.cpp:698
+#: build/ui_KeyElement.h:365 build/ui_PageProperties.h:176 rc.cpp:591
+#: rc.cpp:768
 msgid "Right margin in mm"
 msgstr "Marge dret en mm"
 
@@ -733,311 +876,207 @@ msgstr "Marge dret en mm"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
 #. i18n: file: ui/PageProperties.ui:135
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
-#: build/ui_KeyElement.h:338 build/ui_PageProperties.h:202 rc.cpp:534
-#: rc.cpp:704
+#: build/ui_KeyElement.h:369 build/ui_PageProperties.h:180 rc.cpp:597
+#: rc.cpp:774
 msgid "Bottom margin in mm"
 msgstr "Marge inferior en mm"
 
-#. i18n: file: ui/KeyElement.ui:158
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: file: ui/PrinterConfigPage.ui:528
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: file: ui/PrinterConfigPage.ui:685
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
-#. i18n: file: ui/TextElement.ui:158
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: ui/KeyElement.ui:158
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: file: ui/PrinterConfigPage.ui:528
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: file: ui/PrinterConfigPage.ui:685
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
-#. i18n: file: ui/TextElement.ui:158
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: build/ui_KeyElement.h:341 build/ui_PrinterConfigPage.h:775
-#: build/ui_PrinterConfigPage.h:790 build/ui_TextElement.h:339 rc.cpp:540
-#: rc.cpp:1103 rc.cpp:1148 rc.cpp:1412
-msgid "Border"
-msgstr "Vora"
-
-#. i18n: file: ui/KeyElement.ui:164
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#. i18n: file: ui/PrinterConfigPage.ui:534
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
-#. i18n: file: ui/PrinterConfigPage.ui:691
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
-#. i18n: file: ui/TextElement.ui:164
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#. i18n: file: ui/KeyElement.ui:164
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#. i18n: file: ui/PrinterConfigPage.ui:534
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
-#. i18n: file: ui/PrinterConfigPage.ui:691
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
-#. i18n: file: ui/TextElement.ui:164
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#: build/ui_KeyElement.h:342 build/ui_PrinterConfigPage.h:776
-#: build/ui_PrinterConfigPage.h:791 build/ui_TextElement.h:340 rc.cpp:543
-#: rc.cpp:1106 rc.cpp:1151 rc.cpp:1415
-msgid "Show border"
-msgstr "Mostra vora"
-
-#. i18n: file: ui/PrinterConfigPage.ui:488
-#. i18n: ectx: property (text), widget (QLabel, label_20)
-#. i18n: file: ui/PrinterConfigPage.ui:543
-#. i18n: ectx: property (text), widget (QLabel, label_18)
-#. i18n: file: ui/PrinterConfigPage.ui:700
-#. i18n: ectx: property (text), widget (QLabel, label_23)
-#. i18n: file: ui/PrinterConfigPage.ui:755
-#. i18n: ectx: property (text), widget (QLabel, label_25)
-#. i18n: file: ui/PrinterConfigPage.ui:488
-#. i18n: ectx: property (text), widget (QLabel, label_20)
-#. i18n: file: ui/PrinterConfigPage.ui:543
-#. i18n: ectx: property (text), widget (QLabel, label_18)
-#. i18n: file: ui/PrinterConfigPage.ui:700
-#. i18n: ectx: property (text), widget (QLabel, label_23)
-#. i18n: file: ui/PrinterConfigPage.ui:755
-#. i18n: ectx: property (text), widget (QLabel, label_25)
-#: build/ui_KeyElement.h:343 build/ui_KeyElement.h:352 build/ui_NewFloss.h:105
-#: build/ui_PrinterConfigPage.h:773 build/ui_PrinterConfigPage.h:777
-#: build/ui_PrinterConfigPage.h:792 build/ui_PrinterConfigPage.h:797
-#: build/ui_TextElement.h:341 build/ui_TextElement.h:349
-#: build/ui_TextElement.h:352 rc.cpp:1097 rc.cpp:1109 rc.cpp:1154 rc.cpp:1169
-msgid "Color"
-msgstr "Color"
-
-#. i18n: file: ui/KeyElement.ui:187
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/TextElement.ui:185
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: file: ui/KeyElement.ui:187
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/TextElement.ui:185
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_KeyElement.h:344 build/ui_TextElement.h:342 rc.cpp:549 rc.cpp:1421
-msgid "Line thickness"
-msgstr "Gruix línia"
-
-#. i18n: file: kxstitch.kcfg:393
-#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
-#. i18n: file: ui/KeyElement.ui:197
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: ui/TextElement.ui:195
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: kxstitch.kcfg:393
-#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
-#. i18n: file: ui/KeyElement.ui:197
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: file: ui/TextElement.ui:195
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#: build/ui_KeyElement.h:346 build/ui_TextElement.h:344 rc.cpp:234 rc.cpp:552
-#: rc.cpp:1424
-msgid "Thickness of the border in 1/10 mm"
-msgstr "Gruix de la vora en 1/10 mm"
-
-#. i18n: file: ui/PrinterConfigPage.ui:475
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
-#. i18n: file: ui/PrinterConfigPage.ui:742
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
-#. i18n: file: ui/PrinterConfigPage.ui:475
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
-#. i18n: file: ui/PrinterConfigPage.ui:742
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
-#: build/ui_KeyElement.h:350 build/ui_PrinterConfigPage.h:771
-#: build/ui_PrinterConfigPage.h:795 build/ui_TextElement.h:347 rc.cpp:1091
-#: rc.cpp:1163
+#: build/ui_KeyElement.h:381 build/ui_PrinterConfigPage.h:825
+#: build/ui_PrinterConfigPage.h:849 build/ui_TextElement.h:341
 msgid "Background"
 msgstr "Fons"
 
 #. i18n: file: ui/KeyElement.ui:236
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#. i18n: file: ui/PrinterConfigPage.ui:481
+#. i18n: file: ui/PrinterConfigPage.ui:564
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
-#. i18n: file: ui/PrinterConfigPage.ui:748
+#. i18n: file: ui/PrinterConfigPage.ui:807
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
-#. i18n: file: ui/TextElement.ui:229
+#. i18n: file: ui/TextElement.ui:238
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
 #. i18n: file: ui/KeyElement.ui:236
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#. i18n: file: ui/PrinterConfigPage.ui:481
+#. i18n: file: ui/PrinterConfigPage.ui:564
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
-#. i18n: file: ui/PrinterConfigPage.ui:748
+#. i18n: file: ui/PrinterConfigPage.ui:807
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
-#. i18n: file: ui/TextElement.ui:229
+#. i18n: file: ui/TextElement.ui:238
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#: build/ui_KeyElement.h:351 build/ui_PrinterConfigPage.h:772
-#: build/ui_PrinterConfigPage.h:796 build/ui_TextElement.h:348 rc.cpp:561
-#: rc.cpp:1094 rc.cpp:1166 rc.cpp:1433
+#: build/ui_KeyElement.h:382 build/ui_PrinterConfigPage.h:828
+#: build/ui_PrinterConfigPage.h:850 build/ui_TextElement.h:345 rc.cpp:624
+#: rc.cpp:1158 rc.cpp:1224 rc.cpp:1494
 msgid "Fill background"
 msgstr "Omple fons"
 
 #. i18n: file: ui/KeyElement.ui:259
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: file: ui/PrinterConfigPage.ui:505
+#. i18n: file: ui/PrinterConfigPage.ui:544
 #. i18n: ectx: property (text), widget (QLabel, label_22)
-#. i18n: file: ui/PrinterConfigPage.ui:772
+#. i18n: file: ui/PrinterConfigPage.ui:831
 #. i18n: ectx: property (text), widget (QLabel, label_26)
-#. i18n: file: ui/TextElement.ui:250
+#. i18n: file: ui/TextElement.ui:262
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: file: ui/KeyElement.ui:259
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: file: ui/PrinterConfigPage.ui:505
+#. i18n: file: ui/PrinterConfigPage.ui:544
 #. i18n: ectx: property (text), widget (QLabel, label_22)
-#. i18n: file: ui/PrinterConfigPage.ui:772
+#. i18n: file: ui/PrinterConfigPage.ui:831
 #. i18n: ectx: property (text), widget (QLabel, label_26)
-#. i18n: file: ui/TextElement.ui:250
+#. i18n: file: ui/TextElement.ui:262
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: build/ui_KeyElement.h:353 build/ui_PrinterConfigPage.h:774
-#: build/ui_PrinterConfigPage.h:798 build/ui_TextElement.h:350 rc.cpp:567
-#: rc.cpp:1100 rc.cpp:1172 rc.cpp:1439
+#: build/ui_KeyElement.h:384 build/ui_PrinterConfigPage.h:827
+#: build/ui_PrinterConfigPage.h:852 build/ui_TextElement.h:350 rc.cpp:630
+#: rc.cpp:1155 rc.cpp:1230 rc.cpp:1503
 msgid "Transparency"
 msgstr "Transparència"
 
 #. i18n: file: ui/KeyElement.ui:284
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: file: ui/TextElement.ui:385
-#. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: file: ui/TextTool.ui:25
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #. i18n: file: ui/KeyElement.ui:284
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: file: ui/TextElement.ui:385
-#. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: file: ui/TextTool.ui:25
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: build/ui_KeyElement.h:354 build/ui_TextElement.h:353 build/ui_TextTool.h:99
-#: rc.cpp:570 rc.cpp:1452 rc.cpp:1458
+#: build/ui_KeyElement.h:385 build/ui_TextTool.h:99 rc.cpp:633 rc.cpp:1566
 msgid "Font"
 msgstr "Font"
 
 #. i18n: file: ui/KeyElement.ui:296
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#: build/ui_KeyElement.h:386 rc.cpp:636
+#, fuzzy
+msgid "Key Elements"
+msgstr "Element Clau"
+
+#. i18n: file: ui/KeyElement.ui:304
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/ui_KeyElement.h:387 rc.cpp:639
+#, fuzzy
+msgid "First element"
+msgstr "Element Text"
+
+#. i18n: file: ui/KeyElement.ui:311
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
+#: build/ui_KeyElement.h:389 rc.cpp:642
+msgid "The first line of the key to display"
+msgstr ""
+
+#. i18n: file: ui/KeyElement.ui:324
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: build/ui_KeyElement.h:391 rc.cpp:645
+#, fuzzy
+msgid "No. elements"
+msgstr "Elements"
+
+#. i18n: file: ui/KeyElement.ui:331
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
+#: build/ui_KeyElement.h:393 rc.cpp:648
+msgid "The number of key elements to display (0 for all)"
+msgstr ""
+
+#. i18n: file: ui/KeyElement.ui:352
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: build/ui_KeyElement.h:355 rc.cpp:573
+#: build/ui_KeyElement.h:395 rc.cpp:651
 msgid "Columns"
 msgstr "Columnes"
 
-#. i18n: file: ui/KeyElement.ui:302
+#. i18n: file: ui/KeyElement.ui:358
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: file: ui/PaletteManager.ui:137
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: file: ui/PaletteManager.ui:233
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#. i18n: file: ui/KeyElement.ui:302
+#. i18n: file: ui/KeyElement.ui:358
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: file: ui/PaletteManager.ui:137
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: file: ui/PaletteManager.ui:233
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: build/ui_KeyElement.h:356 build/ui_PaletteManager.h:225
-#: build/ui_PaletteManager.h:230 rc.cpp:576 rc.cpp:754 rc.cpp:776
-#: src/Element.cpp:282 src/Element.cpp:307
+#: build/ui_KeyElement.h:396 build/ui_PaletteManager.h:225
+#: build/ui_PaletteManager.h:230 rc.cpp:654 rc.cpp:807 rc.cpp:822
+#: src/Element.cpp:528 src/Element.cpp:571
 msgid "Symbol"
 msgstr "Símbol"
 
-#. i18n: file: ui/KeyElement.ui:309
+#. i18n: file: ui/KeyElement.ui:365
 #. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
 #. i18n: file: ui/NewFloss.ui:34
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: file: ui/PrinterConfigPage.ui:904
+#. i18n: file: ui/PrinterConfigPage.ui:963
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
-#. i18n: file: ui/KeyElement.ui:309
+#. i18n: file: ui/KeyElement.ui:365
 #. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
 #. i18n: file: ui/NewFloss.ui:34
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: file: ui/PrinterConfigPage.ui:904
+#. i18n: file: ui/PrinterConfigPage.ui:963
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
-#: build/ui_KeyElement.h:357 build/ui_NewFloss.h:100
-#: build/ui_PrinterConfigPage.h:810 rc.cpp:579 rc.cpp:671 rc.cpp:1208
+#: build/ui_KeyElement.h:397 build/ui_NewFloss.h:100
+#: build/ui_PrinterConfigPage.h:864 rc.cpp:657 rc.cpp:741 rc.cpp:1266
 msgid "Floss name"
 msgstr "Nom del fil"
 
-#. i18n: file: ui/KeyElement.ui:316
+#. i18n: file: ui/KeyElement.ui:372
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:921
+#. i18n: file: ui/PrinterConfigPage.ui:980
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
-#. i18n: file: ui/KeyElement.ui:316
+#. i18n: file: ui/KeyElement.ui:372
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:921
+#. i18n: file: ui/PrinterConfigPage.ui:980
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
-#: build/ui_KeyElement.h:358 build/ui_PrinterConfigPage.h:812 rc.cpp:582
-#: rc.cpp:1214 src/Element.cpp:284 src/Element.cpp:309
+#: build/ui_KeyElement.h:398 build/ui_PrinterConfigPage.h:866 rc.cpp:660
+#: rc.cpp:1272 src/Element.cpp:536 src/Element.cpp:579
 msgid "Strands"
 msgstr "Brins"
 
-#. i18n: file: ui/KeyElement.ui:323
+#. i18n: file: ui/KeyElement.ui:379
 #. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:914
+#. i18n: file: ui/PrinterConfigPage.ui:973
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
-#. i18n: file: ui/KeyElement.ui:323
+#. i18n: file: ui/KeyElement.ui:379
 #. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:914
+#. i18n: file: ui/PrinterConfigPage.ui:973
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
-#: build/ui_KeyElement.h:359 build/ui_PrinterConfigPage.h:811 rc.cpp:585
-#: rc.cpp:1211
+#: build/ui_KeyElement.h:399 build/ui_PrinterConfigPage.h:865 rc.cpp:663
+#: rc.cpp:1269
 msgid "Floss description"
 msgstr "Descripció del fil"
 
-#. i18n: file: ui/KeyElement.ui:337
-#. i18n: ectx: property (text), widget (QCheckBox, StitchBreakdownColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:941
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchBreakdownColumn)
-#. i18n: file: ui/KeyElement.ui:337
-#. i18n: ectx: property (text), widget (QCheckBox, StitchBreakdownColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:941
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchBreakdownColumn)
-#: build/ui_KeyElement.h:361 build/ui_PrinterConfigPage.h:814 rc.cpp:591
-#: rc.cpp:1220
-msgid "Stitch breakdown"
-msgstr "Desglossament de punts"
-
-#. i18n: file: ui/KeyElement.ui:344
+#. i18n: file: ui/KeyElement.ui:393
 #. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:958
+#. i18n: file: ui/PrinterConfigPage.ui:997
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
-#. i18n: file: ui/KeyElement.ui:344
+#. i18n: file: ui/KeyElement.ui:393
 #. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:958
+#. i18n: file: ui/PrinterConfigPage.ui:997
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
-#: build/ui_KeyElement.h:362 build/ui_PrinterConfigPage.h:816 rc.cpp:594
-#: rc.cpp:1226
+#: build/ui_KeyElement.h:401 build/ui_PrinterConfigPage.h:868 rc.cpp:669
+#: rc.cpp:1278
 msgid "Length"
 msgstr "Longitud"
 
-#. i18n: file: ui/KeyElement.ui:351
+#. i18n: file: ui/KeyElement.ui:400
 #. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:965
+#. i18n: file: ui/PrinterConfigPage.ui:1004
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
-#. i18n: file: ui/KeyElement.ui:351
+#. i18n: file: ui/KeyElement.ui:400
 #. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
-#. i18n: file: ui/PrinterConfigPage.ui:965
+#. i18n: file: ui/PrinterConfigPage.ui:1004
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
-#: build/ui_KeyElement.h:363 build/ui_PrinterConfigPage.h:817 rc.cpp:597
-#: rc.cpp:1229
+#: build/ui_KeyElement.h:402 build/ui_PrinterConfigPage.h:869 rc.cpp:672
+#: rc.cpp:1281
 msgid "Skeins"
 msgstr "Madeixes"
 
-#. i18n: file: ui/KeyElement.ui:358
-#. i18n: ectx: property (text), widget (QCheckBox, TotalStitches)
-#. i18n: file: ui/PrinterConfigPage.ui:951
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox)
-#. i18n: file: ui/KeyElement.ui:358
-#. i18n: ectx: property (text), widget (QCheckBox, TotalStitches)
-#. i18n: file: ui/PrinterConfigPage.ui:951
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox)
-#: build/ui_KeyElement.h:364 build/ui_PrinterConfigPage.h:815 rc.cpp:600
-#: rc.cpp:1223
-msgid "Total stitches"
-msgstr "Total puntades"
-
 #. i18n: file: ui/LibraryConfigPage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
-#: build/ui_LibraryConfigPage.h:159 rc.cpp:603
+#: build/ui_LibraryConfigPage.h:159 rc.cpp:675
 msgid "Library Configuration"
 msgstr "Configuració biblioteca"
 
 #. i18n: file: ui/LibraryConfigPage.ui:30
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_LibraryConfigPage.h:160 rc.cpp:609
+#: build/ui_LibraryConfigPage.h:160 rc.cpp:681
 msgid "Icon default size"
 msgstr "Mida per defecte de les Icones"
 
@@ -1049,250 +1088,214 @@ msgstr "Mida per defecte de les Icones"
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #. i18n: file: ui/LibraryManager.ui:37
 #. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
-#: build/ui_LibraryConfigPage.h:161 build/ui_LibraryManager.h:143 rc.cpp:606
-#: rc.cpp:642
+#: build/ui_LibraryConfigPage.h:161 build/ui_LibraryManager.h:143 rc.cpp:678
+#: rc.cpp:714
 msgid "Libraries"
 msgstr "Biblioteques"
 
 #. i18n: file: ui/LibraryConfigPage.ui:47
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
-#: build/ui_LibraryConfigPage.h:162 rc.cpp:615
+#: build/ui_LibraryConfigPage.h:162 rc.cpp:687
 msgid "Use caps lock"
 msgstr "Usa el bloqueig de majúscules"
 
 #. i18n: file: ui/LibraryConfigPage.ui:54
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
-#: build/ui_LibraryConfigPage.h:163 rc.cpp:618
+#: build/ui_LibraryConfigPage.h:163 rc.cpp:690
 msgid "Word wrap"
 msgstr "Ajust de línia"
 
 #. i18n: file: ui/LibraryConfigPage.ui:63
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_LibraryConfigPage.h:164 rc.cpp:621
+#: build/ui_LibraryConfigPage.h:164 rc.cpp:693
 msgid "Default space width"
 msgstr "Ample per defecte de l'espai"
 
 #. i18n: file: ui/LibraryConfigPage.ui:73
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: build/ui_LibraryConfigPage.h:165 rc.cpp:624
+#: build/ui_LibraryConfigPage.h:165 rc.cpp:696
 msgid "Line spacing"
 msgstr "Distància entre línies"
 
 #. i18n: file: ui/LibraryConfigPage.ui:83
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: build/ui_LibraryConfigPage.h:166 rc.cpp:627
+#: build/ui_LibraryConfigPage.h:166 rc.cpp:699
 msgid "Extend pattern width"
 msgstr "Amplia amplada del patró"
 
 #. i18n: file: ui/LibraryConfigPage.ui:93
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: build/ui_LibraryConfigPage.h:167 rc.cpp:630
+#: build/ui_LibraryConfigPage.h:167 rc.cpp:702
 msgid "Extend pattern height"
 msgstr "Amplia alçada del patró"
 
 #. i18n: file: ui/LibraryConfigPage.ui:41
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: build/ui_LibraryConfigPage.h:168 rc.cpp:612
+#: build/ui_LibraryConfigPage.h:168 rc.cpp:684
 msgid "Alphabets"
 msgstr "Alfabets"
 
 #. i18n: file: ui/LibraryFilePaths.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
-#: build/ui_LibraryFilePaths.h:63 rc.cpp:633 src/LibraryFilePathsDlg.cpp:18
+#: build/ui_LibraryFilePaths.h:63 rc.cpp:705 src/LibraryFilePathsDlg.cpp:18
 msgid "Library File Paths"
 msgstr "Camins a l'arxiu de biblioteques"
 
 #. i18n: file: ui/LibraryFilePaths.ui:23
 #. i18n: ectx: property (text), widget (QLabel, CatagoryName)
-#: build/ui_LibraryFilePaths.h:64 rc.cpp:636
+#: build/ui_LibraryFilePaths.h:64 rc.cpp:708
 msgid "Paths"
 msgstr "Camins"
 
 #. i18n: file: ui/LibraryManager.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
-#: build/ui_LibraryManager.h:141 rc.cpp:639 src/LibraryManagerDlg.cpp:35
+#: build/ui_LibraryManager.h:141 rc.cpp:711 src/LibraryManagerDlg.cpp:35
 msgid "Library Manager"
 msgstr "Gestor de biblioteca"
 
 #. i18n: file: ui/LibraryPatternProperties.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
-#: build/ui_LibraryPatternProperties.h:137 rc.cpp:645
+#: build/ui_LibraryPatternProperties.h:137 rc.cpp:717
 #: src/LibraryPatternPropertiesDlg.cpp:18
 msgid "Library Pattern Properties"
 msgstr "Propietats biblioteca de patrons"
 
 #. i18n: file: ui/LibraryPatternProperties.ui:83
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: build/ui_LibraryPatternProperties.h:144 rc.cpp:658
+#: build/ui_LibraryPatternProperties.h:144 rc.cpp:729
 msgid "Baseline"
 msgstr "Línia base"
 
 #. i18n: file: ui/LibraryPatternProperties.ui:100
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: build/ui_LibraryPatternProperties.h:145 rc.cpp:661
+#: build/ui_LibraryPatternProperties.h:145 rc.cpp:732
 msgid "Associated character"
 msgstr "Caràcter associat"
 
 #. i18n: file: ui/NewFloss.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
-#: build/ui_NewFloss.h:98 rc.cpp:664
+#: build/ui_NewFloss.h:98 rc.cpp:735
 msgid "Create New Floss"
 msgstr "Crea un nou fil"
 
 #. i18n: file: ui/NewFloss.ui:44
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: build/ui_NewFloss.h:101 rc.cpp:674 src/Element.cpp:285 src/Element.cpp:310
+#: build/ui_NewFloss.h:101 rc.cpp:744 src/Element.cpp:540 src/Element.cpp:583
 msgid "Description"
 msgstr "Descripció"
 
 #. i18n: file: ui/PageProperties.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
-#: build/ui_PageProperties.h:187 rc.cpp:680 src/PagePropertiesDlg.cpp:22
+#: build/ui_PageProperties.h:165 rc.cpp:750 src/PagePropertiesDlg.cpp:24
 msgid "Page Properties"
 msgstr "Propietats de la pàgina"
 
-#. i18n: file: ui/PageProperties.ui:176
+#. i18n: file: ui/PageProperties.ui:179
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
-#. i18n: file: ui/PatternElement.ui:215
+#. i18n: file: ui/PatternElement.ui:218
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
-#. i18n: file: ui/PageProperties.ui:176
+#. i18n: file: ui/PageProperties.ui:179
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
-#. i18n: file: ui/PatternElement.ui:215
+#. i18n: file: ui/PatternElement.ui:218
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
-#: build/ui_PageProperties.h:206 build/ui_PatternElement.h:213 rc.cpp:713
-#: rc.cpp:911
+#: build/ui_PageProperties.h:184 build/ui_PatternElement.h:216 rc.cpp:783
+#: rc.cpp:960
 msgid "Show grid"
 msgstr "Mostra quadrícula"
 
-#. i18n: file: ui/PageProperties.ui:189
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_PageProperties.h:207 rc.cpp:716
-msgid "X"
-msgstr "X"
-
-#. i18n: file: ui/PageProperties.ui:199
-#. i18n: ectx: property (toolTip), widget (QSpinBox, GridX)
-#: build/ui_PageProperties.h:209 rc.cpp:719
+#. i18n: file: ui/PageProperties.ui:202
+#. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
+#: build/ui_PageProperties.h:187 rc.cpp:789
 msgid "Grid X spacing in mm"
 msgstr "Espaiat X de la quadrícula en mm"
 
-#. i18n: file: ui/PageProperties.ui:224
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_PageProperties.h:212 rc.cpp:725
-msgid "Y"
-msgstr "Y"
-
-#. i18n: file: ui/PageProperties.ui:234
-#. i18n: ectx: property (toolTip), widget (QSpinBox, GridY)
-#: build/ui_PageProperties.h:214 rc.cpp:728
-msgid "Grid Y spacing in mm"
-msgstr "Espaiat Y de la quadrícula en mm"
-
 #. i18n: file: ui/PaletteManager.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
-#: build/ui_PaletteManager.h:221 rc.cpp:734 src/PaletteManagerDlg.cpp:38
+#: build/ui_PaletteManager.h:221 rc.cpp:795 src/PaletteManagerDlg.cpp:39
 msgid "Palette Manager"
 msgstr "Gestor de paletes"
 
 #. i18n: file: ui/PaletteManager.ui:24
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_PaletteManager.h:222 rc.cpp:737
+#: build/ui_PaletteManager.h:222 rc.cpp:798
 msgid "Current palette"
 msgstr "Paleta actual"
 
 #. i18n: file: ui/PaletteManager.ui:82
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: build/ui_PaletteManager.h:223 rc.cpp:742
+#: build/ui_PaletteManager.h:223 rc.cpp:801
 msgid "Current scheme"
 msgstr "Esquema actual"
 
 #. i18n: file: ui/PaletteManager.ui:96
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: build/ui_PaletteManager.h:224 rc.cpp:745
+#: build/ui_PaletteManager.h:224 rc.cpp:804
 msgid "Stitch strands"
 msgstr "Brins per punt"
 
 #. i18n: file: ui/PaletteManager.ui:169
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: build/ui_PaletteManager.h:226 rc.cpp:758 src/NewFlossDlg.cpp:25
+#: build/ui_PaletteManager.h:226 rc.cpp:810 src/NewFlossDlg.cpp:25
 msgid "New Floss"
 msgstr "Fil nou"
 
 #. i18n: file: ui/PaletteManager.ui:176
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: build/ui_PaletteManager.h:227 rc.cpp:761 src/MainWindow.cpp:897
+#: build/ui_PaletteManager.h:227 rc.cpp:813 src/Commands.cpp:783
 msgid "Clear Unused Flosses"
 msgstr "Esborra fils no usats"
 
 #. i18n: file: ui/PaletteManager.ui:183
 #. i18n: ectx: property (text), widget (QPushButton, Calibrate)
-#: build/ui_PaletteManager.h:228 rc.cpp:764
+#: build/ui_PaletteManager.h:228 rc.cpp:816
 msgid "Calibrate Flosses"
 msgstr "Calibra Fils"
 
 #. i18n: file: ui/PaletteManager.ui:192
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: build/ui_PaletteManager.h:229 rc.cpp:767
+#: build/ui_PaletteManager.h:229 rc.cpp:819
 msgid "Backstitch strands"
 msgstr "Brins per repunt"
 
-#. i18n: file: ui/PaletteManager.ui:244
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: build/ui_PaletteManager.h:233 rc.cpp:779
+#: build/ui_PaletteManager.h:233
 msgid "Solid"
 msgstr "Sòlid"
 
-#. i18n: file: ui/PaletteManager.ui:249
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: build/ui_PaletteManager.h:234 rc.cpp:782
+#: build/ui_PaletteManager.h:234
 msgid "Dashed"
 msgstr "Guionets"
 
-#. i18n: file: ui/PaletteManager.ui:254
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: build/ui_PaletteManager.h:235 rc.cpp:785
+#: build/ui_PaletteManager.h:235
 msgid "Dotted"
 msgstr "Puntejat"
 
 #. i18n: file: ui/PaletteManager.ui:259
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: build/ui_PaletteManager.h:236 rc.cpp:788
+#: build/ui_PaletteManager.h:236 rc.cpp:834
 msgid "Dash Dotted"
 msgstr "Guionet Punt"
 
 #. i18n: file: ui/PaletteManager.ui:264
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: build/ui_PaletteManager.h:237 rc.cpp:791
+#: build/ui_PaletteManager.h:237 rc.cpp:837
 msgid "Dash Dash Dotted"
 msgstr "Guinet Guionet Punt"
 
 #. i18n: file: ui/PatternConfigPage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
-#: build/ui_PatternConfigPage.h:197 rc.cpp:794
+#: build/ui_PatternConfigPage.h:196 rc.cpp:840
 msgid "Pattern Configuration"
 msgstr "Configuració del Patró"
 
 #. i18n: file: ui/PatternElement.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
-#: build/ui_PatternElement.h:176 rc.cpp:842 src/PatternElementDlg.cpp:27
+#: build/ui_PatternElement.h:176 rc.cpp:888 src/PatternElementDlg.cpp:27
 msgid "Pattern Element Properties"
 msgstr "Propietats Element Patró"
 
-#. i18n: file: ui/PatternElement.ui:32
-#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
-#: build/ui_PatternElement.h:178 rc.cpp:845
-msgid ""
-"<html><head/><body>Click and drag to select the area of the pattern to be "
-"displayed.<br />Grayed out areas have already been selected on this or other "
-"pages.</body></html>"
-msgstr ""
-"<html><head/><body>Prem i arrossega per a seleccionar la zona del patró "
-"mostrat.<br />Les zones ombrejades ja han estat seleccionades en aquesta o "
-"en altres pàgines.</body></html>"
-
 #. i18n: file: ui/PatternElement.ui:63
 #. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
-#: build/ui_PatternElement.h:180 rc.cpp:848
+#: build/ui_PatternElement.h:180 rc.cpp:894
 msgid "Show stitches"
 msgstr "Mostra Punts"
 
@@ -1302,7 +1305,7 @@ msgstr "Mostra Punts"
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: file: ui/PatternElement.ui:147
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/PatternElement.ui:186
+#. i18n: file: ui/PatternElement.ui:189
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: file: ui/PatternElement.ui:70
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1310,11 +1313,11 @@ msgstr "Mostra Punts"
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: file: ui/PatternElement.ui:147
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/PatternElement.ui:186
+#. i18n: file: ui/PatternElement.ui:189
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: build/ui_PatternElement.h:181 build/ui_PatternElement.h:191
-#: build/ui_PatternElement.h:198 build/ui_PatternElement.h:206 rc.cpp:851
-#: rc.cpp:872 rc.cpp:884 rc.cpp:899
+#: build/ui_PatternElement.h:198 build/ui_PatternElement.h:209 rc.cpp:897
+#: rc.cpp:918 rc.cpp:930 rc.cpp:948
 msgid "As"
 msgstr "Com"
 
@@ -1331,8 +1334,8 @@ msgstr "Com"
 #. i18n: file: ui/PatternElement.ui:168
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
 #: build/ui_PatternElement.h:185 build/ui_PatternElement.h:195
-#: build/ui_PatternElement.h:203 rc.cpp:857 rc.cpp:878 rc.cpp:893
-#: src/MainWindow.cpp:1499 src/MainWindow.cpp:1544 src/MainWindow.cpp:1581
+#: build/ui_PatternElement.h:203 rc.cpp:903 rc.cpp:924 rc.cpp:939
+#: src/MainWindow.cpp:1631 src/MainWindow.cpp:1676 src/MainWindow.cpp:1713
 msgid "Black & White Symbols"
 msgstr "Símbols en Blanc i Negre"
 
@@ -1344,8 +1347,8 @@ msgstr "Símbols en Blanc i Negre"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: file: ui/PatternElement.ui:163
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: build/ui_PatternElement.h:186 build/ui_PatternElement.h:202 rc.cpp:860
-#: rc.cpp:890 src/MainWindow.cpp:1507 src/MainWindow.cpp:1573
+#: build/ui_PatternElement.h:186 build/ui_PatternElement.h:202 rc.cpp:906
+#: rc.cpp:936 src/MainWindow.cpp:1639 src/MainWindow.cpp:1705
 msgid "Color Symbols"
 msgstr "Símbols de Colors"
 
@@ -1357,487 +1360,598 @@ msgstr "Símbols de Colors"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: file: ui/PatternElement.ui:158
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: build/ui_PatternElement.h:187 build/ui_PatternElement.h:201 rc.cpp:863
-#: rc.cpp:887 src/MainWindow.cpp:1515 src/MainWindow.cpp:1556
+#: build/ui_PatternElement.h:187 build/ui_PatternElement.h:201 rc.cpp:909
+#: rc.cpp:933 src/MainWindow.cpp:1647 src/MainWindow.cpp:1688
 msgid "Color Blocks"
 msgstr "Blocs de color"
 
 #. i18n: file: ui/PatternElement.ui:101
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: build/ui_PatternElement.h:188 rc.cpp:866 src/MainWindow.cpp:1523
-#: src/MainWindow.cpp:1565
+#: build/ui_PatternElement.h:188 rc.cpp:912 src/MainWindow.cpp:1655
+#: src/MainWindow.cpp:1697
 msgid "Color Blocks & Symbols"
 msgstr "Blocs i Símbols de Colors"
 
 #. i18n: file: ui/PatternElement.ui:109
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
-#: build/ui_PatternElement.h:190 rc.cpp:869
+#: build/ui_PatternElement.h:190 rc.cpp:915
 msgid "Show backstitches"
 msgstr "Mostra Repunts"
 
 #. i18n: file: ui/PatternElement.ui:127
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: build/ui_PatternElement.h:194 rc.cpp:875 src/MainWindow.cpp:1535
+#: build/ui_PatternElement.h:194 rc.cpp:921 src/MainWindow.cpp:1667
 msgid "Color Lines"
 msgstr "Línies de Colors"
 
 #. i18n: file: ui/PatternElement.ui:140
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
-#: build/ui_PatternElement.h:197 rc.cpp:881
+#: build/ui_PatternElement.h:197 rc.cpp:927
 msgid "Show knots"
 msgstr "Mostra nusos"
 
 #. i18n: file: ui/PatternElement.ui:179
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
+#: build/ui_PatternElement.h:206 rc.cpp:942
+#, fuzzy
+msgid "Not currently implemented"
+msgstr "Paleta actual"
+
+#. i18n: file: ui/PatternElement.ui:182
 #. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
-#: build/ui_PatternElement.h:205 rc.cpp:896
+#: build/ui_PatternElement.h:208 rc.cpp:945
 msgid "Show scales"
 msgstr "Mostra l'escalat"
 
-#. i18n: file: ui/PatternElement.ui:222
+#. i18n: file: ui/PatternElement.ui:225
 #. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
-#: build/ui_PatternElement.h:214 rc.cpp:914
+#: build/ui_PatternElement.h:217 rc.cpp:963
 msgid "Show map"
 msgstr "Mostra mapa"
 
 #. i18n: file: ui/PrinterConfigPage.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: build/ui_PrinterConfigPage.h:709 rc.cpp:917 src/MainWindow.cpp:1019
+#: build/ui_PrinterConfigPage.h:760 rc.cpp:966 src/MainWindow.cpp:1126
 msgid "Printer Configuration"
 msgstr "Configuració Impressora"
 
-#. i18n: file: ui/PrinterConfigPage.ui:39
-#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
-#. i18n: file: ui/PrintSetup.ui:389
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#. i18n: file: ui/PrinterConfigPage.ui:39
-#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
-#. i18n: file: ui/PrintSetup.ui:389
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#: build/ui_PrinterConfigPage.h:710 build/ui_PrintSetup.h:297 rc.cpp:923
-#: rc.cpp:1346
-msgid "Portrait"
-msgstr "Vertical"
-
-#. i18n: file: ui/PrinterConfigPage.ui:49
-#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
-#. i18n: file: ui/PrintSetup.ui:394
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#. i18n: file: ui/PrinterConfigPage.ui:49
-#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
-#. i18n: file: ui/PrintSetup.ui:394
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#: build/ui_PrinterConfigPage.h:711 build/ui_PrintSetup.h:298 rc.cpp:926
-#: rc.cpp:1349
-msgid "Landscape"
-msgstr "Horitzontal"
-
-#. i18n: file: ui/PrinterConfigPage.ui:73
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: file: ui/PrinterConfigPage.ui:359
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#. i18n: file: ui/PrinterConfigPage.ui:593
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#. i18n: file: ui/PrinterConfigPage.ui:803
-#. i18n: ectx: property (text), widget (QLabel, label_14)
-#. i18n: file: ui/PrinterConfigPage.ui:73
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: file: ui/PrinterConfigPage.ui:359
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#. i18n: file: ui/PrinterConfigPage.ui:593
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#. i18n: file: ui/PrinterConfigPage.ui:803
-#. i18n: ectx: property (text), widget (QLabel, label_14)
-#: build/ui_PrinterConfigPage.h:713 build/ui_PrinterConfigPage.h:760
-#: build/ui_PrinterConfigPage.h:781 build/ui_PrinterConfigPage.h:800
-#: rc.cpp:932 rc.cpp:1058 rc.cpp:1121 rc.cpp:1178
-msgid "Left"
-msgstr "Esquerra"
-
-#. i18n: file: ui/PrinterConfigPage.ui:93
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/PrinterConfigPage.ui:379
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#. i18n: file: ui/PrinterConfigPage.ui:613
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#. i18n: file: ui/PrinterConfigPage.ui:823
-#. i18n: ectx: property (text), widget (QLabel, label_15)
-#. i18n: file: ui/PrinterConfigPage.ui:93
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/PrinterConfigPage.ui:379
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#. i18n: file: ui/PrinterConfigPage.ui:613
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#. i18n: file: ui/PrinterConfigPage.ui:823
-#. i18n: ectx: property (text), widget (QLabel, label_15)
-#: build/ui_PrinterConfigPage.h:715 build/ui_PrinterConfigPage.h:762
-#: build/ui_PrinterConfigPage.h:783 build/ui_PrinterConfigPage.h:802
-#: rc.cpp:938 rc.cpp:1064 rc.cpp:1127 rc.cpp:1184
-msgid "Right"
-msgstr "Dreta"
-
-#. i18n: file: ui/PrinterConfigPage.ui:113
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: file: ui/PrinterConfigPage.ui:399
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#. i18n: file: ui/PrinterConfigPage.ui:633
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#. i18n: file: ui/PrinterConfigPage.ui:843
-#. i18n: ectx: property (text), widget (QLabel, label_16)
-#. i18n: file: ui/PrinterConfigPage.ui:113
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: file: ui/PrinterConfigPage.ui:399
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#. i18n: file: ui/PrinterConfigPage.ui:633
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#. i18n: file: ui/PrinterConfigPage.ui:843
-#. i18n: ectx: property (text), widget (QLabel, label_16)
-#: build/ui_PrinterConfigPage.h:717 build/ui_PrinterConfigPage.h:764
-#: build/ui_PrinterConfigPage.h:785 build/ui_PrinterConfigPage.h:804
-#: rc.cpp:944 rc.cpp:1070 rc.cpp:1133 rc.cpp:1190
-msgid "Top"
-msgstr "Superior"
-
-#. i18n: file: ui/PrinterConfigPage.ui:133
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: file: ui/PrinterConfigPage.ui:419
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#. i18n: file: ui/PrinterConfigPage.ui:653
-#. i18n: ectx: property (text), widget (QLabel, label_13)
-#. i18n: file: ui/PrinterConfigPage.ui:863
-#. i18n: ectx: property (text), widget (QLabel, label_17)
-#. i18n: file: ui/PrinterConfigPage.ui:133
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: file: ui/PrinterConfigPage.ui:419
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#. i18n: file: ui/PrinterConfigPage.ui:653
-#. i18n: ectx: property (text), widget (QLabel, label_13)
-#. i18n: file: ui/PrinterConfigPage.ui:863
-#. i18n: ectx: property (text), widget (QLabel, label_17)
-#: build/ui_PrinterConfigPage.h:719 build/ui_PrinterConfigPage.h:766
-#: build/ui_PrinterConfigPage.h:787 build/ui_PrinterConfigPage.h:806
-#: rc.cpp:950 rc.cpp:1076 rc.cpp:1139 rc.cpp:1196
-msgid "Bottom"
-msgstr "Inferior"
-
-#. i18n: file: ui/PrinterConfigPage.ui:167
+#. i18n: file: ui/PrinterConfigPage.ui:32
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_PrinterConfigPage.h:721 rc.cpp:956
+#: build/ui_PrinterConfigPage.h:761 rc.cpp:972
 msgid "Default paper size"
 msgstr "Mida del paper per defecte"
 
-#: build/ui_PrinterConfigPage.h:724 build/ui_PrintSetup.h:261
+#: build/ui_PrinterConfigPage.h:764 build/ui_PrintSetup.h:271
 msgid "A0"
 msgstr "A0"
 
-#: build/ui_PrinterConfigPage.h:725 build/ui_PrintSetup.h:262
+#: build/ui_PrinterConfigPage.h:765 build/ui_PrintSetup.h:272
 msgid "A1"
 msgstr "A1"
 
-#: build/ui_PrinterConfigPage.h:726 build/ui_PrintSetup.h:263
+#: build/ui_PrinterConfigPage.h:766 build/ui_PrintSetup.h:273
 msgid "A2"
 msgstr "A2"
 
-#: build/ui_PrinterConfigPage.h:727 build/ui_PrintSetup.h:264
+#: build/ui_PrinterConfigPage.h:767 build/ui_PrintSetup.h:274
 msgid "A3"
 msgstr "A3"
 
-#: build/ui_PrinterConfigPage.h:728 build/ui_PrintSetup.h:265
+#: build/ui_PrinterConfigPage.h:768 build/ui_PrintSetup.h:275
 msgid "A4"
 msgstr "A4"
 
-#: build/ui_PrinterConfigPage.h:729 build/ui_PrintSetup.h:266
+#: build/ui_PrinterConfigPage.h:769 build/ui_PrintSetup.h:276
 msgid "A5"
 msgstr "A5"
 
-#: build/ui_PrinterConfigPage.h:730 build/ui_PrintSetup.h:267
+#: build/ui_PrinterConfigPage.h:770 build/ui_PrintSetup.h:277
 msgid "A6"
 msgstr "A6"
 
-#: build/ui_PrinterConfigPage.h:731 build/ui_PrintSetup.h:268
+#: build/ui_PrinterConfigPage.h:771 build/ui_PrintSetup.h:278
 msgid "A7"
 msgstr "A7"
 
-#: build/ui_PrinterConfigPage.h:732 build/ui_PrintSetup.h:269
+#: build/ui_PrinterConfigPage.h:772 build/ui_PrintSetup.h:279
 msgid "A8"
 msgstr "A8"
 
-#: build/ui_PrinterConfigPage.h:733 build/ui_PrintSetup.h:270
+#: build/ui_PrinterConfigPage.h:773 build/ui_PrintSetup.h:280
 msgid "A9"
 msgstr "A9"
 
-#: build/ui_PrinterConfigPage.h:734 build/ui_PrintSetup.h:271
+#: build/ui_PrinterConfigPage.h:774 build/ui_PrintSetup.h:281
 msgid "B0"
 msgstr "B0"
 
-#: build/ui_PrinterConfigPage.h:735 build/ui_PrintSetup.h:272
+#: build/ui_PrinterConfigPage.h:775 build/ui_PrintSetup.h:282
 msgid "B1"
 msgstr "B1"
 
-#: build/ui_PrinterConfigPage.h:736 build/ui_PrintSetup.h:273
+#: build/ui_PrinterConfigPage.h:776 build/ui_PrintSetup.h:283
 msgid "B2"
 msgstr "B2"
 
-#: build/ui_PrinterConfigPage.h:737 build/ui_PrintSetup.h:274
+#: build/ui_PrinterConfigPage.h:777 build/ui_PrintSetup.h:284
 msgid "B3"
 msgstr "B3"
 
-#: build/ui_PrinterConfigPage.h:738 build/ui_PrintSetup.h:275
+#: build/ui_PrinterConfigPage.h:778 build/ui_PrintSetup.h:285
 msgid "B4"
 msgstr "B4"
 
-#: build/ui_PrinterConfigPage.h:739 build/ui_PrintSetup.h:276
+#: build/ui_PrinterConfigPage.h:779 build/ui_PrintSetup.h:286
 msgid "B5"
 msgstr "B5"
 
-#: build/ui_PrinterConfigPage.h:740 build/ui_PrintSetup.h:277
+#: build/ui_PrinterConfigPage.h:780 build/ui_PrintSetup.h:287
 msgid "B6"
 msgstr "B6"
 
-#: build/ui_PrinterConfigPage.h:741 build/ui_PrintSetup.h:278
+#: build/ui_PrinterConfigPage.h:781 build/ui_PrintSetup.h:288
 msgid "B7"
 msgstr "B7"
 
-#: build/ui_PrinterConfigPage.h:742 build/ui_PrintSetup.h:279
+#: build/ui_PrinterConfigPage.h:782 build/ui_PrintSetup.h:289
 msgid "B8"
 msgstr "B8"
 
-#: build/ui_PrinterConfigPage.h:743 build/ui_PrintSetup.h:280
+#: build/ui_PrinterConfigPage.h:783 build/ui_PrintSetup.h:290
 msgid "B9"
 msgstr "B9"
 
-#: build/ui_PrinterConfigPage.h:744 build/ui_PrintSetup.h:281
+#: build/ui_PrinterConfigPage.h:784 build/ui_PrintSetup.h:291
 msgid "B10"
 msgstr "B10"
 
-#: build/ui_PrinterConfigPage.h:745 build/ui_PrintSetup.h:282
+#: build/ui_PrinterConfigPage.h:785 build/ui_PrintSetup.h:292
 msgid "C5E"
 msgstr "C5E"
 
-#: build/ui_PrinterConfigPage.h:746 build/ui_PrintSetup.h:283
+#: build/ui_PrinterConfigPage.h:786 build/ui_PrintSetup.h:293
 msgid "Comm10E"
 msgstr "Comm10E"
 
-#: build/ui_PrinterConfigPage.h:747 build/ui_PrintSetup.h:284
+#: build/ui_PrinterConfigPage.h:787 build/ui_PrintSetup.h:294
 msgid "DLE"
 msgstr "DLE"
 
-#: build/ui_PrinterConfigPage.h:748 build/ui_PrintSetup.h:285
+#: build/ui_PrinterConfigPage.h:788 build/ui_PrintSetup.h:295
 msgid "Executive"
 msgstr "Executiu"
 
-#: build/ui_PrinterConfigPage.h:749 build/ui_PrintSetup.h:286
+#: build/ui_PrinterConfigPage.h:789 build/ui_PrintSetup.h:296
 msgid "Folio"
 msgstr "Folio"
 
-#: build/ui_PrinterConfigPage.h:750 build/ui_PrintSetup.h:287
+#: build/ui_PrinterConfigPage.h:790 build/ui_PrintSetup.h:297
 msgid "Ledger"
 msgstr "Llibre major"
 
-#: build/ui_PrinterConfigPage.h:751 build/ui_PrintSetup.h:288
+#: build/ui_PrinterConfigPage.h:791 build/ui_PrintSetup.h:298
 msgid "Legal"
 msgstr "Legal"
 
-#: build/ui_PrinterConfigPage.h:752 build/ui_PrintSetup.h:289
+#: build/ui_PrinterConfigPage.h:792 build/ui_PrintSetup.h:299
 msgid "Letter"
 msgstr "Carta"
 
-#: build/ui_PrinterConfigPage.h:753 build/ui_PrintSetup.h:290
+#: build/ui_PrinterConfigPage.h:793 build/ui_PrintSetup.h:300
 msgid "Tabloid"
 msgstr "Tabloide"
 
-#. i18n: file: ui/PrinterConfigPage.ui:180
+#. i18n: file: ui/PrinterConfigPage.ui:45
 #. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:222
+#. i18n: file: ui/PrintSetup.ui:207
 #. i18n: ectx: property (toolTip), widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:180
+#. i18n: file: ui/PrinterConfigPage.ui:45
 #. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:222
+#. i18n: file: ui/PrintSetup.ui:207
 #. i18n: ectx: property (toolTip), widget (KComboBox, PaperSize)
-#: build/ui_PrinterConfigPage.h:756 build/ui_PrintSetup.h:293 rc.cpp:959
-#: rc.cpp:1250
+#: build/ui_PrinterConfigPage.h:796 build/ui_PrintSetup.h:303 rc.cpp:975
+#: rc.cpp:1302
 msgid "Select a paper size"
 msgstr "Selecciona una mida de paper"
 
+#. i18n: file: ui/PrinterConfigPage.ui:207
+#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
+#. i18n: file: ui/PrintSetup.ui:374
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: file: ui/PrinterConfigPage.ui:207
+#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
+#. i18n: file: ui/PrintSetup.ui:374
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#: build/ui_PrinterConfigPage.h:798 build/ui_PrintSetup.h:307 rc.cpp:1068
+#: rc.cpp:1398
+msgid "Portrait"
+msgstr "Vertical"
+
+#. i18n: file: ui/PrinterConfigPage.ui:217
+#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
+#. i18n: file: ui/PrintSetup.ui:379
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: file: ui/PrinterConfigPage.ui:217
+#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
+#. i18n: file: ui/PrintSetup.ui:379
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#: build/ui_PrinterConfigPage.h:799 build/ui_PrintSetup.h:308 rc.cpp:1071
+#: rc.cpp:1401
+msgid "Landscape"
+msgstr "Horitzontal"
+
+#: build/ui_PrinterConfigPage.h:801 build/ui_PrinterConfigPage.h:811
+#: build/ui_PrinterConfigPage.h:835 build/ui_PrinterConfigPage.h:854
+msgid "Left"
+msgstr "Esquerra"
+
+#: build/ui_PrinterConfigPage.h:803 build/ui_PrinterConfigPage.h:813
+#: build/ui_PrinterConfigPage.h:837 build/ui_PrinterConfigPage.h:856
+msgid "Right"
+msgstr "Dreta"
+
+#: build/ui_PrinterConfigPage.h:805 build/ui_PrinterConfigPage.h:815
+#: build/ui_PrinterConfigPage.h:839 build/ui_PrinterConfigPage.h:858
+msgid "Top"
+msgstr "Superior"
+
+#: build/ui_PrinterConfigPage.h:807 build/ui_PrinterConfigPage.h:817
+#: build/ui_PrinterConfigPage.h:841 build/ui_PrinterConfigPage.h:860
+msgid "Bottom"
+msgstr "Inferior"
+
 #. i18n: file: ui/PrinterConfigPage.ui:24
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#. i18n: file: ui/PrintSetup.ui:51
+#. i18n: file: ui/PrintSetup.ui:49
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: file: ui/PrinterConfigPage.ui:24
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#. i18n: file: ui/PrintSetup.ui:51
+#. i18n: file: ui/PrintSetup.ui:49
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: build/ui_PrinterConfigPage.h:758 build/ui_PrintSetup.h:243 rc.cpp:920
-#: rc.cpp:1235
+#: build/ui_PrinterConfigPage.h:809 build/ui_PrintSetup.h:255 rc.cpp:969
+#: rc.cpp:1287
 msgid "Pages"
 msgstr "Pàgines"
 
-#. i18n: file: ui/PrinterConfigPage.ui:339
+#. i18n: file: ui/PrinterConfigPage.ui:441
+#. i18n: ectx: property (text), widget (QLabel, label_27)
+#: build/ui_PrinterConfigPage.h:820 rc.cpp:1134
+msgid "Minimum cell size (mm)"
+msgstr ""
+
+#. i18n: file: ui/PrinterConfigPage.ui:454
+#. i18n: ectx: property (text), widget (QLabel, label_28)
+#: build/ui_PrinterConfigPage.h:821 rc.cpp:1137
+#, fuzzy
+msgid "Minimum overflow"
+msgstr "Màxim de colors"
+
+#. i18n: file: ui/PrinterConfigPage.ui:334
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: build/ui_PrinterConfigPage.h:768 rc.cpp:1052
+#: build/ui_PrinterConfigPage.h:822 rc.cpp:1101
 msgid "Pattern Element"
 msgstr "Element Patró"
 
-#. i18n: file: ui/PrinterConfigPage.ui:449
+#. i18n: file: ui/PrinterConfigPage.ui:492
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#. i18n: file: ui/TextElement.ui:273
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: file: ui/PrinterConfigPage.ui:449
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#. i18n: file: ui/TextElement.ui:273
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: build/ui_PrinterConfigPage.h:769 build/ui_TextElement.h:351 rc.cpp:1085
-#: rc.cpp:1442 src/Editor.cpp:807 src/Editor.cpp:1805 src/MainWindow.cpp:1348
+#: build/ui_PrinterConfigPage.h:823 rc.cpp:1143 src/Editor.cpp:774
+#: src/Editor.cpp:1875 src/MainWindow.cpp:1468
 msgid "Text"
 msgstr "Text"
 
-#. i18n: file: ui/PrinterConfigPage.ui:455
+#. i18n: file: ui/PrinterConfigPage.ui:498
 #. i18n: ectx: property (text), widget (QLabel, label_21)
-#: build/ui_PrinterConfigPage.h:770 rc.cpp:1088
+#. i18n: file: ui/TextElement.ui:463
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
+#. i18n: file: ui/PrinterConfigPage.ui:498
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#. i18n: file: ui/TextElement.ui:463
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
+#: build/ui_PrinterConfigPage.h:824 build/ui_TextElement.h:389 rc.cpp:1146
+#: rc.cpp:1557
 msgid "Text color"
 msgstr "Color del text"
 
-#. i18n: file: ui/PrinterConfigPage.ui:560
+#. i18n: file: ui/PrinterConfigPage.ui:606
 #. i18n: ectx: property (text), widget (QLabel, label_19)
-#. i18n: file: ui/PrinterConfigPage.ui:717
+#. i18n: file: ui/PrinterConfigPage.ui:776
 #. i18n: ectx: property (text), widget (QLabel, label_24)
-#. i18n: file: ui/PrinterConfigPage.ui:560
+#. i18n: file: ui/PrinterConfigPage.ui:606
 #. i18n: ectx: property (text), widget (QLabel, label_19)
-#. i18n: file: ui/PrinterConfigPage.ui:717
+#. i18n: file: ui/PrinterConfigPage.ui:776
 #. i18n: ectx: property (text), widget (QLabel, label_24)
-#: build/ui_PrinterConfigPage.h:778 build/ui_PrinterConfigPage.h:793
-#: rc.cpp:1112 rc.cpp:1157
+#: build/ui_PrinterConfigPage.h:832 build/ui_PrinterConfigPage.h:847
+#: rc.cpp:1170 rc.cpp:1215
 msgid "Thickness"
 msgstr "Gruix"
 
-#. i18n: file: ui/PrinterConfigPage.ui:443
+#. i18n: file: ui/PrinterConfigPage.ui:486
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: build/ui_PrinterConfigPage.h:789 rc.cpp:1082
+#: build/ui_PrinterConfigPage.h:843 rc.cpp:1140
 msgid "Text Element"
 msgstr "Element Text"
 
-#. i18n: file: ui/PrinterConfigPage.ui:888
+#. i18n: file: ui/PrinterConfigPage.ui:947
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
-#: build/ui_PrinterConfigPage.h:808 rc.cpp:1202
+#: build/ui_PrinterConfigPage.h:862 rc.cpp:1260
 msgid "Elements"
 msgstr "Elements"
 
-#. i18n: file: ui/PrinterConfigPage.ui:894
+#. i18n: file: ui/PrinterConfigPage.ui:953
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
-#: build/ui_PrinterConfigPage.h:809 rc.cpp:1205
+#: build/ui_PrinterConfigPage.h:863 rc.cpp:1263
 msgid "Symbols"
 msgstr "Símbols"
 
-#. i18n: file: ui/PrinterConfigPage.ui:679
+#. i18n: file: ui/PrinterConfigPage.ui:738
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
-#: build/ui_PrinterConfigPage.h:818 rc.cpp:1145
+#: build/ui_PrinterConfigPage.h:870 rc.cpp:1203
 msgid "Key Element"
 msgstr "Element Clau"
 
 #. i18n: file: ui/PrintSetup.ui:20
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
-#: build/ui_PrintSetup.h:242 rc.cpp:1232 src/PrintSetupDlg.cpp:45
+#: build/ui_PrintSetup.h:254 rc.cpp:1284 src/PrintSetupDlg.cpp:50
 msgid "Print Setup"
 msgstr "Configura impressió"
 
-#. i18n: file: ui/PrintSetup.ui:81
+#. i18n: file: ui/PrintSetup.ui:68
+#. i18n: ectx: property (text), widget (QToolButton, Templates)
+#. i18n: file: ui/PrintSetup.ui:525
+#. i18n: ectx: property (text), widget (QToolButton, ImageElement)
+#. i18n: file: ui/TextElement.ui:333
+#. i18n: ectx: property (text), widget (QToolButton, BoldButton)
+#. i18n: file: ui/TextElement.ui:352
+#. i18n: ectx: property (text), widget (QToolButton, ItalicButton)
+#. i18n: file: ui/TextElement.ui:371
+#. i18n: ectx: property (text), widget (QToolButton, UnderlineButton)
+#. i18n: file: ui/TextElement.ui:390
+#. i18n: ectx: property (text), widget (QToolButton, AlignLeft)
+#. i18n: file: ui/TextElement.ui:409
+#. i18n: ectx: property (text), widget (QToolButton, AlignHCenter)
+#. i18n: file: ui/TextElement.ui:428
+#. i18n: ectx: property (text), widget (QToolButton, AlignRight)
+#. i18n: file: ui/TextElement.ui:447
+#. i18n: ectx: property (text), widget (QToolButton, AlignJustify)
+#. i18n: file: ui/TextElement.ui:466
+#. i18n: ectx: property (text), widget (QToolButton, TextColor)
+#. i18n: file: ui/PrintSetup.ui:68
+#. i18n: ectx: property (text), widget (QToolButton, Templates)
+#. i18n: file: ui/PrintSetup.ui:525
+#. i18n: ectx: property (text), widget (QToolButton, ImageElement)
+#. i18n: file: ui/TextElement.ui:333
+#. i18n: ectx: property (text), widget (QToolButton, BoldButton)
+#. i18n: file: ui/TextElement.ui:352
+#. i18n: ectx: property (text), widget (QToolButton, ItalicButton)
+#. i18n: file: ui/TextElement.ui:371
+#. i18n: ectx: property (text), widget (QToolButton, UnderlineButton)
+#. i18n: file: ui/TextElement.ui:390
+#. i18n: ectx: property (text), widget (QToolButton, AlignLeft)
+#. i18n: file: ui/TextElement.ui:409
+#. i18n: ectx: property (text), widget (QToolButton, AlignHCenter)
+#. i18n: file: ui/TextElement.ui:428
+#. i18n: ectx: property (text), widget (QToolButton, AlignRight)
+#. i18n: file: ui/TextElement.ui:447
+#. i18n: ectx: property (text), widget (QToolButton, AlignJustify)
+#. i18n: file: ui/TextElement.ui:466
+#. i18n: ectx: property (text), widget (QToolButton, TextColor)
+#: build/ui_PrintSetup.h:256 build/ui_PrintSetup.h:334
+#: build/ui_TextElement.h:363 build/ui_TextElement.h:367
+#: build/ui_TextElement.h:371 build/ui_TextElement.h:375
+#: build/ui_TextElement.h:379 build/ui_TextElement.h:383
+#: build/ui_TextElement.h:387 build/ui_TextElement.h:391 rc.cpp:1290
+#: rc.cpp:1419 rc.cpp:1518 rc.cpp:1524 rc.cpp:1530 rc.cpp:1536 rc.cpp:1542
+#: rc.cpp:1548 rc.cpp:1554 rc.cpp:1560
+msgid "..."
+msgstr "..."
+
+#. i18n: file: ui/PrintSetup.ui:104
 #. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
-#: build/ui_PrintSetup.h:245 rc.cpp:1238
+#: build/ui_PrintSetup.h:258 rc.cpp:1293
 msgid "Append a page"
 msgstr "Afegeix una pàgina"
 
-#. i18n: file: ui/PrintSetup.ui:123
+#. i18n: file: ui/PrintSetup.ui:146
 #. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
-#: build/ui_PrintSetup.h:251 rc.cpp:1241
+#: build/ui_PrintSetup.h:264 rc.cpp:1296
 msgid "Insert a page before the selected page"
 msgstr "Insereix una pàgina abans de la seleccionada"
 
-#. i18n: file: ui/PrintSetup.ui:162
+#. i18n: file: ui/PrintSetup.ui:185
 #. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
-#: build/ui_PrintSetup.h:254 rc.cpp:1244
+#: build/ui_PrintSetup.h:267 rc.cpp:1299
 msgid "Delete the selected page"
 msgstr "Elimina la pàgina seleccionada"
 
-#. i18n: file: ui/PrintSetup.ui:190
-#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
-#: build/ui_PrintSetup.h:257 rc.cpp:1247
-msgid "Page list"
-msgstr "Llistat de pàgines"
-
-#. i18n: file: ui/PrintSetup.ui:385
+#. i18n: file: ui/PrintSetup.ui:370
 #. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
-#: build/ui_PrintSetup.h:301 rc.cpp:1343
+#: build/ui_PrintSetup.h:311 rc.cpp:1395
 msgid "Select the paper orientation"
 msgstr "Selecciona l'orientació del paper"
 
-#. i18n: file: ui/PrintSetup.ui:408
+#. i18n: file: ui/PrintSetup.ui:393
 #. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
-#: build/ui_PrintSetup.h:304 rc.cpp:1352
+#: build/ui_PrintSetup.h:314 rc.cpp:1404
 msgid "Zoom factor"
 msgstr "Factor d'ampliació"
 
-#. i18n: file: ui/PrintSetup.ui:468
+#. i18n: file: ui/PrintSetup.ui:453
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
-#: build/ui_PrintSetup.h:307 rc.cpp:1363
+#: build/ui_PrintSetup.h:317 rc.cpp:1407
 msgid "Select an element"
 msgstr "Selecciona un element"
 
-#. i18n: file: ui/PrintSetup.ui:490
+#. i18n: file: ui/PrintSetup.ui:475
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
-#: build/ui_PrintSetup.h:310 rc.cpp:1367
+#: build/ui_PrintSetup.h:320 rc.cpp:1410
 msgid "Insert a text element"
 msgstr "Insereix un element de text"
 
-#. i18n: file: ui/PrintSetup.ui:515
+#. i18n: file: ui/PrintSetup.ui:500
 #. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
-#: build/ui_PrintSetup.h:316 rc.cpp:1371
+#: build/ui_PrintSetup.h:326 rc.cpp:1413
 msgid "Insert a pattern element"
 msgstr "Insereix un element de patró"
 
-#. i18n: file: ui/PrintSetup.ui:537
+#. i18n: file: ui/PrintSetup.ui:522
+#. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
+#: build/ui_PrintSetup.h:332 rc.cpp:1416
+#, fuzzy
+msgid "Insert a picture element"
+msgstr "Insereix un element de text"
+
+#. i18n: file: ui/PrintSetup.ui:532
 #. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
-#: build/ui_PrintSetup.h:322 rc.cpp:1375
+#: build/ui_PrintSetup.h:336 rc.cpp:1422
 msgid "Insert a key element"
 msgstr "Insereix un element clau"
 
-#. i18n: file: ui/PrintSetup.ui:567
+#. i18n: file: ui/PrintSetup.ui:603
+#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
+#: build/ui_PrintSetup.h:342 rc.cpp:1425
+msgid "Page list"
+msgstr "Llistat de pàgines"
+
+#. i18n: file: ui/PrintSetup.ui:631
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
-#: build/ui_PrintSetup.h:328 rc.cpp:1379
+#: build/ui_PrintSetup.h:345 rc.cpp:1428
 msgid "Page preview"
 msgstr "Vista prèvia"
 
+#. i18n: file: ui/SymbolSelector.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
+#: build/ui_SymbolSelector.h:53 rc.cpp:1431
+#, fuzzy
+msgid "Symbol Selection"
+msgstr "Emmiralla la selecció"
+
 #. i18n: file: ui/TextElement.ui:14
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
-#: build/ui_TextElement.h:321 rc.cpp:1382 src/TextElementDlg.cpp:20
+#: build/ui_TextElement.h:309 rc.cpp:1434 src/TextElementDlg.cpp:27
 msgid "Text Element Properties"
 msgstr "Propietats element de text"
 
 #. i18n: file: ui/TextElement.ui:39
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
-#: build/ui_TextElement.h:324 rc.cpp:1388
+#: build/ui_TextElement.h:312 rc.cpp:1440
 msgid "Top margin in mm, internal to the border."
 msgstr "Marge superior en mm, interior cap a la vora."
 
 #. i18n: file: ui/TextElement.ui:68
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
-#: build/ui_TextElement.h:328 rc.cpp:1394
+#: build/ui_TextElement.h:316 rc.cpp:1446
 msgid "Left margin in mm, internal to the border."
 msgstr "Marge esquerra en mm, interior cap a la vora."
 
 #. i18n: file: ui/TextElement.ui:97
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
-#: build/ui_TextElement.h:332 rc.cpp:1400
+#: build/ui_TextElement.h:320 rc.cpp:1452
 msgid "Right margin in mm, internal to the border."
 msgstr "Marge dret en mm, interior cap a la vora."
 
 #. i18n: file: ui/TextElement.ui:126
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
-#: build/ui_TextElement.h:336 rc.cpp:1406
+#: build/ui_TextElement.h:324 rc.cpp:1458
 msgid "Bottom margin in mm, internal to the border."
 msgstr "Marge inferior en mm, interior cap a la vora."
 
+#. i18n: file: ui/TextElement.ui:164
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
+#: build/ui_TextElement.h:329 rc.cpp:1467
+#, fuzzy
+msgid "Show border around the text box"
+msgstr "Mostra una vora al voltant de la clau"
+
+#. i18n: file: kxstitch.kcfg:430
+#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
+#. i18n: file: ui/TextElement.ui:184
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
+#. i18n: file: kxstitch.kcfg:430
+#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
+#. i18n: file: ui/TextElement.ui:184
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
+#: build/ui_TextElement.h:334 rc.cpp:267 rc.cpp:1476
+msgid "The border color"
+msgstr "Color de la vora"
+
+#. i18n: file: ui/TextElement.ui:235
+#. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
+#: build/ui_TextElement.h:343 rc.cpp:1491
+#, fuzzy
+msgid "Fill the background with a color"
+msgstr "Omple el fons"
+
+#. i18n: file: ui/TextElement.ui:255
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
+#: build/ui_TextElement.h:348 rc.cpp:1500
+#, fuzzy
+msgid "Background color"
+msgstr "Color de fons"
+
+#. i18n: file: ui/TextElement.ui:272
+#. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
+#: build/ui_TextElement.h:352 rc.cpp:1506
+#, fuzzy
+msgid "Transparency of the text box"
+msgstr "Transparència del fons"
+
+#. i18n: file: ui/TextElement.ui:288
+#. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
+#: build/ui_TextElement.h:355 rc.cpp:1509
+msgid "Text font family"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:301
+#. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
+#: build/ui_TextElement.h:358 rc.cpp:1512
+msgid "Text point size"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:330
+#. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
+#: build/ui_TextElement.h:361 rc.cpp:1515
+msgid "Bold text"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:349
+#. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
+#: build/ui_TextElement.h:365 rc.cpp:1521
+msgid "Italics text"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:368
+#. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
+#: build/ui_TextElement.h:369 rc.cpp:1527
+msgid "Underline text"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:387
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
+#: build/ui_TextElement.h:373 rc.cpp:1533
+msgid "Align left"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:406
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
+#: build/ui_TextElement.h:377 rc.cpp:1539
+msgid "Align centrally"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:425
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
+#: build/ui_TextElement.h:381 rc.cpp:1545
+msgid "Align right"
+msgstr ""
+
+#. i18n: file: ui/TextElement.ui:444
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
+#: build/ui_TextElement.h:385 rc.cpp:1551
+msgid "Align justified"
+msgstr ""
+
 #. i18n: file: ui/TextTool.ui:17
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
-#: build/ui_TextTool.h:98 rc.cpp:1455 src/TextToolDlg.cpp:22
+#: build/ui_TextTool.h:98 rc.cpp:1563 src/TextToolDlg.cpp:24
 msgid "Text Tool"
 msgstr "Eina de text"
 
@@ -1921,13 +2035,13 @@ msgstr "Recompte vertical de la tela."
 
 #. i18n: file: kxstitch.kcfg:65
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
-#. i18n: file: kxstitch.kcfg:171
+#. i18n: file: kxstitch.kcfg:175
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
 #. i18n: file: kxstitch.kcfg:65
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
-#. i18n: file: kxstitch.kcfg:171
+#. i18n: file: kxstitch.kcfg:175
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
-#: rc.cpp:42 rc.cpp:93
+#: rc.cpp:42 rc.cpp:96
 msgid "The cloth count units."
 msgstr "Recompte unitats de la tela."
 
@@ -1956,587 +2070,656 @@ msgid "The display units for a scale."
 msgstr "Unitats de visualització de l'escala."
 
 #. i18n: file: kxstitch.kcfg:94
-#. i18n: ectx: label, entry (Editor_SymbolFont), group (editor)
+#. i18n: ectx: label, entry (Editor_MinimumZoomScale), group (editor)
 #: rc.cpp:57
-msgid "The font family to be used for symbols."
-msgstr "Família de fonts usada pels símbols."
+msgid "The minimum zoom scale"
+msgstr ""
 
-#. i18n: file: kxstitch.kcfg:101
-#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
+#. i18n: file: kxstitch.kcfg:98
+#. i18n: ectx: label, entry (Editor_MaximumZoomScale), group (editor)
 #: rc.cpp:60
+msgid "The maximum zoom scale"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:105
+#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
+#: rc.cpp:63
 msgid "Enable color hilighting mode"
 msgstr "Activa el mode ressaltat de color"
 
-#. i18n: file: kxstitch.kcfg:105
+#. i18n: file: kxstitch.kcfg:109
 #. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
-#: rc.cpp:63
+#: rc.cpp:66
 msgid "Render the background images"
 msgstr "Mostra les imatges de fons"
 
-#. i18n: file: kxstitch.kcfg:109
+#. i18n: file: kxstitch.kcfg:113
 #. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
-#: rc.cpp:66
+#: rc.cpp:69
 msgid "Render the grid"
 msgstr "Mostra la quadrícula"
 
-#. i18n: file: kxstitch.kcfg:113
+#. i18n: file: kxstitch.kcfg:117
 #. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
-#: rc.cpp:69
+#: rc.cpp:72
 msgid "Render the stitches"
 msgstr "Mostra els punts"
 
-#. i18n: file: kxstitch.kcfg:117
+#. i18n: file: kxstitch.kcfg:121
 #. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
-#: rc.cpp:72
+#: rc.cpp:75
 msgid "Render the backstitches"
 msgstr "Mostra Repunts"
 
-#. i18n: file: kxstitch.kcfg:121
+#. i18n: file: kxstitch.kcfg:125
 #. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
-#: rc.cpp:75
+#: rc.cpp:78
 msgid "Render the french knots"
 msgstr "Mostra el punt francès"
 
-#. i18n: file: kxstitch.kcfg:125
+#. i18n: file: kxstitch.kcfg:129
 #. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
-#: rc.cpp:78
+#: rc.cpp:81
 msgid "How to display stitches."
 msgstr "Com mostrar els punts."
 
-#. i18n: file: kxstitch.kcfg:138
+#. i18n: file: kxstitch.kcfg:142
 #. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
-#: rc.cpp:81
+#: rc.cpp:84
 msgid "How to display backstitches."
 msgstr "Com mostrar el repunts."
 
-#. i18n: file: kxstitch.kcfg:148
+#. i18n: file: kxstitch.kcfg:152
 #. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
-#: rc.cpp:84
+#: rc.cpp:87
 msgid "How to display french knots."
 msgstr "Com mostrar el punt francès."
 
-#. i18n: file: kxstitch.kcfg:163
+#. i18n: file: kxstitch.kcfg:167
 #. i18n: ectx: label, entry (Document_Width), group (document)
-#: rc.cpp:87
+#: rc.cpp:90
 msgid "The default width of a new pattern in the units specified."
 msgstr "Amplada inicial d'un nou patró en les unitats especificades."
 
-#. i18n: file: kxstitch.kcfg:167
+#. i18n: file: kxstitch.kcfg:171
 #. i18n: ectx: label, entry (Document_Height), group (document)
-#: rc.cpp:90
+#: rc.cpp:93
 msgid "The default height of a new pattern in the units specified."
 msgstr "Alçada inicial d'un nou patró en les unitats especificades."
 
-#. i18n: file: kxstitch.kcfg:183
+#. i18n: file: kxstitch.kcfg:187
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
-#: rc.cpp:96
+#: rc.cpp:99
 msgid "Use a maximum number of colors"
 msgstr "Usa el nombre màxim de colors."
 
-#. i18n: file: kxstitch.kcfg:187
+#. i18n: file: kxstitch.kcfg:191
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
-#: rc.cpp:99
+#: rc.cpp:102
 msgid "Maximum number of colors"
 msgstr "Màxim nombre de colors"
 
-#. i18n: file: kxstitch.kcfg:191
+#. i18n: file: kxstitch.kcfg:195
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
-#: rc.cpp:102
+#: rc.cpp:105
 msgid "Use fractional stitches for finer detail"
 msgstr "Utilitzeu punts fraccionaris per a un major detall"
 
-#. i18n: file: kxstitch.kcfg:198
+#. i18n: file: kxstitch.kcfg:202
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
-#: rc.cpp:105
+#: rc.cpp:108
 msgid "The default floss scheme to be used for new documents."
 msgstr "Esquema de fils per defecte per als nous documents."
 
-#. i18n: file: kxstitch.kcfg:202
+#. i18n: file: kxstitch.kcfg:206
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
-#: rc.cpp:108
+#: rc.cpp:111
 msgid "The default number of strands used for stitches."
 msgstr "Nombre predeterminat de brins per punt."
 
-#. i18n: file: kxstitch.kcfg:206
+#. i18n: file: kxstitch.kcfg:210
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
-#: rc.cpp:111
+#: rc.cpp:114
 msgid "The default number of strands used for backstitches."
 msgstr "Nombre predeterminat de brins per repunt."
 
-#. i18n: file: kxstitch.kcfg:210
+#. i18n: file: kxstitch.kcfg:214
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
-#: rc.cpp:114
+#: rc.cpp:117
 msgid "Display the symbols in the palette."
 msgstr "Mostra els símbols a la paleta."
 
-#. i18n: file: kxstitch.kcfg:217
+#. i18n: file: kxstitch.kcfg:218
+#. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
+#: rc.cpp:120
+#, fuzzy
+msgid "Display the symbols antialiased"
+msgstr "Mostra els símbols a la paleta."
+
+#. i18n: file: kxstitch.kcfg:225
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
-#: rc.cpp:117
+#: rc.cpp:123
 msgid "The default size of icons shown in the icon view"
 msgstr "La mida per defecte de les icones que es mostra a la vista d'icones"
 
-#. i18n: file: kxstitch.kcfg:224
+#. i18n: file: kxstitch.kcfg:232
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
-#: rc.cpp:120
+#: rc.cpp:126
 msgid "Should character selection honor the caps lock key"
 msgstr "En cas de selecció de caràcter triar la tecla Bloq Maj"
 
-#. i18n: file: kxstitch.kcfg:228
+#. i18n: file: kxstitch.kcfg:236
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
-#: rc.cpp:123
+#: rc.cpp:129
 msgid "The default width of a space in cells"
 msgstr "Amplada inicial d'un espai en cel·les."
 
-#. i18n: file: kxstitch.kcfg:232
+#. i18n: file: kxstitch.kcfg:240
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
-#: rc.cpp:126
+#: rc.cpp:132
 msgid "Should a space cause word wrapping at the right edge of the pattern"
 msgstr ""
 "En cas que un espai provoqui un salt de línia a la vora dreta del patró"
 
-#. i18n: file: kxstitch.kcfg:236
+#. i18n: file: kxstitch.kcfg:244
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
-#: rc.cpp:129
+#: rc.cpp:135
 msgid "The number of cells between lines of text"
 msgstr "Nombre de cel·les entre les línies de text"
 
-#. i18n: file: kxstitch.kcfg:240
+#. i18n: file: kxstitch.kcfg:248
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
-#: rc.cpp:132
+#: rc.cpp:138
 msgid "The number of cells to be added when extending the pattern right"
 msgstr "Nombre de cel·les que s'afegeix quan s'estén el patró a la dreta"
 
-#. i18n: file: kxstitch.kcfg:244
+#. i18n: file: kxstitch.kcfg:252
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
-#: rc.cpp:135
+#: rc.cpp:141
 msgid "The number of cells to be added when extending the pattern down"
 msgstr "Nombre de cel·les que s'afegeix quan s'estén el patró avall"
 
-#. i18n: file: kxstitch.kcfg:251
+#. i18n: file: kxstitch.kcfg:259
+#. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
+#: rc.cpp:144
+#, fuzzy
+msgid "Should the shapes tools use fractional stitches"
+msgstr "Mostra el nombre total de punts"
+
+#. i18n: file: kxstitch.kcfg:263
+#. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
+#: rc.cpp:147
+#, fuzzy
+msgid "The font family to be used in the TextToolDlg"
+msgstr "Família de fonts usada pels símbols."
+
+#. i18n: file: kxstitch.kcfg:267
+#. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
+#: rc.cpp:150
+#, fuzzy
+msgid "The text size in pixels"
+msgstr "Mida de la quadrícula en mm"
+
+#. i18n: file: kxstitch.kcfg:274
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
-#: rc.cpp:138
+#: rc.cpp:153
 msgid "The page left margin"
 msgstr "Marge esquerra de la pàgina"
 
-#. i18n: file: kxstitch.kcfg:255
+#. i18n: file: kxstitch.kcfg:278
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
-#: rc.cpp:141
+#: rc.cpp:156
 msgid "The page top margin"
 msgstr "Marge superior de la pàgina"
 
-#. i18n: file: kxstitch.kcfg:259
+#. i18n: file: kxstitch.kcfg:282
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
-#: rc.cpp:144
+#: rc.cpp:159
 msgid "The page right margin"
 msgstr "Marge dret de la pàgina"
 
-#. i18n: file: kxstitch.kcfg:263
+#. i18n: file: kxstitch.kcfg:286
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
-#: rc.cpp:147
+#: rc.cpp:162
 msgid "The page bottom margin"
 msgstr "Marge inferior de la pàgina"
 
-#. i18n: file: kxstitch.kcfg:267
+#. i18n: file: kxstitch.kcfg:290
+#. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
+#: rc.cpp:165
+#, fuzzy
+msgid "Show the layout editor"
+msgstr "Mostra la vora"
+
+#. i18n: file: kxstitch.kcfg:294
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
-#: rc.cpp:150
+#: rc.cpp:168
 msgid "The grid size in mm"
 msgstr "Mida de la quadrícula en mm"
 
-#. i18n: file: kxstitch.kcfg:271
+#. i18n: file: kxstitch.kcfg:298
 #. i18n: ectx: label, entry (Page_Size), group (printer)
-#: rc.cpp:153
+#: rc.cpp:171
 msgid "The default page size"
 msgstr "Mida de la pàgina per defecte"
 
-#. i18n: file: kxstitch.kcfg:275
+#. i18n: file: kxstitch.kcfg:302
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
-#: rc.cpp:156
+#: rc.cpp:174
 msgid "The default page orientation"
 msgstr "Orientació de la pàgina per defecte"
 
-#. i18n: file: kxstitch.kcfg:280
-#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
-#. i18n: file: kxstitch.kcfg:418
-#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
-#. i18n: file: kxstitch.kcfg:280
-#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
-#. i18n: file: kxstitch.kcfg:418
-#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
-#: rc.cpp:159 rc.cpp:249
-msgid "The left margin"
-msgstr "Marge esquerra"
-
-#. i18n: file: kxstitch.kcfg:284
-#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
-#. i18n: file: kxstitch.kcfg:413
-#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
-#. i18n: file: kxstitch.kcfg:284
-#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
-#. i18n: file: kxstitch.kcfg:413
-#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
-#: rc.cpp:162 rc.cpp:246
-msgid "The top margin"
-msgstr "Marge superior"
-
-#. i18n: file: kxstitch.kcfg:288
-#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
-#. i18n: file: kxstitch.kcfg:423
-#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
-#. i18n: file: kxstitch.kcfg:288
-#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
-#. i18n: file: kxstitch.kcfg:423
-#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
-#: rc.cpp:165 rc.cpp:252
-msgid "The right margin"
-msgstr "Marge dret"
-
-#. i18n: file: kxstitch.kcfg:292
-#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
-#. i18n: file: kxstitch.kcfg:428
-#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
-#. i18n: file: kxstitch.kcfg:292
-#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
-#. i18n: file: kxstitch.kcfg:428
-#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
-#: rc.cpp:168 rc.cpp:255
-msgid "The bottom margin"
-msgstr "Marge inferior"
-
-#. i18n: file: kxstitch.kcfg:297
-#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
-#: rc.cpp:171
-msgid "Show a border around the key"
+#. i18n: file: kxstitch.kcfg:307
+#. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
+#: rc.cpp:177
+#, fuzzy
+msgid "Show a border around the pattern"
 msgstr "Mostra una vora al voltant de la clau"
 
-#. i18n: file: kxstitch.kcfg:301
+#. i18n: file: kxstitch.kcfg:311
+#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
+#. i18n: file: kxstitch.kcfg:348
+#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
+#. i18n: file: kxstitch.kcfg:361
 #. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
-#: rc.cpp:174
+#. i18n: file: kxstitch.kcfg:311
+#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
+#. i18n: file: kxstitch.kcfg:348
+#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
+#. i18n: file: kxstitch.kcfg:361
+#. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
+#: rc.cpp:180 rc.cpp:207 rc.cpp:216
 msgid "The color of the border"
 msgstr "Color de la vora"
 
-#. i18n: file: kxstitch.kcfg:305
+#. i18n: file: kxstitch.kcfg:315
+#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
+#. i18n: file: kxstitch.kcfg:352
+#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
+#. i18n: file: kxstitch.kcfg:365
 #. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
-#: rc.cpp:177
+#. i18n: file: kxstitch.kcfg:315
+#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
+#. i18n: file: kxstitch.kcfg:352
+#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
+#. i18n: file: kxstitch.kcfg:365
+#. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
+#: rc.cpp:183 rc.cpp:210 rc.cpp:219
 msgid "The thickness of the border in 1/10 mm"
 msgstr "Gruix de la vora en 1/10 mm"
 
-#. i18n: file: kxstitch.kcfg:309
+#. i18n: file: kxstitch.kcfg:319
+#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
+#. i18n: file: kxstitch.kcfg:454
+#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
+#. i18n: file: kxstitch.kcfg:319
+#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
+#. i18n: file: kxstitch.kcfg:454
+#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
+#: rc.cpp:186 rc.cpp:285
+msgid "The left margin"
+msgstr "Marge esquerra"
+
+#. i18n: file: kxstitch.kcfg:323
+#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
+#. i18n: file: kxstitch.kcfg:450
+#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
+#. i18n: file: kxstitch.kcfg:323
+#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
+#. i18n: file: kxstitch.kcfg:450
+#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
+#: rc.cpp:189 rc.cpp:282
+msgid "The top margin"
+msgstr "Marge superior"
+
+#. i18n: file: kxstitch.kcfg:327
+#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
+#. i18n: file: kxstitch.kcfg:458
+#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
+#. i18n: file: kxstitch.kcfg:327
+#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
+#. i18n: file: kxstitch.kcfg:458
+#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
+#: rc.cpp:192 rc.cpp:288
+msgid "The right margin"
+msgstr "Marge dret"
+
+#. i18n: file: kxstitch.kcfg:331
+#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
+#. i18n: file: kxstitch.kcfg:462
+#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
+#. i18n: file: kxstitch.kcfg:331
+#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
+#. i18n: file: kxstitch.kcfg:462
+#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
+#: rc.cpp:195 rc.cpp:291
+msgid "The bottom margin"
+msgstr "Marge inferior"
+
+#. i18n: file: kxstitch.kcfg:335
+#. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
+#: rc.cpp:198
+msgid "Minimum cell size in mm for template generated printer configurations"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:339
+#. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
+#: rc.cpp:201
+msgid "Minimum number of cells that can be on a page of its own"
+msgstr ""
+
+#. i18n: file: kxstitch.kcfg:344
+#. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
+#: rc.cpp:204
+#, fuzzy
+msgid "Show a border around the image"
+msgstr "Mostra una vora al voltant de la clau"
+
+#. i18n: file: kxstitch.kcfg:357
+#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
+#: rc.cpp:213
+msgid "Show a border around the key"
+msgstr "Mostra una vora al voltant de la clau"
+
+#. i18n: file: kxstitch.kcfg:369
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
-#. i18n: file: kxstitch.kcfg:398
+#. i18n: file: kxstitch.kcfg:438
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
-#. i18n: file: kxstitch.kcfg:309
+#. i18n: file: kxstitch.kcfg:369
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
-#. i18n: file: kxstitch.kcfg:398
+#. i18n: file: kxstitch.kcfg:438
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
-#: rc.cpp:180 rc.cpp:237
+#: rc.cpp:222 rc.cpp:273
 msgid "Fill the background"
 msgstr "Omple el fons"
 
-#. i18n: file: kxstitch.kcfg:313
+#. i18n: file: kxstitch.kcfg:373
 #. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
-#: rc.cpp:183
+#: rc.cpp:225
 msgid "The color of the background"
 msgstr "Color del fons"
 
-#. i18n: file: kxstitch.kcfg:317
+#. i18n: file: kxstitch.kcfg:377
 #. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
-#: rc.cpp:186
+#: rc.cpp:228
 msgid "Transparency of the background"
 msgstr "Transparència del fons"
 
-#. i18n: file: kxstitch.kcfg:321
+#. i18n: file: kxstitch.kcfg:381
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
-#: rc.cpp:189
+#: rc.cpp:231
 msgid "The key element left margin"
 msgstr "Marge esquerra del element clau"
 
-#. i18n: file: kxstitch.kcfg:325
+#. i18n: file: kxstitch.kcfg:385
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
-#: rc.cpp:192
+#: rc.cpp:234
 msgid "The key element top margin"
 msgstr "Marge superior del element clau"
 
-#. i18n: file: kxstitch.kcfg:329
+#. i18n: file: kxstitch.kcfg:389
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
-#: rc.cpp:195
+#: rc.cpp:237
 msgid "The key element right margin"
 msgstr "Marge dret del element clau"
 
-#. i18n: file: kxstitch.kcfg:333
+#. i18n: file: kxstitch.kcfg:393
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
-#: rc.cpp:198
+#: rc.cpp:240
 msgid "The key element bottom margin"
 msgstr "Marge inferior del element clau"
 
-#. i18n: file: kxstitch.kcfg:338
+#. i18n: file: kxstitch.kcfg:397
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
-#: rc.cpp:201
+#: rc.cpp:243
 msgid "Show the key element symbol column"
 msgstr "Mostra la columna de clau de símbols"
 
-#. i18n: file: kxstitch.kcfg:343
+#. i18n: file: kxstitch.kcfg:401
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
-#: rc.cpp:204
+#: rc.cpp:246
 msgid "Show the key element floss name column"
 msgstr "Mostra la columna de clau de noms de fil"
 
-#. i18n: file: kxstitch.kcfg:348
+#. i18n: file: kxstitch.kcfg:405
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
-#: rc.cpp:207
+#: rc.cpp:249
 msgid "Show the key element floss strands column"
 msgstr "Mostra la columna de clau de brins de fil"
 
-#. i18n: file: kxstitch.kcfg:353
+#. i18n: file: kxstitch.kcfg:409
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
-#: rc.cpp:210
+#: rc.cpp:252
 msgid "Show the key element floss description column"
 msgstr "Mostra la columna de clau de descripció de fil"
 
-#. i18n: file: kxstitch.kcfg:358
+#. i18n: file: kxstitch.kcfg:413
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
-#: rc.cpp:213
+#: rc.cpp:255
 msgid "Show the key element stitch count column"
 msgstr "Mostra la columna de clau de recompte de punts"
 
-#. i18n: file: kxstitch.kcfg:363
-#. i18n: ectx: label, entry (KeyElement_StitchBreakdownColumn), group (printer)
-#: rc.cpp:216
-msgid "Show the key element stitch breakdown column"
-msgstr "Mostra la columna de clau de desglossament de punts"
-
-#. i18n: file: kxstitch.kcfg:368
+#. i18n: file: kxstitch.kcfg:417
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
-#: rc.cpp:219
+#: rc.cpp:258
 msgid "Show the key element floss length column"
 msgstr "Mostra la columna de clau de longitud del fil"
 
-#. i18n: file: kxstitch.kcfg:373
+#. i18n: file: kxstitch.kcfg:421
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
-#: rc.cpp:222
+#: rc.cpp:261
 msgid "Show the key element skeins column"
 msgstr "Mostra la columna de clau de madeixes"
 
-#. i18n: file: kxstitch.kcfg:378
-#. i18n: ectx: label, entry (KeyElement_TotalStitches), group (printer)
-#: rc.cpp:225
-msgid "Show the total number of stitches"
-msgstr "Mostra el nombre total de punts"
-
-#. i18n: file: kxstitch.kcfg:383
+#. i18n: file: kxstitch.kcfg:426
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
-#: rc.cpp:228
+#: rc.cpp:264
 msgid "Show the border"
 msgstr "Mostra la vora"
 
-#. i18n: file: kxstitch.kcfg:388
-#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
-#: rc.cpp:231
-msgid "The border color"
-msgstr "Color de la vora"
-
-#. i18n: file: kxstitch.kcfg:403
+#. i18n: file: kxstitch.kcfg:442
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
-#: rc.cpp:240
+#: rc.cpp:276
 msgid "Color of the background"
 msgstr "Color del fons"
 
-#. i18n: file: kxstitch.kcfg:408
+#. i18n: file: kxstitch.kcfg:446
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
-#: rc.cpp:243
+#: rc.cpp:279
 msgid "The transparency value"
 msgstr "Valor de transparència"
 
-#. i18n: file: kxstitch.kcfg:433
+#. i18n: file: kxstitch.kcfg:466
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
-#: rc.cpp:258
+#: rc.cpp:294
 msgid "The text color"
 msgstr "Color del text"
 
 #. i18n: file: kxstitchui.rc:5
 #. i18n: ectx: Menu (file)
-#: rc.cpp:261
+#: rc.cpp:297
 msgid "&File"
 msgstr "&Arxiu"
 
 #. i18n: file: kxstitchui.rc:10
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
-#: rc.cpp:264 src/Commands.cpp:625
+#: rc.cpp:300 src/Commands.cpp:671
 msgid "Remove Background Image"
 msgstr "Esborrar Imatge de Fons"
 
 #. i18n: file: kxstitchui.rc:14
 #. i18n: ectx: Menu (edit)
-#: rc.cpp:267
+#: rc.cpp:303
 msgid "&Edit"
 msgstr "&Edita"
 
 #. i18n: file: kxstitchui.rc:15
 #. i18n: ectx: Menu (selectionMasks)
-#: rc.cpp:270
+#: rc.cpp:306
 msgid "Selection Masks"
 msgstr "Màscara de selecció"
 
 #. i18n: file: kxstitchui.rc:23
 #. i18n: ectx: Menu (mirror)
-#: rc.cpp:273 src/Commands.cpp:1366
+#: rc.cpp:309 src/Commands.cpp:1453
 msgid "Mirror Selection"
 msgstr "Emmiralla la selecció"
 
 #. i18n: file: kxstitchui.rc:27
 #. i18n: ectx: Menu (rotate)
-#: rc.cpp:276 src/Commands.cpp:1412
+#: rc.cpp:312 src/Commands.cpp:1501
 msgid "Rotate Selection"
 msgstr "Gira la selecció"
 
 #. i18n: file: kxstitchui.rc:33
 #. i18n: ectx: Menu (settings)
-#: rc.cpp:279
+#: rc.cpp:315
 msgid "&Settings"
 msgstr "&Configuració"
 
 #. i18n: file: kxstitchui.rc:35
 #. i18n: ectx: Menu (formatScalesAs)
-#. i18n: file: kxstitchui.rc:136
+#. i18n: file: kxstitchui.rc:139
 #. i18n: ectx: Menu (formatScalesAs)
 #. i18n: file: kxstitchui.rc:35
 #. i18n: ectx: Menu (formatScalesAs)
-#. i18n: file: kxstitchui.rc:136
+#. i18n: file: kxstitchui.rc:139
 #. i18n: ectx: Menu (formatScalesAs)
-#: rc.cpp:282 rc.cpp:318
+#: rc.cpp:318 rc.cpp:354
 msgid "Format Scales As"
 msgstr "Format escales com a"
 
 #. i18n: file: kxstitchui.rc:41
 #. i18n: ectx: Menu (renderStitchesAs)
-#. i18n: file: kxstitchui.rc:142
+#. i18n: file: kxstitchui.rc:145
 #. i18n: ectx: Menu (renderStitchesAs)
 #. i18n: file: kxstitchui.rc:41
 #. i18n: ectx: Menu (renderStitchesAs)
-#. i18n: file: kxstitchui.rc:142
+#. i18n: file: kxstitchui.rc:145
 #. i18n: ectx: Menu (renderStitchesAs)
-#: rc.cpp:285 rc.cpp:321
+#: rc.cpp:321 rc.cpp:357
 msgid "Render Stitches As"
 msgstr "Mostra punts com a"
 
 #. i18n: file: kxstitchui.rc:49
 #. i18n: ectx: Menu (renderBackstitchesAs)
-#. i18n: file: kxstitchui.rc:150
+#. i18n: file: kxstitchui.rc:153
 #. i18n: ectx: Menu (renderBackstitchesAs)
 #. i18n: file: kxstitchui.rc:49
 #. i18n: ectx: Menu (renderBackstitchesAs)
-#. i18n: file: kxstitchui.rc:150
+#. i18n: file: kxstitchui.rc:153
 #. i18n: ectx: Menu (renderBackstitchesAs)
-#: rc.cpp:288 rc.cpp:324
+#: rc.cpp:324 rc.cpp:360
 msgid "Render Backstitches As"
 msgstr "Mostra Repunts"
 
 #. i18n: file: kxstitchui.rc:54
 #. i18n: ectx: Menu (renderKnotsAs)
-#. i18n: file: kxstitchui.rc:155
+#. i18n: file: kxstitchui.rc:158
 #. i18n: ectx: Menu (renderKnotsAs)
 #. i18n: file: kxstitchui.rc:54
 #. i18n: ectx: Menu (renderKnotsAs)
-#. i18n: file: kxstitchui.rc:155
+#. i18n: file: kxstitchui.rc:158
 #. i18n: ectx: Menu (renderKnotsAs)
-#: rc.cpp:291 rc.cpp:327
+#: rc.cpp:327 rc.cpp:363
 msgid "Render Knots As"
 msgstr "Mostra nusos com a"
 
 #. i18n: file: kxstitchui.rc:68
 #. i18n: ectx: Menu (view)
-#: rc.cpp:294
+#: rc.cpp:330
 msgid "&View"
 msgstr "&Visualitza"
 
 #. i18n: file: kxstitchui.rc:72
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#. i18n: file: kxstitchui.rc:169
+#. i18n: file: kxstitchui.rc:172
 #. i18n: ectx: Menu (viewShowBackgroundImage)
 #. i18n: file: kxstitchui.rc:72
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#. i18n: file: kxstitchui.rc:169
+#. i18n: file: kxstitchui.rc:172
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#: rc.cpp:297 rc.cpp:330 src/Commands.cpp:597
+#: rc.cpp:333 rc.cpp:366 src/Commands.cpp:643
 msgid "Show Background Image"
 msgstr "Mostra imatge de fons"
 
 #. i18n: file: kxstitchui.rc:75
 #. i18n: ectx: Menu (viewFitBackgroundImage)
-#. i18n: file: kxstitchui.rc:172
+#. i18n: file: kxstitchui.rc:175
 #. i18n: ectx: Menu (viewFitBackgroundImage)
 #. i18n: file: kxstitchui.rc:75
 #. i18n: ectx: Menu (viewFitBackgroundImage)
-#. i18n: file: kxstitchui.rc:172
+#. i18n: file: kxstitchui.rc:175
 #. i18n: ectx: Menu (viewFitBackgroundImage)
-#: rc.cpp:300 rc.cpp:333
+#: rc.cpp:336 rc.cpp:369
 msgid "Fit Background Image to Selection"
 msgstr "Encabeix la imatge de fons a la selecció"
 
 #. i18n: file: kxstitchui.rc:79
 #. i18n: ectx: Menu (stitches)
-#: rc.cpp:303
+#: rc.cpp:339
 msgid "&Stitches"
 msgstr "&Punts"
 
 #. i18n: file: kxstitchui.rc:90
 #. i18n: ectx: Menu (Tools)
-#: rc.cpp:306
+#: rc.cpp:342
 msgid "&Tools"
 msgstr "&Eines"
 
 #. i18n: file: kxstitchui.rc:110
 #. i18n: ectx: Menu (palette)
-#: rc.cpp:309
+#: rc.cpp:345
 msgid "&Palette"
 msgstr "&Paleta"
 
 #. i18n: file: kxstitchui.rc:120
 #. i18n: ectx: Menu (library)
-#: rc.cpp:312
+#: rc.cpp:348
 msgid "&Library Manager"
 msgstr "&Gestor de biblioteca"
 
 #. i18n: file: kxstitchui.rc:123
 #. i18n: ectx: Menu (pattern)
-#: rc.cpp:315
+#: rc.cpp:351
 msgid "&Pattern"
 msgstr "&Patró"
 
-#. i18n: file: kxstitchui.rc:187
+#. i18n: file: kxstitchui.rc:192
 #. i18n: ectx: ToolBar (StitchToolBar)
-#: rc.cpp:336
+#: rc.cpp:372
 msgid "Stitch Toolbar"
 msgstr "Barra d'eines de Punts"
 
-#. i18n: file: kxstitchui.rc:198
+#. i18n: file: kxstitchui.rc:203
 #. i18n: ectx: ToolBar (ToolsToolbar)
-#: rc.cpp:339
+#: rc.cpp:375
 msgid "Tools Toolbar"
 msgstr "Barra d'eines d'Eines"
 
-#. i18n: file: kxstitchui.rc:221
+#. i18n: file: kxstitchui.rc:226
 #. i18n: ectx: ToolBar (ZoomToolbar)
-#: rc.cpp:342
+#: rc.cpp:378
 msgid "Zoom Toolbar"
 msgstr "Barra d'eines de Zoom"
 
 #. i18n: file: ui/CalibrateFloss.ui:102
 #. i18n: ectx: property (text), widget (QLabel, TextLabel4)
-#: rc.cpp:354
+#: rc.cpp:390
 msgctxt "Green value of color"
 msgid "Green"
 msgstr "Verd"
 
 #. i18n: file: ui/CalibrateFloss.ui:112
 #. i18n: ectx: property (text), widget (QLabel, TextLabel3)
-#: rc.cpp:357
+#: rc.cpp:393
 msgctxt "Red value of color"
 msgid "Red"
 msgstr "Roig"
 
 #. i18n: file: ui/CalibrateFloss.ui:132
 #. i18n: ectx: property (text), widget (QLabel, TextLabel5)
-#: rc.cpp:360
+#: rc.cpp:396
 msgctxt "Blue value of color"
 msgid "Blue"
 msgstr "Blau"
@@ -2549,7 +2732,7 @@ msgstr "Blau"
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: file: ui/PatternConfigPage.ui:236
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: rc.cpp:444 rc.cpp:836
+#: rc.cpp:483 rc.cpp:882
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
 msgstr "Horitzontal"
@@ -2562,656 +2745,867 @@ msgstr "Horitzontal"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: file: ui/PatternConfigPage.ui:302
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: rc.cpp:447 rc.cpp:839
+#: rc.cpp:486 rc.cpp:885
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
 msgstr "Vertical"
 
 #. i18n: file: ui/FileProperties.ui:279
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: rc.cpp:450
+#: rc.cpp:489
 msgctxt "The document title"
 msgid "Title"
 msgstr "Títol"
 
+#. i18n: file: ui/ImageElement.ui:74
+#. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: file: ui/KeyElement.ui:173
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: file: ui/KeyElement.ui:245
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: file: ui/TextElement.ui:171
+#. i18n: file: ui/TextElement.ui:174
 #. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: file: ui/TextElement.ui:236
+#. i18n: file: ui/TextElement.ui:245
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/TextElement.ui:375
-#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: file: ui/ImageElement.ui:74
+#. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: file: ui/KeyElement.ui:173
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: file: ui/KeyElement.ui:245
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: file: ui/TextElement.ui:171
+#. i18n: file: ui/TextElement.ui:174
 #. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: file: ui/TextElement.ui:236
+#. i18n: file: ui/TextElement.ui:245
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: file: ui/TextElement.ui:375
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: rc.cpp:546 rc.cpp:564 rc.cpp:1418 rc.cpp:1436 rc.cpp:1449
+#: rc.cpp:516 rc.cpp:609 rc.cpp:627 rc.cpp:1473 rc.cpp:1497
 msgctxt "Label for color value"
 msgid "Color"
 msgstr "Color"
 
 #. i18n: file: ui/KeyElement.ui:230
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: file: ui/TextElement.ui:223
+#. i18n: file: ui/TextElement.ui:229
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: file: ui/KeyElement.ui:230
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: file: ui/TextElement.ui:223
+#. i18n: file: ui/TextElement.ui:229
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: rc.cpp:558 rc.cpp:1430
+#: rc.cpp:621 rc.cpp:1488
 msgctxt "Groupbox title for background properties"
 msgid "Background"
 msgstr "Fons"
 
 #. i18n: file: ui/NewFloss.ui:57
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: rc.cpp:677
+#: rc.cpp:747
 msgctxt "Color chooser"
 msgid "Color"
 msgstr "Color"
 
-#. i18n: file: ui/PrinterConfigPage.ui:184
+#. i18n: file: ui/PageProperties.ui:192
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:786
+#, fuzzy
+msgctxt "The horizontal axis"
+msgid "Size"
+msgstr "Dimensions"
+
+#. i18n: file: ui/PaletteManager.ui:244
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: rc.cpp:825
+#, fuzzy
+msgctxt "A solid line"
+msgid "Solid"
+msgstr "Sòlid"
+
+#. i18n: file: ui/PaletteManager.ui:249
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: rc.cpp:828
+#, fuzzy
+msgctxt "A dashed line"
+msgid "Dashed"
+msgstr "Guionets"
+
+#. i18n: file: ui/PaletteManager.ui:254
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: rc.cpp:831
+#, fuzzy
+msgctxt "A dotted line"
+msgid "Dotted"
+msgstr "Puntejat"
+
+#. i18n: file: ui/PrinterConfigPage.ui:49
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:226
+#. i18n: file: ui/PrintSetup.ui:211
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:184
+#. i18n: file: ui/PrinterConfigPage.ui:49
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:226
+#. i18n: file: ui/PrintSetup.ui:211
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:962 rc.cpp:1253
+#: rc.cpp:978 rc.cpp:1305
 msgctxt "Paper size"
 msgid "A0"
 msgstr "A0"
 
-#. i18n: file: ui/PrinterConfigPage.ui:189
+#. i18n: file: ui/PrinterConfigPage.ui:54
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:231
+#. i18n: file: ui/PrintSetup.ui:216
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:189
+#. i18n: file: ui/PrinterConfigPage.ui:54
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:231
+#. i18n: file: ui/PrintSetup.ui:216
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:965 rc.cpp:1256
+#: rc.cpp:981 rc.cpp:1308
 msgctxt "Paper size"
 msgid "A1"
 msgstr "A1"
 
-#. i18n: file: ui/PrinterConfigPage.ui:194
+#. i18n: file: ui/PrinterConfigPage.ui:59
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:236
+#. i18n: file: ui/PrintSetup.ui:221
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:194
+#. i18n: file: ui/PrinterConfigPage.ui:59
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:236
+#. i18n: file: ui/PrintSetup.ui:221
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:968 rc.cpp:1259
+#: rc.cpp:984 rc.cpp:1311
 msgctxt "Paper size"
 msgid "A2"
 msgstr "A2"
 
-#. i18n: file: ui/PrinterConfigPage.ui:199
+#. i18n: file: ui/PrinterConfigPage.ui:64
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:241
+#. i18n: file: ui/PrintSetup.ui:226
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:199
+#. i18n: file: ui/PrinterConfigPage.ui:64
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:241
+#. i18n: file: ui/PrintSetup.ui:226
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:971 rc.cpp:1262
+#: rc.cpp:987 rc.cpp:1314
 msgctxt "Paper size"
 msgid "A3"
 msgstr "A3"
 
-#. i18n: file: ui/PrinterConfigPage.ui:204
+#. i18n: file: ui/PrinterConfigPage.ui:69
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:246
+#. i18n: file: ui/PrintSetup.ui:231
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:204
+#. i18n: file: ui/PrinterConfigPage.ui:69
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:246
+#. i18n: file: ui/PrintSetup.ui:231
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:974 rc.cpp:1265
+#: rc.cpp:990 rc.cpp:1317
 msgctxt "Paper size"
 msgid "A4"
 msgstr "A4"
 
-#. i18n: file: ui/PrinterConfigPage.ui:209
+#. i18n: file: ui/PrinterConfigPage.ui:74
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:251
+#. i18n: file: ui/PrintSetup.ui:236
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:209
+#. i18n: file: ui/PrinterConfigPage.ui:74
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:251
+#. i18n: file: ui/PrintSetup.ui:236
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:977 rc.cpp:1268
+#: rc.cpp:993 rc.cpp:1320
 msgctxt "Paper size"
 msgid "A5"
 msgstr "A5"
 
-#. i18n: file: ui/PrinterConfigPage.ui:214
+#. i18n: file: ui/PrinterConfigPage.ui:79
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:256
+#. i18n: file: ui/PrintSetup.ui:241
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:214
+#. i18n: file: ui/PrinterConfigPage.ui:79
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:256
+#. i18n: file: ui/PrintSetup.ui:241
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:980 rc.cpp:1271
+#: rc.cpp:996 rc.cpp:1323
 msgctxt "Paper size"
 msgid "A6"
 msgstr "A6"
 
-#. i18n: file: ui/PrinterConfigPage.ui:219
+#. i18n: file: ui/PrinterConfigPage.ui:84
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:261
+#. i18n: file: ui/PrintSetup.ui:246
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:219
+#. i18n: file: ui/PrinterConfigPage.ui:84
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:261
+#. i18n: file: ui/PrintSetup.ui:246
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:983 rc.cpp:1274
+#: rc.cpp:999 rc.cpp:1326
 msgctxt "Paper size"
 msgid "A7"
 msgstr "A7"
 
-#. i18n: file: ui/PrinterConfigPage.ui:224
+#. i18n: file: ui/PrinterConfigPage.ui:89
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:266
+#. i18n: file: ui/PrintSetup.ui:251
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:224
+#. i18n: file: ui/PrinterConfigPage.ui:89
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:266
+#. i18n: file: ui/PrintSetup.ui:251
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:986 rc.cpp:1277
+#: rc.cpp:1002 rc.cpp:1329
 msgctxt "Paper size"
 msgid "A8"
 msgstr "A8"
 
-#. i18n: file: ui/PrinterConfigPage.ui:229
+#. i18n: file: ui/PrinterConfigPage.ui:94
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:271
+#. i18n: file: ui/PrintSetup.ui:256
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:229
+#. i18n: file: ui/PrinterConfigPage.ui:94
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:271
+#. i18n: file: ui/PrintSetup.ui:256
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:989 rc.cpp:1280
+#: rc.cpp:1005 rc.cpp:1332
 msgctxt "Paper size"
 msgid "A9"
 msgstr "A9"
 
-#. i18n: file: ui/PrinterConfigPage.ui:234
+#. i18n: file: ui/PrinterConfigPage.ui:99
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:276
+#. i18n: file: ui/PrintSetup.ui:261
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:234
+#. i18n: file: ui/PrinterConfigPage.ui:99
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:276
+#. i18n: file: ui/PrintSetup.ui:261
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:992 rc.cpp:1283
+#: rc.cpp:1008 rc.cpp:1335
 msgctxt "Paper size"
 msgid "B0"
 msgstr "B0"
 
-#. i18n: file: ui/PrinterConfigPage.ui:239
+#. i18n: file: ui/PrinterConfigPage.ui:104
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:281
+#. i18n: file: ui/PrintSetup.ui:266
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:239
+#. i18n: file: ui/PrinterConfigPage.ui:104
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:281
+#. i18n: file: ui/PrintSetup.ui:266
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:995 rc.cpp:1286
+#: rc.cpp:1011 rc.cpp:1338
 msgctxt "Paper size"
 msgid "B1"
 msgstr "B1"
 
-#. i18n: file: ui/PrinterConfigPage.ui:244
+#. i18n: file: ui/PrinterConfigPage.ui:109
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:286
+#. i18n: file: ui/PrintSetup.ui:271
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:244
+#. i18n: file: ui/PrinterConfigPage.ui:109
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:286
+#. i18n: file: ui/PrintSetup.ui:271
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:998 rc.cpp:1289
+#: rc.cpp:1014 rc.cpp:1341
 msgctxt "Paper size"
 msgid "B2"
 msgstr "B2"
 
-#. i18n: file: ui/PrinterConfigPage.ui:249
+#. i18n: file: ui/PrinterConfigPage.ui:114
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:291
+#. i18n: file: ui/PrintSetup.ui:276
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:249
+#. i18n: file: ui/PrinterConfigPage.ui:114
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:291
+#. i18n: file: ui/PrintSetup.ui:276
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1001 rc.cpp:1292
+#: rc.cpp:1017 rc.cpp:1344
 msgctxt "Paper size"
 msgid "B3"
 msgstr "B3"
 
-#. i18n: file: ui/PrinterConfigPage.ui:254
+#. i18n: file: ui/PrinterConfigPage.ui:119
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:296
+#. i18n: file: ui/PrintSetup.ui:281
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:254
+#. i18n: file: ui/PrinterConfigPage.ui:119
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:296
+#. i18n: file: ui/PrintSetup.ui:281
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1004 rc.cpp:1295
+#: rc.cpp:1020 rc.cpp:1347
 msgctxt "Paper size"
 msgid "B4"
 msgstr "B4"
 
-#. i18n: file: ui/PrinterConfigPage.ui:259
+#. i18n: file: ui/PrinterConfigPage.ui:124
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:301
+#. i18n: file: ui/PrintSetup.ui:286
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:259
+#. i18n: file: ui/PrinterConfigPage.ui:124
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:301
+#. i18n: file: ui/PrintSetup.ui:286
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1007 rc.cpp:1298
+#: rc.cpp:1023 rc.cpp:1350
 msgctxt "Paper size"
 msgid "B5"
 msgstr "B5"
 
-#. i18n: file: ui/PrinterConfigPage.ui:264
+#. i18n: file: ui/PrinterConfigPage.ui:129
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:306
+#. i18n: file: ui/PrintSetup.ui:291
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:264
+#. i18n: file: ui/PrinterConfigPage.ui:129
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:306
+#. i18n: file: ui/PrintSetup.ui:291
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1010 rc.cpp:1301
+#: rc.cpp:1026 rc.cpp:1353
 msgctxt "Paper size"
 msgid "B6"
 msgstr "B6"
 
-#. i18n: file: ui/PrinterConfigPage.ui:269
+#. i18n: file: ui/PrinterConfigPage.ui:134
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:311
+#. i18n: file: ui/PrintSetup.ui:296
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:269
+#. i18n: file: ui/PrinterConfigPage.ui:134
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:311
+#. i18n: file: ui/PrintSetup.ui:296
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1013 rc.cpp:1304
+#: rc.cpp:1029 rc.cpp:1356
 msgctxt "Paper size"
 msgid "B7"
 msgstr "B7"
 
-#. i18n: file: ui/PrinterConfigPage.ui:274
+#. i18n: file: ui/PrinterConfigPage.ui:139
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:316
+#. i18n: file: ui/PrintSetup.ui:301
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:274
+#. i18n: file: ui/PrinterConfigPage.ui:139
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:316
+#. i18n: file: ui/PrintSetup.ui:301
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1016 rc.cpp:1307
+#: rc.cpp:1032 rc.cpp:1359
 msgctxt "Paper size"
 msgid "B8"
 msgstr "B8"
 
-#. i18n: file: ui/PrinterConfigPage.ui:279
+#. i18n: file: ui/PrinterConfigPage.ui:144
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:321
+#. i18n: file: ui/PrintSetup.ui:306
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:279
+#. i18n: file: ui/PrinterConfigPage.ui:144
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:321
+#. i18n: file: ui/PrintSetup.ui:306
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1019 rc.cpp:1310
+#: rc.cpp:1035 rc.cpp:1362
 msgctxt "Paper size"
 msgid "B9"
 msgstr "B9"
 
-#. i18n: file: ui/PrinterConfigPage.ui:284
+#. i18n: file: ui/PrinterConfigPage.ui:149
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:326
+#. i18n: file: ui/PrintSetup.ui:311
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:284
+#. i18n: file: ui/PrinterConfigPage.ui:149
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:326
+#. i18n: file: ui/PrintSetup.ui:311
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1022 rc.cpp:1313
+#: rc.cpp:1038 rc.cpp:1365
 msgctxt "Paper size"
 msgid "B10"
 msgstr "B10"
 
-#. i18n: file: ui/PrinterConfigPage.ui:289
+#. i18n: file: ui/PrinterConfigPage.ui:154
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:331
+#. i18n: file: ui/PrintSetup.ui:316
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:289
+#. i18n: file: ui/PrinterConfigPage.ui:154
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:331
+#. i18n: file: ui/PrintSetup.ui:316
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1025 rc.cpp:1316
+#: rc.cpp:1041 rc.cpp:1368
 msgctxt "Paper size"
 msgid "C5E"
 msgstr "C5E"
 
-#. i18n: file: ui/PrinterConfigPage.ui:294
+#. i18n: file: ui/PrinterConfigPage.ui:159
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:336
+#. i18n: file: ui/PrintSetup.ui:321
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:294
+#. i18n: file: ui/PrinterConfigPage.ui:159
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:336
+#. i18n: file: ui/PrintSetup.ui:321
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1028 rc.cpp:1319
+#: rc.cpp:1044 rc.cpp:1371
 msgctxt "Paper size"
 msgid "Comm10E"
 msgstr "Comm10E"
 
-#. i18n: file: ui/PrinterConfigPage.ui:299
+#. i18n: file: ui/PrinterConfigPage.ui:164
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:341
+#. i18n: file: ui/PrintSetup.ui:326
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:299
+#. i18n: file: ui/PrinterConfigPage.ui:164
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:341
+#. i18n: file: ui/PrintSetup.ui:326
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1031 rc.cpp:1322
+#: rc.cpp:1047 rc.cpp:1374
 msgctxt "Paper size"
 msgid "DLE"
 msgstr "DLE"
 
-#. i18n: file: ui/PrinterConfigPage.ui:304
+#. i18n: file: ui/PrinterConfigPage.ui:169
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:346
+#. i18n: file: ui/PrintSetup.ui:331
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:304
+#. i18n: file: ui/PrinterConfigPage.ui:169
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:346
+#. i18n: file: ui/PrintSetup.ui:331
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1034 rc.cpp:1325
+#: rc.cpp:1050 rc.cpp:1377
 msgctxt "Paper size"
 msgid "Executive"
 msgstr "Executiu"
 
-#. i18n: file: ui/PrinterConfigPage.ui:309
+#. i18n: file: ui/PrinterConfigPage.ui:174
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:351
+#. i18n: file: ui/PrintSetup.ui:336
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:309
+#. i18n: file: ui/PrinterConfigPage.ui:174
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:351
+#. i18n: file: ui/PrintSetup.ui:336
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1037 rc.cpp:1328
+#: rc.cpp:1053 rc.cpp:1380
 msgctxt "Paper size"
 msgid "Folio"
 msgstr "Folio"
 
-#. i18n: file: ui/PrinterConfigPage.ui:314
+#. i18n: file: ui/PrinterConfigPage.ui:179
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:356
+#. i18n: file: ui/PrintSetup.ui:341
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:314
+#. i18n: file: ui/PrinterConfigPage.ui:179
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:356
+#. i18n: file: ui/PrintSetup.ui:341
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1040 rc.cpp:1331
+#: rc.cpp:1056 rc.cpp:1383
 msgctxt "Paper size"
 msgid "Ledger"
 msgstr "Llibre major"
 
-#. i18n: file: ui/PrinterConfigPage.ui:319
+#. i18n: file: ui/PrinterConfigPage.ui:184
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:361
+#. i18n: file: ui/PrintSetup.ui:346
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:319
+#. i18n: file: ui/PrinterConfigPage.ui:184
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:361
+#. i18n: file: ui/PrintSetup.ui:346
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1043 rc.cpp:1334
+#: rc.cpp:1059 rc.cpp:1386
 msgctxt "Paper size"
 msgid "Legal"
 msgstr "Legal"
 
-#. i18n: file: ui/PrinterConfigPage.ui:324
+#. i18n: file: ui/PrinterConfigPage.ui:189
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:366
+#. i18n: file: ui/PrintSetup.ui:351
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:324
+#. i18n: file: ui/PrinterConfigPage.ui:189
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:366
+#. i18n: file: ui/PrintSetup.ui:351
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1046 rc.cpp:1337
+#: rc.cpp:1062 rc.cpp:1389
 msgctxt "Paper size"
 msgid "Letter"
 msgstr "Carta"
 
-#. i18n: file: ui/PrinterConfigPage.ui:329
+#. i18n: file: ui/PrinterConfigPage.ui:194
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:371
+#. i18n: file: ui/PrintSetup.ui:356
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: file: ui/PrinterConfigPage.ui:329
+#. i18n: file: ui/PrinterConfigPage.ui:194
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#. i18n: file: ui/PrintSetup.ui:371
+#. i18n: file: ui/PrintSetup.ui:356
 #. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#: rc.cpp:1049 rc.cpp:1340
+#: rc.cpp:1065 rc.cpp:1392
 msgctxt "Paper size"
 msgid "Tabloid"
 msgstr "Tabloide"
 
-#: rc.cpp:1462
+#. i18n: file: ui/PrinterConfigPage.ui:235
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/PrinterConfigPage.ui:348
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: file: ui/PrinterConfigPage.ui:639
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#. i18n: file: ui/PrinterConfigPage.ui:862
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#. i18n: file: ui/PrinterConfigPage.ui:235
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: file: ui/PrinterConfigPage.ui:348
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: file: ui/PrinterConfigPage.ui:639
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#. i18n: file: ui/PrinterConfigPage.ui:862
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: rc.cpp:1077 rc.cpp:1107 rc.cpp:1179 rc.cpp:1236
+#, fuzzy
+msgctxt "Left margin"
+msgid "Left"
+msgstr "Esquerra"
+
+#. i18n: file: ui/PrinterConfigPage.ui:255
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: file: ui/PrinterConfigPage.ui:368
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: file: ui/PrinterConfigPage.ui:659
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: file: ui/PrinterConfigPage.ui:882
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#. i18n: file: ui/PrinterConfigPage.ui:255
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: file: ui/PrinterConfigPage.ui:368
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: file: ui/PrinterConfigPage.ui:659
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: file: ui/PrinterConfigPage.ui:882
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: rc.cpp:1083 rc.cpp:1113 rc.cpp:1185 rc.cpp:1242
+#, fuzzy
+msgctxt "Right margin"
+msgid "Right"
+msgstr "Dreta"
+
+#. i18n: file: ui/PrinterConfigPage.ui:275
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: file: ui/PrinterConfigPage.ui:388
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: file: ui/PrinterConfigPage.ui:679
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#. i18n: file: ui/PrinterConfigPage.ui:902
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#. i18n: file: ui/PrinterConfigPage.ui:275
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: file: ui/PrinterConfigPage.ui:388
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: file: ui/PrinterConfigPage.ui:679
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#. i18n: file: ui/PrinterConfigPage.ui:902
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: rc.cpp:1089 rc.cpp:1119 rc.cpp:1191 rc.cpp:1248
+#, fuzzy
+msgctxt "Top margin"
+msgid "Top"
+msgstr "Superior"
+
+#. i18n: file: ui/PrinterConfigPage.ui:295
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: file: ui/PrinterConfigPage.ui:408
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#. i18n: file: ui/PrinterConfigPage.ui:699
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#. i18n: file: ui/PrinterConfigPage.ui:922
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#. i18n: file: ui/PrinterConfigPage.ui:295
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: file: ui/PrinterConfigPage.ui:408
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#. i18n: file: ui/PrinterConfigPage.ui:699
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#. i18n: file: ui/PrinterConfigPage.ui:922
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: rc.cpp:1095 rc.cpp:1125 rc.cpp:1197 rc.cpp:1254
+#, fuzzy
+msgctxt "Bottom margin"
+msgid "Bottom"
+msgstr "Inferior"
+
+#. i18n: file: ui/PrinterConfigPage.ui:518
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#. i18n: file: ui/PrinterConfigPage.ui:801
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
+#. i18n: file: ui/PrinterConfigPage.ui:518
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#. i18n: file: ui/PrinterConfigPage.ui:801
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
+#: rc.cpp:1149 rc.cpp:1221
+#, fuzzy
+msgctxt "Fill the background"
+msgid "Background"
+msgstr "Fons"
+
+#. i18n: file: ui/PrinterConfigPage.ui:527
+#. i18n: ectx: property (text), widget (QLabel, label_20)
+#. i18n: file: ui/PrinterConfigPage.ui:814
+#. i18n: ectx: property (text), widget (QLabel, label_25)
+#. i18n: file: ui/PrinterConfigPage.ui:527
+#. i18n: ectx: property (text), widget (QLabel, label_20)
+#. i18n: file: ui/PrinterConfigPage.ui:814
+#. i18n: ectx: property (text), widget (QLabel, label_25)
+#: rc.cpp:1152 rc.cpp:1227
+#, fuzzy
+msgctxt "Background color"
+msgid "Color"
+msgstr "Color"
+
+#. i18n: file: ui/PrinterConfigPage.ui:589
+#. i18n: ectx: property (text), widget (QLabel, label_18)
+#. i18n: file: ui/PrinterConfigPage.ui:759
+#. i18n: ectx: property (text), widget (QLabel, label_23)
+#. i18n: file: ui/PrinterConfigPage.ui:589
+#. i18n: ectx: property (text), widget (QLabel, label_18)
+#. i18n: file: ui/PrinterConfigPage.ui:759
+#. i18n: ectx: property (text), widget (QLabel, label_23)
+#: rc.cpp:1167 rc.cpp:1212
+#, fuzzy
+msgctxt "Border color"
+msgid "Color"
+msgstr "Color"
+
+#: rc.cpp:1570
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Joan Teixidó"
 
-#: rc.cpp:1463
+#: rc.cpp:1571
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "joan4@users.sourceforge.net"
 
-#: src/CalibrateFlossDlg.cpp:116
+#: src/BackgroundImage.cpp:115
+#, fuzzy
+msgid "Background image version %1"
+msgstr "Imatge de Fons"
+
+#: src/BackgroundImages.cpp:113
+#, fuzzy
+msgid "Background images version %1"
+msgstr "Imatge de Fons"
+
+#: src/CalibrateFlossDlg.cpp:123
 msgid " (Modified)"
 msgstr " (Modificat)"
 
-#: src/Commands.cpp:68
+#: src/Commands.cpp:105
 msgid "Paint Stitches"
 msgstr "Pinta Punts"
 
-#: src/Commands.cpp:96
+#: src/Commands.cpp:133
 msgid "Paint Knots"
 msgstr "Pinta Nusos"
 
-#: src/Commands.cpp:124
+#: src/Commands.cpp:161
 msgid "Draw Line"
 msgstr "Dibuixa Línia"
 
-#: src/Commands.cpp:152
+#: src/Commands.cpp:189
 msgid "Erase Stitches"
 msgstr "Esborra Punts"
 
-#: src/Commands.cpp:180 src/MainWindow.cpp:1303
+#: src/Commands.cpp:217 src/MainWindow.cpp:1423
 msgid "Draw Rectangle"
 msgstr "Dibuixa Rectangle"
 
-#: src/Commands.cpp:208 src/MainWindow.cpp:1312
+#: src/Commands.cpp:245 src/MainWindow.cpp:1432
 msgid "Fill Rectangle"
 msgstr "Rectangle farcit"
 
-#: src/Commands.cpp:237 src/MainWindow.cpp:1321
+#: src/Commands.cpp:274 src/MainWindow.cpp:1441
 msgid "Draw Ellipse"
 msgstr "Dibuixa El·lipsi"
 
-#: src/Commands.cpp:265 src/MainWindow.cpp:1330
+#: src/Commands.cpp:302 src/MainWindow.cpp:1450
 msgid "Fill Ellipse"
 msgstr "El·lipsi farcida"
 
-#: src/Commands.cpp:293 src/MainWindow.cpp:1339
+#: src/Commands.cpp:330 src/MainWindow.cpp:1459
 msgid "Fill Polygon"
 msgstr "Polígon farcit"
 
-#: src/Commands.cpp:321
+#: src/Commands.cpp:358
 msgid "Add Stitch"
 msgstr "Afegir punt"
 
-#: src/Commands.cpp:358
+#: src/Commands.cpp:398
 msgid "Delete Stiches"
 msgstr "Esborra Punts"
 
-#: src/Commands.cpp:391
+#: src/Commands.cpp:435
 msgid "Add Backstitch"
 msgstr "Afegir repunt"
 
-#: src/Commands.cpp:422
+#: src/Commands.cpp:466
 msgid "Delete Backstitch"
 msgstr "Esborra repunt"
 
-#: src/Commands.cpp:457
+#: src/Commands.cpp:503
 msgid "Add Knot"
 msgstr "Afegir Nus"
 
-#: src/Commands.cpp:483
+#: src/Commands.cpp:529
 msgid "Delete Knots"
 msgstr "Esborra Nus"
 
-#: src/Commands.cpp:511
+#: src/Commands.cpp:557
 msgid "Set Property"
 msgstr "Estableix propietats"
 
-#: src/Commands.cpp:539
+#: src/Commands.cpp:585
 msgid "Add Background Image"
 msgstr "Inserir Imatge de Fons"
 
-#: src/Commands.cpp:569
+#: src/Commands.cpp:615
 msgid "Fit Background to Selection"
 msgstr "Encabeix el fons a la selecció"
 
-#: src/Commands.cpp:737
+#: src/Commands.cpp:809
 msgid "Resize Document"
 msgstr "Redimensiona Document"
 
-#: src/Commands.cpp:772
+#: src/Commands.cpp:844
 msgid "Crop to Pattern"
 msgstr "Escapça al patró"
 
-#: src/Commands.cpp:807
+#: src/Commands.cpp:879
 msgid "Crop to Selection"
 msgstr "Escapça a la selecció"
 
-#: src/Commands.cpp:890 src/MainWindow.cpp:1435
+#: src/Commands.cpp:925 src/MainWindow.cpp:1578
+#, fuzzy
+msgid "Insert Columns"
+msgstr "Columnes"
+
+#: src/Commands.cpp:956 src/MainWindow.cpp:1572
+msgid "Insert Rows"
+msgstr ""
+
+#: src/Commands.cpp:1023 src/MainWindow.cpp:1555
 msgid "Centre Pattern"
 msgstr "Centra patró"
 
-#: src/Commands.cpp:998
+#: src/Commands.cpp:1059
+msgid "Update Palette"
+msgstr "Actualitza paleta"
+
+#: src/Commands.cpp:1089
 msgid "Change floss scheme"
 msgstr "Canvia esquema de fils"
 
-#: src/Commands.cpp:1106
+#: src/Commands.cpp:1197
 msgid "Replace Color"
 msgstr "Substitueix color"
 
-#: src/Commands.cpp:1224 src/MainWindow.cpp:1417
+#: src/Commands.cpp:1311 src/MainWindow.cpp:1537
 msgid "Swap Colors"
 msgstr "Intercanvia colors"
 
-#: src/Commands.cpp:1253
+#: src/Commands.cpp:1340
 msgid "Update Printer Configuration"
 msgstr "Actualitza Configuració Impressora"
 
-#: src/Commands.cpp:1458 src/Editor.cpp:1830 src/MainWindow.cpp:1357
+#: src/Commands.cpp:1549 src/Editor.cpp:1899 src/MainWindow.cpp:1477
 msgid "Alphabet"
 msgstr "Alfabet"
 
-#: src/Commands.cpp:1507
+#: src/Commands.cpp:1602
 msgid "Configure KXStitch"
 msgstr "Configura KXStitch"
 
-#: src/Document.cpp:132 src/MainWindow.cpp:352 src/MainWindow.cpp:380
-#: src/MainWindow.cpp:586
+#: src/Document.cpp:138 src/MainWindow.cpp:373 src/MainWindow.cpp:432
+#: src/MainWindow.cpp:675 src/SymbolLibrary.cpp:102
 msgid "Untitled"
 msgstr "Sense Títol"
 
-#: src/Document.cpp:288
-msgid ""
-"Version %1 of the file format is not supported\n"
-"in this version of the software.\n"
-"Please try a more recent version."
+#: src/Document.cpp:275 src/Document.cpp:309
+msgid "KXStitch version %1"
 msgstr ""
-"La versió %1 del format d'arxiu no està suportada\n"
-"per aquesta versió de programari.\n"
-"Si us plau, escull una versió mes recent."
 
-#: src/Document.cpp:329
-msgid ""
-"Version %1 of the file format is not supported\n"
-"If it is needed, please inform the developer."
+#: src/Document.cpp:426
+msgid "The floss scheme DMC was not found"
 msgstr ""
-"La versió %1 del format d'arxiu no està suportada\n"
-"Si el necessites, informa al desenvolupador."
 
-#: src/Document.cpp:383 src/LibraryFile.cpp:199
-msgid ""
-"The file %1\n"
-"could not be opened.\n"
-"%2"
+#: src/Document.cpp:455 src/Document.cpp:686 src/Document.cpp:852
+#: src/Document.cpp:1023 src/Document.cpp:1229 src/Document.cpp:1439
+#: src/Document.cpp:1642
+msgid "The floss name %1 was not found"
 msgstr ""
-"L'arxiu %1\n"
-"no es pot obrir.\n"
-"%2"
 
-#: src/Document.cpp:383 src/LibraryFile.cpp:199
-msgid "Error opening file"
-msgstr "Error obrint arxiu"
+#: src/Document.cpp:463
+msgid "Invalid data read."
+msgstr ""
 
-#: src/Document.cpp:478
-msgid "Unable to find color %1 in scheme DMC"
-msgstr "No trobo el color %1 a l'esquema DMC"
+#: src/Document.cpp:538 src/Document.cpp:555 src/Document.cpp:730
+#: src/Document.cpp:896 src/Document.cpp:1079 src/Document.cpp:1284
+#: src/Document.cpp:1494 src/Document.cpp:1697 src/SymbolLibrary.cpp:321
+msgid "Stream error"
+msgstr ""
 
-#: src/Editor.cpp:749
+#: src/Document.cpp:664 src/Document.cpp:831 src/Document.cpp:1002
+#: src/Document.cpp:1208 src/Document.cpp:1414 src/Document.cpp:1617
+msgid "The floss scheme %1 was not found"
+msgstr ""
+
+#: src/DocumentFloss.cpp:191
+#, fuzzy
+msgid "Document floss version %1"
+msgstr "Document per obrir"
+
+#: src/DocumentPalette.cpp:362
+#, fuzzy
+msgid "Palette version %1"
+msgstr "Gestor de paletes"
+
+#: src/DocumentPalette.cpp:367
+msgid "Failed reading palette"
+msgstr ""
+
+#: src/Editor.cpp:717
 msgid "Drag"
 msgstr "Arrossega"
 
-#: src/Editor.cpp:895
+#: src/Editor.cpp:862
 msgid "Add Character"
 msgstr "Afegeix Caràcter"
 
-#: src/Editor.cpp:941 src/Editor.cpp:1972 src/LibraryManagerDlg.cpp:88
-#: src/LibraryManagerDlg.cpp:110
+#: src/Editor.cpp:904 src/Editor.cpp:2046 src/LibraryManagerDlg.cpp:88
+#: src/LibraryManagerDlg.cpp:108
 msgid "Paste"
 msgstr "Enganxa"
 
-#: src/Element.cpp:283 src/Element.cpp:308
+#: src/Element.cpp:532 src/Element.cpp:575
 msgctxt "The name of the floss"
 msgid "Name"
 msgstr "Nom"
 
-#: src/Element.cpp:288 src/Element.cpp:318
+#: src/Element.cpp:548 src/Element.cpp:591
 msgid "Length(m)"
 msgstr "Llargada(m)"
 
-#: src/Element.cpp:289 src/Element.cpp:319
+#: src/Element.cpp:552 src/Element.cpp:595
 msgid "Skeins (8m)"
 msgstr "Madeixes (8m)"
 
-#: src/ImportImageDlg.cpp:205
+#: src/Exceptions.cpp:82
+#, fuzzy
+msgid "Tried to read past the end of the data"
+msgstr ""
+"Error en llegir un patró des de la biblioteca %1.\n"
+"%2"
+
+#: src/Exceptions.cpp:84
+msgid "Tried to read corrupted data"
+msgstr ""
+
+#: src/Exceptions.cpp:86 src/Exceptions.cpp:144
+msgid "Undefined status message status %1"
+msgstr ""
+
+#: src/Exceptions.cpp:139
+msgid "Failed to write to the device"
+msgstr ""
+
+#: src/ImportImageDlg.cpp:208
 msgctxt "dimension with units identifier"
 msgid "%1 x %2 %3"
 msgstr "%1 x %2 %3"
 
-#: src/ImportImageDlg.cpp:284
+#: src/ImportImageDlg.cpp:289
 msgid "Rendering preview"
 msgstr "Creant vista prèvia"
 
-#: src/ImportImageDlg.cpp:284 src/MainWindow.cpp:634
+#: src/ImportImageDlg.cpp:289 src/MainWindow.cpp:731
 msgid "Cancel"
 msgstr "Cancel·lar"
 
@@ -3223,11 +3617,11 @@ msgstr "Error suma de verificació a %1."
 msgid "Checksum Error"
 msgstr "Error suma de verificació"
 
-#: src/LibraryFile.cpp:142
+#: src/LibraryFile.cpp:141
 msgid "Loading Library"
 msgstr "Carregant Biblioteca"
 
-#: src/LibraryFile.cpp:167
+#: src/LibraryFile.cpp:178
 msgid ""
 "Failed to read a pattern from the library %1.\n"
 "%2"
@@ -3235,43 +3629,57 @@ msgstr ""
 "Error en llegir un patró des de la biblioteca %1.\n"
 "%2"
 
-#: src/LibraryFile.cpp:167
+#: src/LibraryFile.cpp:178
 msgid "Failed to read library."
 msgstr "Error al llegir biblioteca."
+
+#: src/LibraryFile.cpp:212
+msgid ""
+"The file %1\n"
+"could not be opened.\n"
+"%2"
+msgstr ""
+"L'arxiu %1\n"
+"no es pot obrir.\n"
+"%2"
+
+#: src/LibraryFile.cpp:212
+msgid "Error opening file"
+msgstr "Error obrint arxiu"
 
 #: src/LibraryManagerDlg.cpp:81
 msgid "New Category"
 msgstr "Categoria nova"
 
-#: src/LibraryManagerDlg.cpp:84 src/LibraryManagerDlg.cpp:101
+#: src/LibraryManagerDlg.cpp:84 src/LibraryManagerDlg.cpp:102
 msgid "Add to Export List"
 msgstr "Afegir a la llista d'exportació"
 
-#: src/LibraryManagerDlg.cpp:85 src/LibraryManagerDlg.cpp:100
+#: src/LibraryManagerDlg.cpp:85 src/LibraryManagerDlg.cpp:101
 msgid "Properties..."
 msgstr "Propietats..."
 
-#: src/LibraryManagerDlg.cpp:102
+#: src/LibraryManagerDlg.cpp:103
 msgid "Copy"
 msgstr "Còpia"
 
-#: src/LibraryManagerDlg.cpp:103
+#: src/LibraryManagerDlg.cpp:104
 msgid "Delete"
 msgstr "Esborra"
 
-#: src/LibraryManagerDlg.cpp:143
+#: src/LibraryManagerDlg.cpp:141
 msgid "Category"
 msgstr "Categoria"
 
-#: src/LibraryManagerDlg.cpp:164
+#: src/LibraryManagerDlg.cpp:163
 msgid "This category already exists."
 msgstr "Aquesta categoria ja existeix."
 
-#: src/LibraryManagerDlg.cpp:164
+#: src/LibraryManagerDlg.cpp:163
 msgid "Category Exists"
 msgstr "La categoria existeix"
 
-#: src/LibraryManagerDlg.cpp:267
+#: src/LibraryManagerDlg.cpp:262
 msgid "Delete this pattern."
 msgstr "Elimina aquest patró."
 
@@ -3286,10 +3694,6 @@ msgstr "Un creador de patrons de punt de creu."
 #: src/Main.cpp:92
 msgid "(c)2010 Stephen Allewell"
 msgstr "(c)2010 Stephen Allewell"
-
-#: src/Main.cpp:93
-msgid "Some free text."
-msgstr "Algun text lliure."
 
 #: src/Main.cpp:96
 msgid "Stephen Allewell"
@@ -3327,7 +3731,7 @@ msgstr "Correccions d'errors, millores"
 msgid "Document to open"
 msgstr "Document per obrir"
 
-#: src/MainWindow.cpp:211
+#: src/MainWindow.cpp:221
 msgid ""
 "Save changes to document?\n"
 "Selecting No discards changes."
@@ -3335,11 +3739,11 @@ msgstr ""
 "Desar canvis al document?\n"
 "Selecciona no descartar canvis."
 
-#: src/MainWindow.cpp:219
+#: src/MainWindow.cpp:230
 msgid "Unable to save the file"
 msgstr "No puc desar l'arxiu"
 
-#: src/MainWindow.cpp:345
+#: src/MainWindow.cpp:366
 msgid ""
 "*.kxs|Cross Stitch Patterns\n"
 "*.pat|PC Stitch patterns\n"
@@ -3349,15 +3753,46 @@ msgstr ""
 "*.pat|Patrons PC Stitch\n"
 "*|Tos el arxius"
 
-#: src/MainWindow.cpp:389
+#: src/MainWindow.cpp:397
+msgid "The file doesn't appear to be a recognised cross stitch file."
+msgstr ""
+
+#: src/MainWindow.cpp:400
+msgid ""
+"This version of the file is not supported.\n"
+"%1"
+msgstr ""
+
+#: src/MainWindow.cpp:402
+#, fuzzy
+msgid ""
+"Failed to read the file.\n"
+"%1."
+msgstr "Error al llegir biblioteca."
+
+#: src/MainWindow.cpp:450
+#, fuzzy
+msgid ""
+"Failed to save the file.\n"
+"%1"
+msgstr "No puc desar l'arxiu"
+
+#: src/MainWindow.cpp:454
+#, fuzzy
+msgid ""
+"Failed to open the file.\n"
+"%1"
+msgstr "No puc desar l'arxiu"
+
+#: src/MainWindow.cpp:463
 msgid "*.kxs|Cross Stitch Patterns"
 msgstr "*.kxs|Patrons punt de creu"
 
-#: src/MainWindow.cpp:389
+#: src/MainWindow.cpp:463
 msgid "Save As..."
 msgstr "Desa com a..."
 
-#: src/MainWindow.cpp:394
+#: src/MainWindow.cpp:467
 msgid ""
 "This file already exists\n"
 "Do you want to overwrite it?"
@@ -3365,216 +3800,214 @@ msgstr ""
 "Aquest arxiu ja existeix\n"
 "El vols sobreescriure?"
 
-#: src/MainWindow.cpp:412
+#: src/MainWindow.cpp:484
 msgid "Revert changes to document?"
 msgstr "Reverteixo canvis al document?"
 
-#: src/MainWindow.cpp:452
+#: src/MainWindow.cpp:526
 msgid "There is nothing to print"
 msgstr "No hi ha res per imprimir"
 
-#: src/MainWindow.cpp:634
+#: src/MainWindow.cpp:731
 msgid "Converting to stitches"
 msgstr "Transformant a punts..."
 
-#: src/MainWindow.cpp:774
+#: src/MainWindow.cpp:885
 msgid "Background Image"
 msgstr "Imatge de Fons"
 
-#: src/MainWindow.cpp:831
+#: src/MainWindow.cpp:942
 msgid "Undo %1"
 msgstr "Desfés %1"
 
-#: src/MainWindow.cpp:837
+#: src/MainWindow.cpp:948
 msgid "Redo %1"
 msgstr "Refés %1"
 
-#: src/MainWindow.cpp:855
-msgid "Update Palette"
-msgstr "Actualitza paleta"
-
-#: src/MainWindow.cpp:1011
+#: src/MainWindow.cpp:1118
+#, fuzzy
+msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/MainWindow.cpp:1015
+#: src/MainWindow.cpp:1122
 msgid "Import"
 msgstr "Importa"
 
-#: src/MainWindow.cpp:1017
+#: src/MainWindow.cpp:1124
 msgid "Library"
 msgstr "Biblioteca"
 
-#: src/MainWindow.cpp:1087
+#: src/MainWindow.cpp:1207
 msgid "Print Setup..."
 msgstr "Configura impressió..."
 
-#: src/MainWindow.cpp:1104
+#: src/MainWindow.cpp:1224
 msgid "Add Background Image..."
 msgstr "Inserir Imatge de Fons..."
 
-#: src/MainWindow.cpp:1122
+#: src/MainWindow.cpp:1242
 msgid "Mirror/Rotate makes copies"
 msgstr "Emmiralla/Gira fent còpies"
 
-#: src/MainWindow.cpp:1128
+#: src/MainWindow.cpp:1248
 msgid "Horizontally"
 msgstr "Horitzontalment"
 
-#: src/MainWindow.cpp:1135
+#: src/MainWindow.cpp:1255
 msgid "Vertically"
 msgstr "Verticalment"
 
-#: src/MainWindow.cpp:1142
+#: src/MainWindow.cpp:1262
 msgid "90 Degrees"
 msgstr "90 Graus"
 
-#: src/MainWindow.cpp:1149
+#: src/MainWindow.cpp:1269
 msgid "180 Degrees"
 msgstr "180 Graus"
 
-#: src/MainWindow.cpp:1156
+#: src/MainWindow.cpp:1276
 msgid "270 Degrees"
 msgstr "270 Graus"
 
-#: src/MainWindow.cpp:1164
+#: src/MainWindow.cpp:1284
 msgid "Stitch Mask"
 msgstr "Màscara de Punt"
 
-#: src/MainWindow.cpp:1170
+#: src/MainWindow.cpp:1290
 msgid "Color Mask"
 msgstr "Màscara de Color"
 
-#: src/MainWindow.cpp:1176
+#: src/MainWindow.cpp:1296
 msgid "Exclude Backstitches"
 msgstr "Exclou Repunts"
 
-#: src/MainWindow.cpp:1182
+#: src/MainWindow.cpp:1302
 msgid "Exclude Knots"
 msgstr "Exclou Nusos"
 
-#: src/MainWindow.cpp:1208
+#: src/MainWindow.cpp:1328
 msgid "Quarter Stitch"
 msgstr "Quart de Punt"
 
-#: src/MainWindow.cpp:1217
+#: src/MainWindow.cpp:1337
 msgid "Half Stitch"
 msgstr "Mig Punt"
 
-#: src/MainWindow.cpp:1226
+#: src/MainWindow.cpp:1346
 msgid "3 Quarter Stitch"
 msgstr "3 Quarts de Punt"
 
-#: src/MainWindow.cpp:1235
+#: src/MainWindow.cpp:1355
 msgid "Full Stitch"
 msgstr "Punt sencer"
 
-#: src/MainWindow.cpp:1244
+#: src/MainWindow.cpp:1364
 msgid "Small Half Stitch"
 msgstr "Petit Mig Punt"
 
-#: src/MainWindow.cpp:1253
+#: src/MainWindow.cpp:1373
 msgid "Small Full Stitch"
 msgstr "Petit Punt sencer"
 
-#: src/MainWindow.cpp:1262
+#: src/MainWindow.cpp:1382
 msgid "French Knot"
 msgstr "Nus francès"
 
-#: src/MainWindow.cpp:1276
+#: src/MainWindow.cpp:1396
 msgid "Paint"
 msgstr "Pinta"
 
-#: src/MainWindow.cpp:1285
+#: src/MainWindow.cpp:1405
 msgid "Draw"
 msgstr "Dibuixa"
 
-#: src/MainWindow.cpp:1294
+#: src/MainWindow.cpp:1414
 msgid "Erase"
 msgstr "Esborra"
 
-#: src/MainWindow.cpp:1366
+#: src/MainWindow.cpp:1486
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/MainWindow.cpp:1375
+#: src/MainWindow.cpp:1495
 msgid "Backstitch"
 msgstr "Repunt"
 
-#: src/MainWindow.cpp:1384
+#: src/MainWindow.cpp:1504
 msgid "Color Picker"
 msgstr "Selector de color"
 
-#: src/MainWindow.cpp:1395
+#: src/MainWindow.cpp:1515
 msgid "Palette Manager..."
 msgstr "Gestor de paletes..."
 
-#: src/MainWindow.cpp:1401
+#: src/MainWindow.cpp:1521
 msgid "Show Symbols"
 msgstr "Mostra els símbols"
 
-#: src/MainWindow.cpp:1407
+#: src/MainWindow.cpp:1527
 msgid "Clear Unused"
 msgstr "Esborra no usats"
 
-#: src/MainWindow.cpp:1412
+#: src/MainWindow.cpp:1532
 msgid "Calibrate Scheme..."
 msgstr "Calibra Esquema..."
 
-#: src/MainWindow.cpp:1422
+#: src/MainWindow.cpp:1542
 msgid "Replace Colors"
 msgstr "Substitueix Colors"
 
-#: src/MainWindow.cpp:1429
+#: src/MainWindow.cpp:1549
 msgid "Extend Pattern..."
 msgstr "Amplia patró..."
 
-#: src/MainWindow.cpp:1441
+#: src/MainWindow.cpp:1561
 msgid "Crop Canvas to Pattern"
 msgstr "Escapça al patró"
 
-#: src/MainWindow.cpp:1446
+#: src/MainWindow.cpp:1566
 msgid "Crop Canvas to Selection"
 msgstr "Escapça a la selecció"
 
-#: src/MainWindow.cpp:1454
+#: src/MainWindow.cpp:1586
 msgid "Library Manager..."
 msgstr "Gestor de biblioteca..."
 
-#: src/MainWindow.cpp:1490
+#: src/MainWindow.cpp:1622
 msgid "Regular Stitches"
 msgstr "Punts Regulars"
 
-#: src/MainWindow.cpp:1590
+#: src/MainWindow.cpp:1722
 msgid "Color Hilight"
 msgstr "Ressalta Color"
 
-#: src/MainWindow.cpp:1596
+#: src/MainWindow.cpp:1728
 msgid "Show Stitches"
 msgstr "Mostra Punts"
 
-#: src/MainWindow.cpp:1602
+#: src/MainWindow.cpp:1734
 msgid "Show Backstitches"
 msgstr "Mostra Repunts"
 
-#: src/MainWindow.cpp:1608
+#: src/MainWindow.cpp:1740
 msgid "Show French Knots"
 msgstr "Mostra el punt francès"
 
-#: src/MainWindow.cpp:1614
+#: src/MainWindow.cpp:1746
 msgid "Show Grid"
 msgstr "Mostra reixeta"
 
-#: src/MainWindow.cpp:1620
+#: src/MainWindow.cpp:1752
 msgid "Show Background Images"
 msgstr "Mostra imatges de fons"
 
-#: src/MainWindow.cpp:1682
+#: src/MainWindow.cpp:1813
 msgid "Preview"
 msgstr "Vista prèvia"
 
-#: src/MainWindow.cpp:1703
+#: src/MainWindow.cpp:1834
 msgid "History"
 msgstr "Historial"
 
@@ -3586,23 +4019,65 @@ msgstr ""
 "El nom del fil %1 ja s'utilitza.\n"
 "Sobreescriu amb la descripció i el color seleccionats."
 
-#: src/NewFlossDlg.cpp:53
+#: src/NewFlossDlg.cpp:52 src/PrintSetupDlg.cpp:447
 msgid "Overwrite"
 msgstr "Sobreescriu"
 
-#: src/Palette.cpp:279
+#: src/Page.cpp:290
+msgid "Page version %1"
+msgstr ""
+
+#: src/Page.cpp:331
+msgid "Invalid element type"
+msgstr ""
+
+#: src/Palette.cpp:271
 msgid "No colors in palette"
 msgstr "No hi ha colors a la paleta"
 
-#: src/PrintSetupDlg.cpp:278
+#: src/Pattern.cpp:296
+#, fuzzy
+msgid "Pattern version %1"
+msgstr "Dimensions patró"
+
+#: src/PrinterConfiguration.cpp:133
+#, fuzzy
+msgid "Printer configuration %1"
+msgstr "Configuració Impressora"
+
+#: src/PrintSetupDlg.cpp:292
 msgid "Properties"
 msgstr "Propietats"
 
-#: src/PrintSetupDlg.cpp:283
+#: src/PrintSetupDlg.cpp:296
 msgid "Delete Element"
 msgstr "Esborra element"
 
-#: src/SchemeManager.cpp:142
+#: src/PrintSetupDlg.cpp:435
+msgid "Page %1 / %2"
+msgstr ""
+
+#: src/PrintSetupDlg.cpp:447
+#, fuzzy
+msgid "Overwrite the current configuration?"
+msgstr "Configuració del Patró"
+
+#: src/PrintSetupDlg.cpp:486
+msgid ""
+"Created by ${author}\n"
+"(C) ${copyright}\n"
+"\n"
+"Pattern Size: ${width.stitches} x ${height.stitches}\n"
+"Flosses from the ${scheme} range."
+msgstr ""
+
+#: src/PrintSetupDlg.cpp:491 src/PrintSetupDlg.cpp:600
+#: src/PrintSetupDlg.cpp:620
+#, fuzzy
+msgid "Page ${page}"
+msgstr "Pàgina man"
+
+#: src/SchemeManager.cpp:143
 msgid ""
 "Error reading scheme %1\n"
 "%2."
@@ -3610,17 +4085,112 @@ msgstr ""
 "Error llegint esquema %1\n"
 "%2."
 
-#: src/SchemeManager.cpp:142
+#: src/SchemeManager.cpp:143
 msgid "Error reading floss scheme."
 msgstr "Error llegint esquema de fils."
 
-#: src/SchemeManager.cpp:171
+#: src/SchemeManager.cpp:173
 msgid ""
 "Unable to locate a writable directory\n"
 "to store the scheme."
 msgstr ""
 "No es troba un directori on es pugui escriure\n"
 "per a guardar l'esquema."
+
+#: src/Stitch.cpp:72
+#, fuzzy
+msgid "Stitch version %1"
+msgstr "Punts"
+
+#: src/Stitch.cpp:319
+msgid "Stitch queue version %1"
+msgstr ""
+
+#: src/Stitch.cpp:406
+#, fuzzy
+msgid "Backstitch version %1"
+msgstr "Brins per repunt"
+
+#: src/Stitch.cpp:472
+msgid "Knot version %1"
+msgstr ""
+
+#: src/StitchData.cpp:1156
+msgid "Stitch data version %1"
+msgstr ""
+
+#: src/StitchData.cpp:1161
+msgid "Failed reading stitch data"
+msgstr ""
+
+#: src/Symbol.cpp:320
+msgid "Symbol version %1"
+msgstr ""
+
+#: src/SymbolLibrary.cpp:343
+msgid "Symbol file version %1"
+msgstr ""
+
+#: src/SymbolListWidget.cpp:141
+msgctxt "A symbol that has been used"
+msgid "Used"
+msgstr ""
+
+#: src/SymbolManager.cpp:160
+msgid "This doesn't appear to be a valid symbol file"
+msgstr ""
+
+#: src/SymbolManager.cpp:175
+#, fuzzy
+msgid "Failed to open the file %1"
+msgstr "No puc desar l'arxiu"
+
+#: src/SymbolSelectorDlg.cpp:48
+msgid "Symbol Selector"
+msgstr ""
+
+#~ msgid "Character Selector"
+#~ msgstr "Selector de Caràcters"
+
+#~ msgid "Stitch breakdown"
+#~ msgstr "Desglossament de punts"
+
+#~ msgid "Total stitches"
+#~ msgstr "Total puntades"
+
+#~ msgid "X"
+#~ msgstr "X"
+
+#~ msgid "Y"
+#~ msgstr "Y"
+
+#~ msgid "Grid Y spacing in mm"
+#~ msgstr "Espaiat Y de la quadrícula en mm"
+
+#~ msgid "Show the key element stitch breakdown column"
+#~ msgstr "Mostra la columna de clau de desglossament de punts"
+
+#~ msgid ""
+#~ "Version %1 of the file format is not supported\n"
+#~ "in this version of the software.\n"
+#~ "Please try a more recent version."
+#~ msgstr ""
+#~ "La versió %1 del format d'arxiu no està suportada\n"
+#~ "per aquesta versió de programari.\n"
+#~ "Si us plau, escull una versió mes recent."
+
+#~ msgid ""
+#~ "Version %1 of the file format is not supported\n"
+#~ "If it is needed, please inform the developer."
+#~ msgstr ""
+#~ "La versió %1 del format d'arxiu no està suportada\n"
+#~ "Si el necessites, informa al desenvolupador."
+
+#~ msgid "Unable to find color %1 in scheme DMC"
+#~ msgstr "No trobo el color %1 a l'esquema DMC"
+
+#~ msgid "Some free text."
+#~ msgstr "Algun text lliure."
 
 #~ msgid "Width of the grid cells."
 #~ msgstr "Ample de la quadrícula."
@@ -3706,9 +4276,6 @@ msgstr ""
 
 #~ msgid "1600%"
 #~ msgstr "1600%"
-
-#~ msgid "..."
-#~ msgstr "..."
 
 #~ msgid "Layer 0"
 #~ msgstr "Capa 0"
