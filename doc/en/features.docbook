@@ -42,7 +42,7 @@
                         <listitem><para>Extend canvas left, top, right, bottom</para></listitem>
                         <listitem><para>Cropping canvas to pattern</para></listitem>
                         <listitem><para>Cropping canvas to selection</para></listitem>
-                        <listitem><para>Inserting rows and columns (not yet supported)</para></listitem>
+                        <listitem><para>Inserting rows and columns</para></listitem>
                         <listitem><para>Center the pattern on the canvas</para></listitem>
                     </itemizedlist></para>
                 </listitem>

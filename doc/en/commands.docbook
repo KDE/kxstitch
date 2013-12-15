@@ -426,6 +426,18 @@
                         <term><menuchoice><guimenuitem>Crop Canvas To Selection</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Crop the canvas to the extents of the current selection</action></simpara></listitem>
                     </varlistentry>
+                    <varlistentry>
+                        <term><menuchoice><guimenuitem>Crop Canvas To Selection</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Crop the canvas to the extents of the current selection</action></simpara></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><menuchoice><guimenuitem>Insert Rows</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Insert a number of rows represented by a selection area</action></simpara></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><menuchoice><guimenuitem>Insert Columns</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Insert a number of columns represented by a selection area</action></simpara></listitem>
+                    </varlistentry>
                 </variablelist>
             </para>
         </sect2>
