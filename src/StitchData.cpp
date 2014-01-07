@@ -647,6 +647,12 @@ int StitchData::index(const QPoint &cell) const
 }
 
 
+bool StitchData::isValid(int x, int y) const
+{
+    return ((x >= 0) && (x < m_width) && (y >= 0) && (y < m_height));
+}
+
+
 void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
     int i = index(position);
@@ -677,7 +683,13 @@ void StitchData::deleteStitch(const QPoint &position, Stitch::Type type, int col
 
 StitchQueue *StitchData::stitchQueueAt(int x, int y)
 {
-    return m_stitches.at(index(x, y));
+    StitchQueue *stitchQueue = 0;
+
+    if (isValid(x, y)) {
+        stitchQueue = m_stitches.at(index(x, y));
+    }
+
+    return stitchQueue;
 }
 
 
@@ -691,7 +703,9 @@ StitchQueue *StitchData::takeStitchQueueAt(int x, int y)
 {
     StitchQueue *stitchQueue = stitchQueueAt(x, y);
 
-    m_stitches[index(x, y)] = 0;
+    if (stitchQueue) {
+        m_stitches[index(x, y)] = 0;
+    }
 
     return stitchQueue;
 }
@@ -707,7 +721,9 @@ StitchQueue *StitchData::replaceStitchQueueAt(int x, int y, StitchQueue *stitchQ
 {
     StitchQueue *originalQueue = takeStitchQueueAt(x, y);
 
-    m_stitches[index(x, y)] = stitchQueue;
+    if (isValid(x, y)) {
+        m_stitches[index(x, y)] = stitchQueue;
+    }
 
     return originalQueue;
 }

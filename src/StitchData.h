@@ -108,6 +108,7 @@ private:
     void    rotateQueue(Rotation, StitchQueue *);
     int     index(int, int) const;
     int     index(const QPoint &) const;
+    bool    isValid(int x, int y) const;
 
     static const int version = 103;
 
