@@ -425,11 +425,11 @@ void StitchData::rotate(Rotation rotation)
     for (int y = 0 ; y < rows ; ++y) {
         for (int x = 0 ; x < cols ; ++x) {
             StitchQueue *src = takeStitchQueueAt(x, y);
-            int index;
+            int index = (cols - x - 1) * rows + y; // default to Rotate90
 
             switch (rotation) {
             case Rotate90:
-                index = (cols - x - 1) * rows + x;
+                // index = (cols - x - 1) * rows + y;
                 break;
 
             case Rotate180:
