@@ -30,8 +30,10 @@ Element *Boundary::element() const
 
 const QPoint *Boundary::node(const QPoint &pos) const
 {
+    int snapDistance = Configuration::page_SelectNodeSnapDistance();
+
     for (int node = 0 ; node < 4 ; node++) {
-        if (QRect(-4, -4, 8, 8).translated(m_nodes[node]).contains(pos)) {
+        if (QRect(-snapDistance, -snapDistance, snapDistance * 2, snapDistance * 2).translated(m_nodes[node]).contains(pos)) {
             return &m_nodes[node];
         }
     }
@@ -143,8 +145,10 @@ void Boundary::render(QPainter *painter)
     painter->setPen(pen);
     painter->setBrush(Qt::blue);
 
+    int nodeSize = Configuration::page_SelectNodeSize();
+
     for (int node = 0 ; node < 4 ; node++) {
-        painter->drawRect(QRect(-2, -2, 4, 4).translated(transform.map(QPoint(m_nodes[node]))));
+        painter->drawRect(QRect(-nodeSize, -nodeSize, nodeSize * 2, nodeSize * 2).translated(transform.map(QPoint(m_nodes[node]))));
     }
 
     painter->drawLine(transform.map(QLine(m_nodes[0], m_nodes[1])));
