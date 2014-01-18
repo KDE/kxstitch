@@ -41,7 +41,9 @@ public:
     friend QDataStream &operator>>(QDataStream &, BackgroundImage &);
 
 private:
-    static const int version = 100;
+    void generateIcon();
+    
+    static const int version = 101; // no longer store m_icon, generate it on loading
 
     KUrl    m_url;
     QRect   m_location;
