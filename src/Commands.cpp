@@ -481,10 +481,6 @@ DeleteBackstitchCommand::~DeleteBackstitchCommand()
 
 void DeleteBackstitchCommand::redo()
 {
-    if (m_backstitch) {
-        delete m_backstitch;
-    }
-
     m_backstitch = m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
     m_document->editor()->update();
     m_document->preview()->update();
@@ -493,7 +489,8 @@ void DeleteBackstitchCommand::redo()
 
 void DeleteBackstitchCommand::undo()
 {
-    m_document->pattern()->stitches().addBackstitch(m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
+    m_document->pattern()->stitches().addBackstitch(m_backstitch);
+    m_backstitch = 0;
     m_document->editor()->update();
     m_document->preview()->update();
 }

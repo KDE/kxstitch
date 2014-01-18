@@ -1577,9 +1577,10 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
             Backstitch *backstitch = backstitches.next();
 
             if (backstitch->contains(m_cellStart) && backstitch->contains(m_cellEnd)) {
-                m_document->undoStack().push(new DeleteBackstitchCommand(m_document, backstitch->start, backstitch->end, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1));
-                update(QRect(snapToContents(backstitch->start), snapToContents(backstitch->end)).normalized().adjusted(-5, -5, 5, 5));
-                break;
+                if (!m_maskColor || (backstitch->colorIndex == m_document->pattern()->palette().currentIndex())) {
+                    m_document->undoStack().push(new DeleteBackstitchCommand(m_document, backstitch->start, backstitch->end, backstitch->colorIndex));
+                    break;
+                }
             }
         }
     }
