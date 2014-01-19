@@ -2182,9 +2182,8 @@ void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
     for (int y = 0 ; y < image.height() ; y++) {
         for (int x = 0 ; x < image.width() ; x++) {
             if (image.pixelIndex(x, y) == 1) {
-                int zone = (y % 2) * 2 + (x % 2);
-
                 if (Configuration::toolShapes_UseFractionals()) {
+                    int zone = (y % 2) * 2 + (x % 2);
                     new AddStitchCommand(m_document, QPoint(x / 2, y / 2), stitchMap[0][zone], colorIndex, parent);
                 } else {
                     new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, colorIndex, parent);
