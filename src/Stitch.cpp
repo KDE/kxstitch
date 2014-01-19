@@ -239,7 +239,7 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
             Stitch *stitch = dequeue();
 
             if ((stitch->type != type) || ((colorIndex != -1) && (stitch->colorIndex != colorIndex))) {
-                if ((stitch->type & type) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex)) && ((stitch->type & 192) == 0)) {
+                if (((stitch->type & type) == type) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex)) && ((stitch->type & 192) == 0)) {
                     // the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
                     Stitch::Type changeMask = (Stitch::Type)(stitch->type ^ type);
                     int index = stitch->colorIndex;
