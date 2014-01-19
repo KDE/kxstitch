@@ -632,8 +632,7 @@ void FitBackgroundImageCommand::redo()
 
 void FitBackgroundImageCommand::undo()
 {
-    m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
-    m_document->editor()->update();
+    redo(); // same code required
 }
 
 
@@ -660,8 +659,7 @@ void ShowBackgroundImageCommand::redo()
 
 void ShowBackgroundImageCommand::undo()
 {
-    m_visible = m_document->backgroundImages().showBackgroundImage(m_backgroundImage, m_visible);
-    m_document->editor()->update();
+    redo(); // same code required
 }
 
 
@@ -773,7 +771,7 @@ void ReplaceDocumentFlossCommand::redo()
 
 void ReplaceDocumentFlossCommand::undo()
 {
-    m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
+    redo(); // same code required
 }
 
 
@@ -1139,7 +1137,7 @@ void EditorReadDocumentSettingsCommand::redo()
 
 void EditorReadDocumentSettingsCommand::undo()
 {
-    m_editor->readDocumentSettings();
+    redo(); // same code required
 }
 
 
@@ -1163,7 +1161,7 @@ void PaletteReadDocumentSettingsCommand::redo()
 
 void PaletteReadDocumentSettingsCommand::undo()
 {
-    m_palette->readDocumentSettings();
+    redo(); // same code required
 }
 
 
@@ -1187,7 +1185,7 @@ void PreviewReadDocumentSettingsCommand::redo()
 
 void PreviewReadDocumentSettingsCommand::undo()
 {
-    m_preview->readDocumentSettings();
+    redo(); // same code required
 }
 
 
