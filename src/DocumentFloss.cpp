@@ -157,7 +157,6 @@ QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
     qint32 stitchStrands;
     qint32 backstitchStrands;
     QChar oldStitchSymbol;
-    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();  // WIP excludes this line
 
     stream >> version;
 
@@ -184,7 +183,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
         documentFloss.m_backstitchSymbol = Qt::PenStyle(backstitchSymbol);
         documentFloss.m_stitchStrands = stitchStrands;
         documentFloss.m_backstitchStrands = backstitchStrands;
-        documentFloss.m_stitchSymbol = indexes.takeFirst(); // WIP sets this to 0
+        documentFloss.m_stitchSymbol = 0;
         break;
 
     default:
