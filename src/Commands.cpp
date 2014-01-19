@@ -546,7 +546,8 @@ void DeleteKnotCommand::redo()
 
 void DeleteKnotCommand::undo()
 {
-    m_document->pattern()->stitches().addFrenchKnot(m_knot->position, m_knot->colorIndex);
+    m_document->pattern()->stitches().addFrenchKnot(m_knot);
+    m_knot = 0;
 }
 
 

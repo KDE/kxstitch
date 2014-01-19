@@ -60,7 +60,7 @@ public:
 
     virtual void redo();
     virtual void undo();
-    
+
 private:
     Document    *m_document;
 };
@@ -430,10 +430,10 @@ class ClearUnusedFlossesCommand : public QUndoCommand
 public:
     explicit ClearUnusedFlossesCommand(Document *);
     ~ClearUnusedFlossesCommand();
-    
+
     virtual void redo();
     virtual void undo();
-    
+
 private:
     Document    *m_document;
 };
@@ -500,10 +500,10 @@ class InsertColumnsCommand : public QUndoCommand
 public:
     InsertColumnsCommand(Document *, const QRect &);
     ~InsertColumnsCommand();
-    
+
     void redo();
     void undo();
-    
+
 private:
     Document    *m_document;
     QRect       m_selectionArea;
@@ -515,10 +515,10 @@ class InsertRowsCommand : public QUndoCommand
 public:
     InsertRowsCommand(Document *, const QRect &);
     ~InsertRowsCommand();
-    
+
     void redo();
     void undo();
-    
+
 private:
     Document    *m_document;
     QRect       m_selectionArea;

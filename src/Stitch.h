@@ -66,6 +66,7 @@ public:
     ~StitchQueue();
 
     int add(Stitch::Type, int);
+    Stitch *find(Stitch::Type, int);
     int remove(Stitch::Type, int);
 
     static const int version = 100;

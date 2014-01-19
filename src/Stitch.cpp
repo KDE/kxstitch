@@ -216,12 +216,24 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
 }
 
 
-/**
-    Delete a stitch from the queue.
-    @param type a Stitch::Type mask to remove, Stitch::Delete for all stitches.
-    @param colorIndex a palette index mask, -1 for all flosses.
-    @return the number of stitches left in the queue
-    */
+Stitch *StitchQueue::find(Stitch::Type type, int colorIndex)
+{
+    int stitchCount = count();
+    Stitch *found = 0;
+
+    for (int i = 0 ; i < stitchCount ; ++i) {
+        Stitch *stitch = at(i);
+
+        if (((type == Stitch::Delete) || ((stitch->type & type) == type)) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex))) {
+            found = stitch;
+            break;
+        }
+    }
+
+    return found;
+}
+
+
 int StitchQueue::remove(Stitch::Type type, int colorIndex)
 {
     int stitchCount = count();

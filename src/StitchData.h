@@ -70,6 +70,7 @@ public:
     void rotate(Rotation);
 
     void addStitch(const QPoint &, Stitch::Type, int);
+    Stitch *findStitch(const QPoint &, Stitch::Type, int);
     void deleteStitch(const QPoint &, Stitch::Type, int);
 
     StitchQueue *stitchQueueAt(int, int);
@@ -81,11 +82,13 @@ public:
 
     void addBackstitch(const QPoint &, const QPoint &, int);
     void addBackstitch(Backstitch *);
+    Backstitch *findBackstitch(const QPoint &, const QPoint &, int);
     Backstitch *takeBackstitch(const QPoint &, const QPoint &, int);
     Backstitch *takeBackstitch(Backstitch *);
 
     void addFrenchKnot(const QPoint &, int);
     void addFrenchKnot(Knot *);
+    Knot *findKnot(const QPoint &, int);
     Knot *takeFrenchKnot(const QPoint &, int);
     Knot *takeFrenchKnot(Knot *);
 
