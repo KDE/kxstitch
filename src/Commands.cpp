@@ -1034,20 +1034,24 @@ void CentrePatternCommand::redo()
     m_xOffset = ((m_document->pattern()->stitches().width() - extents.width()) / 2) - extents.left();
     m_yOffset = ((m_document->pattern()->stitches().height() - extents.height()) / 2) - extents.top();
 
-    m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
+    if (m_xOffset || m_yOffset) {
+        m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+        m_document->editor()->update();
+        m_document->preview()->update();
+    }
 }
 
 
 
 void CentrePatternCommand::undo()
 {
-    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
+    if (m_xOffset || m_yOffset) {
+        m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+        m_document->editor()->update();
+        m_document->preview()->update();
+    }
 }
 
 
