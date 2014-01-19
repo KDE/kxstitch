@@ -683,7 +683,10 @@ void RemoveBackgroundImageCommand::redo()
 {
     m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+
+    if (m_backgroundImage->isVisible()) {
+        m_document->editor()->update();
+    }
 }
 
 
@@ -691,7 +694,10 @@ void RemoveBackgroundImageCommand::undo()
 {
     m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+
+    if (m_backgroundImage->isVisible()) {
+        m_document->editor()->update();
+    }
 }
 
 
