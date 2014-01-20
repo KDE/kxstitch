@@ -244,6 +244,8 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
 
             if ((colorIndex != -1) && (stitch->colorIndex != colorIndex)) {
                 enqueue(stitch);
+            } else {
+                delete stitch;
             }
         }
     } else {
@@ -254,6 +256,7 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
                 if (((stitch->type & type) == type) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex)) && ((stitch->type & 192) == 0)) {
                     // the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
                     Stitch::Type changeMask = (Stitch::Type)(stitch->type ^ type);
+                    stitch->type = Stitch::Delete;
                     int index = stitch->colorIndex;
 
                     switch (changeMask) {
@@ -280,12 +283,19 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
                         break;
 
                     default:
-                        enqueue(new Stitch((Stitch::Type)changeMask, index));
+                        stitch->type = changeMask;
+                        enqueue(stitch);
                         break;
+                    }
+
+                    if (stitch->type == Stitch::Delete) {
+                        delete stitch;
                     }
                 } else {
                     enqueue(stitch);
                 }
+            } else {
+                delete stitch;
             }
         }
     }
