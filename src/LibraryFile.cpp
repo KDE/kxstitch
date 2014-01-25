@@ -128,9 +128,9 @@ void LibraryFile::readFile()
 
 #endif
             } else {
-                quint16 version;
+                qint16 version;
                 qint32 count;
-                qint32 key;     // version 1 of library format
+                qint32 key;         // version 1 of library format
                 qint32 modifier;    // version 1 of library format
                 qint16 baseline;    // version 1 of library format
                 quint16 checksum;   // version 1 of library format
