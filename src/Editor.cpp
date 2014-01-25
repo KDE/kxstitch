@@ -253,12 +253,14 @@ void Editor::readDocumentSettings()
     m_horizontalScale->setCellGrouping(m_cellHorizontalGrouping);
     m_horizontalScale->setCellCount(m_document->pattern()->stitches().width());
     m_horizontalScale->setClothCount(m_horizontalClothCount);
-    m_horizontalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
+    m_horizontalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
+    m_horizontalScale->setUnits(m_formatScalesAs);
 
     m_verticalScale->setCellGrouping(m_cellVerticalGrouping);
     m_verticalScale->setCellCount(m_document->pattern()->stitches().height());
     m_verticalScale->setClothCount(m_verticalClothCount);
-    m_verticalScale->setUnits(static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt()));
+    m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
+    m_verticalScale->setUnits(m_formatScalesAs);
 
     zoom(m_zoomFactor);
 }
@@ -507,6 +509,30 @@ void Editor::rotateSelection()
 
     m_pastePattern->stitches().rotate(m_rotation);
     pastePattern(ToolRotate);
+}
+
+
+void Editor::formatScalesAsStitches()
+{
+    m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::Stitches;
+    m_horizontalScale->setUnits(m_formatScalesAs);
+    m_verticalScale->setUnits(m_formatScalesAs);
+}
+
+
+void Editor::formatScalesAsCM()
+{
+    m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::CM;
+    m_horizontalScale->setUnits(m_formatScalesAs);
+    m_verticalScale->setUnits(m_formatScalesAs);
+}
+
+
+void Editor::formatScalesAsInches()
+{
+    m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::Inches;
+    m_horizontalScale->setUnits(m_formatScalesAs);
+    m_verticalScale->setUnits(m_formatScalesAs);
 }
 
 

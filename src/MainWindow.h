@@ -109,9 +109,6 @@ protected slots:
     void insertRows();
 
     // Settings menu
-    void formatScalesAsStitches();
-    void formatScalesAsCM();
-    void formatScalesAsInches();
     void preferences();
     void settingsChanged();
 

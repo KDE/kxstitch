@@ -107,6 +107,10 @@ public slots:
 
     void pastePattern(ToolMode);
 
+    void formatScalesAsStitches();
+    void formatScalesAsCM();
+    void formatScalesAsInches();
+
     void renderStitches(bool);
     void renderBackstitches(bool);
     void renderFrenchKnots(bool);
@@ -266,6 +270,7 @@ private:
 
     Scale       *m_horizontalScale;
     Scale       *m_verticalScale;
+    Configuration::EnumEditor_FormatScalesAs::type m_formatScalesAs;
 
     LibraryManagerDlg   *m_libraryManagerDlg;
 

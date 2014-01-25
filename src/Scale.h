@@ -31,6 +31,7 @@ public:
     void setCellGrouping(int);
     void setCellCount(int);
     void setClothCount(double);
+    void setClothCountUnits(Configuration::EnumEditor_ClothCountUnits::type);
     void setOffset(double);
     virtual QSize sizeHint() const;
 
@@ -43,6 +44,7 @@ private:
     int     m_cellGrouping;
     int     m_cellCount;
     double  m_clothCount;
+    Configuration::EnumEditor_ClothCountUnits::type m_clothCountUnits;
     double  m_offset;
     Qt::Orientation m_orientation;
 };
