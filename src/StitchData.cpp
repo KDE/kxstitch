@@ -15,8 +15,6 @@
 
 #include "Exceptions.h"
 
-#include <KDebug>
-
 
 FlossUsage::FlossUsage()
     :   backstitchCount(0),
@@ -200,9 +198,6 @@ void StitchData::insertRows(int startRow, int rows)
 
 void StitchData::removeColumns(int startColumn, int columns)
 {
-    kDebug() << "Removing" << columns << "starting from" << startColumn;
-    kDebug() << "  current width" << m_width;
-
     for (int y = 0 ; y < m_height ; ++y) {
         for (int destinationColumn = startColumn, sourceColumn = startColumn + columns ; sourceColumn < m_width ; ++destinationColumn, ++sourceColumn) {
             m_stitches[index(destinationColumn, y)] = takeStitchQueueAt(sourceColumn, y);
@@ -235,8 +230,6 @@ void StitchData::removeColumns(int startColumn, int columns)
             knot->position.setX(knot->position.x() - snapColumns);
         }
     }
-
-    kDebug() << "  resizing to" << m_width - columns << "x" << m_height;
 
     resize(m_width - columns, m_height);
 }
