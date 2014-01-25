@@ -210,7 +210,7 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
     while (libraryFilesIterator.hasNext()) {
         libraryFile = libraryFilesIterator.next();
 
-        if (!libraryFile->isWritable()) {
+        if (libraryFile->isWritable()) {
             return libraryFile;
         }
     }
