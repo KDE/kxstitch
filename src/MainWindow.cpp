@@ -724,7 +724,7 @@ void MainWindow::convertImage(const Magick::Image &image)
         QString schemeName = importImageDlg->flossScheme();
         FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-        QUndoCommand *importImageCommand = new ImportImageCommand(m_document);        
+        QUndoCommand *importImageCommand = new ImportImageCommand(m_document);
         new ResizeDocumentCommand(m_document, documentWidth, documentHeight, importImageCommand);
         new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
 
@@ -733,7 +733,7 @@ void MainWindow::convertImage(const Magick::Image &image)
         Magick::Pixels cache(convertedImage);
         const Magick::PixelPacket *pixels = cache.getConst(0, 0, imageWidth, imageHeight);
         bool colorNotFound = false;
-        
+
         for (int dy = 0 ; dy < imageHeight ; dy++) {
             progress.setValue(dy * imageWidth);
             QApplication::processEvents();
@@ -751,7 +751,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                     if (!(ignoreColor && Magick::Color(packet) == ignoreColorValue)) {
                         int flossIndex;
                         QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
-                        
+
                         for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; flossIndex++) {
                             if (documentFlosses[flossIndex] == color) {
                                 break;
@@ -766,7 +766,7 @@ void MainWindow::convertImage(const Magick::Image &image)
                             if (foundName.isEmpty()) {
                                 colorNotFound = true;
                             }
-                            
+
                             DocumentFloss *documentFloss = new DocumentFloss(foundName, stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
                             documentFloss->setFlossColor(color);
                             new AddDocumentFlossCommand(m_document, flossIndex, documentFloss, importImageCommand);
@@ -785,21 +785,21 @@ void MainWindow::convertImage(const Magick::Image &image)
                 }
             }
         }
-        
+
         if (colorNotFound) {
             // Examples of imported images have missing color names
             // This will fix those that are found by changing the scheme to something else and then back to the required one
             // A fix has been introduced, but this is a final catch if there are any still found
             kDebug() << "Found a missing color name and attempting to fix";
-            
+
             if (schemeName == "DMC") {
                 new ChangeSchemeCommand(m_document, "Anchor", importImageCommand);
             } else {
                 new ChangeSchemeCommand(m_document, "DMC", importImageCommand);
             }
-  
+
             new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
-        }              
+        }
 
         new SetPropertyCommand(m_document, "horizontalClothCount", importImageDlg->horizontalClothCount(), importImageCommand);
         new SetPropertyCommand(m_document, "verticalClothCount", importImageDlg->verticalClothCount(), importImageCommand);
@@ -983,7 +983,7 @@ void MainWindow::paletteClearUnused()
     QMap<int, FlossUsage> flossUsage = m_document->pattern()->stitches().flossUsage();
     QMapIterator<int, DocumentFloss *> flosses(m_document->pattern()->palette().flosses());
     ClearUnusedFlossesCommand *clearUnusedFlossesCommand = new ClearUnusedFlossesCommand(m_document);
-    
+
     while (flosses.hasNext()) {
         flosses.next();
 
@@ -1081,27 +1081,6 @@ void MainWindow::insertColumns()
 void MainWindow::insertRows()
 {
     m_document->undoStack().push(new InsertRowsCommand(m_document, m_editor->selectionArea()));
-}
-
-
-void MainWindow::formatScalesAsStitches()
-{
-    m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
-    m_verticalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Stitches);
-}
-
-
-void MainWindow::formatScalesAsCM()
-{
-    m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::CM);
-    m_verticalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::CM);
-}
-
-
-void MainWindow::formatScalesAsInches()
-{
-    m_horizontalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Inches);
-    m_verticalScale->setUnits(Configuration::EnumEditor_FormatScalesAs::Inches);
 }
 
 
@@ -1567,13 +1546,13 @@ void MainWindow::setupActions()
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
     actions->addAction("patternCropToSelection", action);
-    
+
     action = new KAction(this);
     action->setText(i18n("Insert Rows"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertRows()));
     action->setEnabled(false);
     actions->addAction("insertRows", action);
-    
+
     action = new KAction(this);
     action->setText(i18n("Insert Columns"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertColumns()));
@@ -1596,21 +1575,21 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Stitches"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered()), this, SLOT(formatScalesAsStitches()));
+    connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsStitches()));
     actions->addAction("formatScalesAsStitches", action);
     actionGroup->addAction(action);
 
     action = new KAction(this);
     action->setText(i18n("CM"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered()), this, SLOT(formatScalesAsCM()));
+    connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCM()));
     actions->addAction("formatScalesAsCM", action);
     actionGroup->addAction(action);
 
     action = new KAction(this);
     action->setText(i18n("Inches"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered()), this, SLOT(formatScalesAsInches()));
+    connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsInches()));
     actions->addAction("formatScalesAsInches", action);
     actionGroup->addAction(action);
 

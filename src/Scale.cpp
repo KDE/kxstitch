@@ -78,6 +78,13 @@ void Scale::setClothCount(double clothCount)
 }
 
 
+void Scale::setClothCountUnits(Configuration::EnumEditor_ClothCountUnits::type clothCountUnits)
+{
+    m_clothCountUnits = clothCountUnits;
+    update();
+}
+
+
 void Scale::setOffset(double offset)
 {
     m_offset = offset;
@@ -105,6 +112,7 @@ void Scale::paintEvent(QPaintEvent*)
     int right = contentsRect().right();
     int bottom = contentsRect().bottom();
     int top = contentsRect().top();
+    bool clothCountUnitsInches = (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Inches);
 
     double subTick;
     int minorTicks;
@@ -117,6 +125,7 @@ void Scale::paintEvent(QPaintEvent*)
 
     switch (m_units) {
     case Configuration::EnumEditor_FormatScalesAs::Stitches:
+        // subtick should be 1 cell
         subTick = m_cellSize;
         minorTicks = 1;
         majorTicks = m_cellGrouping;
@@ -124,14 +133,16 @@ void Scale::paintEvent(QPaintEvent*)
         break;
 
     case Configuration::EnumEditor_FormatScalesAs::CM:
-        subTick = m_cellSize * m_clothCount / 25.4;
+        // subtick should be 1/10 CM
+        subTick = m_cellSize * m_clothCount / (clothCountUnitsInches ? 25.4 : 10);
         minorTicks = 5;
         majorTicks = 10;
         textValueIncrement = 1;
         break;
 
     case Configuration::EnumEditor_FormatScalesAs::Inches:
-        subTick = m_cellSize * m_clothCount / 16;
+        // subtick should be 1/16 inch
+        subTick = m_cellSize * m_clothCount / (clothCountUnitsInches ? 16 : 6.299);
         majorTicks = 16;
         minorTicks = 4;
         textValueIncrement = 1;
