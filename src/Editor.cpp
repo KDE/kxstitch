@@ -1371,7 +1371,7 @@ void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
 
     painter->save();
     painter->setPen(Qt::red);
-    painter->fillRect(cellToRect(m_cursorStack.top()), Qt::red);
+    painter->fillRect(QRect(m_cursorStack.top(), QSize(1, 1)), Qt::red);
     painter->restore();
 }
 
