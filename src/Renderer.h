@@ -37,6 +37,10 @@ public:
     Renderer(const Renderer &);
     ~Renderer();
 
+    void setCellGrouping(int, int);
+    void setGridLineWidths(double, double);
+    void setGridLineColors(QColor, QColor);
+
     void setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type);
     void setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type);
     void setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type);

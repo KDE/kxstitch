@@ -34,6 +34,15 @@ public:
     friend class Renderer;
 
 private:
+    int     m_cellHorizontalGrouping;
+    int     m_cellVerticalGrouping;
+
+    double  m_thinLineWidth;
+    double  m_thickLineWidth;
+
+    QColor  m_thinLineColor;
+    QColor  m_thickLineColor;
+
     Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
     Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
     Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
@@ -83,6 +92,10 @@ private:
 
 RendererData::RendererData()
     :   QSharedData(),
+        m_cellHorizontalGrouping(Configuration::editor_CellHorizontalGrouping()),
+        m_cellVerticalGrouping(Configuration::editor_CellVerticalGrouping()),
+        m_thinLineColor(Configuration::editor_ThinLineColor()),
+        m_thickLineColor(Configuration::editor_ThickLineColor()),
         m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
         m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
         m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
@@ -129,6 +142,12 @@ RendererData::RendererData()
 
 RendererData::RendererData(const RendererData &other)
     :   QSharedData(other),
+        m_cellHorizontalGrouping(other.m_cellHorizontalGrouping),
+        m_cellVerticalGrouping(other.m_cellVerticalGrouping),
+        m_thinLineWidth(other.m_thinLineWidth),
+        m_thickLineWidth(other.m_thickLineWidth),
+        m_thinLineColor(other.m_thinLineColor),
+        m_thickLineColor(other.m_thickLineColor),
         m_renderStitchesAs(other.m_renderStitchesAs),
         m_renderBackstitchesAs(other.m_renderBackstitchesAs),
         m_renderKnotsAs(other.m_renderKnotsAs),
@@ -195,6 +214,7 @@ const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] = {
 Renderer::Renderer()
     :   d(new RendererData)
 {
+    setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
 }
 
 
@@ -206,6 +226,38 @@ Renderer::Renderer(const Renderer &other)
 
 Renderer::~Renderer()
 {
+}
+
+
+void Renderer::setCellGrouping(int cellHorizontalGrouping, int cellVerticalGrouping)
+{
+    d->m_cellHorizontalGrouping = cellHorizontalGrouping;
+    d->m_cellVerticalGrouping = cellVerticalGrouping;
+}
+
+
+void Renderer::setGridLineWidths(double thinLineWidth, double thickLineWidth)
+{
+    thinLineWidth /= 100;
+    thickLineWidth /= 100;
+
+    if (thinLineWidth == 0.0) {
+        thinLineWidth = 0.025;
+    }
+
+    if (thickLineWidth == 0.0) {
+        thickLineWidth = 0.15;
+    }
+
+    d->m_thinLineWidth = thinLineWidth;
+    d->m_thickLineWidth = thickLineWidth;
+}
+
+
+void Renderer::setGridLineColors(QColor thinLineColor, QColor thickLineColor)
+{
+    d->m_thinLineColor = thinLineColor;
+    d->m_thickLineColor = thickLineColor;
 }
 
 
@@ -252,18 +304,18 @@ void Renderer::render(QPainter *painter,
 
     // draw grid
     if (renderGrid) {
-        QPen thickPen;
-        QPen thinPen;
-        thickPen.setWidthF(0.15);
-        thinPen.setWidthF(0.025);
+        QPen thickPen(d->m_thickLineColor);
+        QPen thinPen(d->m_thinLineColor);
+        thickPen.setWidthF(d->m_thickLineWidth);
+        thinPen.setWidthF(d->m_thinLineWidth);
 
         for (int y = patternTop ; y <= patternTop + patternHeight ; ++y) {
-            painter->setPen((y % 10) ? thinPen : thickPen);
+            painter->setPen((y % d->m_cellVerticalGrouping) ? thinPen : thickPen);
             painter->drawLine(patternLeft, y, patternLeft + patternWidth, y);
         }
 
         for (int x = patternLeft ; x <= patternLeft + patternWidth ; ++x) {
-            painter->setPen((x % 10) ? thinPen : thickPen);
+            painter->setPen((x % d->m_cellHorizontalGrouping) ? thinPen : thickPen);
             painter->drawLine(x, patternTop, x, patternTop + patternHeight);
         }
     }

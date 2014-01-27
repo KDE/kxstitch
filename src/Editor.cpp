@@ -262,6 +262,10 @@ void Editor::readDocumentSettings()
     m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
     m_verticalScale->setUnits(m_formatScalesAs);
 
+    m_renderer->setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
+    m_renderer->setGridLineWidths(m_document->property("thinLineWidth").toDouble(), m_document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineColors(m_document->property("thinLineColor").value<QColor>(), m_document->property("thickLineColor").value<QColor>());
+
     zoom(m_zoomFactor);
 }
 
@@ -660,6 +664,7 @@ void Editor::setMakesCopies(bool set)
 
 void Editor::loadSettings()
 {
+    readDocumentSettings();
     update();
 }
 
