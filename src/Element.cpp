@@ -30,12 +30,9 @@
 #include "SymbolManager.h"
 
 
-/**
-    Convenience function to round a double to a fixed number of decimal places
-    @param v the double value to round
-    @param n the number of decimal places
-    @return a double value rounded to the number of decimal places.
-    */
+/*
+ * Convenience function to round a double to a fixed number of decimal places
+ */
 double round_n(double v, int n)
 {
     double places = pow(10.0, n);
@@ -1053,10 +1050,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
     double horizontalClothCount = document->property("horizontalClothCount").toDouble();
     double verticalClothCount = document->property("verticalClothCount").toDouble();
 
-    if (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) {
-        horizontalClothCount *= 2.54;
-        verticalClothCount *= 2.54;
-    }
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 
     // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
     double patternWidth = m_rectangle.width() - scaleSize;
@@ -1074,6 +1068,10 @@ void PatternElement::render(Document *document, QPainter *painter) const
 
     int cellHorizontalGrouping = document->property("cellHorizontalGrouping").toInt();
     int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
+
+    m_renderer->setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
+    m_renderer->setGridLineWidths(document->property("thinLineWidth").toDouble(), document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
 
     // find the position of the top left coordinate of the top left cell of the cells to be printed
     double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth + scaleSize)) / 2);
@@ -1110,14 +1108,16 @@ void PatternElement::render(Document *document, QPainter *painter) const
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::CM:
-            subTick = horizontalClothCount / 25.4;
+            // subtick should be 1/10 CM
+            subTick = horizontalClothCount / (clothCountUnitsInches ? 25.4 : 10);
             minorTicks = 5;
             majorTicks = 10;
             textValueIncrement = 1;
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::Inches:
-            subTick = horizontalClothCount / 16;
+            // subtick should be 1/16 inch
+            subTick = horizontalClothCount / (clothCountUnitsInches ? 16 : 6.299);
             minorTicks = 4;
             majorTicks = 16;
             textValueIncrement = 1;
@@ -1182,14 +1182,16 @@ void PatternElement::render(Document *document, QPainter *painter) const
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::CM:
-            subTick = verticalClothCount / 25.4;
+            // subTick should be 1/10 CM
+            subTick = verticalClothCount / (clothCountUnitsInches ? 25.4 : 10);
             minorTicks = 5;
             majorTicks = 10;
             textValueIncrement = 1;
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::Inches:
-            subTick = verticalClothCount / 16;
+            // subTick should be 1/16 inch
+            subTick = verticalClothCount / (clothCountUnitsInches ? 16 : 6.299);
             minorTicks = 4;
             majorTicks = 16;
             textValueIncrement = 1;
