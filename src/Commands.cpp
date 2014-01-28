@@ -481,10 +481,6 @@ DeleteBackstitchCommand::~DeleteBackstitchCommand()
 
 void DeleteBackstitchCommand::redo()
 {
-    if (m_backstitch) {
-        delete m_backstitch;
-    }
-
     m_backstitch = m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
     m_document->editor()->update();
     m_document->preview()->update();
@@ -493,7 +489,8 @@ void DeleteBackstitchCommand::redo()
 
 void DeleteBackstitchCommand::undo()
 {
-    m_document->pattern()->stitches().addBackstitch(m_backstitch->start, m_backstitch->end, m_backstitch->colorIndex);
+    m_document->pattern()->stitches().addBackstitch(m_backstitch);
+    m_backstitch = 0;
     m_document->editor()->update();
     m_document->preview()->update();
 }
@@ -549,7 +546,8 @@ void DeleteKnotCommand::redo()
 
 void DeleteKnotCommand::undo()
 {
-    m_document->pattern()->stitches().addFrenchKnot(m_knot->position, m_knot->colorIndex);
+    m_document->pattern()->stitches().addFrenchKnot(m_knot);
+    m_knot = 0;
 }
 
 
@@ -634,8 +632,7 @@ void FitBackgroundImageCommand::redo()
 
 void FitBackgroundImageCommand::undo()
 {
-    m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
-    m_document->editor()->update();
+    redo(); // same code required
 }
 
 
@@ -662,8 +659,7 @@ void ShowBackgroundImageCommand::redo()
 
 void ShowBackgroundImageCommand::undo()
 {
-    m_visible = m_document->backgroundImages().showBackgroundImage(m_backgroundImage, m_visible);
-    m_document->editor()->update();
+    redo(); // same code required
 }
 
 
@@ -687,7 +683,10 @@ void RemoveBackgroundImageCommand::redo()
 {
     m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+
+    if (m_backgroundImage->isVisible()) {
+        m_document->editor()->update();
+    }
 }
 
 
@@ -695,7 +694,10 @@ void RemoveBackgroundImageCommand::undo()
 {
     m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+
+    if (m_backgroundImage->isVisible()) {
+        m_document->editor()->update();
+    }
 }
 
 
@@ -775,7 +777,7 @@ void ReplaceDocumentFlossCommand::redo()
 
 void ReplaceDocumentFlossCommand::undo()
 {
-    m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
+    redo(); // same code required
 }
 
 
@@ -1038,20 +1040,24 @@ void CentrePatternCommand::redo()
     m_xOffset = ((m_document->pattern()->stitches().width() - extents.width()) / 2) - extents.left();
     m_yOffset = ((m_document->pattern()->stitches().height() - extents.height()) / 2) - extents.top();
 
-    m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
+    if (m_xOffset || m_yOffset) {
+        m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+        m_document->editor()->update();
+        m_document->preview()->update();
+    }
 }
 
 
 
 void CentrePatternCommand::undo()
 {
-    m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
+    if (m_xOffset || m_yOffset) {
+        m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+        m_document->editor()->update();
+        m_document->preview()->update();
+    }
 }
 
 
@@ -1141,7 +1147,7 @@ void EditorReadDocumentSettingsCommand::redo()
 
 void EditorReadDocumentSettingsCommand::undo()
 {
-    m_editor->readDocumentSettings();
+    redo(); // same code required
 }
 
 
@@ -1165,7 +1171,7 @@ void PaletteReadDocumentSettingsCommand::redo()
 
 void PaletteReadDocumentSettingsCommand::undo()
 {
-    m_palette->readDocumentSettings();
+    redo(); // same code required
 }
 
 
@@ -1189,7 +1195,7 @@ void PreviewReadDocumentSettingsCommand::redo()
 
 void PreviewReadDocumentSettingsCommand::undo()
 {
-    m_preview->readDocumentSettings();
+    redo(); // same code required
 }
 
 

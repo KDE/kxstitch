@@ -418,11 +418,11 @@ void StitchData::rotate(Rotation rotation)
     for (int y = 0 ; y < rows ; ++y) {
         for (int x = 0 ; x < cols ; ++x) {
             StitchQueue *src = takeStitchQueueAt(x, y);
-            int index;
+            int index = (cols - x - 1) * rows + y; // default to Rotate90
 
             switch (rotation) {
             case Rotate90:
-                index = (cols - x - 1) * rows + x;
+                // index = (cols - x - 1) * rows + y;
                 break;
 
             case Rotate180:
@@ -660,6 +660,21 @@ void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorI
 }
 
 
+Stitch *StitchData::findStitch(const QPoint &cell, Stitch::Type type, int colorIndex)
+{
+    StitchQueue *stitchQueue = stitchQueueAt(cell);
+    Stitch *found = 0;
+
+    if (stitchQueue) {
+        if (Stitch *stitch = stitchQueue->find(type, colorIndex)) {
+            found = stitch;
+        }
+    }
+
+    return found;
+}
+
+
 void StitchData::deleteStitch(const QPoint &position, Stitch::Type type, int colorIndex)
 {
     int i = index(position);
@@ -740,23 +755,25 @@ void StitchData::addBackstitch(Backstitch *backstitch)
 }
 
 
-Backstitch *StitchData::takeBackstitch(const QPoint &start, const QPoint &end, int colorIndex)
+Backstitch *StitchData::findBackstitch(const QPoint &start, const QPoint &end, int colorIndex)
 {
-    Backstitch *removed = 0;
+    Backstitch *found = 0;
 
-    QMutableListIterator<Backstitch *> iterator(m_backstitches);
-
-    while (iterator.hasNext()) {
-        Backstitch *backstitch = iterator.next();
-
-        if (backstitch->contains(start) && backstitch->contains(end)) {
-            if ((colorIndex == -1) || (backstitch->colorIndex == colorIndex)) {
-                iterator.remove();
-                removed = backstitch;
-                break;
-            }
+    foreach (Backstitch *backstitch, m_backstitches) {
+        if (backstitch->contains(start) && backstitch->contains(end) && ((colorIndex == -1) || backstitch->colorIndex == colorIndex)) {
+            found = backstitch;
+            break;
         }
     }
+
+    return found;
+}
+
+
+Backstitch *StitchData::takeBackstitch(const QPoint &start, const QPoint &end, int colorIndex)
+{
+    Backstitch *removed = findBackstitch(start, end, colorIndex);
+    m_backstitches.removeOne(removed);
 
     return removed;
 }
@@ -766,14 +783,8 @@ Backstitch *StitchData::takeBackstitch(Backstitch *backstitch)
 {
     Backstitch *removed = 0;
 
-    QMutableListIterator<Backstitch *> iterator(m_backstitches);
-
-    while (iterator.hasNext()) {
-        if (backstitch == iterator.next()) {
-            removed = backstitch;
-            iterator.remove();
-            break;
-        }
+    if (m_backstitches.removeOne(backstitch)) {
+        removed = backstitch;
     }
 
     return removed;
@@ -792,22 +803,27 @@ void StitchData::addFrenchKnot(Knot *knot)
 }
 
 
+Knot *StitchData::findKnot(const QPoint &position, int colorIndex)
+{
+    Knot *found = 0;
+
+    foreach (Knot *knot, m_knots) {
+        if ((knot->position == position) && ((colorIndex == -1) || (knot->colorIndex == colorIndex))) {
+            found = knot;
+            break;
+        }
+    }
+
+    return found;
+}
+
+
 Knot *StitchData::takeFrenchKnot(const QPoint &position, int colorIndex)
 {
-    Knot *removed = 0;
+    Knot *removed = findKnot(position, colorIndex);
 
-    QMutableListIterator<Knot *> iterator(m_knots);
-
-    while (iterator.hasNext()) {
-        Knot *knot = iterator.next();
-
-        if (knot->position == position) {
-            if ((colorIndex == -1) || (knot->colorIndex == colorIndex)) {
-                iterator.remove();
-                removed = knot;
-                break;
-            }
-        }
+    if (removed) {
+        m_knots.removeOne(removed);
     }
 
     return removed;
@@ -818,14 +834,8 @@ Knot *StitchData::takeFrenchKnot(Knot *knot)
 {
     Knot *removed = 0;
 
-    QMutableListIterator<Knot *> iterator(m_knots);
-
-    while (iterator.hasNext()) {
-        if (knot == iterator.next()) {
-            removed = knot;
-            iterator.remove();
-            break;
-        }
+    if (m_knots.removeOne(knot)) {
+        removed = knot;
     }
 
     return removed;

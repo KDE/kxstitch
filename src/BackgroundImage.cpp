@@ -29,7 +29,7 @@ BackgroundImage::BackgroundImage(const KUrl &url, const QRect &location)
     m_status = m_image.load(m_url.path());
 
     if (m_status) {
-        m_icon = QPixmap::fromImage(m_image).scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        generateIcon();
     }
 }
 
@@ -82,6 +82,12 @@ void BackgroundImage::setVisible(bool visible)
 }
 
 
+void BackgroundImage::generateIcon()
+{
+    m_icon = QPixmap::fromImage(m_image).scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+}
+
+
 QDataStream &operator<<(QDataStream &stream, const BackgroundImage &backgroundImage)
 {
     stream << qint32(backgroundImage.version);
@@ -90,7 +96,6 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImage &backgroundIm
     stream << backgroundImage.m_visible;
     stream << backgroundImage.m_status;
     stream << backgroundImage.m_image;
-    stream << backgroundImage.m_icon;
     return stream;
 }
 
@@ -102,6 +107,15 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImage &backgroundImage)
     stream >> version;
 
     switch (version) {
+    case 101:
+        stream >> backgroundImage.m_url;
+        stream >> backgroundImage.m_location;
+        stream >> backgroundImage.m_visible;
+        stream >> backgroundImage.m_status;
+        stream >> backgroundImage.m_image;
+        backgroundImage.generateIcon();
+        break;
+
     case 100:
         stream >> backgroundImage.m_url;
         stream >> backgroundImage.m_location;

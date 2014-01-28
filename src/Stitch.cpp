@@ -216,12 +216,24 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
 }
 
 
-/**
-    Delete a stitch from the queue.
-    @param type a Stitch::Type mask to remove, Stitch::Delete for all stitches.
-    @param colorIndex a palette index mask, -1 for all flosses.
-    @return the number of stitches left in the queue
-    */
+Stitch *StitchQueue::find(Stitch::Type type, int colorIndex)
+{
+    int stitchCount = count();
+    Stitch *found = 0;
+
+    for (int i = 0 ; i < stitchCount ; ++i) {
+        Stitch *stitch = at(i);
+
+        if (((type == Stitch::Delete) || ((stitch->type & type) == type)) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex))) {
+            found = stitch;
+            break;
+        }
+    }
+
+    return found;
+}
+
+
 int StitchQueue::remove(Stitch::Type type, int colorIndex)
 {
     int stitchCount = count();
@@ -232,6 +244,8 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
 
             if ((colorIndex != -1) && (stitch->colorIndex != colorIndex)) {
                 enqueue(stitch);
+            } else {
+                delete stitch;
             }
         }
     } else {
@@ -239,9 +253,10 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
             Stitch *stitch = dequeue();
 
             if ((stitch->type != type) || ((colorIndex != -1) && (stitch->colorIndex != colorIndex))) {
-                if ((stitch->type & type) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex)) && ((stitch->type & 192) == 0)) {
+                if (((stitch->type & type) == type) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex)) && ((stitch->type & 192) == 0)) {
                     // the mask covers a part of the current stitch and is the correct color or if the color doesn't matter
                     Stitch::Type changeMask = (Stitch::Type)(stitch->type ^ type);
+                    stitch->type = Stitch::Delete;
                     int index = stitch->colorIndex;
 
                     switch (changeMask) {
@@ -268,12 +283,19 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
                         break;
 
                     default:
-                        enqueue(new Stitch((Stitch::Type)changeMask, index));
+                        stitch->type = changeMask;
+                        enqueue(stitch);
                         break;
+                    }
+
+                    if (stitch->type == Stitch::Delete) {
+                        delete stitch;
                     }
                 } else {
                     enqueue(stitch);
                 }
+            } else {
+                delete stitch;
             }
         }
     }

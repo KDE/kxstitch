@@ -302,6 +302,14 @@
             <label>The default page orientation</label>
             <default>0</default>
         </entry>
+        <entry name="Page_SelectNodeSnapDistance" type="Int">
+            <label>The snap distance for element boundary corner nodes</label>
+            <default>2</default>
+        </entry>
+        <entry name="Page_SelectNodeSize" type="Int">
+            <label>The snap node size</label>
+            <default>2</default>
+        </entry>
 
         <entry name="PatternElement_ShowBorder" type="Bool">
             <label>Show a border around the pattern</label>

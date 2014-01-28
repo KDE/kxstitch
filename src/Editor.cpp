@@ -262,6 +262,10 @@ void Editor::readDocumentSettings()
     m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
     m_verticalScale->setUnits(m_formatScalesAs);
 
+    m_renderer->setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
+    m_renderer->setGridLineWidths(m_document->property("thinLineWidth").toDouble(), m_document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineColors(m_document->property("thinLineColor").value<QColor>(), m_document->property("thickLineColor").value<QColor>());
+
     zoom(m_zoomFactor);
 }
 
@@ -660,6 +664,7 @@ void Editor::setMakesCopies(bool set)
 
 void Editor::loadSettings()
 {
+    readDocumentSettings();
     update();
 }
 
@@ -1371,7 +1376,7 @@ void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
 
     painter->save();
     painter->setPen(Qt::red);
-    painter->fillRect(cellToRect(m_cursorStack.top()), Qt::red);
+    painter->fillRect(QRect(m_cursorStack.top(), QSize(1, 1)), Qt::red);
     painter->restore();
 }
 
@@ -1538,15 +1543,21 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
         if (e->modifiers() & Qt::ShiftModifier) {
             // Delete french knots
             m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(p);
-            cmd = new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, m_activeCommand);
-            cmd->redo();
-            rect = QRect(snapToContents(m_cellStart) - QPoint(m_cellWidth / 2, m_cellHeight / 2), QSize(m_cellWidth, m_cellHeight)).adjusted(-5, -5, 5, 5);
+
+            if (Knot *knot = m_document->pattern()->stitches().findKnot(m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1)) {
+                cmd = new DeleteKnotCommand(m_document, knot->position, knot->colorIndex, m_activeCommand);
+                cmd->redo();
+                rect = QRect(snapToContents(m_cellStart) - QPoint(m_cellWidth / 2, m_cellHeight / 2), QSize(m_cellWidth, m_cellHeight)).adjusted(-5, -5, 5, 5);
+            }
         } else {
             m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(p);
             m_zoneStart = m_zoneTracking = m_zoneEnd = contentsToZone(p);
-            cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1, m_activeCommand);
-            cmd->redo();
-            rect = cellToRect(m_cellStart).adjusted(-5, -5, 5, 5);
+
+            if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+                cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, stitch->colorIndex, m_activeCommand);
+                cmd->redo();
+                rect = cellToRect(m_cellStart).adjusted(-5, -5, 5, 5);
+            }
         }
 
         update(rect);
@@ -1570,9 +1581,12 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 
             if (m_cellTracking != m_cellStart) {
                 m_cellStart = m_cellTracking;
-                cmd = new DeleteKnotCommand(m_document, m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, m_activeCommand);
-                cmd->redo();
-                rect = QRect(snapToContents(m_cellStart) - QPoint(m_cellWidth / 2, m_cellHeight / 2), QSize(m_cellWidth, m_cellHeight)).adjusted(-5, -5, 5, 5);
+
+                if (Knot *knot = m_document->pattern()->stitches().findKnot(m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1)) {
+                    cmd = new DeleteKnotCommand(m_document, knot->position, knot->colorIndex, m_activeCommand);
+                    cmd->redo();
+                    rect = QRect(snapToContents(m_cellStart) - QPoint(m_cellWidth / 2, m_cellHeight / 2), QSize(m_cellWidth, m_cellHeight)).adjusted(-5, -5, 5, 5);
+                }
             }
         } else {
             m_cellTracking = contentsToCell(p);
@@ -1581,9 +1595,12 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
             if ((m_cellTracking != m_cellStart) || (m_zoneTracking != m_zoneStart)) {
                 m_cellStart = m_cellTracking;
                 m_zoneStart = m_zoneTracking;
-                cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1, m_activeCommand);
-                cmd->redo();
-                rect = cellToRect(m_cellStart).adjusted(-5, -5, 5, 5);
+
+                if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+                    cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, stitch->colorIndex, m_activeCommand);
+                    cmd->redo();
+                    rect = cellToRect(m_cellStart).adjusted(-5, -5, 5, 5);
+                }
             }
         }
 
@@ -1597,16 +1614,9 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
     if (e->modifiers() & Qt::ControlModifier) {
         // Erase a backstitch
         m_cellEnd = contentsToSnap(e->pos());
-        QListIterator<Backstitch *> backstitches = m_document->pattern()->stitches().backstitchIterator();
 
-        while (backstitches.hasNext()) {
-            Backstitch *backstitch = backstitches.next();
-
-            if (backstitch->contains(m_cellStart) && backstitch->contains(m_cellEnd)) {
-                m_document->undoStack().push(new DeleteBackstitchCommand(m_document, backstitch->start, backstitch->end, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1));
-                update(QRect(snapToContents(backstitch->start), snapToContents(backstitch->end)).normalized().adjusted(-5, -5, 5, 5));
-                break;
-            }
+        if (Backstitch *backstitch = m_document->pattern()->stitches().findBackstitch(m_cellStart, m_cellEnd, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+            m_document->undoStack().push(new DeleteBackstitchCommand(m_document, backstitch->start, backstitch->end, backstitch->colorIndex));
         }
     }
 
@@ -2203,9 +2213,8 @@ void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
     for (int y = 0 ; y < image.height() ; y++) {
         for (int x = 0 ; x < image.width() ; x++) {
             if (image.pixelIndex(x, y) == 1) {
-                int zone = (y % 2) * 2 + (x % 2);
-
                 if (Configuration::toolShapes_UseFractionals()) {
+                    int zone = (y % 2) * 2 + (x % 2);
                     new AddStitchCommand(m_document, QPoint(x / 2, y / 2), stitchMap[0][zone], colorIndex, parent);
                 } else {
                     new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, colorIndex, parent);
