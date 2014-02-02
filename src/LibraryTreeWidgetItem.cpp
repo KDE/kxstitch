@@ -116,6 +116,12 @@ LibraryTreeWidgetItem::LibraryTreeWidgetItem(LibraryTreeWidgetItem *parent, cons
 }
 
 
+LibraryTreeWidgetItem::~LibraryTreeWidgetItem()
+{
+    qDeleteAll(m_libraryFiles);
+}
+
+
 int LibraryTreeWidgetItem::maxHeight()
 {
     int max = 0;

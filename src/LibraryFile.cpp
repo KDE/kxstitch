@@ -34,6 +34,10 @@ LibraryFile::LibraryFile(const QString &path)
 
 LibraryFile::~LibraryFile()
 {
+    if (hasChanged()) {
+        writeFile();
+    }
+
     qDeleteAll(m_libraryPatterns);
 }
 

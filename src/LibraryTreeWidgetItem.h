@@ -30,6 +30,7 @@ class LibraryTreeWidgetItem : public QTreeWidgetItem
 public:
     LibraryTreeWidgetItem(QTreeWidget *, const QString &);
     LibraryTreeWidgetItem(LibraryTreeWidgetItem *, const QString &);
+    ~LibraryTreeWidgetItem();
 
     int maxHeight();
     LibraryPattern *findCharacter(int, Qt::KeyboardModifiers);
