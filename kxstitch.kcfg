@@ -114,35 +114,29 @@
             <label>How to display stitches.</label>
             <default>Stitches</default>
             <choices>
-                <choice name="None" />
                 <choice name="Stitches" />
                 <choice name="BlackWhiteSymbols" />
                 <choice name="ColorSymbols" />
                 <choice name="ColorBlocks" />
                 <choice name="ColorBlocksSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
         <entry name="Renderer_RenderBackstitchesAs" type="Enum">
             <label>How to display backstitches.</label>
             <default>ColorLines</default>
             <choices>
-                <choice name="None" />
                 <choice name="ColorLines" />
                 <choice name="BlackWhiteSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
         <entry name="Renderer_RenderKnotsAs" type="Enum">
             <label>How to display french knots.</label>
             <default>ColorBlocks</default>
             <choices>
-                <choice name="None" />
                 <choice name="ColorBlocks" />
                 <choice name="ColorBlocksSymbols" />
                 <choice name="ColorSymbols" />
                 <choice name="BlackWhiteSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
     </group>

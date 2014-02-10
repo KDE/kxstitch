@@ -96,9 +96,9 @@ RendererData::RendererData()
         m_cellVerticalGrouping(Configuration::editor_CellVerticalGrouping()),
         m_thinLineColor(Configuration::editor_ThinLineColor()),
         m_thickLineColor(Configuration::editor_ThickLineColor()),
-        m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
-        m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
-        m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
+        m_renderStitchesAs(Configuration::renderer_RenderStitchesAs()),
+        m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs()),
+        m_renderKnotsAs(Configuration::renderer_RenderKnotsAs()),
         m_painter(0),
         m_document(0),
         m_pattern(0),
@@ -188,7 +188,6 @@ RendererData::~RendererData()
 
 
 const Renderer::renderStitchCallPointer Renderer::renderStitchCallPointers[] = {
-    &Renderer::renderStitchesAsNone,
     &Renderer::renderStitchesAsStitches,
     &Renderer::renderStitchesAsBlackWhiteSymbols,
     &Renderer::renderStitchesAsColorSymbols,
@@ -197,13 +196,11 @@ const Renderer::renderStitchCallPointer Renderer::renderStitchCallPointers[] = {
 };
 
 const Renderer::renderBackstitchCallPointer Renderer::renderBackstitchCallPointers[] = {
-    &Renderer::renderBackstitchesAsNone,
     &Renderer::renderBackstitchesAsColorLines,
     &Renderer::renderBackstitchesAsBlackWhiteSymbols,
 };
 
 const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] = {
-    &Renderer::renderKnotsAsNone,
     &Renderer::renderKnotsAsColorBlocks,
     &Renderer::renderKnotsAsColorBlocksSymbols,
     &Renderer::renderKnotsAsColorSymbols,
@@ -353,11 +350,6 @@ void Renderer::render(QPainter *painter,
     }
 
     painter->restore();
-}
-
-
-void Renderer::renderStitchesAsNone(StitchQueue *)
-{
 }
 
 
@@ -938,11 +930,6 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 }
 
 
-void Renderer::renderBackstitchesAsNone(Backstitch*)
-{
-}
-
-
 void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 {
     QPointF start(QPointF(backstitch->start) / 2);
@@ -987,11 +974,6 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 
     d->m_painter->setPen(pen);
     d->m_painter->drawLine(start, end);
-}
-
-
-void Renderer::renderKnotsAsNone(Knot*)
-{
 }
 
 

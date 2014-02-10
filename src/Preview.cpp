@@ -30,7 +30,7 @@ Preview::Preview(QWidget *parent)
     setObjectName("Preview#");
     m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
-    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None);
+    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
 
