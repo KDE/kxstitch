@@ -123,6 +123,7 @@ private:
     void setupDockWindows();
     void setupActions();
     void setupDocument();
+    void setupConnections();
     void setupActionDefaults();
     void setupActionsFromDocument();
     void convertImage(const Magick::Image &);

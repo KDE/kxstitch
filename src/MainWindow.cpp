@@ -81,6 +81,7 @@ MainWindow::MainWindow(const KUrl &url)
     setupDockWindows();
     setupActions();
     setupDocument();
+    setupConnections();
     fileOpen(url);
     setupActionDefaults();
     setupActionsFromDocument();
@@ -97,6 +98,7 @@ MainWindow::MainWindow(const Magick::Image &image)
     setupDockWindows();
     setupActions();
     setupDocument();
+    setupConnections();
     convertImage(image);
     setupActionDefaults();
     setupActionsFromDocument();
@@ -138,9 +140,23 @@ void MainWindow::setupLayout()
 
 void MainWindow::setupDocument()
 {
-    KActionCollection *actions = actionCollection();
-
     m_document = new Document();
+
+    m_editor->setDocument(m_document);
+    m_editor->setPreview(m_preview);
+    m_palette->setDocument(m_document);
+    m_preview->setDocument(m_document);
+    m_history->setStack(&(m_document->undoStack()));
+
+    m_document->addView(m_editor);
+    m_document->addView(m_preview);
+    m_document->addView(m_palette);
+}
+
+
+void MainWindow::setupConnections()
+{
+    KActionCollection *actions = actionCollection();
 
     connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action("edit_undo"), SLOT(setEnabled(bool)));
     connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action("file_revert"), SLOT(setEnabled(bool)));
@@ -167,16 +183,6 @@ void MainWindow::setupDocument()
     connect(m_editor, SIGNAL(changedVisibleCells(QRect)), m_preview, SLOT(setVisibleCells(QRect)));
     connect(m_preview, SIGNAL(clicked(QPoint)), m_editor, SLOT(previewClicked(QPoint)));
     connect(m_preview, SIGNAL(clicked(QRect)), m_editor, SLOT(previewClicked(QRect)));
-
-    m_editor->setDocument(m_document);
-    m_editor->setPreview(m_preview);
-    m_palette->setDocument(m_document);
-    m_preview->setDocument(m_document);
-    m_history->setStack(&(m_document->undoStack()));
-
-    m_document->addView(m_editor);
-    m_document->addView(m_preview);
-    m_document->addView(m_palette);
 }
 
 
