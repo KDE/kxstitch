@@ -114,6 +114,9 @@ protected slots:
 
     void documentModified(bool);
 
+private slots:
+    void paletteContextMenu(const QPoint &);
+
 private:
     void setupMainWindow();
     void setupLayout();

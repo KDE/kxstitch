@@ -16,6 +16,7 @@
 #include <QDataStream>
 #include <QDockWidget>
 #include <QGridLayout>
+#include <QMenu>
 #include <QMimeData>
 #include <QPainter>
 #include <QPaintEngine>
@@ -40,6 +41,7 @@
 #include <KSaveFile>
 #include <KSelectAction>
 #include <KUrl>
+#include <KXMLGUIFactory>
 
 #include "BackgroundImage.h"
 #include "configuration.h"
@@ -160,6 +162,8 @@ void MainWindow::setupDocument()
     connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
     connect(m_palette, SIGNAL(swapColors(int,int)), this, SLOT(paletteSwapColors(int,int)));
     connect(m_palette, SIGNAL(replaceColor(int,int)), this, SLOT(paletteReplaceColor(int,int)));
+    connect(m_palette, SIGNAL(signalStateChanged(QString,bool)), this, SLOT(slotStateChanged(QString,bool)));
+    connect(m_palette, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(paletteContextMenu(QPoint)));
     connect(m_editor, SIGNAL(changedVisibleCells(QRect)), m_preview, SLOT(setVisibleCells(QRect)));
     connect(m_preview, SIGNAL(clicked(QPoint)), m_editor, SLOT(previewClicked(QPoint)));
     connect(m_preview, SIGNAL(clicked(QRect)), m_editor, SLOT(previewClicked(QRect)));
@@ -1028,6 +1032,12 @@ void MainWindow::viewFitBackgroundImage()
 }
 
 
+void MainWindow::paletteContextMenu(const QPoint &pos)
+{
+    static_cast<QMenu *>(guiFactory()->container("PalettePopup", this))->popup(qobject_cast<QWidget *>(sender())->mapToGlobal(pos));
+}
+
+
 void MainWindow::viewShowBackgroundImage()
 {
     KAction *action = qobject_cast<KAction *>(sender());
@@ -1806,6 +1816,7 @@ void MainWindow::setupDockWindows()
     dock->setObjectName("PaletteDock#");
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_palette = new Palette(this);
+    m_palette->setContextMenuPolicy(Qt::CustomContextMenu);
     dock->setWidget(m_palette);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     actionCollection()->addAction("showPaletteDockWidget", dock->toggleViewAction());

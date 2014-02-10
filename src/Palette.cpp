@@ -12,25 +12,21 @@
 #include "Palette.h"
 
 #include <QBitmap>
-#include <QContextMenuEvent>
-#include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QToolTip>
 
 #include <KLocale>
-#include <KXMLGUIFactory>
+#include <KXMLGUIClient>
 
 #include "configuration.h"
 #include "Document.h"
 #include "Floss.h"
 #include "FlossScheme.h"
-#include "MainWindow.h"
 #include "SchemeManager.h"
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 
-#include <KDebug>
 
 const uchar swapCursor[] = {
     0x00, 0x00, 0x00, 0x00,
@@ -297,7 +293,7 @@ void Palette::paintEvent(QPaintEvent *)
     QPainter painter;
 
     if (m_flosses) {
-        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty", KXMLGUIClient::StateReverse);
+        emit signalStateChanged("palette_empty", KXMLGUIClient::StateReverse);
 
         m_cols = 5;
 
@@ -381,17 +377,8 @@ void Palette::paintEvent(QPaintEvent *)
 
         painter.end();
     } else {
-        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty");
+        emit signalStateChanged("palette_empty", KXMLGUIClient::StateNoReverse);
     }
-}
-
-
-void Palette::contextMenuEvent(QContextMenuEvent *event)
-{
-    MainWindow *mainwindow = qobject_cast<MainWindow *>(topLevelWidget());
-    QMenu *context = static_cast<QMenu *>(mainwindow->guiFactory()->container("PalettePopup", mainwindow));
-    context->popup(event->globalPos());
-    event->accept();
 }
 
 
@@ -425,6 +412,6 @@ void Palette::mousePressEvent(QMouseEvent *event)
             }
         }
 
-        repaint();
+        update();
     }
 }
