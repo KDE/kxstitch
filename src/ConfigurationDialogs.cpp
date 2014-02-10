@@ -30,7 +30,6 @@ PatternConfigPage::PatternConfigPage(QWidget *parent, const char *name)
 {
     setObjectName(name);
     setupUi(this);
-    kcfg_Palette_DefaultScheme->insertItems(0, SchemeManager::schemes());
 
     QMetaObject::connectSlotsByName(this);
 
@@ -210,6 +209,15 @@ void PatternConfigPage::setPrecision()
         kcfg_Editor_VerticalClothCount->setSingleStep(0.01);
         break;
     }
+}
+
+
+PaletteConfigPage::PaletteConfigPage(QWidget *parent, const char *name)
+    :   QWidget(parent)
+{
+    setObjectName(name);
+    setupUi(this);
+    kcfg_Palette_DefaultScheme->insertItems(0, SchemeManager::schemes());
 }
 
 

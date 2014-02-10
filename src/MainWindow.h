@@ -30,12 +30,6 @@ class Preview;
 class Scale;
 class SchemeManager;
 
-class EditorConfigPage;
-class PatternConfigPage;
-class ImportConfigPage;
-class LibraryConfigPage;
-class PrinterConfigPage;
-
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -129,7 +123,6 @@ private:
     void convertImage(const Magick::Image &);
     QPrinter *printer();
 
-protected:
     Document    *m_document;
     Editor      *m_editor;
     Palette     *m_palette;
@@ -140,12 +133,6 @@ protected:
     Scale       *m_verticalScale;
 
     QPrinter    *m_printer;
-
-    EditorConfigPage    *m_editorConfigPage;
-    PatternConfigPage   *m_patternConfigPage;
-    ImportConfigPage    *m_importConfigPage;
-    LibraryConfigPage   *m_libraryConfigPage;
-    PrinterConfigPage   *m_printerConfigPage;
 };
 
 

@@ -190,8 +190,14 @@ void MainWindow::setupActionDefaults()
 {
     KActionCollection *actions = actionCollection();
 
-    actions->action("toolPaint")->trigger();    // Select paint tool
+    actions->action("maskStitch")->setChecked(false);
+    actions->action("maskColor")->setChecked(false);
+    actions->action("maskBackstitch")->setChecked(false);
+    actions->action("maskKnot")->setChecked(false);
+
     actions->action("stitchFull")->trigger();   // Select full stitch
+
+    actions->action("toolPaint")->trigger();    // Select paint tool
 
     clipboardDataChanged();
 }
@@ -267,100 +273,6 @@ void MainWindow::setupActionsFromDocument()
     actions->action("edit_redo")->setEnabled(m_document->undoStack().canRedo());
 
     updateBackgroundImageActionLists();
-
-    switch (static_cast<Configuration::EnumEditor_FormatScalesAs::type>(m_document->property("formatScalesAs").toInt())) {
-    case Configuration::EnumEditor_FormatScalesAs::Stitches:
-        actions->action("formatScalesAsStitches")->trigger();
-        break;
-
-    case Configuration::EnumEditor_FormatScalesAs::Inches:
-        actions->action("formatScalesAsInches")->trigger();
-        break;
-
-    case Configuration::EnumEditor_FormatScalesAs::CM:
-        actions->action("formatScalesAsCM")->trigger();
-        break;
-
-    default:
-        break;
-    }
-
-    switch (static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(m_document->property("renderStitchesAs").toInt())) {
-    case Configuration::EnumRenderer_RenderStitchesAs::Stitches:
-        actions->action("renderStitchesAsRegularStitches")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols:
-        actions->action("renderStitchesAsBlackWhiteSymbols")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols:
-        actions->action("renderStitchesAsColorSymbols")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks:
-        actions->action("renderStitchesAsColorBlocks")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols:
-        actions->action("renderStitchesAsColorBlocksSymbols")->trigger();
-        break;
-
-    default:
-        break;
-    }
-
-    switch (static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(m_document->property("renderBackstitchesAs").toInt())) {
-    case Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines:
-        actions->action("renderBackstitchesAsColorLines")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols:
-        actions->action("renderBackstitchesAsBlackWhiteSymbols")->trigger();
-        break;
-
-    default:
-        break;
-    }
-
-    switch (static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(m_document->property("renderKnotsAs").toInt())) {
-    case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks:
-        actions->action("renderKnotsAsColorBlocks")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols:
-        actions->action("renderKnotsAsColorBlocksSymbols")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols:
-        actions->action("renderKnotsAsColorSymbols")->trigger();
-        break;
-
-    case Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols:
-        actions->action("renderKnotsAsBlackWhiteSymbols")->trigger();
-        break;
-
-    default:
-        break;
-    }
-
-    actions->action("colorHilight")->setChecked(m_document->property("colorHilight").toBool());
-    m_editor->colorHilight(m_document->property("colorHilight").toBool());
-
-    m_editor->setMaskStitch(m_document->property("maskStitch").toBool());
-    actions->action("maskStitch")->setChecked(m_document->property("maskStitch").toBool());
-    m_editor->setMaskColor(m_document->property("maskColor").toBool());
-    actions->action("maskColor")->setChecked(m_document->property("maskColor").toBool());
-    m_editor->setMaskBackstitch(m_document->property("maskBackstitch").toBool());
-    actions->action("maskBackstitch")->setChecked(m_document->property("maskBackstitch").toBool());
-    m_editor->setMaskKnot(m_document->property("maskKnot").toBool());
-    actions->action("maskKnot")->setChecked(m_document->property("maskKnot").toBool());
-
-    actions->action("renderStitches")->setChecked(m_document->property("renderStitches").toBool());
-    actions->action("renderBackstitches")->setChecked(m_document->property("renderBackstitches").toBool());
-    actions->action("renderFrenchKnots")->setChecked(m_document->property("renderFrenchKnots").toBool());
-    actions->action("renderGrid")->setChecked(m_document->property("renderGrid").toBool());
-    actions->action("renderBackgroundImages")->setChecked(m_document->property("renderBackgroundImages").toBool());
 }
 
 
@@ -1008,17 +920,16 @@ void MainWindow::preferences()
     KConfigDialog *dialog = new KConfigDialog(this, "preferences", Configuration::self());
     dialog->setHelp("ConfigurationDialog");
     dialog->setFaceType(KPageDialog::List);
-    m_editorConfigPage = new EditorConfigPage(0, "EditorConfigPage");
-    dialog->addPage(m_editorConfigPage, i18nc("The Editor config page", "Editor"), "preferences-desktop");
-    m_patternConfigPage = new PatternConfigPage(0, "PatternConfigPage");
-    dialog->addPage(m_patternConfigPage, i18n("Pattern"), "ksnapshot");
-    m_importConfigPage = new ImportConfigPage(0, "ImportConfigPage");
-    dialog->addPage(m_importConfigPage, i18n("Import"), "preferences-desktop-color");
-    m_libraryConfigPage = new LibraryConfigPage(0, "LibraryConfigPage");
-    dialog->addPage(m_libraryConfigPage, i18n("Library"), "accessories-dictionary");
-    m_printerConfigPage = new PrinterConfigPage(0, "PrinterConfigPage");
-    dialog->addPage(m_printerConfigPage, i18n("Printer Configuration"), "preferences-desktop-printer");
+
+    dialog->addPage(new EditorConfigPage(0, "EditorConfigPage"), i18nc("The Editor config page", "Editor"), "preferences-desktop");
+    dialog->addPage(new PatternConfigPage(0, "PatternConfigPage"), i18n("Pattern"), "ksnapshot");
+    dialog->addPage(new PaletteConfigPage(0, "PaletteConfigPage"), i18n("Palette"), "preferences-desktop-color");
+    dialog->addPage(new ImportConfigPage(0, "ImportConfigPage"), i18n("Import"), "insert-image");
+    dialog->addPage(new LibraryConfigPage(0, "LibraryConfigPage"), i18n("Library"), "accessories-dictionary");
+    dialog->addPage(new PrinterConfigPage(0, "PrinterConfigPage"), i18n("Printer Configuration"), "preferences-desktop-printer");
+
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()));
+
     dialog->show();
 }
 
@@ -1026,7 +937,6 @@ void MainWindow::preferences()
 void MainWindow::settingsChanged()
 {
     QList<QUndoCommand *> documentChanges;
-
     ConfigurationCommand *configurationCommand = new ConfigurationCommand(this);
 
     if (m_document->property("cellHorizontalGrouping") != Configuration::editor_CellHorizontalGrouping()) {
@@ -1065,6 +975,96 @@ void MainWindow::loadSettings()
     m_editor->loadSettings();
     m_preview->loadSettings();
     m_palette->loadSettings();
+
+    KActionCollection *actions = actionCollection();
+
+    actions->action("makesCopies")->setChecked(Configuration::tool_MakesCopies());
+
+    actions->action("colorHilight")->setChecked(Configuration::renderer_ColorHilight());
+
+    actions->action("renderStitches")->setChecked(Configuration::renderer_RenderStitches());
+    actions->action("renderBackstitches")->setChecked(Configuration::renderer_RenderBackstitches());
+    actions->action("renderFrenchKnots")->setChecked(Configuration::renderer_RenderFrenchKnots());
+    actions->action("renderGrid")->setChecked(Configuration::renderer_RenderGrid());
+    actions->action("renderBackgroundImages")->setChecked(Configuration::renderer_RenderBackgroundImages());
+
+    switch (Configuration::editor_FormatScalesAs()) {
+    case Configuration::EnumEditor_FormatScalesAs::Stitches:
+        actions->action("formatScalesAsStitches")->trigger();
+        break;
+
+    case Configuration::EnumEditor_FormatScalesAs::Inches:
+        actions->action("formatScalesAsInches")->trigger();
+        break;
+
+    case Configuration::EnumEditor_FormatScalesAs::CM:
+        actions->action("formatScalesAsCM")->trigger();
+        break;
+
+    default:
+        break;
+    }
+
+    switch (Configuration::renderer_RenderStitchesAs()) {
+    case Configuration::EnumRenderer_RenderStitchesAs::Stitches:
+        actions->action("renderStitchesAsRegularStitches")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols:
+        actions->action("renderStitchesAsBlackWhiteSymbols")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols:
+        actions->action("renderStitchesAsColorSymbols")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks:
+        actions->action("renderStitchesAsColorBlocks")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols:
+        actions->action("renderStitchesAsColorBlocksSymbols")->trigger();
+        break;
+
+    default:
+        break;
+    }
+
+    switch (Configuration::renderer_RenderBackstitchesAs()) {
+    case Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines:
+        actions->action("renderBackstitchesAsColorLines")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols:
+        actions->action("renderBackstitchesAsBlackWhiteSymbols")->trigger();
+        break;
+
+    default:
+        break;
+    }
+
+    switch (Configuration::renderer_RenderKnotsAs()) {
+    case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks:
+        actions->action("renderKnotsAsColorBlocks")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols:
+        actions->action("renderKnotsAsColorBlocksSymbols")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols:
+        actions->action("renderKnotsAsColorSymbols")->trigger();
+        break;
+
+    case Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols:
+        actions->action("renderKnotsAsBlackWhiteSymbols")->trigger();
+        break;
+
+    default:
+        break;
+    }
+
+    actions->action("paletteShowSymbols")->setChecked(Configuration::palette_ShowSymbols());
 }
 
 

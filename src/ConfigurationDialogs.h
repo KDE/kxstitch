@@ -15,6 +15,7 @@
 
 #include "ui_EditorConfigPage.h"
 #include "ui_PatternConfigPage.h"
+#include "ui_PaletteConfigPage.h"
 #include "ui_ImportConfigPage.h"
 #include "ui_LibraryConfigPage.h"
 #include "ui_PrinterConfigPage.h"
@@ -47,6 +48,15 @@ private:
 
     int m_currentDocumentUnitsIndex;
     int m_currentClothCountUnitsIndex;
+};
+
+
+class PaletteConfigPage : public QWidget, public Ui::PaletteConfigPage
+{
+    Q_OBJECT
+
+public:
+    explicit PaletteConfigPage(QWidget *parent = 0, const char *name = 0);
 };
 
 
