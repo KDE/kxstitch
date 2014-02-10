@@ -350,12 +350,6 @@ void Palette::paintEvent(QPaintEvent *)
                 QPen pen = symbol.pen();
                 QBrush brush = symbol.brush();
 
-//                if (qGray(color.rgb()) < 128) {
-//                    painter.setPen(Qt::white);
-//                } else {
-//                    painter.setPen(Qt::black);
-//                }
-
                 if (qGray(color.rgb()) < 128) {
                     pen.setColor(Qt::white);
                     brush.setColor(Qt::white);
