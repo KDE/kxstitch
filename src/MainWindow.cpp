@@ -1037,14 +1037,6 @@ void MainWindow::settingsChanged()
         documentChanges.append(new SetPropertyCommand(m_document, "cellVerticalGrouping", Configuration::editor_CellVerticalGrouping(), configurationCommand));
     }
 
-    if (m_document->property("thickLineWidth") != Configuration::editor_ThickLineWidth()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "thickLineWidth", Configuration::editor_ThickLineWidth(), configurationCommand));
-    }
-
-    if (m_document->property("thinLineWidth") != Configuration::editor_ThinLineWidth()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "thinLineWidth", Configuration::editor_ThinLineWidth(), configurationCommand));
-    }
-
     if (m_document->property("thickLineColor") != Configuration::editor_ThickLineColor()) {
         documentChanges.append(new SetPropertyCommand(m_document, "thickLineColor", Configuration::editor_ThickLineColor(), configurationCommand));
     }

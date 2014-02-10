@@ -1070,7 +1070,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
 
     m_renderer->setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
-    m_renderer->setGridLineWidths(document->property("thinLineWidth").toDouble(), document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
     m_renderer->setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
 
     // find the position of the top left coordinate of the top left cell of the cells to be printed

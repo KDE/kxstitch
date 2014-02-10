@@ -263,7 +263,7 @@ void Editor::readDocumentSettings()
     m_verticalScale->setUnits(m_formatScalesAs);
 
     m_renderer->setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
-    m_renderer->setGridLineWidths(m_document->property("thinLineWidth").toDouble(), m_document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
     m_renderer->setGridLineColors(m_document->property("thinLineColor").value<QColor>(), m_document->property("thickLineColor").value<QColor>());
 
     zoom(m_zoomFactor);
