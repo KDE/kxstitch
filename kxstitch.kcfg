@@ -5,25 +5,6 @@
                 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kxstitchrc"/>
 
-    <group name="kxstitch">
-        <entry name="Application_Width" type="Int">
-            <label>The width of the application</label>
-            <default>1200</default>
-        </entry>
-        <entry name="Application_Height" type="Int">
-            <label>The height of the application</label>
-            <default>800</default>
-        </entry>
-        <entry name="Application_HorizontalSplitterSizes" type="IntList">
-            <label>The horizontal splitter values</label>
-            <default>300,900</default>
-        </entry>
-        <entry name="Application_VerticalSplitterSizes" type="IntList">
-            <label>The vertical splitter sizes</label>
-            <default>200,600</default>
-        </entry>
-    </group>
-
     <group name="editor">
         <entry name="Editor_BackgroundColor" type="Color">
             <label>The background color.</label>
