@@ -191,7 +191,7 @@ Editor::Editor(QWidget *parent)
         m_horizontalScale(new Scale(Qt::Horizontal)),
         m_verticalScale(new Scale(Qt::Vertical)),
         m_libraryManagerDlg(0),
-        m_zoomFactor(1.0),
+        m_zoomFactor(Configuration::editor_DefaultZoomFactor()),
         m_toolMode(ToolPaint),
         m_activeCommand(0),
         m_pastePattern(0)
@@ -312,7 +312,7 @@ void Editor::previewClicked(const QRect &cells)
 
 bool Editor::zoom(double factor)
 {
-    if (factor < Configuration::editor_MinimumZoomScale() || factor > Configuration::editor_MaximumZoomScale()) {
+    if (factor < Configuration::editor_MinimumZoomFactor() || factor > Configuration::editor_MaximumZoomFactor()) {
         return false;
     }
 
