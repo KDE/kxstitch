@@ -604,20 +604,6 @@ private:
 };
 
 
-class PaletteReadDocumentSettingsCommand : public QUndoCommand
-{
-public:
-    explicit PaletteReadDocumentSettingsCommand(Palette *);
-    ~PaletteReadDocumentSettingsCommand();
-
-    void redo();
-    void undo();
-
-private:
-    Palette *m_palette;
-};
-
-
 class PreviewReadDocumentSettingsCommand : public QUndoCommand
 {
 public:

@@ -194,19 +194,12 @@ QSize Palette::sizeHint() const
 void Palette::setDocument(Document *document)
 {
     m_document = document;
-    readDocumentSettings();
 }
 
 
 Document *Palette::document() const
 {
     return m_document;
-}
-
-
-void Palette::readDocumentSettings()
-{
-    showSymbols(m_document->pattern()->palette().showSymbols());
 }
 
 

@@ -46,7 +46,6 @@ void FilePropertiesCommand::redo()
     QUndoCommand::redo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->palette()->readDocumentSettings();
     m_document->editor()->update();
     m_document->preview()->update();
     m_document->palette()->update();
@@ -58,7 +57,6 @@ void FilePropertiesCommand::undo()
     QUndoCommand::undo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->palette()->readDocumentSettings();
     m_document->editor()->update();
     m_document->preview()->update();
     m_document->palette()->update();
@@ -82,7 +80,6 @@ void ImportImageCommand::redo()
     QUndoCommand::redo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->palette()->readDocumentSettings();
     m_document->editor()->update();
     m_document->preview()->update();
     m_document->palette()->update();
@@ -94,7 +91,6 @@ void ImportImageCommand::undo()
     QUndoCommand::undo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->palette()->readDocumentSettings();
     m_document->editor()->update();
     m_document->preview()->update();
     m_document->palette()->update();
@@ -1146,30 +1142,6 @@ void EditorReadDocumentSettingsCommand::redo()
 
 
 void EditorReadDocumentSettingsCommand::undo()
-{
-    redo(); // same code required
-}
-
-
-PaletteReadDocumentSettingsCommand::PaletteReadDocumentSettingsCommand(Palette *palette)
-    :   QUndoCommand(),
-        m_palette(palette)
-{
-}
-
-
-PaletteReadDocumentSettingsCommand::~PaletteReadDocumentSettingsCommand()
-{
-}
-
-
-void PaletteReadDocumentSettingsCommand::redo()
-{
-    m_palette->readDocumentSettings();
-}
-
-
-void PaletteReadDocumentSettingsCommand::undo()
 {
     redo(); // same code required
 }

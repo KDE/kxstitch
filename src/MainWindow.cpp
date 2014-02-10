@@ -415,7 +415,6 @@ void MainWindow::fileOpen(const KUrl &url)
 
                     setupActionsFromDocument();
                     m_editor->readDocumentSettings();
-                    m_palette->readDocumentSettings();
                     m_preview->readDocumentSettings();
                     documentModified(true); // this is the clean value true
                     file.close();
@@ -823,7 +822,6 @@ void MainWindow::fileClose()
         m_document->initialiseNew();
         setupActionsFromDocument();
         m_editor->readDocumentSettings();
-        m_palette->readDocumentSettings();
         m_preview->readDocumentSettings();
     }
 
@@ -886,7 +884,6 @@ void MainWindow::paletteManager()
 void MainWindow::paletteShowSymbols(bool show)
 {
     m_palette->showSymbols(show);
-    m_document->pattern()->palette().setShowSymbols(show);
 }
 
 

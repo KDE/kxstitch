@@ -29,11 +29,10 @@ public:
     DocumentPaletteData(const DocumentPaletteData &);
     ~DocumentPaletteData();
 
-    static const int version = 101;
+    static const int version = 102; // remove m_showSymbols
 
     QString                     m_schemeName;
     int                         m_currentIndex;
-    bool                        m_showSymbols;
     QMap<int, DocumentFloss *>  m_documentFlosses;
 };
 
@@ -41,8 +40,7 @@ public:
 DocumentPaletteData::DocumentPaletteData()
     :   QSharedData(),
         m_schemeName(Configuration::palette_DefaultScheme()),
-        m_currentIndex(-1),
-        m_showSymbols(Configuration::palette_ShowSymbols())
+        m_currentIndex(-1)
 {
 }
 
@@ -50,8 +48,7 @@ DocumentPaletteData::DocumentPaletteData()
 DocumentPaletteData::DocumentPaletteData(const DocumentPaletteData &other)
     :   QSharedData(other),
         m_schemeName(other.m_schemeName),
-        m_currentIndex(other.m_currentIndex),
-        m_showSymbols(other.m_showSymbols)
+        m_currentIndex(other.m_currentIndex)
 {
     for (QMap<int, DocumentFloss*>::const_iterator i = other.m_documentFlosses.constBegin() ; i != other.m_documentFlosses.constEnd() ; ++i) {
         m_documentFlosses.insert(i.key(), new DocumentFloss(other.m_documentFlosses.value(i.key())));
@@ -166,12 +163,6 @@ int DocumentPalette::currentIndex() const
 }
 
 
-bool DocumentPalette::showSymbols() const
-{
-    return d->m_showSymbols;
-}
-
-
 void DocumentPalette::setSchemeName(const QString &schemeName)
 {
     if (d->m_schemeName == schemeName) {
@@ -265,12 +256,6 @@ void DocumentPalette::swap(int originalIndex, int swappedIndex)
 }
 
 
-void DocumentPalette::setShowSymbols(bool show)
-{
-    d->m_showSymbols = show;
-}
-
-
 DocumentPalette &DocumentPalette::operator=(const DocumentPalette &other)
 {
     d = other.d;
@@ -295,7 +280,6 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
     stream << qint32(DocumentPaletteData::version);
     stream << documentPalette.d->m_schemeName;
     stream << qint32(documentPalette.d->m_currentIndex);
-    stream << documentPalette.d->m_showSymbols;
     stream << qint32(documentPalette.d->m_documentFlosses.count());
 
     for (QMap<int, DocumentFloss*>::const_iterator i = documentPalette.d->m_documentFlosses.constBegin() ; i != documentPalette.d->m_documentFlosses.constEnd() ; ++i) {
@@ -316,6 +300,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     qint32 version;
     qint32 currentIndex;
     qint32 documentPaletteCount;
+    bool showSymbols;
 
     qint32 key;
     DocumentFloss *documentFloss;
@@ -325,11 +310,26 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     stream >> version;
 
     switch (version) {
+    case 102:
+        stream >> documentPalette.d->m_schemeName;
+        stream >> currentIndex;
+        documentPalette.d->m_currentIndex = currentIndex;
+        stream >> documentPaletteCount;
+
+        while (documentPaletteCount--) {
+            documentFloss = new DocumentFloss;
+            stream >> key;
+            stream >> *documentFloss;
+            documentPalette.d->m_documentFlosses.insert(key, documentFloss);
+        }
+
+        break;
+
     case 101:
         stream >> documentPalette.d->m_schemeName;
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
-        stream >> documentPalette.d->m_showSymbols;
+        stream >> showSymbols;
         stream >> documentPaletteCount;
 
         while (documentPaletteCount--) {
@@ -345,7 +345,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
         stream >> documentPalette.d->m_schemeName;
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
-        stream >> documentPalette.d->m_showSymbols;
+        stream >> showSymbols;
         stream >> documentPaletteCount;
 
         while (documentPaletteCount--) {

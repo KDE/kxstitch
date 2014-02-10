@@ -34,8 +34,6 @@ public:
 
     void setDocument(Document *);
 
-    void readDocumentSettings();
-
 public slots:
     void showSymbols(bool);
     void swapColors();
