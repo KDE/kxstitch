@@ -271,6 +271,10 @@
             <label>The text size in pixels</label>
             <default>10</default>
         </entry>
+        <entry name="Tool_MakesCopies" type="Bool">
+            <label>Does mirroring and copying make copies</label>
+            <default>false</default>
+        </entry>
     </group>
 
     <group name="printer">
