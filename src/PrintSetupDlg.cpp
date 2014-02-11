@@ -505,16 +505,12 @@ void PrintSetupDlg::on_Templates_clicked()
 
         // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
         double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
-        double physicalWidth = documentWidth * cellWidth;
         double aspect =  horizontalClothCount / verticalClothCount;
         double cellHeight = cellWidth * aspect;
-        double physicalHeight = documentHeight * cellHeight;
 
         if (cellHeight < cellWidth) {
             cellHeight = cellWidth;
             cellWidth = cellHeight / aspect;
-            physicalWidth = documentWidth * cellWidth;
-            physicalHeight = documentHeight * cellHeight;
         }
 
         // at this point, based on a minimum cell size of 3mm a physical width and height have been calculated

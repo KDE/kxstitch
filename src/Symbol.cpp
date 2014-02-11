@@ -133,6 +133,10 @@ QPainterPath Symbol::path(Stitch::Type type)
         case Stitch::BR3Qtr:
             transform = QTransform::fromScale(twoThirds, twoThirds) * QTransform::fromTranslate(oneThird, oneThird);
             break;
+
+        case Stitch::Delete:
+        case Stitch::FrenchKnot:
+            break;
         }
 
         m_paths.insert(type, transform.map(m_paths.value(Stitch::Full)));

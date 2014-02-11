@@ -1083,7 +1083,6 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int vpHeight = int((patternHeight + scaleSize) * deviceVRatio);
 
     double vpCellWidth = deviceHRatio * cellWidth;
-    double vpCellHeight = deviceVRatio * cellHeight;
     double vpScaleWidth = deviceHRatio * scaleSize;
     double vpScaleHeight = deviceVRatio * scaleSize;
 
@@ -1093,18 +1092,16 @@ void PatternElement::render(Document *document, QPainter *painter) const
         painter->setFont(font);
 
         // draw horizontal ruler
-        double subTick;
-        int minorTicks;
-        int majorTicks;
+        // default to Stitches values
+        double subTick = 1.0;
+        int minorTicks = 1;
+        int majorTicks = cellHorizontalGrouping;
 
-        int textValueIncrement;
+        int textValueIncrement = cellHorizontalGrouping;
 
         switch (m_formatScalesAs) {
         case Configuration::EnumEditor_FormatScalesAs::Stitches:
-            subTick = 1.0;
-            minorTicks = 1;
-            majorTicks = cellHorizontalGrouping;
-            textValueIncrement = cellHorizontalGrouping;
+            // set as defaults above
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::CM:
@@ -1175,6 +1172,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
         // draw vertical ruler
         switch (m_formatScalesAs) {
         case Configuration::EnumEditor_FormatScalesAs::Stitches:
+            // subTick should be 1 cell
             subTick = 1.0;
             minorTicks = 1;
             majorTicks = cellVerticalGrouping;

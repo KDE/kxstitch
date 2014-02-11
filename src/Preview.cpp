@@ -101,10 +101,8 @@ void Preview::mouseMoveEvent(QMouseEvent *e)
 }
 
 
-void Preview::mouseReleaseEvent(QMouseEvent *e)
+void Preview::mouseReleaseEvent(QMouseEvent *)
 {
-    QPoint p = e->pos();
-
     if (m_start == m_end) {
         emit clicked(m_start);
     } else {

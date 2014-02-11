@@ -285,6 +285,8 @@ void Renderer::render(QPainter *painter,
                       bool renderKnots,
                       int colorHilight)
 {
+    Q_UNUSED(updateRectangle);  // TODO Planning to rewrite renderer to used cached data
+
     painter->save();
 
     d->m_painter = painter;
@@ -462,6 +464,9 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
             break;
+
+        case Stitch::FrenchKnot:
+            break;
         }
     }
 }
@@ -579,6 +584,9 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
         case Stitch::BRSmallFull:
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
+            break;
+
+        case Stitch::FrenchKnot:
             break;
         }
     }
@@ -699,6 +707,9 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
             break;
+
+        case Stitch::FrenchKnot:
+            break;
         }
     }
 }
@@ -804,6 +815,9 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 
         case Stitch::BRSmallFull:
             d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
+            break;
+
+        case Stitch::FrenchKnot:
             break;
         }
     }
@@ -920,6 +934,9 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
         case Stitch::BRSmallFull:
             d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
+
+        case Stitch::FrenchKnot:
+            break;
         }
 
         d->m_painter->setPen(symbolPen);
@@ -1003,16 +1020,19 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot)
 
 void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
 {
+    // TODO write this code
 }
 
 
 void Renderer::renderKnotsAsColorSymbols(Knot *knot)
 {
+    // TODO write this code
 }
 
 
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
 {
+    // TODO write this code
 }
 
 
