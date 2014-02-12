@@ -328,6 +328,7 @@ void MainWindow::fileOpen(const KUrl &url)
                     setupActionsFromDocument();
                     m_editor->readDocumentSettings();
                     m_preview->readDocumentSettings();
+                    m_palette->update();
                     documentModified(true); // this is the clean value true
                     file.close();
                 } else {
