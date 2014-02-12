@@ -193,7 +193,18 @@ Editor::Editor(QWidget *parent)
         m_libraryManagerDlg(0),
         m_zoomFactor(Configuration::editor_DefaultZoomFactor()),
         m_toolMode(ToolPaint),
+        m_renderBackgroundImages(Configuration::renderer_RenderBackgroundImages()),
+        m_renderGrid(Configuration::renderer_RenderGrid()),
+        m_renderStitches(Configuration::renderer_RenderStitches()),
+        m_renderBackstitches(Configuration::renderer_RenderBackstitches()),
+        m_renderFrenchKnots(Configuration::renderer_RenderFrenchKnots()),
+        m_maskStitch(false),
+        m_maskColor(false),
+        m_maskBackstitch(false),
+        m_maskKnot(false),
+        m_makesCopies(Configuration::tool_MakesCopies()),
         m_activeCommand(0),
+        m_colorHilight(Configuration::renderer_ColorHilight()),
         m_pastePattern(0)
 {
     setAcceptDrops(true);
