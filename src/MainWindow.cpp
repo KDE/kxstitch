@@ -82,10 +82,10 @@ MainWindow::MainWindow(const KUrl &url)
     setupActions();
     setupDocument();
     setupConnections();
-    fileOpen(url);
     setupActionDefaults();
-    setupActionsFromDocument();
     loadSettings();
+    fileOpen(url);
+    setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
 }
 
@@ -99,10 +99,10 @@ MainWindow::MainWindow(const Magick::Image &image)
     setupActions();
     setupDocument();
     setupConnections();
-    convertImage(image);
     setupActionDefaults();
-    setupActionsFromDocument();
     loadSettings();
+    convertImage(image);
+    setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
 }
 
