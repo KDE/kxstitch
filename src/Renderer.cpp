@@ -1011,28 +1011,104 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot)
     d->m_painter->setPen(outlinePen);
     d->m_painter->setBrush(brush);
 
-    double knotSize = 0.25;
-    QRectF rect(0, 0, knotSize, knotSize);
+    QRectF rect(0, 0, 0.75, 0.75);
     rect.moveCenter(QPointF(knot->position) / 2);
+
     d->m_painter->drawEllipse(rect);
 }
 
 
 void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
 {
-    // TODO write this code
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+    QPen blockPen;
+    QBrush blockBrush(Qt::SolidPattern);
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        QColor flossColor = documentFloss->flossColor();
+        QColor symbolColor = (qGray(flossColor.rgb()) < 128) ? Qt::white : Qt::black;
+        symbolPen.setColor(symbolColor);
+        symbolBrush.setColor(symbolColor);
+        blockPen.setColor(flossColor);
+        blockBrush.setColor(flossColor);
+    } else {
+        symbolPen.setColor(Qt::darkGray);
+        symbolBrush.setColor(Qt::darkGray);
+        blockPen.setColor(Qt::lightGray);
+        blockBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(blockPen);
+    d->m_painter->setBrush(blockBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 
 void Renderer::renderKnotsAsColorSymbols(Knot *knot)
 {
-    // TODO write this code
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        QColor flossColor = documentFloss->flossColor();
+        symbolPen.setColor(flossColor);
+        symbolBrush.setColor(flossColor);
+    } else {
+        symbolPen.setColor(Qt::lightGray);
+        symbolBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(Qt::NoBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
 {
-    // TODO write this code
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        symbolPen.setColor(Qt::black);
+        symbolBrush.setColor(Qt::black);
+    } else {
+        symbolPen.setColor(Qt::lightGray);
+        symbolBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(Qt::NoBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 

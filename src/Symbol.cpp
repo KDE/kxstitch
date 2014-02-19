@@ -115,6 +115,7 @@ QPainterPath Symbol::path(Stitch::Type type)
 
         case Stitch::TBHalf:
         case Stitch::BTHalf:
+        case Stitch::FrenchKnot:
             transform = QTransform::fromScale(twoThirds, twoThirds) * QTransform::fromTranslate(oneThird / 2.0, oneThird / 2.0);
             break;
 
@@ -135,7 +136,6 @@ QPainterPath Symbol::path(Stitch::Type type)
             break;
 
         case Stitch::Delete:
-        case Stitch::FrenchKnot:
             break;
         }
 
