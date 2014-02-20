@@ -12,6 +12,7 @@
 #include "DocumentPalette.h"
 
 #include <KLocale>
+#include <KMessageBox>
 
 #include "Exceptions.h"
 #include "FlossScheme.h"
@@ -365,6 +366,45 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Failed reading palette")));
+    }
+
+    // test DocumentFloss symbol indexes exist in the library
+    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();
+    QList<DocumentFloss *> missingSymbols;
+    QList<int> keys = documentPalette.d->m_documentFlosses.keys();
+
+    foreach (int key, keys) {
+        documentFloss = documentPalette.d->m_documentFlosses.value(key);
+        qint16 symbol = documentFloss->stitchSymbol();
+
+        if (indexes.contains(symbol)) {
+            indexes.removeOne(symbol);
+        } else {
+            missingSymbols.append(documentFloss);
+        }
+    }
+
+    // missingSymbols will contain pointers to DocumentFloss where the symbol index is not in the symbol library
+    // iterate the list and allocate a free symbol to the missing ones.
+    foreach (documentFloss, missingSymbols) {
+        documentFloss->setStitchSymbol(documentPalette.freeSymbol());
+    }
+
+    if (int count = missingSymbols.count()) {
+        // display an information box to show symbols have been allocated
+        QString information(i18np("The following floss color has had its symbol\nreplaced because it didn't exist in the symbol library.\n\n",
+                                  "The following floss colors have had their symbols\nreplaced because they didn't exist in the symbol library.\n\n",
+                                  count));
+
+        foreach (DocumentFloss *documentFloss, missingSymbols) {
+            information += QString("%1\n").arg(documentFloss->flossName());
+        }
+
+        information += QString(i18np("\nYou may want to check this is suitable.",
+                                     "\nYou may want to check these are suitable.",
+                                     count));
+
+        KMessageBox::information(0, information);
     }
 
     return stream;
