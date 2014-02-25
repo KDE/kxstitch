@@ -386,7 +386,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     // missingSymbols will contain pointers to DocumentFloss where the symbol index is not in the symbol library
     // iterate the list and allocate a free symbol to the missing ones.
-    foreach (documentFloss, missingSymbols) {
+    foreach (DocumentFloss *const documentFloss, missingSymbols) {
         documentFloss->setStitchSymbol(documentPalette.freeSymbol());
     }
 
