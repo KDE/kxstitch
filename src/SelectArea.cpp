@@ -16,8 +16,7 @@
 #include <QRubberBand>
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
-
-#include <KDebug>
+#include <QToolTip>
 
 #include "Document.h"
 #include "Element.h"
@@ -82,6 +81,7 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
     dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
 
     m_cellTracking = contentsToCell(p);
+    QRect selectedArea = QRect(m_cellStart, m_cellTracking).normalized();
 
     if (m_cellTracking != m_cellEnd) {
         m_cellEnd = m_cellTracking;
@@ -89,6 +89,8 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
         m_rubberBand = updateArea;
         repaint(updateArea.adjusted(-8, -8, 8, 8));
     }
+
+    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(selectedArea.left()).arg(selectedArea.top()).arg(selectedArea.width()).arg(selectedArea.height()));
 }
 
 

@@ -1979,6 +1979,8 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
     m_cellEnd = m_cellTracking;
     m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
     update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
+
+    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
 }
 
 
