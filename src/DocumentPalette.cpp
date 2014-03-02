@@ -385,9 +385,22 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     }
 
     // missingSymbols will contain pointers to DocumentFloss where the symbol index is not in the symbol library
+    // check there is a sufficient quantity of symbols to allocate to the remaining flosses
+    if (missingSymbols.count() > indexes.count()) {
+        if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(0, QString(i18n("There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required.", missingSymbols.count() - indexes.count())))) {
+            throw FailedReadFile(QString(i18n("Cancelled: Insufficent symbols available")));
+        }
+    }
+
     // iterate the list and allocate a free symbol to the missing ones.
+    // if there is insufficient symbols to allocate, empty symbols will be assigned.
+    QList<QString> emptySymbols;
+
     foreach (DocumentFloss *const documentFloss, missingSymbols) {
         documentFloss->setStitchSymbol(documentPalette.freeSymbol());
+        if (documentFloss->stitchSymbol() == -1) {
+            emptySymbols.append(documentFloss->flossName());
+        }
     }
 
     if (int count = missingSymbols.count()) {
@@ -398,6 +411,16 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
         foreach (DocumentFloss *documentFloss, missingSymbols) {
             information += QString("%1\n").arg(documentFloss->flossName());
+        }
+
+        if (int count = emptySymbols.count()) {
+            information += QString(i18np("The following floss color has had an empty symbol assigned.\n\n",
+                                         "The following floss colors have had an empty symbol assigned.\n\n",
+                                         count));
+
+            foreach (const QString &name, emptySymbols) {
+                information += QString("%1\n").arg(name);
+            }
         }
 
         information += QString(i18np("\nYou may want to check this is suitable.",
@@ -432,5 +455,5 @@ qint16 DocumentPalette::freeSymbol() const
         indexes.removeOne(d->m_documentFlosses[index]->stitchSymbol());
     }
 
-    return indexes.first();
+    return (indexes.isEmpty() ? -1 : indexes.first());
 }
