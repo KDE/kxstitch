@@ -109,13 +109,15 @@ void SelectArea::paintEvent(QPaintEvent *event)
     m_fullPatternElement->render(m_document, &painter);
 
     QListIterator<QRect> patternRectIterator(m_patternRects);
-    QColor color(Qt::gray);
+    QColor color(Configuration::patternElement_SelectedAreaColor());
     color.setAlpha(100);
+    QPen outline(Qt::black);
+    outline.setWidth(3);
 
     while (patternRectIterator.hasNext()) {
         QRect rect = patternRectIterator.next();
         QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
-        painter.setPen(color);
+        painter.setPen(outline);
         painter.setBrush(color);
         painter.drawRect(previewRect);
     }

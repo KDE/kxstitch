@@ -330,6 +330,10 @@
             <label>Minimum number of cells that can be on a page of its own</label>
             <default>10</default>
         </entry>
+        <entry name="PatternElement_SelectedAreaColor" type="Color">
+            <label>The color used to represented already selected areas in existing pattern elements</label>
+            <default>#0F0F0F</default>
+        </entry>
 
         <entry name="ImageElement_ShowBorder" type="Bool">
             <label>Show a border around the image</label>
