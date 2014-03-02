@@ -25,11 +25,11 @@
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>a</keycap></keycombo></shortcut><guimenuitem>Save As</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Saves the document under a new name</action></simpara></listitem>
+                        <listitem><simpara><action>Saves the pattern under a new name</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Revert</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Revert the document to the last saved state</action></simpara></listitem>
+                        <listitem><simpara><action>Revert the pattern to the last saved state</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>p</keycap></keycombo></shortcut><guimenuitem>Print</guimenuitem></menuchoice></term>
@@ -142,7 +142,8 @@
                     The paste operation in &kapp; allows you to press and hold the &LMB; down roughly in the position that
                     the paste data is to go which will provide an image of the paste data to allow accurate positioning before
                     releasing the mouse button to finalize the position.  This technique is also used for the mirroring and
-                    rotate functions.
+                    rotate functions. The cursor keys can also be used to move the pasted pattern around and the return key
+                    used to fix the position.
                 </para>
             </sect3>
         </sect2>
