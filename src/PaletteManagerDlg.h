@@ -58,8 +58,7 @@ private:
     void insertListWidgetItem(QListWidget *, QListWidgetItem *);
     bool contains(const QString &) const;
     int paletteIndex(const QString &) const;
-    qint16 freeSymbol();
-    int freeIndex();
+    bool symbolsAvailable() const;
 
     Ui::PaletteManager  ui;
 

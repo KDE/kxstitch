@@ -72,7 +72,7 @@ void PaletteManagerDlg::slotButtonClicked(int button)
 
 void PaletteManagerDlg::on_ColorList_currentRowChanged(int currentRow)
 {
-    ui.AddFloss->setEnabled(currentRow != -1);
+    ui.AddFloss->setEnabled((currentRow != -1) && symbolsAvailable());
 }
 
 
@@ -128,6 +128,14 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
         ui.StitchSymbol->setEnabled(false);
         ui.BackstitchSymbol->setEnabled(false);
         ui.ClearUnused->setEnabled(false);
+    }
+
+    if (symbolsAvailable()) {
+        ui.AddFloss->setEnabled(ui.ColorList->currentRow() != -1);
+        ui.AddFloss->setToolTip(QString());
+    } else {
+        ui.AddFloss->setEnabled(false);
+        ui.AddFloss->setToolTip(QString(i18n("There are no more symbols available.")));
     }
 }
 
@@ -338,4 +346,10 @@ int PaletteManagerDlg::paletteIndex(const QString &flossName) const
     }
 
     return -1;
+}
+
+
+bool PaletteManagerDlg::symbolsAvailable() const
+{
+    return (SymbolManager::library("kxstitch")->indexes().count() > m_dialogPalette.flosses().count());
 }
