@@ -18,6 +18,8 @@
 #include "configuration.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
+#include "SymbolManager.h"
+#include "SymbolLibrary.h"
 
 
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
@@ -66,6 +68,8 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     ui.PatternScale->setValue(scale);
     ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
     ui.MaximumColors->setValue(Configuration::import_MaximumColors());
+    ui.MaximumColors->setMaximum(SymbolManager::library("kxstitch")->indexes().count());
+    ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
 
     QMetaObject::connectSlotsByName(this);
 
@@ -270,11 +274,11 @@ void ImportImageDlg::renderPixmap()
     m_pixmap = QPixmap(m_convertedImage.columns(), m_convertedImage.rows());
     m_pixmap.fill();
 
-    if (ui.UseMaximumColors->isChecked()) {
-        m_convertedImage.quantizeColorSpace(Magick::RGBColorspace);
-        m_convertedImage.quantizeColors(ui.MaximumColors->value());
-        m_convertedImage.quantize();
-    }
+    m_convertedImage.quantizeColorSpace(Magick::RGBColorspace);
+    m_convertedImage.quantizeColors(ui.UseMaximumColors->isChecked() ?
+                                    std::min(ui.MaximumColors->value(), SymbolManager::library("kxstitch")->indexes().count()) :
+                                    SymbolManager::library("kxstitch")->indexes().count());
+    m_convertedImage.quantize();
 
     m_convertedImage.map(m_colorMap);
     m_convertedImage.modifyImage();
