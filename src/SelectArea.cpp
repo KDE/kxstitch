@@ -22,7 +22,7 @@
 #include "Element.h"
 
 
-SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document *document, const QList<QRect> &patternRects)
+SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect> > &patternRects)
     :   QWidget(parent),
         m_patternElement(patternElement),
         m_document(document),
@@ -106,22 +106,33 @@ void SelectArea::paintEvent(QPaintEvent *event)
 {
     QPainter painter;
     painter.begin(this);
+    QFont font = painter.font();
+    font.setPointSize(30);
+    painter.setFont(font);
 
     painter.fillRect(event->rect(), Qt::white);
     m_fullPatternElement->render(m_document, &painter);
 
-    QListIterator<QRect> patternRectIterator(m_patternRects);
-    QColor color(Configuration::patternElement_SelectedAreaColor());
-    color.setAlpha(100);
-    QPen outline(Qt::black);
-    outline.setWidth(3);
+    QMapIterator<int, QList<QRect> > pageIterator(m_patternRects);
 
-    while (patternRectIterator.hasNext()) {
-        QRect rect = patternRectIterator.next();
-        QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
-        painter.setPen(outline);
-        painter.setBrush(color);
-        painter.drawRect(previewRect);
+    while (pageIterator.hasNext()) {
+        pageIterator.next();
+        int page = pageIterator.key();
+
+        QListIterator<QRect> patternRectIterator(pageIterator.value());
+        QColor color(Configuration::patternElement_SelectedAreaColor());
+        color.setAlpha(100);
+        QPen outline(Qt::black);
+        outline.setWidth(3);
+
+        while (patternRectIterator.hasNext()) {
+            QRect rect = patternRectIterator.next();
+            QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
+            painter.setPen(outline);
+            painter.setBrush(color);
+            painter.drawRect(previewRect);
+            painter.drawText(previewRect, Qt::AlignCenter, QString("%1").arg(page));
+        }
     }
 
     if (m_rubberBand.isValid()) {

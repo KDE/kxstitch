@@ -11,14 +11,12 @@
 
 #include "PatternElementDlg.h"
 
-#include <KDebug>
-
 #include "Document.h"
 #include "Element.h"
 #include "SelectArea.h"
 
 
-PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternElement, Document *document, const QList<QRect> &patternRects)
+PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect> > &patternRects)
     :   KDialog(parent),
         m_patternElement(patternElement),
         m_document(document),

@@ -320,7 +320,7 @@ void PrintSetupDlg::properties()
         }
 
         if (m_elementUnderCursor->type() == Element::Pattern) {
-            QList<QRect> patternRects;
+            QMap<int, QList<QRect> > patternRects;
             QListIterator<Page *> pageIterator(m_printerConfiguration.pages());
 
             while (pageIterator.hasNext()) {
@@ -331,7 +331,7 @@ void PrintSetupDlg::properties()
                     Element *element = elementIterator.next();
 
                     if (element->type() == Element::Pattern) {
-                        patternRects.append(static_cast<PatternElement *>(element)->patternRect());
+                        patternRects[page->pageNumber()].append(static_cast<PatternElement *>(element)->patternRect());
                     }
                 }
             }
