@@ -28,7 +28,6 @@
 #include "KeyElementDlg.h"
 #include "Page.h"
 #include "PagePropertiesDlg.h"
-#include "PatternElementDlg.h"
 #include "PagePreviewListWidgetItem.h"
 #include "TextElementDlg.h"
 
