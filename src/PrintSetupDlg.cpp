@@ -529,7 +529,7 @@ void PrintSetupDlg::on_Templates_clicked()
         // the number of pages wide and tall has been calculated but it is possible that there may be a small number of
         // cells spanning over a new page so this needs to be checked for and the cell size shrunk to fit so it will be
         // slightly smaller than the minimum but not much.
-        if (horizontalOverflow < Configuration::patternElement_MinimumOverflow()) {
+        if ((pagesWide > 1) && (horizontalOverflow < Configuration::patternElement_MinimumOverflow())) {
             pagesWide--;
             horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0);
             cellWidth = double(patternArea.width()) / horizontalCellsPerPage;
@@ -541,7 +541,7 @@ void PrintSetupDlg::on_Templates_clicked()
             adjusted = true;
         }
 
-        if (verticalOverflow < Configuration::patternElement_MinimumOverflow()) {
+        if ((pagesTall > 1) && (verticalOverflow < Configuration::patternElement_MinimumOverflow())) {
             pagesTall--;
             verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
             cellHeight = double(patternArea.height()) / verticalCellsPerPage;
