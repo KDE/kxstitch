@@ -300,6 +300,7 @@ protected:
 
 private:
     QString convertedText(Document *) const;
+    QString encodeToHtml(const QString &) const;
 
     static const int version = 100;
 

@@ -457,6 +457,11 @@ void PrintSetupDlg::on_Templates_clicked()
         ui.Pages->clear();
         // create pages based on template
         // Cover sheet
+        QFont titleFont;
+        titleFont.setPointSize(16);
+        QFont pageFont;
+        pageFont.setPointSize(8);
+
         Page *page = new Page(QPrinter::A4, QPrinter::Portrait);
         m_printerConfiguration.addPage(page);
         addPage(ui.Pages->count(), page);
@@ -468,9 +473,7 @@ void PrintSetupDlg::on_Templates_clicked()
         QRect pageNumberArea(printableArea.bottomLeft() - QPoint(0, 10), QSize(printableArea.width(), 10));
 
         Element *element = new TextElement(page, QRect(printableArea.topLeft(), QSize(printableArea.width(), 30)));
-        QFont font = static_cast<TextElement *>(element)->textFont();
-        font.setPointSize(16);
-        static_cast<TextElement *>(element)->setTextFont(font);
+        static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
         static_cast<TextElement *>(element)->setText("${title}");
         page->addElement(element);
@@ -487,6 +490,7 @@ void PrintSetupDlg::on_Templates_clicked()
         page->addElement(element);
 
         element = new TextElement(page, pageNumberArea);
+        static_cast<TextElement *>(element)->setTextFont(pageFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
         static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
         page->addElement(element);
@@ -582,6 +586,7 @@ void PrintSetupDlg::on_Templates_clicked()
                 addPage(ui.Pages->count(), page);
 
                 element = new TextElement(page, headerTitleArea);
+                static_cast<TextElement *>(element)->setTextFont(titleFont);
                 static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
                 static_cast<TextElement *>(element)->setText("${title}");
                 page->addElement(element);
@@ -592,6 +597,7 @@ void PrintSetupDlg::on_Templates_clicked()
                 page->addElement(element);
 
                 element = new TextElement(page, pageNumberArea);
+                static_cast<TextElement *>(element)->setTextFont(pageFont);
                 static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
                 static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
                 page->addElement(element);
@@ -604,6 +610,7 @@ void PrintSetupDlg::on_Templates_clicked()
         addPage(ui.Pages->count(), page);
 
         element = new TextElement(page, headerTitleArea);
+        static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
         static_cast<TextElement *>(element)->setText("${title}");
         page->addElement(element);
@@ -612,6 +619,7 @@ void PrintSetupDlg::on_Templates_clicked()
         page->addElement(element);
 
         element = new TextElement(page, pageNumberArea);
+        static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
         static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
         page->addElement(element);
