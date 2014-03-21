@@ -1827,7 +1827,11 @@ void TextElement::setAlignment(Qt::Alignment alignment)
 
 void TextElement::setText(const QString &text)
 {
-    m_text = text;
+    if (text.contains("<html>")) {
+        m_text = text;
+    } else {
+        m_text = encodeToHtml(text);
+    }
 }
 
 
@@ -1997,4 +2001,22 @@ QDataStream &TextElement::streamIn(QDataStream &stream)
     }
 
     return stream;
+}
+
+
+QString TextElement::encodeToHtml(const QString &text) const
+{
+    QTextDocument document;
+    document.setDefaultFont(m_textFont);
+
+    QTextBlockFormat format;
+    format.setAlignment(m_alignment);
+    format.setForeground(QBrush(m_textColor));
+
+    QTextCursor cursor(&document);
+    cursor.movePosition(QTextCursor::Start);
+    cursor.setBlockFormat(format);
+    cursor.insertText(text);
+
+    return document.toHtml();
 }
