@@ -499,17 +499,9 @@ void PrintSetupDlg::on_Templates_clicked()
         int documentWidth = m_document->pattern()->stitches().width();
         int documentHeight = m_document->pattern()->stitches().height();
 
-        double horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
-        double verticalClothCount = m_document->property("verticalClothCount").toDouble();
-
-        if (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) {
-            horizontalClothCount *= 2.54;
-            verticalClothCount *= 2.54;
-        }
-
-        // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
+        // calculate the aspect ratio and the size of the cells to fit within the rectangle and the overall paint area size
         double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
-        double aspect =  horizontalClothCount / verticalClothCount;
+        double aspect =  m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
         double cellHeight = cellWidth * aspect;
 
         if (cellHeight < cellWidth) {
@@ -517,67 +509,19 @@ void PrintSetupDlg::on_Templates_clicked()
             cellWidth = cellHeight / aspect;
         }
 
-        // at this point, based on a minimum cell size of 3mm a physical width and height have been calculated
+        // at this point, based on a minimum preferred cell size a physical width and height have been calculated
         // which can be used to calculate the number of pages wide and tall that the pattern needs to occupy
         // based on the size of the pattern area on the page.
         int horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
         int verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
-        int horizontalOverflow = documentWidth % horizontalCellsPerPage;
-        int verticalOverflow = documentHeight % verticalCellsPerPage;
 
-        int pagesWide = (documentWidth / horizontalCellsPerPage) + ((documentWidth % horizontalCellsPerPage) ? 1 : 0);
-        int pagesTall = (documentHeight / verticalCellsPerPage) + ((documentHeight % verticalCellsPerPage) ? 1 : 0);
+        int pagesWide = (documentWidth / horizontalCellsPerPage) + (((documentWidth % horizontalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
+        int pagesTall = (documentHeight / verticalCellsPerPage) + (((documentHeight % verticalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
 
-        bool adjusted = false;
-
-        // the number of pages wide and tall has been calculated but it is possible that there may be a small number of
-        // cells spanning over a new page so this needs to be checked for and the cell size shrunk to fit so it will be
-        // slightly smaller than the minimum but not much.
-        if ((pagesWide > 1) && (horizontalOverflow < Configuration::patternElement_MinimumOverflow())) {
-            pagesWide--;
-            horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0);
-            cellWidth = double(patternArea.width()) / horizontalCellsPerPage;
-            cellHeight = cellWidth * aspect;
-            verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
-            pagesTall = (documentHeight / verticalCellsPerPage) + ((documentHeight % verticalCellsPerPage) ? 1 : 0);
-            verticalOverflow = documentHeight % verticalCellsPerPage;
-
-            adjusted = true;
-        }
-
-        if ((pagesTall > 1) && (verticalOverflow < Configuration::patternElement_MinimumOverflow())) {
-            pagesTall--;
-            verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
-            cellHeight = double(patternArea.height()) / verticalCellsPerPage;
-            cellWidth = cellHeight / aspect;
-            horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
-            pagesWide = (documentWidth / horizontalCellsPerPage) + ((documentWidth % horizontalCellsPerPage) ? 1 : 0);
-            horizontalOverflow = documentWidth % horizontalCellsPerPage;
-
-            adjusted = true;
-        }
-
-        // Expand the size of the cell to make best use of the space.
-
-        if (!adjusted) {
-            int expandedHorizontalCellsPerPage = int(double(documentWidth) / pagesWide);
-            double expandedCellWidth = double(patternArea.width()) / expandedHorizontalCellsPerPage;
-            double expandedCellHeight = expandedCellWidth * aspect;
-            int expandedVerticalCellsPerPage = int(double(patternArea.height()) / expandedCellHeight);
-            int expandedPagesTall = (documentHeight / expandedVerticalCellsPerPage) + ((documentHeight % expandedVerticalCellsPerPage) ? 1 : 0);
-
-            if (expandedPagesTall > pagesTall) {
-                // increasing the width has forced an increase in page height so this needs to be reduced
-                expandedVerticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);
-                cellHeight = double(patternArea.height()) / expandedVerticalCellsPerPage;
-                cellWidth = cellHeight / aspect;
-                expandedHorizontalCellsPerPage = int(double(patternArea.width()) / cellWidth) + ((documentWidth % pagesWide) ? 1 : 0);
-                pagesWide = (documentWidth / expandedHorizontalCellsPerPage) + ((documentWidth % expandedHorizontalCellsPerPage) ? 1 : 0);
-            }
-
-            horizontalCellsPerPage = expandedHorizontalCellsPerPage;
-            verticalCellsPerPage = expandedVerticalCellsPerPage;
-        }
+        // the number of pages wide and tall has been calculated based on the minimum cell size.
+        // try and make use of the available space across the pages expanding the cell size to fill the space.
+        horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0);               // equal number per page
+        verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);               // equal number per page
 
         for (int verticalPage = 0 ; verticalPage < pagesTall ; ++verticalPage) {
             for (int horizontalPage = 0 ; horizontalPage < pagesWide ; ++horizontalPage) {
@@ -594,6 +538,9 @@ void PrintSetupDlg::on_Templates_clicked()
                 element = new PatternElement(page, patternArea);
                 static_cast<PatternElement *>(element)->setPatternRect(QRect(horizontalPage * horizontalCellsPerPage, verticalPage * verticalCellsPerPage, std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)), std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
                 static_cast<PatternElement *>(element)->setShowScales(true);
+                static_cast<PatternElement *>(element)->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
+                static_cast<PatternElement *>(element)->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
+                static_cast<PatternElement *>(element)->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
                 page->addElement(element);
 
                 element = new TextElement(page, pageNumberArea);
