@@ -18,6 +18,7 @@
 #include <Magick++.h>
 
 
+class QLabel;
 class QString;
 class QUndoView;
 
@@ -38,7 +39,7 @@ class MainWindow : public KXmlGuiWindow
 public:
     MainWindow();
     explicit MainWindow(const KUrl &);
-    explicit MainWindow(const Magick::Image &);
+    explicit MainWindow(const QString &);
     ~MainWindow();
 
     Editor *editor();
@@ -120,7 +121,8 @@ private:
     void setupConnections();
     void setupActionDefaults();
     void setupActionsFromDocument();
-    void convertImage(const Magick::Image &);
+    void convertImage(const QString &);
+    void convertPreview(const QString &);
     QPrinter *printer();
 
     Document    *m_document;
@@ -128,6 +130,7 @@ private:
     Palette     *m_palette;
     Preview     *m_preview;
     QUndoView   *m_history;
+    QLabel      *m_imageLabel;
 
     Scale       *m_horizontalScale;
     Scale       *m_verticalScale;

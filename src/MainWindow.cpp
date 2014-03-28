@@ -87,10 +87,11 @@ MainWindow::MainWindow(const KUrl &url)
     fileOpen(url);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
+    this->findChild<QDockWidget *>("ImportedImage#")->hide();
 }
 
 
-MainWindow::MainWindow(const Magick::Image &image)
+MainWindow::MainWindow(const QString &source)
     :   m_printer(0)
 {
     setupMainWindow();
@@ -101,9 +102,11 @@ MainWindow::MainWindow(const Magick::Image &image)
     setupConnections();
     setupActionDefaults();
     loadSettings();
-    convertImage(image);
+    convertImage(source);
+    convertPreview(source);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
+    this->findChild<QDockWidget *>("ImportedImage#")->show();
 }
 
 
@@ -504,9 +507,11 @@ void MainWindow::fileImportImage()
 
         if (KIO::NetAccess::download(url, source, 0)) {
             if (docEmpty) {
-                convertImage(Magick::Image(url.pathOrUrl().toStdString()));
+                convertImage(source);
+                convertPreview(source);
+                this->findChild<QDockWidget *>("ImportedImage#")->show();
             } else {
-                window = new MainWindow(Magick::Image(url.pathOrUrl().toStdString()));
+                window = new MainWindow(source);
                 window->show();
             }
 
@@ -518,8 +523,9 @@ void MainWindow::fileImportImage()
 }
 
 
-void MainWindow::convertImage(const Magick::Image &image)
+void MainWindow::convertImage(const QString &source)
 {
+    Magick::Image image(source.toStdString());
     QMap<int, QColor> documentFlosses;
     QList<qint16> symbolIndexes = SymbolManager::library("kxstitch")->indexes();
 
@@ -631,6 +637,14 @@ void MainWindow::convertImage(const Magick::Image &image)
     }
 
     delete importImageDlg;
+}
+
+
+void MainWindow::convertPreview(const QString &source)
+{
+    QPixmap pixmap;
+    pixmap.load(source);
+    m_imageLabel->setPixmap(pixmap.scaled(300, 300, Qt::KeepAspectRatio));
 }
 
 
@@ -1726,4 +1740,13 @@ void MainWindow::setupDockWindows()
     dock->setWidget(m_history);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     actionCollection()->addAction("showHistoryDockWidget", dock->toggleViewAction());
+
+    dock = new QDockWidget(i18n("Imported Image"), this);
+    dock->setObjectName("ImportedImage#");
+    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    m_imageLabel = new QLabel(this);
+    m_imageLabel->setScaledContents(true);
+    dock->setWidget(m_imageLabel);
+    addDockWidget(Qt::LeftDockWidgetArea, dock);
+    actionCollection()->addAction("showImportedDockWidget", dock->toggleViewAction());
 }
