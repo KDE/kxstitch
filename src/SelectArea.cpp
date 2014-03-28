@@ -16,14 +16,13 @@
 #include <QRubberBand>
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
-
-#include <KDebug>
+#include <QToolTip>
 
 #include "Document.h"
 #include "Element.h"
 
 
-SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document *document, const QList<QRect> &patternRects)
+SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect> > &patternRects)
     :   QWidget(parent),
         m_patternElement(patternElement),
         m_document(document),
@@ -82,6 +81,7 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
     dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
 
     m_cellTracking = contentsToCell(p);
+    QRect selectedArea = QRect(m_cellStart, m_cellTracking).normalized();
 
     if (m_cellTracking != m_cellEnd) {
         m_cellEnd = m_cellTracking;
@@ -89,6 +89,8 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
         m_rubberBand = updateArea;
         repaint(updateArea.adjusted(-8, -8, 8, 8));
     }
+
+    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(selectedArea.left()).arg(selectedArea.top()).arg(selectedArea.width()).arg(selectedArea.height()));
 }
 
 
@@ -104,20 +106,33 @@ void SelectArea::paintEvent(QPaintEvent *event)
 {
     QPainter painter;
     painter.begin(this);
+    QFont font = painter.font();
+    font.setPointSize(30);
+    painter.setFont(font);
 
     painter.fillRect(event->rect(), Qt::white);
     m_fullPatternElement->render(m_document, &painter);
 
-    QListIterator<QRect> patternRectIterator(m_patternRects);
-    QColor color(Qt::gray);
-    color.setAlpha(100);
+    QMapIterator<int, QList<QRect> > pageIterator(m_patternRects);
 
-    while (patternRectIterator.hasNext()) {
-        QRect rect = patternRectIterator.next();
-        QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
-        painter.setPen(color);
-        painter.setBrush(color);
-        painter.drawRect(previewRect);
+    while (pageIterator.hasNext()) {
+        pageIterator.next();
+        int page = pageIterator.key();
+
+        QListIterator<QRect> patternRectIterator(pageIterator.value());
+        QColor color(Configuration::patternElement_SelectedAreaColor());
+        color.setAlpha(100);
+        QPen outline(Qt::black);
+        outline.setWidth(3);
+
+        while (patternRectIterator.hasNext()) {
+            QRect rect = patternRectIterator.next();
+            QRect previewRect(rect.left() * 8, rect.top() * 8, rect.width() * 8, rect.height() * 8);
+            painter.setPen(outline);
+            painter.setBrush(color);
+            painter.drawRect(previewRect);
+            painter.drawText(previewRect, Qt::AlignCenter, QString("%1").arg(page));
+        }
     }
 
     if (m_rubberBand.isValid()) {

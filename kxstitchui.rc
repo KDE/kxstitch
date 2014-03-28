@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kxstitch" version="1.0.0">
+<kpartgui name="kxstitch" version="1.1.0">
 <MenuBar>
     <Menu name="file"><text>&amp;File</text>
         <Action name="filePrintSetup" append="print_merge"/>

@@ -32,7 +32,7 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
-    m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QList<QRect>());
+    m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QMap<int, QList<QRect> >());
     m_selectArea->setPatternRect(imageElement->patternRect());
 
     ui.PreviewFrame->setWidget(m_selectArea);

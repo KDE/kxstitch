@@ -116,24 +116,8 @@ void Document::initialiseNew()
     setProperty("verticalClothCount", Configuration::editor_VerticalClothCount());
     setProperty("clothCountUnits", Configuration::editor_ClothCountUnits());
     setProperty("clothCountLink", Configuration::editor_ClothCountLink());
-    setProperty("thickLineWidth", Configuration::editor_ThickLineWidth());
-    setProperty("thinLineWidth", Configuration::editor_ThinLineWidth());
     setProperty("thickLineColor", Configuration::editor_ThickLineColor());
     setProperty("thinLineColor", Configuration::editor_ThinLineColor());
-    setProperty("formatScalesAs", Configuration::editor_FormatScalesAs());
-    setProperty("renderStitchesAs", Configuration::renderer_RenderStitchesAs());
-    setProperty("renderBackstitchesAs", Configuration::renderer_RenderBackstitchesAs());
-    setProperty("renderKnotsAs", Configuration::renderer_RenderKnotsAs());
-    setProperty("colorHilight", false);             // Configuration::editor_ColorHilight()
-    setProperty("renderBackgroundImages", true);    // Configuration::editor_PaintBackgroundImages();
-    setProperty("renderGrid", true);                // Configuration::editor_PaintGrid();
-    setProperty("renderStitches", true);            // Configuration::editor_PaintStitches();
-    setProperty("renderBackstitches", true);        // Configuration::editor_PaintBackstitches;
-    setProperty("renderFrenchKnots", true);         // Configuration::editor_PaintFrenchKnots;
-    setProperty("maskStitch", false);
-    setProperty("maskColor", false);
-    setProperty("maskBackstitch", false);
-    setProperty("maskKnot", false);
 
     setUrl(i18n("Untitled"));
 }

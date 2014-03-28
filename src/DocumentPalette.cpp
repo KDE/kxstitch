@@ -12,6 +12,7 @@
 #include "DocumentPalette.h"
 
 #include <KLocale>
+#include <KMessageBox>
 
 #include "Exceptions.h"
 #include "FlossScheme.h"
@@ -29,11 +30,10 @@ public:
     DocumentPaletteData(const DocumentPaletteData &);
     ~DocumentPaletteData();
 
-    static const int version = 101;
+    static const int version = 102; // remove m_showSymbols
 
     QString                     m_schemeName;
     int                         m_currentIndex;
-    bool                        m_showSymbols;
     QMap<int, DocumentFloss *>  m_documentFlosses;
 };
 
@@ -41,8 +41,7 @@ public:
 DocumentPaletteData::DocumentPaletteData()
     :   QSharedData(),
         m_schemeName(Configuration::palette_DefaultScheme()),
-        m_currentIndex(-1),
-        m_showSymbols(Configuration::palette_ShowSymbols())
+        m_currentIndex(-1)
 {
 }
 
@@ -50,8 +49,7 @@ DocumentPaletteData::DocumentPaletteData()
 DocumentPaletteData::DocumentPaletteData(const DocumentPaletteData &other)
     :   QSharedData(other),
         m_schemeName(other.m_schemeName),
-        m_currentIndex(other.m_currentIndex),
-        m_showSymbols(other.m_showSymbols)
+        m_currentIndex(other.m_currentIndex)
 {
     for (QMap<int, DocumentFloss*>::const_iterator i = other.m_documentFlosses.constBegin() ; i != other.m_documentFlosses.constEnd() ; ++i) {
         m_documentFlosses.insert(i.key(), new DocumentFloss(other.m_documentFlosses.value(i.key())));
@@ -166,12 +164,6 @@ int DocumentPalette::currentIndex() const
 }
 
 
-bool DocumentPalette::showSymbols() const
-{
-    return d->m_showSymbols;
-}
-
-
 void DocumentPalette::setSchemeName(const QString &schemeName)
 {
     if (d->m_schemeName == schemeName) {
@@ -265,12 +257,6 @@ void DocumentPalette::swap(int originalIndex, int swappedIndex)
 }
 
 
-void DocumentPalette::setShowSymbols(bool show)
-{
-    d->m_showSymbols = show;
-}
-
-
 DocumentPalette &DocumentPalette::operator=(const DocumentPalette &other)
 {
     d = other.d;
@@ -295,7 +281,6 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
     stream << qint32(DocumentPaletteData::version);
     stream << documentPalette.d->m_schemeName;
     stream << qint32(documentPalette.d->m_currentIndex);
-    stream << documentPalette.d->m_showSymbols;
     stream << qint32(documentPalette.d->m_documentFlosses.count());
 
     for (QMap<int, DocumentFloss*>::const_iterator i = documentPalette.d->m_documentFlosses.constBegin() ; i != documentPalette.d->m_documentFlosses.constEnd() ; ++i) {
@@ -316,6 +301,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     qint32 version;
     qint32 currentIndex;
     qint32 documentPaletteCount;
+    bool showSymbols;
 
     qint32 key;
     DocumentFloss *documentFloss;
@@ -325,11 +311,26 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     stream >> version;
 
     switch (version) {
+    case 102:
+        stream >> documentPalette.d->m_schemeName;
+        stream >> currentIndex;
+        documentPalette.d->m_currentIndex = currentIndex;
+        stream >> documentPaletteCount;
+
+        while (documentPaletteCount--) {
+            documentFloss = new DocumentFloss;
+            stream >> key;
+            stream >> *documentFloss;
+            documentPalette.d->m_documentFlosses.insert(key, documentFloss);
+        }
+
+        break;
+
     case 101:
         stream >> documentPalette.d->m_schemeName;
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
-        stream >> documentPalette.d->m_showSymbols;
+        stream >> showSymbols;
         stream >> documentPaletteCount;
 
         while (documentPaletteCount--) {
@@ -345,7 +346,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
         stream >> documentPalette.d->m_schemeName;
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
-        stream >> documentPalette.d->m_showSymbols;
+        stream >> showSymbols;
         stream >> documentPaletteCount;
 
         while (documentPaletteCount--) {
@@ -365,6 +366,68 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Failed reading palette")));
+    }
+
+    // test DocumentFloss symbol indexes exist in the library
+    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();
+    QList<DocumentFloss *> missingSymbols;
+    QList<int> keys = documentPalette.d->m_documentFlosses.keys();
+
+    foreach (int key, keys) {
+        documentFloss = documentPalette.d->m_documentFlosses.value(key);
+        qint16 symbol = documentFloss->stitchSymbol();
+
+        if (indexes.contains(symbol)) {
+            indexes.removeOne(symbol);
+        } else {
+            missingSymbols.append(documentFloss);
+        }
+    }
+
+    // missingSymbols will contain pointers to DocumentFloss where the symbol index is not in the symbol library
+    // check there is a sufficient quantity of symbols to allocate to the remaining flosses
+    if (missingSymbols.count() > indexes.count()) {
+        if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(0, QString(i18n("There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required.", missingSymbols.count() - indexes.count())))) {
+            throw FailedReadFile(QString(i18n("Cancelled: Insufficent symbols available")));
+        }
+    }
+
+    // iterate the list and allocate a free symbol to the missing ones.
+    // if there is insufficient symbols to allocate, empty symbols will be assigned.
+    QList<QString> emptySymbols;
+
+    foreach (DocumentFloss *const documentFloss, missingSymbols) {
+        documentFloss->setStitchSymbol(documentPalette.freeSymbol());
+        if (documentFloss->stitchSymbol() == -1) {
+            emptySymbols.append(documentFloss->flossName());
+        }
+    }
+
+    if (int count = missingSymbols.count()) {
+        // display an information box to show symbols have been allocated
+        QString information(i18np("The following floss color has had its symbol\nreplaced because it didn't exist in the symbol library.\n\n",
+                                  "The following floss colors have had their symbols\nreplaced because they didn't exist in the symbol library.\n\n",
+                                  count));
+
+        foreach (DocumentFloss *documentFloss, missingSymbols) {
+            information += QString("%1\n").arg(documentFloss->flossName());
+        }
+
+        if (int count = emptySymbols.count()) {
+            information += QString(i18np("The following floss color has had an empty symbol assigned.\n\n",
+                                         "The following floss colors have had an empty symbol assigned.\n\n",
+                                         count));
+
+            foreach (const QString &name, emptySymbols) {
+                information += QString("%1\n").arg(name);
+            }
+        }
+
+        information += QString(i18np("\nYou may want to check this is suitable.",
+                                     "\nYou may want to check these are suitable.",
+                                     count));
+
+        KMessageBox::information(0, information);
     }
 
     return stream;
@@ -392,5 +455,5 @@ qint16 DocumentPalette::freeSymbol() const
         indexes.removeOne(d->m_documentFlosses[index]->stitchSymbol());
     }
 
-    return indexes.first();
+    return (indexes.isEmpty() ? -1 : indexes.first());
 }

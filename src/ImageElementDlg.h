@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif // PatternElementDlg_H
+#endif // ImageElementDlg_H

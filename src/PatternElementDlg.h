@@ -32,7 +32,7 @@ class PatternElementDlg : public KDialog
     Q_OBJECT
 
 public:
-    PatternElementDlg(QWidget *, PatternElement *, Document *, const QList<QRect> &);
+    PatternElementDlg(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
     ~PatternElementDlg();
 
     bool showPlan() const;
@@ -49,8 +49,8 @@ private:
     PatternElement  *m_patternElement;
     Document    *m_document;
 
-    QRect       m_patternRect;
-    QList<QRect>    m_patternRects;
+    QRect                       m_patternRect;
+    QMap<int, QList<QRect> >    m_patternRects;
 
     Ui::PatternElement  ui;
 };

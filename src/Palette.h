@@ -34,8 +34,6 @@ public:
 
     void setDocument(Document *);
 
-    void readDocumentSettings();
-
 public slots:
     void showSymbols(bool);
     void swapColors();
@@ -47,13 +45,14 @@ signals:
     void colorSelected(int);
     void swapColors(int, int);
     void replaceColor(int, int);
+    void signalStateChanged(QString, bool);
 
 protected:
     virtual bool event(QEvent *);
-    void paintEvent(QPaintEvent *);
-    void contextMenuEvent(QContextMenuEvent *);
-    void mousePressEvent(QMouseEvent *);
+    virtual void paintEvent(QPaintEvent *);
+    virtual void mousePressEvent(QMouseEvent *);
 
+private:
     Document    *m_document;
     bool        m_showSymbols;
     int         m_cols;

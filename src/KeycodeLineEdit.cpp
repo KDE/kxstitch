@@ -13,8 +13,6 @@
 
 #include <QKeyEvent>
 
-#include <KDebug>
-
 
 struct KEYCODE {
     int qtKey;
@@ -27,7 +25,7 @@ struct KEYCODE {
 // { Qt::Key_Return, "Return" },
 // { Qt::Key_Enter, "Enter" },
     { Qt::Key_Insert, "Insert" },
-    { Qt::Key_Delete, "Delete" },
+// { Qt::Key_Delete, "Delete" },
     { Qt::Key_Pause, "Pause" },
     { Qt::Key_Print, "Print" },
     { Qt::Key_SysReq, "SysReq" },
@@ -362,18 +360,26 @@ void KeycodeLineEdit::setKeyModifiers(int key, Qt::KeyboardModifiers modifiers)
 {
     m_key = key;
     m_modifiers = modifiers;
-    setText(keyString(m_key, m_modifiers));
+
+    if (m_key) {
+        setText(keyString(m_key, m_modifiers));
+    } else {
+        clear();
+    }
 }
 
 
 void KeycodeLineEdit::keyPressEvent(QKeyEvent *e)
 {
-    if (!findQtText(e->key()).isEmpty()) {
+    if (e->key() == Qt::Key_Backspace || e->key() == Qt::Key_Delete) {
+        setKeyModifiers(0, Qt::NoModifier);
+        e->accept();
+    } else if (!findQtText(e->key()).isEmpty()) {
         setKeyModifiers(e->key(), e->modifiers());
         e->accept();
+    } else {
+        e->ignore();
     }
-
-    e->ignore();
 }
 
 

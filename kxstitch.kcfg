@@ -5,25 +5,6 @@
                 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kxstitchrc"/>
 
-    <group name="kxstitch">
-        <entry name="Application_Width" type="Int">
-            <label>The width of the application</label>
-            <default>1200</default>
-        </entry>
-        <entry name="Application_Height" type="Int">
-            <label>The height of the application</label>
-            <default>800</default>
-        </entry>
-        <entry name="Application_HorizontalSplitterSizes" type="IntList">
-            <label>The horizontal splitter values</label>
-            <default>300,900</default>
-        </entry>
-        <entry name="Application_VerticalSplitterSizes" type="IntList">
-            <label>The vertical splitter sizes</label>
-            <default>200,600</default>
-        </entry>
-    </group>
-
     <group name="editor">
         <entry name="Editor_BackgroundColor" type="Color">
             <label>The background color.</label>
@@ -90,13 +71,17 @@
                 <choice name="CM" />
             </choices>
         </entry>
-        <entry name="Editor_MinimumZoomScale" type="Double">
-            <label>The minimum zoom scale</label>
+        <entry name="Editor_MinimumZoomFactor" type="Double">
+            <label>The minimum zoom factor</label>
             <default>0.5</default>
         </entry>
-        <entry name="Editor_MaximumZoomScale" type="Double">
-            <label>The maximum zoom scale</label>
+        <entry name="Editor_MaximumZoomFactor" type="Double">
+            <label>The maximum zoom factor</label>
             <default>3.0</default>
+        </entry>
+        <entry name="Editor_DefaultZoomFactor" type="Double">
+            <label>The default zoom factor</label>
+            <default>1.0</default>
         </entry>
     </group>
 
@@ -129,35 +114,29 @@
             <label>How to display stitches.</label>
             <default>Stitches</default>
             <choices>
-                <choice name="None" />
                 <choice name="Stitches" />
                 <choice name="BlackWhiteSymbols" />
                 <choice name="ColorSymbols" />
                 <choice name="ColorBlocks" />
                 <choice name="ColorBlocksSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
         <entry name="Renderer_RenderBackstitchesAs" type="Enum">
             <label>How to display backstitches.</label>
             <default>ColorLines</default>
             <choices>
-                <choice name="None" />
                 <choice name="ColorLines" />
                 <choice name="BlackWhiteSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
         <entry name="Renderer_RenderKnotsAs" type="Enum">
             <label>How to display french knots.</label>
             <default>ColorBlocks</default>
             <choices>
-                <choice name="None" />
                 <choice name="ColorBlocks" />
                 <choice name="ColorBlocksSymbols" />
                 <choice name="ColorSymbols" />
                 <choice name="BlackWhiteSymbols" />
-                <choice name="ColorHilight" />
             </choices>
         </entry>
     </group>
@@ -267,6 +246,10 @@
             <label>The text size in pixels</label>
             <default>10</default>
         </entry>
+        <entry name="Tool_MakesCopies" type="Bool">
+            <label>Does mirroring and copying make copies</label>
+            <default>false</default>
+        </entry>
     </group>
 
     <group name="printer">
@@ -346,6 +329,10 @@
         <entry name="PatternElement_MinimumOverflow" type="Int">
             <label>Minimum number of cells that can be on a page of its own</label>
             <default>10</default>
+        </entry>
+        <entry name="PatternElement_SelectedAreaColor" type="Color">
+            <label>The color used to represented already selected areas in existing pattern elements</label>
+            <default>#0F0F0F</default>
         </entry>
 
         <entry name="ImageElement_ShowBorder" type="Bool">

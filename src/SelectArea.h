@@ -14,6 +14,7 @@
 
 
 #include <QList>
+#include <QMap>
 #include <QRect>
 #include <QWidget>
 
@@ -30,7 +31,7 @@ class SelectArea : public QWidget
     Q_OBJECT
 
 public:
-    SelectArea(QWidget *, PatternElement *, Document *, const QList<QRect> &);
+    SelectArea(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
     ~SelectArea();
 
     QRect patternRect() const;
@@ -53,7 +54,7 @@ private:
     int             m_width;
     int             m_height;
     QRect           m_patternRect;
-    QList<QRect>    m_patternRects;
+    QMap<int, QList<QRect> >    m_patternRects;
 
     QPoint  m_cellStart;
     QPoint  m_cellTracking;

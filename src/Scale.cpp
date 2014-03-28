@@ -114,22 +114,20 @@ void Scale::paintEvent(QPaintEvent*)
     int top = contentsRect().top();
     bool clothCountUnitsInches = (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Inches);
 
-    double subTick;
-    int minorTicks;
-    int majorTicks;
+    // Default to Stitches
+    // subtick should be 1 cell
+    double subTick = m_cellSize;
+    int minorTicks = 1;
+    int majorTicks = m_cellGrouping;
 
     int ticklen;
 
     int textValue = 0;
-    int textValueIncrement = 0;
+    int textValueIncrement = m_cellGrouping;
 
     switch (m_units) {
     case Configuration::EnumEditor_FormatScalesAs::Stitches:
-        // subtick should be 1 cell
-        subTick = m_cellSize;
-        minorTicks = 1;
-        majorTicks = m_cellGrouping;
-        textValueIncrement = m_cellGrouping;
+        // Set to default above
         break;
 
     case Configuration::EnumEditor_FormatScalesAs::CM:

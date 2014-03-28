@@ -41,7 +41,6 @@ public:
     const DocumentFloss *currentFloss() const;
     DocumentFloss *floss(int);
     int currentIndex() const;
-    bool showSymbols() const;
 
     void setSchemeName(const QString &);
     void setCurrentIndex(int);
@@ -50,7 +49,6 @@ public:
     DocumentFloss *remove(int);
     DocumentFloss *replace(int, DocumentFloss *);
     void swap(int, int);
-    void setShowSymbols(bool);
     qint16 freeSymbol() const;
 
     DocumentPalette &operator=(const DocumentPalette &);

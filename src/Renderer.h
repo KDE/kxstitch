@@ -65,18 +65,15 @@ private:
     static const renderBackstitchCallPointer renderBackstitchCallPointers[];
     static const renderKnotCallPointer renderKnotCallPointers[];
 
-    void renderStitchesAsNone(StitchQueue *);
     void renderStitchesAsStitches(StitchQueue *);
     void renderStitchesAsBlackWhiteSymbols(StitchQueue *);
     void renderStitchesAsColorSymbols(StitchQueue *);
     void renderStitchesAsColorBlocks(StitchQueue *);
     void renderStitchesAsColorBlocksSymbols(StitchQueue *);
 
-    void renderBackstitchesAsNone(Backstitch *);
     void renderBackstitchesAsColorLines(Backstitch *);
     void renderBackstitchesAsBlackWhiteSymbols(Backstitch *);
 
-    void renderKnotsAsNone(Knot *);
     void renderKnotsAsColorBlocks(Knot *);
     void renderKnotsAsColorBlocksSymbols(Knot *);
     void renderKnotsAsColorSymbols(Knot *);

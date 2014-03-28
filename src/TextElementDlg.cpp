@@ -61,12 +61,12 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     ui.BackgroundTransparency->setValue(m_textElement->m_backgroundTransparency);
     ui.FillBackground->setChecked(m_textElement->m_fillBackground);
 
+    fontChanged(m_textElement->m_textFont);
+    colorChanged(m_textElement->m_textColor);
+
     if (!m_textElement->m_text.isEmpty()) {
         ui.Text->setHtml(m_textElement->m_text);
     }
-
-    fontChanged(m_textElement->m_textFont);
-    colorChanged(m_textElement->m_textColor);
 
     setMainWidget(widget);
 }

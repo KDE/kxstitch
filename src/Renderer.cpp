@@ -96,9 +96,9 @@ RendererData::RendererData()
         m_cellVerticalGrouping(Configuration::editor_CellVerticalGrouping()),
         m_thinLineColor(Configuration::editor_ThinLineColor()),
         m_thickLineColor(Configuration::editor_ThickLineColor()),
-        m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::None),
-        m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::None),
-        m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None),
+        m_renderStitchesAs(Configuration::renderer_RenderStitchesAs()),
+        m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs()),
+        m_renderKnotsAs(Configuration::renderer_RenderKnotsAs()),
         m_painter(0),
         m_document(0),
         m_pattern(0),
@@ -188,7 +188,6 @@ RendererData::~RendererData()
 
 
 const Renderer::renderStitchCallPointer Renderer::renderStitchCallPointers[] = {
-    &Renderer::renderStitchesAsNone,
     &Renderer::renderStitchesAsStitches,
     &Renderer::renderStitchesAsBlackWhiteSymbols,
     &Renderer::renderStitchesAsColorSymbols,
@@ -197,13 +196,11 @@ const Renderer::renderStitchCallPointer Renderer::renderStitchCallPointers[] = {
 };
 
 const Renderer::renderBackstitchCallPointer Renderer::renderBackstitchCallPointers[] = {
-    &Renderer::renderBackstitchesAsNone,
     &Renderer::renderBackstitchesAsColorLines,
     &Renderer::renderBackstitchesAsBlackWhiteSymbols,
 };
 
 const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] = {
-    &Renderer::renderKnotsAsNone,
     &Renderer::renderKnotsAsColorBlocks,
     &Renderer::renderKnotsAsColorBlocksSymbols,
     &Renderer::renderKnotsAsColorSymbols,
@@ -288,6 +285,8 @@ void Renderer::render(QPainter *painter,
                       bool renderKnots,
                       int colorHilight)
 {
+    Q_UNUSED(updateRectangle);  // TODO Planning to rewrite renderer to used cached data
+
     painter->save();
 
     d->m_painter = painter;
@@ -353,11 +352,6 @@ void Renderer::render(QPainter *painter,
     }
 
     painter->restore();
-}
-
-
-void Renderer::renderStitchesAsNone(StitchQueue *)
-{
 }
 
 
@@ -469,6 +463,9 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
         case Stitch::BRSmallFull:
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerBottom, d->m_centerRight);
+            break;
+
+        case Stitch::FrenchKnot:
             break;
         }
     }
@@ -587,6 +584,9 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
         case Stitch::BRSmallFull:
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
+            break;
+
+        case Stitch::FrenchKnot:
             break;
         }
     }
@@ -707,6 +707,9 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
             d->m_painter->drawLine(d->m_center, d->m_bottomRight);
             d->m_painter->drawLine(d->m_centerRight, d->m_centerBottom);
             break;
+
+        case Stitch::FrenchKnot:
+            break;
         }
     }
 }
@@ -812,6 +815,9 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 
         case Stitch::BRSmallFull:
             d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
+            break;
+
+        case Stitch::FrenchKnot:
             break;
         }
     }
@@ -928,6 +934,9 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
         case Stitch::BRSmallFull:
             d->m_painter->fillRect(d->m_renderBRCell, blockBrush);
             break;
+
+        case Stitch::FrenchKnot:
+            break;
         }
 
         d->m_painter->setPen(symbolPen);
@@ -935,11 +944,6 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 
         d->m_painter->drawPath(symbol.path(stitch->type));
     }
-}
-
-
-void Renderer::renderBackstitchesAsNone(Backstitch*)
-{
 }
 
 
@@ -990,11 +994,6 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 }
 
 
-void Renderer::renderKnotsAsNone(Knot*)
-{
-}
-
-
 void Renderer::renderKnotsAsColorBlocks(Knot *knot)
 {
     DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
@@ -1012,25 +1011,104 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot)
     d->m_painter->setPen(outlinePen);
     d->m_painter->setBrush(brush);
 
-    double knotSize = 0.25;
-    QRectF rect(0, 0, knotSize, knotSize);
+    QRectF rect(0, 0, 0.75, 0.75);
     rect.moveCenter(QPointF(knot->position) / 2);
+
     d->m_painter->drawEllipse(rect);
 }
 
 
 void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
 {
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+    QPen blockPen;
+    QBrush blockBrush(Qt::SolidPattern);
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        QColor flossColor = documentFloss->flossColor();
+        QColor symbolColor = (qGray(flossColor.rgb()) < 128) ? Qt::white : Qt::black;
+        symbolPen.setColor(symbolColor);
+        symbolBrush.setColor(symbolColor);
+        blockPen.setColor(flossColor);
+        blockBrush.setColor(flossColor);
+    } else {
+        symbolPen.setColor(Qt::darkGray);
+        symbolBrush.setColor(Qt::darkGray);
+        blockPen.setColor(Qt::lightGray);
+        blockBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(blockPen);
+    d->m_painter->setBrush(blockBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 
 void Renderer::renderKnotsAsColorSymbols(Knot *knot)
 {
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        QColor flossColor = documentFloss->flossColor();
+        symbolPen.setColor(flossColor);
+        symbolBrush.setColor(flossColor);
+    } else {
+        symbolPen.setColor(Qt::lightGray);
+        symbolBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(Qt::NoBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
 {
+    DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
+    Symbol symbol = d->m_symbolLibrary->symbol(documentFloss->stitchSymbol());
+
+    QPen symbolPen = symbol.pen();
+    QBrush symbolBrush = symbol.brush();
+
+    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+        symbolPen.setColor(Qt::black);
+        symbolBrush.setColor(Qt::black);
+    } else {
+        symbolPen.setColor(Qt::lightGray);
+        symbolBrush.setColor(Qt::lightGray);
+    }
+
+    d->m_painter->setPen(symbolPen);
+    d->m_painter->setBrush(Qt::NoBrush);
+
+    QRectF rect(0, 0, 0.75, 0.75);
+    rect.moveCenter(QPointF(knot->position) / 2);
+
+    d->m_painter->drawEllipse(rect);
+    d->m_painter->setBrush(symbolBrush);
+    d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
 

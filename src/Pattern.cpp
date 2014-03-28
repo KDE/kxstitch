@@ -214,15 +214,20 @@ Pattern *Pattern::copy(const QRect &area,  int colorMask, const QList<Stitch::Ty
 
 void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 {
-    // TODO merge isn't being used
     pattern->palette().setSchemeName(palette().schemeName());
 
     for (int row = 0 ; row < pattern->stitches().height() ; ++row) {
         for (int col = 0 ; col < pattern->stitches().width() ; ++col) {
             QPoint src(col, row);
             QPoint dst(cell + src);
+
             StitchQueue *srcQ = pattern->stitches().stitchQueueAt(src);
-            StitchQueue *dstQ = stitches().stitchQueueAt(dst);
+            StitchQueue *dstQ = stitches().takeStitchQueueAt(dst);
+
+            if (!merge) {
+                delete dstQ;
+                dstQ = 0;
+            }
 
             if (srcQ) {
                 if (dstQ == 0) {
@@ -236,9 +241,9 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
                     int colorIndex = palette().add(pattern->palette().flosses().value(stitch->colorIndex)->flossColor());
                     dstQ->add(stitch->type, colorIndex);
                 }
-
-                stitches().replaceStitchQueueAt(dst, dstQ);
             }
+
+            stitches().replaceStitchQueueAt(dst, dstQ);
         }
     }
 

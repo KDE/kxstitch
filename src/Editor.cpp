@@ -191,9 +191,20 @@ Editor::Editor(QWidget *parent)
         m_horizontalScale(new Scale(Qt::Horizontal)),
         m_verticalScale(new Scale(Qt::Vertical)),
         m_libraryManagerDlg(0),
-        m_zoomFactor(1.0),
+        m_zoomFactor(Configuration::editor_DefaultZoomFactor()),
         m_toolMode(ToolPaint),
+        m_renderBackgroundImages(Configuration::renderer_RenderBackgroundImages()),
+        m_renderGrid(Configuration::renderer_RenderGrid()),
+        m_renderStitches(Configuration::renderer_RenderStitches()),
+        m_renderBackstitches(Configuration::renderer_RenderBackstitches()),
+        m_renderFrenchKnots(Configuration::renderer_RenderFrenchKnots()),
+        m_maskStitch(false),
+        m_maskColor(false),
+        m_maskBackstitch(false),
+        m_maskKnot(false),
+        m_makesCopies(Configuration::tool_MakesCopies()),
         m_activeCommand(0),
+        m_colorHilight(Configuration::renderer_ColorHilight()),
         m_pastePattern(0)
 {
     setAcceptDrops(true);
@@ -263,7 +274,7 @@ void Editor::readDocumentSettings()
     m_verticalScale->setUnits(m_formatScalesAs);
 
     m_renderer->setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
-    m_renderer->setGridLineWidths(m_document->property("thinLineWidth").toDouble(), m_document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
     m_renderer->setGridLineColors(m_document->property("thinLineColor").value<QColor>(), m_document->property("thickLineColor").value<QColor>());
 
     zoom(m_zoomFactor);
@@ -312,7 +323,7 @@ void Editor::previewClicked(const QRect &cells)
 
 bool Editor::zoom(double factor)
 {
-    if (factor < Configuration::editor_MinimumZoomScale() || factor > Configuration::editor_MaximumZoomScale()) {
+    if (factor < Configuration::editor_MinimumZoomFactor() || factor > Configuration::editor_MaximumZoomFactor()) {
         return false;
     }
 
@@ -1968,6 +1979,8 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
     m_cellEnd = m_cellTracking;
     m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
     update(updateArea.united(rectToContents(m_rubberBand)).adjusted(-5, -5, 5, 5));
+
+    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
 }
 
 

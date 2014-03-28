@@ -30,7 +30,7 @@ Preview::Preview(QWidget *parent)
     setObjectName("Preview#");
     m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
-    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::None);
+    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
 
@@ -101,10 +101,8 @@ void Preview::mouseMoveEvent(QMouseEvent *e)
 }
 
 
-void Preview::mouseReleaseEvent(QMouseEvent *e)
+void Preview::mouseReleaseEvent(QMouseEvent *)
 {
-    QPoint p = e->pos();
-
     if (m_start == m_end) {
         emit clicked(m_start);
     } else {

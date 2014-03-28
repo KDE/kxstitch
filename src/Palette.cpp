@@ -12,25 +12,21 @@
 #include "Palette.h"
 
 #include <QBitmap>
-#include <QContextMenuEvent>
-#include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QToolTip>
 
 #include <KLocale>
-#include <KXMLGUIFactory>
+#include <KXMLGUIClient>
 
 #include "configuration.h"
 #include "Document.h"
 #include "Floss.h"
 #include "FlossScheme.h"
-#include "MainWindow.h"
 #include "SchemeManager.h"
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 
-#include <KDebug>
 
 const uchar swapCursor[] = {
     0x00, 0x00, 0x00, 0x00,
@@ -198,19 +194,12 @@ QSize Palette::sizeHint() const
 void Palette::setDocument(Document *document)
 {
     m_document = document;
-    readDocumentSettings();
 }
 
 
 Document *Palette::document() const
 {
     return m_document;
-}
-
-
-void Palette::readDocumentSettings()
-{
-    showSymbols(m_document->pattern()->palette().showSymbols());
 }
 
 
@@ -297,7 +286,7 @@ void Palette::paintEvent(QPaintEvent *)
     QPainter painter;
 
     if (m_flosses) {
-        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty", KXMLGUIClient::StateReverse);
+        emit signalStateChanged("palette_empty", KXMLGUIClient::StateReverse);
 
         m_cols = 5;
 
@@ -361,12 +350,6 @@ void Palette::paintEvent(QPaintEvent *)
                 QPen pen = symbol.pen();
                 QBrush brush = symbol.brush();
 
-//                if (qGray(color.rgb()) < 128) {
-//                    painter.setPen(Qt::white);
-//                } else {
-//                    painter.setPen(Qt::black);
-//                }
-
                 if (qGray(color.rgb()) < 128) {
                     pen.setColor(Qt::white);
                     brush.setColor(Qt::white);
@@ -381,17 +364,8 @@ void Palette::paintEvent(QPaintEvent *)
 
         painter.end();
     } else {
-        static_cast<MainWindow *>(topLevelWidget())->slotStateChanged("palette_empty");
+        emit signalStateChanged("palette_empty", KXMLGUIClient::StateNoReverse);
     }
-}
-
-
-void Palette::contextMenuEvent(QContextMenuEvent *event)
-{
-    MainWindow *mainwindow = qobject_cast<MainWindow *>(topLevelWidget());
-    QMenu *context = static_cast<QMenu *>(mainwindow->guiFactory()->container("PalettePopup", mainwindow));
-    context->popup(event->globalPos());
-    event->accept();
 }
 
 
@@ -425,6 +399,6 @@ void Palette::mousePressEvent(QMouseEvent *event)
             }
         }
 
-        repaint();
+        update();
     }
 }

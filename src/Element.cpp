@@ -944,10 +944,10 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Ty
         m_borderThickness(Configuration::patternElement_BorderThickness()),
         m_showScales(false),
         m_showPlan(false),
-        m_formatScalesAs(Configuration::EnumEditor_FormatScalesAs::Stitches),
-        m_renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols),
-        m_renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols),
-        m_renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols),
+        m_formatScalesAs(Configuration::editor_FormatScalesAs()),
+        m_renderStitchesAs(Configuration::renderer_RenderStitchesAs()),
+        m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs()),
+        m_renderKnotsAs(Configuration::renderer_RenderKnotsAs()),
         m_showGrid(true),
         m_showStitches(true),
         m_showBackstitches(true),
@@ -1070,7 +1070,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
 
     m_renderer->setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
-    m_renderer->setGridLineWidths(document->property("thinLineWidth").toDouble(), document->property("thickLineWidth").toDouble());
+    m_renderer->setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
     m_renderer->setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
 
     // find the position of the top left coordinate of the top left cell of the cells to be printed
@@ -1083,7 +1083,6 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int vpHeight = int((patternHeight + scaleSize) * deviceVRatio);
 
     double vpCellWidth = deviceHRatio * cellWidth;
-    double vpCellHeight = deviceVRatio * cellHeight;
     double vpScaleWidth = deviceHRatio * scaleSize;
     double vpScaleHeight = deviceVRatio * scaleSize;
 
@@ -1093,18 +1092,16 @@ void PatternElement::render(Document *document, QPainter *painter) const
         painter->setFont(font);
 
         // draw horizontal ruler
-        double subTick;
-        int minorTicks;
-        int majorTicks;
+        // default to Stitches values
+        double subTick = 1.0;
+        int minorTicks = 1;
+        int majorTicks = cellHorizontalGrouping;
 
-        int textValueIncrement;
+        int textValueIncrement = cellHorizontalGrouping;
 
         switch (m_formatScalesAs) {
         case Configuration::EnumEditor_FormatScalesAs::Stitches:
-            subTick = 1.0;
-            minorTicks = 1;
-            majorTicks = cellHorizontalGrouping;
-            textValueIncrement = cellHorizontalGrouping;
+            // set as defaults above
             break;
 
         case Configuration::EnumEditor_FormatScalesAs::CM:
@@ -1175,6 +1172,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
         // draw vertical ruler
         switch (m_formatScalesAs) {
         case Configuration::EnumEditor_FormatScalesAs::Stitches:
+            // subTick should be 1 cell
             subTick = 1.0;
             minorTicks = 1;
             majorTicks = cellVerticalGrouping;
@@ -1829,7 +1827,11 @@ void TextElement::setAlignment(Qt::Alignment alignment)
 
 void TextElement::setText(const QString &text)
 {
-    m_text = text;
+    if (text.contains("<html>")) {
+        m_text = text;
+    } else {
+        m_text = encodeToHtml(text);
+    }
 }
 
 
@@ -1999,4 +2001,22 @@ QDataStream &TextElement::streamIn(QDataStream &stream)
     }
 
     return stream;
+}
+
+
+QString TextElement::encodeToHtml(const QString &text) const
+{
+    QTextDocument document;
+    document.setDefaultFont(m_textFont);
+
+    QTextBlockFormat format;
+    format.setAlignment(m_alignment);
+    format.setForeground(QBrush(m_textColor));
+
+    QTextCursor cursor(&document);
+    cursor.movePosition(QTextCursor::Start);
+    cursor.setBlockFormat(format);
+    cursor.insertText(text);
+
+    return document.toHtml();
 }

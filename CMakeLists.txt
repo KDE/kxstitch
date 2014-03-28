@@ -112,6 +112,7 @@ kde4_add_ui_files(kxstitch_SRCS
     ui/TextElement.ui
     ui/TextTool.ui
     ui/EditorConfigPage.ui
+    ui/PaletteConfigPage.ui
     ui/PatternConfigPage.ui
     ui/ImportConfigPage.ui
     ui/LibraryConfigPage.ui

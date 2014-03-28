@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 {
     KAboutData aboutData("kxstitch",
                          "kxstitch",
-                         ki18n("KXStitch"), "1.0.3",
+                         ki18n("KXStitch"), "1.1.0",
                          ki18n("A cross stitch pattern creator."),
                          KAboutData::License_GPL_V2,
                          ki18n("(c)2010-2014 Stephen Allewell"),
@@ -97,6 +97,8 @@ int main(int argc, char *argv[])
     aboutData.addCredit(ki18n("Pierre Brua"), ki18n("Bug fixes, application icons"), "kxstitchdev@paralline.com");
     aboutData.addCredit(ki18n("Eric Pareja"), ki18n("Man page"), "xenos@upm.edu.ph");
     aboutData.addCredit(ki18n("Adam Gundy"), ki18n("Bug fixes, improvements"), "adam@starsilk.net");
+    aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"),
+                            ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 

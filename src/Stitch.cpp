@@ -131,7 +131,7 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
         }
     }
 
-    switch (type) { // add the new stitch checking for illegal types
+    switch (int(type)) { // add the new stitch checking for illegal types
     case Stitch::TLQtr | Stitch::TRQtr:
         enqueue(new Stitch(Stitch::TLQtr, colorIndex));
         enqueue(new Stitch(Stitch::TRQtr, colorIndex));
@@ -171,7 +171,7 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
             // but a check needs to be made for illegal values
             Stitch::Type changeMask = (Stitch::Type)(usageMask ^ interferenceMask);
 
-            switch (changeMask) {
+            switch (int(changeMask)) {
                 // changeMask contains what is left of the original stitch after being overwritten
                 // it may contain illegal values, so these are checked for
             case Stitch::TLQtr | Stitch::TRQtr:
@@ -259,7 +259,7 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
                     stitch->type = Stitch::Delete;
                     int index = stitch->colorIndex;
 
-                    switch (changeMask) {
+                    switch (int(changeMask)) {
                         // changeMask contains what is left of the original stitch after deleting the maskStitch
                         // it may contain illegal values, so these are checked for
                     case Stitch::TLQtr | Stitch::TRQtr:
