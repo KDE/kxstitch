@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 {
     KAboutData aboutData("kxstitch",
                          "kxstitch",
-                         ki18n("KXStitch"), "1.1.0",
+                         ki18n("KXStitch"), "1.1.1",
                          ki18n("A cross stitch pattern creator."),
                          KAboutData::License_GPL_V2,
                          ki18n("(c)2010-2014 Stephen Allewell"),
