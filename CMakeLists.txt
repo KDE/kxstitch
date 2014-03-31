@@ -138,6 +138,8 @@ endif (WITH_PROFILING)
 add_definitions( -DQT_NO_COMPAT )
 add_definitions( -DKDE_NO_COMPAT )
 add_definitions( -fexceptions )
+add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
+add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
 
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${DATA_INSTALL_DIR}/kxstitch)
