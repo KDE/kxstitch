@@ -527,7 +527,7 @@ void MainWindow::convertImage(const QString &source)
 {
     Magick::Image image(source.toStdString());
     QMap<int, QColor> documentFlosses;
-    QList<qint16> symbolIndexes = SymbolManager::library("kxstitch")->indexes();
+    QList<qint16> symbolIndexes = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes();
 
     QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 

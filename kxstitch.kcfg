@@ -181,6 +181,10 @@
             <label>The default floss scheme to be used for new documents.</label>
             <default>DMC</default>
         </entry>
+        <entry name="Palette_DefaultSymbolLibrary" type="String">
+            <label>The default symbol library to be used for new documents.</label>
+            <default>kxstitch</default>
+        </entry>
         <entry name="Palette_StitchStrands" type="Int">
             <label>The default number of strands used for stitches.</label>
             <default>2</default>

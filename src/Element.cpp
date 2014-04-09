@@ -607,7 +607,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
             FlossUsage usage = flossUsage[index];
 
             if (m_symbolColumn) {
-                Symbol symbol = SymbolManager::library("kxstitch")->symbol(flosses[index]->stitchSymbol());
+                Symbol symbol = SymbolManager::library(document->pattern()->palette().symbolLibrary())->symbol(flosses[index]->stitchSymbol());
 
                 painter->setViewport(deviceTextArea.left() + symbolWidth / 3, deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
                 painter->setWindow(0, 0, 1, 1);

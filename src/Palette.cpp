@@ -279,7 +279,7 @@ void Palette::paintEvent(QPaintEvent *)
 
     int currentFlossIndex = m_document->pattern()->palette().currentIndex();
 
-    SymbolLibrary *library = SymbolManager::library("kxstitch");
+    SymbolLibrary *library = SymbolManager::library(m_document->pattern()->palette().symbolLibrary());
 
     QTransform scale = QTransform::fromScale(m_width, m_height);
 

@@ -47,6 +47,7 @@ private slots:
     void on_RemoveFloss_clicked(bool);
     void on_StitchStrands_activated(int);
     void on_BackstitchStrands_activated(int);
+    void on_SymbolLibrary_activated(const QString &);
     void on_StitchSymbol_clicked(bool);
     void on_BackstitchSymbol_activated(int);
     void on_NewFloss_clicked(bool);

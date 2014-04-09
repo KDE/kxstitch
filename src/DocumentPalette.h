@@ -35,6 +35,7 @@ public:
     ~DocumentPalette();
 
     QString schemeName() const;
+    QString symbolLibrary() const;
     QMap<int, DocumentFloss *> flosses() const;
     QVector<int> sortedFlosses() const;
     QList<qint16> usedSymbols() const;
@@ -43,6 +44,7 @@ public:
     int currentIndex() const;
 
     void setSchemeName(const QString &);
+    void setSymbolLibrary(const QString &);
     void setCurrentIndex(int);
     void add(int, DocumentFloss *);
     int add(const QColor &);

@@ -40,10 +40,11 @@
  * Constructor.
  *
  * @param parent a pointer to a QWidget parent object
+ * @param symbolLibrary the name of the symbol library to use
  */
-SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent)
+SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary)
     :   KDialog(parent),
-        m_library(0)
+        m_library(SymbolManager::library(symbolLibrary))
 {
     setCaption(i18n("Symbol Selector"));
     setButtons(KDialog::Cancel | KDialog::Help);
@@ -52,6 +53,12 @@ SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent)
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
     setMainWidget(widget);
+
+    if (m_library == 0) {
+        m_library = SymbolManager::library("kxstitch");
+    }
+
+    fillSymbols();
 }
 
 
@@ -66,7 +73,7 @@ void SymbolSelectorDlg::setSelectedSymbol(qint16 symbol, const QList<qint16> &us
 {
     m_currentSymbol = symbol;
     m_usedSymbols = used;
-    fillSymbols();
+    setSymbolState();
 }
 
 
@@ -107,17 +114,20 @@ void SymbolSelectorDlg::on_SymbolTable_executed(QListWidgetItem *item)
  */
 void SymbolSelectorDlg::fillSymbols()
 {
-    m_library = SymbolManager::library("kxstitch"); // TODO options for other symbol libraries
+    foreach (qint16 index, m_library->indexes()) {
+        QListWidgetItem *item = ui.SymbolTable->addSymbol(index, m_library->symbol(index));
+        m_symbolItems.insert(index, item);
+    }
+}
 
-    if (m_library) {
-        foreach (qint16 index, m_library->indexes()) {
-            QListWidgetItem *item = ui.SymbolTable->addSymbol(index, m_library->symbol(index));
-            m_symbolItems.insert(index, item);
 
-            if (m_usedSymbols.contains(index)) {
-                ui.SymbolTable->disableItem(item);
-            }
-        }
+/**
+ * Set the state of each symbol depending on whether it has been used or not
+ */
+void SymbolSelectorDlg::setSymbolState()
+{
+    foreach (qint16 index, m_usedSymbols) {
+        ui.SymbolTable->disableItem(m_symbolItems.value(index));
     }
 
     ui.SymbolTable->setCurrent(m_currentSymbol);

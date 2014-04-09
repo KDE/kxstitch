@@ -30,9 +30,10 @@ public:
     DocumentPaletteData(const DocumentPaletteData &);
     ~DocumentPaletteData();
 
-    static const int version = 102; // remove m_showSymbols
+    static const int version = 103; // added m_symbolLibrary
 
     QString                     m_schemeName;
+    QString                     m_symbolLibrary;
     int                         m_currentIndex;
     QMap<int, DocumentFloss *>  m_documentFlosses;
 };
@@ -41,6 +42,7 @@ public:
 DocumentPaletteData::DocumentPaletteData()
     :   QSharedData(),
         m_schemeName(Configuration::palette_DefaultScheme()),
+        m_symbolLibrary("kxstitch"),
         m_currentIndex(-1)
 {
 }
@@ -49,6 +51,7 @@ DocumentPaletteData::DocumentPaletteData()
 DocumentPaletteData::DocumentPaletteData(const DocumentPaletteData &other)
     :   QSharedData(other),
         m_schemeName(other.m_schemeName),
+        m_symbolLibrary(other.m_symbolLibrary),
         m_currentIndex(other.m_currentIndex)
 {
     for (QMap<int, DocumentFloss*>::const_iterator i = other.m_documentFlosses.constBegin() ; i != other.m_documentFlosses.constEnd() ; ++i) {
@@ -83,6 +86,12 @@ DocumentPalette::~DocumentPalette()
 QString DocumentPalette::schemeName() const
 {
     return d->m_schemeName;
+}
+
+
+QString DocumentPalette::symbolLibrary() const
+{
+    return d->m_symbolLibrary;
 }
 
 
@@ -185,6 +194,21 @@ void DocumentPalette::setSchemeName(const QString &schemeName)
 }
 
 
+void DocumentPalette::setSymbolLibrary(const QString &symbolLibrary)
+{
+    QList<qint16> indexes = SymbolManager::library(symbolLibrary)->indexes();
+
+    // only change the symbol library if there are enough symbols available
+    if (d->m_documentFlosses.count() <= indexes.count()) {
+        d->m_symbolLibrary = symbolLibrary;
+
+        foreach (DocumentFloss *documentFloss, d->m_documentFlosses) {
+            documentFloss->setStitchSymbol(indexes.takeFirst());
+        }
+    }
+}
+
+
 void DocumentPalette::setCurrentIndex(int currentIndex)
 {
     d->m_currentIndex = currentIndex;
@@ -280,6 +304,7 @@ QDataStream &operator<<(QDataStream &stream, const DocumentPalette &documentPale
 {
     stream << qint32(DocumentPaletteData::version);
     stream << documentPalette.d->m_schemeName;
+    stream << documentPalette.d->m_symbolLibrary;
     stream << qint32(documentPalette.d->m_currentIndex);
     stream << qint32(documentPalette.d->m_documentFlosses.count());
 
@@ -311,8 +336,25 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     stream >> version;
 
     switch (version) {
+    case 103:
+        stream >> documentPalette.d->m_schemeName;
+        stream >> documentPalette.d->m_symbolLibrary;
+        stream >> currentIndex;
+        documentPalette.d->m_currentIndex = currentIndex;
+        stream >> documentPaletteCount;
+
+        while (documentPaletteCount--) {
+            documentFloss = new DocumentFloss;
+            stream >> key;
+            stream >> *documentFloss;
+            documentPalette.d->m_documentFlosses.insert(key, documentFloss);
+        }
+
+        break;
+
     case 102:
         stream >> documentPalette.d->m_schemeName;
+        documentPalette.d->m_symbolLibrary = QString("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> documentPaletteCount;
@@ -328,6 +370,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     case 101:
         stream >> documentPalette.d->m_schemeName;
+        documentPalette.d->m_symbolLibrary = QString("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> showSymbols;
@@ -344,6 +387,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     case 100:
         stream >> documentPalette.d->m_schemeName;
+        documentPalette.d->m_symbolLibrary = QString("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> showSymbols;
@@ -369,7 +413,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     }
 
     // test DocumentFloss symbol indexes exist in the library
-    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();
+    QList<qint16> indexes = SymbolManager::library(documentPalette.symbolLibrary())->indexes();
     QList<DocumentFloss *> missingSymbols;
     QList<int> keys = documentPalette.d->m_documentFlosses.keys();
 
@@ -448,7 +492,7 @@ int DocumentPalette::freeIndex() const
 
 qint16 DocumentPalette::freeSymbol() const
 {
-    QList<qint16> indexes = SymbolManager::library("kxstitch")->indexes();
+    QList<qint16> indexes = SymbolManager::library(d->m_symbolLibrary)->indexes();
     QList<int> keys = d->m_documentFlosses.keys();
 
     foreach (int index, keys) {

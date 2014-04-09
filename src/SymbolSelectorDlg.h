@@ -41,7 +41,7 @@ class SymbolSelectorDlg : public KDialog
     Q_OBJECT
 
 public:
-    explicit SymbolSelectorDlg(QWidget *parent);
+    SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary);
 
     void setSelectedSymbol(qint16 symbol, const QList<qint16> &usedSymbols);
     qint16 selectedSymbol();
@@ -51,6 +51,7 @@ protected slots:
 
 private:
     void fillSymbols();
+    void setSymbolState();
 
     Ui::SymbolSelector    ui;           /**< dialog interface description */
 

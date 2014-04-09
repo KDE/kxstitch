@@ -291,7 +291,7 @@ void Renderer::render(QPainter *painter,
 
     d->m_painter = painter;
     d->m_pattern = pattern;
-    d->m_symbolLibrary = SymbolManager::library("kxstitch");    // TODO option for symbol library selection
+    d->m_symbolLibrary = SymbolManager::library(pattern->palette().symbolLibrary());
     d->m_hilight = colorHilight;
 
     int patternLeft = painter->window().left();

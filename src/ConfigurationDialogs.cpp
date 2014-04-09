@@ -15,6 +15,7 @@
 
 #include "configuration.h"
 #include "SchemeManager.h"
+#include "SymbolManager.h"
 
 
 EditorConfigPage::EditorConfigPage(QWidget *parent, const char *name)
@@ -218,6 +219,7 @@ PaletteConfigPage::PaletteConfigPage(QWidget *parent, const char *name)
     setObjectName(name);
     setupUi(this);
     kcfg_Palette_DefaultScheme->insertItems(0, SchemeManager::schemes());
+    kcfg_Palette_DefaultSymbolLibrary->insertItems(0, SymbolManager::libraries());
 }
 
 

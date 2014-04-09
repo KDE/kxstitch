@@ -14,6 +14,7 @@
 #include <QWidget>
 
 #include <KCharSelect>
+#include <KMessageBox>
 
 #include "configuration.h"
 #include "CalibrateFlossDlg.h"
@@ -43,6 +44,9 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
     setMainWidget(widget);
+
+    ui.SymbolLibrary->insertItems(0, SymbolManager::libraries());
+    ui.SymbolLibrary->setCurrentItem(m_dialogPalette.symbolLibrary());
 
     fillLists();
 }
@@ -107,7 +111,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
         const DocumentFloss *floss = m_dialogPalette.flosses().value(i);
         ui.StitchStrands->setCurrentIndex(floss->stitchStrands() - 1);
         ui.BackstitchStrands->setCurrentIndex(floss->backstitchStrands() - 1);
-        Symbol symbol = SymbolManager::library("kxstitch")->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol());  // TODO option for other symbol libraries
+        Symbol symbol = SymbolManager::library(m_dialogPalette.symbolLibrary())->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol());
         ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(symbol, 22));
         ui.BackstitchSymbol->setCurrentIndex(mapStyleToIndex(floss->backstitchSymbol()));
         ui.StitchStrands->setEnabled(true);
@@ -174,19 +178,37 @@ void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
 }
 
 
+void PaletteManagerDlg::on_SymbolLibrary_activated(const QString &library)
+{
+    m_dialogPalette.setSymbolLibrary(library);
+
+    if (library != m_dialogPalette.symbolLibrary()) {
+        // Can't change the library because there aren't enough symbols available
+        // Show a warning and reset the current library in the selection
+        KMessageBox::information(this, QString(i18n("The selected symbol library does not have enough symbols for the flosses in the palette.")));
+        ui.SymbolLibrary->setCurrentItem(m_dialogPalette.symbolLibrary());
+    } else if (m_symbolSelectorDlg) {
+        delete m_symbolSelectorDlg;
+        m_symbolSelectorDlg = new SymbolSelectorDlg(this, library);
+    }
+
+    on_CurrentList_currentRowChanged(ui.CurrentList->currentRow());
+}
+
+
 void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
     int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
 
     if (m_symbolSelectorDlg == 0) {
-        m_symbolSelectorDlg = new SymbolSelectorDlg(this);
+        m_symbolSelectorDlg = new SymbolSelectorDlg(this, m_dialogPalette.symbolLibrary());
     }
 
     m_symbolSelectorDlg->setSelectedSymbol(m_dialogPalette.flosses().value(i)->stitchSymbol(), m_dialogPalette.usedSymbols());
 
     if (m_symbolSelectorDlg->exec() == QDialog::Accepted) {
         m_dialogPalette.floss(i)->setStitchSymbol(m_symbolSelectorDlg->selectedSymbol());
-        ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(SymbolManager::library("kxstitch")->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol()), 22));  // TODO option for other symbol libraries
+        ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(SymbolManager::library(m_dialogPalette.symbolLibrary())->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol()), 22));
     }
 }
 
@@ -351,5 +373,5 @@ int PaletteManagerDlg::paletteIndex(const QString &flossName) const
 
 bool PaletteManagerDlg::symbolsAvailable() const
 {
-    return (SymbolManager::library("kxstitch")->indexes().count() > m_dialogPalette.flosses().count());
+    return (SymbolManager::library(m_dialogPalette.symbolLibrary())->indexes().count() > m_dialogPalette.flosses().count());
 }
