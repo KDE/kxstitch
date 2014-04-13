@@ -938,7 +938,9 @@ void MainWindow::preferences()
 
     dialog->addPage(new EditorConfigPage(0, "EditorConfigPage"), i18nc("The Editor config page", "Editor"), "preferences-desktop");
     dialog->addPage(new PatternConfigPage(0, "PatternConfigPage"), i18n("Pattern"), "ksnapshot");
-    dialog->addPage(new PaletteConfigPage(0, "PaletteConfigPage"), i18n("Palette"), "preferences-desktop-color");
+    PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(0, "PaletteConfigPage");
+    dialog->addPage(paletteConfigPage, i18n("Palette"), "preferences-desktop-color");
+    connect(dialog, SIGNAL(defaultClicked()), paletteConfigPage, SLOT(defaultClicked()));
     dialog->addPage(new ImportConfigPage(0, "ImportConfigPage"), i18n("Import"), "insert-image");
     dialog->addPage(new LibraryConfigPage(0, "LibraryConfigPage"), i18n("Library"), "accessories-dictionary");
     dialog->addPage(new PrinterConfigPage(0, "PrinterConfigPage"), i18n("Printer Configuration"), "preferences-desktop-printer");

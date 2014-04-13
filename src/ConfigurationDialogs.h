@@ -57,6 +57,9 @@ class PaletteConfigPage : public QWidget, public Ui::PaletteConfigPage
 
 public:
     explicit PaletteConfigPage(QWidget *parent = 0, const char *name = 0);
+
+public slots:
+    void defaultClicked();
 };
 
 
