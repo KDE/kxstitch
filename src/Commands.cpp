@@ -46,8 +46,6 @@ void FilePropertiesCommand::redo()
     QUndoCommand::redo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->editor()->update();
-    m_document->preview()->update();
     m_document->palette()->update();
 }
 
@@ -57,8 +55,6 @@ void FilePropertiesCommand::undo()
     QUndoCommand::undo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->editor()->update();
-    m_document->preview()->update();
     m_document->palette()->update();
 }
 
@@ -80,8 +76,6 @@ void ImportImageCommand::redo()
     QUndoCommand::redo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->editor()->update();
-    m_document->preview()->update();
     m_document->palette()->update();
 }
 
@@ -91,8 +85,6 @@ void ImportImageCommand::undo()
     QUndoCommand::undo();
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
-    m_document->editor()->update();
-    m_document->preview()->update();
     m_document->palette()->update();
 }
 
@@ -112,16 +104,16 @@ PaintStitchesCommand::~PaintStitchesCommand()
 void PaintStitchesCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void PaintStitchesCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -140,16 +132,16 @@ PaintKnotsCommand::~PaintKnotsCommand()
 void PaintKnotsCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void PaintKnotsCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -168,16 +160,16 @@ DrawLineCommand::~DrawLineCommand()
 void DrawLineCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void DrawLineCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -196,16 +188,16 @@ EraseStitchesCommand::~EraseStitchesCommand()
 void EraseStitchesCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void EraseStitchesCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -224,16 +216,16 @@ DrawRectangleCommand::~DrawRectangleCommand()
 void DrawRectangleCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void DrawRectangleCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -252,16 +244,16 @@ FillRectangleCommand::~FillRectangleCommand()
 void FillRectangleCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void FillRectangleCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -281,16 +273,16 @@ DrawEllipseCommand::~DrawEllipseCommand()
 void DrawEllipseCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void DrawEllipseCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -309,16 +301,16 @@ FillEllipseCommand::~FillEllipseCommand()
 void FillEllipseCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void FillEllipseCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -337,16 +329,16 @@ FillPolygonCommand::~FillPolygonCommand()
 void FillPolygonCommand::redo()
 {
     QUndoCommand::redo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void FillPolygonCommand::undo()
 {
     QUndoCommand::undo();
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -445,16 +437,16 @@ AddBackstitchCommand::~AddBackstitchCommand()
 void AddBackstitchCommand::redo()
 {
     m_document->pattern()->stitches().addBackstitch(m_start, m_end, m_colorIndex);
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
 void AddBackstitchCommand::undo()
 {
     delete m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -478,8 +470,8 @@ DeleteBackstitchCommand::~DeleteBackstitchCommand()
 void DeleteBackstitchCommand::redo()
 {
     m_backstitch = m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -487,8 +479,8 @@ void DeleteBackstitchCommand::undo()
 {
     m_document->pattern()->stitches().addBackstitch(m_backstitch);
     m_backstitch = 0;
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -593,7 +585,7 @@ void AddBackgroundImageCommand::redo()
 {
     m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+    m_document->editor()->drawContents();
 }
 
 
@@ -601,7 +593,7 @@ void AddBackgroundImageCommand::undo()
 {
     m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
     m_mainWindow->updateBackgroundImageActionLists();
-    m_document->editor()->update();
+    m_document->editor()->drawContents();
 }
 
 
@@ -622,7 +614,7 @@ FitBackgroundImageCommand::~FitBackgroundImageCommand()
 void FitBackgroundImageCommand::redo()
 {
     m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
-    m_document->editor()->update();
+    m_document->editor()->drawContents();
 }
 
 
@@ -649,7 +641,7 @@ ShowBackgroundImageCommand::~ShowBackgroundImageCommand()
 void ShowBackgroundImageCommand::redo()
 {
     m_visible = m_document->backgroundImages().showBackgroundImage(m_backgroundImage, m_visible);
-    m_document->editor()->update();
+    m_document->editor()->drawContents();
 }
 
 
@@ -681,7 +673,7 @@ void RemoveBackgroundImageCommand::redo()
     m_mainWindow->updateBackgroundImageActionLists();
 
     if (m_backgroundImage->isVisible()) {
-        m_document->editor()->update();
+        m_document->editor()->drawContents();
     }
 }
 
@@ -692,7 +684,7 @@ void RemoveBackgroundImageCommand::undo()
     m_mainWindow->updateBackgroundImageActionLists();
 
     if (m_backgroundImage->isVisible()) {
-        m_document->editor()->update();
+        m_document->editor()->drawContents();
     }
 }
 
@@ -1002,8 +994,8 @@ void ExtendPatternCommand::redo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.resize(stitchData.width() + m_left + m_right, stitchData.height() + m_top + m_bottom);
     stitchData.movePattern(m_left, m_top);
-    m_document->editor()->readDocumentSettings();   // this causes a zoom updating the display
-    m_document->preview()->readDocumentSettings();  // this causes a resize updating the display
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
 }
 
 
@@ -1012,8 +1004,8 @@ void ExtendPatternCommand::undo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.movePattern(-m_left, -m_top);
     stitchData.resize(stitchData.width() - m_left - m_right, stitchData.height() - m_top - m_bottom);
-    m_document->editor()->readDocumentSettings();   // this causes a zoom updating the display
-    m_document->preview()->readDocumentSettings();  // this causes a resize updating the display
+    m_document->editor()->readDocumentSettings();
+    m_document->preview()->readDocumentSettings();
 }
 
 
@@ -1039,8 +1031,8 @@ void CentrePatternCommand::redo()
     if (m_xOffset || m_yOffset) {
         m_document->pattern()->stitches().movePattern(m_xOffset, m_yOffset);
 
-        m_document->editor()->update();
-        m_document->preview()->update();
+        m_document->editor()->drawContents();
+        m_document->preview()->drawContents();
     }
 }
 
@@ -1051,8 +1043,8 @@ void CentrePatternCommand::undo()
     if (m_xOffset || m_yOffset) {
         m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 
-        m_document->editor()->update();
-        m_document->preview()->update();
+        m_document->editor()->drawContents();
+        m_document->preview()->drawContents();
     }
 }
 
@@ -1075,8 +1067,9 @@ void UpdateDocumentPaletteCommand::redo()
     DocumentPalette palette = m_document->pattern()->palette();
     m_document->pattern()->palette() = m_palette;
     m_palette = palette;
-    m_document->editor()->update();
-    m_document->preview()->update();
+
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1106,8 +1099,8 @@ void ChangeSchemeCommand::redo()
     stream << m_document->pattern()->palette();
     m_document->pattern()->palette().setSchemeName(m_schemeName);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1118,8 +1111,8 @@ void ChangeSchemeCommand::undo()
     stream >> m_document->pattern()->palette();
     m_originalPalette.clear();
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1253,8 +1246,8 @@ void PaletteReplaceColorCommand::redo()
         }
     }
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1279,8 +1272,8 @@ void PaletteReplaceColorCommand::undo()
         knotIterator.next()->colorIndex = m_originalIndex;
     }
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1302,8 +1295,8 @@ PaletteSwapColorCommand::~PaletteSwapColorCommand()
 void PaletteSwapColorCommand::redo()
 {
     m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1373,8 +1366,8 @@ void EditCutCommand::redo()
 
     QApplication::clipboard()->setMimeData(mimeData);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -1384,8 +1377,8 @@ void EditCutCommand::undo()
     delete m_originalPattern;
     m_originalPattern = 0;
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -1409,8 +1402,9 @@ void EditPasteCommand::redo()
     QDataStream stream(&m_originalPattern, QIODevice::WriteOnly);
     stream << *(m_document->pattern());
     m_document->pattern()->paste(m_pastePattern, m_cell, m_merge);
-    m_document->editor()->update();
-    m_document->preview()->update();
+
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1421,8 +1415,9 @@ void EditPasteCommand::undo()
     m_document->pattern()->clear();
     stream >> *(m_document->pattern());
     m_originalPattern.clear();
-    m_document->editor()->update();
-    m_document->preview()->update();
+
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
     m_document->palette()->update();
 }
 
@@ -1459,8 +1454,8 @@ void MirrorSelectionCommand::redo()
 
     m_document->pattern()->paste(m_invertedPattern, m_pasteCell, m_merge);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -1470,8 +1465,8 @@ void MirrorSelectionCommand::undo()
     QDataStream stream(&m_originalPatternData, QIODevice::ReadOnly);
     stream >> m_document->pattern()->stitches();
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -1507,8 +1502,8 @@ void RotateSelectionCommand::redo()
 
     m_document->pattern()->paste(m_rotatedPattern, m_pasteCell, m_merge);
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 
@@ -1518,8 +1513,8 @@ void RotateSelectionCommand::undo()
     QDataStream stream(&m_originalPatternData, QIODevice::ReadOnly);
     stream >> m_document->pattern()->stitches();
 
-    m_document->editor()->update();
-    m_document->preview()->update();
+    m_document->editor()->drawContents();
+    m_document->preview()->drawContents();
 }
 
 

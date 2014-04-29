@@ -19,6 +19,7 @@
 #include "Stitch.h"
 
 #include "configuration.h"
+#include "Renderer.h"
 #include "StitchData.h"
 
 
@@ -136,6 +137,10 @@ public slots:
 
     void loadSettings();
 
+    void drawContents();
+    void drawContents(const QPoint &);
+    void drawContents(const QRect &);
+
 protected:
     bool event(QEvent*);
     void contextMenuEvent(QContextMenuEvent*);
@@ -148,6 +153,8 @@ protected:
     void mousePressEvent(QMouseEvent*);
     void mouseMoveEvent(QMouseEvent*);
     void mouseReleaseEvent(QMouseEvent*);
+    void moveEvent(QMoveEvent*);
+    void resizeEvent(QResizeEvent*);
     void paintEvent(QPaintEvent*);
     void wheelEvent(QWheelEvent*);
     bool eventFilter(QObject*, QEvent*);
@@ -173,7 +180,7 @@ private:
     void toolCleanupMirror();
     void toolCleanupRotate();
 
-    void renderBackgroundImages(QPainter*, const QRect&);
+    void renderBackgroundImages(QPainter &, const QRect&);
     void renderStitches(QPainter*, const QRect&);
     void renderBackstitches(QPainter*, const QRect&);
     void renderFrenchKnots(QPainter*, const QRect&);
@@ -252,11 +259,9 @@ private:
     QPoint contentsToCell(const QPoint&) const;
     int contentsToZone(const QPoint&) const;
     QPoint contentsToSnap(const QPoint&) const;
-    QPoint snapToContents(const QPoint&) const;
-    QPointF physicalToLogical(const QPoint&) const;
-    QPoint logicalToPhysical(const QPointF&) const;
+    QRect snapToCells(const QPoint&) const;
     QRect cellToRect(const QPoint&) const;
-    QRect polygonToContents(const QPolygon&) const;
+    QRect polygonToCells(const QPolygon&) const;
     QRect rectToContents(const QRect&) const;
 
     void processBitmap(QUndoCommand*, const QBitmap&);
@@ -266,7 +271,7 @@ private:
     Document    *m_document;
     Preview     *m_preview;
 
-    Renderer    *m_renderer;
+    Renderer    m_renderer;
 
     Scale       *m_horizontalScale;
     Scale       *m_verticalScale;
@@ -326,6 +331,8 @@ private:
 
     QByteArray  m_pasteData;
     Pattern     *m_pastePattern;
+
+    QImage      m_cachedContents;
 
     QStack<QPoint>  m_cursorStack;
     QMap<int, int>  m_cursorCommands;

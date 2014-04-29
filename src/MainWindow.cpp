@@ -178,7 +178,7 @@ void MainWindow::setupConnections()
     connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(QString)), this, SLOT(undoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(QString)), this, SLOT(redoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
-    connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(update()));
+    connect(m_palette, SIGNAL(colorSelected(int)), m_editor, SLOT(drawContents()));
     connect(m_palette, SIGNAL(swapColors(int,int)), this, SLOT(paletteSwapColors(int,int)));
     connect(m_palette, SIGNAL(replaceColor(int,int)), this, SLOT(paletteReplaceColor(int,int)));
     connect(m_palette, SIGNAL(signalStateChanged(QString,bool)), this, SLOT(slotStateChanged(QString,bool)));
