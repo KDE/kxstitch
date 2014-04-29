@@ -1164,6 +1164,10 @@ void Editor::toolCleanupRotate()
 
 void Editor::mousePressEvent(QMouseEvent *e)
 {
+    if (!rect().contains(e->pos())) {
+        return;
+    }
+
     if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
                                             (m_toolMode == Editor::ToolSelect) ||
                                             (m_toolMode == Editor::ToolAlphabet) ||
@@ -1175,6 +1179,10 @@ void Editor::mousePressEvent(QMouseEvent *e)
 
 void Editor::mouseMoveEvent(QMouseEvent *e)
 {
+    if (!rect().contains(e->pos())) {
+        return;
+    }
+
     if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
                                             (m_toolMode == Editor::ToolSelect) ||
                                             (m_toolMode == Editor::ToolAlphabet) ||
@@ -1195,6 +1203,10 @@ void Editor::mouseMoveEvent(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent(QMouseEvent *e)
 {
+    if (!rect().contains(e->pos())) {
+        return;
+    }
+
     if ((m_document->pattern()->palette().currentIndex() != -1) ||
         (m_toolMode == Editor::ToolSelect) ||
         (m_toolMode == Editor::ToolAlphabet) ||
