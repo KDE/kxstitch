@@ -278,14 +278,14 @@ void Renderer::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type 
 
 void Renderer::render(QPainter *painter,
                       Pattern *pattern,
-                      const QRect &updateRectangle,
+                      QRect updateCells,
                       bool renderGrid,
                       bool renderStitches,
                       bool renderBackstitches,
                       bool renderKnots,
                       int colorHilight)
 {
-    Q_UNUSED(updateRectangle);  // TODO Planning to rewrite renderer to used cached data
+    updateCells &= painter->window();
 
     painter->save();
 
@@ -294,14 +294,13 @@ void Renderer::render(QPainter *painter,
     d->m_symbolLibrary = SymbolManager::library(pattern->palette().symbolLibrary());
     d->m_hilight = colorHilight;
 
-    int patternLeft = painter->window().left();
-    int patternRight = painter->window().right();
-    int patternTop = painter->window().top();
-    int patternBottom = painter->window().bottom();
-    int patternWidth = painter->window().width();
-    int patternHeight = painter->window().height();
+    int patternLeft = updateCells.left();
+    int patternRight = updateCells.right();
+    int patternTop = updateCells.top();
+    int patternBottom = updateCells.bottom();
+    int patternWidth = updateCells.width();
+    int patternHeight = updateCells.height();
 
-    // draw grid
     if (renderGrid) {
         QPen thickPen(d->m_thickLineColor);
         QPen thinPen(d->m_thinLineColor);
@@ -319,18 +318,16 @@ void Renderer::render(QPainter *painter,
         }
     }
 
-    QTransform transform = painter->transform();
-
     if (renderStitches) {
+        QTransform transform = painter->transform();
+
         for (int y = patternTop ; y <= patternBottom ; ++y) {
             for (int x = patternLeft ; x <= patternRight ; ++x) {
-                painter->translate(x, y);
-
                 if (StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y))) {
+                    painter->translate(x, y);
                     (this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
+                    painter->setTransform(transform);
                 }
-
-                painter->setTransform(transform);
             }
         }
     }

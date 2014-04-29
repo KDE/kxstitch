@@ -47,7 +47,7 @@ public:
 
     void render(QPainter *,
                 Pattern *,
-                const QRect &updateRectangle,
+                QRect updateCells,
                 bool renderGrid,
                 bool renderStitches,
                 bool renderBackstitches,
