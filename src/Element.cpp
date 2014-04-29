@@ -23,7 +23,6 @@
 #include "Document.h"
 #include "FlossScheme.h"
 #include "Page.h"
-#include "Renderer.h"
 #include "SchemeManager.h"
 #include "Symbol.h"
 #include "SymbolLibrary.h"
@@ -954,10 +953,6 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Ty
         m_showKnots(true),
         m_planElement(0)
 {
-    m_renderer = new Renderer();
-    m_renderer->setRenderStitchesAs(m_renderStitchesAs);
-    m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
-    m_renderer->setRenderKnotsAs(m_renderKnotsAs);
 }
 
 
@@ -977,7 +972,6 @@ PatternElement::PatternElement(const PatternElement &other)
         m_showStitches(other.m_showStitches),
         m_showBackstitches(other.m_showBackstitches),
         m_showKnots(other.m_showKnots),
-        m_renderer(new Renderer(*other.m_renderer)),
         m_planElement(0)
 {
     if (other.m_planElement) {
@@ -988,7 +982,6 @@ PatternElement::PatternElement(const PatternElement &other)
 
 PatternElement::~PatternElement()
 {
-    delete m_renderer;
 }
 
 
@@ -1036,6 +1029,11 @@ PatternElement *PatternElement::clone() const
 
 void PatternElement::render(Document *document, QPainter *painter) const
 {
+    Renderer renderer;
+    renderer.setRenderStitchesAs(m_renderStitchesAs);
+    renderer.setRenderBackstitchesAs(m_renderBackstitchesAs);
+    renderer.setRenderKnotsAs(m_renderKnotsAs);
+
     int scaleSize = (m_showScales) ? 6 : 0;
 
     painter->save();
@@ -1069,9 +1067,9 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int cellHorizontalGrouping = document->property("cellHorizontalGrouping").toInt();
     int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
 
-    m_renderer->setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
-    m_renderer->setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
-    m_renderer->setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
+    renderer.setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
+    renderer.setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
+    renderer.setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
 
     // find the position of the top left coordinate of the top left cell of the cells to be printed
     double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth + scaleSize)) / 2);
@@ -1253,14 +1251,14 @@ void PatternElement::render(Document *document, QPainter *painter) const
         painter->setClipRect(m_patternRect);
     }
 
-    m_renderer->render(painter,
-                       document->pattern(),
-                       QRect(0, 0, patternWidth, patternHeight),
-                       m_showGrid,
-                       m_showStitches,
-                       m_showBackstitches,
-                       m_showKnots,
-                       -1);
+    renderer.render(painter,
+                    document->pattern(),
+                    QRect(0, 0, patternWidth, patternHeight),
+                    m_showGrid,
+                    m_showStitches,
+                    m_showBackstitches,
+                    m_showKnots,
+                    -1);
 
     if (m_showBorder) {
         QPen pen(m_borderColor);
@@ -1361,21 +1359,18 @@ void PatternElement::setShowPlan(bool showPlan)
 void PatternElement::setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type renderStitchesAs)
 {
     m_renderStitchesAs = renderStitchesAs;
-    m_renderer->setRenderStitchesAs(renderStitchesAs);
 }
 
 
 void PatternElement::setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type renderBackstitchesAs)
 {
     m_renderBackstitchesAs = renderBackstitchesAs;
-    m_renderer->setRenderBackstitchesAs(renderBackstitchesAs);
 }
 
 
 void PatternElement::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type renderKnotsAs)
 {
     m_renderKnotsAs = renderKnotsAs;
-    m_renderer->setRenderKnotsAs(renderKnotsAs);
 }
 
 
@@ -1495,9 +1490,6 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             m_planElement = 0;
         }
 
-        m_renderer->setRenderStitchesAs(m_renderStitchesAs);
-        m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
-        m_renderer->setRenderKnotsAs(m_renderKnotsAs);
         break;
 
     case 101:
@@ -1533,9 +1525,6 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             m_planElement = 0;
         }
 
-        m_renderer->setRenderStitchesAs(m_renderStitchesAs);
-        m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
-        m_renderer->setRenderKnotsAs(m_renderKnotsAs);
         break;
 
     case 100:
@@ -1573,9 +1562,6 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             m_planElement = 0;
         }
 
-        m_renderer->setRenderStitchesAs(m_renderStitchesAs);
-        m_renderer->setRenderBackstitchesAs(m_renderBackstitchesAs);
-        m_renderer->setRenderKnotsAs(m_renderKnotsAs);
         break;
 
     default:

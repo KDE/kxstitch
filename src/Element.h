@@ -17,6 +17,7 @@
 #include <QRect>
 
 #include "configuration.h"
+#include "Renderer.h"
 
 
 class QPainter;
@@ -232,7 +233,7 @@ private:
     bool        m_showBackstitches;
     bool        m_showKnots;
 
-    Renderer    *m_renderer;
+//    Renderer    m_renderer;
     PlanElement *m_planElement;
 };
 
