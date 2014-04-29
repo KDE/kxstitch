@@ -13,29 +13,25 @@
 
 #include <QApplication>
 #include <QBitmap>
-#include <QListIterator>
 #include <QMouseEvent>
 #include <QPainter>
 
 #include "LibraryListWidgetItem.h"
 #include "LibraryPattern.h"
 #include "Pattern.h"
-#include "Renderer.h"
 
 
 LibraryListWidget::LibraryListWidget(QWidget *parent)
     :   QListWidget(parent)
 {
-    m_renderer = new Renderer();
-    m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
-    m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
-    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
+    m_renderer.setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
+    m_renderer.setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+    m_renderer.setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
 
 LibraryListWidget::~LibraryListWidget()
 {
-    delete m_renderer;
 }
 
 
@@ -101,9 +97,9 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
             painter.setWindow(0, 0, pattern->stitches().width(), pattern->stitches().height());
             painter.setRenderHint(QPainter::Antialiasing, true);
 
-            m_renderer->render(&painter,
+            m_renderer.render(&painter,
                                pattern,
-                               QRect(QPoint(0, 0), pixmap.size()),
+                               painter.window(),
                                false,      // render grid
                                true,       // render stitches
                                true,       // render backstitches

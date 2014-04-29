@@ -16,6 +16,8 @@
 #include <QListWidget>
 #include <QWidget>
 
+#include "Renderer.h"
+
 
 class QDragObject;
 class QString;
@@ -40,7 +42,7 @@ protected:
     virtual void mouseMoveEvent(QMouseEvent *);
 
 private:
-    Renderer    *m_renderer;
+    Renderer    m_renderer;
 
     QPoint  m_startDrag;
 
