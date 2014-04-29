@@ -70,10 +70,10 @@ void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent*)
 
 void LibraryListWidget::mousePressEvent(QMouseEvent *e)
 {
+    m_startDrag = e->pos();
     LibraryListWidgetItem *item = static_cast<LibraryListWidgetItem *>(itemAt(m_startDrag));
 
     if (item && (e->button() == Qt::LeftButton)) {
-        m_startDrag = e->pos();
         e->accept();
     } else {
         e->ignore();
