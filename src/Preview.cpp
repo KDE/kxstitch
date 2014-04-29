@@ -18,25 +18,22 @@
 
 #include "configuration.h"
 #include "Document.h"
-#include "Renderer.h"
 
 
 Preview::Preview(QWidget *parent)
     :   QWidget(parent),
         m_document(0),
-        m_renderer(new Renderer()),
         m_zoomFactor(1.0)
 {
     setObjectName("Preview#");
-    m_renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
-    m_renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
-    m_renderer->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
+    m_renderer.setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
+    m_renderer.setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+    m_renderer.setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
 
 Preview::~Preview()
 {
-    delete m_renderer;
 }
 
 
@@ -62,6 +59,8 @@ void Preview::readDocumentSettings()
     m_previewWidth = m_cellWidth * width * m_zoomFactor;
     m_previewHeight = m_cellHeight * height * m_zoomFactor;
     resize(m_previewWidth, m_previewHeight);
+    m_cachedContents = QImage(m_previewWidth, m_previewHeight, QImage::Format_ARGB32_Premultiplied);
+    drawContents();
 }
 
 
@@ -74,14 +73,14 @@ void Preview::setVisibleCells(const QRect &cells)
 
 void Preview::loadSettings()
 {
-    update();
+    drawContents();
 }
 
 
 void Preview::mousePressEvent(QMouseEvent *e)
 {
     if (e->buttons() & Qt::LeftButton) {
-        m_start = m_tracking = m_end = QPoint(e->pos().x() / m_cellWidth, e->pos().y() / m_cellHeight);
+        m_start = m_tracking = m_end = contentToCell(e->pos());
     }
 }
 
@@ -89,13 +88,12 @@ void Preview::mousePressEvent(QMouseEvent *e)
 void Preview::mouseMoveEvent(QMouseEvent *e)
 {
     if (e->buttons() & Qt::LeftButton) {
-        m_tracking = QPoint(e->pos().x() / m_cellWidth, e->pos().y() / m_cellHeight);
+        m_tracking = contentToCell(e->pos());
 
         if (m_tracking != m_start) {
-            QRect updateArea = QRect(m_start * m_cellWidth, m_end * m_cellWidth).normalized();
             m_end = m_tracking;
             m_rubberBand = QRect(m_start, m_end).normalized();
-            update(updateArea.united(QRect(m_rubberBand.left() * m_cellWidth, m_rubberBand.top() * m_cellHeight, m_rubberBand.width() * m_cellWidth, m_rubberBand.height() * m_cellHeight)));
+            update();
         }
     }
 }
@@ -109,32 +107,45 @@ void Preview::mouseReleaseEvent(QMouseEvent *)
         emit clicked(QRect(m_start, m_end).normalized());
     }
 
-    QRect updateArea = QRect(m_rubberBand.left() * m_cellWidth, m_rubberBand.height() * m_cellHeight, m_rubberBand.width() * m_cellWidth, m_rubberBand.height() * m_cellHeight);
     m_rubberBand = QRect();
-    update(updateArea);
+    update();
 }
 
 
-void Preview::paintEvent(QPaintEvent *e)
+void Preview::drawContents()
 {
-    if (m_document == 0) {
+    if ((m_document == 0) || (m_cachedContents.isNull())) {
         return;
     }
 
-    QPainter painter;
-    painter.begin(this);
+    m_cachedContents.fill(m_document->property("fabricColor").value<QColor>());
+
+    QPainter painter(&m_cachedContents);
     painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.fillRect(e->rect(), m_document->property("fabricColor").value<QColor>());
     painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
 
-    m_renderer->render(&painter, m_document->pattern(), e->rect(), false, true, true, true, -1);
+    m_renderer.render(&painter, m_document->pattern(), painter.window(), false, true, true, true, -1);
 
-    if (m_visible.width() * m_cellWidth < m_previewWidth || m_visible.height() * m_cellHeight < m_previewHeight) {
-        painter.setPen(Qt::white);
-        painter.setBrush(Qt::NoBrush);
-        painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
-        painter.drawRect(m_visible);
+    painter.end();
+    update();
+}
+
+
+void Preview::paintEvent(QPaintEvent *)
+{
+    if (m_cachedContents.isNull()) {
+        return;
     }
+
+    QPainter painter(this);
+
+    painter.drawImage(0, 0, m_cachedContents);
+
+    painter.setPen(Qt::white);
+    painter.setBrush(Qt::NoBrush);
+    painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
+    painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
+    painter.drawRect(m_visible);
 
     if (m_rubberBand.isValid()) {
         QStyleOptionRubberBand opt;
@@ -146,4 +157,10 @@ void Preview::paintEvent(QPaintEvent *e)
     }
 
     painter.end();
+}
+
+
+QPoint Preview::contentToCell(const QPoint &content) const
+{
+    return QPoint(content.x() / m_cellWidth, content.y() / m_cellHeight);
 }

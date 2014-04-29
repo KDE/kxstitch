@@ -13,11 +13,13 @@
 #define Preview_H
 
 
+#include <QImage>
 #include <QWidget>
+
+#include "Renderer.h"
 
 
 class Document;
-class Renderer;
 
 
 class Preview : public QWidget
@@ -32,6 +34,7 @@ public:
     Document *document();
 
     void readDocumentSettings();
+    void drawContents();
 
 public slots:
     void setVisibleCells(const QRect &);
@@ -48,8 +51,11 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent *);
     virtual void paintEvent(QPaintEvent *);
 
+private:
+    QPoint contentToCell(const QPoint &content) const;
+
     Document    *m_document;
-    Renderer    *m_renderer;
+    Renderer    m_renderer;
     QRect       m_visible;
     QPoint      m_start;
     QPoint      m_tracking;
@@ -60,6 +66,8 @@ protected:
     double      m_previewWidth;
     double      m_previewHeight;
     double      m_zoomFactor;
+
+    QImage      m_cachedContents;
 };
 
 
