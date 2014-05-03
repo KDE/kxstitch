@@ -728,7 +728,7 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
             blockBrush.setColor(documentFloss->flossColor());
         } else {
             blockPen.setColor(Qt::lightGray);
-            blockBrush.setColor(documentFloss->flossColor());
+            blockBrush.setColor(Qt::lightGray);
         }
 
         d->m_painter->setPen(blockPen);
