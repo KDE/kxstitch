@@ -2096,6 +2096,10 @@ void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
         if (colorIndex != -1) {
             m_document->pattern()->palette().setCurrentIndex(colorIndex);
             m_document->palette()->update();
+
+            if (m_colorHilight) {
+                drawContents();
+            }
         }
     }
 }
