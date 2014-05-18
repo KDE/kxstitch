@@ -65,6 +65,8 @@ public:
 
 private:
     void readPCStitch5File(QDataStream &);
+    void readPCStitch6File(QDataStream &);
+    void readPCStitch7File(QDataStream &);
     QString readPCStitchString(QDataStream &);
 
     void readKXStitchV2File(QDataStream &);
