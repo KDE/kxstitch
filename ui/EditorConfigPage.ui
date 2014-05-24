@@ -280,7 +280,7 @@
        <item>
         <widget class="QCheckBox" name="kcfg_Renderer_ColorHilight">
          <property name="text">
-          <string>Color hilight</string>
+          <string>Color highlight</string>
          </property>
         </widget>
        </item>

@@ -391,7 +391,7 @@ void AddStitchCommand::undo()
 
 
 DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell, Stitch::Type type, int colorIndex, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Delete Stiches"), parent),
+    :   QUndoCommand(i18n("Delete Stitches"), parent),
         m_document(document),
         m_cell(cell),
         m_type(type),

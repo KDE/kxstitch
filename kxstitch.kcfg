@@ -87,7 +87,7 @@
 
     <group name="renderer">
         <entry name="Renderer_ColorHilight" type="Bool">
-            <label>Enable color hilighting mode</label>
+            <label>Enable color highlighting mode</label>
             <default>false</default>
         </entry>
         <entry name="Renderer_RenderBackgroundImages" type="Bool">
