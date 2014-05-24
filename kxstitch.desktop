@@ -3,10 +3,8 @@
 Type=Application
 Version=1.0
 Name=KXStitch
-Name[de]=KXStitch
 GenericName=Cross Stitch Editor
 Comment=A cross stitch application
-Comment[de]=
 Icon=kxstitch
 Exec=kxstitch -caption %c %i %U
 Terminal=false
