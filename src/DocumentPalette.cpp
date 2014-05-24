@@ -432,7 +432,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     // check there is a sufficient quantity of symbols to allocate to the remaining flosses
     if (missingSymbols.count() > indexes.count()) {
         if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(0, QString(i18n("There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required.", missingSymbols.count() - indexes.count())))) {
-            throw FailedReadFile(QString(i18n("Canceled: Insufficent symbols available")));
+            throw FailedReadFile(QString(i18n("Canceled: Insufficient symbols available")));
         }
     }
 
