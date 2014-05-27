@@ -42,7 +42,7 @@
 
 <para>There are many tools to aid designing your pattern, from open and filled rectangles and ellipses, filled polygons and lines and backstitching. Additionally cut, copy and paste can be used to duplicate selected areas. Selected areas can also be rotated 90, 180 and 270 degrees anti clockwise, or mirrored horizontally or vertically.</para>
 
-<para>There is also a pattern library that can be used to store small and not so small portions of patterns that can then be reused in other patterns. The patterns in these library are stored in a hierarchical list that makes it easy to sort and navigate them to find the ones you want. These pattern libraries can also be used as alphabets by assigning a character to each one. By using the Alphabet tool, each key press is searched for in the current library and if present, the associated pattern will be inserted in the pattern.</para>
+<para>There is also a pattern library that can be used to store small and not so small portions of patterns that can then be reused in other patterns. The patterns in these libraries are stored in a hierarchical list that makes it easy to sort and navigate them to find the ones you want. These pattern libraries can also be used as alphabets by assigning a character to each one. By using the Alphabet tool, each key press is searched for in the current library and if present, the associated pattern will be inserted in the pattern.</para>
 
 <para>When your ready, you can print out your design in several formats. There are options to print out cover sheets, instructions and a floss key including amount of thread used and number of stitches.</para>
 </refsect1>
