@@ -8,23 +8,23 @@
             <para>
                 <variablelist>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>n</keycap></keycombo></shortcut><guimenuitem>New</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut><guimenuitem>New</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Creates a new pattern, using the default values set in the pattern properties dialog.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>o</keycap></keycombo></shortcut><guimenuitem>Open</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></shortcut><guimenuitem>Open</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Opens an existing pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>r</keycap></keycombo></shortcut><guimenuitem>Open Recent</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Open Recent</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Open a recently used pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>s</keycap></keycombo></shortcut><guimenuitem>Save</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>s</keycap></keycombo></shortcut><guimenuitem>Save</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Saves the pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>a</keycap></keycombo></shortcut><guimenuitem>Save As</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Save As</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Saves the pattern under a new name</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -32,7 +32,7 @@
                         <listitem><simpara><action>Revert the pattern to the last saved state</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>p</keycap></keycombo></shortcut><guimenuitem>Print</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></shortcut><guimenuitem>Print</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Print the pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -56,12 +56,12 @@
                         <listitem><simpara><action>Select a background image to remove.  The sub menu for this is populated from the background images previously inserted.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>w</keycap></keycombo></shortcut><guimenuitem>Close</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>W</keycap></keycombo></shortcut><guimenuitem>Close</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Close the pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>q</keycap></keycombo></shortcut><guimenuitem>Quit</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Quits</action>&kapp;</simpara></listitem>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut><guimenuitem>Quit</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Quits</action> &kapp;</simpara></listitem>
                     </varlistentry>
                 </variablelist>
             </para>
@@ -72,23 +72,23 @@
             <para>
                 <variablelist>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>z</keycap></keycombo></shortcut><guimenuitem>Undo</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></shortcut><guimenuitem>Undo</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Undo the last change. The list of changes are shown in the History window.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>z</keycap></keycombo></shortcut><guimenuitem>Redo</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo></shortcut><guimenuitem>Redo</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Redo the last change undone. The list of changes are shown in the History window.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>x</keycap></keycombo></shortcut><guimenuitem>Cut</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>X</keycap></keycombo></shortcut><guimenuitem>Cut</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Cut the selected area to the clipboard</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>c</keycap></keycombo></shortcut><guimenuitem>Copy</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>C</keycap></keycombo></shortcut><guimenuitem>Copy</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Copy the selected area to the clipboard</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>v</keycap></keycombo></shortcut><guimenuitem>Paste</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>V</keycap></keycombo></shortcut><guimenuitem>Paste</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Paste the selected area</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -112,11 +112,11 @@
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Mirror selection vertically</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Mirrors the selected area vertically, i.e. flipped from top to bottom</action></simpara></listitem>
+                        <listitem><simpara><action>Mirrors the selected area vertically, &ie; flipped from top to bottom</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Mirror selection horizontally</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Mirror the selected area horizontally, i.e. flipped from left to right</action></simpara></listitem>
+                        <listitem><simpara><action>Mirror the selected area horizontally, &ie; flipped from left to right</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Rotate selection 90 degrees</guimenuitem></menuchoice></term>
@@ -169,11 +169,11 @@
                         <listitem><simpara><action>Zoom the view so that the patterns height fits within the visible area</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Shift</keycap><keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom in on the editor view</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Shift</keycap><keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom out on the editor view</action></simpara></listitem></varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Preview</guimenuitem></menuchoice></term>
@@ -217,7 +217,7 @@
                     <simpara><action>Three Quarter Stitch, the orientation is determined by the quadrant of the cell selected</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Full</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Full Stitch</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Full Stitch</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -305,7 +305,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Insert Text</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Text</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Insert text in stitches. This invokes the text dialog.  Select the font required and the size, enter the text
                             and click OK.  Press the &LMB; roughly where you would like the text, move the mouse to position
@@ -313,7 +313,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Alphabet Text</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Alphabet</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Insert patterns from the currently selected library that match the keys pressed.
                             This allows the creation of pattern alphabets that can have a key assignment.  After selecting this tool
@@ -329,7 +329,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Select Rectangle</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Select</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Select a rectangular region - Press down the &LMB; at one corner of the rectangle, drag
                             to the opposite corner and release the button. A selection rectangle is shown to indicate the area.
@@ -343,7 +343,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Backstitching</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Backstitch</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Add backstitching to the canvas - Press down the &LMB; at the start of the backstitch,
                             it will snap to the closest of 9 points in the cell, drag to the end point of the backstitch and release
@@ -380,7 +380,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Replace Color</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Replace Colors</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             The next color selected will replace the currently selected color. As with swap colors, you can use the
                             eye dropper tool to select the color from the pattern.
@@ -422,10 +422,6 @@
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Crop Canvas To Pattern</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Crop the canvas to the extents of the pattern</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Crop Canvas To Selection</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Crop the canvas to the extents of the current selection</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Crop Canvas To Selection</guimenuitem></menuchoice></term>
@@ -532,7 +528,7 @@
                         <listitem><simpara><action>Display this help.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>What's This.</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>What's This?</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Display help on a particular feature.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
