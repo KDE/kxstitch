@@ -48,7 +48,7 @@
         <para>
             The image is normally scaled to cover the entire pattern grid. This may not be suitable, therefore
             you can use the select tool to select an area that you want to cover and then select the
-            <menuchoice><guimenu>Pattern</guimenu> <guimenuitem>Fit background to selection</guimenuitem></menuchoice>. This will
+            <menuchoice><guimenu>View</guimenu> <guimenuitem>Fit Background Image to Selection</guimenuitem></menuchoice>. This will
             rescale the image to fit within the selected area. You can continue doing this until you are happy
             with the result, even after you have started adding stitches.
         </para>
