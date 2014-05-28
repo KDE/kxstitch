@@ -42,8 +42,8 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
     double verticalClothCount = Configuration::editor_VerticalClothCount();
     Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
-    ui.HorizontalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? "/cm" : "/in");
-    ui.VerticalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? "/cm" : "/in");
+    ui.HorizontalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18n("/cm") : i18n("/in"));
+    ui.VerticalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18n("/cm") : i18n("/in"));
     ui.HorizontalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
     ui.VerticalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
     ui.HorizontalClothCount->setValue(horizontalClothCount);
