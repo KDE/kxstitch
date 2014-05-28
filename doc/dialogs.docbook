@@ -42,8 +42,8 @@
             selected and then the parameters can be adjusted to give the correct color.
         </para>
         <para>
-            Once added this new color will be available to be included in your patterns palette via the 'Add Color'
-            dialog. It may also be adjusted by using the 'Floss Calibration' dialog.
+            Once added this new color will be available to be included in your patterns palette via the <guilabel>Add Color</guilabel>
+            dialog. It may also be adjusted by using the <guilabel>Floss Calibration</guilabel> dialog.
         </para>
     </sect1>
 
@@ -57,22 +57,22 @@
         </para>
         <para>
             On the left, a pick list of the schemes that are currently available along with a list of colors that
-            are in that scheme.  The color description will be appended with '(Calibrated)' if the color has been
+            are in that scheme.  The color description will be appended with <guilabel>(Calibrated)</guilabel> if the color has been
             modified by the current invocation of this dialog.
         </para>
         <para>
             On the right, is the name and description of the currently selected color, this will be appended with
-            '(Modified)' if the color has been modified, a preview of the color, and the current RGB values for the color.
+            <guilabel>(Modified)</guilabel> if the color has been modified, a preview of the color, and the current RGB values for the color.
         </para>
         <para>
-            Also shown is a 'Reset Color' button. This will reset the currently selected color to the value it had
+            Also shown is a <guibutton>Reset Color</guibutton> button. This will reset the currently selected color to the value it had
             when the dialog was first invoked.
         </para>
         <para>
-            Pressing the 'OK' button will commit all of the changed colors.
+            Pressing the <guibutton>OK</guibutton> button will commit all of the changed colors.
         </para>
         <para>
-            Pressing the 'Cancel' button will restore all the changed colors back to their original values.
+            Pressing the <guibutton>Cancel</guibutton> button will restore all the changed colors back to their original values.
         </para>
     </sect1>
 
@@ -89,7 +89,7 @@
             elements. The pick lists allow selection of the required format of those elements.
         </para>
         <para>
-            You can return to the default set of parameters using the Default button.
+            You can return to the default set of parameters using the <guibutton>Default</guibutton> button.
         </para>
     </sect1>
 
@@ -102,16 +102,16 @@
             On the left of the dialog there is a preview of the imported image, based on the parameters on the right.
         </para>
         <para>
-            The floss scheme for the finished pattern can be selected, by default this is the same as the 'New
-            Pattern Dialog' defaults. The maximum colors to be used for the pattern can be enabled and changed as
+            The floss scheme for the finished pattern can be selected, by default this is the same as the <guilabel>New
+            Pattern Dialog</guilabel> defaults. The maximum colors to be used for the pattern can be enabled and changed as
             required, by default the imported pattern will have as many colors as are defined in the original image
-            that are converted to floss colors. Checking the Ignore Color box allows you to click the dropper tool to
+            that are converted to floss colors. Checking the <guilabel>Ignore Color</guilabel> box allows you to click the dropper tool to
             select a color in the image that will be ignored on import. This is useful to remove backgrounds that you
             don't need converting to stitches. The ignored color will be displayed as a checker board pattern in the preview.
         </para>
         <para>
-            The cloth count value defaults to the 'New Pattern Properties' dialog and the scale is set such that
-            the final size is as close to the 'New Pattern Properties' pattern size as possible. These values can be
+            The cloth count value defaults to the <guilabel>New Pattern Properties</guilabel> dialog and the scale is set such that
+            the final size is as close to the <guilabel>New Pattern Properties</guilabel> pattern size as possible. These values can be
             changed as required.
         </para>
         <para>
@@ -119,7 +119,7 @@
             effectively doubles the import resolution without affecting the overall size of the pattern.
         </para>
         <para>
-            Clicking 'Import' will convert the image into a pattern.
+            Clicking <guibutton>Import</guibutton> will convert the image into a pattern.
         </para>
     </sect1>
 
@@ -136,7 +136,7 @@
         <para>
             The cloth count is defined in units per centimeter or inches and is dependent on the units of size.
             i.e. if CM is selected for the units then cloth count will be in units per centimeter, similarly for inches.
-            if the Stitches unit is selected then the cloth count units will remain as the last CM or inches value.
+            if the <guilabel>Stitches unit</guilabel> is selected then the cloth count units will remain as the last CM or inches value.
         </para>
         <para>
             The Title, Author, Copyright and Fabric fields are free text, so you can enter anything you like
@@ -148,11 +148,11 @@
             defined yourself.
         </para>
         <para>
-            The 'Set as default' checkbox will save the current values which will then be used as defaults
+            The <guilabel>Set as default</guilabel> checkbox will save the current values which will then be used as defaults
             for all new patterns.
         </para>
         <para>
-            The Instructions tab can be used to enter any specific instructions for sewing the pattern.
+            The <guilabel>Instructions</guilabel> tab can be used to enter any specific instructions for sewing the pattern.
         </para>
     </sect1>
 
@@ -187,11 +187,11 @@
             keyboard character.  The baseline is used to position the character pattern vertically relative to the cursor position
             when using the Alphabet tool.  Positive values move it down, negative values move it up.  The associated character is
             only required for use with the Alphabet tool.  After clicking in the associated character text box, the next key press, including
-            modifiers (Shift, Ctrl, etc) is used as the key.
+            modifiers (&Shift;, &Ctrl;, &etc;) is used as the key.
         </para>
         <para>
             Create new libraries by clicking the &RMB; on either an existing category, to create a sub category, or on a blank area of the library
-            list, for a new top level category, and select the New Category option, enter the name and click OK.
+            list, for a new top level category, and select the <guimenuitem>New Category</guimenuitem> option, enter the name and click <guibutton>OK</guibutton>.
         </para>
         <para>
             Creating a new library pattern by selecting an area in the pattern editor, select copy, then use the &RMB; on an existing category
@@ -209,7 +209,7 @@
             <screenshot><mediaobject><imageobject><imagedata fileref="text-tool-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
         </para>
         <para>
-            The text dialog allows you to select a font and size, then enter the text.  Clicking OK closes the
+            The text dialog allows you to select a font and size, then enter the text.  Clicking <guibutton>OK</guibutton> closes the
             dialog and returns you to the &kapp; window. Positioning the text is the same as pasting any other
             element. Press the &LMB; on the canvas roughly where you want the text, this will show a preview of
             the text, position the text exactly where you want it, then release the &LMB;
@@ -221,7 +221,7 @@
         <title>Extend Pattern Dialog</title>
         <para>
             This is used to extend the pattern in various directions by a number of cells.  Enter the number of cells in the spin boxes and
-            press OK to extend the pattern.
+            press <guibutton>OK</guibutton> to extend the pattern.
         </para>
         <screenshot><mediaobject><imageobject><imagedata fileref="extend-pattern-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
     </sect1>
@@ -314,7 +314,7 @@
         <sect2 id="KeyElement" >
             <title>Key Element</title>
             <para>
-                The key element shows the flosses used.  The properties dialog allows the selection of the fields that can be displayed.  The 'First element' and 'No. elements'
+                The key element shows the flosses used.  The properties dialog allows the selection of the fields that can be displayed.  The <guilabel>First element</guilabel> and <guilabel>No. elements</guilabel>
                 can be used for large keys that may span multiple pages and allows some symbols to be on one page and others to be on another page.
                 <screenshot><mediaobject><imageobject><imagedata fileref="key-element-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
                 <screenshot><mediaobject><imageobject><imagedata fileref="key-element.png" format="PNG" /></imageobject></mediaobject></screenshot>

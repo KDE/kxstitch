@@ -1,11 +1,13 @@
 <chapter id="credits" >
     <title>Credits and License</title>
     <para>&kapp;</para>
-    <para>Program copyright 2002 Stephen P. Allewell  <email>sallewell@users.sourceforge.net</email></para>
+    <para>Program copyright 2002-2014 Stephen P. Allewell  <email>sallewell@users.sourceforge.net</email></para>
     <para>
         Contributors:
         <itemizedlist>
-            <listitem><para></para></listitem>
+	<listitem><para>Pierre Brua <email>kxstitchdev@paralline.com</email>: Bug fixes, application icons</para></listitem>
+	<listitem><para>Eric Pareja <email>xenos@upm.edu.ph</email>: Man page</para></listitem>
+	<listitem><para>Adam Gundy <email>adam@starsilk.net</email>: Bug fixes, improvements</para></listitem>
         </itemizedlist>
     </para>
     <para>

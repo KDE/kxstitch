@@ -5,13 +5,13 @@
         <title>Starting &kapp;</title>
         <para>
             When starting &kapp; you will be presented with a blank canvas of the default
-            size. This is also the case when selecting <guimenu>File</guimenu><guimenuitem>New</guimenuitem>.
+            size. This is also the case when selecting <menuchoice><guimenu>File</guimenu><guimenuitem>New</guimenuitem></menuchoice>.
             The default sizes can be set in the pattern properties dialog by enabling the set as default checkbox.
         </para>
         <para>
             If the default size is not suitable for your planned pattern, you can use
-            the <guimenu>File</guimenu><guimenuitem>Properties</guimenuitem> dialog to change it.
-            Adjust the values as required and after clicking on OK, the pattern will be resized to suit.
+            the <menuchoice><guimenu>File</guimenu><guimenuitem>File Properties</guimenuitem></menuchoice> dialog to change it.
+            Adjust the values as required and after clicking on <guibutton>OK</guibutton>, the pattern will be resized to suit.
         </para>
     </sect1>
 
@@ -30,11 +30,11 @@
             pattern.
         </para>
         <para>
-            Checking the Use fractionals checkbox will enable the use of fractional stitches to give more
+            Checking the <guilabel>Use fractionals</guilabel> checkbox will enable the use of fractional stitches to give more
             detail for any given pattern size.
         </para>
         <para>
-            Checking the ignore color checkbox will allow the selection of a color within the image which will then be considered
+            Checking the <guilabel>Ignore color</guilabel> checkbox will allow the selection of a color within the image which will then be considered
             as the transparent color and ignored during the import.
         </para>
     </sect1>
@@ -48,7 +48,7 @@
         <para>
             The image is normally scaled to cover the entire pattern grid. This may not be suitable, therefore
             you can use the select tool to select an area that you want to cover and then select the
-            <guimenu>Pattern</guimenu> <guimenuitem>Fit background to selection</guimenuitem>. This will
+            <menuchoice><guimenu>Pattern</guimenu> <guimenuitem>Fit background to selection</guimenuitem></menuchoice>. This will
             rescale the image to fit within the selected area. You can continue doing this until you are happy
             with the result, even after you have started adding stitches.
         </para>
@@ -72,7 +72,7 @@
         </para>
         <para>
             Adding new category headings can be done with a &RMB; on either an existing entry, to create a sub category, or on a blank space on
-            the library list, to create a new root entry, and selecting the New Category option.  Enter the name of the category and click OK.
+            the library list, to create a new root entry, and selecting the <guimenuitem>New Category</guimenuitem> option.  Enter the name of the category and click <guibutton>OK</guibutton>.
         </para>
         <para>
             Creating a new library pattern is done by selecting an area of your working pattern, copying and pasting to one of the existing categories.

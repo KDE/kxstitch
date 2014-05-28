@@ -47,7 +47,7 @@
         </para>
         <para>
             A menu option allows you to add background images to the editor window, to use as a template for
-            adding stitches. For more details see the section on Creating Patterns.
+            adding stitches. For more details see the section on <link linkend="creatingpatterns">Creating Patterns</link>.
         </para>
         <sect2 id="kxstitch-editor-context" >
             <title>Context Menu</title>

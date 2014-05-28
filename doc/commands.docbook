@@ -20,7 +20,7 @@
                         <listitem><simpara><action>Open a recently used pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>s</keycap></keycombo></shortcut><guimenuitem>Save</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></shortcut><guimenuitem>Save</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Saves the pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -169,11 +169,11 @@
                         <listitem><simpara><action>Zoom the view so that the patterns height fits within the visible area</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Shift</keycap><keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom in on the editor view</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Shift</keycap><keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom out on the editor view</action></simpara></listitem></varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Preview</guimenuitem></menuchoice></term>
