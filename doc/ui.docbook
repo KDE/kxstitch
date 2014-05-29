@@ -20,9 +20,8 @@
             allocated to any of the sections.
         </para>
         <para>
-            The layout of other elements, menu bar, toolbars and the status bar, is similar to other KDE
-            applications you run. As with other KDE applications the position of the toolbars can be moved
-            to any edge of the window, or detached completely.
+            The layout of other elements, menu bar, toolbars and the status bar, is similar to other &kde;
+            applications you run.
         </para>
         <para>
             The status bar at the bottom of the window shows various status messages.
@@ -38,7 +37,7 @@
         </para>
         <para>
             Generally the &LMB; is used to activate any of the tools on the pattern. Details of each of the
-            tools and their use is shown in the command reference section.
+            tools and their use is shown in <link linkend="commands">the command reference section</link>.
         </para>
         <para>
             The grid shows heavier lines dividing the cells into groups. The number of cells per group is
@@ -63,8 +62,8 @@
     <sect1 id="kxstitch-preview" >
         <title>Preview Window</title>
         <para>
-            The Preview window shows a scrolling overview of the current design at a smaller scale than the
-            Editor window.  The Preview shows a black rectangle representing the current view within the
+            The <guilabel>Preview</guilabel> window shows a scrolling overview of the current design at a smaller scale than the
+            Editor window.  The <guilabel>Preview</guilabel> shows a black rectangle representing the current view within the
             Editor window.
         </para>
         <para>
@@ -77,7 +76,7 @@
     <sect1 id="kxstitch-palette" >
         <title>Palette Window</title>
         <para>
-            The Palette window shows the floss colors currently in this patterns palette as colored blocks,
+            The <guilabel>Palette</guilabel> window shows the floss colors currently in this patterns palette as colored blocks,
             and optionally with the symbols that are associated with each color.  Moving the mouse pointer
             over a color block will pop up a tool tip showing the color number and name for that color.
             Clicking on a color selects that color for the next painting or drawing function.
@@ -85,8 +84,8 @@
         <sect2 id="kxstitch-palette-context" >
             <title>Context Menu</title>
             <para>
-                Using your &RMB; on the Palette view will activate a context menu allowing you to perform several
-                functions on the palette. See the command reference for more details on their use.
+                Using your &RMB; on the <guilabel>Palette</guilabel> view will activate a context menu allowing you to perform several
+                functions on the palette. See <link linkend="commands">the command reference</link> for more details on their use.
                 <screenshot><mediaobject><imageobject><imagedata fileref="palette-context-menu.png" format="PNG" /></imageobject></mediaobject></screenshot>
             </para>
         </sect2>
