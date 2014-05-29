@@ -1253,7 +1253,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
 
     renderer.render(painter,
                     document->pattern(),
-                    QRect(0, 0, patternWidth, patternHeight),
+                    m_patternRect,
                     m_showGrid,
                     m_showStitches,
                     m_showBackstitches,
