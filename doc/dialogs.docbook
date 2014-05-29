@@ -115,7 +115,7 @@
             changed as required.
         </para>
         <para>
-            The Use fractionals checkbox will enable the use of fractional stitches in the imported pattern.  This
+            The <guilabel>Use fractionals</guilabel> checkbox will enable the use of fractional stitches in the imported pattern.  This
             effectively doubles the import resolution without affecting the overall size of the pattern.
         </para>
         <para>
@@ -135,7 +135,7 @@
         </para>
         <para>
             The cloth count is defined in units per centimeter or inches and is dependent on the units of size.
-            i.e. if CM is selected for the units then cloth count will be in units per centimeter, similarly for inches.
+            &ie; if CM is selected for the units then cloth count will be in units per centimeter, similarly for inches.
             if the <guilabel>Stitches unit</guilabel> is selected then the cloth count units will remain as the last CM or inches value.
         </para>
         <para>

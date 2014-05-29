@@ -40,7 +40,7 @@
                         <listitem><simpara><action>Set up the printing layout</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Import Image File</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Import Image</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Import an image file converting it to stitches</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -48,7 +48,7 @@
                         <listitem><simpara><action>Display / Edit the document properties</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Insert Background Image</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Add Background Image</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Insert an image as a background for tracing.</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -92,18 +92,18 @@
                         <listitem><simpara><action>Paste the selected area</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Stitch Selection Mask</guimenuitem></menuchoice></term>
+		      <term><menuchoice><guisubmenu>Selection Masks</guisubmenu><guimenuitem>Stitch Mask</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Limit selections to the currently selected stitch type</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Color Selection Mask</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Selection Masks</guisubmenu><guimenuitem>Color Mask</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Limit selections to the currently selected color</action></simpara></listitem></varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Exclude Backstitches</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Selection Masks</guisubmenu><guimenuitem>Exclude Backstitches</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Exclude backstitches from the selection</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Exclude Knots</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Selection Masks</guisubmenu><guimenuitem>Exclude Knots</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Exclude Knots from the selection</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -111,23 +111,23 @@
                         <listitem><simpara><action>If set, the mirror and rotate functions will make a copy of the selection, otherwise the selected area is moved</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Mirror selection vertically</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Mirrors the selected area vertically, &ie; flipped from top to bottom</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Mirror selection horizontally</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Mirror Selection</guisubmenu><guimenuitem>Horizontally</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Mirror the selected area horizontally, &ie; flipped from left to right</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Rotate selection 90 degrees</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Mirror Selection</guisubmenu><guimenuitem>Vertically</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Mirrors the selected area vertically, &ie; flipped from top to bottom</action></simpara></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><menuchoice><guisubmenu>Rotate Selection</guisubmenu><guimenuitem>90 degrees</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Rotate the selected area anti clockwise 90 degrees</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Rotate selection 180 degrees</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Rotate Selection</guisubmenu><guimenuitem>180 degrees</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Rotate the selected area anti clockwise 180 degrees</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Rotate selection 270 degrees</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guisubmenu>Rotate Selection</guisubmenu><guimenuitem>270 degrees</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Rotate the selected area anti clockwise 270 degrees</action></simpara></listitem>
                     </varlistentry>
                 </variablelist>
@@ -142,7 +142,7 @@
                     The paste operation in &kapp; allows you to press and hold the &LMB; down roughly in the position that
                     the paste data is to go which will provide an image of the paste data to allow accurate positioning before
                     releasing the mouse button to finalize the position.  This technique is also used for the mirroring and
-                    rotate functions. The cursor keys can also be used to move the pasted pattern around and the return key
+                    rotate functions. The cursor keys can also be used to move the pasted pattern around and the &Enter; key
                     used to fix the position.
                 </para>
             </sect3>
@@ -200,7 +200,7 @@
         </sect2>
 
         <sect2>
-            <title>The Stitch Menu</title>
+            <title>The Stitches Menu</title>
             <para>
                 <variablelist>
                     <varlistentry>
@@ -237,7 +237,7 @@
         </sect2>
 
         <sect2>
-            <title>The Tool Menu</title>
+            <title>The Tools Menu</title>
             <para>
                 <variablelist>
                     <varlistentry>
@@ -260,13 +260,13 @@
                         <listitem><simpara><action>
                             Erase stitches - Press down the &LMB; and drag over the stitches to be deleted. All stitches
                             within the cells passed over will be removed. Release the mouse button to stop erasing.  To erase backstitches
-                            hold down the CTRL key and left click in the start or end point of the backstitch, if there is more than one backstitch
+                            hold down the &Ctrl; key and left click in the start or end point of the backstitch, if there is more than one backstitch
                             at the digitized point this method will erase the first one found.  To delete a specific backstitch, click and
-                            drag from one end to the other. To erase french knots hold down the SHIFT key and left click on the knot to delete it.
+                            drag from one end to the other. To erase french knots hold down the &Shift; key and left click on the knot to delete it.
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Outline Rectangle</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Draw Rectangle</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Draw a rectangle - Press down the &LMB; at one corner of the rectangle and drag to the
                             opposite corner. Release the mouse button and an unfilled rectangle of stitches will be added to the
@@ -281,7 +281,7 @@
                         </action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Outline Ellipse</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Draw Ellipse</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Draw an ellipse - Press down the &LMB; at one corner of the ellipse and drag to the
                             opposite corner. Release the mouse button and an unfilled ellipse of stitches will be added to the
@@ -300,7 +300,7 @@
                         <listitem><simpara><action>
                             Draw a filled polygon - Click on each cell marking the vertexes of the polygon, click and drag to create more complex
                             curves.  Each of the vertexes are marked by a circle with a black line joining them. To close the polygon click on the
-                            starting cell again.  You can use the backspace key to remove the last point, or the Esc key to remove all vertexes and
+                            starting cell again.  You can use the backspace key to remove the last point, or the &Esc; key to remove all vertexes and
                             cancel the operation.
                         </action></simpara></listitem>
                     </varlistentry>
@@ -308,7 +308,7 @@
                         <term><menuchoice><guimenuitem>Text</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
                             Insert text in stitches. This invokes the text dialog.  Select the font required and the size, enter the text
-                            and click OK.  Press the &LMB; roughly where you would like the text, move the mouse to position
+                            and click <guibutton>OK</guibutton>.  Press the &LMB; roughly where you would like the text, move the mouse to position
                             the text accurately and then release the mouse button.  This is the same as the paste function.
                         </action></simpara></listitem>
                     </varlistentry>
@@ -320,10 +320,10 @@
                             and clicking a position on the pattern for the insertion point, each key pressed will be searched for in
                             the current library for a matching pattern.  If found this will be inserted at the position on the pattern
                             and the insertion position then advanced by the width of the inserted character pattern.  The pattern
-                            space will be extended right to allow further characters to be entered.  Pressing Enter will start a new
+                            space will be extended right to allow further characters to be entered.  Pressing &Enter; will start a new
                             line under the position of the original insertion point, the pattern space will be extended downwards
-                            to accommodate the new line if insufficient space is available.  Backspace will delete the last character entered
-                            and the space key will advance the insertion point by either the width of a space character in the library
+                            to accommodate the new line if insufficient space is available.  <keycap>Backspace</keycap> will delete the last character entered
+                            and the <keycap>Space</keycap> key will advance the insertion point by either the width of a space character in the library
                             or a predetermined amount if no space character exists. The text will wrap onto the next line if the edge of the
                             pattern is reached and the end of a word is detected.
                         </action></simpara></listitem>
@@ -416,7 +416,7 @@
                         <listitem><simpara><action>Extend the pattern top, left, right and bottom</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Center Pattern</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Centre Pattern</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Center the pattern in the canvas</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -472,7 +472,7 @@
                         <listitem><simpara><action>Show or hide the backstitches</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Show Knots</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Show French Knots</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Show or hide the french knots</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
