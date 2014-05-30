@@ -266,7 +266,7 @@ void FilePropertiesDlg::updatePatternSizes()
     ui.HorizontalClothCount->setValue(m_horizontalClothCount);
     ui.VerticalClothCount->setValue(m_verticalClothCount);
 
-    QString suffix = ((m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18n("/cm") : i18n("/in"));
+    QString suffix = ((m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
     ui.HorizontalClothCount->setSuffix(suffix);
     ui.VerticalClothCount->setSuffix(suffix);
 
