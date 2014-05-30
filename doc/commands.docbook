@@ -300,7 +300,7 @@
                         <listitem><simpara><action>
                             Draw a filled polygon - Click on each cell marking the vertexes of the polygon, click and drag to create more complex
                             curves.  Each of the vertexes are marked by a circle with a black line joining them. To close the polygon click on the
-                            starting cell again.  You can use the backspace key to remove the last point, or the &Esc; key to remove all vertexes and
+                            starting cell again.  You can use the &Backspace; key to remove the last point, or the &Esc; key to remove all vertexes and
                             cancel the operation.
                         </action></simpara></listitem>
                     </varlistentry>
@@ -322,7 +322,7 @@
                             and the insertion position then advanced by the width of the inserted character pattern.  The pattern
                             space will be extended right to allow further characters to be entered.  Pressing &Enter; will start a new
                             line under the position of the original insertion point, the pattern space will be extended downwards
-                            to accommodate the new line if insufficient space is available.  <keycap>Backspace</keycap> will delete the last character entered
+                            to accommodate the new line if insufficient space is available.  &Backspace; will delete the last character entered
                             and the <keycap>Space</keycap> key will advance the insertion point by either the width of a space character in the library
                             or a predetermined amount if no space character exists. The text will wrap onto the next line if the edge of the
                             pattern is reached and the end of a word is detected.
@@ -375,7 +375,7 @@
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Swap Colors</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>
-                            The next color selected will be swapped with the currently select color. If you select the eye dropper
+                            The next color selected will be swapped with the currently selected color. If you select the eye dropper
                             tool, you can choose the color to be swapped with directly from the pattern.
                         </action></simpara></listitem>
                     </varlistentry>

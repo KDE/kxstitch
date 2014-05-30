@@ -9,7 +9,7 @@
         <para>
             The palette manager allows you to add, remove or swap flosses from your current palette and the selected scheme.
             You can remove all non used flosses from your current palette and you are able to add new flosses to the scheme.
-            Additionally you can bring up the floss calibration dialog from here.
+            Additionally you can bring up <link linkend="CalibrateDialog">the floss calibration dialog</link> from here.
         </para>
         <para>
             You can allocate the number of strands of cotton used for each floss, for both stitching and backstitching.
@@ -22,7 +22,7 @@
             </para>
             <para>
                 For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
-                symbols.  Used symbols are shown grayed out and a tooltip will show [Used] when the symbol is hovered over.
+                symbols.  Used symbols are shown grayed out and a tooltip will show <quote>Used</quote> when the symbol is hovered over.
             </para>
         </sect2>
     </sect1>
@@ -38,12 +38,12 @@
             floss manufacturer.
         </para>
         <para>
-            Clicking on the Color button will show a standard KDE color selection dialog. The initial color can be
+	  Clicking on the <guilabel>Color</guilabel> button will show a standard <ulink url="help:/fundamentals/colors.html">&kde; color selection dialog</ulink>. The initial color can be
             selected and then the parameters can be adjusted to give the correct color.
         </para>
         <para>
-            Once added this new color will be available to be included in your patterns palette via the <guilabel>Add Color</guilabel>
-            dialog. It may also be adjusted by using the <guilabel>Floss Calibration</guilabel> dialog.
+            Once added this new color will be available to be included in your patterns palette via the <guilabel>Palette Manager</guilabel>
+	    dialog. It may also be adjusted by using the <link linkend="CalibrateDialog">Floss Calibration dialog</link>.
         </para>
     </sect1>
 
@@ -103,7 +103,7 @@
         </para>
         <para>
             The floss scheme for the finished pattern can be selected, by default this is the same as the <guilabel>New
-            Pattern Dialog</guilabel> defaults. The maximum colors to be used for the pattern can be enabled and changed as
+            Pattern Properties</guilabel> dialog defaults. The maximum colors to be used for the pattern can be enabled and changed as
             required, by default the imported pattern will have as many colors as are defined in the original image
             that are converted to floss colors. Checking the <guilabel>Ignore Color</guilabel> box allows you to click the dropper tool to
             select a color in the image that will be ignored on import. This is useful to remove backgrounds that you
@@ -146,10 +146,6 @@
         <para>
             The floss scheme has a pick list for all the available floss schemes, including any that you have
             defined yourself.
-        </para>
-        <para>
-            The <guilabel>Set as default</guilabel> checkbox will save the current values which will then be used as defaults
-            for all new patterns.
         </para>
         <para>
             The <guilabel>Instructions</guilabel> tab can be used to enter any specific instructions for sewing the pattern.
@@ -212,7 +208,7 @@
             The text dialog allows you to select a font and size, then enter the text.  Clicking <guibutton>OK</guibutton> closes the
             dialog and returns you to the &kapp; window. Positioning the text is the same as pasting any other
             element. Press the &LMB; on the canvas roughly where you want the text, this will show a preview of
-            the text, position the text exactly where you want it, then release the &LMB;
+            the text, position the text exactly where you want it, then release the &LMB;.
         </para>
         <screenshot><mediaobject><imageobject><imagedata fileref="text-tool-pattern.png" format="PNG" /></imageobject></mediaobject></screenshot>
     </sect1>
@@ -239,7 +235,7 @@
         <para><inlinemediaobject><imageobject><imagedata fileref="add-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Append a page - This will append a page at the end of the list.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="insert-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a page - This will insert a page before the one currently selected in the list.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="delete-page-icon.png" format="PNG" /></imageobject></inlinemediaobject>Delete a page - This will delete the page currently selected in the list.</para>
-        <para><inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Select an element -Used to select elements for editing or resizing.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Select an element - Used to select elements for editing or resizing.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="text-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a text element - Used to insert a text element onto the current page.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="pattern-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a pattern element - Used to insert a pattern element onto the current page.</para>
 
