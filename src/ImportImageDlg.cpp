@@ -36,7 +36,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     m_ignoreColor = ui.IgnoreColor->isChecked();
 
     m_originalSize = QSize(m_originalImage.columns(), m_originalImage.rows());
-    QString caption = QString("Import Image - Image Size %1 x %2 pixels").arg(m_originalSize.width()).arg(m_originalSize.height());
+    QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_originalSize.width(), m_originalSize.height());
     setCaption(caption);
 
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
