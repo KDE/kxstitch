@@ -136,7 +136,7 @@
         <para>
             The cloth count is defined in units per centimeter or inches and is dependent on the units of size.
             &ie; if CM is selected for the units then cloth count will be in units per centimeter, similarly for inches.
-            if the <guilabel>Units</guilabel> is selected then the cloth count units will remain as the last CM or inches value.
+            If the <guilabel>Units</guilabel> is selected then the cloth count units will remain as the last CM or inches value.
         </para>
         <para>
             The Title, Author, Copyright and Fabric fields are free text, so you can enter anything you like
