@@ -91,9 +91,8 @@ int main(int argc, char *argv[])
                          KAboutData::License_GPL_V2,
                          ki18n("(c)2010-2014 Stephen Allewell"),
                          KLocalizedString(),
-                         "http://kxstitch.sourceforge.net/kxstitch",
-                         "sallewell@users.sourceforge.net");
-    aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "sallewell@users.sourceforge.net");
+                         "http://userbase.kde.org/KXStitch");
+    aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "steve.allewell@gmail.com");
     aboutData.addCredit(ki18n("Pierre Brua"), ki18n("Bug fixes, application icons"), "kxstitchdev@paralline.com");
     aboutData.addCredit(ki18n("Eric Pareja"), ki18n("Man page"), "xenos@upm.edu.ph");
     aboutData.addCredit(ki18n("Adam Gundy"), ki18n("Bug fixes, improvements"), "adam@starsilk.net");
