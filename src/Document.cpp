@@ -529,7 +529,7 @@ void Document::readPCStitch5File(QDataStream &stream)
             }
 
             colorName = floss->name();
-            DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, (paletteEntry.stitchStrands) ? paletteEntry.stitchStrands : 2, (paletteEntry.backstitchStrands) ? paletteEntry.backstitchStrands : 2); // TODO define defaults in palette configuration
+            DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, (paletteEntry.stitchStrands) ? paletteEntry.stitchStrands : Configuration::palette_StitchStrands(), (paletteEntry.backstitchStrands) ? paletteEntry.backstitchStrands : Configuration::palette_BackstitchStrands());
             documentFloss->setFlossColor(floss->color());
             m_pattern->palette().add(i, documentFloss);
         }
