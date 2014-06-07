@@ -221,11 +221,15 @@ PaletteConfigPage::PaletteConfigPage(QWidget *parent, const char *name)
     // KConfigXT will read the currentText through the kcfg_property
     kcfg_Palette_DefaultScheme->setProperty("kcfg_property", QByteArray("currentText"));
     kcfg_Palette_DefaultSymbolLibrary->setProperty("kcfg_property", QByteArray("currentText"));
+    kcfg_Palette_StitchStrands->setProperty("kcfg_property", QByteArray("currentText"));
+    kcfg_Palette_BackstitchStrands->setProperty("kcfg_property", QByteArray("currentText"));
     kcfg_Palette_DefaultScheme->insertItems(0, SchemeManager::schemes());
     kcfg_Palette_DefaultSymbolLibrary->insertItems(0, SymbolManager::libraries());
     // KConfigXT can't write the currentText, so this needs to be set manually
     kcfg_Palette_DefaultScheme->setCurrentItem(Configuration::palette_DefaultScheme());
     kcfg_Palette_DefaultSymbolLibrary->setCurrentItem(Configuration::palette_DefaultSymbolLibrary());
+    kcfg_Palette_StitchStrands->setCurrentIndex(Configuration::palette_StitchStrands() - 1);
+    kcfg_Palette_BackstitchStrands->setCurrentIndex(Configuration::palette_BackstitchStrands() - 1);
 }
 
 
@@ -234,6 +238,8 @@ void PaletteConfigPage::defaultClicked()
     // Clicking Default button doesn't work with the KComboBoxes with text defaults, set them manually
     kcfg_Palette_DefaultScheme->setCurrentItem(Configuration::defaultPalette_DefaultSchemeValue());
     kcfg_Palette_DefaultSymbolLibrary->setCurrentItem(Configuration::defaultPalette_DefaultSymbolLibraryValue());
+    kcfg_Palette_StitchStrands->setCurrentIndex(Configuration::defaultPalette_StitchStrandsValue() - 1);
+    kcfg_Palette_BackstitchStrands->setCurrentIndex(Configuration::defaultPalette_BackstitchStrandsValue() - 1);
 }
 
 
