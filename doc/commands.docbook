@@ -515,6 +515,10 @@
                         <term><menuchoice><guimenuitem>Configure Toolbars</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Configure the applications toolbars</action></simpara></listitem>
                     </varlistentry>
+		    <varlistentry>
+                        <term><menuchoice><guimenuitem>Configure &kapp;</guimenuitem></menuchoice></term>
+			<listitem><simpara><action>Open &kapp; <link linkend="ConfigurationDialog">configuration dialog</link>.</action></simpara></listitem>
+                    </varlistentry>
                 </variablelist>
             </para>
         </sect2>
