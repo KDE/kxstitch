@@ -174,6 +174,13 @@ const uchar replaceCursorMask[] = {
 
 Palette::Palette(QWidget *parent)
     :   QFrame(parent),
+        m_document(0),
+        m_showSymbols(Configuration::palette_ShowSymbols()),
+        m_cols(0),
+        m_rows(0),
+        m_width(0),
+        m_height(0),
+        m_flosses(0),
         m_mode(Select)
 {
     setObjectName("Palette#");
