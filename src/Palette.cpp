@@ -288,8 +288,6 @@ void Palette::paintEvent(QPaintEvent *)
 
     SymbolLibrary *library = SymbolManager::library(m_document->pattern()->palette().symbolLibrary());
 
-    QTransform scale = QTransform::fromScale(m_width, m_height);
-
     QPainter painter;
 
     if (m_flosses) {
@@ -316,6 +314,8 @@ void Palette::paintEvent(QPaintEvent *)
                 break;
             }
         }
+
+        QTransform scale = QTransform::fromScale(m_width, m_height);
 
         painter.begin(this);
         painter.setRenderHint(QPainter::Antialiasing, Configuration::palette_SymbolsAntialiased());
