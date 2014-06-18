@@ -13,6 +13,11 @@
             the <menuchoice><guimenu>File</guimenu><guimenuitem>File Properties</guimenuitem></menuchoice> dialog to change it.
             Adjust the values as required and after clicking on <guibutton>OK</guibutton>, the pattern will be resized to suit.
         </para>
+        <para>
+            Before creating a pattern you will need to add some flosses to the palette using the <menuchoice><guimenu>Palette</guimenu>
+            <guimenuitem>Palette Manager</guimenuitem></menuchoice>. This will enable the tools in the <menuchoice><guimenu>Tools</guimenu></menuchoice> menu and toolbar.
+            See the <link linkend="PaletteManagerDialog">Palette Manager Dialog</link> for further information.
+        </para>
     </sect1>
 
     <sect1 id="importing-images">

@@ -264,7 +264,7 @@ bool Palette::event(QEvent *event)
                 event->ignore();
             }
         } else {
-            QToolTip::showText(helpEvent->globalPos(), i18n("No colors in palette"));
+            QToolTip::showText(helpEvent->globalPos(), i18n("There are no flosses in the palette.\nAdd them with the Palette Manager\nwhich will then enable the drawing tools."));
         }
 
         return true;
