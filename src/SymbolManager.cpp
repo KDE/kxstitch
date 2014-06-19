@@ -157,7 +157,7 @@ SymbolLibrary *SymbolManager::readLibrary(const QString &name)
             stream >> *symbolLibrary;
             symbolLibrary->setName(QFileInfo(name).baseName());
         } catch (const InvalidFile &e) {
-            KMessageBox::sorry(0, i18n("This doesn't appear to be a valid symbol file"));
+            KMessageBox::sorry(0, i18n("This does not appear to be a valid symbol file"));
             delete symbolLibrary;
             symbolLibrary = 0;
         } catch (const InvalidFileVersion &e) {

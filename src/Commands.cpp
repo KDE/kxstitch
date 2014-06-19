@@ -1010,7 +1010,7 @@ void ExtendPatternCommand::undo()
 
 
 CentrePatternCommand::CentrePatternCommand(Document *document)
-    :   QUndoCommand(i18n("Centre Pattern")),
+    :   QUndoCommand(i18n("Center Pattern")),
         m_document(document)
 {
 }
@@ -1081,7 +1081,7 @@ void UpdateDocumentPaletteCommand::undo()
 
 
 ChangeSchemeCommand::ChangeSchemeCommand(Document *document, const QString &schemeName, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Change floss scheme"), parent),
+    :   QUndoCommand(i18n("Change Floss Scheme"), parent),
         m_document(document),
         m_schemeName(schemeName)
 {

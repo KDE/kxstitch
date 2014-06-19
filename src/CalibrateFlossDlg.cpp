@@ -120,7 +120,8 @@ void CalibrateFlossDlg::updateSample()
 
 void CalibrateFlossDlg::updateName(bool modified)
 {
-    ui.SelectedColorName->setText(QString("%1-%2%3").arg(m_item->data(Qt::UserRole).toString()).arg(m_item->data(Qt::UserRole + 1).toString()).arg((modified) ? i18n(" (Modified)") : ""));
+    KLocalizedString str = modified ? ki18n("%1-%2 (Modified)") : ki18n("%1-%2");
+    ui.SelectedColorName->setText(str.subs(m_item->data(Qt::UserRole).toString()).subs(m_item->data(Qt::UserRole + 1).toString()).toString());
 }
 
 

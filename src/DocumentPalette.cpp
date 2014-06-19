@@ -449,8 +449,8 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     if (int count = missingSymbols.count()) {
         // display an information box to show symbols have been allocated
-        QString information(i18np("The following floss color has had its symbol\nreplaced because it didn't exist in the symbol library.\n\n",
-                                  "The following floss colors have had their symbols\nreplaced because they didn't exist in the symbol library.\n\n",
+        QString information(i18np("The following floss color has had its symbol\nreplaced because it did not exist in the symbol library.\n\n",
+                                  "The following floss colors have had their symbols\nreplaced because they did not exist in the symbol library.\n\n",
                                   count));
 
         foreach (DocumentFloss *documentFloss, missingSymbols) {

@@ -319,7 +319,7 @@ void MainWindow::fileOpen(const KUrl &url)
                         try {
                             m_document->readPCStitch(stream);
                         } catch (const InvalidFile &e) {
-                            KMessageBox::sorry(0, i18n("The file doesn't appear to be a recognised cross stitch file."));
+                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognised cross stitch file."));
                         }
                     } catch (const InvalidFileVersion &e) {
                         KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
@@ -1455,7 +1455,7 @@ void MainWindow::setupActions()
     actions->addAction("patternExtend", action);
 
     action = new KAction(this);
-    action->setText(i18n("Centre Pattern"));
+    action->setText(i18n("Center Pattern"));
     action->setIcon(KIcon("centerpattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
     actions->addAction("patternCentre", action);
