@@ -36,6 +36,9 @@ public:
 
     LibraryTreeWidgetItem *currentLibrary();
 
+protected:
+    virtual bool event(QEvent *);
+
 public slots:
     void setCellSize(double, double);
 

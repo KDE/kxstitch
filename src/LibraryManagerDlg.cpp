@@ -14,7 +14,9 @@
 #include <QClipboard>
 #include <QDir>
 #include <QFileInfoList>
+#include <QHelpEvent>
 #include <QMimeData>
+#include <QToolTip>
 
 #include <KInputDialog>
 #include <KMessageBox>
@@ -60,6 +62,35 @@ LibraryManagerDlg::~LibraryManagerDlg()
 LibraryTreeWidgetItem *LibraryManagerDlg::currentLibrary()
 {
     return static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
+}
+
+
+bool LibraryManagerDlg::event(QEvent *event)
+{
+    if (event->type() == QEvent::ToolTip) {
+        QHelpEvent *helpEvent = static_cast<QHelpEvent *>(event);
+        QString tip;
+
+        if (ui.LibraryTree->topLevelItemCount() == 0) {
+            tip = i18n("The Library Manager can be used to store\nreusable patterns for insertion into\nnew patterns.\n\nThere are no library categories defined.\nClick the Help button for information on creating\nand populating libraries.");
+        } else {
+            if (ui.LibraryTree->currentItem() == 0) {
+                tip = i18n("Select a library to show the associated patterns.");
+            } else if (ui.LibraryIcons->count() == 0) {
+                tip = i18n("There are no patterns defined\nfor this library.\n\nClick the Help button for information\non creating and populating libraries.");
+            }
+        }
+
+        if (!tip.isEmpty()) {
+            QToolTip::showText(helpEvent->globalPos(), tip);
+        } else {
+            QToolTip::hideText();
+        }
+
+        return true;
+    }
+
+    return QWidget::event(event);
 }
 
 
