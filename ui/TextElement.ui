@@ -330,7 +330,7 @@
       <string>Bold text</string>
      </property>
      <property name="text">
-      <string>...</string>
+      <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -349,7 +349,7 @@
       <string>Italics text</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -368,7 +368,7 @@
       <string>Underline text</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -387,7 +387,7 @@
       <string>Align left</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -406,7 +406,7 @@
       <string>Align centrally</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -425,7 +425,7 @@
       <string>Align right</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -444,7 +444,7 @@
       <string>Align justified</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
      <property name="iconSize">
       <size>
@@ -463,7 +463,7 @@
       <string>Text color</string>
      </property>
      <property name="text">
-      <string>...</string>
+       <string notr="true">...</string>
      </property>
     </widget>
    </item>
