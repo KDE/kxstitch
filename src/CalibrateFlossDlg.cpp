@@ -120,7 +120,7 @@ void CalibrateFlossDlg::updateSample()
 
 void CalibrateFlossDlg::updateName(bool modified)
 {
-    KLocalizedString str = modified ? ki18n("%1-%2 (Modified)") : ki18n("%1-%2");
+    KLocalizedString str = modified ? ki18nc("%1 is floss name, %2 is floss description", "%1-%2 (Modified)") : ki18nc("%1 is floss name, %2 is floss description", "%1-%2");
     ui.SelectedColorName->setText(str.subs(m_item->data(Qt::UserRole).toString()).subs(m_item->data(Qt::UserRole + 1).toString()).toString());
 }
 

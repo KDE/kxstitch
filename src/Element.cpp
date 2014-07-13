@@ -560,7 +560,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     painter->setFont(font);
 
-    painter->drawText(deviceTextArea.topLeft() + QPoint(0, y), i18n("%1 Flosses", scheme->schemeName()));
+    painter->drawText(deviceTextArea.topLeft() + QPoint(0, y), i18nc("%1 is a scheme name", "%1 Flosses", scheme->schemeName()));
     y += (2 * lineSpacing);
 
     if (m_symbolColumn) {

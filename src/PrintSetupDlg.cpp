@@ -486,13 +486,13 @@ void PrintSetupDlg::on_Templates_clicked()
 
         element = new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-        static_cast<TextElement *>(element)->setText(i18n("Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
+        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
         page->addElement(element);
 
         element = new TextElement(page, pageNumberArea);
         static_cast<TextElement *>(element)->setTextFont(pageFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
         page->addElement(element);
 
         // pattern sheets
@@ -546,7 +546,7 @@ void PrintSetupDlg::on_Templates_clicked()
                 element = new TextElement(page, pageNumberArea);
                 static_cast<TextElement *>(element)->setTextFont(pageFont);
                 static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-                static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+                static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
                 page->addElement(element);
             }
         }
@@ -568,7 +568,7 @@ void PrintSetupDlg::on_Templates_clicked()
         element = new TextElement(page, pageNumberArea);
         static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(i18n("Page ${page}"));
+        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
         page->addElement(element);
 
         for (int i = 0 ; i < ui.Pages->count() ; ++i) {

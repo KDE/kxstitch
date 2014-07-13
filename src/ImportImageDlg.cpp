@@ -209,7 +209,7 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
     QString formattedSizeWidth = QString("%1").arg(preferredSizeWidth, 0, 'g', 3);
     QString formattedSizeHeight = QString("%1").arg(preferredSizeHeight, 0, 'g', 3);
     // TODO is there a better way of representing the dimensional values below for correct translations.
-    ui.FinalSize->setText(QString(i18nc("dimension with units identifier", "%1 x %2 %3", QString("%1").arg(preferredSizeWidth, 0, 'g', 3), QString("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
+    ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString("%1").arg(preferredSizeWidth, 0, 'g', 3), QString("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
 }
 
 
