@@ -432,7 +432,7 @@ void PrintSetupDlg::updatePageNumbers()
 {
     for (int i = 0 ; i < ui.Pages->count() ; ++i) {
         PagePreviewListWidgetItem *pagePreview = dynamic_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i));
-        pagePreview->setText(i18n("Page %1 / %2", pagePreview->page()->pageNumber(), ui.Pages->count()));
+        pagePreview->setText(i18n("Page %1 of %2", pagePreview->page()->pageNumber(), ui.Pages->count()));
     }
 }
 
