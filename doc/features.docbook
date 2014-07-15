@@ -79,6 +79,5 @@
         <listitem><para>Specify the number of threads for stitches and backstitches</para></listitem>
         <listitem><para>Calibration of floss colors</para></listitem>
     </itemizedlist>
-    <para>If you have anything specific you would like included, please email</para>
-    <para><email>sallewell@users.sourceforge.net</email></para>
+    <para>Requests for new features can be made to the <ulink url="http://bugs.kde.org">KDE Bugtracking System</ulink></para>
 </chapter>

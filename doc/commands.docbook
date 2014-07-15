@@ -188,6 +188,10 @@
                         <listitem><simpara><action>Show or hide the history window</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
+                        <term><menuchoice><guimenuitem>Imported Image</guimenuitem></menuchoice></term>
+                        <listitem><simpara><action>Show or hide the imported image preview window</action></simpara></listitem>
+                    </varlistentry>
+                    <varlistentry>
                         <term><menuchoice><guimenuitem>Show Background Image</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Show or hide a background image. The list is generated dynamically based on the inserted background images</action></simpara></listitem>
                     </varlistentry>

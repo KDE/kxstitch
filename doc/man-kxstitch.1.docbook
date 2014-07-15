@@ -127,14 +127,14 @@ url="help:/kxstitch">help:/kxstitch</ulink>
 <parameter>help:/kxstitch</parameter></userinput>).</para>
 
 <para>There is also further information available at the <ulink
-url="http://sourceforge.net/apps/mediawiki/kxstitch/index.php">KXStitch home page</ulink>.</para>
+url="http://userbase.kde.org/KXStitch">KXStitch home page</ulink>.</para>
 </refsect1>
 
 <refsect1>
 <title>Authors</title>
 <para>KXStitch was written by
 <personname><firstname>Stephen</firstname><surname>Allewell</surname></personname>
-<email>sallewell@users.sourceforge.net</email>.</para>
+<email>steve.allewell@gmail.com</email>.</para>
 </refsect1>
 
 </refentry>

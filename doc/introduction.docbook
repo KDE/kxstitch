@@ -24,7 +24,7 @@
         library and if present, the associated library pattern will be inserted in the pattern.
     </para>
     <para>
-        Please report any problems or feature requests to the &kapp; SourceForge
-        mailing lists or forums at <ulink url="http://sourceforge.net/projects/kxstitch/" >http://sourceforge.net/projects/kxstitch/</ulink>
+        Please report any bugs or feature requests to the <ulink url="http://bugs.kde.org">KDE Bugtracking System</ulink>
+        or the <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch">&kapp; mailing list</ulink>
     </para>
 </chapter>

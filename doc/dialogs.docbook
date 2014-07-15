@@ -23,6 +23,8 @@
             <para>
                 For each of the flosses you can allocate a symbol.  The symbol selector dialog shows all the available
                 symbols.  Used symbols are shown grayed out and a tooltip will show <quote>Used</quote> when the symbol is hovered over.
+                For the palette, the symbol library used can also be changed by selecting one from the drop down list. All the flosses
+                will then be allocated a symbol from the new library.
             </para>
         </sect2>
     </sect1>

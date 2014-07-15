@@ -42,6 +42,10 @@
             Checking the <guilabel>Ignore color</guilabel> checkbox will allow the selection of a color within the image which will then be considered
             as the transparent color and ignored during the import.
         </para>
+        <para>
+            After the image has been imported, an additional dock window will be available giving a preview of the original
+            image without any color transitions.
+        </para>
     </sect1>
 
     <sect1 id="background-images">

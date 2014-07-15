@@ -1,7 +1,7 @@
 <chapter id="credits" >
     <title>Credits and License</title>
     <para>&kapp;</para>
-    <para>Program copyright 2002-2014 Stephen P. Allewell  <email>sallewell@users.sourceforge.net</email></para>
+    <para>Program copyright 2002-2014 Stephen P. Allewell  <email>steve.allewell@gmail.com</email></para>
     <para>
         Contributors:
         <itemizedlist>
@@ -11,7 +11,7 @@
         </itemizedlist>
     </para>
     <para>
-        Documentation copyright 2012 Stephen P. Allewell <email>sallewell@users.sourceforge.net</email>
+        Documentation copyright 2014 Stephen P. Allewell <email>steve.allewell@gmail.com</email>
     </para>
     &underFDL;
     &underGPL;

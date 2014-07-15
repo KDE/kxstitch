@@ -12,8 +12,10 @@
         <para>
             The &kapp; main window consists of an editor window shown on the right in the image above
             with three dock windows. The dock windows provide a preview of the pattern, the palette of
-            flosses and a history list. Each of these dock windows can be moved around to various edges
-            of the main window, detached from the view or turned off and back on.
+            flosses and a history list. If an image is imported, an additional dock window showing a
+            preview of the original image for reference will be shown. Each of these dock windows can
+            be moved around to various edges of the main window, detached from the view or turned off
+            and back on.
         </para>
         <para>
             The sections are divided by splitters, which can be moved to change the amount of space
