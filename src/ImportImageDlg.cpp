@@ -32,44 +32,16 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
-    m_useFractionals = ui.UseFractionals->isChecked();
-    m_ignoreColor = ui.IgnoreColor->isChecked();
+    ui.FlossScheme->addItems(SchemeManager::schemes());
 
     m_originalSize = QSize(m_originalImage.columns(), m_originalImage.rows());
     QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_originalSize.width(), m_originalSize.height());
     setCaption(caption);
 
-    double horizontalClothCount = Configuration::editor_HorizontalClothCount();
-    double verticalClothCount = Configuration::editor_VerticalClothCount();
-    Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
-    ui.HorizontalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
-    ui.VerticalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
-    ui.HorizontalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
-    ui.VerticalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
-    ui.HorizontalClothCount->setValue(horizontalClothCount);
-    ui.VerticalClothCount->setValue(verticalClothCount);
-    ui.VerticalClothCount->setEnabled(false);
-    ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
-    ui.ClothCountLink->setIcon(KIcon("link"));
+    resetImportParameters();
 
-    m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
-    int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
-    int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
-    int scale = std::min(scaledWidth, scaledHeight);
-
-    ui.FlossScheme->addItems(SchemeManager::schemes());
-    QString scheme = Configuration::palette_DefaultScheme();
-
-    if (SchemeManager::scheme(scheme) == 0) {
-        scheme = SchemeManager::schemes().at(scheme.toInt());
-    }
-
-    ui.FlossScheme->setCurrentItem(scheme);
-    ui.PatternScale->setValue(scale);
-    ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
-    ui.MaximumColors->setValue(Configuration::import_MaximumColors());
-    ui.MaximumColors->setMaximum(SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
-    ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
+    m_useFractionals = ui.UseFractionals->isChecked();
+    m_ignoreColor = ui.IgnoreColor->isChecked();
 
     QMetaObject::connectSlotsByName(this);
 
@@ -133,7 +105,7 @@ void ImportImageDlg::slotButtonClicked(int button)
         accept();
     } else if (button == KDialog::Reset) {
         // reset the form data to the defalts
-        m_convertedImage = m_originalImage;
+        resetImportParameters();
         renderPixmap();
     } else {
         KDialog::slotButtonClicked(button);
@@ -354,4 +326,39 @@ void ImportImageDlg::selectColor(const QPoint &p)
     swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 256, m_ignoreColorValue.greenQuantum() / 256, m_ignoreColorValue.blueQuantum() / 256));
     ui.ColorButton->setIcon(swatch);
     renderPixmap();
+}
+
+
+void ImportImageDlg::resetImportParameters()
+{
+    double horizontalClothCount = Configuration::editor_HorizontalClothCount();
+    double verticalClothCount = Configuration::editor_VerticalClothCount();
+    Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
+    ui.HorizontalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
+    ui.VerticalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
+    ui.HorizontalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
+    ui.VerticalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
+    ui.HorizontalClothCount->setValue(horizontalClothCount);
+    ui.VerticalClothCount->setValue(verticalClothCount);
+    ui.VerticalClothCount->setEnabled(false);
+    ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
+    ui.ClothCountLink->setIcon(KIcon("link"));
+
+    m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
+    int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
+    int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
+    int scale = std::min(scaledWidth, scaledHeight);
+
+    QString scheme = Configuration::palette_DefaultScheme();
+
+    if (SchemeManager::scheme(scheme) == 0) {
+        scheme = SchemeManager::schemes().at(scheme.toInt());
+    }
+
+    ui.FlossScheme->setCurrentItem(scheme);
+    ui.PatternScale->setValue(scale);
+    ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
+    ui.MaximumColors->setValue(Configuration::import_MaximumColors());
+    ui.MaximumColors->setMaximum(SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
+    ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
 }

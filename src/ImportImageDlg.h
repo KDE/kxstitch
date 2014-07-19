@@ -66,6 +66,7 @@ private slots:
     void selectColor(const QPoint &);
 
 private:
+    void resetImportParameters();
     void clothCountChanged(double, double);
     void calculateSizes();
     void createImageMap();
