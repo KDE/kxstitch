@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2010 by Stephen Allewell
- * sallewell@users.sourceforge.net
+ * Copyright (C) 2010-2014 by Stephen Allewell
+ * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ public:
 
 private:
     void generateIcon();
-    
+
     static const int version = 101; // no longer store m_icon, generate it on loading
 
     KUrl    m_url;

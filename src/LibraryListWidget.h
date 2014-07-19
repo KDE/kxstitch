@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011 by Stephen Allewell
- * sallewell@users.sourceforge.net
+ * Copyright (C) 2011-2014 by Stephen Allewell
+ * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
