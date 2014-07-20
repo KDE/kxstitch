@@ -4,7 +4,7 @@
     <sect1 id="getting-kxstitch" >
         <title>How to obtain &kapp;</title>
         <para>
-            &kapp; can be found at SourceForge at <ulink url="http://download.kde.org/stable/kxstitch/" >http://download.kde.org/stable/kxstitch/</ulink>.
+            The &kapp; source can be found at <ulink url="http://download.kde.org/stable/kxstitch/" >http://download.kde.org/stable/kxstitch/</ulink>.
             The &kapp; homepage can be found at <ulink url="http://userbase.kde.org/KXStitch" >http://userbase.kde.org/KXStitch</ulink>
         </para>
     </sect1>
