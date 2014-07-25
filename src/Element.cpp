@@ -1570,6 +1570,23 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
         break;
     }
 
+    /* A bug was introduced in commit d59704c30d709a23dd8f9e66fdf98e9d15702d07 causing patterns
+     * created before this version to have rendering modes +1 from those currently.
+     * The following code rectifies the limits. Other patterns created before this change will be
+     * valid but will not be as the user originally set.
+     */
+    if (m_renderStitchesAs > 4) {
+        m_renderStitchesAs = static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(4);
+    }
+
+    if (m_renderBackstitchesAs > 1) {
+        m_renderBackstitchesAs = static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(1);
+    }
+
+    if (m_renderKnotsAs > 3) {
+        m_renderKnotsAs = static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(3);
+    }
+
     return stream;
 }
 
