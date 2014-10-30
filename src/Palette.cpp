@@ -383,9 +383,9 @@ void Palette::mousePressEvent(QMouseEvent *event)
         int x = (p.x() / m_width);
         int y = (p.y() / m_height);
         int i = y * m_cols + x;
-        int selectedIndex = m_paletteIndex[i];
 
         if (i < m_flosses) {
+            int selectedIndex = m_paletteIndex[i];
             if (m_mode == Swap) {
                 int currentIndex = m_document->pattern()->palette().currentIndex();
                 emit(swapColors(currentIndex, selectedIndex));
@@ -404,8 +404,7 @@ void Palette::mousePressEvent(QMouseEvent *event)
                 m_document->pattern()->palette().setCurrentIndex(selectedIndex);
                 emit colorSelected(i);
             }
+            update();
         }
-
-        update();
     }
 }
