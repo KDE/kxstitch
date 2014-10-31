@@ -91,7 +91,7 @@
             elements. The pick lists allow selection of the required format of those elements.
         </para>
         <para>
-            You can return to the default set of parameters using the <guibutton>Default</guibutton> button.
+            You can return to the default set of parameters using the <guibutton>Defaults</guibutton> button.
         </para>
     </sect1>
 
@@ -121,7 +121,7 @@
             effectively doubles the import resolution without affecting the overall size of the pattern.
         </para>
         <para>
-            Clicking <guibutton>Import</guibutton> will convert the image into a pattern.
+            Clicking <guibutton>OK</guibutton> will convert the image into a pattern.
         </para>
     </sect1>
 
@@ -260,9 +260,6 @@
             <para>
                 The pattern element will show the arrangement of stitches on the grid. The properties dialog can be used to configure how the stitches
                 will be displayed. This allows the element to display as a picture of the pattern or as the working pattern showing the symbols.
-            </para>
-            <para>
-                <inlinemediaobject><imageobject><imagedata fileref="pattern-element-properties-dialog.png" format="PNG" /></imageobject></inlinemediaobject>  <inlinemediaobject><imageobject><imagedata fileref="pattern-element-symbols-properties-dialog.png" format="PNG" /></imageobject></inlinemediaobject>
             </para>
             <para>
                 The pattern element defaults to showing the whole pattern when it is created. Using the properties dialog a selection of the

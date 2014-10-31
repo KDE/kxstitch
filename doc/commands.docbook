@@ -24,7 +24,7 @@
                         <listitem><simpara><action>Saves the pattern</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Save As</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>S</keycap></keycombo></shortcut><guimenuitem>Save As</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Saves the pattern under a new name</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -169,11 +169,11 @@
                         <listitem><simpara><action>Zoom the view so that the patterns height fits within the visible area</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>+</keycap></keycombo></shortcut><guimenuitem>Zoom In</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom in on the editor view</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
+                        <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>-</keycap></keycombo></shortcut><guimenuitem>Zoom Out</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Zoom out on the editor view</action></simpara></listitem></varlistentry>
                     <varlistentry>
                         <term><menuchoice><guimenuitem>Preview</guimenuitem></menuchoice></term>
@@ -420,7 +420,7 @@
                         <listitem><simpara><action>Extend the pattern top, left, right and bottom</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term><menuchoice><guimenuitem>Centre Pattern</guimenuitem></menuchoice></term>
+                        <term><menuchoice><guimenuitem>Center Pattern</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Center the pattern in the canvas</action></simpara></listitem>
                     </varlistentry>
                     <varlistentry>
@@ -445,6 +445,9 @@
 
         <sect2>
             <title>The Settings Menu</title>
+            <para>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/ui.html#menus-settings">
+            Settings Menu</ulink> chapter of the &kde; Fundamentals &kapp; has these application specific menu entries:
+            </para>
             <para>
                 <variablelist>
                     <varlistentry>
@@ -487,75 +490,21 @@
                         <term><menuchoice><guimenuitem>Show Background Images</guimenuitem></menuchoice></term>
                         <listitem><simpara><action>Show or hide all the background images</action></simpara></listitem>
                     </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Toolbars Shown</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the toolbars</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Main Toolbar</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the Main toolbar.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Stitch Toolbar</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the stitch toolbar.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Tools Toolbar</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the Tools toolbar.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Zoom Toolbar</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the Zoom toolbar.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Show Status Bar</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Show or hide the status bar.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Configure Shortcuts</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Configure the applications shortcut keys</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Configure Toolbars</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Configure the applications toolbars</action></simpara></listitem>
-                    </varlistentry>
 		    <varlistentry>
                         <term><menuchoice><guimenuitem>Configure &kapp;</guimenuitem></menuchoice></term>
 			<listitem><simpara><action>Open &kapp; <link linkend="ConfigurationDialog">configuration dialog</link>.</action></simpara></listitem>
                     </varlistentry>
                 </variablelist>
             </para>
+
         </sect2>
 
         <sect2>
             <title>The Help Menu</title>
             <para>
-                <variablelist>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>&kapp; Handbook</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Display this help.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>What's This?</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Display help on a particular feature.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Report Bug.</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Fill out a bug report.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>Switch Application Language</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Change the application language</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>About &kapp;</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Display some information about &kapp;.</action></simpara></listitem>
-                    </varlistentry>
-                    <varlistentry>
-                        <term><menuchoice><guimenuitem>About KDE</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Display some information about KDE.</action></simpara></listitem>
-                    </varlistentry>
-                </variablelist>
+            Additionally &kapp; has the common &kde; Help
+            menu items, for more information read the section about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+            of the &kde; Fundamentals.
             </para>
         </sect2>
     </sect1>
