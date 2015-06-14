@@ -137,11 +137,16 @@ if (WITH_PROFILING)
     set_target_properties (kxstitch PROPERTIES LINK_FLAGS -pg)
 endif (WITH_PROFILING)
 
+exec_program (Magick++-config ARGS --cxxflags OUTPUT_VARIABLE magick_config)
+
+string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
+string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${magick_config})
+
 add_definitions( -DQT_NO_COMPAT )
 add_definitions( -DKDE_NO_COMPAT )
 add_definitions( -fexceptions )
-add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
-add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
+add_definitions( ${magick_config_hdri} )
+add_definitions( ${magick_config_quantum} )
 
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${DATA_INSTALL_DIR}/kxstitch)
