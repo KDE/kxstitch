@@ -142,6 +142,27 @@ exec_program (Magick++-config ARGS --cxxflags OUTPUT_VARIABLE magick_config)
 string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
 string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${magick_config})
 
+# earlier versions of Magick++-config don't provide the necessary options
+if (magick_config_hdri STREQUAL "")
+    # set a default for MAGICKCORE_HDRI_ENABLE to 0
+    set (magick_config_hdri "-DMAGICKCORE_HDRI_ENABLE=0")
+endif (magick_config_hdri STREQUAL "")
+
+if (magick_config_quantum STREQUAL "")
+    # MAGICKCORE_QUANTUM_DEPTH can also be found in the version string of an ImageMagick application
+    exec_program (mogrify ARGS --version OUTPUT_VARIABLE mogrify_version)
+    string (REGEX MATCH "Q8|Q16" mogrify_version_quantum ${mogrify_version})
+
+    if (mogrify_version_quantum STREQUAL "Q8")
+        set (magick_config_quantum "-DMAGICKCORE_QUANTUM_DEPTH=8")
+    else (mogrify_version_quantum STREQUAL "Q8")
+        set (magick_config_quantum "-DMAGICKCORE_QUANTUM_DEPTH=16")
+    endif (mogrify_version_quantum STREQUAL "Q8")
+endif (magick_config_quantum STREQUAL "")
+
+message (STATUS "Set magic_config_quantum: " ${magick_config_quantum})
+message (STATUS "Set magic_config_hdri: " ${magick_config_hdri})
+
 add_definitions( -DQT_NO_COMPAT )
 add_definitions( -DKDE_NO_COMPAT )
 add_definitions( -fexceptions )

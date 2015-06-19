@@ -580,7 +580,11 @@ void MainWindow::convertImage(const QString &source)
                 if (!(packet.opacity)) {
                     if (!(ignoreColor && Magick::Color(packet) == ignoreColorValue)) {
                         int flossIndex;
+#if MAGICKCORE_QUANTUM_DEPTH == 8
+                        QColor color(packet.red, packet.green, packet.blue);
+#else
                         QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
+#endif
 
                         for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; flossIndex++) {
                             if (documentFlosses[flossIndex] == color) {

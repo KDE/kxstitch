@@ -281,7 +281,11 @@ void ImportImageDlg::renderPixmap()
 
             if (!(packet.opacity)) {
                 if (!(m_ignoreColor && packet == m_ignoreColorValue)) {
+#if MAGICKCORE_QUANTUM_DEPTH == 8
+                    QColor color(packet.red, packet.green, packet.blue);
+#else
                     QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
+#endif
                     painter.setPen(QPen(color));
                     painter.drawPoint(dx, dy);
                 }

@@ -44,7 +44,12 @@ Floss *FlossScheme::convert(const QColor &color)
     Magick::Pixels cache(image);
     const Magick::PixelPacket *pixels = cache.get(0, 0, 1, 1);
     Magick::PixelPacket packet = *pixels;
+#if MAGICKCORE_QUANTUM_DEPTH == 8
+    QColor newColor(packet.red, packet.green, packet.blue);
+#else
     QColor newColor(packet.red / 256, packet.green / 256, packet.blue / 256);
+#endif
+
     QListIterator<Floss *> flossIterator(m_flosses);
 
     while (flossIterator.hasNext()) {
