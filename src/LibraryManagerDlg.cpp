@@ -15,11 +15,11 @@
 #include <QDir>
 #include <QFileInfoList>
 #include <QHelpEvent>
+#include <QInputDialog>
 #include <QMimeData>
 #include <QToolTip>
 
 #include <KHelpClient>
-#include <KInputDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
@@ -174,7 +174,7 @@ void LibraryManagerDlg::newCategory()
 
     while (!ok) {
         QTreeWidgetItem *item = 0;
-        category = KInputDialog::getText(i18n("Category"), QString(), QString(), &ok, this);
+        category = QInputDialog::getText(this, i18n("Create Category"), i18n("Catagory Name"), QLineEdit::Normal, QString(), &ok);
 
         if (!ok) {
             break;
