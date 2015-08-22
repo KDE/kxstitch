@@ -15,8 +15,10 @@
 
 #include "ui_ExtendPattern.h"
 
+#include <QDialog>
 
-class ExtendPatternDlg : public KDialog
+
+class ExtendPatternDlg : public QDialog
 {
     Q_OBJECT
 
@@ -28,6 +30,11 @@ public:
     int left() const;
     int right() const;
     int bottom() const;
+
+private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::ExtendPattern   ui;

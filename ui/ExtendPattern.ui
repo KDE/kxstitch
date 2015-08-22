@@ -161,6 +161,13 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QDialogButtonBox" name="DialogButtonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
