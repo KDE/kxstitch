@@ -101,7 +101,6 @@ void TextToolDlg::on_DialogButtonBox_accepted()
 
     Configuration::setTextTool_FontFamily(ui.TextToolFont->currentFont().family());
     Configuration::setTextTool_FontSize(ui.TextToolSize->value());
-    Configuration::self()->writeConfig();
 
     accept();
 }
