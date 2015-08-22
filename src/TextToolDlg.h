@@ -13,15 +13,14 @@
 #define TextToolDlg_H
 
 
+#include <QDialog>
 #include <QFont>
 #include <QString>
-
-#include <KDialog>
 
 #include "ui_TextTool.h"
 
 
-class TextToolDlg : public KDialog
+class TextToolDlg : public QDialog
 {
     Q_OBJECT
 
@@ -31,13 +30,13 @@ public:
 
     QImage image();
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
     void on_TextToolFont_currentFontChanged(const QFont &);
     void on_TextToolSize_valueChanged(int);
     void on_TextToolText_textChanged(const QString &);
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::TextTool    ui;
@@ -49,3 +48,4 @@ private:
 
 
 #endif // TextToolDlg_H
+

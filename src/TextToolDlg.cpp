@@ -14,16 +14,18 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QPen>
+#include <QPushButton>
+
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "configuration.h"
 
 
 TextToolDlg::TextToolDlg(QWidget *parent)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Text Tool"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("TextDialog");
+    setWindowTitle(i18n("Text Tool"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
@@ -31,31 +33,11 @@ TextToolDlg::TextToolDlg(QWidget *parent)
     ui.TextToolSize->setValue(Configuration::textTool_FontSize());
 
     QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 }
 
 
 TextToolDlg::~TextToolDlg()
 {
-}
-
-
-void TextToolDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        m_font = ui.TextToolFont->currentFont();
-        m_text = ui.TextToolText->text();
-        m_size = ui.TextToolSize->value();
-
-        Configuration::setTextTool_FontFamily(ui.TextToolFont->currentFont().family());
-        Configuration::setTextTool_FontSize(ui.TextToolSize->value());
-        Configuration::self()->writeConfig();
-
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
-
 }
 
 
@@ -107,5 +89,32 @@ void TextToolDlg::on_TextToolSize_valueChanged(int s)
 
 void TextToolDlg::on_TextToolText_textChanged(const QString &s)
 {
-    enableButtonOk(!s.isEmpty());
+    ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(!s.isEmpty());
 }
+
+
+void TextToolDlg::on_DialogButtonBox_accepted()
+{
+    m_font = ui.TextToolFont->currentFont();
+    m_text = ui.TextToolText->text();
+    m_size = ui.TextToolSize->value();
+
+    Configuration::setTextTool_FontFamily(ui.TextToolFont->currentFont().family());
+    Configuration::setTextTool_FontSize(ui.TextToolSize->value());
+    Configuration::self()->writeConfig();
+
+    accept();
+}
+
+
+void TextToolDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void TextToolDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("TextDialog", "kxstitch");
+}
+
