@@ -1,8 +1,38 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8.12)
 
 project (kxstitch)
 
-find_package (KDE4 REQUIRED)
+find_package (ECM REQUIRED NO_MODULE)
+set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+include (KDEInstallDirs)
+include (KDECMakeSettings)
+include (KDECompilerSettings)
+include (ECMInstallIcons)
+include (FeatureSummary)
+
+kde_enable_exceptions()
+
+find_package (Qt5 CONFIG REQUIRED
+    Core
+    PrintSupport
+    Widgets
+    X11Extras
+)
+
+find_package (KF5DocTools)
+
+find_package (KF5 REQUIRED COMPONENTS
+    Config
+    ConfigWidgets
+    Completion
+    I18n
+    KIO
+    TextWidgets
+    WidgetsAddons
+    XmlGui
+)
+
 find_package (ImageMagick COMPONENTS MagickCore Magick++ REQUIRED)
 find_package (X11)
 find_package (Doxygen)
@@ -15,7 +45,7 @@ if (DOXYGEN_FOUND)
                        COMMENT "Generating API documentation with Doxygen" VERBATIM)
 endif (DOXYGEN_FOUND)
 
-include_directories (${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+include_directories (BEFORE ${CMAKE_CURRENT_BINARY_DIR})
 # use both the _DIR and _DIRS variables, since the former are available
 # only in older cmake versions, while the latter only in newer ones
 include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
@@ -93,9 +123,9 @@ add_subdirectory(schemes)
 add_subdirectory(symbols)
 add_subdirectory(doc)
 
-kde4_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
+kconfig_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 
-kde4_add_ui_files(kxstitch_SRCS
+qt5_wrap_ui(kxstitch_SRCS
     ui/CalibrateFloss.ui
     ui/ExtendPattern.ui
     ui/FileProperties.ui
@@ -121,14 +151,25 @@ kde4_add_ui_files(kxstitch_SRCS
     ui/PrinterConfigPage.ui
 )
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(ICONS 32-apps-kxstitch.png DESTINATION ${ICON_INSTALL_DIR})
 
-kde4_add_executable (kxstitch ${kxstitch_SRCS})
+add_executable (kxstitch ${kxstitch_SRCS})
 
-target_link_libraries (kxstitch ${KDE4_KDEUI_LIBS}
-                       ${KDE4_KIO_LIBS}
-                       ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
-                       ${X11_LIBRARIES})
+target_link_libraries (kxstitch
+    Qt5::Core
+    Qt5::PrintSupport
+    Qt5::Widgets
+    Qt5::X11Extras
+    KF5::Completion
+    KF5::ConfigGui
+    KF5::KIOFileWidgets
+    KF5::I18n
+    KF5::TextWidgets
+    KF5::WidgetsAddons
+    KF5::XmlGui
+    ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
+    ${X11_LIBRARIES}
+)
 
 set (WITH_PROFILING OFF CACHE BOOL "Build with profiling support")
 
@@ -163,14 +204,15 @@ endif (magick_config_quantum STREQUAL "")
 message (STATUS "Set magic_config_quantum: " ${magick_config_quantum})
 message (STATUS "Set magic_config_hdri: " ${magick_config_hdri})
 
-add_definitions( -DQT_NO_COMPAT )
-add_definitions( -DKDE_NO_COMPAT )
-add_definitions( -fexceptions )
-add_definitions( ${magick_config_hdri} )
-add_definitions( ${magick_config_quantum} )
+add_definitions(
+    -DQT_NO_COMPAT
+    -DKDE_NO_COMPAT
+    ${magick_config_hdri}
+    ${magick_config_quantum}
+)
 
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
-install (FILES kxstitchui.rc DESTINATION ${DATA_INSTALL_DIR}/kxstitch)
+install (FILES kxstitchui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kxstitch)
 install (FILES kxstitch.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install (FILES kxstitch.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
