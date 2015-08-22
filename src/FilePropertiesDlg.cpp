@@ -14,6 +14,7 @@
 #include <QRect>
 
 #include <KHelpClient>
+#include <KLocalizedString>
 
 #include "Commands.h"
 #include "Document.h"
