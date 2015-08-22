@@ -221,7 +221,7 @@
            </layout>
           </item>
           <item>
-           <widget class="KPushButton" name="ClothCountLink">
+           <widget class="QPushButton" name="ClothCountLink">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -359,11 +359,6 @@
    <class>KRichTextEdit</class>
    <extends>KTextEdit</extends>
    <header>krichtextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
