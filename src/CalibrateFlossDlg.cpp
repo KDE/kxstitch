@@ -10,24 +10,25 @@
 
 
 #include "CalibrateFlossDlg.h"
+
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "Floss.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
 
 
 CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_schemeName(schemeName),
         m_item(0),
         m_sample(0)
 {
-    setCaption(i18n("Calibrate Floss"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("CalibrateDialog");
+    setWindowTitle(i18n("Calibrate Floss"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 
     fillSchemeList();
     ui.SchemeList->setCurrentIndex(ui.SchemeList->findText(schemeName));
@@ -37,39 +38,6 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
 CalibrateFlossDlg::~CalibrateFlossDlg()
 {
     delete m_sample;
-}
-
-
-void CalibrateFlossDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        commitColor();
-
-        QMapIterator<QString, ChangedColors> mapIterator(m_calibratedColors);
-
-        while (mapIterator.hasNext()) {
-            mapIterator.next();
-
-            if (mapIterator.value().count()) {
-                FlossScheme *scheme = SchemeManager::scheme(mapIterator.key());
-                QListIterator<Floss *> flossIterator(scheme->flosses());
-
-                while (flossIterator.hasNext()) {
-                    Floss *f = flossIterator.next();
-
-                    if (mapIterator.value().contains(f->name())) {
-                        f->setColor(mapIterator.value()[f->name()]);
-                    }
-                }
-
-                SchemeManager::writeScheme(mapIterator.key());
-            }
-        }
-
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -197,4 +165,45 @@ void CalibrateFlossDlg::on_ResetColor_clicked()
     updateSample();
     updateName(false);
     m_item->setData(Qt::CheckStateRole, Qt::Unchecked);
+}
+
+
+void CalibrateFlossDlg::on_DialogButtonBox_accepted()
+{
+    commitColor();
+
+    QMapIterator<QString, ChangedColors> mapIterator(m_calibratedColors);
+
+    while (mapIterator.hasNext()) {
+        mapIterator.next();
+
+        if (mapIterator.value().count()) {
+            FlossScheme *scheme = SchemeManager::scheme(mapIterator.key());
+            QListIterator<Floss *> flossIterator(scheme->flosses());
+
+            while (flossIterator.hasNext()) {
+                Floss *f = flossIterator.next();
+
+                if (mapIterator.value().contains(f->name())) {
+                    f->setColor(mapIterator.value()[f->name()]);
+                }
+            }
+
+            SchemeManager::writeScheme(mapIterator.key());
+        }
+    }
+
+    accept();
+}
+
+
+void CalibrateFlossDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void CalibrateFlossDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("CalibrateDialog", "kxstitch");
 }

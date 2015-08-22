@@ -14,10 +14,9 @@
 
 
 #include <QColor>
+#include <QDialog>
 #include <QMap>
 #include <QString>
-
-#include <KDialog>
 
 #include "ui_CalibrateFloss.h"
 
@@ -27,16 +26,13 @@ class QPixmap;
 class SchemeManager;
 
 
-class CalibrateFlossDlg : public KDialog
+class CalibrateFlossDlg : public QDialog
 {
     Q_OBJECT
 
 public:
     CalibrateFlossDlg(QWidget *, const QString &);
     ~CalibrateFlossDlg();
-
-protected slots:
-    virtual void slotButtonClicked(int button);
 
 private slots:
     void on_SchemeList_currentIndexChanged(const QString &);
@@ -45,6 +41,9 @@ private slots:
     void on_GreenSlider_valueChanged(int);
     void on_BlueSlider_valueChanged(int);
     void on_ResetColor_clicked();
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     void fillSchemeList();
