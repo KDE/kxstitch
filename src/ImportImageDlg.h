@@ -14,12 +14,11 @@
 
 
 #include <QAction>
+#include <QDialog>
 #include <QPixmap>
 #include <QSize>
 #include <QTimer>
 #include <QWidget>
-
-#include <KDebug>
 
 #include <Magick++.h>
 
@@ -30,7 +29,7 @@
 class SchemeManager;
 
 
-class ImportImageDlg : public KDialog
+class ImportImageDlg : public QDialog
 {
     Q_OBJECT
 
@@ -49,9 +48,6 @@ public:
 protected:
     virtual void timerEvent(QTimerEvent *);
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
     void on_FlossScheme_currentIndexChanged(const QString &);
     void on_UseMaximumColors_toggled(bool);
@@ -64,6 +60,10 @@ private slots:
     void on_PatternScale_valueChanged(int);
     void on_UseFractionals_toggled(bool);
     void selectColor(const QPoint &);
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
+    void on_DialogButtonBox_clicked(QAbstractButton *);
 
 private:
     void resetImportParameters();

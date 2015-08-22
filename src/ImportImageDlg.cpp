@@ -15,6 +15,9 @@
 #include <QPainter>
 #include <QProgressDialog>
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "configuration.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
@@ -23,12 +26,10 @@
 
 
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_alphaSelect(0),
         m_originalImage(originalImage)
 {
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help | KDialog::Reset);
-    setHelp("ImportImageDialog");
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
@@ -36,7 +37,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 
     m_originalSize = QSize(m_originalImage.columns(), m_originalImage.rows());
     QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_originalSize.width(), m_originalSize.height());
-    setCaption(caption);
+    setWindowTitle(caption);
 
     resetImportParameters();
 
@@ -47,8 +48,6 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 
     createImageMap();
     renderPixmap();
-
-    setMainWidget(widget);
 }
 
 
@@ -96,20 +95,6 @@ double ImportImageDlg::verticalClothCount() const
 bool ImportImageDlg::useFractionals() const
 {
     return m_useFractionals;
-}
-
-
-void ImportImageDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else if (button == KDialog::Reset) {
-        // reset the form data to the defalts
-        resetImportParameters();
-        renderPixmap();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -330,6 +315,34 @@ void ImportImageDlg::selectColor(const QPoint &p)
     swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 256, m_ignoreColorValue.greenQuantum() / 256, m_ignoreColorValue.blueQuantum() / 256));
     ui.ColorButton->setIcon(swatch);
     renderPixmap();
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("ImportImageDialog", "kxstitch");
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_clicked(QAbstractButton *button)
+{
+    if (ui.DialogButtonBox->button(QDialogButtonBox::Reset) == button) {
+        // Reset values
+        m_convertedImage = m_originalImage;
+        renderPixmap();
+    }
 }
 
 
