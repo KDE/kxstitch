@@ -13,6 +13,8 @@
 
 #include <QRect>
 
+#include <KHelpClient>
+
 #include "Commands.h"
 #include "Document.h"
 #include "Floss.h"
@@ -21,12 +23,10 @@
 
 
 FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_document(document)
 {
-    setCaption(i18n("File Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PatternPropertiesDialog");
+    setWindowTitle(i18n("File Properties"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
@@ -54,7 +54,6 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     on_ClothCountLink_clicked(m_clothCountLink);
 
     QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 }
 
 
@@ -147,16 +146,6 @@ QString FilePropertiesDlg::flossScheme() const
 }
 
 
-void FilePropertiesDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
-}
-
-
 void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 {
     m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);
@@ -245,6 +234,24 @@ void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
     } else {
         ui.VerticalClothCount->setEnabled(true);
     }
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternPropertiesDialog", "kxstitch");
 }
 
 

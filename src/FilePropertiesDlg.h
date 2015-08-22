@@ -13,7 +13,7 @@
 #define FilePropertiesDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "configuration.h"
 #include "ui_FileProperties.h"
@@ -23,7 +23,7 @@ class Document;
 class QWidget;
 
 
-class FilePropertiesDlg : public KDialog
+class FilePropertiesDlg : public QDialog
 {
     Q_OBJECT
 
@@ -46,9 +46,6 @@ public:
     QString instructions() const;
     QString flossScheme() const;
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
     void on_UnitsFormat_activated(int);
     void on_PatternWidth_valueChanged(double);
@@ -56,6 +53,9 @@ private slots:
     void on_HorizontalClothCount_valueChanged(double);
     void on_VerticalClothCount_valueChanged(double);
     void on_ClothCountLink_clicked(bool);
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     void updatePatternSizes();
