@@ -18,7 +18,9 @@
 #include <QMimeData>
 #include <QToolTip>
 
+#include <KHelpClient>
 #include <KInputDialog>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
 
@@ -32,18 +34,15 @@
 
 
 LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Library Manager"));
-    setButtons(KDialog::Close | KDialog::Help);
-    setHelp("PatternLibraryDialog");
+    setWindowTitle(i18n("Library Manager"));
 
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     ui.ZoomOut->setIcon(QIcon::fromTheme("zoom-out"));
     ui.ZoomIn->setIcon(QIcon::fromTheme("zoom-in"));
     QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 
     refreshLibraries();
 
@@ -100,12 +99,6 @@ void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 }
 
 
-void LibraryManagerDlg::slotButtonClicked(int button)
-{
-    KDialog::slotButtonClicked(button);
-}
-
-
 void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &position)
 {
     m_contextMenu.clear();
@@ -158,6 +151,18 @@ void LibraryManagerDlg::on_LibraryTree_currentItemChanged(QTreeWidgetItem *curre
 void LibraryManagerDlg::on_IconSizeSlider_valueChanged(int size)
 {
     ui.LibraryIcons->changeIconSize(size);
+}
+
+
+void LibraryManagerDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void LibraryManagerDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternLibraryDialog", "kxstitch");
 }
 
 
