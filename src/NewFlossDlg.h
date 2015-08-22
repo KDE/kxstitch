@@ -13,7 +13,7 @@
 #define NewFlossDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_NewFloss.h"
 
@@ -25,7 +25,7 @@ class Floss;
 class FlossScheme;
 
 
-class NewFlossDlg : public KDialog
+class NewFlossDlg : public QDialog
 {
     Q_OBJECT
 
@@ -35,12 +35,12 @@ public:
 
     Floss *floss();
 
-protected slots:
-    virtual void slotButtonClicked(int);
-
 private slots:
     void on_FlossName_textEdited(const QString &);
     void on_FlossDescription_textEdited(const QString &);
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::NewFloss ui;
