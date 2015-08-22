@@ -13,7 +13,8 @@
 
 #include <QList>
 
-#include <KDebug>
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "Document.h"
 #include "Element.h"
@@ -21,14 +22,11 @@
 
 
 ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Document *document)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_imageElement(imageElement),
         m_document(document)
 {
-    setCaption(i18n("Image Element Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("ImageElement");
-
+    setWindowTitle(i18n("Image Element Properties"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
@@ -41,8 +39,6 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
     ui.BorderThickness->setValue(double(imageElement->borderThickness()) / 10);
 
     QMetaObject::connectSlotsByName(this);
-
-    setMainWidget(widget);
 }
 
 
@@ -51,16 +47,24 @@ ImageElementDlg::~ImageElementDlg()
 }
 
 
-void ImageElementDlg::slotButtonClicked(int button)
+void ImageElementDlg::on_DialogButtonBox_accepted()
 {
-    if (button == KDialog::Ok) {
-        m_imageElement->setPatternRect(m_selectArea->patternRect());
-        m_imageElement->setShowBorder(ui.ShowBorder->isChecked());
-        m_imageElement->setBorderColor(ui.BorderColor->color());
-        m_imageElement->setBorderThickness(int(ui.BorderThickness->value() * 10));
+    m_imageElement->setPatternRect(m_selectArea->patternRect());
+    m_imageElement->setShowBorder(ui.ShowBorder->isChecked());
+    m_imageElement->setBorderColor(ui.BorderColor->color());
+    m_imageElement->setBorderThickness(int(ui.BorderThickness->value() * 10));
 
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
+    accept();
+}
+
+
+void ImageElementDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void ImageElementDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("ImageElement", "kxstitch");
 }
