@@ -31,13 +31,13 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
 
-    ui.BoldButton->setIcon(KIcon("format-text-bold"));
-    ui.UnderlineButton->setIcon(KIcon("format-text-underline"));
-    ui.ItalicButton->setIcon(KIcon("format-text-italic"));
-    ui.AlignLeft->setIcon(KIcon("format-justify-left"));
-    ui.AlignHCenter->setIcon(KIcon("format-justify-center"));
-    ui.AlignRight->setIcon(KIcon("format-justify-right"));
-    ui.AlignJustify->setIcon(KIcon("format-justify-fill"));
+    ui.BoldButton->setIcon(QIcon::fromTheme("format-text-bold"));
+    ui.UnderlineButton->setIcon(QIcon::fromTheme("format-text-underline"));
+    ui.ItalicButton->setIcon(QIcon::fromTheme("format-text-italic"));
+    ui.AlignLeft->setIcon(QIcon::fromTheme("format-justify-left"));
+    ui.AlignHCenter->setIcon(QIcon::fromTheme("format-justify-center"));
+    ui.AlignRight->setIcon(QIcon::fromTheme("format-justify-right"));
+    ui.AlignJustify->setIcon(QIcon::fromTheme("format-justify-fill"));
 
     QButtonGroup *group = new QButtonGroup(this);
     group->addButton(ui.AlignLeft);

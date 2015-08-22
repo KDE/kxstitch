@@ -237,7 +237,7 @@ void FilePropertiesDlg::on_VerticalClothCount_valueChanged(double d)
 
 void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? KIcon("link") : KIcon("link_break"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon("link") : QIcon("link_break"));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());

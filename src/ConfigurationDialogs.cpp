@@ -156,7 +156,7 @@ void PatternConfigPage::on_kcfg_Document_UnitsFormat_activated(int index)
 
 void PatternConfigPage::on_kcfg_Editor_ClothCountLink_toggled(bool checked)
 {
-    kcfg_Editor_ClothCountLink->setIcon((checked) ? KIcon("link") : KIcon("link_break"));
+    kcfg_Editor_ClothCountLink->setIcon((checked) ? QIcon("link") : QIcon("link_break"));
     kcfg_Editor_VerticalClothCount->setEnabled(!checked);
     kcfg_Editor_VerticalClothCount->setValue(kcfg_Editor_HorizontalClothCount->value());
 }

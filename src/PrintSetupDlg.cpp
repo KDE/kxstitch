@@ -56,14 +56,14 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_pageLayoutEditor = new PageLayoutEditor(ui.PagePreview, m_document);
     ui.PagePreview->setWidget(m_pageLayoutEditor);
 
-    ui.AddPage->setIcon(KIcon("document-new"));
-    ui.InsertPage->setIcon(KIcon("document-import"));
-    ui.DeletePage->setIcon(KIcon("document-close"));
-    ui.SelectElement->setIcon(KIcon("edit-select"));
-    ui.TextElement->setIcon(KIcon("insert-text"));
-    ui.PatternElement->setIcon(KIcon("insert-table"));
-    ui.ImageElement->setIcon(KIcon("insert-image"));
-    ui.KeyElement->setIcon(KIcon("documentation"));
+    ui.AddPage->setIcon(QIcon::fromTheme("document-new"));
+    ui.InsertPage->setIcon(QIcon::fromTheme("document-import"));
+    ui.DeletePage->setIcon(QIcon::fromTheme("document-close"));
+    ui.SelectElement->setIcon(QIcon::fromTheme("edit-select"));
+    ui.TextElement->setIcon(QIcon::fromTheme("insert-text"));
+    ui.PatternElement->setIcon(QIcon::fromTheme("insert-table"));
+    ui.ImageElement->setIcon(QIcon::fromTheme("insert-image"));
+    ui.KeyElement->setIcon(QIcon::fromTheme("documentation"));
 
     m_buttonGroup.addButton(ui.SelectElement);
     m_buttonGroup.addButton(ui.TextElement);

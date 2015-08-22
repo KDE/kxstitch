@@ -1217,11 +1217,11 @@ void MainWindow::setupActions()
     KStandardAction::zoomOut(m_editor, SLOT(zoomOut()), actions);
     KStandardAction::actualSize(m_editor, SLOT(actualSize()), actions);
     action = KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
-    action->setIcon(KIcon("zoom-fit-best"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-best"));
     action = KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
-    action->setIcon(KIcon("zoom-fit-width"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-width"));
     action = KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
-    action->setIcon(KIcon("zoom-fit-height"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-height"));
 
     // Entries for Show/Hide Preview and Palette dock windows are added dynamically
     // Entries for Show/Hide and Remove background images are added dynamically
@@ -1234,7 +1234,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Quarter Stitch"));
     action->setData(Editor::StitchQuarter);
-    action->setIcon(KIcon("quarter"));
+    action->setIcon(QIcon("quarter"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchQuarter", action);
@@ -1243,7 +1243,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Half Stitch"));
     action->setData(Editor::StitchHalf);
-    action->setIcon(KIcon("half"));
+    action->setIcon(QIcon("half"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchHalf", action);
@@ -1252,7 +1252,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("3 Quarter Stitch"));
     action->setData(Editor::Stitch3Quarter);
-    action->setIcon(KIcon("3quarter"));
+    action->setIcon(QIcon("3quarter"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitch3Quarter", action);
@@ -1261,7 +1261,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Full Stitch"));
     action->setData(Editor::StitchFull);
-    action->setIcon(KIcon("full"));
+    action->setIcon(QIcon("full"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFull", action);
@@ -1270,7 +1270,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Small Half Stitch"));
     action->setData(Editor::StitchSmallHalf);
-    action->setIcon(KIcon("smallhalf"));
+    action->setIcon(QIcon("smallhalf"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallHalf", action);
@@ -1279,7 +1279,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Small Full Stitch"));
     action->setData(Editor::StitchSmallFull);
-    action->setIcon(KIcon("smallfull"));
+    action->setIcon(QIcon("smallfull"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallFull", action);
@@ -1288,7 +1288,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("French Knot"));
     action->setData(Editor::StitchFrenchKnot);
-    action->setIcon(KIcon("frenchknot"));
+    action->setIcon(QIcon("frenchknot"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFrenchKnot", action);
@@ -1302,7 +1302,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Paint"));
     action->setData(Editor::ToolPaint);
-    action->setIcon(KIcon("draw-brush"));
+    action->setIcon(QIcon::fromTheme("draw-brush"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolPaint", action);
@@ -1311,7 +1311,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Draw"));
     action->setData(Editor::ToolDraw);
-    action->setIcon(KIcon("draw-freehand"));
+    action->setIcon(QIcon::fromTheme("draw-freehand"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolDraw", action);
@@ -1320,7 +1320,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Erase"));
     action->setData(Editor::ToolErase);
-    action->setIcon(KIcon("draw-eraser"));
+    action->setIcon(QIcon::fromTheme("draw-eraser"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolErase", action);
@@ -1329,7 +1329,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Draw Rectangle"));
     action->setData(Editor::ToolRectangle);
-    action->setIcon(KIcon("o_rect"));
+    action->setIcon(QIcon("o_rect"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolRectangle", action);
@@ -1338,7 +1338,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Fill Rectangle"));
     action->setData(Editor::ToolFillRectangle);
-    action->setIcon(KIcon("f_rect"));
+    action->setIcon(QIcon("f_rect"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillRectangle", action);
@@ -1347,7 +1347,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Draw Ellipse"));
     action->setData(Editor::ToolEllipse);
-    action->setIcon(KIcon("o_ellipse"));
+    action->setIcon(QIcon("o_ellipse"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolEllipse", action);
@@ -1356,7 +1356,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Fill Ellipse"));
     action->setData(Editor::ToolFillEllipse);
-    action->setIcon(KIcon("f_ellipse"));
+    action->setIcon(QIcon("f_ellipse"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillEllipse", action);
@@ -1365,7 +1365,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Fill Polygon"));
     action->setData(Editor::ToolFillPolygon);
-    action->setIcon(KIcon("polygon"));
+    action->setIcon(QIcon("polygon"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillPolygon", action);
@@ -1374,7 +1374,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Text"));
     action->setData(Editor::ToolText);
-    action->setIcon(KIcon("insert-text"));
+    action->setIcon(QIcon::fromTheme("insert-text"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolText", action);
@@ -1383,7 +1383,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Alphabet"));
     action->setData(Editor::ToolAlphabet);
-    action->setIcon(KIcon("alphabet"));
+    action->setIcon(QIcon("alphabet"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolAlphabet", action);
@@ -1392,7 +1392,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setData(Editor::ToolSelect);
-    action->setIcon(KIcon("s_rect"));
+    action->setIcon(QIcon("s_rect"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolSelectRectangle", action);
@@ -1401,7 +1401,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Backstitch"));
     action->setData(Editor::ToolBackstitch);
-    action->setIcon(KIcon("backstitch"));
+    action->setIcon(QIcon("backstitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolBackstitch", action);
@@ -1410,7 +1410,7 @@ void MainWindow::setupActions()
     action = new KAction(this);
     action->setText(i18n("Color Picker"));
     action->setData(Editor::ToolColorPicker);
-    action->setIcon(KIcon("color-picker"));
+    action->setIcon(QIcon::fromTheme("color-picker"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolColorPicker", action);
@@ -1420,7 +1420,7 @@ void MainWindow::setupActions()
     // Palette Menu
     action = new KAction(this);
     action->setText(i18n("Palette Manager..."));
-    action->setIcon(KIcon("palette-manager"));
+    action->setIcon(QIcon::fromTheme("palette-manager"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteManager()));
     actions->addAction("paletteManager", action);
 
@@ -1454,13 +1454,13 @@ void MainWindow::setupActions()
     // Pattern Menu
     action = new KAction(this);
     action->setText(i18n("Extend Pattern..."));
-    action->setIcon(KIcon("extpattern"));
+    action->setIcon(QIcon("extpattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
     actions->addAction("patternExtend", action);
 
     action = new KAction(this);
     action->setText(i18n("Center Pattern"));
-    action->setIcon(KIcon("centerpattern"));
+    action->setIcon(QIcon("centerpattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
     actions->addAction("patternCentre", action);
 
