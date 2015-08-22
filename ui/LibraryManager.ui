@@ -86,7 +86,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="KPushButton" name="ZoomOut">
+          <widget class="QPushButton" name="ZoomOut">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -130,7 +130,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KPushButton" name="ZoomIn">
+          <widget class="QPushButton" name="ZoomIn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -164,11 +164,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>LibraryTreeWidget</class>
    <extends>QTreeWidget</extends>
