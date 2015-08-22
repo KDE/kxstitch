@@ -13,13 +13,15 @@
 #define KeyElementDlg_H
 
 
+#include <QDialog>
+
 #include "ui_KeyElement.h"
 
 
 class KeyElement;
 
 
-class KeyElementDlg : public KDialog
+class KeyElementDlg : public QDialog
 {
     Q_OBJECT
 
@@ -27,8 +29,10 @@ public:
     KeyElementDlg(QWidget *, KeyElement *);
     ~KeyElementDlg();
 
-protected slots:
-    void slotButtonClicked(int);
+private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     KeyElement  *m_keyElement;
