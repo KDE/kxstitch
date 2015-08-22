@@ -30,7 +30,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KFontComboBox" name="TextToolFont"/>
+      <widget class="QFontComboBox" name="TextToolFont"/>
      </item>
      <item>
       <widget class="QLabel" name="textLabel2">
@@ -81,19 +81,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KFontComboBox</class>
-   <extends>KComboBox</extends>
-   <header>kfontcombobox.h</header>
-  </customwidget>
-  <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
