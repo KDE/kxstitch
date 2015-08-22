@@ -13,12 +13,12 @@
 #define LibraryFilePathsDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_LibraryFilePaths.h"
 
 
-class LibraryFilePathsDlg : public KDialog
+class LibraryFilePathsDlg : public QDialog
 {
     Q_OBJECT
 
@@ -26,8 +26,9 @@ public:
     LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
     ~LibraryFilePathsDlg();
 
-protected slots:
-    void slotButtonClicked(int);
+private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::LibraryFilePaths    ui;
