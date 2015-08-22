@@ -13,22 +13,21 @@
 #define TextElementDlg_H
 
 
+#include <QDialog>
+
 #include "ui_TextElement.h"
 
 
 class TextElement;
 
 
-class TextElementDlg : public KDialog
+class TextElementDlg : public QDialog
 {
     Q_OBJECT
 
 public:
     TextElementDlg(QWidget *, TextElement *);
     ~TextElementDlg();
-
-protected slots:
-    void slotButtonClicked(int);
 
 private slots:
     void on_FillBackground_toggled(bool);
@@ -45,6 +44,10 @@ private slots:
 
     void on_Text_currentCharFormatChanged(const QTextCharFormat &);
     void on_Text_cursorPositionChanged();
+
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     void mergeFormatOnWordOrSelection(const QTextCharFormat &);

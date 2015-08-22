@@ -474,6 +474,13 @@
      </property>
     </widget>
    </item>
+   <item row="3" column="0" colspan="11">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -481,6 +488,11 @@
    <class>KColorCombo</class>
    <extends>QComboBox</extends>
    <header>kcolorcombo.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ktextedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

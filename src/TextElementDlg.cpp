@@ -15,18 +15,20 @@
 
 #include "TextElementDlg.h"
 
-#include <KColorDialog>
+#include <QColorDialog>
+
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "Element.h"
 
 
 TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_textElement(textElement)
 {
-    setCaption(i18n("Text Element Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("TextElement");
+    setWindowTitle(i18n("Text Element Properties"));
+
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
@@ -67,44 +69,11 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     if (!m_textElement->m_text.isEmpty()) {
         ui.Text->setHtml(m_textElement->m_text);
     }
-
-    setMainWidget(widget);
 }
 
 
 TextElementDlg::~TextElementDlg()
 {
-}
-
-
-void TextElementDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        m_textElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
-        m_textElement->m_showBorder = ui.ShowBorder->isChecked();
-        m_textElement->m_borderColor = ui.BorderColor->color();
-        m_textElement->m_borderThickness = int(ui.BorderThickness->value() * 10);
-        m_textElement->m_fillBackground = ui.FillBackground->isChecked();
-        m_textElement->m_backgroundColor = ui.BackgroundColor->color();
-        m_textElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
-        m_textElement->m_text = ui.Text->toHtml();
-
-        if (ui.AlignLeft->isChecked()) {
-            m_textElement->m_alignment = Qt::AlignLeft;
-        } else if (ui.AlignHCenter->isChecked()) {
-            m_textElement->m_alignment = Qt::AlignHCenter;
-        } else if (ui.AlignRight->isChecked()) {
-            m_textElement->m_alignment = Qt::AlignRight;
-        } else if (ui.AlignJustify->isChecked()) {
-            m_textElement->m_alignment = Qt::AlignJustify;
-        }
-
-        m_textElement->m_textFont = ui.Text->font();
-
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -171,9 +140,9 @@ void TextElementDlg::on_PointSize_valueChanged(int size)
 
 void TextElementDlg::on_TextColor_clicked()
 {
-    QColor color = ui.Text->textColor();
+    QColor color = QColorDialog::getColor(ui.Text->textColor(), this);
 
-    if (KColorDialog::getColor(color, this) == KColorDialog::Accepted && color.isValid()) {
+    if (color.isValid()) {
         QTextCharFormat fmt;
         fmt.setForeground(color);
         mergeFormatOnWordOrSelection(fmt);
@@ -206,6 +175,45 @@ void TextElementDlg::on_Text_currentCharFormatChanged(const QTextCharFormat &for
 void TextElementDlg::on_Text_cursorPositionChanged()
 {
     alignmentChanged(ui.Text->alignment());
+}
+
+
+void TextElementDlg::on_DialogButtonBox_accepted()
+{
+    m_textElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
+    m_textElement->m_showBorder = ui.ShowBorder->isChecked();
+    m_textElement->m_borderColor = ui.BorderColor->color();
+    m_textElement->m_borderThickness = int(ui.BorderThickness->value() * 10);
+    m_textElement->m_fillBackground = ui.FillBackground->isChecked();
+    m_textElement->m_backgroundColor = ui.BackgroundColor->color();
+    m_textElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
+    m_textElement->m_text = ui.Text->toHtml();
+
+    if (ui.AlignLeft->isChecked()) {
+        m_textElement->m_alignment = Qt::AlignLeft;
+    } else if (ui.AlignHCenter->isChecked()) {
+        m_textElement->m_alignment = Qt::AlignHCenter;
+    } else if (ui.AlignRight->isChecked()) {
+        m_textElement->m_alignment = Qt::AlignRight;
+    } else if (ui.AlignJustify->isChecked()) {
+        m_textElement->m_alignment = Qt::AlignJustify;
+    }
+
+    m_textElement->m_textFont = ui.Text->font();
+
+    accept();
+}
+
+
+void TextElementDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void TextElementDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("TextElement", "kxstitch");
 }
 
 
