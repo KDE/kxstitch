@@ -14,10 +14,10 @@
 #include <QDataStream>
 #include <QFile>
 #include <QFileInfo>
+#include <QProgressDialog>
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KProgressDialog>
 
 #include <stdlib.h>
 
@@ -142,14 +142,15 @@ void LibraryFile::readFile()
                 QByteArray data;
                 LibraryPattern *libraryPattern;
 
-                KProgressDialog progress(0, i18n("Loading Library"), file.fileName());
+                QProgressDialog progress(0);
+                progress.setLabelText(i18n("Loading Library %1", file.fileName()));
 
                 stream >> version;
 
                 switch (version) {
                 case 1:
-                    progress.progressBar()->setMinimum(file.pos());
-                    progress.progressBar()->setMaximum(file.size());
+                    progress.setRange(file.pos(), file.size());
+                    progress.setValue(0);
                     progress.show();
 
                     while (!file.atEnd() && ok) {
@@ -183,22 +184,22 @@ void LibraryFile::readFile()
                             ok = false;
                         }
 
-                        progress.progressBar()->setValue(file.pos());
+                        progress.setValue(file.pos());
                     }
 
                     break;
 
                 case 100:
                     stream >> count;
-                    progress.progressBar()->setMinimum(0);
-                    progress.progressBar()->setMaximum(count);
-                    progress.progressBar()->setValue(0);
+                    progress.setRange(0, count);
+                    progress.setValue(0);
+                    progress.show();
 
                     while (count--) {
                         libraryPattern = new LibraryPattern;
                         stream >> *libraryPattern;
                         m_libraryPatterns.append(libraryPattern);
-                        progress.progressBar()->setValue(progress.progressBar()->value() + 1);
+                        progress.setValue(progress.value() + 1);
                     }
 
                     break;
