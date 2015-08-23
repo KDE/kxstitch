@@ -230,9 +230,6 @@
          <property name="maximum">
           <double>10.000000000000000</double>
          </property>
-         <property name="sliderEnabled">
-          <bool>false</bool>
-         </property>
         </widget>
        </item>
       </layout>
