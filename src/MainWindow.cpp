@@ -34,7 +34,6 @@
 #include <QUrl>
 
 #include <KActionCollection>
-#include <KGlobalSettings>
 #include <KConfigDialog>
 #include <KIO/FileCopyJob>
 #include <KIO/StatJob>
@@ -313,7 +312,7 @@ void MainWindow::fileOpen(const QUrl &url)
                         m_document->setUrl(url);
                         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
                         action->addUrl(url);
-                        action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+                        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
                     } catch (const InvalidFile &e) {
                         stream.device()->seek(0);
 
@@ -397,7 +396,7 @@ void MainWindow::fileSaveAs()
         fileSave();
         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
         action->addUrl(url);
-        action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
     }
 }
 
@@ -1106,7 +1105,7 @@ void MainWindow::setupActions()
     // File menu
     KStandardAction::openNew(this, SLOT(fileNew()), actions);
     KStandardAction::open(this, SLOT(fileOpen()), actions);
-    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
     KStandardAction::save(this, SLOT(fileSave()), actions);
     KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
     KStandardAction::revert(this, SLOT(fileRevert()), actions);
