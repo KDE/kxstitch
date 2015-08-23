@@ -25,6 +25,7 @@
 #include <QToolTip>
 #include <QX11Info>
 
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KXMLGUIFactory>
 
