@@ -27,8 +27,9 @@
 
 #include "SymbolSelectorDlg.h"
 
+#include <KHelpClient>
 #include <KListWidget>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "configuration.h"
 #include "Symbol.h"
@@ -43,16 +44,13 @@
  * @param symbolLibrary the name of the symbol library to use
  */
 SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_library(SymbolManager::library(symbolLibrary))
 {
-    setCaption(i18n("Symbol Selector"));
-    setButtons(KDialog::Cancel | KDialog::Help);
-    setHelp("SymbolSelectorDialog");
+    setWindowTitle(i18n("Symbol Selector"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 
     if (m_library == 0) {
         m_library = SymbolManager::library("kxstitch");
@@ -104,6 +102,24 @@ void SymbolSelectorDlg::on_SymbolTable_executed(QListWidgetItem *item)
     m_usedSymbols.append(m_currentSymbol);
 
     accept();
+}
+
+
+/**
+ * Called when the dialog Close button is pressed.
+ */
+void SymbolSelectorDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+/**
+ * Called when the dialog Help button is pressed.
+ */
+void SymbolSelectorDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("SymbolSelectorDialog", "kxstitch");
 }
 
 

@@ -17,6 +17,13 @@
    <item row="0" column="0">
     <widget class="SymbolListWidget" name="SymbolTable"/>
    </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
