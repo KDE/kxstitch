@@ -16,6 +16,7 @@
 #include <QClipboard>
 #include <QDataStream>
 #include <QDockWidget>
+#include <QFileDialog>
 #include <QGridLayout>
 #include <QMenu>
 #include <QMimeData>
@@ -32,7 +33,6 @@
 #include <QUrl>
 
 #include <KActionCollection>
-#include <KFileDialog>
 #include <KGlobalSettings>
 #include <KConfigDialog>
 #include <KIO/FileCopyJob>
@@ -289,7 +289,7 @@ void MainWindow::fileNew()
 
 void MainWindow::fileOpen()
 {
-    fileOpen(KFileDialog::getOpenUrl(QUrl("kfiledialog:///"), i18n("*.kxs|Cross Stitch Patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
+    fileOpen(QFileDialog::getOpenFileUrl(this, i18n("Open file"), QUrl("~"), i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
 }
 
 
@@ -383,7 +383,7 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    QUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|Cross Stitch Patterns"), this, i18n("Save As..."));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Cross Stitch Patterns *.kxs"));
 
     if (url.isValid()) {
         KIO::StatJob *statJob = KIO::stat(url, KIO::StatJob::DestinationSide, 0);
@@ -500,7 +500,7 @@ void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
-    QUrl url = KFileDialog::getImageOpenUrl(QUrl(), this, i18n("Import Image"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (url.isValid()) {
         QTemporaryFile tmpFile;
@@ -726,7 +726,7 @@ void MainWindow::fileProperties()
 
 void MainWindow::fileAddBackgroundImage()
 {
-    QUrl url = KFileDialog::getImageOpenUrl(QUrl(), this, i18n("Background Image"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Background Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (!url.path().isNull()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
