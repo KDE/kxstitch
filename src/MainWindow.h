@@ -19,6 +19,7 @@
 
 
 class QLabel;
+class QPrinter;
 class QString;
 class QUndoView;
 class QUrl;
