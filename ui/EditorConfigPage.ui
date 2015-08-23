@@ -410,7 +410,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="KFontComboBox" name="kcfg_TextTool_FontFamily"/>
+          <widget class="QFontComboBox" name="kcfg_TextTool_FontFamily"/>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_17">
@@ -445,11 +445,6 @@
    <class>KDoubleNumInput</class>
    <extends>QWidget</extends>
    <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KFontComboBox</class>
-   <extends>KComboBox</extends>
-   <header>kfontcombobox.h</header>
   </customwidget>
   <customwidget>
    <class>KColorButton</class>
