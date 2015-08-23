@@ -199,27 +199,31 @@
         </layout>
        </item>
        <item>
-        <widget class="KButtonGroup" name="kcfg_Page_Orientation">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QRadioButton" name="PortraitRadioButton">
-            <property name="text">
-             <string>Portrait</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="LandscapeRadioButton">
-            <property name="text">
-             <string>Landscape</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QRadioButton" name="PortraitRadioButton">
+           <property name="text">
+            <string>Portrait</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">kcfg_Page_Orientation</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="LandscapeRadioButton">
+           <property name="text">
+            <string>Landscape</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">kcfg_Page_Orientation</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox">
@@ -1057,12 +1061,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KButtonGroup</class>
-   <extends>QGroupBox</extends>
-   <header>kbuttongroup.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
@@ -1074,10 +1072,7 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>tabWidget</tabstop>
   <tabstop>kcfg_Page_Size</tabstop>
-  <tabstop>PortraitRadioButton</tabstop>
-  <tabstop>LandscapeRadioButton</tabstop>
   <tabstop>kcfg_Page_MarginLeft</tabstop>
   <tabstop>kcfg_Page_MarginRight</tabstop>
   <tabstop>kcfg_Page_MarginTop</tabstop>
@@ -1117,4 +1112,7 @@
  </tabstops>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="kcfg_Page_Orientation"/>
+ </buttongroups>
 </ui>
