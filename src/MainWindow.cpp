@@ -11,6 +11,7 @@
 
 #include "MainWindow.h"
 
+#include <QAction>
 #include <QActionGroup>
 #include <QClipboard>
 #include <QDataStream>
@@ -30,7 +31,6 @@
 #include <QUndoView>
 #include <QUrl>
 
-#include <KAction>
 #include <KActionCollection>
 #include <KFileDialog>
 #include <KGlobalSettings>
@@ -744,7 +744,7 @@ void MainWindow::fileAddBackgroundImage()
 
 void MainWindow::fileRemoveBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), this));
 }
 
@@ -865,7 +865,7 @@ void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
 
 void MainWindow::viewFitBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new FitBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), m_editor->selectionArea()));
 }
 
@@ -878,7 +878,7 @@ void MainWindow::paletteContextMenu(const QPoint &pos)
 
 void MainWindow::viewShowBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), action->isChecked()));
 }
 
@@ -1099,7 +1099,7 @@ void MainWindow::documentModified(bool clean)
 
 void MainWindow::setupActions()
 {
-    KAction *action;
+    QAction *action;
     QActionGroup *actionGroup;
 
     KActionCollection *actions = actionCollection();
@@ -1112,24 +1112,24 @@ void MainWindow::setupActions()
     KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
     KStandardAction::revert(this, SLOT(fileRevert()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Print Setup..."));
     connect(action, SIGNAL(triggered()), this, SLOT(filePrintSetup()));
     actions->addAction("filePrintSetup", action);
 
     KStandardAction::print(this, SLOT(filePrint()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Import Image"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileImportImage()));
     actions->addAction("fileImportImage", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("File Properties"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileProperties()));
     actions->addAction("fileProperties", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Add Background Image..."));
     connect(action, SIGNAL(triggered()), this, SLOT(fileAddBackgroundImage()));
     actions->addAction("fileAddBackgroundImage", action);
@@ -1147,41 +1147,41 @@ void MainWindow::setupActions()
     actions->action("edit_copy")->setEnabled(false);
     KStandardAction::paste(m_editor, SLOT(editPaste()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Mirror/Rotate makes copies"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMakesCopies(bool)));
     actions->addAction("makesCopies", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Horizontally"));
     action->setData(Qt::Horizontal);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
     actions->addAction("mirrorHorizontal", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Vertically"));
     action->setData(Qt::Vertical);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
     actions->addAction("mirrorVertical", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("90 Degrees"));
     action->setData(StitchData::Rotate90);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
     actions->addAction("rotate90", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("180 Degrees"));
     action->setData(StitchData::Rotate180);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
     actions->addAction("rotate180", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("270 Degrees"));
     action->setData(StitchData::Rotate270);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
@@ -1189,25 +1189,25 @@ void MainWindow::setupActions()
     actions->addAction("rotate270", action);
 
     // Selection mask sub menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Stitch Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskStitch(bool)));
     actions->addAction("maskStitch", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskColor(bool)));
     actions->addAction("maskColor", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Exclude Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskBackstitch(bool)));
     actions->addAction("maskBackstitch", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Exclude Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskKnot(bool)));
@@ -1233,7 +1233,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Quarter Stitch"));
     action->setData(Editor::StitchQuarter);
     action->setIcon(QIcon("quarter"));
@@ -1242,7 +1242,7 @@ void MainWindow::setupActions()
     actions->addAction("stitchQuarter", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Half Stitch"));
     action->setData(Editor::StitchHalf);
     action->setIcon(QIcon("half"));
@@ -1251,7 +1251,7 @@ void MainWindow::setupActions()
     actions->addAction("stitchHalf", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("3 Quarter Stitch"));
     action->setData(Editor::Stitch3Quarter);
     action->setIcon(QIcon("3quarter"));
@@ -1260,7 +1260,7 @@ void MainWindow::setupActions()
     actions->addAction("stitch3Quarter", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Full Stitch"));
     action->setData(Editor::StitchFull);
     action->setIcon(QIcon("full"));
@@ -1269,7 +1269,7 @@ void MainWindow::setupActions()
     actions->addAction("stitchFull", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Small Half Stitch"));
     action->setData(Editor::StitchSmallHalf);
     action->setIcon(QIcon("smallhalf"));
@@ -1278,7 +1278,7 @@ void MainWindow::setupActions()
     actions->addAction("stitchSmallHalf", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Small Full Stitch"));
     action->setData(Editor::StitchSmallFull);
     action->setIcon(QIcon("smallfull"));
@@ -1287,7 +1287,7 @@ void MainWindow::setupActions()
     actions->addAction("stitchSmallFull", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("French Knot"));
     action->setData(Editor::StitchFrenchKnot);
     action->setIcon(QIcon("frenchknot"));
@@ -1301,7 +1301,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Paint"));
     action->setData(Editor::ToolPaint);
     action->setIcon(QIcon::fromTheme("draw-brush"));
@@ -1310,7 +1310,7 @@ void MainWindow::setupActions()
     actions->addAction("toolPaint", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw"));
     action->setData(Editor::ToolDraw);
     action->setIcon(QIcon::fromTheme("draw-freehand"));
@@ -1319,7 +1319,7 @@ void MainWindow::setupActions()
     actions->addAction("toolDraw", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Erase"));
     action->setData(Editor::ToolErase);
     action->setIcon(QIcon::fromTheme("draw-eraser"));
@@ -1328,7 +1328,7 @@ void MainWindow::setupActions()
     actions->addAction("toolErase", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw Rectangle"));
     action->setData(Editor::ToolRectangle);
     action->setIcon(QIcon("o_rect"));
@@ -1337,7 +1337,7 @@ void MainWindow::setupActions()
     actions->addAction("toolRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Rectangle"));
     action->setData(Editor::ToolFillRectangle);
     action->setIcon(QIcon("f_rect"));
@@ -1346,7 +1346,7 @@ void MainWindow::setupActions()
     actions->addAction("toolFillRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw Ellipse"));
     action->setData(Editor::ToolEllipse);
     action->setIcon(QIcon("o_ellipse"));
@@ -1355,7 +1355,7 @@ void MainWindow::setupActions()
     actions->addAction("toolEllipse", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Ellipse"));
     action->setData(Editor::ToolFillEllipse);
     action->setIcon(QIcon("f_ellipse"));
@@ -1364,7 +1364,7 @@ void MainWindow::setupActions()
     actions->addAction("toolFillEllipse", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Polygon"));
     action->setData(Editor::ToolFillPolygon);
     action->setIcon(QIcon("polygon"));
@@ -1373,7 +1373,7 @@ void MainWindow::setupActions()
     actions->addAction("toolFillPolygon", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Text"));
     action->setData(Editor::ToolText);
     action->setIcon(QIcon::fromTheme("insert-text"));
@@ -1382,7 +1382,7 @@ void MainWindow::setupActions()
     actions->addAction("toolText", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Alphabet"));
     action->setData(Editor::ToolAlphabet);
     action->setIcon(QIcon("alphabet"));
@@ -1391,7 +1391,7 @@ void MainWindow::setupActions()
     actions->addAction("toolAlphabet", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setData(Editor::ToolSelect);
     action->setIcon(QIcon("s_rect"));
@@ -1400,7 +1400,7 @@ void MainWindow::setupActions()
     actions->addAction("toolSelectRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Backstitch"));
     action->setData(Editor::ToolBackstitch);
     action->setIcon(QIcon("backstitch"));
@@ -1409,7 +1409,7 @@ void MainWindow::setupActions()
     actions->addAction("toolBackstitch", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Picker"));
     action->setData(Editor::ToolColorPicker);
     action->setIcon(QIcon::fromTheme("color-picker"));
@@ -1420,70 +1420,70 @@ void MainWindow::setupActions()
 
 
     // Palette Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Palette Manager..."));
     action->setIcon(QIcon::fromTheme("palette-manager"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteManager()));
     actions->addAction("paletteManager", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Symbols"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), this, SLOT(paletteShowSymbols(bool)));
     actions->addAction("paletteShowSymbols", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Clear Unused"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteClearUnused()));
     actions->addAction("paletteClearUnused", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Calibrate Scheme..."));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteCalibrateScheme()));
     actions->addAction("paletteCalibrateScheme", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Swap Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(swapColors()));
     actions->addAction("paletteSwapColors", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Replace Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(replaceColor()));
     actions->addAction("paletteReplaceColor", action);
 
 
     // Pattern Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Extend Pattern..."));
     action->setIcon(QIcon("extpattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
     actions->addAction("patternExtend", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Center Pattern"));
     action->setIcon(QIcon("centerpattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
     actions->addAction("patternCentre", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Crop Canvas to Pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
     actions->addAction("patternCrop", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Crop Canvas to Selection"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
     actions->addAction("patternCropToSelection", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Insert Rows"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertRows()));
     action->setEnabled(false);
     actions->addAction("insertRows", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Insert Columns"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertColumns()));
     action->setEnabled(false);
@@ -1491,7 +1491,7 @@ void MainWindow::setupActions()
 
 
     // Library Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Library Manager..."));
     connect(action, SIGNAL(triggered()), m_editor, SLOT(libraryManager()));
     actions->addAction("libraryManager", action);
@@ -1502,21 +1502,21 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsStitches()));
     actions->addAction("formatScalesAsStitches", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("CM"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCM()));
     actions->addAction("formatScalesAsCM", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Inches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsInches()));
@@ -1527,7 +1527,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Regular Stitches"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
     action->setCheckable(true);
@@ -1536,7 +1536,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsRegularStitches", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1544,7 +1544,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsBlackWhiteSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols);
     action->setCheckable(true);
@@ -1552,7 +1552,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsColorSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     action->setCheckable(true);
@@ -1560,7 +1560,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsColorBlocks", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols);
     action->setCheckable(true);
@@ -1572,7 +1572,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Lines"));
     action->setData(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
     action->setCheckable(true);
@@ -1581,7 +1581,7 @@ void MainWindow::setupActions()
     actions->addAction("renderBackstitchesAsColorLines", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1593,7 +1593,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
     action->setCheckable(true);
@@ -1602,7 +1602,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorBlocks", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);
     action->setCheckable(true);
@@ -1610,7 +1610,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorBlocksSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);
     action->setCheckable(true);
@@ -1618,7 +1618,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1627,37 +1627,37 @@ void MainWindow::setupActions()
     actionGroup->addAction(action);
 
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Hilight"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(colorHilight(bool)));
     actions->addAction("colorHilight", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderStitches(bool)));
     actions->addAction("renderStitches", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackstitches(bool)));
     actions->addAction("renderBackstitches", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show French Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderFrenchKnots(bool)));
     actions->addAction("renderFrenchKnots", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Grid"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderGrid(bool)));
     actions->addAction("renderGrid", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Background Images"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackgroundImages(bool)));
@@ -1690,19 +1690,19 @@ void MainWindow::updateBackgroundImageActionLists()
     while (backgroundImages.hasNext()) {
         BackgroundImage *background = backgroundImages.next();
 
-        KAction *action = new KAction(background->url().fileName(), this);
+        QAction *action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(fileRemoveBackgroundImage()));
         removeBackgroundImageActions.append(action);
 
-        action = new KAction(background->url().fileName(), this);
+        action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(viewFitBackgroundImage()));
         fitBackgroundImageActions.append(action);
 
-        action = new KAction(background->url().fileName(), this);
+        action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         action->setCheckable(true);

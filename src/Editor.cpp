@@ -25,7 +25,6 @@
 #include <QToolTip>
 #include <QX11Info>
 
-#include <KAction>
 #include <KMessageBox>
 #include <KXMLGUIFactory>
 
@@ -534,7 +533,7 @@ void Editor::pastePattern(ToolMode toolMode)
 
 void Editor::mirrorSelection()
 {
-    m_orientation = static_cast<Qt::Orientation>(qobject_cast<KAction *>(sender())->data().toInt());
+    m_orientation = static_cast<Qt::Orientation>(qobject_cast<QAction *>(sender())->data().toInt());
 
     QDataStream stream(&m_pasteData, QIODevice::WriteOnly);
     stream << m_document->pattern()->stitches();
@@ -554,7 +553,7 @@ void Editor::mirrorSelection()
 
 void Editor::rotateSelection()
 {
-    m_rotation = static_cast<StitchData::Rotation>(qobject_cast<KAction *>(sender())->data().toInt());
+    m_rotation = static_cast<StitchData::Rotation>(qobject_cast<QAction *>(sender())->data().toInt());
 
     QDataStream stream(&m_pasteData, QIODevice::WriteOnly);
     stream << m_document->pattern()->stitches();
