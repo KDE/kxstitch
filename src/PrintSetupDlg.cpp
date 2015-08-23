@@ -22,7 +22,8 @@
 #include <QShowEvent>
 
 #include <KColorDialog>
-#include <KDebug>
+#include <KHelpClient>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Document.h"
@@ -41,15 +42,13 @@ static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 
 
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_printerConfiguration(document->printerConfiguration()),
         m_elementUnderCursor(0),
         m_document(document),
         m_printer(printer)
 {
-    setCaption(i18n("Print Setup"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PrinterDialog");
+    setWindowTitle(i18n("Print Setup"));
 
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
@@ -81,8 +80,6 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
     ui.Zoom->setCurrentIndex(4);    // 200%
     ui.SelectElement->click();      // select mode
-
-    setMainWidget(widget);
 }
 
 
@@ -100,7 +97,7 @@ const PrinterConfiguration &PrintSetupDlg::printerConfiguration() const
 
 void PrintSetupDlg::showEvent(QShowEvent *event)
 {
-    KDialog::showEvent(event);
+    QDialog::showEvent(event);
 
     if (ui.Pages->count() == 0) {
         initialiseFromConfig();
@@ -228,6 +225,24 @@ void PrintSetupDlg::on_KeyElement_clicked()
 {
     m_elementMode = Key;
     m_pageLayoutEditor->setSelecting(false);
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PrinterDialog", "kxstitch");
 }
 
 
