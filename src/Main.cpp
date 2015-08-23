@@ -58,11 +58,12 @@
     */
 
 
+#include <QApplication>
+#include <QCommandLineParser>
 #include <QUrl>
 
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
+#include <KLocalizedString>
 
 #include "configuration.h"
 #include "MainWindow.h"
@@ -72,10 +73,10 @@
     The main function creates an instance of a KAboutData object and populates it with any
     information necessary for the application.
 
-    A KApplication object is created to manage the application.  If the session is restored
+    A QApplication object is created to manage the application.  If the session is restored
     the previous MainWindows will be restored to their former state when the session was saved.
 
-    Alternatively a KCmdLineArgs object is created to manage any arguments passed on the command
+    Alternatively a QCommandLineParser object is created to manage any arguments passed on the command
     line.  For each of the arguments provided, a new MainWindow is created using the arguments url.
     This MainWindow is then shown on the desktop.  If no arguments are provided a new MainWindow is
     created using an empty QUrl, creating a new document, which is then shown on the desktop.
@@ -84,29 +85,59 @@
     */
 int main(int argc, char *argv[])
 {
-    KAboutData aboutData("kxstitch",
-                         "kxstitch",
-                         ki18n("KXStitch"), "1.99.0",
-                         ki18n("A cross stitch pattern creator."),
-                         KAboutData::License_GPL_V2,
-                         ki18n("(c) 2010-2014 Stephen Allewell"),
-                         KLocalizedString(),
-                         "http://userbase.kde.org/KXStitch");
-    aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "steve.allewell@gmail.com");
-    aboutData.addCredit(ki18n("Pierre Brua"), ki18n("Bug fixes, application icons"), "kxstitchdev@paralline.com");
-    aboutData.addCredit(ki18n("Eric Pareja"), ki18n("Man page"), "xenos@upm.edu.ph");
-    aboutData.addCredit(ki18n("Adam Gundy"), ki18n("Bug fixes, improvements"), "adam@starsilk.net");
-    aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"),
-                            ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
+    QApplication app(argc, argv);
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    KAboutData aboutData(QStringLiteral("kxstitch"),                    // component name
+                         QString(i18n("kxstitch")),                     // display name
+                         QStringLiteral("1.99.0"),                      // version
+                         i18n("A cross stitch pattern creator."),       // short description
+                         KAboutLicense::GPL_V2,                         // license
+                         i18n("(c) 2010-2014 Stephen Allewell"),        // copyright
+                         QStringLiteral(),                              // other text
+                         QString("http://userbase.kde.org/KXStitch")    // home page
+                         // bug address defaults to submit@bugs.kde.org
+               );
 
-    KCmdLineOptions options;
-    options.add("+[file]", ki18n("Document to open"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    aboutData.addAuthor(QStringLiteral("Stephen Allewell"), i18n("Project Lead"), QStringLiteral("steve.allewell@gmail.com"));
+    aboutData.addCredit(QStringLiteral("Pierre Brua"), i18n("Bug fixes, application icons"), QStringLiteral("kxstitchdev@paralline.com"));
+    aboutData.addCredit(QStringLiteral("Eric Pareja"), i18n("Man page"), QStringLiteral("xenos@upm.edu.ph"));
+    aboutData.addCredit(QStringLiteral("Adam Gundy"), i18n("Bug fixes, improvements"), QStringLiteral("adam@starsilk.net"));
+    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
-    KApplication app;
+    KAboutData::setApplicationData(aboutData);
 
+    app.setApplicationName(aboutData.componentName());
+    app.setApplicationDisplayName(aboutData.displayName());
+    app.setOrganizationDomain(aboutData.organizationDomain());
+    app.setApplicationVersion(aboutData.version());
+
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.setApplicationDescription(aboutData.shortDescription());
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Document to open."), QStringLiteral("[urls...]"));
+
+    parser.process(app);
+
+    aboutData.processCommandLine(&parser);
+
+    MainWindow *mainWindow;
+
+    QStringList urls = parser.positionalArguments();
+
+    if (urls.isEmpty()) {
+        mainWindow = new MainWindow(QUrl());
+        mainWindow->show();
+    } else {
+        foreach (const QString &url, urls) {
+            mainWindow = new MainWindow(url);
+            mainWindow->show();
+        }
+    }
+
+#if 0
     if (app.isSessionRestored()) {
         kRestoreMainWindows<MainWindow>();
     } else {
@@ -126,6 +157,7 @@ int main(int argc, char *argv[])
 
         args->clear();
     }
+#endif
 
     return app.exec();
 }
