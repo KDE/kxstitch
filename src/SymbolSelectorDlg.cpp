@@ -27,8 +27,9 @@
 
 #include "SymbolSelectorDlg.h"
 
+#include <QListWidget>
+
 #include <KHelpClient>
-#include <KListWidget>
 #include <KLocalizedString>
 
 #include "configuration.h"
