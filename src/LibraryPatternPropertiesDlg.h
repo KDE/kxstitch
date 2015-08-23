@@ -13,12 +13,12 @@
 #define LibraryPatternPropertiesDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_LibraryPatternProperties.h"
 
 
-class LibraryPatternPropertiesDlg : public KDialog
+class LibraryPatternPropertiesDlg : public QDialog
 {
     Q_OBJECT
 
@@ -29,6 +29,11 @@ public:
     qint32 key() const;
     Qt::KeyboardModifiers modifiers() const;
     qint16 baseline() const;
+
+private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::LibraryPatternProperties    ui;
