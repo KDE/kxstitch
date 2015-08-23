@@ -34,8 +34,9 @@
 #include <KActionCollection>
 #include <KFileDialog>
 #include <KGlobalSettings>
-#include <KIO/NetAccess>
 #include <KConfigDialog>
+#include <KIO/FileCopyJob>
+#include <KIO/StatJob>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRecentFilesAction>
@@ -299,13 +300,13 @@ void MainWindow::fileOpen(const QUrl &url)
 
     if (url.isValid()) {
         if (docEmpty) {
-            QString source;
+            QTemporaryFile tmpFile;
 
-            if (KIO::NetAccess::download(url, source, 0)) {
-                QFile file(source);
+            if (tmpFile.open()) {
+                KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), KIO::Overwrite);
 
-                if (file.open(QIODevice::ReadOnly)) {
-                    QDataStream stream(&file);
+                if (job->exec()) {
+                    QDataStream stream(&tmpFile);
 
                     try {
                         m_document->readKXStitch(stream);
@@ -319,7 +320,7 @@ void MainWindow::fileOpen(const QUrl &url)
                         try {
                             m_document->readPCStitch(stream);
                         } catch (const InvalidFile &e) {
-                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognised cross stitch file."));
+                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognized cross stitch file."));
                         }
                     } catch (const InvalidFileVersion &e) {
                         KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
@@ -333,14 +334,11 @@ void MainWindow::fileOpen(const QUrl &url)
                     m_preview->readDocumentSettings();
                     m_palette->update();
                     documentModified(true); // this is the clean value true
-                    file.close();
                 } else {
-                    KMessageBox::error(0, file.errorString());
+                    KMessageBox::error(0, job->errorString());
                 }
-
-                KIO::NetAccess::removeTempFile(source);
             } else {
-                KMessageBox::error(0, KIO::NetAccess::lastErrorString());
+                KMessageBox::error(0, tmpFile.errorString());
             }
         } else {
             window = new MainWindow(url);
@@ -388,7 +386,9 @@ void MainWindow::fileSaveAs()
     QUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|Cross Stitch Patterns"), this, i18n("Save As..."));
 
     if (url.isValid()) {
-        if (KIO::NetAccess::exists(url, false, 0)) {
+        KIO::StatJob *statJob = KIO::stat(url, KIO::StatJob::DestinationSide, 0);
+
+        if (statJob->exec()) {
             if (KMessageBox::warningYesNo(this, i18n("This file already exists\nDo you want to overwrite it?")) == KMessageBox::No) {
                 return;
             }
@@ -503,21 +503,23 @@ void MainWindow::fileImportImage()
     QUrl url = KFileDialog::getImageOpenUrl(QUrl(), this, i18n("Import Image"));
 
     if (url.isValid()) {
-        QString source;
+        QTemporaryFile tmpFile;
 
-        if (KIO::NetAccess::download(url, source, 0)) {
-            if (docEmpty) {
-                convertImage(source);
-                convertPreview(source);
-                this->findChild<QDockWidget *>("ImportedImage#")->show();
+        if (tmpFile.open()) {
+            KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), KIO::Overwrite);
+
+            if (job->exec()) {
+                if (docEmpty) {
+                    convertImage(tmpFile.fileName());
+                    convertPreview(tmpFile.fileName());
+                    this->findChild<QDockWidget *>("ImportedImage#")->show();
+                } else {
+                    window = new MainWindow(tmpFile.fileName());
+                    window->show();
+                }
             } else {
-                window = new MainWindow(source);
-                window->show();
+                KMessageBox::error(0, job->errorString());
             }
-
-            KIO::NetAccess::removeTempFile(source);
-        } else {
-            KMessageBox::error(0, KIO::NetAccess::lastErrorString());
         }
     }
 }

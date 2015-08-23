@@ -15,7 +15,6 @@
 #include <QFile>
 #include <QVariant>
 
-#include <KIO/NetAccess>
 #include <KLocalizedString>
 #include <KMessageBox>
 
