@@ -27,6 +27,7 @@
 #include <QPrinter>
 #include <QPrintEngine>
 #include <QPrintPreviewDialog>
+#include <QSaveFile>
 #include <QScrollArea>
 #include <QTemporaryFile>
 #include <QUndoView>
@@ -40,7 +41,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRecentFilesAction>
-#include <KSaveFile>
 #include <KSelectAction>
 #include <KXMLGUIFactory>
 
@@ -355,8 +355,7 @@ void MainWindow::fileSave()
     if (url == i18n("Untitled")) {
         fileSaveAs();
     } else {
-        KSaveFile::backupFile(url.path());
-        KSaveFile file(url.path());
+        QSaveFile file(url.path());
 
         if (file.open(QIODevice::WriteOnly)) {
             QDataStream stream(&file);
@@ -364,14 +363,14 @@ void MainWindow::fileSave()
             try {
                 m_document->write(stream);
 
-                if (!file.finalize()) {
+                if (!file.commit()) {
                     throw FailedWriteFile(stream.status());
                 }
 
                 m_document->undoStack().setClean();
             } catch (const FailedWriteFile &e) {
                 KMessageBox::error(0, QString(i18n("Failed to save the file.\n%1", file.errorString())));
-                file.abort();
+                file.cancelWriting();
             }
         } else {
             KMessageBox::error(0, QString(i18n("Failed to open the file.\n%1", file.errorString())));
