@@ -457,7 +457,7 @@ void Document::readPCStitch5File(QDataStream &stream)
     setProperty("copyright", readPCStitchString(stream));
     setProperty("title", readPCStitchString(stream));
     setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", Qt::white);
+    setProperty("fabricColor", QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
@@ -735,7 +735,7 @@ void Document::readPCStitch6File(QDataStream &stream)
     setProperty("copyright", readPCStitchString(stream));
     setProperty("title", readPCStitchString(stream));
     setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", Qt::white);
+    setProperty("fabricColor", QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
