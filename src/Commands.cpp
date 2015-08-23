@@ -15,7 +15,7 @@
 #include <QClipboard>
 #include <QMimeData>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "BackgroundImage.h"
 #include "Document.h"

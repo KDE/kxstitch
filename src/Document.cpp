@@ -16,7 +16,7 @@
 #include <QVariant>
 
 #include <KIO/NetAccess>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Editor.h"

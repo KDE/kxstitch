@@ -53,7 +53,7 @@
 #include <QPainter>
 #include <QtAlgorithms>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 #include "SymbolListWidget.h"

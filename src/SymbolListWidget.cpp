@@ -35,7 +35,7 @@
 #include <QPainter>
 #include <QPen>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Stitch.h"
 #include "Symbol.h"

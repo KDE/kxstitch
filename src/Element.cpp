@@ -18,7 +18,7 @@
 #include <QPaintEngine>
 #include <QTextDocument>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Document.h"
 #include "FlossScheme.h"

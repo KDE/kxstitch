@@ -16,7 +16,7 @@
 #include <QPainter>
 #include <QPixmap>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Page.h"
 #include "PaperSizes.h"

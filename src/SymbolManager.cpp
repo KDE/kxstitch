@@ -32,7 +32,7 @@
 #include <QFile>
 #include <QUrl>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
 

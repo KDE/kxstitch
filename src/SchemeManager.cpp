@@ -18,7 +18,7 @@
 #include <QXmlInputSource>
 #include <QXmlSimpleReader>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
 

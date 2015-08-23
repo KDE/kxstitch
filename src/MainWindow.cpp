@@ -36,7 +36,7 @@
 #include <KGlobalSettings>
 #include <KIO/NetAccess>
 #include <KConfigDialog>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KRecentFilesAction>
 #include <KSaveFile>

@@ -30,7 +30,7 @@
 #include <QPen>
 #include <QTransform>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 

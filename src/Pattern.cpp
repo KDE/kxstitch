@@ -11,7 +11,7 @@
 
 #include "Pattern.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 

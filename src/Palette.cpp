@@ -16,7 +16,7 @@
 #include <QPainter>
 #include <QToolTip>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KXMLGUIClient>
 
 #include "configuration.h"

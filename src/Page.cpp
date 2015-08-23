@@ -14,7 +14,7 @@
 #include <QPainter>
 #include <QPrinterInfo>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Document.h"
 #include "Element.h"

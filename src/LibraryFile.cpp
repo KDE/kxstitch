@@ -15,7 +15,7 @@
 #include <QFile>
 #include <QFileInfo>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KProgressDialog>
 

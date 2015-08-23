@@ -11,7 +11,7 @@
 
 #include "BackgroundImage.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 

@@ -18,7 +18,7 @@
 #include <QRubberBand>
 #include <QToolTip>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <math.h>
 

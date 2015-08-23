@@ -11,7 +11,7 @@
 
 #include "DocumentPalette.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Exceptions.h"
