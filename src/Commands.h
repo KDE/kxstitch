@@ -19,8 +19,6 @@
 #include <QUndoCommand>
 #include <QVariant>
 
-#include <KUrl>
-
 #include "DocumentPalette.h"
 #include "PrinterConfiguration.h"
 #include "Stitch.h"
