@@ -14,7 +14,6 @@
 #include <QPainter>
 #include <QPrinterInfo>
 
-#include <KDebug>
 #include <KLocale>
 
 #include "Document.h"

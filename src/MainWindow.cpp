@@ -624,7 +624,7 @@ void MainWindow::convertImage(const QString &source)
             // Examples of imported images have missing color names
             // This will fix those that are found by changing the scheme to something else and then back to the required one
             // A fix has been introduced, but this is a final catch if there are any still found
-            kDebug() << "Found a missing color name and attempting to fix";
+            qDebug() << "Found a missing color name and attempting to fix";
 
             if (schemeName == "DMC") {
                 new ChangeSchemeCommand(m_document, "Anchor", importImageCommand);

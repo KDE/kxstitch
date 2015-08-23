@@ -20,8 +20,6 @@
 
 #include "configuration.h"
 
-#include <KDebug>
-
 
 LibraryListWidgetItem::LibraryListWidgetItem(QListWidget *listWidget, LibraryPattern *libraryPattern)
     :   QListWidgetItem(listWidget)

@@ -41,8 +41,6 @@
 #include "Symbol.h"
 #include "SymbolLibrary.h"
 
-#include <KDebug>
-
 
 /**
  * Constructor.

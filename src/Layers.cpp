@@ -11,8 +11,6 @@
 
 #include "Layers.h"
 
-#include <KDebug>
-
 
 Layers::Layers()
     :   m_currentLayer(-1)

@@ -13,8 +13,6 @@
 
 #include <QMouseEvent>
 
-#include <KDebug>
-
 
 AlphaSelect::AlphaSelect(QLabel *parent)
     :   QLabel(parent)

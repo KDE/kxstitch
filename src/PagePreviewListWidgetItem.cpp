@@ -16,7 +16,6 @@
 #include <QPainter>
 #include <QPixmap>
 
-#include <KDebug>
 #include <KLocale>
 
 #include "Page.h"

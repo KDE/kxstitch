@@ -341,7 +341,7 @@ QVariant Document::property(const QString &name) const
     if (m_properties.contains(name)) {
         p = m_properties[name];
     } else {
-        kDebug() << "Asked for non existing property" << name;
+        qDebug() << "Asked for non existing property" << name;
     }
 
     return p;
