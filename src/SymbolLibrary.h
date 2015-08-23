@@ -22,8 +22,7 @@
 #include <QMap>
 #include <QPainterPath>
 #include <QUndoStack>
-
-#include <KUrl>
+#include <QUrl>
 
 #include "Symbol.h"
 
@@ -55,8 +54,8 @@ public:
     Symbol takeSymbol(qint16 index);
     qint16 setSymbol(qint16 index, const Symbol &symbol);
 
-    KUrl url() const;
-    void setUrl(const KUrl &url);
+    QUrl url() const;
+    void setUrl(const QUrl &url);
 
     QString name() const;
     void setName(const QString &name);
@@ -75,7 +74,7 @@ private:
 
     QUndoStack m_undoStack;                 /**< holds the commands that have made changes to this library */
 
-    KUrl    m_url;                          /**< url of the file loaded, this may be Untitled */
+    QUrl    m_url;                          /**< url of the file loaded, this may be Untitled */
 
     QString m_name;                         /**< name of the symbol library */
 

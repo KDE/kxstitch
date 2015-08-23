@@ -58,11 +58,11 @@
     */
 
 
+#include <QUrl>
+
 #include <KAboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
-#include <KUrl>
-
 
 #include "configuration.h"
 #include "MainWindow.h"
@@ -78,7 +78,7 @@
     Alternatively a KCmdLineArgs object is created to manage any arguments passed on the command
     line.  For each of the arguments provided, a new MainWindow is created using the arguments url.
     This MainWindow is then shown on the desktop.  If no arguments are provided a new MainWindow is
-    created using an empty KUrl, creating a new document, which is then shown on the desktop.
+    created using an empty QUrl, creating a new document, which is then shown on the desktop.
 
     The KApplication instance is then executed which begins the event loop allowing user interaction.
     */
@@ -115,12 +115,12 @@ int main(int argc, char *argv[])
 
         if (args->count() > 0) {
             for (int i = 0 ; i < args->count() ; ++i) {
-                KUrl url = args->url(i);
+                QUrl url = args->url(i);
                 mainWindow = new MainWindow(url);
                 mainWindow->show();
             }
         } else {
-            mainWindow = new MainWindow(KUrl());
+            mainWindow = new MainWindow(QUrl());
             mainWindow->show();
         }
 

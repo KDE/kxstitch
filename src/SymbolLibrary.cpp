@@ -99,7 +99,7 @@ void SymbolLibrary::clear()
 
     m_symbols.clear();
     m_nextIndex = 1;
-    m_url = KUrl(i18n("Untitled"));
+    m_url = QUrl(i18n("Untitled"));
 }
 
 
@@ -174,9 +174,9 @@ qint16 SymbolLibrary::setSymbol(qint16 index, const Symbol &symbol)
 /**
  * Get the url for the file.
  *
- * @return a reference to a KUrl having the url of the file
+ * @return a reference to a QUrl having the url of the file
  */
-KUrl SymbolLibrary::url() const
+QUrl SymbolLibrary::url() const
 {
     return m_url;
 }
@@ -185,9 +185,9 @@ KUrl SymbolLibrary::url() const
 /**
  * Set the url for the file.
  *
- * @param url a const reference to a KUrl having the url of the file.
+ * @param url a const reference to a QUrl having the url of the file.
  */
-void SymbolLibrary::setUrl(const KUrl &url)
+void SymbolLibrary::setUrl(const QUrl &url)
 {
     m_url = url;
     m_name = url.fileName();

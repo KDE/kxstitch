@@ -21,7 +21,7 @@ BackgroundImage::BackgroundImage()
 }
 
 
-BackgroundImage::BackgroundImage(const KUrl &url, const QRect &location)
+BackgroundImage::BackgroundImage(const QUrl &url, const QRect &location)
     :   m_url(url),
         m_location(location),
         m_visible(true)
@@ -34,7 +34,7 @@ BackgroundImage::BackgroundImage(const KUrl &url, const QRect &location)
 }
 
 
-const KUrl &BackgroundImage::url() const
+const QUrl &BackgroundImage::url() const
 {
     return m_url;
 }

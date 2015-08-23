@@ -28,6 +28,7 @@
 #include <QScrollArea>
 #include <QTemporaryFile>
 #include <QUndoView>
+#include <QUrl>
 
 #include <KAction>
 #include <KActionCollection>
@@ -40,7 +41,6 @@
 #include <KRecentFilesAction>
 #include <KSaveFile>
 #include <KSelectAction>
-#include <KUrl>
 #include <KXMLGUIFactory>
 
 #include "BackgroundImage.h"
@@ -73,7 +73,7 @@ MainWindow::MainWindow()
 }
 
 
-MainWindow::MainWindow(const KUrl &url)
+MainWindow::MainWindow(const QUrl &url)
     :   m_printer(0)
 {
     setupMainWindow();
@@ -281,18 +281,18 @@ void MainWindow::setupActionsFromDocument()
 
 void MainWindow::fileNew()
 {
-    MainWindow *window = new MainWindow(KUrl());
+    MainWindow *window = new MainWindow(QUrl());
     window->show();
 }
 
 
 void MainWindow::fileOpen()
 {
-    fileOpen(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), i18n("*.kxs|Cross Stitch Patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
+    fileOpen(KFileDialog::getOpenUrl(QUrl("kfiledialog:///"), i18n("*.kxs|Cross Stitch Patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
 }
 
 
-void MainWindow::fileOpen(const KUrl &url)
+void MainWindow::fileOpen(const QUrl &url)
 {
     MainWindow *window;
     bool docEmpty = (m_document->undoStack().isClean() && (m_document->url() == i18n("Untitled")));
@@ -352,7 +352,7 @@ void MainWindow::fileOpen(const KUrl &url)
 
 void MainWindow::fileSave()
 {
-    KUrl url = m_document->url();
+    QUrl url = m_document->url();
 
     if (url == i18n("Untitled")) {
         fileSaveAs();
@@ -385,7 +385,7 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    KUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|Cross Stitch Patterns"), this, i18n("Save As..."));
+    QUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|Cross Stitch Patterns"), this, i18n("Save As..."));
 
     if (url.isValid()) {
         if (KIO::NetAccess::exists(url, false, 0)) {
@@ -500,7 +500,7 @@ void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
-    KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Import Image"));
+    QUrl url = KFileDialog::getImageOpenUrl(QUrl(), this, i18n("Import Image"));
 
     if (url.isValid()) {
         QString source;
@@ -724,7 +724,7 @@ void MainWindow::fileProperties()
 
 void MainWindow::fileAddBackgroundImage()
 {
-    KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Background Image"));
+    QUrl url = KFileDialog::getImageOpenUrl(QUrl(), this, i18n("Background Image"));
 
     if (!url.path().isNull()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
@@ -1105,7 +1105,7 @@ void MainWindow::setupActions()
     // File menu
     KStandardAction::openNew(this, SLOT(fileNew()), actions);
     KStandardAction::open(this, SLOT(fileOpen()), actions);
-    KStandardAction::openRecent(this, SLOT(fileOpen(KUrl)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
     KStandardAction::save(this, SLOT(fileSave()), actions);
     KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
     KStandardAction::revert(this, SLOT(fileRevert()), actions);

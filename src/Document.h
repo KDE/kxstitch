@@ -15,8 +15,7 @@
 
 #include <QPolygon>
 #include <QUndoStack>
-
-#include <KUrl>
+#include <QUrl>
 
 #include "BackgroundImages.h"
 #include "configuration.h"
@@ -42,8 +41,8 @@ public:
     void readPCStitch(QDataStream &);
     void write(QDataStream &);
 
-    void setUrl(const KUrl &);
-    KUrl url() const;
+    void setUrl(const QUrl &);
+    QUrl url() const;
 
     void addView(Editor *);
     void addView(Palette *);
@@ -80,7 +79,7 @@ private:
 
     QMap<QString, QVariant> m_properties;
 
-    KUrl    m_url;
+    QUrl    m_url;
 
     QUndoStack  m_undoStack;
 

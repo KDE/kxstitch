@@ -14,13 +14,13 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QUrl>
 #include <QXmlInputSource>
 #include <QXmlSimpleReader>
 
 #include <KLocale>
 #include <KMessageBox>
 #include <KStandardDirs>
-#include <KUrl>
 
 #include "Floss.h"
 #include "FlossScheme.h"
@@ -216,7 +216,7 @@ void SchemeManager::refresh()
 
     while (it.hasNext()) {
         QString nextResource = it.next();
-        QString resourcePath = KUrl(nextResource).path(KUrl::RemoveTrailingSlash);
+        QString resourcePath = QUrl(nextResource).path(QUrl::RemoveTrailingSlash);
         FlossScheme *flossScheme = readScheme(nextResource);
 
         if (flossScheme) {

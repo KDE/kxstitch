@@ -30,11 +30,11 @@
 
 #include <QDir>
 #include <QFile>
+#include <QUrl>
 
 #include <KLocale>
 #include <KMessageBox>
 #include <KStandardDirs>
-#include <KUrl>
 
 #include "Exceptions.h"
 #include "Symbol.h"
@@ -127,7 +127,7 @@ void SymbolManager::refresh()
 
     while (it.hasNext()) {
         QString nextResource = it.next();
-        QString resourcePath = KUrl(nextResource).path(KUrl::RemoveTrailingSlash);
+        QString resourcePath = QUrl(nextResource).path(QUrl::RemoveTrailingSlash);
         SymbolLibrary *symbolLibrary = readLibrary(nextResource);
 
         if (symbolLibrary) {

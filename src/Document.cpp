@@ -129,13 +129,13 @@ QUndoStack &Document::undoStack()
 }
 
 
-void Document::setUrl(const KUrl &url)
+void Document::setUrl(const QUrl &url)
 {
     m_url = url;
 }
 
 
-KUrl Document::url() const
+QUrl Document::url() const
 {
     return m_url;
 }
