@@ -180,7 +180,7 @@
         </widget>
        </item>
        <item row="9" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_MinimumZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_MinimumZoomFactor">
          <property name="value">
           <double>0.500000000000000</double>
          </property>
@@ -200,7 +200,7 @@
         </widget>
        </item>
        <item row="10" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_MaximumZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_MaximumZoomFactor">
          <property name="value">
           <double>3.000000000000000</double>
          </property>
@@ -220,7 +220,7 @@
         </widget>
        </item>
        <item row="11" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_DefaultZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_DefaultZoomFactor">
          <property name="value">
           <double>2.000000000000000</double>
          </property>
@@ -441,11 +441,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KDoubleNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>
