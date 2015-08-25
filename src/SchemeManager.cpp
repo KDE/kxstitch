@@ -12,15 +12,16 @@
 #include "SchemeManager.h"
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
+#include <QStandardPaths>
 #include <QUrl>
 #include <QXmlInputSource>
 #include <QXmlSimpleReader>
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
 
 #include "Floss.h"
 #include "FlossScheme.h"
@@ -167,13 +168,25 @@ bool SchemeManager::writeScheme(QString name)
     QFileInfo fileInfo(flossScheme->path());
 
     if (!fileInfo.isWritable()) {
-        QString writableDir = KGlobal::dirs()->saveLocation("appdata", "schemes/");
+        QString writableDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation); // this may be empty or may not exist
 
-        if (writableDir.isNull()) {
+        if (writableDir.isEmpty()) {
             KMessageBox::sorry(0, i18n("Unable to locate a writable directory\nto store the scheme."));
             return false;
             // TODO Allow user to select a location to store the calibrated schemes
         }
+
+        writableDir += "/schemes/";
+
+        if (!QDir(writableDir).exists()) {
+            if (!QDir().mkpath(writableDir)) {
+                KMessageBox::sorry(0, i18n("Unable to locate a writable directory\nto store the scheme."));
+                return false;
+                // TODO Allow user to select a location to store the calibrated schemes
+            }
+        }
+
+        // at this point a writable directory should be in writableDir
 
         QString writablePath = writableDir + fileInfo.fileName();
         fileInfo.setFile(writablePath);
@@ -211,25 +224,26 @@ bool SchemeManager::writeScheme(QString name)
     */
 void SchemeManager::refresh()
 {
-    QStringList schemeList = KGlobal::dirs()->findAllResources("appdata", "schemes/*.xml");
-    QStringListIterator it(schemeList);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "schemes", QStandardPaths::LocateDirectory);
 
-    while (it.hasNext()) {
-        QString nextResource = it.next();
-        QString resourcePath = QUrl(nextResource).path(QUrl::RemoveTrailingSlash);
-        FlossScheme *flossScheme = readScheme(nextResource);
+    Q_FOREACH (const QString &dir, dirs) {
+        QDirIterator it(dir, QStringList() << QStringLiteral("*.xml"));
 
-        if (flossScheme) {
-            for (int i = 0 ; i < m_flossSchemes.count() ; ++i) {
-                if (m_flossSchemes.at(i)->schemeName() == flossScheme->schemeName()) {
-                    delete flossScheme;
-                    flossScheme = 0;
-                    break;
-                }
-            }
+        while (it.hasNext()) {
+            FlossScheme *flossScheme = readScheme(it.next());
 
             if (flossScheme) {
-                m_flossSchemes.append(flossScheme);
+                for (int i = 0 ; i < m_flossSchemes.count() ; ++i) {
+                    if (m_flossSchemes.at(i)->schemeName() == flossScheme->schemeName()) {
+                        delete flossScheme;
+                        flossScheme = 0;
+                        break;
+                    }
+                }
+
+                if (flossScheme) {
+                    m_flossSchemes.append(flossScheme);
+                }
             }
         }
     }

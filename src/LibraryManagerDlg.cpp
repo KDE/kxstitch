@@ -17,12 +17,12 @@
 #include <QHelpEvent>
 #include <QInputDialog>
 #include <QMimeData>
+#include <QStandardPaths>
 #include <QToolTip>
 
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
 
 #include "LibraryFilePathsDlg.h"
 #include "LibraryListWidgetItem.h"
@@ -217,12 +217,12 @@ void LibraryManagerDlg::newCategory()
             fileInfo.setFile(m_contextTreeItem->path());
 
             if (!fileInfo.isWritable()) {
-                path.remove(0, path.indexOf("library"));
-                path = KGlobal::dirs()->saveLocation("appdata", path);
+                path.remove(0, path.indexOf("/library"));
+                path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
                 fileInfo.setFile(path);
             }
         } else {
-            path = KGlobal::dirs()->saveLocation("appdata", "library");
+            path = QString("%s/%s").arg(QStandardPaths::DataLocation).arg("library");
             fileInfo.setFile(path);
         }
 
@@ -305,7 +305,7 @@ void LibraryManagerDlg::deletePattern()
 void LibraryManagerDlg::refreshLibraries()
 {
     ui.LibraryTree->clear();
-    QStringList libraryDirectories = KGlobal::dirs()->findDirs("appdata", "library");
+    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::DataLocation, "library", QStandardPaths::LocateDirectory);
     QStringListIterator libraryDirectoriesIterator(libraryDirectories);
 
     while (libraryDirectoriesIterator.hasNext()) {

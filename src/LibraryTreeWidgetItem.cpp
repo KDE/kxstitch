@@ -94,9 +94,8 @@ struct LIBRARY (new kde4)
 ]
 */
 
+#include <QStandardPaths>
 #include <QTreeWidget>
-
-#include <KStandardDirs>
 
 #include "LibraryPattern.h"
 #include "Pattern.h"
@@ -222,8 +221,8 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
     }
 
     QString path = m_libraryFiles[0]->path();
-    path = path.remove(0, path.indexOf("library"));
-    path = KGlobal::dirs()->saveLocation("appdata", path);
+    path.remove(0, path.indexOf("/library"));
+    path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     addPath(path);
     libraryFile = m_libraryFiles.last();
     return libraryFile;
