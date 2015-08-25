@@ -17,7 +17,7 @@
 
 /**
  * @page library_list_widget SymbolListWidget
- * This class implements an extension to the KListWidget class that provides population of the widget
+ * This class implements an extension to the QListWidget class that provides population of the widget
  * with the contents of a SymbolLibrary. For each Symbol in the library a QListWidgetItem is created
  * with a data item representing the Symbol identifier in the library and an icon at a given size that
  * is generated from the Symbol path.
@@ -46,7 +46,7 @@
  * Constructor.
  */
 SymbolListWidget::SymbolListWidget(QWidget *parent)
-    :   KListWidget(parent),
+    :   QListWidget(parent),
         m_library(0),
         m_lastIndex(0)
 {
@@ -73,13 +73,13 @@ SymbolListWidget::~SymbolListWidget()
 void SymbolListWidget::setIconSize(int size)
 {
     m_size = size;
-    KListWidget::setIconSize(QSize(m_size, m_size));
+    QListWidget::setIconSize(QSize(m_size, m_size));
     setGridSize(QSize(m_size, m_size));
 }
 
 
 /**
- * Populate the KListWidget with the QListWidgetItems for each Symbol in the SymbolLibrary.
+ * Populate the QListWidget with the QListWidgetItems for each Symbol in the SymbolLibrary.
  * An icon is created for each Symbol.
  *
  * @param library a pointer to the SymbolLibrary containing the Symbols
@@ -168,7 +168,7 @@ void SymbolListWidget::setCurrent(qint16 index)
 
 /**
  * If an item for the index currently exists return it otherwise create
- * an item to be inserted into the KListWidget.
+ * an item to be inserted into the QListWidget.
  * The item created has a data entry added representing the index.
  * The items are inserted so that the Symbols are sorted by their index.
  *

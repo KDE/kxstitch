@@ -19,7 +19,7 @@
 #define SymbolListWidget_H
 
 
-#include <KListWidget>
+#include <QListWidget>
 
 
 class SymbolLibrary;
@@ -27,9 +27,9 @@ class Symbol;
 
 
 /**
- * @brief An extension to the KListWidget to view and select Symbols.
+ * @brief An extension to the QListWidget to view and select Symbols.
  *
- * This widget is an extension to the KListWidget that can be populated from
+ * This widget is an extension to the QListWidget that can be populated from
  * a SymbolLibrary to display the contained Symbols and allow selection of one
  * of the Symbols for further processing.
  *
@@ -38,7 +38,7 @@ class Symbol;
  *
  * Symbols can be removed by their index value.
  */
-class SymbolListWidget : public KListWidget
+class SymbolListWidget : public QListWidget
 {
 public:
     explicit SymbolListWidget(QWidget *parent);
