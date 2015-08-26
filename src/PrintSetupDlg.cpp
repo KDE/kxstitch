@@ -13,6 +13,7 @@
 
 #include <math.h>
 
+#include <QColorDialog>
 #include <QFontDialog>
 #include <QInputDialog>
 #include <QMargins>
@@ -21,7 +22,6 @@
 #include <QPrinter>
 #include <QShowEvent>
 
-#include <KColorDialog>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
