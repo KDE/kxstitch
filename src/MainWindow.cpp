@@ -302,7 +302,7 @@ void MainWindow::fileOpen(const QUrl &url)
             QTemporaryFile tmpFile;
 
             if (tmpFile.open()) {
-                KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), KIO::Overwrite);
+                KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
 
                 if (job->exec()) {
                     QDataStream stream(&tmpFile);
@@ -504,7 +504,7 @@ void MainWindow::fileImportImage()
         QTemporaryFile tmpFile;
 
         if (tmpFile.open()) {
-            KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), KIO::Overwrite);
+            KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
 
             if (job->exec()) {
                 if (docEmpty) {
