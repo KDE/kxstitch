@@ -172,7 +172,7 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
 
 void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? QIcon("link") : QIcon("link_break"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
@@ -359,7 +359,7 @@ void ImportImageDlg::resetImportParameters()
     ui.VerticalClothCount->setValue(verticalClothCount);
     ui.VerticalClothCount->setEnabled(false);
     ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
-    ui.ClothCountLink->setIcon(QIcon("link"));
+    ui.ClothCountLink->setIcon(QIcon::fromTheme("object-locked"));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();

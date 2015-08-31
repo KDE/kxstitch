@@ -1234,7 +1234,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Quarter Stitch"));
     action->setData(Editor::StitchQuarter);
-    action->setIcon(QIcon("quarter"));
+    action->setIcon(QIcon::fromTheme("kxstitch-quarter-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchQuarter", action);
@@ -1243,7 +1243,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Half Stitch"));
     action->setData(Editor::StitchHalf);
-    action->setIcon(QIcon("half"));
+    action->setIcon(QIcon::fromTheme("kxstitch-half-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchHalf", action);
@@ -1252,7 +1252,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("3 Quarter Stitch"));
     action->setData(Editor::Stitch3Quarter);
-    action->setIcon(QIcon("3quarter"));
+    action->setIcon(QIcon::fromTheme("kxstitch-3quarter-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitch3Quarter", action);
@@ -1261,7 +1261,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Full Stitch"));
     action->setData(Editor::StitchFull);
-    action->setIcon(QIcon("full"));
+    action->setIcon(QIcon::fromTheme("kxstitch-full-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFull", action);
@@ -1270,7 +1270,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Small Half Stitch"));
     action->setData(Editor::StitchSmallHalf);
-    action->setIcon(QIcon("smallhalf"));
+    action->setIcon(QIcon::fromTheme("kxstitch-small-half-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallHalf", action);
@@ -1279,7 +1279,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Small Full Stitch"));
     action->setData(Editor::StitchSmallFull);
-    action->setIcon(QIcon("smallfull"));
+    action->setIcon(QIcon::fromTheme("kxstitch-small-full-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallFull", action);
@@ -1288,7 +1288,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("French Knot"));
     action->setData(Editor::StitchFrenchKnot);
-    action->setIcon(QIcon("frenchknot"));
+    action->setIcon(QIcon::fromTheme("kxstitch-frenchknot"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFrenchKnot", action);
@@ -1329,7 +1329,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Draw Rectangle"));
     action->setData(Editor::ToolRectangle);
-    action->setIcon(QIcon("o_rect"));
+    action->setIcon(QIcon::fromTheme("draw-rectangle"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolRectangle", action);
@@ -1338,7 +1338,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Fill Rectangle"));
     action->setData(Editor::ToolFillRectangle);
-    action->setIcon(QIcon("f_rect"));
+    action->setIcon(QIcon::fromTheme("kxstitch-draw-rectangle-filled"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillRectangle", action);
@@ -1347,7 +1347,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Draw Ellipse"));
     action->setData(Editor::ToolEllipse);
-    action->setIcon(QIcon("o_ellipse"));
+    action->setIcon(QIcon::fromTheme("draw-ellipse"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolEllipse", action);
@@ -1356,7 +1356,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Fill Ellipse"));
     action->setData(Editor::ToolFillEllipse);
-    action->setIcon(QIcon("f_ellipse"));
+    action->setIcon(QIcon::fromTheme("kxstitch-draw-ellipse-filled"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillEllipse", action);
@@ -1365,7 +1365,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Fill Polygon"));
     action->setData(Editor::ToolFillPolygon);
-    action->setIcon(QIcon("polygon"));
+    action->setIcon(QIcon::fromTheme("draw-polyline"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillPolygon", action);
@@ -1374,7 +1374,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Text"));
     action->setData(Editor::ToolText);
-    action->setIcon(QIcon::fromTheme("insert-text"));
+    action->setIcon(QIcon::fromTheme("draw-text"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolText", action);
@@ -1383,7 +1383,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Alphabet"));
     action->setData(Editor::ToolAlphabet);
-    action->setIcon(QIcon("alphabet"));
+    action->setIcon(QIcon::fromTheme("text-field"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolAlphabet", action);
@@ -1392,7 +1392,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setData(Editor::ToolSelect);
-    action->setIcon(QIcon("s_rect"));
+    action->setIcon(QIcon::fromTheme("select-rectangular"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolSelectRectangle", action);
@@ -1401,7 +1401,7 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Backstitch"));
     action->setData(Editor::ToolBackstitch);
-    action->setIcon(QIcon("backstitch"));
+    action->setIcon(QIcon::fromTheme("kxstitch-backstitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolBackstitch", action);
@@ -1420,7 +1420,7 @@ void MainWindow::setupActions()
     // Palette Menu
     action = new QAction(this);
     action->setText(i18n("Palette Manager..."));
-    action->setIcon(QIcon::fromTheme("palette-manager"));
+    action->setIcon(QIcon::fromTheme("kxstitch-color-add"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteManager()));
     actions->addAction("paletteManager", action);
 
@@ -1454,13 +1454,13 @@ void MainWindow::setupActions()
     // Pattern Menu
     action = new QAction(this);
     action->setText(i18n("Extend Pattern..."));
-    action->setIcon(QIcon("extpattern"));
+    action->setIcon(QIcon::fromTheme("kxstitch-extend-pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
     actions->addAction("patternExtend", action);
 
     action = new QAction(this);
     action->setText(i18n("Center Pattern"));
-    action->setIcon(QIcon("centerpattern"));
+    action->setIcon(QIcon::fromTheme("kxstitch-center-pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
     actions->addAction("patternCentre", action);
 
@@ -1471,6 +1471,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Crop Canvas to Selection"));
+    action->setIcon(QIcon::fromTheme("transform-crop"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
     actions->addAction("patternCropToSelection", action);
