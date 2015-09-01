@@ -259,6 +259,8 @@ QPen Symbol::pen() const
         p.setWidthF(m_lineWidth);
         p.setCapStyle(m_capStyle);
         p.setJoinStyle(m_joinStyle);
+    } else {
+        p.setCosmetic(true);
     }
 
     return p;

@@ -611,17 +611,8 @@ void KeyElement::render(Document *document, QPainter *painter) const
                 painter->setViewport(deviceTextArea.left() + symbolWidth / 3, deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
                 painter->setWindow(0, 0, 1, 1);
 
-                QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
-                QPen pen(Qt::black);
-
-                if (!symbol.filled()) {
-                    pen.setWidthF(symbol.lineWidth());
-                    pen.setCapStyle(symbol.capStyle());
-                    pen.setJoinStyle(symbol.joinStyle());
-                }
-
-                painter->setBrush(brush);
-                painter->setPen(pen);
+                painter->setBrush(symbol.brush());
+                painter->setPen(symbol.pen());
                 painter->drawPath(symbol.path());
                 painter->resetTransform();
             }
