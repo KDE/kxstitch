@@ -47,7 +47,7 @@ public:
     qint16 selectedSymbol();
 
 protected slots:
-    void on_SymbolTable_executed(QListWidgetItem *item);
+    void on_SymbolTable_itemClicked(QListWidgetItem *item);
 
 private slots:
     void on_DialogButtonBox_rejected();
