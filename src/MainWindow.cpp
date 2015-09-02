@@ -288,7 +288,7 @@ void MainWindow::fileNew()
 
 void MainWindow::fileOpen()
 {
-    fileOpen(QFileDialog::getOpenFileUrl(this, i18n("Open file"), QUrl("~"), i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
+    fileOpen(QFileDialog::getOpenFileUrl(this, i18n("Open file"), QUrl::fromLocalFile(QDir::homePath()), i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
 }
 
 
