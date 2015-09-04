@@ -108,6 +108,7 @@ int main(int argc, char *argv[])
 
     app.setApplicationName(aboutData.componentName());
     app.setApplicationDisplayName(aboutData.displayName());
+    app.setWindowIcon(QIcon::fromTheme("kxstitch"));
     app.setOrganizationDomain(aboutData.organizationDomain());
     app.setApplicationVersion(aboutData.version());
 
