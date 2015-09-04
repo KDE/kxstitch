@@ -141,7 +141,10 @@ void Preview::paintEvent(QPaintEvent *)
 
     painter.drawImage(0, 0, m_cachedContents);
 
-    painter.setPen(Qt::white);
+    QPen visibleAreaPen(Qt::white);
+    visibleAreaPen.setCosmetic(true);
+
+    painter.setPen(visibleAreaPen);
     painter.setBrush(Qt::NoBrush);
     painter.setCompositionMode(QPainter::RasterOp_SourceXorDestination);
     painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
