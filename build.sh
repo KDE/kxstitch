@@ -54,7 +54,7 @@ else
     mkdir build
     if [ -d "build" ]; then
         cd build
-        cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE $WITH_PROFILE && make -j${THREADS} $VERBOSE && sudo make install
+        cmake -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix` .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE $WITH_PROFILE && make -j${THREADS} $VERBOSE && sudo make install
     else
         echo "Unable to create build directory. Build aborted\n"
     fi
