@@ -381,7 +381,7 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Cross Stitch Patterns *.kxs"));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl::fromLocalFile(QDir::homePath()), i18n("Cross Stitch Patterns (*.kxs)"));
 
     if (url.isValid()) {
         KIO::StatJob *statJob = KIO::stat(url, KIO::StatJob::DestinationSide, 0);
