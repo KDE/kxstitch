@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2014 by Stephen Allewell
+ * Copyright (C) 2009-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify

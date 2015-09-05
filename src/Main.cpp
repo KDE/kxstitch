@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
                          QStringLiteral("1.99.0"),                      // version
                          i18n("A cross stitch pattern creator."),       // short description
                          KAboutLicense::GPL_V2,                         // license
-                         i18n("(c) 2010-2014 Stephen Allewell"),        // copyright
+                         i18n("(c) 2010-2015 Stephen Allewell"),        // copyright
                          QStringLiteral(),                              // other text
                          QString("http://userbase.kde.org/KXStitch")    // home page
                          // bug address defaults to submit@bugs.kde.org
