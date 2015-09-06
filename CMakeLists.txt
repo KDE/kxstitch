@@ -34,7 +34,7 @@ find_package (KF5 REQUIRED COMPONENTS
 )
 
 find_package (ImageMagick COMPONENTS MagickCore Magick++ REQUIRED)
-find_package (X11)
+find_package (X11 REQUIRED)
 find_package (Doxygen)
 find_package (SharedMimeInfo)
 
@@ -220,3 +220,5 @@ IF (SHARED_MIME_INFO_FOUND AND IS_DIRECTORY ${XDG_MIME_INSTALL_DIR})
     install (FILES kxstitch.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
     update_xdg_mimetypes (${XDG_MIME_INSTALL_DIR})
 ENDIF(SHARED_MIME_INFO_FOUND AND IS_DIRECTORY ${XDG_MIME_INSTALL_DIR})
+
+feature_summary (WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
