@@ -61,6 +61,7 @@
 #include "PrintSetupDlg.h"
 #include "QVariantPtr.h"
 #include "Scale.h"
+#include "ScaledPixmapLabel.h"
 #include "SchemeManager.h"
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
@@ -648,7 +649,7 @@ void MainWindow::convertPreview(const QString &source)
 {
     QPixmap pixmap;
     pixmap.load(source);
-    m_imageLabel->setPixmap(pixmap.scaled(300, 300, Qt::KeepAspectRatio));
+    m_imageLabel->setPixmap(pixmap);
 }
 
 
@@ -1751,8 +1752,8 @@ void MainWindow::setupDockWindows()
     dock = new QDockWidget(i18n("Imported Image"), this);
     dock->setObjectName("ImportedImage#");
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    m_imageLabel = new QLabel(this);
-    m_imageLabel->setScaledContents(true);
+    m_imageLabel = new ScaledPixmapLabel(this);
+    m_imageLabel->setScaledContents(false);
     dock->setWidget(m_imageLabel);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     actionCollection()->addAction("showImportedDockWidget", dock->toggleViewAction());

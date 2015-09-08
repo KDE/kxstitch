@@ -18,7 +18,6 @@
 #include <Magick++.h>
 
 
-class QLabel;
 class QPrinter;
 class QString;
 class QUndoView;
@@ -29,6 +28,7 @@ class Editor;
 class Palette;
 class Preview;
 class Scale;
+class ScaledPixmapLabel;
 class SchemeManager;
 
 
@@ -130,7 +130,8 @@ private:
     Palette     *m_palette;
     Preview     *m_preview;
     QUndoView   *m_history;
-    QLabel      *m_imageLabel;
+
+    ScaledPixmapLabel   *m_imageLabel;
 
     Scale       *m_horizontalScale;
     Scale       *m_verticalScale;
