@@ -51,6 +51,7 @@ set (kxstitch_SRCS
     src/PrinterConfiguration.cpp
     src/Renderer.cpp
     src/Scale.cpp
+    src/ScaledPixmapLabel.cpp
     src/SchemeManager.cpp
     src/SchemeParser.cpp
     src/Stitch.cpp
