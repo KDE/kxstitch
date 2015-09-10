@@ -45,19 +45,20 @@
  * @param symbolLibrary the name of the symbol library to use
  */
 SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary)
-    :   QDialog(parent),
-        m_library(SymbolManager::library(symbolLibrary))
+    :   QDialog(parent)
 {
     setWindowTitle(i18n("Symbol Selector"));
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
     QMetaObject::connectSlotsByName(this);
 
-    if (m_library == 0) {
-        m_library = SymbolManager::library("kxstitch");
+    SymbolLibrary *library = SymbolManager::library(symbolLibrary);
+
+    if (library == 0) {
+        library = SymbolManager::library("kxstitch");
     }
 
-    fillSymbols();
+    ui.SymbolTable->loadFromLibrary(library);
 }
 
 
@@ -72,7 +73,12 @@ void SymbolSelectorDlg::setSelectedSymbol(qint16 symbol, const QList<qint16> &us
 {
     m_currentSymbol = symbol;
     m_usedSymbols = used;
-    setSymbolState();
+
+    foreach (qint16 index, m_usedSymbols) {
+        ui.SymbolTable->disableItem(index);
+    }
+
+    ui.SymbolTable->setCurrent(m_currentSymbol);
 }
 
 
@@ -98,9 +104,9 @@ void SymbolSelectorDlg::on_SymbolTable_itemClicked(QListWidgetItem *item)
 {
     if (item->flags() & Qt::ItemIsEnabled) {
         m_usedSymbols.removeOne(m_currentSymbol);
-        ui.SymbolTable->enableItem(m_symbolItems.value(m_currentSymbol));
+        ui.SymbolTable->enableItem(m_currentSymbol);
         m_currentSymbol = static_cast<qint16>(item->data(Qt::UserRole).toInt());
-        ui.SymbolTable->disableItem(m_symbolItems.value(m_currentSymbol));
+        ui.SymbolTable->disableItem(m_currentSymbol);
         m_usedSymbols.append(m_currentSymbol);
         accept();
     }
@@ -122,31 +128,4 @@ void SymbolSelectorDlg::on_DialogButtonBox_rejected()
 void SymbolSelectorDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp("SymbolSelectorDialog", "kxstitch");
-}
-
-
-/**
- * Fill the SymbolListWidget with the symbols from the symbol library.
- * Each symbol is added to the widget, the state of the icon is determined
- * by the used state of the symbol.
- */
-void SymbolSelectorDlg::fillSymbols()
-{
-    foreach (qint16 index, m_library->indexes()) {
-        QListWidgetItem *item = ui.SymbolTable->addSymbol(index, m_library->symbol(index));
-        m_symbolItems.insert(index, item);
-    }
-}
-
-
-/**
- * Set the state of each symbol depending on whether it has been used or not
- */
-void SymbolSelectorDlg::setSymbolState()
-{
-    foreach (qint16 index, m_usedSymbols) {
-        ui.SymbolTable->disableItem(m_symbolItems.value(index));
-    }
-
-    ui.SymbolTable->setCurrent(m_currentSymbol);
 }

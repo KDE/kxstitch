@@ -54,14 +54,9 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    void fillSymbols();
-    void setSymbolState();
-
     Ui::SymbolSelector    ui;           /**< dialog interface description */
 
-    SymbolLibrary   *m_library;         /**< pointer to the SymbolLibrary */
     QList<qint16>   m_usedSymbols;      /**< a list of used symbols indexes */
-    QMap<qint16, QListWidgetItem*>  m_symbolItems;  /**< a map of symbol indexes to QListWidgetItem pointers */
     qint16          m_currentSymbol;    /**< the current symbols index */
 };
 

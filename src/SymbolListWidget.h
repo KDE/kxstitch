@@ -47,15 +47,19 @@ public:
     void setIconSize(int size);
     void loadFromLibrary(SymbolLibrary *library);
     QListWidgetItem *addSymbol(qint16 index, const Symbol &symbol);
-    void enableItem(QListWidgetItem *);
-    void disableItem(QListWidgetItem *);
+    void enableItem(qint16 index);
+    void disableItem(qint16 index);
     void removeSymbol(qint16 index);
     void setCurrent(qint16 index);
 
     static QIcon createIcon(const Symbol &symbol, int size);
 
+protected:
+    virtual bool event(QEvent *e);
+
 private:
     QListWidgetItem *createItem(qint16 index);
+    void updateIcons();
 
     int             m_size;                     /**< size of icons generated in the view */
     SymbolLibrary   *m_library;                 /**< pointer to the library the items belong to */

@@ -31,8 +31,9 @@
 
 #include "SymbolListWidget.h"
 
-#include <QBitmap>
+#include <QApplication>
 #include <QPainter>
+#include <QPalette>
 #include <QPen>
 
 #include <KLocalizedString>
@@ -118,12 +119,14 @@ QListWidgetItem *SymbolListWidget::addSymbol(qint16 index, const Symbol &symbol)
 /**
  * Enable the item so that it can be selected clearing the tooltip.
  *
- * @param item a pointer to the QListWidgetItem that is to be enabled
+ * @param index the index of the Symbol
  */
-void SymbolListWidget::enableItem(QListWidgetItem *item)
+void SymbolListWidget::enableItem(qint16 index)
 {
-    item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-    item->setToolTip(QString());
+    if (m_items.contains(index)) {
+        m_items.value(index)->setFlags(Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+        m_items.value(index)->setToolTip(QString());
+    }
 }
 
 
@@ -131,12 +134,14 @@ void SymbolListWidget::enableItem(QListWidgetItem *item)
  * Disable the item so that it can not be selected adding a tooltip to
  * show the user why.
  *
- * @param item a pointer to the QListWidgetItem that is to be disabled
+ * @param index the index of the Symbol
  */
-void SymbolListWidget::disableItem(QListWidgetItem *item)
+void SymbolListWidget::disableItem(qint16 index)
 {
-    item->setFlags(Qt::NoItemFlags);
-    item->setToolTip(QString(i18nc("A symbol that has been used", "Used")));
+    if (m_items.contains(index)) {
+        m_items.value(index)->setFlags(Qt::NoItemFlags);
+        m_items.value(index)->setToolTip(QString(i18nc("A symbol that has been used", "Used")));
+    }
 }
 
 
@@ -214,19 +219,60 @@ QListWidgetItem *SymbolListWidget::createItem(qint16 index)
  */
 QIcon SymbolListWidget::createIcon(const Symbol &symbol, int size)
 {
+    QPalette pal = QApplication::palette();
+
     QPixmap icon(size, size);
-    icon.fill(Qt::white);
+    icon.fill(Qt::transparent);
 
     QPainter painter(&icon);
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setWindow(0, 0, 1, 1);
 
-    painter.setBrush(symbol.brush());
-    painter.setPen(symbol.pen());
+    QBrush brush = symbol.brush();
+    QPen pen = symbol.pen();
+
+    brush.setColor(pal.color(QPalette::WindowText));
+    pen.setColor(pal.color(QPalette::WindowText));
+
+    painter.setBrush(brush);
+    painter.setPen(pen);
     painter.drawPath(symbol.path());
     painter.end();
 
-    icon.setMask(icon.createMaskFromColor(Qt::white));
-
     return QIcon(icon);
 }
+
+
+/**
+ * Intercept the events system to discover if the theme has changed, this should invoke
+ * an update to the icons used to display the correct colors.
+ *
+ * @param e a pointer to the events
+ *
+ * @return @c true if the event was accepted, @c false otherwise
+ */
+bool SymbolListWidget::event(QEvent *e)
+{
+    bool accepted = QListWidget::event(e);
+
+    if (e->type() == QEvent::PaletteChange) {
+        updateIcons();
+    }
+
+    return accepted;
+}
+
+
+/**
+ * Generate the icons for all the QListWidgetItems stored in m_items.
+ */
+void SymbolListWidget::updateIcons()
+{
+    QMapIterator<qint16, QListWidgetItem *> i(m_items);
+
+    while (i.hasNext()) {
+        i.next();
+        i.value()->setIcon(createIcon(m_library->symbol(i.key()), m_size));
+    }
+}
+
