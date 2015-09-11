@@ -11,6 +11,8 @@
 
 #include "Editor.h"
 
+#include <QDebug>
+
 #include <QAction>
 #include <QApplication>
 #include <QBitmap>
@@ -1393,11 +1395,14 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
+        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
         opt.opaque = false;
         opt.rect = m_rubberBand.adjusted(0, 0, 1, 1);
+
         style()->drawControl(QStyle::CE_RubberBand, &opt, painter);
     }
 
@@ -1410,11 +1415,16 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        QPainterPath path;
-        path.addEllipse(m_rubberBand);
-        painter->setBrush(QColor(Qt::cyan));
-        painter->setPen(Qt::black);
-        painter->drawPath(path);
+        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(QColor(200,225,255));
+        painter->setOpacity(0.5);
+        painter->drawEllipse(m_rubberBand);
+
+        painter->setPen(Qt::darkBlue);
+        painter->setBrush(Qt::NoBrush);
+        painter->drawEllipse(m_rubberBand);
     }
 
     painter->restore();
