@@ -874,7 +874,7 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
     XKeyLock keylock(QX11Info::display());
     Qt::KeyboardModifiers modifiers = e->modifiers();
 
-    if (keylock.getCapsLock() & Configuration::alphabet_UseCapsLock()) {
+    if (keylock.getCapsLock() && Configuration::alphabet_UseCapsLock()) {
         modifiers = static_cast<Qt::KeyboardModifiers>(modifiers ^ Qt::ShiftModifier);
     }
 
