@@ -297,6 +297,7 @@ void PaletteManagerDlg::fillLists()
 {
     ui.ColorList->clear();
     ui.CurrentList->clear();
+    ui.CurrentScheme->setText(m_scheme->schemeName());
 
     foreach (const Floss * floss, m_scheme->flosses()) {
         QListWidgetItem *listWidgetItem = new QListWidgetItem;
