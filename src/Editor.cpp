@@ -1952,6 +1952,7 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
         painter.drawPolygon(m_polygon);
