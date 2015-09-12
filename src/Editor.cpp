@@ -1476,8 +1476,10 @@ void Editor::renderPasteImage(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_pastePattern) {
+        QPen outlinePen(Qt::red);
+        outlinePen.setCosmetic(true);
         painter->translate(m_cellEnd);
-        painter->setPen(Qt::red);
+        painter->setPen(outlinePen);
         QRect outline(0, 0, m_pastePattern->stitches().width(), m_pastePattern->stitches().height());
         painter->drawRect(outline);
 
