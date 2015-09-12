@@ -1593,6 +1593,7 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.drawLine(m_cellStart, m_cellEnd);
         painter.end();
