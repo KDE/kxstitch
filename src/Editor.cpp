@@ -11,8 +11,6 @@
 
 #include "Editor.h"
 
-#include <QDebug>
-
 #include <QAction>
 #include <QApplication>
 #include <QBitmap>
@@ -1376,12 +1374,18 @@ void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        QPen pen(m_document->pattern()->palette().currentFloss()->flossColor());
-        pen.setWidth(4);
+        QPen pen;
+        pen.setWidthF(0.5);
+
+        painter->setOpacity(0.5);
 
         if (m_toolMode == ToolBackstitch) {
+            pen.setColor(m_document->pattern()->palette().currentFloss()->flossColor());
+            painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) / 2, QPointF(m_cellEnd) / 2);
         } else {
+            pen.setColor(QColor(200,225,255));
+            painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) + QPointF(0.5, 0.5), QPointF(m_cellEnd) + QPointF(0.5, 0.5));
         }
     }
