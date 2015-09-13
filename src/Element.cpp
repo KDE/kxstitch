@@ -437,16 +437,21 @@ void KeyElement::render(Document *document, QPainter *painter) const
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
-    QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness) / 10.0);
+    QPen pen(Qt::NoPen);
 
+    // if a border is valid, draw it, otherwise if drawing on screen draw a faint border to indicate the
+    // extents of the element.
     if (m_showBorder) {
-        painter->setPen(pen);
-    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
-        painter->setPen(Qt::lightGray); // When not drawing a border, draw an outline to show where the element is during setup
-    } else {
-        painter->setPen(Qt::NoPen);     // but not during printing
+        pen = QPen(m_borderColor);
+        pen.setWidthF(double(m_borderThickness) / 10.0);
+    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+        // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
+        // There should be a better way to do this.
+        pen = QPen(Qt::lightGray);
+        pen.setCosmetic(true);
     }
+
+    painter->setPen(pen);
 
     QColor backgroundColor = m_backgroundColor;
     backgroundColor.setAlpha(m_backgroundTransparency);
@@ -1854,16 +1859,21 @@ void TextElement::render(Document *document, QPainter *painter) const
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
-    QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness) / 10.0);
+    QPen pen(Qt::NoPen);
 
+    // if a border is valid, draw it, otherwise if drawing on screen draw a faint border to indicate the
+    // extents of the element.
     if (m_showBorder) {
-        painter->setPen(pen);
-    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
-        painter->setPen(Qt::lightGray); // when not drawing a border, draw an outline to show where the element is during setup
-    } else {
-        painter->setPen(Qt::NoPen);     // but not during printing
+        pen = QPen(m_borderColor);
+        pen.setWidthF(double(m_borderThickness) / 10.0);
+    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+        // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
+        // There should be a better way to do this.
+        pen = QPen(Qt::lightGray);
+        pen.setCosmetic(true);
     }
+
+    painter->setPen(pen);
 
     QColor backgroundColor = m_backgroundColor;
     backgroundColor.setAlpha(m_backgroundTransparency);
