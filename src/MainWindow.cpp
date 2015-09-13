@@ -457,21 +457,30 @@ void MainWindow::filePrint()
 void MainWindow::printPages()
 {
     QList<Page *> pages = m_document->printerConfiguration().pages();
+
+    int fromPage = 1;
+    int toPage = pages.count();
+
+    if (m_printer->printRange() == QPrinter::PageRange) {
+        fromPage = m_printer->fromPage();
+        toPage = m_printer->toPage();
+    }
+
+    while (toPage < pages.count()) pages.removeLast();
+    while (--fromPage) pages.removeFirst();
+
     int totalPages = pages.count();
 
+    const Page *page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
+
+    m_printer->setPaperSize(page->paperSize());             // DEPRECATED
+    m_printer->setOrientation(page->orientation());         // DEPRECATED
+
     QPainter painter;
-
-    const Page *page = pages.at(0);
-
-    m_printer->setPaperSize(page->paperSize());
-    m_printer->setOrientation(page->orientation());
+    painter.begin(m_printer);
+    painter.setRenderHint(QPainter::Antialiasing, true);
 
     for (int p = 0 ; p < totalPages ;) {
-        if (!painter.isActive()) {
-            painter.begin(m_printer);
-            painter.setRenderHint(QPainter::Antialiasing, true);
-        }
-
         int paperWidth = PaperSizes::width(page->paperSize(), page->orientation());
         int paperHeight = PaperSizes::height(page->paperSize(), page->orientation());
 
@@ -480,14 +489,10 @@ void MainWindow::printPages()
         page->render(m_document, &painter);
 
         if (++p < totalPages) {
-            page = pages.at(p);
+            page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
 
-            if (painter.device()->paintEngine()->type() == QPaintEngine::PostScript) {
-                painter.end();
-            }
-
-            m_printer->setPaperSize(page->paperSize());
-            m_printer->setOrientation(page->orientation());
+            m_printer->setPaperSize(page->paperSize());     // DEPRECATED
+            m_printer->setOrientation(page->orientation()); // DEPRECATED
 
             m_printer->newPage();
         }
