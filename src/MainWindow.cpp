@@ -1002,7 +1002,7 @@ void MainWindow::loadSettings()
 
     actions->action("makesCopies")->setChecked(Configuration::tool_MakesCopies());
 
-    actions->action("colorHilight")->setChecked(Configuration::renderer_ColorHilight());
+    actions->action("colorHighlight")->setChecked(Configuration::renderer_ColorHilight());
 
     actions->action("renderStitches")->setChecked(Configuration::renderer_RenderStitches());
     actions->action("renderBackstitches")->setChecked(Configuration::renderer_RenderBackstitches());
@@ -1628,10 +1628,10 @@ void MainWindow::setupActions()
 
 
     action = new QAction(this);
-    action->setText(i18n("Color Hilight"));
+    action->setText(i18n("Color Highlight"));
     action->setCheckable(true);
-    connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(colorHilight(bool)));
-    actions->addAction("colorHilight", action);
+    connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(colorHighlight(bool)));
+    actions->addAction("colorHighlight", action);
 
     action = new QAction(this);
     action->setText(i18n("Show Stitches"));

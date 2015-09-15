@@ -58,7 +58,7 @@
             <Action name="renderKnotsAsBlackWhiteSymbols"/>
         </Menu>
         <Separator/>
-        <Action name="colorHilight"/>
+        <Action name="colorHighlight"/>
         <Action name="renderStitches"/>
         <Action name="renderBackstitches"/>
         <Action name="renderFrenchKnots"/>
@@ -163,7 +163,7 @@
         <Action name="renderKnotsAsBlackWhiteSymbols"/>
     </Menu>
     <Separator/>
-    <Action name="colorHilight"/>
+    <Action name="colorHighlight"/>
     <Action name="renderStitches"/>
     <Action name="renderBackstitches"/>
     <Action name="renderFrenchKnots"/>
@@ -188,7 +188,7 @@
     <Action name="paletteSwapColors"/>
     <Action name="paletteReplaceColor"/>
     <Separator/>
-    <Action name="colorHilight"/>
+    <Action name="colorHighlight"/>
 </Menu>
 <ToolBar name="StitchToolBar" fullWidth="false"><text>Stitch Toolbar</text>
     <Action name="stitchQuarter"/>
