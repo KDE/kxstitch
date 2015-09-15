@@ -122,7 +122,7 @@ public slots:
     void renderBackstitchesAs();
     void renderKnotsAs();
 
-    void colorHilight(bool);
+    void colorHighlight(bool);
 
     void selectTool();
     void selectTool(ToolMode);
@@ -324,7 +324,7 @@ private:
     Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
     Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
     Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
-    bool    m_colorHilight;
+    bool    m_colorHighlight;
 
     QRect   m_rubberBand;
     QRect   m_selectionArea;

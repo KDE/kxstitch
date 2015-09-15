@@ -202,7 +202,7 @@ Editor::Editor(QWidget *parent)
         m_maskKnot(false),
         m_makesCopies(Configuration::tool_MakesCopies()),
         m_activeCommand(0),
-        m_colorHilight(Configuration::renderer_ColorHilight()),
+        m_colorHighlight(Configuration::renderer_ColorHilight()),
         m_pastePattern(0)
 {
     setAcceptDrops(true);
@@ -315,7 +315,7 @@ void Editor::drawContents(const QRect &cells)
                       m_renderStitches,
                       m_renderBackstitches,
                       m_renderFrenchKnots,
-                      (m_colorHilight) ? m_document->pattern()->palette().currentIndex() : -1);
+                      (m_colorHighlight) ? m_document->pattern()->palette().currentIndex() : -1);
 
     painter.end();
 
@@ -655,9 +655,9 @@ void Editor::renderKnotsAs()
 }
 
 
-void Editor::colorHilight(bool set)
+void Editor::colorHighlight(bool set)
 {
-    m_colorHilight = set;
+    m_colorHighlight = set;
     drawContents();
 }
 
@@ -2097,7 +2097,7 @@ void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
             m_document->pattern()->palette().setCurrentIndex(colorIndex);
             m_document->palette()->update();
 
-            if (m_colorHilight) {
+            if (m_colorHighlight) {
                 drawContents();
             }
         }

@@ -53,7 +53,7 @@ private:
     Pattern         *m_pattern;
     SymbolLibrary   *m_symbolLibrary;
 
-    int     m_hilight;
+    int     m_highlight;
 
     QPointF m_topLeft;
     QPointF m_topRight;
@@ -283,7 +283,7 @@ void Renderer::render(QPainter *painter,
                       bool renderStitches,
                       bool renderBackstitches,
                       bool renderKnots,
-                      int colorHilight)
+                      int colorHighlight)
 {
     updateCells &= painter->window();
 
@@ -292,7 +292,7 @@ void Renderer::render(QPainter *painter,
     d->m_painter = painter;
     d->m_pattern = pattern;
     d->m_symbolLibrary = SymbolManager::library(pattern->palette().symbolLibrary());
-    d->m_hilight = colorHilight;
+    d->m_highlight = colorHighlight;
 
     int patternLeft = updateCells.left();
     int patternRight = updateCells.right();
@@ -362,7 +362,7 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 
         QPen pen;
 
-        if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
+        if ((d->m_highlight == -1) || (stitch->colorIndex == d->m_highlight)) {
             pen.setColor(documentFloss->flossColor());
             pen.setWidthF(documentFloss->stitchStrands() / 10.0);
         } else {
@@ -482,7 +482,7 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
         QPen symbolPen = symbol.pen();
         QBrush symbolBrush = symbol.brush();
 
-        if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
+        if ((d->m_highlight == -1) || (stitch->colorIndex == d->m_highlight)) {
             // the symbolPen and symbolBrush are already set up as black at this point
         } else {
             symbolPen.setColor(Qt::lightGray);
@@ -603,7 +603,7 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
         QPen symbolPen = symbol.pen();
         QBrush symbolBrush = symbol.brush();
 
-        if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
+        if ((d->m_highlight == -1) || (stitch->colorIndex == d->m_highlight)) {
             symbolPen.setColor(documentFloss->flossColor());
             symbolBrush.setColor(documentFloss->flossColor());
         } else {
@@ -723,7 +723,7 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
         QPen blockPen;
         QBrush blockBrush(Qt::SolidPattern);
 
-        if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
+        if ((d->m_highlight == -1) || (stitch->colorIndex == d->m_highlight)) {
             blockPen.setColor(documentFloss->flossColor());
             blockBrush.setColor(documentFloss->flossColor());
         } else {
@@ -835,7 +835,7 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
         QPen blockPen;
         QBrush blockBrush(Qt::SolidPattern);
 
-        if ((d->m_hilight == -1) || (stitch->colorIndex == d->m_hilight)) {
+        if ((d->m_highlight == -1) || (stitch->colorIndex == d->m_highlight)) {
             QColor flossColor = floss->flossColor();
             QColor symbolColor = (qGray(flossColor.rgb()) < 128) ? Qt::white : Qt::black;
             symbolPen.setColor(symbolColor);
@@ -953,7 +953,7 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 
     QPen pen;
 
-    if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (backstitch->colorIndex == d->m_highlight)) {
         pen.setColor(documentFloss->flossColor());
         pen.setWidthF(double(documentFloss->backstitchStrands()) / 5);
         pen.setCapStyle(Qt::RoundCap);
@@ -977,7 +977,7 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
     QPen pen;
     pen.setStyle(documentFloss->backstitchSymbol());
 
-    if ((d->m_hilight == -1) || (backstitch->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (backstitch->colorIndex == d->m_highlight)) {
         pen.setColor(Qt::black);
         pen.setWidthF(double(documentFloss->backstitchStrands()) / 5);
         pen.setCapStyle(Qt::RoundCap);
@@ -997,7 +997,7 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot)
     QPen outlinePen;
     QBrush brush(Qt::SolidPattern);
 
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (knot->colorIndex == d->m_highlight)) {
         outlinePen.setColor(documentFloss->flossColor());
         brush.setColor(documentFloss->flossColor());
     } else {
@@ -1025,7 +1025,7 @@ void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
     QPen blockPen;
     QBrush blockBrush(Qt::SolidPattern);
 
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (knot->colorIndex == d->m_highlight)) {
         QColor flossColor = documentFloss->flossColor();
         QColor symbolColor = (qGray(flossColor.rgb()) < 128) ? Qt::white : Qt::black;
         symbolPen.setColor(symbolColor);
@@ -1060,7 +1060,7 @@ void Renderer::renderKnotsAsColorSymbols(Knot *knot)
     QPen symbolPen = symbol.pen();
     QBrush symbolBrush = symbol.brush();
 
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (knot->colorIndex == d->m_highlight)) {
         QColor flossColor = documentFloss->flossColor();
         symbolPen.setColor(flossColor);
         symbolBrush.setColor(flossColor);
@@ -1089,7 +1089,7 @@ void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
     QPen symbolPen = symbol.pen();
     QBrush symbolBrush = symbol.brush();
 
-    if ((d->m_hilight == -1) || (knot->colorIndex == d->m_hilight)) {
+    if ((d->m_highlight == -1) || (knot->colorIndex == d->m_highlight)) {
         symbolPen.setColor(Qt::black);
         symbolBrush.setColor(Qt::black);
     } else {
