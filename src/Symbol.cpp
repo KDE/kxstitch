@@ -260,7 +260,7 @@ QPen Symbol::pen() const
         p.setCapStyle(m_capStyle);
         p.setJoinStyle(m_joinStyle);
     } else {
-        p.setCosmetic(true);
+        p = QPen(Qt::NoPen);
     }
 
     return p;
