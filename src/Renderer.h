@@ -52,7 +52,7 @@ public:
                 bool renderStitches,
                 bool renderBackstitches,
                 bool renderKnots,
-                int colorHilight);
+                int colorHighlight);
 
     Renderer &operator=(const Renderer &);
 
