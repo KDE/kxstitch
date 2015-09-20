@@ -81,6 +81,7 @@ public:
     Scale *verticalScale();
 
     QRect selectionArea();
+    void resetSelectionArea();
 
 signals:
     void selectionMade(bool);

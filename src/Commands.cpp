@@ -614,6 +614,7 @@ FitBackgroundImageCommand::~FitBackgroundImageCommand()
 void FitBackgroundImageCommand::redo()
 {
     m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
+    m_document->editor()->resetSelectionArea();
     m_document->editor()->drawContents();
 }
 
