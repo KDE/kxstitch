@@ -20,8 +20,7 @@ ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
     :   QDialog(parent)
 {
     setWindowTitle(i18n("Extend Pattern"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
 }
 

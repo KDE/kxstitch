@@ -29,8 +29,7 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
 {
     setWindowTitle(i18n("Text Element Properties"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
 
     ui.BoldButton->setIcon(QIcon::fromTheme("format-text-bold"));

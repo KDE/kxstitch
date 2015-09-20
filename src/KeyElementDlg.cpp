@@ -24,8 +24,7 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
         m_keyElement(keyElement)
 {
     setWindowTitle(i18n("Key Element Properties"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.MarginLeft->setValue(keyElement->m_margins.left());
     ui.MarginTop->setValue(keyElement->m_margins.top());

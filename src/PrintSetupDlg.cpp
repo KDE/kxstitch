@@ -50,8 +50,7 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
 {
     setWindowTitle(i18n("Print Setup"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     m_pageLayoutEditor = new PageLayoutEditor(ui.PagePreview, m_document);
     ui.PagePreview->setWidget(m_pageLayoutEditor);
 

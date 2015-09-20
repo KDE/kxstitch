@@ -19,8 +19,7 @@ LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStrin
     :   QDialog(parent)
 {
     setWindowTitle(i18n("Library File Paths"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
 
     QStringListIterator pathIterator(paths);

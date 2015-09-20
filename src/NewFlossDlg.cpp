@@ -24,8 +24,7 @@ NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
         m_floss(0)
 {
     setWindowTitle(i18n("New Floss"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
     ui.SchemeName->setText(m_flossScheme->schemeName());
     ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);

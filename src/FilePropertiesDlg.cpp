@@ -28,8 +28,7 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
         m_document(document)
 {
     setWindowTitle(i18n("File Properties"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     QRect extents = m_document->pattern()->stitches().extents();
     m_minWidth = extents.width();

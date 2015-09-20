@@ -19,8 +19,7 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32
     :   QDialog(parent)
 {
     setWindowTitle(i18n("Library Pattern Properties"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
     ui.FlossScheme->setText(scheme);
     ui.Width->setText(QString().setNum(width));

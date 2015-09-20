@@ -30,8 +30,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
         m_alphaSelect(0),
         m_originalImage(originalImage)
 {
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.FlossScheme->addItems(SchemeManager::schemes());
 

@@ -27,8 +27,7 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
 {
     setWindowTitle(i18n("Pattern Element Properties"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.RenderStitchesAs->setItemData(0, Configuration::EnumRenderer_RenderStitchesAs::Stitches);
     ui.RenderStitchesAs->setItemData(1, Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);

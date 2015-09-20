@@ -23,8 +23,7 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, b
     :   QDialog(parent)
 {
     setWindowTitle(i18n("Page Properties"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
 
     ui.MarginTop->setValue(margins.top());

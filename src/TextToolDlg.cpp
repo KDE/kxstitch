@@ -26,8 +26,7 @@ TextToolDlg::TextToolDlg(QWidget *parent)
     :   QDialog(parent)
 {
     setWindowTitle(i18n("Text Tool"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.TextToolFont->setCurrentFont(QFont(Configuration::textTool_FontFamily()));
     ui.TextToolSize->setValue(Configuration::textTool_FontSize());

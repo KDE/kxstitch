@@ -27,8 +27,7 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
         m_document(document)
 {
     setWindowTitle(i18n("Image Element Properties"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QMap<int, QList<QRect> >());
     m_selectArea->setPatternRect(imageElement->patternRect());

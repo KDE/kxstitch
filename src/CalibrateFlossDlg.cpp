@@ -26,8 +26,7 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
         m_sample(0)
 {
     setWindowTitle(i18n("Calibrate Floss"));
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     QMetaObject::connectSlotsByName(this);
 
     fillSchemeList();
