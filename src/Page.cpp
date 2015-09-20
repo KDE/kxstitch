@@ -149,6 +149,11 @@ void Page::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
+    if (painter->device()->paintEngine() == Q_NULLPTR) {
+        painter->setPen(QPen(Qt::red, 0.05));
+        painter->drawRect(painter->window().marginsRemoved(m_margins));
+    }
+
     QListIterator<Element *> elementIterator(m_elements);
 
     while (elementIterator.hasNext()) {
