@@ -233,6 +233,7 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
 
         for (int y = yOffset ; y < m_paperHeight ; y += m_gridSize) {
             for (int x = xOffset ; x < m_paperWidth ; x += m_gridSize) {
+                painter.setPen(QPen(Qt::black, 0.2));
                 painter.drawPoint(x, y);
             }
         }
