@@ -2267,6 +2267,12 @@ QRect Editor::selectionArea()
 }
 
 
+void Editor::resetSelectionArea()
+{
+    toolCleanupSelect();
+}
+
+
 QRect Editor::visibleCells()
 {
     QRect cells;
