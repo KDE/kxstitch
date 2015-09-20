@@ -995,6 +995,13 @@ void ExtendPatternCommand::redo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.resize(stitchData.width() + m_left + m_right, stitchData.height() + m_top + m_bottom);
     stitchData.movePattern(m_left, m_top);
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        backgroundImage->setLocation(backgroundImage->location().translated(m_left, m_top));
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -1005,6 +1012,13 @@ void ExtendPatternCommand::undo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.movePattern(-m_left, -m_top);
     stitchData.resize(stitchData.width() - m_left - m_right, stitchData.height() - m_top - m_bottom);
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        backgroundImage->setLocation(backgroundImage->location().translated(-m_left, -m_top));
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
