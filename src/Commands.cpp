@@ -929,6 +929,16 @@ void InsertColumnsCommand::redo()
 {
     m_document->pattern()->stitches().insertColumns(m_selectionArea.left(), m_selectionArea.width());
 
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().left() >= m_selectionArea.left()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(m_selectionArea.width(), 0));
+        }
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -937,6 +947,16 @@ void InsertColumnsCommand::redo()
 void InsertColumnsCommand::undo()
 {
     m_document->pattern()->stitches().removeColumns(m_selectionArea.left(), m_selectionArea.width());
+
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().left() > m_selectionArea.left()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(-m_selectionArea.width(), 0));
+        }
+    }
 
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
@@ -960,6 +980,16 @@ void InsertRowsCommand::redo()
 {
     m_document->pattern()->stitches().insertRows(m_selectionArea.top(), m_selectionArea.height());
 
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().top() >= m_selectionArea.top()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(0, m_selectionArea.height()));
+        }
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -968,6 +998,16 @@ void InsertRowsCommand::redo()
 void InsertRowsCommand::undo()
 {
     m_document->pattern()->stitches().removeRows(m_selectionArea.top(), m_selectionArea.height());
+
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().top() > m_selectionArea.top()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(0, -m_selectionArea.height()));
+        }
+    }
 
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
