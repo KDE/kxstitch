@@ -52,8 +52,6 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     ui.Instructions->setPlainText(m_document->property("instructions").toString());
     ui.ClothCountLink->setChecked(m_clothCountLink);
     on_ClothCountLink_clicked(m_clothCountLink);
-
-    QMetaObject::connectSlotsByName(this);
 }
 
 

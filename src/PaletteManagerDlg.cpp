@@ -41,7 +41,6 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
 {
     setWindowTitle(i18n("Palette Manager"));
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
 
     ui.SymbolLibrary->insertItems(0, SymbolManager::libraries());
     ui.SymbolLibrary->setCurrentItem(m_dialogPalette.symbolLibrary());

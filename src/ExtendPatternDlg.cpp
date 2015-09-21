@@ -21,7 +21,6 @@ ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
 {
     setWindowTitle(i18n("Extend Pattern"));
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
 }
 
 

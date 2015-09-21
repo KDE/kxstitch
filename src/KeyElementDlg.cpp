@@ -46,8 +46,6 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.StitchesColumn->setChecked(m_keyElement->m_stitchesColumn);
     ui.LengthColumn->setChecked(m_keyElement->m_lengthColumn);
     ui.SkeinsColumn->setChecked(m_keyElement->m_skeinsColumn);
-
-    QMetaObject::connectSlotsByName(this);
 }
 
 

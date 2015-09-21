@@ -43,8 +43,6 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     m_useFractionals = ui.UseFractionals->isChecked();
     m_ignoreColor = ui.IgnoreColor->isChecked();
 
-    QMetaObject::connectSlotsByName(this);
-
     createImageMap();
     renderPixmap();
 }

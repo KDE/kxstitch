@@ -32,8 +32,6 @@ PatternConfigPage::PatternConfigPage(QWidget *parent, const char *name)
     setObjectName(name);
     setupUi(this);
 
-    QMetaObject::connectSlotsByName(this);
-
     m_currentDocumentUnitsIndex = Configuration::document_UnitsFormat();
     m_currentClothCountUnitsIndex = Configuration::editor_ClothCountUnits();
     kcfg_Editor_VerticalClothCount->setEnabled(!Configuration::editor_ClothCountLink());

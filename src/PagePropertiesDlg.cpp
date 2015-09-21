@@ -24,7 +24,6 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, b
 {
     setWindowTitle(i18n("Page Properties"));
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
 
     ui.MarginTop->setValue(margins.top());
     ui.MarginLeft->setValue(margins.left());

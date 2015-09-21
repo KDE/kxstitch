@@ -41,7 +41,6 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
     ui.setupUi(this);
     ui.ZoomOut->setIcon(QIcon::fromTheme("zoom-out"));
     ui.ZoomIn->setIcon(QIcon::fromTheme("zoom-in"));
-    QMetaObject::connectSlotsByName(this);
 
     refreshLibraries();
 

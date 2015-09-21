@@ -20,7 +20,7 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32
 {
     setWindowTitle(i18n("Library Pattern Properties"));
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
+
     ui.FlossScheme->setText(scheme);
     ui.Width->setText(QString().setNum(width));
     ui.Height->setText(QString().setNum(height));

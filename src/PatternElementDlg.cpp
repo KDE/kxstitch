@@ -60,8 +60,6 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
     ui.RenderStitchesAs->setCurrentIndex(ui.RenderStitchesAs->findData(patternElement->m_renderStitchesAs));
     ui.RenderBackstitchesAs->setCurrentIndex(ui.RenderBackstitchesAs->findData(patternElement->m_renderBackstitchesAs));
     ui.RenderKnotsAs->setCurrentIndex(ui.RenderKnotsAs->findData(patternElement->m_renderKnotsAs));
-
-    QMetaObject::connectSlotsByName(this);
 }
 
 

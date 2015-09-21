@@ -70,7 +70,6 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
 
-    QMetaObject::connectSlotsByName(this);
     connect(m_pageLayoutEditor, SIGNAL(selectionMade(QRect)), this, SLOT(selectionMade(QRect)));
     connect(m_pageLayoutEditor, SIGNAL(elementGeometryChanged()), this, SLOT(elementGeometryChanged()));
     connect(m_pageLayoutEditor, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(previewContextMenuRequested(QPoint)));

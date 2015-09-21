@@ -49,7 +49,6 @@ SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibra
 {
     setWindowTitle(i18n("Symbol Selector"));
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
 
     SymbolLibrary *library = SymbolManager::library(symbolLibrary);
 

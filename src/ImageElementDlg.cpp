@@ -36,8 +36,6 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
     ui.ShowBorder->setChecked(imageElement->showBorder());
     ui.BorderColor->setColor(imageElement->borderColor());
     ui.BorderThickness->setValue(double(imageElement->borderThickness()) / 10);
-
-    QMetaObject::connectSlotsByName(this);
 }
 
 

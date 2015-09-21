@@ -30,7 +30,6 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     setWindowTitle(i18n("Text Element Properties"));
 
     ui.setupUi(this);
-    QMetaObject::connectSlotsByName(this);
 
     ui.BoldButton->setIcon(QIcon::fromTheme("format-text-bold"));
     ui.UnderlineButton->setIcon(QIcon::fromTheme("format-text-underline"));
