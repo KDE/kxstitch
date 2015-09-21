@@ -279,7 +279,7 @@
      </item>
     </widget>
    </item>
-   <item row="5" column="0" colspan="4">
+   <item row="5" column="0" colspan="8">
     <widget class="QDialogButtonBox" name="DialogButtonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
