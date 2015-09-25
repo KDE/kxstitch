@@ -39,8 +39,6 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
     setWindowTitle(i18n("Library Manager"));
 
     ui.setupUi(this);
-    ui.ZoomOut->setIcon(QIcon::fromTheme("zoom-out"));
-    ui.ZoomIn->setIcon(QIcon::fromTheme("zoom-in"));
 
     refreshLibraries();
 
@@ -121,8 +119,8 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
 
     if ((m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))) {
         m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
-        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
-        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
+//        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
+//        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
         m_contextMenu.addAction(i18n("Delete"), this, SLOT(deletePattern()));
         m_contextMenu.popup(QCursor::pos());
     } else {
@@ -169,69 +167,61 @@ void LibraryManagerDlg::newCategory()
     QString category;
 
     bool ok = false;
+    bool exists = false;
 
-    while (!ok) {
-        QTreeWidgetItem *item = 0;
-        category = QInputDialog::getText(this, i18n("Create Category"), i18n("Catagory Name"), QLineEdit::Normal, QString(), &ok);
+    category = QInputDialog::getText(this, i18n("Create Category"), i18n("Category Name"), QLineEdit::Normal, QString(), &ok);
 
-        if (!ok) {
-            break;
-        }
+    if (!ok) return; // user cancelled
 
-        if (m_contextTreeItem) {
-            for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i) {
-                if (m_contextTreeItem->child(i)->text(0) == category) {
-                    break;
-                }
-            }
-        } else {
-            QList<QTreeWidgetItem *> rootItems = ui.LibraryTree->findItems(category, Qt::MatchExactly);
-
-            if (!rootItems.isEmpty()) {
-                QTreeWidgetItem *rootItem = rootItems.at(0);
-                item = rootItem;
+    if (m_contextTreeItem) {
+        for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i) {
+            if (m_contextTreeItem->child(i)->text(0) == category) {
+                exists = true;
             }
         }
+    } else {
+        QList<QTreeWidgetItem *> rootItems = ui.LibraryTree->findItems(category, Qt::MatchExactly);
 
-        if (item) {
-            KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
-            ok = false;
+        if (!rootItems.isEmpty()) {
+            exists = true;
         }
     }
 
-    if (ok) {
-        LibraryTreeWidgetItem *newItem;
-
-        if (m_contextTreeItem) {
-            newItem = new LibraryTreeWidgetItem(m_contextTreeItem, category);
-        } else {
-            newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
-        }
-
-        QString path;
-        QFileInfo fileInfo;
-
-        if (m_contextTreeItem) {
-            fileInfo.setFile(m_contextTreeItem->path());
-
-            if (!fileInfo.isWritable()) {
-                path.remove(0, path.indexOf("/library"));
-                path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
-                fileInfo.setFile(path);
-            }
-        } else {
-            path = QString("%s/%s").arg(QStandardPaths::DataLocation).arg("library");
-            fileInfo.setFile(path);
-        }
-
-        if (fileInfo.dir().mkdir(category)) {
-            path += category;
-            path += '/';
-            newItem->addPath(path);
-        }
-
-        ui.LibraryTree->setCurrentItem(newItem);
+    if (exists) {
+        KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
+        return;
     }
+
+    LibraryTreeWidgetItem *newItem;
+
+    if (m_contextTreeItem) {
+        newItem = new LibraryTreeWidgetItem(m_contextTreeItem, category);
+    } else {
+        newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
+    }
+
+    QString path;
+    QFileInfo fileInfo;
+
+    if (m_contextTreeItem) {
+        fileInfo.setFile(m_contextTreeItem->path());
+        path = m_contextTreeItem->path();
+
+        if (!fileInfo.isWritable()) {
+            path.remove(0, path.indexOf("/library"));
+            path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+        }
+    } else {
+        path = QString("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg("library");
+    }
+
+    path = QString("%1/%2").arg(path).arg(category);
+
+    if (QDir().mkpath(path)) {
+        newItem->addPath(path);
+    }
+
+    ui.LibraryTree->setCurrentItem(newItem);
 }
 
 
@@ -314,7 +304,6 @@ void LibraryManagerDlg::refreshLibraries()
 
 void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, const QString &path)
 {
-    LibraryTreeWidgetItem *libraryTreeWidgetItem = 0;
     QDir directory(path);
     const QFileInfoList directoryEntries = directory.entryInfoList();
     QListIterator<QFileInfo> fileInfoListIterator(directoryEntries);
@@ -324,8 +313,8 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 
         if (fileInfo.isDir()) {
             if (fileInfo.fileName() != "." && fileInfo.fileName() != "..") {
-                libraryTreeWidgetItem = 0;
-                QString subPath = QString("%1%2/").arg(path).arg(fileInfo.fileName());
+                LibraryTreeWidgetItem *libraryTreeWidgetItem = 0;
+                QString subPath = QString("%1/%2").arg(path).arg(fileInfo.fileName());
 
                 if (parent) {
                     int children = parent->childCount();
@@ -336,6 +325,8 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 
                         if (libraryTreeWidgetItem->text(0) == fileInfo.fileName()) {
                             break;
+                        } else {
+                            libraryTreeWidgetItem = 0;
                         }
 
                         childIndex++;
