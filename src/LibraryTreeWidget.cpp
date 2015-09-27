@@ -17,6 +17,7 @@
 #include <QDropEvent>
 #include <QMimeData>
 #include <QToolTip>
+#include <QTimer>
 #include <QTreeWidgetItem>
 
 #include <KLocale>
@@ -26,10 +27,24 @@
 #include "Pattern.h"
 
 
+/* Auto expanding of QTreeWidgetItems doesn't appear to be working.
+ * Implement some code to do it via a timer when hovered over.
+ */
+const int AUTO_EXPAND_DELAY = 500;
+
+
 LibraryTreeWidget::LibraryTreeWidget(QWidget *parent)
     :   QTreeWidget(parent)
 {
     setAcceptDrops(true);
+    m_openBranchTimer = new QTimer(this);
+    connect(m_openBranchTimer, SIGNAL(timeout()), this, SLOT(openBranch()));
+}
+
+
+LibraryTreeWidget::~LibraryTreeWidget()
+{
+    delete m_openBranchTimer;
 }
 
 
@@ -39,6 +54,10 @@ void LibraryTreeWidget::dragEnterEvent(QDragEnterEvent *event)
         event->accept();
         m_currentItem = currentItem();
         m_dropItem = itemAt(event->pos());
+
+        if (m_dropItem) {
+            m_openBranchTimer->start(AUTO_EXPAND_DELAY);
+        }
     } else {
         event->ignore();
     }
@@ -47,6 +66,8 @@ void LibraryTreeWidget::dragEnterEvent(QDragEnterEvent *event)
 
 void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 {
+    m_openBranchTimer->stop();
+
     if (acceptDrag(event)) {
         event->accept();
         m_dropItem = itemAt(event->pos());
@@ -59,6 +80,7 @@ void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 
         if (m_dropItem) {
             setCurrentItem(m_dropItem);
+            m_openBranchTimer->start(AUTO_EXPAND_DELAY);
         }
     } else {
         event->ignore();
@@ -68,6 +90,8 @@ void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 
 void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent*)
 {
+    m_openBranchTimer->stop();
+
     if (m_currentItem) {
         setCurrentItem(m_currentItem);
         scrollToItem(m_currentItem);
@@ -80,6 +104,8 @@ void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent*)
 
 void LibraryTreeWidget::dropEvent(QDropEvent *event)
 {
+    m_openBranchTimer->stop();
+
     if (m_dropItem && m_dropItem != m_currentItem) {
         QByteArray data = event->mimeData()->data("application/kxstitch");
         Pattern *pattern = new Pattern;
@@ -100,6 +126,13 @@ bool LibraryTreeWidget::acceptDrag(QDropEvent *event) const
     return event->mimeData()->hasFormat("application/kxstitch");
 }
 
+
 void LibraryTreeWidget::openBranch()
 {
+    m_openBranchTimer->stop();
+
+    if (m_dropItem && !m_dropItem->isExpanded())
+    {
+        m_dropItem->setExpanded(true);
+    }
 }
