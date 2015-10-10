@@ -130,8 +130,8 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
 
     if ((m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))) {
         m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
-        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
-        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
+//        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
+//        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
         m_contextMenu.addAction(i18n("Delete"), this, SLOT(deletePattern()));
         m_contextMenu.popup(QCursor::pos());
     } else {

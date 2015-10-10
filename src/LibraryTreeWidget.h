@@ -18,10 +18,8 @@
 
 class QDragEnterEvent;
 class QDragLeaveEvent;
-class QDrawMoveEvent;
+class QDragMoveEvent;
 class QDropEvent;
-class QString;
-class QTimer;
 class QTreeWidgetItem;
 class QWidget;
 
@@ -34,10 +32,10 @@ public:
     explicit LibraryTreeWidget(QWidget *parent);
 
 protected:
-    virtual void contentsDragEnterEvent(QDragEnterEvent *event);
-    virtual void contentsDragMoveEvent(QDragMoveEvent *event);
-    virtual void contentsDragLeaveEvent(QDragLeaveEvent *event);
-    virtual void contentsDropEvent(QDropEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
     virtual bool acceptDrag(QDropEvent *event) const;
 
 private slots:
@@ -46,7 +44,6 @@ private slots:
 private:
     QTreeWidgetItem *m_dropItem;
     QTreeWidgetItem *m_currentItem;
-    QTimer          *m_openBranchTimer;
 };
 
 
