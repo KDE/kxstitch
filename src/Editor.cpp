@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -874,7 +874,7 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
     XKeyLock keylock(QX11Info::display());
     Qt::KeyboardModifiers modifiers = e->modifiers();
 
-    if (keylock.getCapsLock() & Configuration::alphabet_UseCapsLock()) {
+    if (keylock.getCapsLock() && Configuration::alphabet_UseCapsLock()) {
         modifiers = static_cast<Qt::KeyboardModifiers>(modifiers ^ Qt::ShiftModifier);
     }
 
@@ -2264,6 +2264,12 @@ void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
 QRect Editor::selectionArea()
 {
     return m_selectionArea;
+}
+
+
+void Editor::resetSelectionArea()
+{
+    toolCleanupSelect();
 }
 
 

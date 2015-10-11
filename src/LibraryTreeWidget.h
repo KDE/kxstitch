@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2014 by Stephen Allewell
+ * Copyright (C) 2009-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -18,9 +18,8 @@
 
 class QDragEnterEvent;
 class QDragLeaveEvent;
-class QDrawMoveEvent;
+class QDragMoveEvent;
 class QDropEvent;
-class QString;
 class QTimer;
 class QTreeWidgetItem;
 class QWidget;
@@ -32,21 +31,22 @@ class LibraryTreeWidget : public QTreeWidget
 
 public:
     explicit LibraryTreeWidget(QWidget *parent);
+    virtual ~LibraryTreeWidget();
 
 protected:
-    virtual void contentsDragEnterEvent(QDragEnterEvent *event);
-    virtual void contentsDragMoveEvent(QDragMoveEvent *event);
-    virtual void contentsDragLeaveEvent(QDragLeaveEvent *event);
-    virtual void contentsDropEvent(QDropEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
     virtual bool acceptDrag(QDropEvent *event) const;
 
 private slots:
     void openBranch();
 
 private:
+    QTimer          *m_openBranchTimer;
     QTreeWidgetItem *m_dropItem;
     QTreeWidgetItem *m_currentItem;
-    QTimer          *m_openBranchTimer;
 };
 
 

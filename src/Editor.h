@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -81,6 +81,7 @@ public:
     Scale *verticalScale();
 
     QRect selectionArea();
+    void resetSelectionArea();
 
 signals:
     void selectionMade(bool);

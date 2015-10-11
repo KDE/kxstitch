@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 by Stephen Allewell
+ * Copyright (C) 2012-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -95,15 +95,16 @@ qint16 SymbolSelectorDlg::selectedSymbol()
  *
  * @param item a pointer to the QListWidgetItem that was selected
  */
-void SymbolSelectorDlg::on_SymbolTable_executed(QListWidgetItem *item)
+void SymbolSelectorDlg::on_SymbolTable_itemClicked(QListWidgetItem *item)
 {
-    m_usedSymbols.removeOne(m_currentSymbol);
-    ui.SymbolTable->enableItem(m_symbolItems.value(m_currentSymbol));
-    m_currentSymbol = static_cast<qint16>(item->data(Qt::UserRole).toInt());
-    ui.SymbolTable->disableItem(m_symbolItems.value(m_currentSymbol));
-    m_usedSymbols.append(m_currentSymbol);
-
-    accept();
+    if (item->flags() & Qt::ItemIsEnabled) {
+        m_usedSymbols.removeOne(m_currentSymbol);
+        ui.SymbolTable->enableItem(m_symbolItems.value(m_currentSymbol));
+        m_currentSymbol = static_cast<qint16>(item->data(Qt::UserRole).toInt());
+        ui.SymbolTable->disableItem(m_symbolItems.value(m_currentSymbol));
+        m_usedSymbols.append(m_currentSymbol);
+        accept();
+    }
 }
 
 

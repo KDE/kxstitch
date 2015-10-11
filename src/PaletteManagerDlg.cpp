@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -290,6 +290,7 @@ void PaletteManagerDlg::fillLists()
 {
     ui.ColorList->clear();
     ui.CurrentList->clear();
+    ui.CurrentScheme->setText(m_scheme->schemeName());
 
     foreach (const Floss * floss, m_scheme->flosses()) {
         QListWidgetItem *listWidgetItem = new QListWidgetItem;

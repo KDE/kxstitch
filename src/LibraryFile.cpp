@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2014 by Stephen Allewell
+ * Copyright (C) 2003-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -107,31 +107,7 @@ void LibraryFile::readFile()
             char header[11];
             stream.readRawData(header, 11);
 
-            if (strncmp(header, "KXStitchLib", 11)) {
-                // probably an old library, try and read the old format
-#if 0
-                file.reset();
-                qint32 patterns;
-                stream >> patterns;
-
-                while (patterns-- && ok) {
-                    qint16 checksum;
-                    QByteArray data;
-                    QByteArray compressed;
-                    stream >> checksum;
-                    stream >> compressed;
-                    data = qUncompress(compressed);
-
-                    if (checksum == qChecksum(data.data(), data.size())) {
-                        m_patterns.append(new LibraryPattern(0, Qt::NoButton , 0, checksum, data));
-                    } else {
-                        KMessageBox::sorry(0, i18n("There was a checksum error in %1.", localFile()), i18n("Checksum Error"));
-                        ok = false;
-                    }
-                }
-
-#endif
-            } else {
+            if (strncmp(header, "KXStitchLib", 11) == 0) {
                 qint16 version;
                 qint32 count;
                 qint32 key;         // version 1 of library format
@@ -213,7 +189,7 @@ void LibraryFile::readFile()
             file.close();
             m_read = true;
         } else {
-            KMessageBox::error(0, i18n("The file %1\ncould not be opened.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
+            KMessageBox::error(0, i18n("The file %1\ncould not be opened for reading.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
         }
     }
 }
@@ -237,6 +213,8 @@ void LibraryFile::writeFile()
 
         file.close();
         m_read = true;
+    } else {
+        KMessageBox::error(0, i18n("The file %1\ncould not be opened for writing.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
     }
 }
 

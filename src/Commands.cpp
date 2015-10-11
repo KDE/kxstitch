@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -614,6 +614,7 @@ FitBackgroundImageCommand::~FitBackgroundImageCommand()
 void FitBackgroundImageCommand::redo()
 {
     m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
+    m_document->editor()->resetSelectionArea();
     m_document->editor()->drawContents();
 }
 
@@ -928,6 +929,16 @@ void InsertColumnsCommand::redo()
 {
     m_document->pattern()->stitches().insertColumns(m_selectionArea.left(), m_selectionArea.width());
 
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().left() >= m_selectionArea.left()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(m_selectionArea.width(), 0));
+        }
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -936,6 +947,16 @@ void InsertColumnsCommand::redo()
 void InsertColumnsCommand::undo()
 {
     m_document->pattern()->stitches().removeColumns(m_selectionArea.left(), m_selectionArea.width());
+
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().left() > m_selectionArea.left()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(-m_selectionArea.width(), 0));
+        }
+    }
 
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
@@ -959,6 +980,16 @@ void InsertRowsCommand::redo()
 {
     m_document->pattern()->stitches().insertRows(m_selectionArea.top(), m_selectionArea.height());
 
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().top() >= m_selectionArea.top()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(0, m_selectionArea.height()));
+        }
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -967,6 +998,16 @@ void InsertRowsCommand::redo()
 void InsertRowsCommand::undo()
 {
     m_document->pattern()->stitches().removeRows(m_selectionArea.top(), m_selectionArea.height());
+
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+
+        if (backgroundImage->location().top() > m_selectionArea.top()) {
+            backgroundImage->setLocation(backgroundImage->location().translated(0, -m_selectionArea.height()));
+        }
+    }
 
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
@@ -994,6 +1035,13 @@ void ExtendPatternCommand::redo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.resize(stitchData.width() + m_left + m_right, stitchData.height() + m_top + m_bottom);
     stitchData.movePattern(m_left, m_top);
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        backgroundImage->setLocation(backgroundImage->location().translated(m_left, m_top));
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }
@@ -1004,6 +1052,13 @@ void ExtendPatternCommand::undo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.movePattern(-m_left, -m_top);
     stitchData.resize(stitchData.width() - m_left - m_right, stitchData.height() - m_top - m_bottom);
+    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+
+    while (backgroundImageIterator.hasNext()) {
+        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        backgroundImage->setLocation(backgroundImage->location().translated(-m_left, -m_top));
+    }
+
     m_document->editor()->readDocumentSettings();
     m_document->preview()->readDocumentSettings();
 }

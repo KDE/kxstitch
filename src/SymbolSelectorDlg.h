@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 by Stephen Allewell
+ * Copyright (C) 2012-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -47,7 +47,7 @@ public:
     qint16 selectedSymbol();
 
 protected slots:
-    void on_SymbolTable_executed(QListWidgetItem *item);
+    void on_SymbolTable_itemClicked(QListWidgetItem *item);
 
 private:
     void fillSymbols();

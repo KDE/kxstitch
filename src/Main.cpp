@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 by Stephen Allewell
+ * Copyright (C) 2010-2015 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
                          ki18n("KXStitch"), "1.2.0",
                          ki18n("A cross stitch pattern creator."),
                          KAboutData::License_GPL_V2,
-                         ki18n("(c) 2010-2014 Stephen Allewell"),
+                         ki18n("(c) 2010-2015 Stephen Allewell"),
                          KLocalizedString(),
                          "http://userbase.kde.org/KXStitch");
     aboutData.addAuthor(ki18n("Stephen Allewell"), ki18n("Project Lead"), "steve.allewell@gmail.com");
