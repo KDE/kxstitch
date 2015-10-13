@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8.12)
 
+if (POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif (POLICY CMP0063)
+
 project (kxstitch)
 
 find_package (ECM REQUIRED NO_MODULE)
