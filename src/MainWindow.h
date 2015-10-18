@@ -15,8 +15,6 @@
 
 #include <KXmlGuiWindow>
 
-#include <Magick++.h>
-
 
 class QPrinter;
 class QString;

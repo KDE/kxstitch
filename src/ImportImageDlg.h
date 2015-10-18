@@ -20,7 +20,11 @@
 #include <QTimer>
 #include <QWidget>
 
+// wrap include to silence unused-parameter warning from Magick++ include file
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 #include <Magick++.h>
+#pragma GCC diagnostic pop
 
 #include "AlphaSelect.h"
 #include "ui_ImportImage.h"
