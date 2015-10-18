@@ -183,6 +183,10 @@ if (WITH_PROFILING)
     set_target_properties (kxstitch PROPERTIES LINK_FLAGS -pg)
 endif (WITH_PROFILING)
 
+if (SILENCE_DEPRECATED)
+    add_definitions( -Wno-deprecated-declarations )
+endif (SILENCE_DEPRECATED)
+
 exec_program (Magick++-config ARGS --cxxflags OUTPUT_VARIABLE magick_config)
 
 string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
