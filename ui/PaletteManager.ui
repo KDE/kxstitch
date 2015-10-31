@@ -23,10 +23,6 @@
        </property>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item row="0" column="6" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QListWidget" name="CurrentList"/>
      </item>
