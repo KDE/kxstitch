@@ -215,7 +215,7 @@
        </widget>
       </item>
       <item row="0" column="2" rowspan="2">
-       <widget class="KPushButton" name="ClothCountLink">
+       <widget class="QPushButton" name="ClothCountLink">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -333,14 +333,16 @@
      </layout>
     </widget>
    </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>

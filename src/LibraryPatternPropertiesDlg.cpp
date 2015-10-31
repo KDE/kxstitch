@@ -11,23 +11,22 @@
 
 #include "LibraryPatternPropertiesDlg.h"
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 
 LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline, const QString &scheme, int width, int height, const QIcon &icon)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Library Pattern Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PatternLibraryDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
+    setWindowTitle(i18n("Library Pattern Properties"));
+    ui.setupUi(this);
+
     ui.FlossScheme->setText(scheme);
     ui.Width->setText(QString().setNum(width));
     ui.Height->setText(QString().setNum(height));
     ui.Baseline->setValue(baseline);
     ui.KeyCode->setKeyModifiers(key, modifiers);
     ui.Icon->setPixmap(icon.pixmap(ui.Icon->size()));
-    setMainWidget(widget);
 }
 
 
@@ -51,4 +50,22 @@ Qt::KeyboardModifiers LibraryPatternPropertiesDlg::modifiers() const
 qint16 LibraryPatternPropertiesDlg::baseline() const
 {
     return ui.Baseline->value();
+}
+
+
+void LibraryPatternPropertiesDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void LibraryPatternPropertiesDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void LibraryPatternPropertiesDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternLibraryDialog", "kxstitch");
 }

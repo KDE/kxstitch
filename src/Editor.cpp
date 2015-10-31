@@ -17,6 +17,7 @@
 #include <QClipboard>
 #include <QContextMenuEvent>
 #include <QMenu>
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QRubberBand>
@@ -25,7 +26,7 @@
 #include <QToolTip>
 #include <QX11Info>
 
-#include <KAction>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KXMLGUIFactory>
 
@@ -371,8 +372,8 @@ bool Editor::zoom(double factor)
 
     m_zoomFactor = factor;
 
-    double dpiX = physicalDpiX();
-    double dpiY = physicalDpiY();
+    double dpiX = logicalDpiX();
+    double dpiY = logicalDpiY();
 
     bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 
@@ -534,7 +535,7 @@ void Editor::pastePattern(ToolMode toolMode)
 
 void Editor::mirrorSelection()
 {
-    m_orientation = static_cast<Qt::Orientation>(qobject_cast<KAction *>(sender())->data().toInt());
+    m_orientation = static_cast<Qt::Orientation>(qobject_cast<QAction *>(sender())->data().toInt());
 
     QDataStream stream(&m_pasteData, QIODevice::WriteOnly);
     stream << m_document->pattern()->stitches();
@@ -554,7 +555,7 @@ void Editor::mirrorSelection()
 
 void Editor::rotateSelection()
 {
-    m_rotation = static_cast<StitchData::Rotation>(qobject_cast<KAction *>(sender())->data().toInt());
+    m_rotation = static_cast<StitchData::Rotation>(qobject_cast<QAction *>(sender())->data().toInt());
 
     QDataStream stream(&m_pasteData, QIODevice::WriteOnly);
     stream << m_document->pattern()->stitches();
@@ -1373,12 +1374,18 @@ void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        QPen pen(m_document->pattern()->palette().currentFloss()->flossColor());
-        pen.setWidth(4);
+        QPen pen;
+        pen.setWidthF(0.5);
+
+        painter->setOpacity(0.5);
 
         if (m_toolMode == ToolBackstitch) {
+            pen.setColor(m_document->pattern()->palette().currentFloss()->flossColor());
+            painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) / 2, QPointF(m_cellEnd) / 2);
         } else {
+            pen.setColor(QColor(200,225,255));
+            painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) + QPointF(0.5, 0.5), QPointF(m_cellEnd) + QPointF(0.5, 0.5));
         }
     }
@@ -1392,11 +1399,14 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
+        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
         opt.opaque = false;
         opt.rect = m_rubberBand.adjusted(0, 0, 1, 1);
+
         style()->drawControl(QStyle::CE_RubberBand, &opt, painter);
     }
 
@@ -1409,11 +1419,16 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        QPainterPath path;
-        path.addEllipse(m_rubberBand);
-        painter->setBrush(QColor(Qt::cyan));
-        painter->setPen(Qt::black);
-        painter->drawPath(path);
+        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(QColor(200,225,255));
+        painter->setOpacity(0.5);
+        painter->drawEllipse(m_rubberBand);
+
+        painter->setPen(Qt::darkBlue);
+        painter->setBrush(Qt::NoBrush);
+        painter->drawEllipse(m_rubberBand);
     }
 
     painter->restore();
@@ -1461,8 +1476,10 @@ void Editor::renderPasteImage(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_pastePattern) {
+        QPen outlinePen(Qt::red);
+        outlinePen.setCosmetic(true);
         painter->translate(m_cellEnd);
-        painter->setPen(Qt::red);
+        painter->setPen(outlinePen);
         QRect outline(0, 0, m_pastePattern->stitches().width(), m_pastePattern->stitches().height());
         painter->drawRect(outline);
 
@@ -1578,6 +1595,7 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.drawLine(m_cellStart, m_cellEnd);
         painter.end();
@@ -1934,6 +1952,7 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
         painter.drawPolygon(m_polygon);

@@ -33,7 +33,7 @@
 
 #include "Exceptions.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 
 /**

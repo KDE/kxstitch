@@ -15,6 +15,9 @@
 #include <QPainter>
 #include <QProgressDialog>
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "configuration.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
@@ -23,32 +26,25 @@
 
 
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_alphaSelect(0),
         m_originalImage(originalImage)
 {
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help | KDialog::Reset);
-    setHelp("ImportImageDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.FlossScheme->addItems(SchemeManager::schemes());
 
     m_originalSize = QSize(m_originalImage.columns(), m_originalImage.rows());
     QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_originalSize.width(), m_originalSize.height());
-    setCaption(caption);
+    setWindowTitle(caption);
 
     resetImportParameters();
 
     m_useFractionals = ui.UseFractionals->isChecked();
     m_ignoreColor = ui.IgnoreColor->isChecked();
 
-    QMetaObject::connectSlotsByName(this);
-
     createImageMap();
     renderPixmap();
-
-    setMainWidget(widget);
 }
 
 
@@ -96,20 +92,6 @@ double ImportImageDlg::verticalClothCount() const
 bool ImportImageDlg::useFractionals() const
 {
     return m_useFractionals;
-}
-
-
-void ImportImageDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else if (button == KDialog::Reset) {
-        // reset the form data to the defalts
-        resetImportParameters();
-        renderPixmap();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -187,7 +169,7 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
 
 void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? KIcon("link") : KIcon("link_break"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
@@ -239,7 +221,7 @@ void ImportImageDlg::createImageMap()
 
 void ImportImageDlg::renderPixmap()
 {
-    QPixmap alpha = KIcon("alpha").pixmap(32, 32);
+    QPixmap alpha = QIcon("alpha").pixmap(32, 32);
     ui.ImagePreview->setCursor(Qt::WaitCursor);
     calculateSizes();
     m_convertedImage.modifyImage();
@@ -333,6 +315,34 @@ void ImportImageDlg::selectColor(const QPoint &p)
 }
 
 
+void ImportImageDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("ImportImageDialog", "kxstitch");
+}
+
+
+void ImportImageDlg::on_DialogButtonBox_clicked(QAbstractButton *button)
+{
+    if (ui.DialogButtonBox->button(QDialogButtonBox::Reset) == button) {
+        // Reset values
+        m_convertedImage = m_originalImage;
+        renderPixmap();
+    }
+}
+
+
 void ImportImageDlg::resetImportParameters()
 {
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
@@ -346,7 +356,7 @@ void ImportImageDlg::resetImportParameters()
     ui.VerticalClothCount->setValue(verticalClothCount);
     ui.VerticalClothCount->setEnabled(false);
     ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
-    ui.ClothCountLink->setIcon(KIcon("link"));
+    ui.ClothCountLink->setIcon(QIcon::fromTheme("object-locked"));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();

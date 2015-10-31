@@ -18,7 +18,11 @@
 #include <QListIterator>
 #include <QString>
 
+// wrap include to silence unused-parameter warning from Magick++ include file
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 #include <Magick++.h>
+#pragma GCC diagnostic pop
 
 #include "Floss.h"
 

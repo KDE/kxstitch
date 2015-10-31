@@ -13,6 +13,7 @@
 
 #include <math.h>
 
+#include <QColorDialog>
 #include <QFontDialog>
 #include <QInputDialog>
 #include <QMargins>
@@ -21,8 +22,8 @@
 #include <QPrinter>
 #include <QShowEvent>
 
-#include <KColorDialog>
-#include <KDebug>
+#include <KHelpClient>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Document.h"
@@ -41,29 +42,26 @@ static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 
 
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_printerConfiguration(document->printerConfiguration()),
         m_elementUnderCursor(0),
         m_document(document),
         m_printer(printer)
 {
-    setCaption(i18n("Print Setup"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PrinterDialog");
+    setWindowTitle(i18n("Print Setup"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
     m_pageLayoutEditor = new PageLayoutEditor(ui.PagePreview, m_document);
     ui.PagePreview->setWidget(m_pageLayoutEditor);
 
-    ui.AddPage->setIcon(KIcon("document-new"));
-    ui.InsertPage->setIcon(KIcon("document-import"));
-    ui.DeletePage->setIcon(KIcon("document-close"));
-    ui.SelectElement->setIcon(KIcon("edit-select"));
-    ui.TextElement->setIcon(KIcon("insert-text"));
-    ui.PatternElement->setIcon(KIcon("insert-table"));
-    ui.ImageElement->setIcon(KIcon("insert-image"));
-    ui.KeyElement->setIcon(KIcon("documentation"));
+    ui.AddPage->setIcon(QIcon::fromTheme("document-new"));
+    ui.InsertPage->setIcon(QIcon::fromTheme("document-import"));
+    ui.DeletePage->setIcon(QIcon::fromTheme("document-close"));
+    ui.SelectElement->setIcon(QIcon::fromTheme("edit-select"));
+    ui.TextElement->setIcon(QIcon::fromTheme("insert-text"));
+    ui.PatternElement->setIcon(QIcon::fromTheme("insert-table"));
+    ui.ImageElement->setIcon(QIcon::fromTheme("insert-image"));
+    ui.KeyElement->setIcon(QIcon::fromTheme("documentation"));
 
     m_buttonGroup.addButton(ui.SelectElement);
     m_buttonGroup.addButton(ui.TextElement);
@@ -72,7 +70,6 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
 
-    QMetaObject::connectSlotsByName(this);
     connect(m_pageLayoutEditor, SIGNAL(selectionMade(QRect)), this, SLOT(selectionMade(QRect)));
     connect(m_pageLayoutEditor, SIGNAL(elementGeometryChanged()), this, SLOT(elementGeometryChanged()));
     connect(m_pageLayoutEditor, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(previewContextMenuRequested(QPoint)));
@@ -81,8 +78,6 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
     ui.Zoom->setCurrentIndex(4);    // 200%
     ui.SelectElement->click();      // select mode
-
-    setMainWidget(widget);
 }
 
 
@@ -100,7 +95,7 @@ const PrinterConfiguration &PrintSetupDlg::printerConfiguration() const
 
 void PrintSetupDlg::showEvent(QShowEvent *event)
 {
-    KDialog::showEvent(event);
+    QDialog::showEvent(event);
 
     if (ui.Pages->count() == 0) {
         initialiseFromConfig();
@@ -228,6 +223,24 @@ void PrintSetupDlg::on_KeyElement_clicked()
 {
     m_elementMode = Key;
     m_pageLayoutEditor->setSelecting(false);
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void PrintSetupDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PrinterDialog", "kxstitch");
 }
 
 

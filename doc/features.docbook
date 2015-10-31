@@ -5,7 +5,6 @@
         <listitem><para>Creation of new patterns
             <itemizedlist>
                 <listitem><para>User defined size</para></listitem>
-                <listitem><para>Selection of material type (not yet supported)</para></listitem>
                 <listitem><para>Selection of material color</para></listitem>
                 <listitem><para>Insertion of a background images for tracing</para></listitem>
                 <listitem><para>Importing of various image formats</para></listitem>
@@ -14,7 +13,6 @@
                         <listitem><para>Limiting the number of colors</para></listitem>
                         <listitem><para>Limiting colors to a specific palette</para></listitem>
                         <listitem><para>Scaling to a finished size</para></listitem>
-                        <listitem><para>Cropping of the image (not yet supported)</para></listitem>
                         <listitem><para>Support for transparency in images</para></listitem>
                         <listitem><para>Allow the use of fractional stitches</para></listitem>
                     </itemizedlist></para>
@@ -54,14 +52,12 @@
         <listitem><para>Create new colors for any floss pallet</para></listitem>
         <listitem><para>Save / Load current palette</para></listitem>
         <listitem><para>Use of standard stitches</para></listitem>
-        <listitem><para>Creation of custom stitches (not yet supported)</para></listitem>
         <listitem><para>Pattern library manager
             <itemizedlist>
                 <listitem><para>Create new library patterns</para></listitem>
                 <listitem><para>Insert library patterns into a design</para></listitem>
-                <listitem><para>Export selected patterns (not yet supported)</para></listitem>
-                <listitem><para>Import patterns from an external source (not yet supported)</para></listitem>
                 <listitem><para>Drag and drop from the library to the pattern</para></listitem>
+                <listitem><para>Drag and drop from one library to another</para></listitem>
                 <listitem><para>Assign key press to patterns for use with the Alphabet tool</para></listitem>
             </itemizedlist></para>
         </listitem>

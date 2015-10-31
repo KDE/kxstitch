@@ -19,7 +19,7 @@
 #define SymbolListWidget_H
 
 
-#include <KListWidget>
+#include <QListWidget>
 
 
 class SymbolLibrary;
@@ -27,9 +27,9 @@ class Symbol;
 
 
 /**
- * @brief An extension to the KListWidget to view and select Symbols.
+ * @brief An extension to the QListWidget to view and select Symbols.
  *
- * This widget is an extension to the KListWidget that can be populated from
+ * This widget is an extension to the QListWidget that can be populated from
  * a SymbolLibrary to display the contained Symbols and allow selection of one
  * of the Symbols for further processing.
  *
@@ -38,7 +38,7 @@ class Symbol;
  *
  * Symbols can be removed by their index value.
  */
-class SymbolListWidget : public KListWidget
+class SymbolListWidget : public QListWidget
 {
 public:
     explicit SymbolListWidget(QWidget *parent);
@@ -47,15 +47,19 @@ public:
     void setIconSize(int size);
     void loadFromLibrary(SymbolLibrary *library);
     QListWidgetItem *addSymbol(qint16 index, const Symbol &symbol);
-    void enableItem(QListWidgetItem *);
-    void disableItem(QListWidgetItem *);
+    void enableItem(qint16 index);
+    void disableItem(qint16 index);
     void removeSymbol(qint16 index);
     void setCurrent(qint16 index);
 
     static QIcon createIcon(const Symbol &symbol, int size);
 
+protected:
+    virtual bool event(QEvent *e);
+
 private:
     QListWidgetItem *createItem(qint16 index);
+    void updateIcons();
 
     int             m_size;                     /**< size of icons generated in the view */
     SymbolLibrary   *m_library;                 /**< pointer to the library the items belong to */

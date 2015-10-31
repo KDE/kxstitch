@@ -11,10 +11,12 @@
 
 #include "MainWindow.h"
 
+#include <QAction>
 #include <QActionGroup>
 #include <QClipboard>
 #include <QDataStream>
 #include <QDockWidget>
+#include <QFileDialog>
 #include <QGridLayout>
 #include <QMenu>
 #include <QMimeData>
@@ -25,22 +27,20 @@
 #include <QPrinter>
 #include <QPrintEngine>
 #include <QPrintPreviewDialog>
+#include <QSaveFile>
 #include <QScrollArea>
 #include <QTemporaryFile>
 #include <QUndoView>
+#include <QUrl>
 
-#include <KAction>
 #include <KActionCollection>
-#include <KFileDialog>
-#include <KGlobalSettings>
-#include <KIO/NetAccess>
 #include <KConfigDialog>
-#include <KLocale>
+#include <KIO/FileCopyJob>
+#include <KIO/StatJob>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KRecentFilesAction>
-#include <KSaveFile>
 #include <KSelectAction>
-#include <KUrl>
 #include <KXMLGUIFactory>
 
 #include "BackgroundImage.h"
@@ -74,7 +74,7 @@ MainWindow::MainWindow()
 }
 
 
-MainWindow::MainWindow(const KUrl &url)
+MainWindow::MainWindow(const QUrl &url)
     :   m_printer(0)
 {
     setupMainWindow();
@@ -282,45 +282,45 @@ void MainWindow::setupActionsFromDocument()
 
 void MainWindow::fileNew()
 {
-    MainWindow *window = new MainWindow(KUrl());
+    MainWindow *window = new MainWindow(QUrl());
     window->show();
 }
 
 
 void MainWindow::fileOpen()
 {
-    fileOpen(KFileDialog::getOpenUrl(KUrl("kfiledialog:///"), i18n("*.kxs|Cross Stitch Patterns\n*.pat|PC Stitch patterns\n*|All files"), this));
+    fileOpen(QFileDialog::getOpenFileUrl(this, i18n("Open file"), QUrl::fromLocalFile(QDir::homePath()), i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
 }
 
 
-void MainWindow::fileOpen(const KUrl &url)
+void MainWindow::fileOpen(const QUrl &url)
 {
     MainWindow *window;
     bool docEmpty = (m_document->undoStack().isClean() && (m_document->url() == i18n("Untitled")));
 
     if (url.isValid()) {
         if (docEmpty) {
-            QString source;
+            QTemporaryFile tmpFile;
 
-            if (KIO::NetAccess::download(url, source, 0)) {
-                QFile file(source);
+            if (tmpFile.open()) {
+                KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
 
-                if (file.open(QIODevice::ReadOnly)) {
-                    QDataStream stream(&file);
+                if (job->exec()) {
+                    QDataStream stream(&tmpFile);
 
                     try {
                         m_document->readKXStitch(stream);
                         m_document->setUrl(url);
                         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
                         action->addUrl(url);
-                        action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+                        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
                     } catch (const InvalidFile &e) {
                         stream.device()->seek(0);
 
                         try {
                             m_document->readPCStitch(stream);
                         } catch (const InvalidFile &e) {
-                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognised cross stitch file."));
+                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognized cross stitch file."));
                         }
                     } catch (const InvalidFileVersion &e) {
                         KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
@@ -334,14 +334,11 @@ void MainWindow::fileOpen(const KUrl &url)
                     m_preview->readDocumentSettings();
                     m_palette->update();
                     documentModified(true); // this is the clean value true
-                    file.close();
                 } else {
-                    KMessageBox::error(0, file.errorString());
+                    KMessageBox::error(0, job->errorString());
                 }
-
-                KIO::NetAccess::removeTempFile(source);
             } else {
-                KMessageBox::error(0, KIO::NetAccess::lastErrorString());
+                KMessageBox::error(0, tmpFile.errorString());
             }
         } else {
             window = new MainWindow(url);
@@ -353,13 +350,12 @@ void MainWindow::fileOpen(const KUrl &url)
 
 void MainWindow::fileSave()
 {
-    KUrl url = m_document->url();
+    QUrl url = m_document->url();
 
     if (url == i18n("Untitled")) {
         fileSaveAs();
     } else {
-        KSaveFile::backupFile(url.path());
-        KSaveFile file(url.path());
+        QSaveFile file(url.path());
 
         if (file.open(QIODevice::WriteOnly)) {
             QDataStream stream(&file);
@@ -367,14 +363,14 @@ void MainWindow::fileSave()
             try {
                 m_document->write(stream);
 
-                if (!file.finalize()) {
+                if (!file.commit()) {
                     throw FailedWriteFile(stream.status());
                 }
 
                 m_document->undoStack().setClean();
             } catch (const FailedWriteFile &e) {
                 KMessageBox::error(0, QString(i18n("Failed to save the file.\n%1", file.errorString())));
-                file.abort();
+                file.cancelWriting();
             }
         } else {
             KMessageBox::error(0, QString(i18n("Failed to open the file.\n%1", file.errorString())));
@@ -386,10 +382,12 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    KUrl url = KFileDialog::getSaveUrl(QString("::%1").arg(KGlobalSettings::documentPath()), i18n("*.kxs|Cross Stitch Patterns"), this, i18n("Save As..."));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl::fromLocalFile(QDir::homePath()), i18n("Cross Stitch Patterns (*.kxs)"));
 
     if (url.isValid()) {
-        if (KIO::NetAccess::exists(url, false, 0)) {
+        KIO::StatJob *statJob = KIO::stat(url, KIO::StatJob::DestinationSide, 0);
+
+        if (statJob->exec()) {
             if (KMessageBox::warningYesNo(this, i18n("This file already exists\nDo you want to overwrite it?")) == KMessageBox::No) {
                 return;
             }
@@ -399,7 +397,7 @@ void MainWindow::fileSaveAs()
         fileSave();
         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
         action->addUrl(url);
-        action->saveEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
     }
 }
 
@@ -506,24 +504,26 @@ void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
-    KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Import Image"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (url.isValid()) {
-        QString source;
+        QTemporaryFile tmpFile;
 
-        if (KIO::NetAccess::download(url, source, 0)) {
-            if (docEmpty) {
-                convertImage(source);
-                convertPreview(source);
-                this->findChild<QDockWidget *>("ImportedImage#")->show();
+        if (tmpFile.open()) {
+            KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
+
+            if (job->exec()) {
+                if (docEmpty) {
+                    convertImage(tmpFile.fileName());
+                    convertPreview(tmpFile.fileName());
+                    this->findChild<QDockWidget *>("ImportedImage#")->show();
+                } else {
+                    window = new MainWindow(tmpFile.fileName());
+                    window->show();
+                }
             } else {
-                window = new MainWindow(source);
-                window->show();
+                KMessageBox::error(0, job->errorString());
             }
-
-            KIO::NetAccess::removeTempFile(source);
-        } else {
-            KMessageBox::error(0, KIO::NetAccess::lastErrorString());
         }
     }
 }
@@ -630,7 +630,7 @@ void MainWindow::convertImage(const QString &source)
             // Examples of imported images have missing color names
             // This will fix those that are found by changing the scheme to something else and then back to the required one
             // A fix has been introduced, but this is a final catch if there are any still found
-            kDebug() << "Found a missing color name and attempting to fix";
+            qDebug() << "Found a missing color name and attempting to fix";
 
             if (schemeName == "DMC") {
                 new ChangeSchemeCommand(m_document, "Anchor", importImageCommand);
@@ -730,7 +730,7 @@ void MainWindow::fileProperties()
 
 void MainWindow::fileAddBackgroundImage()
 {
-    KUrl url = KFileDialog::getImageOpenUrl(KUrl(), this, i18n("Background Image"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Background Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (!url.path().isNull()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
@@ -748,7 +748,7 @@ void MainWindow::fileAddBackgroundImage()
 
 void MainWindow::fileRemoveBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), this));
 }
 
@@ -869,7 +869,7 @@ void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
 
 void MainWindow::viewFitBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new FitBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), m_editor->selectionArea()));
 }
 
@@ -882,7 +882,7 @@ void MainWindow::paletteContextMenu(const QPoint &pos)
 
 void MainWindow::viewShowBackgroundImage()
 {
-    KAction *action = qobject_cast<KAction *>(sender());
+    QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), action->isChecked()));
 }
 
@@ -943,7 +943,7 @@ void MainWindow::preferences()
     }
 
     KConfigDialog *dialog = new KConfigDialog(this, "preferences", Configuration::self());
-    dialog->setHelp("ConfigurationDialog");
+//    dialog->setHelp("ConfigurationDialog");
     dialog->setFaceType(KPageDialog::List);
 
     dialog->addPage(new EditorConfigPage(0, "EditorConfigPage"), i18nc("The Editor config page", "Editor"), "preferences-desktop");
@@ -1103,7 +1103,7 @@ void MainWindow::documentModified(bool clean)
 
 void MainWindow::setupActions()
 {
-    KAction *action;
+    QAction *action;
     QActionGroup *actionGroup;
 
     KActionCollection *actions = actionCollection();
@@ -1111,29 +1111,29 @@ void MainWindow::setupActions()
     // File menu
     KStandardAction::openNew(this, SLOT(fileNew()), actions);
     KStandardAction::open(this, SLOT(fileOpen()), actions);
-    KStandardAction::openRecent(this, SLOT(fileOpen(KUrl)), actions)->loadEntries(KConfigGroup(KGlobal::config(), "RecentFiles"));
+    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
     KStandardAction::save(this, SLOT(fileSave()), actions);
     KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
     KStandardAction::revert(this, SLOT(fileRevert()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Print Setup..."));
     connect(action, SIGNAL(triggered()), this, SLOT(filePrintSetup()));
     actions->addAction("filePrintSetup", action);
 
     KStandardAction::print(this, SLOT(filePrint()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Import Image"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileImportImage()));
     actions->addAction("fileImportImage", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("File Properties"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileProperties()));
     actions->addAction("fileProperties", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Add Background Image..."));
     connect(action, SIGNAL(triggered()), this, SLOT(fileAddBackgroundImage()));
     actions->addAction("fileAddBackgroundImage", action);
@@ -1151,41 +1151,41 @@ void MainWindow::setupActions()
     actions->action("edit_copy")->setEnabled(false);
     KStandardAction::paste(m_editor, SLOT(editPaste()), actions);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Mirror/Rotate makes copies"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMakesCopies(bool)));
     actions->addAction("makesCopies", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Horizontally"));
     action->setData(Qt::Horizontal);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
     actions->addAction("mirrorHorizontal", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Vertically"));
     action->setData(Qt::Vertical);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
     actions->addAction("mirrorVertical", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("90 Degrees"));
     action->setData(StitchData::Rotate90);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
     actions->addAction("rotate90", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("180 Degrees"));
     action->setData(StitchData::Rotate180);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
     actions->addAction("rotate180", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("270 Degrees"));
     action->setData(StitchData::Rotate270);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
@@ -1193,25 +1193,25 @@ void MainWindow::setupActions()
     actions->addAction("rotate270", action);
 
     // Selection mask sub menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Stitch Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskStitch(bool)));
     actions->addAction("maskStitch", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskColor(bool)));
     actions->addAction("maskColor", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Exclude Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskBackstitch(bool)));
     actions->addAction("maskBackstitch", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Exclude Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskKnot(bool)));
@@ -1223,11 +1223,11 @@ void MainWindow::setupActions()
     KStandardAction::zoomOut(m_editor, SLOT(zoomOut()), actions);
     KStandardAction::actualSize(m_editor, SLOT(actualSize()), actions);
     action = KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
-    action->setIcon(KIcon("zoom-fit-best"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-best"));
     action = KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
-    action->setIcon(KIcon("zoom-fit-width"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-width"));
     action = KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
-    action->setIcon(KIcon("zoom-fit-height"));
+    action->setIcon(QIcon::fromTheme("zoom-fit-height"));
 
     // Entries for Show/Hide Preview and Palette dock windows are added dynamically
     // Entries for Show/Hide and Remove background images are added dynamically
@@ -1237,64 +1237,64 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Quarter Stitch"));
     action->setData(Editor::StitchQuarter);
-    action->setIcon(KIcon("quarter"));
+    action->setIcon(QIcon::fromTheme("kxstitch-quarter-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchQuarter", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Half Stitch"));
     action->setData(Editor::StitchHalf);
-    action->setIcon(KIcon("half"));
+    action->setIcon(QIcon::fromTheme("kxstitch-half-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchHalf", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("3 Quarter Stitch"));
     action->setData(Editor::Stitch3Quarter);
-    action->setIcon(KIcon("3quarter"));
+    action->setIcon(QIcon::fromTheme("kxstitch-3quarter-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitch3Quarter", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Full Stitch"));
     action->setData(Editor::StitchFull);
-    action->setIcon(KIcon("full"));
+    action->setIcon(QIcon::fromTheme("kxstitch-full-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFull", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Small Half Stitch"));
     action->setData(Editor::StitchSmallHalf);
-    action->setIcon(KIcon("smallhalf"));
+    action->setIcon(QIcon::fromTheme("kxstitch-small-half-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallHalf", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Small Full Stitch"));
     action->setData(Editor::StitchSmallFull);
-    action->setIcon(KIcon("smallfull"));
+    action->setIcon(QIcon::fromTheme("kxstitch-small-full-stitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchSmallFull", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("French Knot"));
     action->setData(Editor::StitchFrenchKnot);
-    action->setIcon(KIcon("frenchknot"));
+    action->setIcon(QIcon::fromTheme("kxstitch-frenchknot"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
     actions->addAction("stitchFrenchKnot", action);
@@ -1305,118 +1305,118 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Paint"));
     action->setData(Editor::ToolPaint);
-    action->setIcon(KIcon("draw-brush"));
+    action->setIcon(QIcon::fromTheme("draw-brush"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolPaint", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw"));
     action->setData(Editor::ToolDraw);
-    action->setIcon(KIcon("draw-freehand"));
+    action->setIcon(QIcon::fromTheme("draw-freehand"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolDraw", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Erase"));
     action->setData(Editor::ToolErase);
-    action->setIcon(KIcon("draw-eraser"));
+    action->setIcon(QIcon::fromTheme("draw-eraser"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolErase", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw Rectangle"));
     action->setData(Editor::ToolRectangle);
-    action->setIcon(KIcon("o_rect"));
+    action->setIcon(QIcon::fromTheme("draw-rectangle"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Rectangle"));
     action->setData(Editor::ToolFillRectangle);
-    action->setIcon(KIcon("f_rect"));
+    action->setIcon(QIcon::fromTheme("kxstitch-draw-rectangle-filled"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Draw Ellipse"));
     action->setData(Editor::ToolEllipse);
-    action->setIcon(KIcon("o_ellipse"));
+    action->setIcon(QIcon::fromTheme("draw-ellipse"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolEllipse", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Ellipse"));
     action->setData(Editor::ToolFillEllipse);
-    action->setIcon(KIcon("f_ellipse"));
+    action->setIcon(QIcon::fromTheme("kxstitch-draw-ellipse-filled"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillEllipse", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Fill Polygon"));
     action->setData(Editor::ToolFillPolygon);
-    action->setIcon(KIcon("polygon"));
+    action->setIcon(QIcon::fromTheme("draw-polyline"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolFillPolygon", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Text"));
     action->setData(Editor::ToolText);
-    action->setIcon(KIcon("insert-text"));
+    action->setIcon(QIcon::fromTheme("draw-text"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolText", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Alphabet"));
     action->setData(Editor::ToolAlphabet);
-    action->setIcon(KIcon("alphabet"));
+    action->setIcon(QIcon::fromTheme("text-field"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolAlphabet", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setData(Editor::ToolSelect);
-    action->setIcon(KIcon("s_rect"));
+    action->setIcon(QIcon::fromTheme("select-rectangular"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolSelectRectangle", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Backstitch"));
     action->setData(Editor::ToolBackstitch);
-    action->setIcon(KIcon("backstitch"));
+    action->setIcon(QIcon::fromTheme("kxstitch-backstitch"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolBackstitch", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Picker"));
     action->setData(Editor::ToolColorPicker);
-    action->setIcon(KIcon("color-picker"));
+    action->setIcon(QIcon::fromTheme("color-picker"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
     actions->addAction("toolColorPicker", action);
@@ -1424,70 +1424,71 @@ void MainWindow::setupActions()
 
 
     // Palette Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Palette Manager..."));
-    action->setIcon(KIcon("palette-manager"));
+    action->setIcon(QIcon::fromTheme("kxstitch-color-add"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteManager()));
     actions->addAction("paletteManager", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Symbols"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), this, SLOT(paletteShowSymbols(bool)));
     actions->addAction("paletteShowSymbols", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Clear Unused"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteClearUnused()));
     actions->addAction("paletteClearUnused", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Calibrate Scheme..."));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteCalibrateScheme()));
     actions->addAction("paletteCalibrateScheme", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Swap Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(swapColors()));
     actions->addAction("paletteSwapColors", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Replace Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(replaceColor()));
     actions->addAction("paletteReplaceColor", action);
 
 
     // Pattern Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Extend Pattern..."));
-    action->setIcon(KIcon("extpattern"));
+    action->setIcon(QIcon::fromTheme("kxstitch-extend-pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
     actions->addAction("patternExtend", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Center Pattern"));
-    action->setIcon(KIcon("centerpattern"));
+    action->setIcon(QIcon::fromTheme("kxstitch-center-pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
     actions->addAction("patternCentre", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Crop Canvas to Pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
     actions->addAction("patternCrop", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Crop Canvas to Selection"));
+    action->setIcon(QIcon::fromTheme("transform-crop"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
     actions->addAction("patternCropToSelection", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Insert Rows"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertRows()));
     action->setEnabled(false);
     actions->addAction("insertRows", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Insert Columns"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertColumns()));
     action->setEnabled(false);
@@ -1495,7 +1496,7 @@ void MainWindow::setupActions()
 
 
     // Library Menu
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Library Manager..."));
     connect(action, SIGNAL(triggered()), m_editor, SLOT(libraryManager()));
     actions->addAction("libraryManager", action);
@@ -1506,21 +1507,21 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsStitches()));
     actions->addAction("formatScalesAsStitches", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("CM"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCM()));
     actions->addAction("formatScalesAsCM", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Inches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsInches()));
@@ -1531,7 +1532,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Regular Stitches"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
     action->setCheckable(true);
@@ -1540,7 +1541,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsRegularStitches", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1548,7 +1549,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsBlackWhiteSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols);
     action->setCheckable(true);
@@ -1556,7 +1557,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsColorSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     action->setCheckable(true);
@@ -1564,7 +1565,7 @@ void MainWindow::setupActions()
     actions->addAction("renderStitchesAsColorBlocks", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols);
     action->setCheckable(true);
@@ -1576,7 +1577,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Lines"));
     action->setData(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
     action->setCheckable(true);
@@ -1585,7 +1586,7 @@ void MainWindow::setupActions()
     actions->addAction("renderBackstitchesAsColorLines", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1597,7 +1598,7 @@ void MainWindow::setupActions()
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
     action->setCheckable(true);
@@ -1606,7 +1607,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorBlocks", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);
     action->setCheckable(true);
@@ -1614,7 +1615,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorBlocksSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);
     action->setCheckable(true);
@@ -1622,7 +1623,7 @@ void MainWindow::setupActions()
     actions->addAction("renderKnotsAsColorSymbols", action);
     actionGroup->addAction(action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
     action->setCheckable(true);
@@ -1631,37 +1632,37 @@ void MainWindow::setupActions()
     actionGroup->addAction(action);
 
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Color Highlight"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(colorHighlight(bool)));
     actions->addAction("colorHighlight", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderStitches(bool)));
     actions->addAction("renderStitches", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackstitches(bool)));
     actions->addAction("renderBackstitches", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show French Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderFrenchKnots(bool)));
     actions->addAction("renderFrenchKnots", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Grid"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderGrid(bool)));
     actions->addAction("renderGrid", action);
 
-    action = new KAction(this);
+    action = new QAction(this);
     action->setText(i18n("Show Background Images"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackgroundImages(bool)));
@@ -1694,19 +1695,19 @@ void MainWindow::updateBackgroundImageActionLists()
     while (backgroundImages.hasNext()) {
         BackgroundImage *background = backgroundImages.next();
 
-        KAction *action = new KAction(background->url().fileName(), this);
+        QAction *action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(fileRemoveBackgroundImage()));
         removeBackgroundImageActions.append(action);
 
-        action = new KAction(background->url().fileName(), this);
+        action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(viewFitBackgroundImage()));
         fitBackgroundImageActions.append(action);
 
-        action = new KAction(background->url().fileName(), this);
+        action = new QAction(background->url().fileName(), this);
         action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
         action->setIcon(background->icon());
         action->setCheckable(true);

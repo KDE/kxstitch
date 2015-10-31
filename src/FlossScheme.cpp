@@ -11,9 +11,6 @@
 
 #include "FlossScheme.h"
 
-#include <Magick++.h>
-#include <magick/version.h>
-
 
 FlossScheme::FlossScheme()
     :   m_map(0)

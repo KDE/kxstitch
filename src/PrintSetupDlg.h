@@ -14,6 +14,7 @@
 
 
 #include <QButtonGroup>
+#include <QDialog>
 #include <QListWidgetItem>
 
 #include "PagePreviewListWidgetItem.h"
@@ -31,7 +32,7 @@ class Element;
 class PageLayoutEditor;
 
 
-class PrintSetupDlg : public KDialog
+class PrintSetupDlg : public QDialog
 {
     Q_OBJECT
 
@@ -58,6 +59,9 @@ private slots:
     void on_PatternElement_clicked();
     void on_ImageElement_clicked();
     void on_KeyElement_clicked();
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
     void selectionMade(const QRect &);
     void elementGeometryChanged();
     void previewContextMenuRequested(const QPoint &);

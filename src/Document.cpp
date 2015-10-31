@@ -15,8 +15,7 @@
 #include <QFile>
 #include <QVariant>
 
-#include <KIO/NetAccess>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Editor.h"
@@ -129,13 +128,13 @@ QUndoStack &Document::undoStack()
 }
 
 
-void Document::setUrl(const KUrl &url)
+void Document::setUrl(const QUrl &url)
 {
     m_url = url;
 }
 
 
-KUrl Document::url() const
+QUrl Document::url() const
 {
     return m_url;
 }
@@ -341,7 +340,7 @@ QVariant Document::property(const QString &name) const
     if (m_properties.contains(name)) {
         p = m_properties[name];
     } else {
-        kDebug() << "Asked for non existing property" << name;
+        qDebug() << "Asked for non existing property" << name;
     }
 
     return p;
@@ -458,7 +457,7 @@ void Document::readPCStitch5File(QDataStream &stream)
     setProperty("copyright", readPCStitchString(stream));
     setProperty("title", readPCStitchString(stream));
     setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", Qt::white);
+    setProperty("fabricColor", QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
@@ -512,7 +511,7 @@ void Document::readPCStitch5File(QDataStream &stream)
             stream.readRawData(reinterpret_cast<char *>(&paletteEntry), sizeof(struct PALETTE_ENTRY));
 
             QColor color(int(paletteEntry.RGBA[0]), int(paletteEntry.RGBA[1]), int(paletteEntry.RGBA[2]));
-            QString colorName = QString::fromAscii(paletteEntry.colorName, 10).trimmed();
+            QString colorName = QString::fromLatin1(paletteEntry.colorName, 10).trimmed();
 
             if (colorName == "White") {
                 colorName = "Blanc";                        // fix colorName
@@ -736,7 +735,7 @@ void Document::readPCStitch6File(QDataStream &stream)
     setProperty("copyright", readPCStitchString(stream));
     setProperty("title", readPCStitchString(stream));
     setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", Qt::white);
+    setProperty("fabricColor", QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
@@ -793,7 +792,7 @@ void Document::readPCStitch6File(QDataStream &stream)
             stream.readRawData(reinterpret_cast<char *>(&paletteEntry), sizeof(struct PALETTE_ENTRY));
 
             QColor color = QColor(paletteEntry.RGBA[0], paletteEntry.RGBA[1], paletteEntry.RGBA[2]);
-            QString colorName = QString::fromAscii(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
+            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
 
             if (colorName == "White") {
                 colorName = "Blanc";                        // fix colorName
@@ -1093,7 +1092,7 @@ void Document::readPCStitch7File(QDataStream &stream)
             stream.readRawData(reinterpret_cast<char *>(&paletteEntry), sizeof(struct PALETTE_ENTRY));
 
             QColor color = QColor(int(paletteEntry.RGBA_1[0]), int(paletteEntry.RGBA_1[1]), int(paletteEntry.RGBA_1[2]));
-            QString colorName = QString::fromAscii(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
+            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
 
             if (colorName == "White") {
                 colorName = "Blanc";                        // fix colorName

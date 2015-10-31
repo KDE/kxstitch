@@ -15,12 +15,14 @@
 #include <QDir>
 #include <QFileInfoList>
 #include <QHelpEvent>
+#include <QInputDialog>
 #include <QMimeData>
+#include <QStandardPaths>
 #include <QToolTip>
 
-#include <KInputDialog>
+#include <KHelpClient>
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
 
 #include "LibraryFilePathsDlg.h"
 #include "LibraryListWidgetItem.h"
@@ -32,18 +34,11 @@
 
 
 LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Library Manager"));
-    setButtons(KDialog::Close | KDialog::Help);
-    setHelp("PatternLibraryDialog");
+    setWindowTitle(i18n("Library Manager"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    ui.ZoomOut->setIcon(KIcon("zoom-out"));
-    ui.ZoomIn->setIcon(KIcon("zoom-in"));
-    QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
+    ui.setupUi(this);
 
     refreshLibraries();
 
@@ -97,12 +92,6 @@ bool LibraryManagerDlg::event(QEvent *event)
 void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 {
     ui.LibraryIcons->setCellSize(cellWidth, cellHeight);
-}
-
-
-void LibraryManagerDlg::slotButtonClicked(int button)
-{
-    KDialog::slotButtonClicked(button);
 }
 
 
@@ -161,74 +150,78 @@ void LibraryManagerDlg::on_IconSizeSlider_valueChanged(int size)
 }
 
 
+void LibraryManagerDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void LibraryManagerDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternLibraryDialog", "kxstitch");
+}
+
+
 void LibraryManagerDlg::newCategory()
 {
     QString category;
 
     bool ok = false;
+    bool exists = false;
 
-    while (!ok) {
-        QTreeWidgetItem *item = 0;
-        category = KInputDialog::getText(i18n("Category"), QString(), QString(), &ok, this);
+    category = QInputDialog::getText(this, i18n("Create Category"), i18n("Category Name"), QLineEdit::Normal, QString(), &ok);
 
-        if (!ok) {
-            break;
-        }
+    if (!ok) return; // user cancelled
 
-        if (m_contextTreeItem) {
-            for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i) {
-                if (m_contextTreeItem->child(i)->text(0) == category) {
-                    break;
-                }
-            }
-        } else {
-            QList<QTreeWidgetItem *> rootItems = ui.LibraryTree->findItems(category, Qt::MatchExactly);
-
-            if (!rootItems.isEmpty()) {
-                QTreeWidgetItem *rootItem = rootItems.at(0);
-                item = rootItem;
+    if (m_contextTreeItem) {
+        for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i) {
+            if (m_contextTreeItem->child(i)->text(0) == category) {
+                exists = true;
             }
         }
+    } else {
+        QList<QTreeWidgetItem *> rootItems = ui.LibraryTree->findItems(category, Qt::MatchExactly);
 
-        if (item) {
-            KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
-            ok = false;
+        if (!rootItems.isEmpty()) {
+            exists = true;
         }
     }
 
-    if (ok) {
-        LibraryTreeWidgetItem *newItem;
-
-        if (m_contextTreeItem) {
-            newItem = new LibraryTreeWidgetItem(m_contextTreeItem, category);
-        } else {
-            newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
-        }
-
-        QString path;
-        QFileInfo fileInfo;
-
-        if (m_contextTreeItem) {
-            fileInfo.setFile(m_contextTreeItem->path());
-
-            if (!fileInfo.isWritable()) {
-                path.remove(0, path.indexOf("library"));
-                path = KGlobal::dirs()->saveLocation("appdata", path);
-                fileInfo.setFile(path);
-            }
-        } else {
-            path = KGlobal::dirs()->saveLocation("appdata", "library");
-            fileInfo.setFile(path);
-        }
-
-        if (fileInfo.dir().mkdir(category)) {
-            path += category;
-            path += '/';
-            newItem->addPath(path);
-        }
-
-        ui.LibraryTree->setCurrentItem(newItem);
+    if (exists) {
+        KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
+        return;
     }
+
+    LibraryTreeWidgetItem *newItem;
+
+    if (m_contextTreeItem) {
+        newItem = new LibraryTreeWidgetItem(m_contextTreeItem, category);
+    } else {
+        newItem = new LibraryTreeWidgetItem(ui.LibraryTree, category);
+    }
+
+    QString path;
+    QFileInfo fileInfo;
+
+    if (m_contextTreeItem) {
+        fileInfo.setFile(m_contextTreeItem->path());
+        path = m_contextTreeItem->path();
+
+        if (!fileInfo.isWritable()) {
+            path.remove(0, path.indexOf("/library"));
+            path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+        }
+    } else {
+        path = QString("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg("library");
+    }
+
+    path = QString("%1/%2").arg(path).arg(category);
+
+    if (QDir().mkpath(path)) {
+        newItem->addPath(path);
+    }
+
+    ui.LibraryTree->setCurrentItem(newItem);
 }
 
 
@@ -300,7 +293,7 @@ void LibraryManagerDlg::deletePattern()
 void LibraryManagerDlg::refreshLibraries()
 {
     ui.LibraryTree->clear();
-    QStringList libraryDirectories = KGlobal::dirs()->findDirs("appdata", "library");
+    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::DataLocation, "library", QStandardPaths::LocateDirectory);
     QStringListIterator libraryDirectoriesIterator(libraryDirectories);
 
     while (libraryDirectoriesIterator.hasNext()) {
@@ -311,7 +304,6 @@ void LibraryManagerDlg::refreshLibraries()
 
 void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, const QString &path)
 {
-    LibraryTreeWidgetItem *libraryTreeWidgetItem = 0;
     QDir directory(path);
     const QFileInfoList directoryEntries = directory.entryInfoList();
     QListIterator<QFileInfo> fileInfoListIterator(directoryEntries);
@@ -321,8 +313,8 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 
         if (fileInfo.isDir()) {
             if (fileInfo.fileName() != "." && fileInfo.fileName() != "..") {
-                libraryTreeWidgetItem = 0;
-                QString subPath = QString("%1%2/").arg(path).arg(fileInfo.fileName());
+                LibraryTreeWidgetItem *libraryTreeWidgetItem = 0;
+                QString subPath = QString("%1/%2").arg(path).arg(fileInfo.fileName());
 
                 if (parent) {
                     int children = parent->childCount();
@@ -333,6 +325,8 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 
                         if (libraryTreeWidgetItem->text(0) == fileInfo.fileName()) {
                             break;
+                        } else {
+                            libraryTreeWidgetItem = 0;
                         }
 
                         childIndex++;

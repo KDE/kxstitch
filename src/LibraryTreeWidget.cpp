@@ -20,7 +20,7 @@
 #include <QTimer>
 #include <QTreeWidgetItem>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "LibraryPattern.h"
 #include "LibraryTreeWidgetItem.h"
@@ -88,7 +88,7 @@ void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 }
 
 
-void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent*)
+void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent *)
 {
     m_openBranchTimer->stop();
 

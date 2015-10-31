@@ -13,13 +13,15 @@
 #define PagePropertiesDlg_H
 
 
+#include <QDialog>
+
 #include "ui_PageProperties.h"
 
 
 class PagePreviewListWidgetItem;
 
 
-class PagePropertiesDlg : public KDialog
+class PagePropertiesDlg : public QDialog
 {
     Q_OBJECT
 
@@ -31,8 +33,10 @@ public:
     bool showGrid() const;
     int gridSize() const;
 
-protected slots:
-    void slotButtonClicked(int);
+private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     Ui::PageProperties  ui;

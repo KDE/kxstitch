@@ -32,8 +32,6 @@ PatternConfigPage::PatternConfigPage(QWidget *parent, const char *name)
     setObjectName(name);
     setupUi(this);
 
-    QMetaObject::connectSlotsByName(this);
-
     m_currentDocumentUnitsIndex = Configuration::document_UnitsFormat();
     m_currentClothCountUnitsIndex = Configuration::editor_ClothCountUnits();
     kcfg_Editor_VerticalClothCount->setEnabled(!Configuration::editor_ClothCountLink());
@@ -156,7 +154,7 @@ void PatternConfigPage::on_kcfg_Document_UnitsFormat_activated(int index)
 
 void PatternConfigPage::on_kcfg_Editor_ClothCountLink_toggled(bool checked)
 {
-    kcfg_Editor_ClothCountLink->setIcon((checked) ? KIcon("link") : KIcon("link_break"));
+    kcfg_Editor_ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
     kcfg_Editor_VerticalClothCount->setEnabled(!checked);
     kcfg_Editor_VerticalClothCount->setValue(kcfg_Editor_HorizontalClothCount->value());
 }

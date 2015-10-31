@@ -14,6 +14,8 @@
 #include <QWidget>
 
 #include <KCharSelect>
+#include <KHelpClient>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "configuration.h"
@@ -30,20 +32,15 @@
 
 
 PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_document(document),
         m_dialogPalette(m_document->pattern()->palette()),
         m_flossUsage(document->pattern()->stitches().flossUsage()),
         m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName())),
         m_symbolSelectorDlg(0)
 {
-    setCaption(i18n("Palette Manager"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PaletteManagerDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
+    setWindowTitle(i18n("Palette Manager"));
+    ui.setupUi(this);
 
     ui.SymbolLibrary->insertItems(0, SymbolManager::libraries());
     ui.SymbolLibrary->setCurrentItem(m_dialogPalette.symbolLibrary());
@@ -61,16 +58,6 @@ PaletteManagerDlg::~PaletteManagerDlg()
 const DocumentPalette &PaletteManagerDlg::palette() const
 {
     return m_dialogPalette;
-}
-
-
-void PaletteManagerDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -283,6 +270,24 @@ void PaletteManagerDlg::on_Calibrate_clicked(bool)
     if (calibrateFlossDlg->exec() == QDialog::Accepted) {
         fillLists();
     }
+}
+
+
+void PaletteManagerDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void PaletteManagerDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void PaletteManagerDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PaletteManagerDialog", "kxstitch");
 }
 
 

@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="KTabWidget" name="EditorTabWidget">
+    <widget class="QTabWidget" name="EditorTabWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -180,7 +180,7 @@
         </widget>
        </item>
        <item row="9" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_MinimumZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_MinimumZoomFactor">
          <property name="value">
           <double>0.500000000000000</double>
          </property>
@@ -200,7 +200,7 @@
         </widget>
        </item>
        <item row="10" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_MaximumZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_MaximumZoomFactor">
          <property name="value">
           <double>3.000000000000000</double>
          </property>
@@ -220,7 +220,7 @@
         </widget>
        </item>
        <item row="11" column="1">
-        <widget class="KDoubleNumInput" name="kcfg_Editor_DefaultZoomFactor">
+        <widget class="QDoubleSpinBox" name="kcfg_Editor_DefaultZoomFactor">
          <property name="value">
           <double>2.000000000000000</double>
          </property>
@@ -229,9 +229,6 @@
          </property>
          <property name="maximum">
           <double>10.000000000000000</double>
-         </property>
-         <property name="sliderEnabled">
-          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -410,7 +407,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="KFontComboBox" name="kcfg_TextTool_FontFamily"/>
+          <widget class="QFontComboBox" name="kcfg_TextTool_FontFamily"/>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_17">
@@ -420,7 +417,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="KIntSpinBox" name="kcfg_TextTool_FontSize">
+          <widget class="QSpinBox" name="kcfg_TextTool_FontSize">
            <property name="suffix">
             <string extracomment="stitches"/>
            </property>
@@ -442,16 +439,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KDoubleNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KFontComboBox</class>
-   <extends>KComboBox</extends>
-   <header>kfontcombobox.h</header>
-  </customwidget>
-  <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
@@ -460,17 +447,6 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -11,7 +11,7 @@
 
 #include "PrinterConfiguration.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Element.h"
 #include "Exceptions.h"

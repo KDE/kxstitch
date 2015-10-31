@@ -11,26 +11,23 @@
 
 #include "NewFlossDlg.h"
 
-#include <KDebug>
+#include <KHelpClient>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include "FlossScheme.h"
 
 
 NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_flossScheme(flossScheme),
         m_floss(0)
 {
-    setCaption(i18n("New Floss"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("NewColorDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
+    setWindowTitle(i18n("New Floss"));
+    ui.setupUi(this);
+
     ui.SchemeName->setText(m_flossScheme->schemeName());
-    enableButtonOk(false);
-    setMainWidget(widget);
+    ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
 
@@ -45,27 +42,12 @@ Floss *NewFlossDlg::floss()
 }
 
 
-void NewFlossDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        if (!m_flossScheme->find(ui.FlossName->text()) ||
-            KMessageBox::questionYesNo(this, i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()), i18n("Overwrite")) == KDialog::Yes) {
-            m_floss = new Floss(ui.FlossName->text(), ui.FlossDescription->text(), ui.ColorButton->color());
-            m_flossScheme->addFloss(m_floss);
-            accept();
-        }
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
-}
-
-
 void NewFlossDlg::on_FlossName_textEdited(const QString &text)
 {
     if (!text.isEmpty() && !ui.FlossDescription->text().isEmpty()) {
-        enableButtonOk(true);
+        ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     } else {
-        enableButtonOk(false);
+        ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 }
 
@@ -73,8 +55,32 @@ void NewFlossDlg::on_FlossName_textEdited(const QString &text)
 void NewFlossDlg::on_FlossDescription_textEdited(const QString &text)
 {
     if (!text.isEmpty() && !ui.FlossName->text().isEmpty()) {
-        enableButtonOk(true);
+        ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     } else {
-        enableButtonOk(false);
+        ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
+}
+
+
+void NewFlossDlg::on_DialogButtonBox_accepted()
+{
+    if (!m_flossScheme->find(ui.FlossName->text()) ||
+        KMessageBox::questionYesNo(this, i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()), i18n("Overwrite")) == KMessageBox::Yes) {
+        m_floss = new Floss(ui.FlossName->text(), ui.FlossDescription->text(), ui.ColorButton->color());
+        m_flossScheme->addFloss(m_floss);
+    }
+
+    accept();
+}
+
+
+void NewFlossDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void NewFlossDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("NewFlossDialog", "kxstitch");
 }

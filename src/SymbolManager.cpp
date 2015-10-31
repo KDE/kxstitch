@@ -29,12 +29,13 @@
 #include "SymbolManager.h"
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
+#include <QStandardPaths>
+#include <QUrl>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
-#include <KUrl>
 
 #include "Exceptions.h"
 #include "Symbol.h"
@@ -122,16 +123,17 @@ SymbolLibrary *SymbolManager::library(const QString &name)
  */
 void SymbolManager::refresh()
 {
-    QStringList symbolList = KGlobal::dirs()->findAllResources("appdata", "symbols/*.sym");
-    QStringListIterator it(symbolList);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "symbols", QStandardPaths::LocateDirectory);
 
-    while (it.hasNext()) {
-        QString nextResource = it.next();
-        QString resourcePath = KUrl(nextResource).path(KUrl::RemoveTrailingSlash);
-        SymbolLibrary *symbolLibrary = readLibrary(nextResource);
+    Q_FOREACH (const QString &dir, dirs) {
+        QDirIterator it(dir, QStringList() << QStringLiteral("*.sym"));
 
-        if (symbolLibrary) {
-            m_symbolLibraries.append(symbolLibrary);
+        while (it.hasNext()) {
+            SymbolLibrary *symbolLibrary = readLibrary(it.next());
+
+            if (symbolLibrary) {
+                m_symbolLibraries.append(symbolLibrary);
+            }
         }
     }
 }

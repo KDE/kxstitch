@@ -17,17 +17,16 @@
 #include <QIcon>
 #include <QImage>
 #include <QRect>
-
-#include <KUrl>
+#include <QUrl>
 
 
 class BackgroundImage
 {
 public:
     BackgroundImage();
-    BackgroundImage(const KUrl &, const QRect &);
+    BackgroundImage(const QUrl &, const QRect &);
 
-    const KUrl &url() const;
+    const QUrl &url() const;
     const QRect &location() const;
     bool isVisible() const;
     bool isValid() const;
@@ -45,7 +44,7 @@ private:
 
     static const int version = 101; // no longer store m_icon, generate it on loading
 
-    KUrl    m_url;
+    QUrl    m_url;
     QRect   m_location;
     bool    m_visible;
     bool    m_status;

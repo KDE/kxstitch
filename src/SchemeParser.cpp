@@ -17,8 +17,7 @@
 
 #include "SchemeParser.h"
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "FlossScheme.h"
 #include "Floss.h"

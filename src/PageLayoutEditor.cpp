@@ -18,7 +18,7 @@
 #include <QRubberBand>
 #include <QToolTip>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <math.h>
 
@@ -233,18 +233,22 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
 
         for (int y = yOffset ; y < m_paperHeight ; y += m_gridSize) {
             for (int x = xOffset ; x < m_paperWidth ; x += m_gridSize) {
+                painter.setPen(QPen(Qt::black, 0.2));
                 painter.drawPoint(x, y);
             }
         }
     }
 
     if (m_rubberBand.isValid()) {
+        bool qt4CompatiblePainting = painter.renderHints() & QPainter::Qt4CompatiblePainting;
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
         opt.opaque = false;
         opt.rect = m_rubberBand;
         style()->drawControl(QStyle::CE_RubberBand, &opt, &painter);
+        painter.setRenderHint(QPainter::Qt4CompatiblePainting, qt4CompatiblePainting);
     }
 
     if (m_boundary.isValid()) {

@@ -13,6 +13,9 @@
 
 #include <QRect>
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "Commands.h"
 #include "Document.h"
 #include "Floss.h"
@@ -21,14 +24,11 @@
 
 
 FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_document(document)
 {
-    setCaption(i18n("File Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PatternPropertiesDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    setWindowTitle(i18n("File Properties"));
+    ui.setupUi(this);
 
     QRect extents = m_document->pattern()->stitches().extents();
     m_minWidth = extents.width();
@@ -52,9 +52,6 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     ui.Instructions->setPlainText(m_document->property("instructions").toString());
     ui.ClothCountLink->setChecked(m_clothCountLink);
     on_ClothCountLink_clicked(m_clothCountLink);
-
-    QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
 }
 
 
@@ -147,16 +144,6 @@ QString FilePropertiesDlg::flossScheme() const
 }
 
 
-void FilePropertiesDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
-}
-
-
 void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 {
     m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);
@@ -237,7 +224,7 @@ void FilePropertiesDlg::on_VerticalClothCount_valueChanged(double d)
 
 void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? KIcon("link") : KIcon("link_break"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
@@ -245,6 +232,24 @@ void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
     } else {
         ui.VerticalClothCount->setEnabled(true);
     }
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void FilePropertiesDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternPropertiesDialog", "kxstitch");
 }
 
 

@@ -13,18 +13,18 @@
 
 #include <QCheckBox>
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "Element.h"
 
 
 KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_keyElement(keyElement)
 {
-    setCaption(i18n("Key Element Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("KeyElement");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    setWindowTitle(i18n("Key Element Properties"));
+    ui.setupUi(this);
 
     ui.MarginLeft->setValue(keyElement->m_margins.left());
     ui.MarginTop->setValue(keyElement->m_margins.top());
@@ -46,10 +46,6 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.StitchesColumn->setChecked(m_keyElement->m_stitchesColumn);
     ui.LengthColumn->setChecked(m_keyElement->m_lengthColumn);
     ui.SkeinsColumn->setChecked(m_keyElement->m_skeinsColumn);
-
-    QMetaObject::connectSlotsByName(this);
-
-    setMainWidget(widget);
 }
 
 
@@ -58,28 +54,37 @@ KeyElementDlg::~KeyElementDlg()
 }
 
 
-void KeyElementDlg::slotButtonClicked(int button)
+void KeyElementDlg::on_DialogButtonBox_accepted()
 {
-    if (button == KDialog::Ok) {
-        m_keyElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
-        m_keyElement->m_showBorder = ui.ShowBorder->isChecked();
-        m_keyElement->m_borderColor = ui.BorderColor->color();
-        m_keyElement->m_borderThickness = int(ui.BorderThickness->value() * 10);
-        m_keyElement->m_fillBackground = ui.FillBackground->isChecked();
-        m_keyElement->m_backgroundColor = ui.BackgroundColor->color();
-        m_keyElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
-        m_keyElement->m_textFont = ui.KeyFont->font();
-        m_keyElement->m_indexStart = ui.IndexStart->value();
-        m_keyElement->m_indexCount = ui.IndexCount->value();
-        m_keyElement->m_symbolColumn = ui.SymbolColumn->isChecked();
-        m_keyElement->m_flossNameColumn = ui.FlossNameColumn->isChecked();
-        m_keyElement->m_strandsColumn = ui.StrandsColumn->isChecked();
-        m_keyElement->m_flossDescriptionColumn = ui.FlossDescriptionColumn->isChecked();
-        m_keyElement->m_stitchesColumn = ui.StitchesColumn->isChecked();
-        m_keyElement->m_lengthColumn = ui.LengthColumn->isChecked();
-        m_keyElement->m_skeinsColumn = ui.SkeinsColumn->isChecked();
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
+    m_keyElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
+    m_keyElement->m_showBorder = ui.ShowBorder->isChecked();
+    m_keyElement->m_borderColor = ui.BorderColor->color();
+    m_keyElement->m_borderThickness = int(ui.BorderThickness->value() * 10);
+    m_keyElement->m_fillBackground = ui.FillBackground->isChecked();
+    m_keyElement->m_backgroundColor = ui.BackgroundColor->color();
+    m_keyElement->m_backgroundTransparency = ui.BackgroundTransparency->value();
+    m_keyElement->m_textFont = ui.KeyFont->font();
+    m_keyElement->m_indexStart = ui.IndexStart->value();
+    m_keyElement->m_indexCount = ui.IndexCount->value();
+    m_keyElement->m_symbolColumn = ui.SymbolColumn->isChecked();
+    m_keyElement->m_flossNameColumn = ui.FlossNameColumn->isChecked();
+    m_keyElement->m_strandsColumn = ui.StrandsColumn->isChecked();
+    m_keyElement->m_flossDescriptionColumn = ui.FlossDescriptionColumn->isChecked();
+    m_keyElement->m_stitchesColumn = ui.StitchesColumn->isChecked();
+    m_keyElement->m_lengthColumn = ui.LengthColumn->isChecked();
+    m_keyElement->m_skeinsColumn = ui.SkeinsColumn->isChecked();
+
+    accept();
+}
+
+
+void KeyElementDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void KeyElementDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("KeyElement", "kxstitch");
 }

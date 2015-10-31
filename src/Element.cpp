@@ -18,7 +18,7 @@
 #include <QPaintEngine>
 #include <QTextDocument>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Document.h"
 #include "FlossScheme.h"
@@ -437,16 +437,21 @@ void KeyElement::render(Document *document, QPainter *painter) const
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
-    QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness) / 10.0);
+    QPen pen(Qt::NoPen);
 
+    // if a border is valid, draw it, otherwise if drawing on screen draw a faint border to indicate the
+    // extents of the element.
     if (m_showBorder) {
-        painter->setPen(pen);
-    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
-        painter->setPen(Qt::lightGray); // When not drawing a border, draw an outline to show where the element is during setup
-    } else {
-        painter->setPen(Qt::NoPen);     // but not during printing
+        pen = QPen(m_borderColor);
+        pen.setWidthF(double(m_borderThickness) / 10.0);
+    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+        // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
+        // There should be a better way to do this.
+        pen = QPen(Qt::lightGray);
+        pen.setCosmetic(true);
     }
+
+    painter->setPen(pen);
 
     QColor backgroundColor = m_backgroundColor;
     backgroundColor.setAlpha(m_backgroundTransparency);
@@ -459,6 +464,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
 
     painter->drawRect(painter->window());
 
+    // Calculate field widths
     QFont font = m_textFont;
     font.setPixelSize(int(((font.pointSizeF() / 72.0) * 25.4) * deviceVRatio));
 
@@ -467,7 +473,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
     painter->resetTransform();
     painter->setClipRect(deviceTextArea);
 
-    pen.setColor(m_textColor);
+    pen = QPen(m_textColor);
     painter->setPen(pen);
 
     painter->setFont(font);
@@ -490,73 +496,35 @@ void KeyElement::render(Document *document, QPainter *painter) const
         int index = sortedFlossesIterator.next();
         FlossUsage usage = flossUsage[index];
 
-        if (m_flossNameColumn) {
-            flossNameWidth = std::max(flossNameWidth, fontMetrics.width(flosses[index]->flossName()));
-        }
-
-        if (m_strandsColumn) {
-            strandsWidth = std::max(strandsWidth, fontMetrics.width(QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
-        }
-
-        if (m_flossDescriptionColumn) {
-            flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(scheme->find(flosses[index]->flossName())->description()));
-        }
-
-        if (m_stitchesColumn) {
-            stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString("%1").arg(usage.totalStitches())));
-        }
-
+        flossNameWidth = std::max(flossNameWidth, fontMetrics.width(flosses[index]->flossName()));
+        strandsWidth = std::max(strandsWidth, fontMetrics.width(QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
+        flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(scheme->find(flosses[index]->flossName())->description()));
+        stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString("%1").arg(usage.totalStitches())));
         double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(), 2);
-
-        if (m_lengthColumn) {
-            lengthWidth = std::max(lengthWidth, fontMetrics.width(QString("%1").arg(flossLength)));
-        }
-
-        if (m_skeinsColumn) {
-            skeinsWidth = std::max(skeinsWidth, fontMetrics.width(QString("%1").arg(flossLength / 48)));    // 1 skein = 6 strands of 8m
-        }
+        lengthWidth = std::max(lengthWidth, fontMetrics.width(QString("%1").arg(flossLength)));
+        skeinsWidth = std::max(skeinsWidth, fontMetrics.width(QString("%1").arg(flossLength / 48)));    // 1 skein = 6 strands of 8m
     }
 
     font.setBold(true);
     fontMetrics = QFontMetrics(font, painter->device());
-
-    if (m_symbolColumn) {
-        symbolWidth = std::max(symbolWidth, fontMetrics.width(i18n("Symbol")));
-    }
-
-    if (m_flossNameColumn) {
-        flossNameWidth = std::max(flossNameWidth, fontMetrics.width(i18nc("The name of the floss", "Name")));
-    }
-
-    if (m_strandsColumn) {
-        strandsWidth = std::max(strandsWidth, fontMetrics.width(i18n("Strands")));
-    }
-
-    if (m_flossDescriptionColumn) {
-        flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(i18n("Description")));
-    }
-
-    if (m_stitchesColumn) {
-        stitchesWidth = std::max(stitchesWidth, fontMetrics.width(i18n("Stitches")));
-    }
-
-    if (m_lengthColumn) {
-        lengthWidth = std::max(lengthWidth, fontMetrics.width(i18n("Length(m)")));
-    }
-
-    if (m_skeinsColumn) {
-        skeinsWidth = std::max(skeinsWidth, fontMetrics.width(i18n("Skeins (8m)")));
-    }
-
     int spacing = fontMetrics.averageCharWidth() * 2;
 
-    symbolWidth += spacing;
-    flossNameWidth += spacing;
-    strandsWidth += spacing;
-    flossDescriptionWidth += spacing;
-    stitchesWidth += spacing;
-    lengthWidth += spacing;
-    skeinsWidth += spacing;
+    symbolWidth = std::max(symbolWidth, fontMetrics.width(i18n("Symbol")));
+    flossNameWidth = std::max(flossNameWidth, fontMetrics.width(i18nc("The name of the floss", "Name")));
+    strandsWidth = std::max(strandsWidth, fontMetrics.width(i18n("Strands")));
+    flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(i18n("Description")));
+    stitchesWidth = std::max(stitchesWidth, fontMetrics.width(i18n("Stitches")));
+    lengthWidth = std::max(lengthWidth, fontMetrics.width(i18n("Length(m)")));
+    skeinsWidth = std::max(skeinsWidth, fontMetrics.width(i18n("Skeins (8m)")));
+
+    // if a column is not being displayed zero the width, otherwise add the spacing value
+    symbolWidth = (m_symbolColumn) ? symbolWidth + spacing : 0;
+    flossNameWidth = (m_flossNameColumn) ? flossNameWidth + spacing : 0;
+    strandsWidth = (m_strandsColumn) ? strandsWidth + spacing : 0;
+    flossDescriptionWidth = (m_flossDescriptionColumn) ? flossDescriptionWidth + spacing : 0;
+    stitchesWidth = (m_stitchesColumn) ? stitchesWidth + spacing : 0;
+    lengthWidth = (m_lengthColumn) ? lengthWidth + spacing : 0;
+    skeinsWidth = (m_skeinsColumn) ? skeinsWidth + spacing : 0;
 
     painter->setFont(font);
 
@@ -609,22 +577,15 @@ void KeyElement::render(Document *document, QPainter *painter) const
                 Symbol symbol = SymbolManager::library(document->pattern()->palette().symbolLibrary())->symbol(flosses[index]->stitchSymbol());
 
                 painter->setViewport(deviceTextArea.left() + symbolWidth / 3, deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
+                painter->setViewport(deviceTextArea.left(), deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
                 painter->setWindow(0, 0, 1, 1);
-
-                QBrush brush(symbol.filled() ? Qt::SolidPattern : Qt::NoBrush);
-                QPen pen(Qt::black);
-
-                if (!symbol.filled()) {
-                    pen.setWidthF(symbol.lineWidth());
-                    pen.setCapStyle(symbol.capStyle());
-                    pen.setJoinStyle(symbol.joinStyle());
-                }
-
-                painter->setBrush(brush);
-                painter->setPen(pen);
+                painter->setBrush(symbol.brush());
+                painter->setPen(symbol.pen());
                 painter->drawPath(symbol.path());
                 painter->resetTransform();
             }
+
+            painter->setPen(Qt::black);
 
             if (m_flossNameColumn) {
                 painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth, y), flosses[index]->flossName());
@@ -881,8 +842,6 @@ void PlanElement::render(Document *document, QPainter *painter) const
     painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
-    painter->setPen(Qt::black);
-
     int documentWidth = document->pattern()->stitches().width();
     int documentHeight = document->pattern()->stitches().height();
     double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
@@ -906,8 +865,11 @@ void PlanElement::render(Document *document, QPainter *painter) const
     QRectF page(hOffset, vOffset, mapWidth, mapHeight);
     QRectF pattern(m_patternRect.left() * cellWidth, m_patternRect.top() * cellHeight, m_patternRect.width() * cellWidth, m_patternRect.height() * cellHeight);
 
-    painter->setPen(Qt::black);
-    painter->setBrush(Qt::darkGray);
+    QPen pen(Qt::black);
+    pen.setWidthF(0.05);
+
+    painter->setPen(pen);
+    painter->setBrush(Qt::black);
     painter->drawRect(page.translated(0.5, 0.5)); // drop shadow
     painter->setBrush(Qt::white);
     painter->drawRect(page);
@@ -1037,6 +999,10 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int scaleSize = (m_showScales) ? 6 : 0;
 
     painter->save();
+
+    QPen pen;
+    pen.setWidthF(0.05);
+    painter->setPen(pen);
     painter->setBrush(Qt::black);
 
     double deviceHRatio = double(painter->device()->width()) / double(painter->window().width());
@@ -1856,29 +1822,35 @@ void TextElement::render(Document *document, QPainter *painter) const
     double devicePageHeightPixels = (double(pageHeightMM) / 25.4) * painter->device()->logicalDpiY();
 
     double deviceHRatio = devicePageWidthPixels / deviceWidthPixels;
-//    double deviceVRatio = devicePageHeightPixels / deviceHeightPixels;
 
     // set the viewport to be the rectangle converted to device coordinates
     painter->setViewport(painter->combinedTransform().mapRect(m_rectangle));
     // set the window to be the size of the rectangle in mm which the viewport will be mapped to.
     painter->setWindow(0, 0, m_rectangle.width(), m_rectangle.height());
 
-    QPen pen(m_borderColor);
-    pen.setWidthF(double(m_borderThickness) / 10.0);
+    QPen pen(Qt::NoPen);
 
+    // if a border is valid, draw it, otherwise if drawing on screen draw a faint border to indicate the
+    // extents of the element.
     if (m_showBorder) {
-        painter->setPen(pen);
-    } else if (painter->device()->paintEngine()->type() == QPaintEngine::X11) {
-        painter->setPen(Qt::lightGray); // when not drawing a border, draw an outline to show where the element is during setup
-    } else {
-        painter->setPen(Qt::NoPen);     // but not during printing
+        pen = QPen(m_borderColor);
+        pen.setWidthF(double(m_borderThickness) / 10.0);
+    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+        // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
+        // There should be a better way to do this.
+        pen = QPen(Qt::lightGray);
+        pen.setCosmetic(true);
     }
+
+    painter->setPen(pen);
 
     QColor backgroundColor = m_backgroundColor;
     backgroundColor.setAlpha(m_backgroundTransparency);
 
     if (m_fillBackground) {
         painter->setBrush(backgroundColor);
+    } else {
+        painter->setBrush(Qt::NoBrush);
     }
 
     painter->drawRect(painter->window());

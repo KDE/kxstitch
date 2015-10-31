@@ -180,6 +180,13 @@
    <item row="1" column="0" colspan="2">
     <widget class="QListWidget" name="ColorList"/>
    </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>

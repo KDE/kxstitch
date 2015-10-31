@@ -18,7 +18,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_6">
    <item row="0" column="0">
-    <widget class="KTabWidget" name="FilePropertiesTab">
+    <widget class="QTabWidget" name="FilePropertiesTab">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -221,7 +221,7 @@
            </layout>
           </item>
           <item>
-           <widget class="KPushButton" name="ClothCountLink">
+           <widget class="QPushButton" name="ClothCountLink">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -345,6 +345,13 @@
      </widget>
     </widget>
    </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -352,11 +359,6 @@
    <class>KRichTextEdit</class>
    <extends>KTextEdit</extends>
    <header>krichtextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
@@ -372,12 +374,6 @@
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
   <customwidget>
    <class>KTextEdit</class>

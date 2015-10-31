@@ -27,8 +27,10 @@
 
 #include "SymbolSelectorDlg.h"
 
-#include <KListWidget>
-#include <KLocale>
+#include <QListWidget>
+
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "configuration.h"
 #include "Symbol.h"
@@ -43,22 +45,18 @@
  * @param symbolLibrary the name of the symbol library to use
  */
 SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary)
-    :   KDialog(parent),
-        m_library(SymbolManager::library(symbolLibrary))
+    :   QDialog(parent)
 {
-    setCaption(i18n("Symbol Selector"));
-    setButtons(KDialog::Cancel | KDialog::Help);
-    setHelp("SymbolSelectorDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
-    setMainWidget(widget);
+    setWindowTitle(i18n("Symbol Selector"));
+    ui.setupUi(this);
 
-    if (m_library == 0) {
-        m_library = SymbolManager::library("kxstitch");
+    SymbolLibrary *library = SymbolManager::library(symbolLibrary);
+
+    if (library == 0) {
+        library = SymbolManager::library("kxstitch");
     }
 
-    fillSymbols();
+    ui.SymbolTable->loadFromLibrary(library);
 }
 
 
@@ -73,7 +71,12 @@ void SymbolSelectorDlg::setSelectedSymbol(qint16 symbol, const QList<qint16> &us
 {
     m_currentSymbol = symbol;
     m_usedSymbols = used;
-    setSymbolState();
+
+    foreach (qint16 index, m_usedSymbols) {
+        ui.SymbolTable->disableItem(index);
+    }
+
+    ui.SymbolTable->setCurrent(m_currentSymbol);
 }
 
 
@@ -99,9 +102,9 @@ void SymbolSelectorDlg::on_SymbolTable_itemClicked(QListWidgetItem *item)
 {
     if (item->flags() & Qt::ItemIsEnabled) {
         m_usedSymbols.removeOne(m_currentSymbol);
-        ui.SymbolTable->enableItem(m_symbolItems.value(m_currentSymbol));
+        ui.SymbolTable->enableItem(m_currentSymbol);
         m_currentSymbol = static_cast<qint16>(item->data(Qt::UserRole).toInt());
-        ui.SymbolTable->disableItem(m_symbolItems.value(m_currentSymbol));
+        ui.SymbolTable->disableItem(m_currentSymbol);
         m_usedSymbols.append(m_currentSymbol);
         accept();
     }
@@ -109,27 +112,18 @@ void SymbolSelectorDlg::on_SymbolTable_itemClicked(QListWidgetItem *item)
 
 
 /**
- * Fill the SymbolListWidget with the symbols from the symbol library.
- * Each symbol is added to the widget, the state of the icon is determined
- * by the used state of the symbol.
+ * Called when the dialog Close button is pressed.
  */
-void SymbolSelectorDlg::fillSymbols()
+void SymbolSelectorDlg::on_DialogButtonBox_rejected()
 {
-    foreach (qint16 index, m_library->indexes()) {
-        QListWidgetItem *item = ui.SymbolTable->addSymbol(index, m_library->symbol(index));
-        m_symbolItems.insert(index, item);
-    }
+    reject();
 }
 
 
 /**
- * Set the state of each symbol depending on whether it has been used or not
+ * Called when the dialog Help button is pressed.
  */
-void SymbolSelectorDlg::setSymbolState()
+void SymbolSelectorDlg::on_DialogButtonBox_helpRequested()
 {
-    foreach (qint16 index, m_usedSymbols) {
-        ui.SymbolTable->disableItem(m_symbolItems.value(index));
-    }
-
-    ui.SymbolTable->setCurrent(m_currentSymbol);
+    KHelpClient::invokeHelp("SymbolSelectorDialog", "kxstitch");
 }

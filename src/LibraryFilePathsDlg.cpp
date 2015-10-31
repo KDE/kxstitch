@@ -11,23 +11,21 @@
 
 #include "LibraryFilePathsDlg.h"
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 
 LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStringList paths)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Library File Paths"));
-    setButtons(KDialog::Ok | KDialog::Help);
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
+    setWindowTitle(i18n("Library File Paths"));
+    ui.setupUi(this);
 
     QStringListIterator pathIterator(paths);
 
     while (pathIterator.hasNext()) {
         ui.PathList->addItem(pathIterator.next());
     }
-
-    setMainWidget(widget);
 }
 
 
@@ -36,7 +34,13 @@ LibraryFilePathsDlg::~LibraryFilePathsDlg()
 }
 
 
-void LibraryFilePathsDlg::slotButtonClicked(int button)
+void LibraryFilePathsDlg::on_DialogButtonBox_accepted()
 {
-    KDialog::slotButtonClicked(button);
+    accept();
+}
+
+
+void LibraryFilePathsDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("LibraryPaths", "kxstitch");
 }

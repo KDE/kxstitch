@@ -13,9 +13,8 @@
 #define ImageElementDlg_H
 
 
+#include <QDialog>
 #include <QRect>
-
-#include <KDialog>
 
 #include "ui_ImageElement.h"
 
@@ -25,7 +24,7 @@ class ImageElement;
 class SelectArea;
 
 
-class ImageElementDlg : public KDialog
+class ImageElementDlg : public QDialog
 {
     Q_OBJECT
 
@@ -33,10 +32,10 @@ public:
     ImageElementDlg(QWidget *, ImageElement *, Document *);
     ~ImageElementDlg();
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     SelectArea      *m_selectArea;

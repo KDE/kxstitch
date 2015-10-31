@@ -19,7 +19,7 @@
 #define SymbolSelectorDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_SymbolSelector.h"
 
@@ -36,7 +36,7 @@ class SymbolLibrary;
  * either by single or double clicking depending on the system settings for
  * selections. The new symbol selected is made available to the caller.
  */
-class SymbolSelectorDlg : public KDialog
+class SymbolSelectorDlg : public QDialog
 {
     Q_OBJECT
 
@@ -49,15 +49,14 @@ public:
 protected slots:
     void on_SymbolTable_itemClicked(QListWidgetItem *item);
 
-private:
-    void fillSymbols();
-    void setSymbolState();
+private slots:
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
+private:
     Ui::SymbolSelector    ui;           /**< dialog interface description */
 
-    SymbolLibrary   *m_library;         /**< pointer to the SymbolLibrary */
     QList<qint16>   m_usedSymbols;      /**< a list of used symbols indexes */
-    QMap<qint16, QListWidgetItem*>  m_symbolItems;  /**< a map of symbol indexes to QListWidgetItem pointers */
     qint16          m_currentSymbol;    /**< the current symbols index */
 };
 

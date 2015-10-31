@@ -13,11 +13,10 @@
 #define LibraryManagerDlg_H
 
 
+#include <QDialog>
 #include <QMenu>
 #include <QTreeWidgetItem>
 #include <QWidget>
-
-#include <KDialog>
 
 #include "ui_LibraryManager.h"
 
@@ -26,7 +25,7 @@ class LibraryListWidgetItem;
 class LibraryTreeWidgetItem;
 
 
-class LibraryManagerDlg : public KDialog
+class LibraryManagerDlg : public QDialog
 {
     Q_OBJECT
 
@@ -42,14 +41,13 @@ protected:
 public slots:
     void setCellSize(double, double);
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
     void on_LibraryTree_customContextMenuRequested(const QPoint &);
     void on_LibraryIcons_customContextMenuRequested(const QPoint &);
     void on_LibraryTree_currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *);
     void on_IconSizeSlider_valueChanged(int);
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
     void newCategory();
     void addLibraryToExportList();

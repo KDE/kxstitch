@@ -86,26 +86,10 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="KPushButton" name="ZoomOut">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>25</width>
-             <height>23</height>
-            </size>
-           </property>
-           <property name="text">
-            <string notr="true"/>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QSlider" name="IconSizeSlider">
+           <property name="toolTip">
+            <string>Icon size</string>
+           </property>
            <property name="minimum">
             <number>32</number>
            </property>
@@ -129,39 +113,22 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="KPushButton" name="ZoomIn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>25</width>
-             <height>23</height>
-            </size>
-           </property>
-           <property name="text">
-            <string notr="true"/>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
      </widget>
     </widget>
    </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Close|QDialogButtonBox::Help</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>LibraryTreeWidget</class>
    <extends>QTreeWidget</extends>
@@ -174,38 +141,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>ZoomOut</sender>
-   <signal>clicked()</signal>
-   <receiver>IconSizeSlider</receiver>
-   <slot>subtractStep()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>268</x>
-     <y>548</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>307</x>
-     <y>543</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ZoomIn</sender>
-   <signal>clicked()</signal>
-   <receiver>IconSizeSlider</receiver>
-   <slot>addStep()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>635</x>
-     <y>547</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>576</x>
-     <y>547</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

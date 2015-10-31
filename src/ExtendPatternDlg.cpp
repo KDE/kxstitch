@@ -12,15 +12,15 @@
 #include "ExtendPatternDlg.h"
 
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
+
 ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Extend Pattern"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("ExtendDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    setMainWidget(widget);
+    setWindowTitle(i18n("Extend Pattern"));
+    ui.setupUi(this);
 }
 
 
@@ -50,4 +50,22 @@ int ExtendPatternDlg::right() const
 int ExtendPatternDlg::bottom() const
 {
     return ui.BottomMargin->value();
+}
+
+
+void ExtendPatternDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void ExtendPatternDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void ExtendPatternDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("ExtendPatternDialog", "kxstitch");
 }

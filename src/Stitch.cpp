@@ -17,7 +17,7 @@
 
 #include "Stitch.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 

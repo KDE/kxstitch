@@ -11,23 +11,23 @@
 
 #include "PatternElementDlg.h"
 
+#include <KHelpClient>
+#include <KLocalizedString>
+
 #include "Document.h"
 #include "Element.h"
 #include "SelectArea.h"
 
 
 PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect> > &patternRects)
-    :   KDialog(parent),
+    :   QDialog(parent),
         m_patternElement(patternElement),
         m_document(document),
         m_patternRects(patternRects)
 {
-    setCaption(i18n("Pattern Element Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-    setHelp("PatternElement");
+    setWindowTitle(i18n("Pattern Element Properties"));
 
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
+    ui.setupUi(this);
 
     ui.RenderStitchesAs->setItemData(0, Configuration::EnumRenderer_RenderStitchesAs::Stitches);
     ui.RenderStitchesAs->setItemData(1, Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
@@ -60,10 +60,6 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
     ui.RenderStitchesAs->setCurrentIndex(ui.RenderStitchesAs->findData(patternElement->m_renderStitchesAs));
     ui.RenderBackstitchesAs->setCurrentIndex(ui.RenderBackstitchesAs->findData(patternElement->m_renderBackstitchesAs));
     ui.RenderKnotsAs->setCurrentIndex(ui.RenderKnotsAs->findData(patternElement->m_renderKnotsAs));
-
-    QMetaObject::connectSlotsByName(this);
-
-    setMainWidget(widget);
 }
 
 
@@ -84,38 +80,47 @@ PlanElement *PatternElementDlg::planElement() const
 }
 
 
-void PatternElementDlg::slotButtonClicked(int button)
+void PatternElementDlg::on_DialogButtonBox_accepted()
 {
-    if (button == KDialog::Ok) {
-        m_patternElement->setPatternRect(m_selectArea->patternRect());
-        m_patternElement->m_showScales = ui.ShowScales->isChecked();
+    m_patternElement->setPatternRect(m_selectArea->patternRect());
+    m_patternElement->m_showScales = ui.ShowScales->isChecked();
 
-        if (ui.ShowPlan->isChecked()) {
-            if (m_patternElement->m_planElement == 0) {
-                m_patternElement->m_planElement = new PlanElement(m_patternElement->parent(), QRect(m_patternElement->rectangle().topLeft(), QSize(25, 25)));
-            }
-        } else {
-            if (m_patternElement->m_planElement) {
-                delete m_patternElement->m_planElement;
-                m_patternElement->m_planElement = 0;
-            }
+    if (ui.ShowPlan->isChecked()) {
+        if (m_patternElement->m_planElement == 0) {
+            m_patternElement->m_planElement = new PlanElement(m_patternElement->parent(), QRect(m_patternElement->rectangle().topLeft(), QSize(25, 25)));
         }
-
-        if (m_patternElement->m_planElement) {
-            m_patternElement->m_planElement->setPatternRect(m_patternElement->patternRect());
-        }
-
-        m_patternElement->m_showPlan = ui.ShowPlan->isChecked();
-        m_patternElement->m_formatScalesAs = static_cast<Configuration::EnumEditor_FormatScalesAs::type>(ui.FormatScalesAs->itemData(ui.FormatScalesAs->currentIndex()).toInt());
-        m_patternElement->setRenderStitchesAs(static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(ui.RenderStitchesAs->itemData(ui.RenderStitchesAs->currentIndex()).toInt()));
-        m_patternElement->setRenderBackstitchesAs(static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(ui.RenderBackstitchesAs->itemData(ui.RenderBackstitchesAs->currentIndex()).toInt()));
-        m_patternElement->setRenderKnotsAs(static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(ui.RenderKnotsAs->itemData(ui.RenderKnotsAs->currentIndex()).toInt()));
-        m_patternElement->m_showStitches = ui.ShowStitches->isChecked();
-        m_patternElement->m_showBackstitches = ui.ShowBackstitches->isChecked();
-        m_patternElement->m_showKnots = ui.ShowKnots->isChecked();
-        m_patternElement->m_showGrid = ui.ShowGrid->isChecked();
-        accept();
     } else {
-        KDialog::slotButtonClicked(button);
+        if (m_patternElement->m_planElement) {
+            delete m_patternElement->m_planElement;
+            m_patternElement->m_planElement = 0;
+         }
     }
+
+    if (m_patternElement->m_planElement) {
+        m_patternElement->m_planElement->setPatternRect(m_patternElement->patternRect());
+    }
+
+    m_patternElement->m_showPlan = ui.ShowPlan->isChecked();
+    m_patternElement->m_formatScalesAs = static_cast<Configuration::EnumEditor_FormatScalesAs::type>(ui.FormatScalesAs->itemData(ui.FormatScalesAs->currentIndex()).toInt());
+    m_patternElement->setRenderStitchesAs(static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(ui.RenderStitchesAs->itemData(ui.RenderStitchesAs->currentIndex()).toInt()));
+    m_patternElement->setRenderBackstitchesAs(static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(ui.RenderBackstitchesAs->itemData(ui.RenderBackstitchesAs->currentIndex()).toInt()));
+    m_patternElement->setRenderKnotsAs(static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(ui.RenderKnotsAs->itemData(ui.RenderKnotsAs->currentIndex()).toInt()));
+    m_patternElement->m_showStitches = ui.ShowStitches->isChecked();
+    m_patternElement->m_showBackstitches = ui.ShowBackstitches->isChecked();
+    m_patternElement->m_showKnots = ui.ShowKnots->isChecked();
+    m_patternElement->m_showGrid = ui.ShowGrid->isChecked();
+
+    accept();
+}
+
+
+void PatternElementDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void PatternElementDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PatternElement", "kxstitch");
 }

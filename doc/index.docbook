@@ -1,5 +1,5 @@
 <?xml version = '1.0'?>
-    <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+    <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
     <!ENTITY kxstitch '<application>KXStitch</application>'>
     <!ENTITY kapp "&kxstitch;">
     <!ENTITY % addindex "IGNORE">
@@ -33,8 +33,8 @@
             <holder>Stephen P. Allewell</holder>
         </copyright>
         <legalnotice>&FDLNotice;</legalnotice>
-        <date>15/7/2014</date>
-        <releaseinfo>V.1.2.0</releaseinfo>
+        <date>15/7/2015</date>
+        <releaseinfo>V.1.99.0</releaseinfo>
         <abstract>
             <para>
                 &kapp; is an application designed to allow people to create cross stitch patterns and print them.

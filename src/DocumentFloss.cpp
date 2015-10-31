@@ -13,7 +13,7 @@
 
 #include <QMap>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 #include "SymbolLibrary.h"

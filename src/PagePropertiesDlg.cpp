@@ -11,7 +11,8 @@
 
 #include "PagePropertiesDlg.h"
 
-#include <KDebug>
+#include <KHelpClient>
+#include <KLocalizedString>
 
 #include "Page.h"
 #include "PageLayoutEditor.h"
@@ -19,14 +20,10 @@
 
 
 PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, bool showGrid, int gridSize)
-    :   KDialog(parent)
+    :   QDialog(parent)
 {
-    setCaption(i18n("Page Properties"));
-    setButtons(KDialog::Ok | KDialog::Cancel);
-    setHelp("PrinterDialog");
-    QWidget *widget = new QWidget(this);
-    ui.setupUi(widget);
-    QMetaObject::connectSlotsByName(this);
+    setWindowTitle(i18n("Page Properties"));
+    ui.setupUi(this);
 
     ui.MarginTop->setValue(margins.top());
     ui.MarginLeft->setValue(margins.left());
@@ -35,23 +32,11 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, b
 
     ui.ShowGrid->setChecked(showGrid);
     ui.GridSize->setValue(gridSize);
-
-    setMainWidget(widget);
 }
 
 
 PagePropertiesDlg::~PagePropertiesDlg()
 {
-}
-
-
-void PagePropertiesDlg::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok) {
-        accept();
-    } else {
-        KDialog::slotButtonClicked(button);
-    }
 }
 
 
@@ -70,4 +55,22 @@ bool PagePropertiesDlg::showGrid() const
 int PagePropertiesDlg::gridSize() const
 {
     return ui.GridSize->value();
+}
+
+
+void PagePropertiesDlg::on_DialogButtonBox_accepted()
+{
+    accept();
+}
+
+
+void PagePropertiesDlg::on_DialogButtonBox_rejected()
+{
+    reject();
+}
+
+
+void PagePropertiesDlg::on_DialogButtonBox_helpRequested()
+{
+    KHelpClient::invokeHelp("PrinterDialog", "kxstitch");
 }

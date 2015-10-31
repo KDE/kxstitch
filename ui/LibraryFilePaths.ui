@@ -27,6 +27,13 @@
    <item>
     <widget class="QListWidget" name="PathList"/>
    </item>
+   <item>
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

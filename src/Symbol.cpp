@@ -30,7 +30,7 @@
 #include <QPen>
 #include <QTransform>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "Exceptions.h"
 
@@ -259,6 +259,8 @@ QPen Symbol::pen() const
         p.setWidthF(m_lineWidth);
         p.setCapStyle(m_capStyle);
         p.setJoinStyle(m_joinStyle);
+    } else {
+        p = QPen(Qt::NoPen);
     }
 
     return p;

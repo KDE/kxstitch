@@ -13,10 +13,9 @@
 #define PatternElementDlg_H
 
 
+#include <QDialog>
 #include <QList>
 #include <QRect>
-
-#include <KDialog>
 
 #include "ui_PatternElement.h"
 
@@ -27,7 +26,7 @@ class PatternElement;
 class SelectArea;
 
 
-class PatternElementDlg : public KDialog
+class PatternElementDlg : public QDialog
 {
     Q_OBJECT
 
@@ -38,10 +37,10 @@ public:
     bool showPlan() const;
     PlanElement *planElement() const;
 
-protected slots:
-    void slotButtonClicked(int);
-
 private slots:
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     SelectArea  *m_selectArea;

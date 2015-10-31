@@ -23,6 +23,10 @@
        </property>
       </widget>
      </item>
+    </layout>
+   </item>
+   <item row="0" column="6" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QListWidget" name="CurrentList"/>
      </item>
@@ -277,6 +281,13 @@
        <string>Dash Dash Dotted</string>
       </property>
      </item>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="8">
+    <widget class="QDialogButtonBox" name="DialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
+     </property>
     </widget>
    </item>
   </layout>

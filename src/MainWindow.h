@@ -15,14 +15,11 @@
 
 #include <KXmlGuiWindow>
 
-#include <Magick++.h>
 
-
-class QLabel;
+class QPrinter;
 class QString;
 class QUndoView;
-
-class KUrl;
+class QUrl;
 
 class Document;
 class Editor;
@@ -39,7 +36,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
     MainWindow();
-    explicit MainWindow(const KUrl &);
+    explicit MainWindow(const QUrl &);
     explicit MainWindow(const QString &);
     ~MainWindow();
 
@@ -59,7 +56,7 @@ protected slots:
     // File menu
     void fileNew();
     void fileOpen();
-    void fileOpen(const KUrl &);
+    void fileOpen(const QUrl &);
     void fileSave();
     void fileSaveAs();
     void fileRevert();

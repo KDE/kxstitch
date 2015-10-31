@@ -13,6 +13,8 @@
 
 #include <QApplication>
 #include <QBitmap>
+#include <QDrag>
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QPainter>
 

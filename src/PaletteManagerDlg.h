@@ -13,7 +13,7 @@
 #define PaletteManagerDlg_H
 
 
-#include <KDialog>
+#include <QDialog>
 
 #include "Document.h"
 #include "FlossScheme.h"
@@ -27,7 +27,7 @@ class SchemeManager;
 class SymbolSelectorDlg;
 
 
-class PaletteManagerDlg : public KDialog
+class PaletteManagerDlg : public QDialog
 {
     Q_OBJECT
 
@@ -36,9 +36,6 @@ public:
     ~PaletteManagerDlg();
 
     const DocumentPalette &palette() const;
-
-protected slots:
-    virtual void slotButtonClicked(int button);
 
 private slots:
     void on_ColorList_currentRowChanged(int);
@@ -53,6 +50,9 @@ private slots:
     void on_NewFloss_clicked(bool);
     void on_ClearUnused_clicked(bool);
     void on_Calibrate_clicked(bool);
+    void on_DialogButtonBox_accepted();
+    void on_DialogButtonBox_rejected();
+    void on_DialogButtonBox_helpRequested();
 
 private:
     void fillLists();
