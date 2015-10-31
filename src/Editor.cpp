@@ -372,8 +372,8 @@ bool Editor::zoom(double factor)
 
     m_zoomFactor = factor;
 
-    double dpiX = physicalDpiX();
-    double dpiY = physicalDpiY();
+    double dpiX = logicalDpiX();
+    double dpiY = logicalDpiY();
 
     bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 
