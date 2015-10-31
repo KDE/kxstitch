@@ -173,7 +173,6 @@
             Additional items on the context menu are:
             <itemizedlist>
                 <listitem><para>Delete: Delete a library item, for which a confirmation dialog is shown.</para></listitem>
-                <listitem><para>Add to Export List: Allows you to create a list of items to export, perhaps to send to someone.</para></listitem>
                 <listitem><para>Properties: Show the properties dialog for the item.</para></listitem>
             </itemizedlist>
         </para>
@@ -240,6 +239,8 @@
         <para><inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Select an element - Used to select elements for editing or resizing.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="text-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a text element - Used to insert a text element onto the current page.</para>
         <para><inlinemediaobject><imageobject><imagedata fileref="pattern-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a pattern element - Used to insert a pattern element onto the current page.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="image-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert an image element - Used to insert an image element onto the current page.</para>
+        <para><inlinemediaobject><imageobject><imagedata fileref="key-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>Insert a key element - Used to insert a floss key element onto the current page.</para>
 
         <para>
             When adding elements, select the required element icon, then select the area of the page that the element is to occupy by clicking and
@@ -247,12 +248,13 @@
             accessed by the &RMB;
         </para>
         <para>
-            The elements can be resized by selecting them using the <inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>,
+            The elements can be resized by selecting them using the select tool<inlinemediaobject><imageobject><imagedata fileref="select-element-icon.png" format="PNG" /></imageobject></inlinemediaobject>,
             this will provide a sizing rectangle around the element.  The corners can be dragged around to adjust the size or the whole element can be moved by
             clicking and dragging using the &LMB;.
         </para>
         <para>
-            The page has an associated properties dialog which allows setting the page margin and the grid size and visibility.
+            The page has an associated properties dialog which allows setting the page margin and the grid size and visibility. The page margin provides
+            a guide for the placement of objects but does not prevent elements from being positioned outside the defined margin.
             <screenshot><mediaobject><imageobject><imagedata fileref="page-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
         </para>
         <sect2 id="PatternElement" >
@@ -264,7 +266,7 @@
             <para>
                 The pattern element defaults to showing the whole pattern when it is created. Using the properties dialog a selection of the
                 required area can be made in the preview window by clicking and dragging a selection area.
-                <screenshot><mediaobject><imageobject><imagedata fileref="pattern-element-selection.png" format="PNG" /></imageobject></mediaobject></screenshot>
+                <screenshot><mediaobject><imageobject><imagedata fileref="pattern-element-properties-dialog.png" format="PNG" /></imageobject></mediaobject></screenshot>
             </para>
             <sect3 id="MapElement">
                 <title>Map Element</title>

@@ -12,7 +12,7 @@
     <sect1 id="requirements" >
         <title>Requirements</title>
         <para>
-            &kapp; has been written for &kde; 4.x with &Qt; 4.x.
+            &kapp; has been written for &kde; 5.x with &Qt; 5.x.
         </para>
         <para>
             For the image import functions the ImageMagick libraries are required, this includes the development headers ImageMagick and Magick++,
