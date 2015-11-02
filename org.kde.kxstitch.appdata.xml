@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.kxstitch.desktop</id>
+  <metadata_license>GFDL-1.2-without-invariant</metadata_license>
+  <name>KXStitch</name>
+  <summary>A cross stitch pattern creator</summary>
+  <description>
+    <p>KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colors and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Creation of new patterns</li>
+      <li>Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
+      <li>Use of various floss pallets, DMC, Anchor, Madeira</li>
+      <li>Creation of custom palettes and colors</li>
+      <li>Use of standard stitches</li>
+      <li>Free use of backstitching</li>
+      <li>Importing of various picture formats</li>
+      <li>Printing of patterns and floss keys</li>
+    </ul>
+  </description>
+  <url type="homepage">https://userbase.kde.org/Special:myLanguage/KXStitch</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kxstitch</url>
+  <url type="help">http://docs.kde.org/development/en/extragear-graphics/kxstitch/index.html</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://userbase.kde.org/images.userbase/a/a5/Importedimage.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>kxstitch</binary>
+  </provides>
+</component>
