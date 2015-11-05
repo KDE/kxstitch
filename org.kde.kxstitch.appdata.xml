@@ -15,6 +15,7 @@
   <name xml:lang="sv">KXStitch</name>
   <name xml:lang="uk">KXStitch</name>
   <name xml:lang="x-test">xxKXStitchxx</name>
+  <name xml:lang="zh-CN">KXStitch</name>
   <summary>A cross stitch pattern creator</summary>
   <summary xml:lang="ca">Un creador de patrons de punt de creu</summary>
   <summary xml:lang="ca-valencia">Un creador de patrons de punt de creu</summary>
@@ -49,6 +50,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Creation of new patterns</li>
       <li xml:lang="ca">Creació de patrons nous</li>
