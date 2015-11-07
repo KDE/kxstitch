@@ -86,6 +86,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("kxstitch");
 
     KAboutData aboutData(QStringLiteral("kxstitch"),                    // component name
                          QString(i18n("kxstitch")),                     // display name

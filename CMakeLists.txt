@@ -220,6 +220,8 @@ add_definitions(
     ${magick_config_quantum}
 )
 
+add_definitions(-DTRANSLATION_DOMAIN="kxstitch")
+
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kxstitch)
 install (FILES kxstitch.kcfg DESTINATION ${KCFG_INSTALL_DIR})
