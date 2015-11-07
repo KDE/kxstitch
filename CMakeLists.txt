@@ -123,6 +123,10 @@ set (kxstitch_SRCS
     src/TextToolDlg.cpp
 )
 
+file(GLOB kxstitch_UI ${CMAKE_CURRENT_SOURCE_DIR}/ui/*.ui)
+
+ki18n_wrap_ui(kxstitch_SRCS ${kxstitch_UI})
+
 add_subdirectory(icons)
 add_subdirectory(schemes)
 add_subdirectory(symbols)
