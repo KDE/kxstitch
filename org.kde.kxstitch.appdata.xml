@@ -20,6 +20,7 @@
   <summary xml:lang="ca">Un creador de patrons de punt de creu</summary>
   <summary xml:lang="ca-valencia">Un creador de patrons de punt de creu</summary>
   <summary xml:lang="en-GB">A cross stitch pattern creator</summary>
+  <summary xml:lang="es">Un creador de patrones de punto de cruz</summary>
   <summary xml:lang="nl">Een ontwerpprogramma voor kruissteek-patronen</summary>
   <summary xml:lang="pt">Um criador de padrões de ponto de cruz</summary>
   <summary xml:lang="pt-BR">Um criador de padrões em ponto cruz</summary>
@@ -43,6 +44,7 @@
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="es">Funciones:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
@@ -68,6 +70,7 @@
       <li xml:lang="ca">Edició de patrons existents - El KXStitch també pot llegir fitxers de PC Stitch</li>
       <li xml:lang="ca-valencia">Edició de patrons existents - El KXStitch també pot llegir fitxers de PC Stitch</li>
       <li xml:lang="en-GB">Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
+      <li xml:lang="es">Edición de los patrones existentes (KXStitch también puede leer archivos de PC Stitch)</li>
       <li xml:lang="nl">Bewerken van bestaande patronen - KXStitch kan ook PC Stitch-bestanden lezen</li>
       <li xml:lang="pt">Edição dos padrões existentes - o KXStitch também é capaz de ler ficheiros do PC Stitch</li>
       <li xml:lang="pt-BR">Edição dos padrões existentes - O KXStitch também é capaz de ler arquivos do PC Stitch</li>
@@ -88,6 +91,7 @@
       <li xml:lang="ca">Creació de paletes personalitzades i colors</li>
       <li xml:lang="ca-valencia">Creació de paletes personalitzades i colors</li>
       <li xml:lang="en-GB">Creation of custom palettes and colours</li>
+      <li xml:lang="es">Creación de paletas y colores personalizados</li>
       <li xml:lang="nl">Eigen paletten en kleuren aanmaken</li>
       <li xml:lang="pt">Criação de paletas e cores personalizadas</li>
       <li xml:lang="pt-BR">Criação de paletas e cores personalizadas</li>
@@ -98,6 +102,7 @@
       <li xml:lang="ca">Ús de punts estàndard</li>
       <li xml:lang="ca-valencia">Ús de punts estàndard</li>
       <li xml:lang="en-GB">Use of standard stitches</li>
+      <li xml:lang="es">Uso de puntos estándares</li>
       <li xml:lang="nl">Het gebruik van standaard steken</li>
       <li xml:lang="pt">Usar pontos-padrão</li>
       <li xml:lang="pt-BR">Uso de pontos padrão</li>
@@ -118,6 +123,7 @@
       <li xml:lang="ca">Importació de diversos formats d'imatge</li>
       <li xml:lang="ca-valencia">Importació de diversos formats d'imatge</li>
       <li xml:lang="en-GB">Importing of various picture formats</li>
+      <li xml:lang="es">Importación de diversos formatos de imágenes</li>
       <li xml:lang="nl">Verschillende afbeeldingsformaten</li>
       <li xml:lang="pt">Importação de diversos formatos de imagens</li>
       <li xml:lang="pt-BR">Importação de vários formatos de imagem</li>
