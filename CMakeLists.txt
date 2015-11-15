@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8.9)
 
+if (POLICY CMP0002)
+    cmake_policy(SET CMP0002 OLD)
+endif (POLICY CMP0002)
+
 project (kxstitch)
 
 find_package (KDE4 REQUIRED)
