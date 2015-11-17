@@ -3,6 +3,7 @@
   <id>org.kde.kxstitch.desktop</id>
   <metadata_license>GFDL-1.2-without-invariant</metadata_license>
   <name>KXStitch</name>
+  <name xml:lang="ast">KXStitch</name>
   <name xml:lang="ca">KXStitch</name>
   <name xml:lang="ca-valencia">KXStitch</name>
   <name xml:lang="de">KXStitch</name>
