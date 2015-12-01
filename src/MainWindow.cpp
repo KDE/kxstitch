@@ -592,7 +592,7 @@ void MainWindow::convertImage(const QString &source)
                         QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
 #endif
 
-                        for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; flossIndex++) {
+                        for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; ++flossIndex) {
                             if (documentFlosses[flossIndex] == color) {
                                 break;
                             }
