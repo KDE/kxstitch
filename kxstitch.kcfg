@@ -396,6 +396,10 @@
             <label>Show the key element symbol column</label>
             <default>true</default>
         </entry>
+        <entry name="KeyElement_SymbolColumnColor" type="Bool">
+            <label>Show the key element symbol column in color</label>
+            <default>false</default>
+        </entry>
         <entry name="KeyElement_FlossNameColumn" type="Bool">
             <label>Show the key element floss name column</label>
             <default>true</default>

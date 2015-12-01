@@ -157,6 +157,7 @@ KeyElement::KeyElement(Page *parent, const QRect &rectangle, Element::Type type)
         m_indexStart(0),
         m_indexCount(0),
         m_symbolColumn(Configuration::keyElement_SymbolColumn()),
+        m_symbolColumnColor(Configuration::keyElement_SymbolColumnColor()),
         m_flossNameColumn(Configuration::keyElement_FlossNameColumn()),
         m_strandsColumn(Configuration::keyElement_StrandsColumn()),
         m_flossDescriptionColumn(Configuration::keyElement_FlossDescriptionColumn()),
@@ -181,6 +182,7 @@ KeyElement::KeyElement(const KeyElement &other)
         m_indexStart(other.m_indexStart),
         m_indexCount(other.m_indexCount),
         m_symbolColumn(other.m_symbolColumn),
+        m_symbolColumnColor(other.m_symbolColumnColor),
         m_flossNameColumn(other.m_flossNameColumn),
         m_strandsColumn(other.m_strandsColumn),
         m_flossDescriptionColumn(other.m_flossDescriptionColumn),
@@ -262,9 +264,15 @@ int KeyElement::indexCount() const
 }
 
 
-bool KeyElement::symbolColoumn() const
+bool KeyElement::symbolColumn() const
 {
     return m_symbolColumn;
+}
+
+
+bool KeyElement::symbolColumnColor() const
+{
+    return m_symbolColumnColor;
 }
 
 
@@ -371,9 +379,15 @@ void KeyElement::setIndexCount(int indexCount)
 }
 
 
-void KeyElement::setSymbolColoumn(bool symbolColoumn)
+void KeyElement::setSymbolColumn(bool symbolColumn)
 {
-    m_symbolColumn = symbolColoumn;
+    m_symbolColumn = symbolColumn;
+}
+
+
+void KeyElement::setSymbolColumnColor(bool symbolColumnColor)
+{
+    m_symbolColumnColor = symbolColumnColor;
 }
 
 
@@ -579,8 +593,17 @@ void KeyElement::render(Document *document, QPainter *painter) const
                 painter->setViewport(deviceTextArea.left() + symbolWidth / 3, deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
                 painter->setViewport(deviceTextArea.left(), deviceTextArea.top() + y - (lineSpacing - 2 - ((lineSpacing - ascent) / 2)), lineSpacing - 2, lineSpacing - 2);
                 painter->setWindow(0, 0, 1, 1);
-                painter->setBrush(symbol.brush());
-                painter->setPen(symbol.pen());
+
+                QBrush brush = symbol.brush();
+                QPen pen = symbol.pen();
+
+                if (m_symbolColumnColor) {
+                    brush.setColor(flosses[index]->flossColor());
+                    pen.setColor(flosses[index]->flossColor());
+                }
+
+                painter->setBrush(brush);
+                painter->setPen(pen);
                 painter->drawPath(symbol.path());
                 painter->resetTransform();
             }
@@ -644,6 +667,7 @@ QDataStream &KeyElement::streamOut(QDataStream &stream) const
             << qint32(m_indexStart)
             << qint32(m_indexCount)
             << qint32(m_symbolColumn)
+            << qint32(m_symbolColumnColor)
             << qint32(m_flossNameColumn)
             << qint32(m_strandsColumn)
             << qint32(m_flossDescriptionColumn)
@@ -671,6 +695,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
     qint32 indexStart;
     qint32 indexCount;
     qint32 symbolColumn;
+    qint32 symbolColumnColor;
     qint32 flossNameColumn;
     qint32 strandsColumn;
     qint32 flossDescriptionColumn;
@@ -683,6 +708,46 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
     stream >> version;
 
     switch (version) {
+    case 103:
+        stream  >> showBorder
+                >> m_borderColor
+                >> borderThickness
+                >> fillBackground
+                >> m_backgroundColor
+                >> backgroundTransparency
+                >> left
+                >> top
+                >> right
+                >> bottom
+                >> m_textColor
+                >> m_textFont
+                >> indexStart
+                >> indexCount
+                >> symbolColumn
+                >> symbolColumnColor
+                >> flossNameColumn
+                >> strandsColumn
+                >> flossDescriptionColumn
+                >> stitchesColumn
+                >> lengthColumn
+                >> skeinsColumn;
+        m_showBorder = (bool)showBorder;
+        m_borderThickness = borderThickness;
+        m_fillBackground = (bool)fillBackground;
+        m_backgroundTransparency = backgroundTransparency;
+        m_margins = QMargins(left, top, right, bottom);
+        m_indexStart = indexStart;
+        m_indexCount = (indexCount == -1) ? 0 : indexCount;
+        m_symbolColumn = bool(symbolColumn);
+        m_symbolColumnColor = bool(symbolColumnColor);
+        m_flossNameColumn = bool(flossNameColumn);
+        m_strandsColumn = bool(strandsColumn);
+        m_flossDescriptionColumn = bool(flossDescriptionColumn);
+        m_stitchesColumn = bool(stitchesColumn);
+        m_lengthColumn = bool(lengthColumn);
+        m_skeinsColumn = bool(skeinsColumn);
+        break;
+
     case 102:
         stream  >> showBorder
                 >> m_borderColor
@@ -713,6 +778,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_indexStart = indexStart;
         m_indexCount = (indexCount == -1) ? 0 : indexCount;
         m_symbolColumn = bool(symbolColumn);
+        m_symbolColumnColor = false;
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
         m_flossDescriptionColumn = bool(flossDescriptionColumn);
@@ -749,6 +815,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_indexStart = 0;
         m_indexCount = 0;
         m_symbolColumn = bool(symbolColumn);
+        m_symbolColumnColor = false;
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
         m_flossDescriptionColumn = bool(flossDescriptionColumn);
@@ -787,6 +854,7 @@ QDataStream &KeyElement::streamIn(QDataStream &stream)
         m_indexStart = 0;
         m_indexCount = 0;
         m_symbolColumn = bool(symbolColumn);
+        m_symbolColumnColor = false;
         m_flossNameColumn = bool(flossNameColumn);
         m_strandsColumn = bool(strandsColumn);
         m_flossDescriptionColumn = bool(flossDescriptionColumn);

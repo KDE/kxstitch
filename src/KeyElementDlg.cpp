@@ -40,6 +40,7 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.IndexStart->setValue(keyElement->m_indexStart);
     ui.IndexCount->setValue(keyElement->m_indexCount);
     ui.SymbolColumn->setChecked(keyElement->m_symbolColumn);
+    ui.SymbolColumnColor->setChecked(keyElement->m_symbolColumnColor);
     ui.FlossNameColumn->setChecked(keyElement->m_flossNameColumn);
     ui.StrandsColumn->setChecked(m_keyElement->m_strandsColumn);
     ui.FlossDescriptionColumn->setChecked(m_keyElement->m_flossDescriptionColumn);
@@ -67,6 +68,7 @@ void KeyElementDlg::on_DialogButtonBox_accepted()
     m_keyElement->m_indexStart = ui.IndexStart->value();
     m_keyElement->m_indexCount = ui.IndexCount->value();
     m_keyElement->m_symbolColumn = ui.SymbolColumn->isChecked();
+    m_keyElement->m_symbolColumnColor = ui.SymbolColumnColor->isChecked();
     m_keyElement->m_flossNameColumn = ui.FlossNameColumn->isChecked();
     m_keyElement->m_strandsColumn = ui.StrandsColumn->isChecked();
     m_keyElement->m_flossDescriptionColumn = ui.FlossDescriptionColumn->isChecked();

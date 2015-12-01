@@ -80,7 +80,8 @@ public:
     QFont textFont() const;
     int indexStart() const;
     int indexCount() const;
-    bool symbolColoumn() const;
+    bool symbolColumn() const;
+    bool symbolColumnColor() const;
     bool flossNameColumn() const;
     bool strandsColumn() const;
     bool flossDescriptionColumn() const;
@@ -99,7 +100,8 @@ public:
     void setTextFont(const QFont &);
     void setIndexStart(int);
     void setIndexCount(int);
-    void setSymbolColoumn(bool);
+    void setSymbolColumn(bool);
+    void setSymbolColumnColor(bool);
     void setFlossNameColumn(bool);
     void setStrandsColumn(bool);
     void setFlossDescriptionColumn(bool);
@@ -117,7 +119,7 @@ protected:
     virtual QDataStream &streamIn(QDataStream &);
 
 private:
-    static const int version = 102; // added m_indexStart and m_indexCount
+    static const int version = 103; // added m_symbolColumnColor
 
     bool        m_showBorder;
     QColor      m_borderColor;
@@ -131,6 +133,7 @@ private:
     int         m_indexStart;
     int         m_indexCount;
     bool        m_symbolColumn;
+    bool        m_symbolColumnColor;
     bool        m_flossNameColumn;
     bool        m_strandsColumn;
     bool        m_flossDescriptionColumn;
