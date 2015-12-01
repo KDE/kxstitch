@@ -479,6 +479,8 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
         Symbol symbol = d->m_symbolLibrary->symbol(floss->stitchSymbol());
 
         QPen outlinePen(Qt::lightGray);
+        outlinePen.setWidthF(0.01);
+
         QPen symbolPen = symbol.pen();
         QBrush symbolBrush = symbol.brush();
 
