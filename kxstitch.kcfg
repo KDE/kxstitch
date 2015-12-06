@@ -110,6 +110,10 @@
             <label>Render the french knots</label>
             <default>true</default>
         </entry>
+        <entry name="Renderer_RenderStitchHints" type="Bool">
+            <label>Render stitch hints for colored blocks</label>
+            <default>true</default>
+        </entry>
         <entry name="Renderer_RenderStitchesAs" type="Enum">
             <label>How to display stitches.</label>
             <default>Stitches</default>

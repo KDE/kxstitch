@@ -27,6 +27,7 @@ class Document;
 class Knot;
 class Pattern;
 class RendererData;
+class Stitch;
 class StitchQueue;
 
 
@@ -70,6 +71,7 @@ private:
     void renderStitchesAsColorSymbols(StitchQueue *);
     void renderStitchesAsColorBlocks(StitchQueue *);
     void renderStitchesAsColorBlocksSymbols(StitchQueue *);
+    void renderStitchHints(Stitch *);
 
     void renderBackstitchesAsColorLines(Backstitch *);
     void renderBackstitchesAsBlackWhiteSymbols(Backstitch *);

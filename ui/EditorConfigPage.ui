@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>388</width>
-    <height>361</height>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="EditorTabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="EditorGridTab">
       <attribute name="title">
@@ -181,14 +181,14 @@
        </item>
        <item row="9" column="1">
         <widget class="QDoubleSpinBox" name="kcfg_Editor_MinimumZoomFactor">
-         <property name="value">
-          <double>0.500000000000000</double>
-         </property>
          <property name="minimum">
           <double>0.500000000000000</double>
          </property>
          <property name="maximum">
           <double>10.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.500000000000000</double>
          </property>
         </widget>
        </item>
@@ -201,14 +201,14 @@
        </item>
        <item row="10" column="1">
         <widget class="QDoubleSpinBox" name="kcfg_Editor_MaximumZoomFactor">
-         <property name="value">
-          <double>3.000000000000000</double>
-         </property>
          <property name="minimum">
           <double>0.500000000000000</double>
          </property>
          <property name="maximum">
           <double>25.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>3.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -221,14 +221,14 @@
        </item>
        <item row="11" column="1">
         <widget class="QDoubleSpinBox" name="kcfg_Editor_DefaultZoomFactor">
-         <property name="value">
-          <double>2.000000000000000</double>
-         </property>
          <property name="minimum">
           <double>0.500000000000000</double>
          </property>
          <property name="maximum">
           <double>10.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>2.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -257,6 +257,13 @@
         <widget class="QCheckBox" name="kcfg_Renderer_RenderStitches">
          <property name="text">
           <string>Show stitches</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="kcfg_Renderer_RenderStitchHints">
+         <property name="text">
+          <string>Show stitch hints</string>
          </property>
         </widget>
        </item>
@@ -439,14 +446,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KColorButton</class>
-   <extends>QPushButton</extends>
-   <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
