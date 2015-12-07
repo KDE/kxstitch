@@ -75,7 +75,7 @@ StitchData::~StitchData()
 void StitchData::clear()
 {
     qDeleteAll(m_stitches);
-    m_stitches.fill(0);
+    m_stitches.fill(nullptr);
 
     qDeleteAll(m_backstitches);
     m_backstitches.clear();
@@ -651,7 +651,7 @@ void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorI
     int i = index(position);
     StitchQueue *stitchQueue = m_stitches.at(i);
 
-    if (stitchQueue == 0) {
+    if (stitchQueue == nullptr) {
         stitchQueue = new StitchQueue;
         m_stitches[i] = stitchQueue;
     }
@@ -663,7 +663,7 @@ void StitchData::addStitch(const QPoint &position, Stitch::Type type, int colorI
 Stitch *StitchData::findStitch(const QPoint &cell, Stitch::Type type, int colorIndex)
 {
     StitchQueue *stitchQueue = stitchQueueAt(cell);
-    Stitch *found = 0;
+    Stitch *found = nullptr;
 
     if (stitchQueue) {
         if (Stitch *stitch = stitchQueue->find(type, colorIndex)) {
@@ -682,7 +682,7 @@ void StitchData::deleteStitch(const QPoint &position, Stitch::Type type, int col
 
     if (stitchQueue) {
         if (stitchQueue->remove(type, colorIndex) == 0) {
-            m_stitches[i] = 0;
+            m_stitches[i] = nullptr;
             delete stitchQueue;
         }
     }
@@ -691,7 +691,7 @@ void StitchData::deleteStitch(const QPoint &position, Stitch::Type type, int col
 
 StitchQueue *StitchData::stitchQueueAt(int x, int y)
 {
-    StitchQueue *stitchQueue = 0;
+    StitchQueue *stitchQueue = nullptr;
 
     if (isValid(x, y)) {
         stitchQueue = m_stitches.at(index(x, y));
@@ -712,7 +712,7 @@ StitchQueue *StitchData::takeStitchQueueAt(int x, int y)
     StitchQueue *stitchQueue = stitchQueueAt(x, y);
 
     if (stitchQueue) {
-        m_stitches[index(x, y)] = 0;
+        m_stitches[index(x, y)] = nullptr;
     }
 
     return stitchQueue;
@@ -757,7 +757,7 @@ void StitchData::addBackstitch(Backstitch *backstitch)
 
 Backstitch *StitchData::findBackstitch(const QPoint &start, const QPoint &end, int colorIndex)
 {
-    Backstitch *found = 0;
+    Backstitch *found = nullptr;
 
     foreach (Backstitch *backstitch, m_backstitches) {
         if (backstitch->contains(start) && backstitch->contains(end) && ((colorIndex == -1) || backstitch->colorIndex == colorIndex)) {
@@ -781,7 +781,7 @@ Backstitch *StitchData::takeBackstitch(const QPoint &start, const QPoint &end, i
 
 Backstitch *StitchData::takeBackstitch(Backstitch *backstitch)
 {
-    Backstitch *removed = 0;
+    Backstitch *removed = nullptr;
 
     if (m_backstitches.removeOne(backstitch)) {
         removed = backstitch;
@@ -805,7 +805,7 @@ void StitchData::addFrenchKnot(Knot *knot)
 
 Knot *StitchData::findKnot(const QPoint &position, int colorIndex)
 {
-    Knot *found = 0;
+    Knot *found = nullptr;
 
     foreach (Knot *knot, m_knots) {
         if ((knot->position == position) && ((colorIndex == -1) || (knot->colorIndex == colorIndex))) {
@@ -832,7 +832,7 @@ Knot *StitchData::takeFrenchKnot(const QPoint &position, int colorIndex)
 
 Knot *StitchData::takeFrenchKnot(Knot *knot)
 {
-    Knot *removed = 0;
+    Knot *removed = nullptr;
 
     if (m_knots.removeOne(knot)) {
         removed = knot;

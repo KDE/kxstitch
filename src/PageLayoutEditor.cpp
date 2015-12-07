@@ -35,18 +35,18 @@
 PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
     :   QWidget(parent),
         m_document(document),
-        m_pagePreview(0),
-        m_elementUnderCursor(0),
+        m_pagePreview(nullptr),
+        m_elementUnderCursor(nullptr),
         m_selecting(false),
         m_resizing(false),
         m_moved(false),
-        m_node(0),
+        m_node(nullptr),
         m_showGrid(Configuration::page_ShowGrid()),
         m_gridSize(Configuration::page_GridSize()),
         m_zoomFactor(1.0)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
-    setPagePreview(0);
+    setPagePreview(nullptr);
     setMouseTracking(true);
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequestedOn(QPoint)));
@@ -79,7 +79,7 @@ bool PageLayoutEditor::showGrid() const
 void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
 {
     if ((m_pagePreview = pagePreview)) {
-        m_boundary.setElement(0);
+        m_boundary.setElement(nullptr);
         show();
         updatePagePreview();
     } else {
@@ -132,7 +132,7 @@ void PageLayoutEditor::setSelecting(bool selecting)
     m_selecting = selecting;
 
     if (!selecting) {
-        m_boundary.setElement(0);
+        m_boundary.setElement(nullptr);
     }
 }
 
@@ -255,7 +255,7 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
         if (m_pagePreview->page()->elements().contains(m_boundary.element())) {
             m_boundary.render(&painter);
         } else {
-            m_boundary.setElement(0);
+            m_boundary.setElement(nullptr);
         }
     }
 
@@ -272,7 +272,7 @@ void PageLayoutEditor::contextMenuRequestedOn(const QPoint &pos)
             m_boundary.setElement(element);
         }
     } else {
-        m_boundary.setElement(0);
+        m_boundary.setElement(nullptr);
     }
 
     update();

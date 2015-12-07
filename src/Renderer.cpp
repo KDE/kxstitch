@@ -99,10 +99,10 @@ RendererData::RendererData()
         m_renderStitchesAs(Configuration::renderer_RenderStitchesAs()),
         m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs()),
         m_renderKnotsAs(Configuration::renderer_RenderKnotsAs()),
-        m_painter(0),
-        m_document(0),
-        m_pattern(0),
-        m_symbolLibrary(0)
+        m_painter(nullptr),
+        m_document(nullptr),
+        m_pattern(nullptr),
+        m_symbolLibrary(nullptr)
 {
     m_topLeft = QPointF(0.0, 0.0);
     m_topRight = QPointF(1.0, 0.0);

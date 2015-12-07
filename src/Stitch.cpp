@@ -219,7 +219,7 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
 Stitch *StitchQueue::find(Stitch::Type type, int colorIndex)
 {
     int stitchCount = count();
-    Stitch *found = 0;
+    Stitch *found = nullptr;
 
     for (int i = 0 ; i < stitchCount ; ++i) {
         Stitch *stitch = at(i);

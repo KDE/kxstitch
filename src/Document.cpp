@@ -29,10 +29,10 @@
 
 
 Document::Document()
-    :   m_editor(0),
-        m_palette(0),
-        m_preview(0),
-        m_pattern(0)
+    :   m_editor(nullptr),
+        m_palette(nullptr),
+        m_preview(nullptr),
+        m_pattern(nullptr)
 {
     initialiseNew();
 }
@@ -56,7 +56,7 @@ void Document::initialiseNew()
 
     QString scheme = Configuration::palette_DefaultScheme();
 
-    if (SchemeManager::scheme(scheme) == 0) {
+    if (SchemeManager::scheme(scheme) == nullptr) {
         scheme = SchemeManager::schemes().at(scheme.toInt());
     }
 
@@ -489,7 +489,7 @@ void Document::readPCStitch5File(QDataStream &stream)
         m_pattern->palette().setSchemeName("DMC");      // assume this palette will be DMC
         FlossScheme *scheme = SchemeManager::scheme("DMC");
 
-        if (scheme == 0) {
+        if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
         }
 
@@ -523,7 +523,7 @@ void Document::readPCStitch5File(QDataStream &stream)
 
             Floss *floss = scheme->find(colorName);
 
-            if (floss == 0) {
+            if (floss == nullptr) {
                 floss = scheme->convert(color);
             }
 
@@ -768,7 +768,7 @@ void Document::readPCStitch6File(QDataStream &stream)
         m_pattern->palette().setSchemeName("DMC");
         FlossScheme *scheme = SchemeManager::scheme("DMC");
 
-        if (scheme == 0) {
+        if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
         }
 
@@ -804,7 +804,7 @@ void Document::readPCStitch6File(QDataStream &stream)
 
             Floss *floss = scheme->find(colorName);
 
-            if (floss == 0) {
+            if (floss == nullptr) {
                 floss = scheme->convert(color);     // the name wasn't found so look for a similar color in DMC
             }
 
@@ -1066,7 +1066,7 @@ void Document::readPCStitch7File(QDataStream &stream)
         m_pattern->palette().setSchemeName("DMC");
         FlossScheme *scheme = SchemeManager::scheme("DMC");
 
-        if (scheme == 0) {
+        if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
         }
 
@@ -1104,7 +1104,7 @@ void Document::readPCStitch7File(QDataStream &stream)
 
             Floss *floss = scheme->find(colorName);
 
-            if (floss == 0) {
+            if (floss == nullptr) {
                 floss = scheme->convert(color);     // the name wasn't found so look for a similar color in DMC
             }
 
@@ -1325,7 +1325,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -1347,7 +1347,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
@@ -1492,7 +1492,7 @@ void Document::readKXStitchV3File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -1513,7 +1513,7 @@ void Document::readKXStitchV3File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
@@ -1663,7 +1663,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -1684,7 +1684,7 @@ void Document::readKXStitchV4File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
@@ -1869,7 +1869,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -1890,7 +1890,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
@@ -2075,7 +2075,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -2100,7 +2100,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
@@ -2278,7 +2278,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
 
-    if (flossScheme == 0) {
+    if (flossScheme == nullptr) {
         throw FailedReadFile(QString(i18n("The floss scheme %1 was not found", schemeName)));
     }
 
@@ -2303,7 +2303,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
 
         Floss *floss = flossScheme->find(flossName);
 
-        if (floss == 0) {
+        if (floss == nullptr) {
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 

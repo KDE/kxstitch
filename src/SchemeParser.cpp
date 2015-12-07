@@ -58,7 +58,7 @@ const char *errorMessages[] = {
     */
 SchemeParser::SchemeParser()
     :   m_errorCode(0),
-        m_scheme(0)
+        m_scheme(nullptr)
 {
 }
 

@@ -26,7 +26,7 @@ class EditorConfigPage : public QWidget, public Ui::EditorConfigPage
     Q_OBJECT
 
 public:
-    explicit EditorConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit EditorConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 };
 
 
@@ -35,7 +35,7 @@ class PatternConfigPage : public QWidget, public Ui::PatternConfigPage
     Q_OBJECT
 
 public:
-    explicit PatternConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit PatternConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 
 protected slots:
     void on_kcfg_Editor_ClothCountUnits_activated(int);
@@ -56,7 +56,7 @@ class PaletteConfigPage : public QWidget, public Ui::PaletteConfigPage
     Q_OBJECT
 
 public:
-    explicit PaletteConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit PaletteConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 
 public slots:
     void defaultClicked();
@@ -68,7 +68,7 @@ class ImportConfigPage : public QWidget, public Ui::ImportConfigPage
     Q_OBJECT
 
 public:
-    explicit ImportConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit ImportConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 };
 
 
@@ -77,7 +77,7 @@ class LibraryConfigPage : public QWidget, public Ui::LibraryConfigPage
     Q_OBJECT
 
 public:
-    explicit LibraryConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit LibraryConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 };
 
 
@@ -86,7 +86,7 @@ class PrinterConfigPage : public QWidget, public Ui::PrinterConfigPage
     Q_OBJECT
 
 public:
-    explicit PrinterConfigPage(QWidget *parent = 0, const char *name = 0);
+    explicit PrinterConfigPage(QWidget *parent = nullptr, const char *name = nullptr);
 };
 
 

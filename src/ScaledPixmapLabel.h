@@ -22,7 +22,7 @@ class ScaledPixmapLabel : public QLabel
     Q_OBJECT
 
 public:
-    explicit ScaledPixmapLabel(QWidget *parent = 0);
+    explicit ScaledPixmapLabel(QWidget *parent = nullptr);
 
     virtual int heightForWidth(int width) const;
     virtual QSize sizeHint() const;

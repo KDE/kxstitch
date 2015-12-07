@@ -48,7 +48,7 @@
  */
 SymbolListWidget::SymbolListWidget(QWidget *parent)
     :   QListWidget(parent),
-        m_library(0),
+        m_library(nullptr),
         m_lastIndex(0)
 {
     setResizeMode(QListView::Adjust);

@@ -69,7 +69,7 @@ bool LibraryManagerDlg::event(QEvent *event)
         if (ui.LibraryTree->topLevelItemCount() == 0) {
             tip = i18n("The Library Manager can be used to store\nreusable patterns for insertion into\nnew patterns.\n\nThere are no library categories defined.\nClick the Help button for information on creating\nand populating libraries.");
         } else {
-            if (ui.LibraryTree->currentItem() == 0) {
+            if (ui.LibraryTree->currentItem() == nullptr) {
                 tip = i18n("Select a library to show the associated patterns.");
             } else if (ui.LibraryIcons->count() == 0) {
                 tip = i18n("There are no patterns defined\nfor this library.\n\nClick the Help button for information\non creating and populating libraries.");
@@ -246,7 +246,7 @@ void LibraryManagerDlg::pasteFromClipboard()
     QDataStream stream(&data, QIODevice::ReadOnly);
     stream >> *pattern;
     item->addPattern(new LibraryPattern(pattern));
-    on_LibraryTree_currentItemChanged(static_cast<QTreeWidgetItem *>(item), 0);
+    on_LibraryTree_currentItemChanged(static_cast<QTreeWidgetItem *>(item), nullptr);
 }
 
 
@@ -283,7 +283,7 @@ void LibraryManagerDlg::copyToClipboard()
 
 void LibraryManagerDlg::deletePattern()
 {
-    if (KMessageBox::warningYesNo(0, i18n("Delete this pattern.")) == KMessageBox::Yes) {
+    if (KMessageBox::warningYesNo(nullptr, i18n("Delete this pattern.")) == KMessageBox::Yes) {
         static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem())->deletePattern(m_contextListItem->libraryPattern());
         delete m_contextListItem;
     }
@@ -297,7 +297,7 @@ void LibraryManagerDlg::refreshLibraries()
     QStringListIterator libraryDirectoriesIterator(libraryDirectories);
 
     while (libraryDirectoriesIterator.hasNext()) {
-        recurseLibraryDirectory(0, libraryDirectoriesIterator.next());
+        recurseLibraryDirectory(nullptr, libraryDirectoriesIterator.next());
     }
 }
 
@@ -313,7 +313,7 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
 
         if (fileInfo.isDir()) {
             if (fileInfo.fileName() != "." && fileInfo.fileName() != "..") {
-                LibraryTreeWidgetItem *libraryTreeWidgetItem = 0;
+                LibraryTreeWidgetItem *libraryTreeWidgetItem = nullptr;
                 QString subPath = QString("%1/%2").arg(path).arg(fileInfo.fileName());
 
                 if (parent) {
@@ -326,7 +326,7 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
                         if (libraryTreeWidgetItem->text(0) == fileInfo.fileName()) {
                             break;
                         } else {
-                            libraryTreeWidgetItem = 0;
+                            libraryTreeWidgetItem = nullptr;
                         }
 
                         childIndex++;
@@ -339,7 +339,7 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
                     }
                 }
 
-                if (libraryTreeWidgetItem == 0) {
+                if (libraryTreeWidgetItem == nullptr) {
                     if (parent) {
                         libraryTreeWidgetItem = new LibraryTreeWidgetItem(parent, fileInfo.fileName());
                     } else {

@@ -97,8 +97,8 @@ void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent *)
         scrollToItem(m_currentItem);
     }
 
-    m_currentItem = 0;
-    m_dropItem = 0;
+    m_currentItem = nullptr;
+    m_dropItem = nullptr;
 }
 
 

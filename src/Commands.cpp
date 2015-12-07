@@ -348,7 +348,7 @@ AddStitchCommand::AddStitchCommand(Document *document, const QPoint &location, S
         m_cell(location),
         m_type(type),
         m_colorIndex(colorIndex),
-        m_original(0)
+        m_original(nullptr)
 {
 }
 
@@ -377,7 +377,7 @@ void AddStitchCommand::undo()
 
     if (m_original) {
         m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
-        m_original = 0;
+        m_original = nullptr;
     }
 }
 
@@ -388,7 +388,7 @@ DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell,
         m_cell(cell),
         m_type(type),
         m_colorIndex(colorIndex),
-        m_original(0)
+        m_original(nullptr)
 {
 }
 
@@ -414,7 +414,7 @@ void DeleteStitchCommand::undo()
 {
     if (m_original) {
         delete m_document->pattern()->stitches().replaceStitchQueueAt(m_cell, m_original);
-        m_original = 0;
+        m_original = nullptr;
     }
 }
 
@@ -456,7 +456,7 @@ DeleteBackstitchCommand::DeleteBackstitchCommand(Document *document, const QPoin
         m_start(start),
         m_end(end),
         m_colorIndex(colorIndex),
-        m_backstitch(0)
+        m_backstitch(nullptr)
 {
 }
 
@@ -478,7 +478,7 @@ void DeleteBackstitchCommand::redo()
 void DeleteBackstitchCommand::undo()
 {
     m_document->pattern()->stitches().addBackstitch(m_backstitch);
-    m_backstitch = 0;
+    m_backstitch = nullptr;
     m_document->editor()->drawContents();
     m_document->preview()->drawContents();
 }
@@ -515,7 +515,7 @@ DeleteKnotCommand::DeleteKnotCommand(Document *document, const QPoint &snap, int
         m_document(document),
         m_snap(snap),
         m_colorIndex(colorIndex),
-        m_knot(0)
+        m_knot(nullptr)
 {
 }
 
@@ -535,7 +535,7 @@ void DeleteKnotCommand::redo()
 void DeleteKnotCommand::undo()
 {
     m_document->pattern()->stitches().addFrenchKnot(m_knot);
-    m_knot = 0;
+    m_knot = nullptr;
 }
 
 
@@ -1397,7 +1397,7 @@ EditCutCommand::EditCutCommand(Document *document, const QRect &selectionArea, i
         m_stitchMasks(stitchMasks),
         m_excludeBackstitches(excludeBackstitches),
         m_excludeKnots(excludeKnots),
-        m_originalPattern(0)
+        m_originalPattern(nullptr)
 {
 }
 
@@ -1430,7 +1430,7 @@ void EditCutCommand::undo()
 {
     m_document->pattern()->paste(m_originalPattern, m_selectionArea.topLeft(), true);
     delete m_originalPattern;
-    m_originalPattern = 0;
+    m_originalPattern = nullptr;
 
     m_document->editor()->drawContents();
     m_document->preview()->drawContents();
@@ -1612,7 +1612,7 @@ void AlphabetCommand::push(QUndoCommand *child)
 QUndoCommand *AlphabetCommand::pop()
 {
     if (m_children.isEmpty()) {
-        return 0;
+        return nullptr;
     }
 
     m_children.last()->undo();

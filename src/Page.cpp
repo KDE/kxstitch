@@ -149,7 +149,7 @@ void Page::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    if (painter->device()->paintEngine() == Q_NULLPTR) {
+    if (painter->device()->paintEngine() == nullptr) {
         painter->setPen(QPen(Qt::red, 0.05));
         painter->drawRect(painter->window().marginsRemoved(m_margins));
     }
@@ -167,7 +167,7 @@ void Page::render(Document *document, QPainter *painter) const
 
 Element *Page::itemAt(const QPoint &pos) const
 {
-    Element *element = 0;
+    Element *element = nullptr;
 
     if (m_elements.count()) {
         QListIterator<Element *> elementIterator(m_elements);
@@ -320,7 +320,7 @@ void Page::readElements(QDataStream &stream)
             break;
 
         case Element::Plan:
-            element = 0; // handled by the PatternElement
+            element = nullptr; // handled by the PatternElement
             break;
 
         case Element::Key:

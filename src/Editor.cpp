@@ -295,7 +295,7 @@ void Editor::drawContents(const QPoint &cell)
 
 void Editor::drawContents(const QRect &cells)
 {
-    if (!updatesEnabled() || (m_document == 0) || m_cachedContents.isNull()) {
+    if (!updatesEnabled() || (m_document == nullptr) || m_cachedContents.isNull()) {
         return;
     }
 
@@ -326,7 +326,7 @@ void Editor::drawContents(const QRect &cells)
 
 void Editor::libraryManager()
 {
-    if (m_libraryManagerDlg == 0) {
+    if (m_libraryManagerDlg == nullptr) {
         m_libraryManagerDlg = new LibraryManagerDlg(this);
         m_libraryManagerDlg->setCellSize(m_cellWidth, m_cellHeight);
     }
@@ -802,7 +802,7 @@ void Editor::dropEvent(QDropEvent *e)
     QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
     stream >> *m_pastePattern;
     m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), e->keyboardModifiers() & Qt::ShiftModifier, i18n("Drag")));
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
     m_pasteData.clear();
     e->accept();
 }
@@ -857,7 +857,7 @@ void Editor::keyPressText(QKeyEvent *e)
     case Qt::Key_Return:
     case Qt::Key_Enter:
         m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
-        m_pastePattern = 0;
+        m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
         selectTool(m_oldToolMode);
@@ -881,7 +881,7 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
 
     int width = m_document->pattern()->stitches().width();
     int height = m_document->pattern()->stitches().height();
-    LibraryPattern *libraryPattern = 0;
+    LibraryPattern *libraryPattern = nullptr;
 
     if (m_libraryManagerDlg->currentLibrary()) {
 
@@ -983,7 +983,7 @@ void Editor::keyPressPaste(QKeyEvent *e)
     case Qt::Key_Return:
     case Qt::Key_Enter:
         m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
-        m_pastePattern = 0;
+        m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
         selectTool(m_oldToolMode);
@@ -1002,7 +1002,7 @@ void Editor::keyPressMirror(QKeyEvent *e)
     case Qt::Key_Return:
     case Qt::Key_Enter:
         m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
-        m_pastePattern = 0;
+        m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
         selectTool(m_oldToolMode);
@@ -1021,7 +1021,7 @@ void Editor::keyPressRotate(QKeyEvent *e)
     case Qt::Key_Return:
     case Qt::Key_Enter:
         m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
-        m_pastePattern = 0;
+        m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
         selectTool(m_oldToolMode);
@@ -1129,7 +1129,7 @@ void Editor::toolInitText()
             pastePattern(ToolText);
         } else {
             delete m_pastePattern;
-            m_pastePattern = 0;
+            m_pastePattern = nullptr;
         }
     }
 }
@@ -1150,7 +1150,7 @@ void Editor::toolCleanupPolygon()
 
 void Editor::toolCleanupAlphabet()
 {
-    m_activeCommand = 0;
+    m_activeCommand = nullptr;
     m_cursorStack.clear();
     m_cursorCommands.clear();
 }
@@ -1171,7 +1171,7 @@ void Editor::toolCleanupSelect()
 void Editor::toolCleanupMirror()
 {
     delete m_pastePattern;
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
 
     if (!m_pasteData.isEmpty()) {
         m_document->pattern()->stitches().clear();
@@ -1187,7 +1187,7 @@ void Editor::toolCleanupMirror()
 void Editor::toolCleanupRotate()
 {
     delete m_pastePattern;
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
 
     if (!m_pasteData.isEmpty()) {
         m_document->pattern()->stitches().clear();
@@ -1550,7 +1550,7 @@ void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent_Paint(QMouseEvent*)
 {
-    m_activeCommand = 0;
+    m_activeCommand = nullptr;
     m_preview->drawContents();
 }
 
@@ -1983,7 +1983,7 @@ void Editor::mouseMoveEvent_Text(QMouseEvent *e)
 void Editor::mouseReleaseEvent_Text(QMouseEvent *e)
 {
     m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
@@ -2003,7 +2003,7 @@ void Editor::mouseMoveEvent_Alphabet(QMouseEvent*)
 
 void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
 {
-    if (m_activeCommand == 0) {
+    if (m_activeCommand == nullptr) {
         m_activeCommand = new AlphabetCommand(m_document);
         m_document->undoStack().push(m_activeCommand);
     } else if ((m_activeCommand->text() == i18n("Alphabet")) && static_cast<AlphabetCommand *>(m_activeCommand)->childCount()) {
@@ -2157,7 +2157,7 @@ void Editor::mouseReleaseEvent_Paste(QMouseEvent *e)
 {
     m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
     m_pasteData.clear();
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
@@ -2179,7 +2179,7 @@ void Editor::mouseReleaseEvent_Mirror(QMouseEvent *e)
 {
     m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
     m_pasteData.clear();
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
@@ -2200,7 +2200,7 @@ void Editor::mouseMoveEvent_Rotate(QMouseEvent *e)
 void Editor::mouseReleaseEvent_Rotate(QMouseEvent *e)
 {
     m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
-    m_pastePattern = 0;
+    m_pastePattern = nullptr;
     m_pasteData.clear();
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);

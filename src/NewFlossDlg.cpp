@@ -21,7 +21,7 @@
 NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
     :   QDialog(parent),
         m_flossScheme(flossScheme),
-        m_floss(0)
+        m_floss(nullptr)
 {
     setWindowTitle(i18n("New Floss"));
     ui.setupUi(this);

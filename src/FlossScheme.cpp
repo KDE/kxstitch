@@ -13,7 +13,7 @@
 
 
 FlossScheme::FlossScheme()
-    :   m_map(0)
+    :   m_map(nullptr)
 {
 }
 
@@ -57,7 +57,7 @@ Floss *FlossScheme::convert(const QColor &color)
         }
     }
 
-    return 0;  // return 0 as nothing found. It shouldn't happen though
+    return nullptr;  // return 0 as nothing found. It shouldn't happen though
 }
 
 
@@ -73,7 +73,7 @@ Floss *FlossScheme::find(const QString &name) const
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 
@@ -115,7 +115,7 @@ void FlossScheme::addFloss(Floss *floss)
 {
     m_flosses.append(floss);
     delete m_map;
-    m_map = 0;
+    m_map = nullptr;
 }
 
 
@@ -140,7 +140,7 @@ void FlossScheme::setPath(const QString &name)
 
 Magick::Image *FlossScheme::createImageMap()
 {
-    if (m_map == 0) {
+    if (m_map == nullptr) {
         char *pixels = new char[(m_flosses.size() + 1) * 4];
         char *pixel = pixels;
         QListIterator<Floss *> flossIterator(m_flosses);

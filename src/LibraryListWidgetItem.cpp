@@ -30,9 +30,9 @@ LibraryListWidgetItem::LibraryListWidgetItem(QListWidget *listWidget, LibraryPat
 
 void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
 {
-    static Renderer *renderer = 0;
+    static Renderer *renderer = nullptr;
 
-    if (renderer == 0) {
+    if (renderer == nullptr) {
         renderer = new Renderer();
         renderer->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
         renderer->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);

@@ -86,13 +86,13 @@ void PatternElementDlg::on_DialogButtonBox_accepted()
     m_patternElement->m_showScales = ui.ShowScales->isChecked();
 
     if (ui.ShowPlan->isChecked()) {
-        if (m_patternElement->m_planElement == 0) {
+        if (m_patternElement->m_planElement == nullptr) {
             m_patternElement->m_planElement = new PlanElement(m_patternElement->parent(), QRect(m_patternElement->rectangle().topLeft(), QSize(25, 25)));
         }
     } else {
         if (m_patternElement->m_planElement) {
             delete m_patternElement->m_planElement;
-            m_patternElement->m_planElement = 0;
+            m_patternElement->m_planElement = nullptr;
          }
     }
 

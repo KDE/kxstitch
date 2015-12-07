@@ -48,7 +48,7 @@ Element::Element(Page *parent, const QRect &rectangle, Element::Type type)
 
 
 Element::Element(const Element &other)
-    :   m_parent(0),                    // needs to be reparented by cloner
+    :   m_parent(nullptr),                    // needs to be reparented by cloner
         m_rectangle(other.m_rectangle),
         m_type(other.m_type)
 {
@@ -458,7 +458,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
     if (m_showBorder) {
         pen = QPen(m_borderColor);
         pen.setWidthF(double(m_borderThickness) / 10.0);
-    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+    } else if (painter->device()->paintEngine() == nullptr) {
         // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
         // There should be a better way to do this.
         pen = QPen(Qt::lightGray);
@@ -981,7 +981,7 @@ PatternElement::PatternElement(Page *parent, const QRect &rectangle, Element::Ty
         m_showStitches(true),
         m_showBackstitches(true),
         m_showKnots(true),
-        m_planElement(0)
+        m_planElement(nullptr)
 {
 }
 
@@ -1002,7 +1002,7 @@ PatternElement::PatternElement(const PatternElement &other)
         m_showStitches(other.m_showStitches),
         m_showBackstitches(other.m_showBackstitches),
         m_showKnots(other.m_showKnots),
-        m_planElement(0)
+        m_planElement(nullptr)
 {
     if (other.m_planElement) {
         m_planElement = new PlanElement(*other.m_planElement);
@@ -1452,7 +1452,7 @@ QDataStream &PatternElement::streamOut(QDataStream &stream) const
             << qint32(m_showStitches)
             << qint32(m_showBackstitches)
             << qint32(m_showKnots)
-            << qint32((m_planElement == 0) ? false : true);
+            << qint32((m_planElement == nullptr) ? false : true);
 
     if (m_planElement) {
         stream << *m_planElement;
@@ -1521,7 +1521,7 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             stream >> *m_planElement;
             m_planElement->setPatternRect(m_patternRect);
         } else {
-            m_planElement = 0;
+            m_planElement = nullptr;
         }
 
         break;
@@ -1556,7 +1556,7 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             stream >> *m_planElement;
             m_planElement->setPatternRect(m_patternRect);
         } else {
-            m_planElement = 0;
+            m_planElement = nullptr;
         }
 
         break;
@@ -1593,7 +1593,7 @@ QDataStream &PatternElement::streamIn(QDataStream &stream)
             stream >> *m_planElement;
             m_planElement->setPatternRect(m_patternRect);
         } else {
-            m_planElement = 0;
+            m_planElement = nullptr;
         }
 
         break;
@@ -1903,7 +1903,7 @@ void TextElement::render(Document *document, QPainter *painter) const
     if (m_showBorder) {
         pen = QPen(m_borderColor);
         pen.setWidthF(double(m_borderThickness) / 10.0);
-    } else if (painter->device()->paintEngine() == Q_NULLPTR) {
+    } else if (painter->device()->paintEngine() == nullptr) {
         // TODO This is a hack to avoid a crash in QWidget::paintEngine returning a null pointer
         // There should be a better way to do this.
         pen = QPen(Qt::lightGray);

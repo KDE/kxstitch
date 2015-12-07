@@ -22,7 +22,7 @@
 
 Preview::Preview(QWidget *parent)
     :   QWidget(parent),
-        m_document(0),
+        m_document(nullptr),
         m_zoomFactor(1.0)
 {
     setObjectName("Preview#");
@@ -114,7 +114,7 @@ void Preview::mouseReleaseEvent(QMouseEvent *)
 
 void Preview::drawContents()
 {
-    if ((m_document == 0) || (m_cachedContents.isNull())) {
+    if ((m_document == nullptr) || (m_cachedContents.isNull())) {
         return;
     }
 

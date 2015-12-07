@@ -42,7 +42,7 @@
 #include "SymbolLibrary.h"
 
 
-SymbolManager *SymbolManager::symbolManager = 0;
+SymbolManager *SymbolManager::symbolManager = nullptr;
 
 
 /**
@@ -50,7 +50,7 @@ SymbolManager *SymbolManager::symbolManager = 0;
  */
 SymbolManager &SymbolManager::self()
 {
-    if (symbolManager == 0) {
+    if (symbolManager == nullptr) {
         symbolManager = new SymbolManager();
     }
 
@@ -112,7 +112,7 @@ SymbolLibrary *SymbolManager::library(const QString &name)
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 
@@ -159,24 +159,24 @@ SymbolLibrary *SymbolManager::readLibrary(const QString &name)
             stream >> *symbolLibrary;
             symbolLibrary->setName(QFileInfo(name).baseName());
         } catch (const InvalidFile &e) {
-            KMessageBox::sorry(0, i18n("This does not appear to be a valid symbol file"));
+            KMessageBox::sorry(nullptr, i18n("This does not appear to be a valid symbol file"));
             delete symbolLibrary;
-            symbolLibrary = 0;
+            symbolLibrary = nullptr;
         } catch (const InvalidFileVersion &e) {
-            KMessageBox::sorry(0, e.version);
+            KMessageBox::sorry(nullptr, e.version);
             delete symbolLibrary;
-            symbolLibrary = 0;
+            symbolLibrary = nullptr;
         } catch (const FailedReadFile &e) {
-            KMessageBox::sorry(0, e.status);
+            KMessageBox::sorry(nullptr, e.status);
             delete symbolLibrary;
-            symbolLibrary = 0;
+            symbolLibrary = nullptr;
         }
 
         file.close();
     } else {
-        KMessageBox::sorry(0, i18n("Failed to open the file %1", name));
+        KMessageBox::sorry(nullptr, i18n("Failed to open the file %1", name));
         delete symbolLibrary;
-        symbolLibrary = 0;
+        symbolLibrary = nullptr;
     }
 
     return symbolLibrary;

@@ -52,7 +52,7 @@ SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibra
 
     SymbolLibrary *library = SymbolManager::library(symbolLibrary);
 
-    if (library == 0) {
+    if (library == nullptr) {
         library = SymbolManager::library("kxstitch");
     }
 

@@ -27,7 +27,7 @@
 
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
     :   QDialog(parent),
-        m_alphaSelect(0),
+        m_alphaSelect(nullptr),
         m_originalImage(originalImage)
 {
     ui.setupUi(this);
@@ -119,7 +119,7 @@ void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 {
     m_ignoreColor = checked;
     delete m_alphaSelect;
-    m_alphaSelect = 0;
+    m_alphaSelect = nullptr;
 }
 
 
@@ -296,7 +296,7 @@ void ImportImageDlg::pickColor()
         m_alphaSelect->show();
     } else {
         delete m_alphaSelect;
-        m_alphaSelect = 0;
+        m_alphaSelect = nullptr;
     }
 }
 
@@ -304,7 +304,7 @@ void ImportImageDlg::pickColor()
 void ImportImageDlg::selectColor(const QPoint &p)
 {
     delete m_alphaSelect;
-    m_alphaSelect = 0;
+    m_alphaSelect = nullptr;
     QPixmap swatch(ui.ColorButton->size());
     int x = p.x() - ((ui.ImagePreview->width() - m_pixmap.width()) / 2);
     int y = p.y() - ((ui.ImagePreview->height() - m_pixmap.height()) / 2);
@@ -365,7 +365,7 @@ void ImportImageDlg::resetImportParameters()
 
     QString scheme = Configuration::palette_DefaultScheme();
 
-    if (SchemeManager::scheme(scheme) == 0) {
+    if (SchemeManager::scheme(scheme) == nullptr) {
         scheme = SchemeManager::schemes().at(scheme.toInt());
     }
 

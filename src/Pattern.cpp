@@ -226,11 +226,11 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 
             if (!merge) {
                 delete dstQ;
-                dstQ = 0;
+                dstQ = nullptr;
             }
 
             if (srcQ) {
-                if (dstQ == 0) {
+                if (dstQ == nullptr) {
                     dstQ = new StitchQueue();
                 }
 

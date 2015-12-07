@@ -148,7 +148,7 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
         ui.InsertPage->setEnabled(true);
         ui.DeletePage->setEnabled(true);
     } else {
-        m_pageLayoutEditor->setPagePreview(0);
+        m_pageLayoutEditor->setPagePreview(nullptr);
         ui.InsertPage->setEnabled(false);
         ui.DeletePage->setEnabled(false);
     }
@@ -301,7 +301,7 @@ void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
         m_elementUnderCursor = pagePreview->page()->itemAt(m_pageLayoutEditor->unscale(pos));
         QMenu *contextMenu = new QMenu(this);
 
-        if (m_elementUnderCursor == 0 || m_elementUnderCursor->type() != Element::Plan) {
+        if (m_elementUnderCursor == nullptr || m_elementUnderCursor->type() != Element::Plan) {
             contextMenu->addAction(i18n("Properties"), this, SLOT(properties()));
 
             if (m_elementUnderCursor) {

@@ -28,14 +28,14 @@
 #include "SchemeParser.h"
 
 
-SchemeManager *SchemeManager::schemeManager = 0;
+SchemeManager *SchemeManager::schemeManager = nullptr;
 
 /**
     Accessor for the static object
     */
 SchemeManager &SchemeManager::self()
 {
-    if (schemeManager == 0) {
+    if (schemeManager == nullptr) {
         schemeManager = new SchemeManager();
     }
 
@@ -71,9 +71,9 @@ SchemeManager::~SchemeManager()
     */
 FlossScheme *SchemeManager::createScheme(QString schemeName)
 {
-    FlossScheme *flossScheme = 0;
+    FlossScheme *flossScheme = nullptr;
 
-    if (scheme(schemeName) == 0) {
+    if (scheme(schemeName) == nullptr) {
         if ((flossScheme = new FlossScheme)) {
             flossScheme->setSchemeName(schemeName);
             self().m_flossSchemes.append(flossScheme);
@@ -121,7 +121,7 @@ FlossScheme *SchemeManager::scheme(QString name)
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 
@@ -141,14 +141,14 @@ FlossScheme *SchemeManager::readScheme(QString name)
     bool success = reader.parse(source);
 
     if (!success) {
-        KMessageBox::error(0, i18n("Error reading scheme %1\n%2.", name, handler.errorString()), i18n("Error reading floss scheme."));
+        KMessageBox::error(nullptr, i18n("Error reading scheme %1\n%2.", name, handler.errorString()), i18n("Error reading floss scheme."));
     }
 
     FlossScheme *flossScheme = handler.flossScheme();
 
     if (!success) {
         delete flossScheme;
-        flossScheme = 0;
+        flossScheme = nullptr;
     } else {
         flossScheme->setPath(name);
     }
@@ -171,7 +171,7 @@ bool SchemeManager::writeScheme(QString name)
         QString writableDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation); // this may be empty or may not exist
 
         if (writableDir.isEmpty()) {
-            KMessageBox::sorry(0, i18n("Unable to locate a writable directory\nto store the scheme."));
+            KMessageBox::sorry(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
             return false;
             // TODO Allow user to select a location to store the calibrated schemes
         }
@@ -180,7 +180,7 @@ bool SchemeManager::writeScheme(QString name)
 
         if (!QDir(writableDir).exists()) {
             if (!QDir().mkpath(writableDir)) {
-                KMessageBox::sorry(0, i18n("Unable to locate a writable directory\nto store the scheme."));
+                KMessageBox::sorry(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
                 return false;
                 // TODO Allow user to select a location to store the calibrated schemes
             }
@@ -236,7 +236,7 @@ void SchemeManager::refresh()
                 for (int i = 0 ; i < m_flossSchemes.count() ; ++i) {
                     if (m_flossSchemes.at(i)->schemeName() == flossScheme->schemeName()) {
                         delete flossScheme;
-                        flossScheme = 0;
+                        flossScheme = nullptr;
                         break;
                     }
                 }

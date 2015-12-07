@@ -22,8 +22,8 @@
 CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
     :   QDialog(parent),
         m_schemeName(schemeName),
-        m_item(0),
-        m_sample(0)
+        m_item(nullptr),
+        m_sample(nullptr)
 {
     setWindowTitle(i18n("Calibrate Floss"));
     ui.setupUi(this);
@@ -47,7 +47,7 @@ void CalibrateFlossDlg::fillSchemeList()
 
 void CalibrateFlossDlg::fillColorList()
 {
-    m_item = 0;
+    m_item = nullptr;
     ui.ColorList->clear();
     m_schemeName = ui.SchemeList->currentText();
     FlossScheme *scheme = SchemeManager::scheme(m_schemeName);

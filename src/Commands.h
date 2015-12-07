@@ -297,7 +297,7 @@ private:
 class SetPropertyCommand : public QUndoCommand
 {
 public:
-    SetPropertyCommand(Document *, const QString &, const QVariant &, QUndoCommand *parent = 0);
+    SetPropertyCommand(Document *, const QString &, const QVariant &, QUndoCommand *parent = nullptr);
     ~SetPropertyCommand();
 
     virtual void redo();
@@ -378,7 +378,7 @@ private:
 class AddDocumentFlossCommand : public QUndoCommand
 {
 public:
-    AddDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = 0);
+    AddDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = nullptr);
     ~AddDocumentFlossCommand();
 
     virtual void redo();
@@ -394,7 +394,7 @@ private:
 class RemoveDocumentFlossCommand : public QUndoCommand
 {
 public:
-    RemoveDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = 0);
+    RemoveDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = nullptr);
     ~RemoveDocumentFlossCommand();
 
     virtual void redo();
@@ -440,7 +440,7 @@ private:
 class ResizeDocumentCommand : public QUndoCommand
 {
 public:
-    ResizeDocumentCommand(Document *, int, int, QUndoCommand *parent = 0);
+    ResizeDocumentCommand(Document *, int, int, QUndoCommand *parent = nullptr);
     ~ResizeDocumentCommand();
 
     void redo();
@@ -575,7 +575,7 @@ private:
 class ChangeSchemeCommand : public QUndoCommand
 {
 public:
-    ChangeSchemeCommand(Document *, const QString &, QUndoCommand *parent = 0);
+    ChangeSchemeCommand(Document *, const QString &, QUndoCommand *parent = nullptr);
     ~ChangeSchemeCommand();
 
     void redo();

@@ -82,7 +82,7 @@ LibraryPattern *LibraryFile::first()
         return m_libraryPatterns.at(m_current++);
     }
 
-    return 0;
+    return nullptr;
 }
 
 
@@ -92,7 +92,7 @@ LibraryPattern *LibraryFile::next()
         return m_libraryPatterns.at(m_current++);
     }
 
-    return 0;
+    return nullptr;
 }
 
 
@@ -156,7 +156,7 @@ void LibraryFile::readFile()
                         if (checksum == qChecksum(data.data(), data.size())) {
                             m_libraryPatterns.append(new LibraryPattern(data, key, replacedModifiers, baseline));
                         } else {
-                            KMessageBox::error(0, i18n("Failed to read a pattern from the library %1.\n%2", localFile(), file.errorString()), i18n("Failed to read library."));
+                            KMessageBox::error(nullptr, i18n("Failed to read a pattern from the library %1.\n%2", localFile(), file.errorString()), i18n("Failed to read library."));
                             ok = false;
                         }
 
@@ -190,7 +190,7 @@ void LibraryFile::readFile()
             file.close();
             m_read = true;
         } else {
-            KMessageBox::error(0, i18n("The file %1\ncould not be opened for reading.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
+            KMessageBox::error(nullptr, i18n("The file %1\ncould not be opened for reading.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
         }
     }
 }
@@ -215,7 +215,7 @@ void LibraryFile::writeFile()
         file.close();
         m_read = true;
     } else {
-        KMessageBox::error(0, i18n("The file %1\ncould not be opened for writing.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
+        KMessageBox::error(nullptr, i18n("The file %1\ncould not be opened for writing.\n%2", localFile(), file.errorString()), i18n("Error opening file"));
     }
 }
 

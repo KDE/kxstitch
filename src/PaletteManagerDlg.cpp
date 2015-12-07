@@ -37,7 +37,7 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
         m_dialogPalette(m_document->pattern()->palette()),
         m_flossUsage(document->pattern()->stitches().flossUsage()),
         m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName())),
-        m_symbolSelectorDlg(0)
+        m_symbolSelectorDlg(nullptr)
 {
     setWindowTitle(i18n("Palette Manager"));
     ui.setupUi(this);
@@ -187,7 +187,7 @@ void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
     int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
 
-    if (m_symbolSelectorDlg == 0) {
+    if (m_symbolSelectorDlg == nullptr) {
         m_symbolSelectorDlg = new SymbolSelectorDlg(this, m_dialogPalette.symbolLibrary());
     }
 

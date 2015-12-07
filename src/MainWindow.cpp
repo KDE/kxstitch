@@ -68,14 +68,14 @@
 
 
 MainWindow::MainWindow()
-    :   m_printer(0)
+    :   m_printer(nullptr)
 {
     setupActions();
 }
 
 
 MainWindow::MainWindow(const QUrl &url)
-    :   m_printer(0)
+    :   m_printer(nullptr)
 {
     setupMainWindow();
     setupLayout();
@@ -93,7 +93,7 @@ MainWindow::MainWindow(const QUrl &url)
 
 
 MainWindow::MainWindow(const QString &source)
-    :   m_printer(0)
+    :   m_printer(nullptr)
 {
     setupMainWindow();
     setupLayout();
@@ -320,12 +320,12 @@ void MainWindow::fileOpen(const QUrl &url)
                         try {
                             m_document->readPCStitch(stream);
                         } catch (const InvalidFile &e) {
-                            KMessageBox::sorry(0, i18n("The file does not appear to be a recognized cross stitch file."));
+                            KMessageBox::sorry(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
                         }
                     } catch (const InvalidFileVersion &e) {
-                        KMessageBox::sorry(0, i18n("This version of the file is not supported.\n%1", e.version));
+                        KMessageBox::sorry(nullptr, i18n("This version of the file is not supported.\n%1", e.version));
                     } catch (const FailedReadFile &e) {
-                        KMessageBox::error(0, i18n("Failed to read the file.\n%1.", e.status));
+                        KMessageBox::error(nullptr, i18n("Failed to read the file.\n%1.", e.status));
                         m_document->initialiseNew();
                     }
 
@@ -335,10 +335,10 @@ void MainWindow::fileOpen(const QUrl &url)
                     m_palette->update();
                     documentModified(true); // this is the clean value true
                 } else {
-                    KMessageBox::error(0, job->errorString());
+                    KMessageBox::error(nullptr, job->errorString());
                 }
             } else {
-                KMessageBox::error(0, tmpFile.errorString());
+                KMessageBox::error(nullptr, tmpFile.errorString());
             }
         } else {
             window = new MainWindow(url);
@@ -369,11 +369,11 @@ void MainWindow::fileSave()
 
                 m_document->undoStack().setClean();
             } catch (const FailedWriteFile &e) {
-                KMessageBox::error(0, QString(i18n("Failed to save the file.\n%1", file.errorString())));
+                KMessageBox::error(nullptr, QString(i18n("Failed to save the file.\n%1", file.errorString())));
                 file.cancelWriting();
             }
         } else {
-            KMessageBox::error(0, QString(i18n("Failed to open the file.\n%1", file.errorString())));
+            KMessageBox::error(nullptr, QString(i18n("Failed to open the file.\n%1", file.errorString())));
         }
     }
 
@@ -414,7 +414,7 @@ void MainWindow::fileRevert()
 
 void MainWindow::filePrintSetup()
 {
-    if (m_printer == 0) {
+    if (m_printer == nullptr) {
         m_printer = new QPrinter();
     }
 
@@ -430,7 +430,7 @@ void MainWindow::filePrintSetup()
 
 void MainWindow::filePrint()
 {
-    if (m_printer == 0) {
+    if (m_printer == nullptr) {
         filePrintSetup();
     }
 
@@ -522,7 +522,7 @@ void MainWindow::fileImportImage()
                     window->show();
                 }
             } else {
-                KMessageBox::error(0, job->errorString());
+                KMessageBox::error(nullptr, job->errorString());
             }
         }
     }

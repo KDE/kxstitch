@@ -149,13 +149,13 @@ LibraryPattern *LibraryTreeWidgetItem::findCharacter(int key, Qt::KeyboardModifi
 
 LibraryPattern *LibraryTreeWidgetItem::first()
 {
-    LibraryPattern *libraryPattern = 0;
+    LibraryPattern *libraryPattern = nullptr;
     m_libraryFilesIndex = 0;
 
     if (!m_libraryFiles.isEmpty()) {
         libraryPattern = m_libraryFiles[0]->first();
 
-        if (libraryPattern == 0) { // the first file is empty
+        if (libraryPattern == nullptr) { // the first file is empty
             libraryPattern = next();
         }
     }
@@ -166,12 +166,12 @@ LibraryPattern *LibraryTreeWidgetItem::first()
 
 LibraryPattern *LibraryTreeWidgetItem::next()
 {
-    LibraryPattern *libraryPattern = 0;
+    LibraryPattern *libraryPattern = nullptr;
 
-    while (libraryPattern == 0 && !m_libraryFiles.isEmpty() && m_libraryFilesIndex != m_libraryFiles.count()) {
+    while (libraryPattern == nullptr && !m_libraryFiles.isEmpty() && m_libraryFilesIndex != m_libraryFiles.count()) {
         libraryPattern = m_libraryFiles[m_libraryFilesIndex]->next();
 
-        if (libraryPattern == 0) {  // reached the end of the current file
+        if (libraryPattern == nullptr) {  // reached the end of the current file
             if (++m_libraryFilesIndex < m_libraryFiles.count()) {
                 libraryPattern = m_libraryFiles[m_libraryFilesIndex]->first();  // get the first pattern of the next file
             }
@@ -209,7 +209,7 @@ QStringList LibraryTreeWidgetItem::paths()
 
 LibraryFile *LibraryTreeWidgetItem::writablePath()
 {
-    LibraryFile *libraryFile = 0;
+    LibraryFile *libraryFile = nullptr;
     QListIterator<LibraryFile *> libraryFilesIterator(m_libraryFiles);
 
     while (libraryFilesIterator.hasNext()) {

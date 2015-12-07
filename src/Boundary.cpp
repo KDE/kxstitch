@@ -17,7 +17,7 @@
 
 
 Boundary::Boundary()
-    :   m_element(0)
+    :   m_element(nullptr)
 {
 }
 
@@ -38,7 +38,7 @@ const QPoint *Boundary::node(const QPoint &pos) const
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 

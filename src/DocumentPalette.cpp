@@ -145,7 +145,7 @@ QList<qint16> DocumentPalette::usedSymbols() const
 
 const DocumentFloss *DocumentPalette::currentFloss() const
 {
-    DocumentFloss *documentFloss = 0;
+    DocumentFloss *documentFloss = nullptr;
 
     if (d->m_currentIndex != -1) {
         documentFloss = d->m_documentFlosses.value(d->m_currentIndex);
@@ -157,7 +157,7 @@ const DocumentFloss *DocumentPalette::currentFloss() const
 
 DocumentFloss *DocumentPalette::floss(int colorIndex)
 {
-    DocumentFloss *documentFloss = 0;
+    DocumentFloss *documentFloss = nullptr;
 
     if (d->m_documentFlosses.contains(colorIndex)) {
         documentFloss = d->m_documentFlosses.value(colorIndex);
@@ -232,7 +232,7 @@ int DocumentPalette::add(const QColor &srcColor)
     FlossScheme *scheme = SchemeManager::scheme(d->m_schemeName);
     Floss *floss = scheme->find(scheme->find(srcColor));
 
-    if (floss == 0) {
+    if (floss == nullptr) {
         floss = scheme->convert(srcColor);
     }
 
@@ -431,7 +431,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
     // missingSymbols will contain pointers to DocumentFloss where the symbol index is not in the symbol library
     // check there is a sufficient quantity of symbols to allocate to the remaining flosses
     if (missingSymbols.count() > indexes.count()) {
-        if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(0, QString(i18n("There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required.", missingSymbols.count() - indexes.count())))) {
+        if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(nullptr, QString(i18n("There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required.", missingSymbols.count() - indexes.count())))) {
             throw FailedReadFile(QString(i18n("Canceled: Insufficient symbols available")));
         }
     }
@@ -471,7 +471,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
                                      "\nYou may want to check these are suitable.",
                                      count));
 
-        KMessageBox::information(0, information);
+        KMessageBox::information(nullptr, information);
     }
 
     return stream;

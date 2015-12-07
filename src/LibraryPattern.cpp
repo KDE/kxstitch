@@ -29,7 +29,7 @@ LibraryPattern::LibraryPattern(Pattern *pattern, qint32 key, Qt::KeyboardModifie
         m_key(key),
         m_modifiers(modifiers),
         m_baseline(baseline),
-        m_libraryListWidgetItem(0),
+        m_libraryListWidgetItem(nullptr),
         m_changed(false)
 {
 }
@@ -39,7 +39,7 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
     :   m_key(key),
         m_modifiers(modifiers),
         m_baseline(baseline),
-        m_libraryListWidgetItem(0),
+        m_libraryListWidgetItem(nullptr),
         m_changed(false)
 {
     QDataStream stream(&data, QIODevice::ReadOnly);
@@ -197,7 +197,7 @@ QDataStream &operator>>(QDataStream &stream, LibraryPattern &libraryPattern)
         libraryPattern.m_modifiers = Qt::KeyboardModifiers(modifiers);
         stream >> libraryPattern.m_baseline;
         stream >> *(libraryPattern.m_pattern);
-        libraryPattern.m_libraryListWidgetItem = 0;
+        libraryPattern.m_libraryListWidgetItem = nullptr;
         libraryPattern.m_changed = false;
         break;
 
