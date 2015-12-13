@@ -61,6 +61,7 @@ void CalibrateFlossDlg::fillColorList()
         listWidgetItem->setData(Qt::UserRole, QString(floss->name()));
         listWidgetItem->setData(Qt::UserRole + 1, QString(floss->description()));
         listWidgetItem->setData(Qt::CheckStateRole, Qt::Unchecked);
+        listWidgetItem->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
         ui.ColorList->addItem(listWidgetItem);
     }
 
