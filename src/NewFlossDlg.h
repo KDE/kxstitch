@@ -17,7 +17,8 @@
 
 #include "ui_NewFloss.h"
 
-
+class QHideEvent;
+class QShowEvent;
 class QString;
 class QWidget;
 
@@ -34,6 +35,10 @@ public:
     ~NewFlossDlg();
 
     Floss *floss();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_FlossName_textEdited(const QString &);

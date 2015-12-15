@@ -19,6 +19,8 @@
 
 
 class PagePreviewListWidgetItem;
+class QHideEvent;
+class QShowEvent;
 
 
 class PagePropertiesDlg : public QDialog
@@ -32,6 +34,10 @@ public:
     QMargins margins() const;
     bool showGrid() const;
     int gridSize() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

@@ -18,6 +18,10 @@
 #include "ui_LibraryFilePaths.h"
 
 
+class QHideEvent;
+class QShowEvent;
+
+
 class LibraryFilePathsDlg : public QDialog
 {
     Q_OBJECT
@@ -25,6 +29,10 @@ class LibraryFilePathsDlg : public QDialog
 public:
     LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
     ~LibraryFilePathsDlg();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

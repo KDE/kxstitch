@@ -18,6 +18,10 @@
 #include "ui_LibraryPatternProperties.h"
 
 
+class QHideEvent;
+class QShowEvent;
+
+
 class LibraryPatternPropertiesDlg : public QDialog
 {
     Q_OBJECT
@@ -29,6 +33,10 @@ public:
     qint32 key() const;
     Qt::KeyboardModifiers modifiers() const;
     qint16 baseline() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

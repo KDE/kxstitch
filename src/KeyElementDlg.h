@@ -19,6 +19,8 @@
 
 
 class KeyElement;
+class QHideEvent;
+class QShowEvent;
 
 
 class KeyElementDlg : public QDialog
@@ -28,6 +30,10 @@ class KeyElementDlg : public QDialog
 public:
     KeyElementDlg(QWidget *, KeyElement *);
     ~KeyElementDlg();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

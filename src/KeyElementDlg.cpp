@@ -55,6 +55,24 @@ KeyElementDlg::~KeyElementDlg()
 }
 
 
+void KeyElementDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("KeyElementDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void KeyElementDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("KeyElementDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("KeyElementDlg"), QSize()));
+    }
+}
+
+
 void KeyElementDlg::on_DialogButtonBox_accepted()
 {
     m_keyElement->m_margins = QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());

@@ -31,6 +31,8 @@
 
 
 class SchemeManager;
+class QHideEvent;
+class QShowEvent;
 
 
 class ImportImageDlg : public QDialog
@@ -50,7 +52,9 @@ public:
     bool useFractionals() const;
 
 protected:
-    virtual void timerEvent(QTimerEvent *);
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
+    virtual void timerEvent(QTimerEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_FlossScheme_currentIndexChanged(const QString &);

@@ -68,6 +68,24 @@ QImage TextToolDlg::image()
 }
 
 
+void TextToolDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("TextToolDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void TextToolDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("PrintSetupDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("TextToolDlg"), QSize()));
+    }
+}
+
+
 void TextToolDlg::on_TextToolFont_currentFontChanged(const QFont &font)
 {
     QFont f = ui.TextToolText->font();

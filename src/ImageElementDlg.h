@@ -22,6 +22,8 @@
 class Document;
 class ImageElement;
 class SelectArea;
+class QHideEvent;
+class QShowEvent;
 
 
 class ImageElementDlg : public QDialog
@@ -31,6 +33,10 @@ class ImageElementDlg : public QDialog
 public:
     ImageElementDlg(QWidget *, ImageElement *, Document *);
     ~ImageElementDlg();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

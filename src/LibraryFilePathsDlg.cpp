@@ -11,8 +11,10 @@
 
 #include "LibraryFilePathsDlg.h"
 
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 
 LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStringList paths)
@@ -31,6 +33,24 @@ LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStrin
 
 LibraryFilePathsDlg::~LibraryFilePathsDlg()
 {
+}
+
+
+void LibraryFilePathsDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryFilePathsDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void LibraryFilePathsDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("LibraryFilePathsDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("LibraryFilePathsDlg"), QSize()));
+    }
 }
 
 

@@ -25,6 +25,8 @@ class Document;
 class DocumentFloss;
 class SchemeManager;
 class SymbolSelectorDlg;
+class QHideEvent;
+class QShowEvent;
 
 
 class PaletteManagerDlg : public QDialog
@@ -36,6 +38,10 @@ public:
     ~PaletteManagerDlg();
 
     const DocumentPalette &palette() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_ColorList_currentRowChanged(int);

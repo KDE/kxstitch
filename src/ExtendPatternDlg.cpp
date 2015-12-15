@@ -11,9 +11,10 @@
 
 #include "ExtendPatternDlg.h"
 
-
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 
 ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
@@ -50,6 +51,24 @@ int ExtendPatternDlg::right() const
 int ExtendPatternDlg::bottom() const
 {
     return ui.BottomMargin->value();
+}
+
+
+void ExtendPatternDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("ExtendPatternDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void ExtendPatternDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("ExtendPatternDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("ExtendPatternDlg"), QSize()));
+    }
 }
 
 

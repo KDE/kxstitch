@@ -11,8 +11,10 @@
 
 #include "LibraryPatternPropertiesDlg.h"
 
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 
 LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline, const QString &scheme, int width, int height, const QIcon &icon)
@@ -50,6 +52,24 @@ Qt::KeyboardModifiers LibraryPatternPropertiesDlg::modifiers() const
 qint16 LibraryPatternPropertiesDlg::baseline() const
 {
     return ui.Baseline->value();
+}
+
+
+void LibraryPatternPropertiesDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryPatternPropertiesDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void LibraryPatternPropertiesDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("LibraryPatternPropertiesDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("LibraryPatternPropertiesDlg"), QSize()));
+    }
 }
 
 

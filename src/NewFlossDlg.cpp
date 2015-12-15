@@ -11,9 +11,11 @@
 
 #include "NewFlossDlg.h"
 
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KSharedConfig>
 
 #include "FlossScheme.h"
 
@@ -39,6 +41,24 @@ NewFlossDlg::~NewFlossDlg()
 Floss *NewFlossDlg::floss()
 {
     return m_floss;
+}
+
+
+void NewFlossDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("NewFlossDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void NewFlossDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("NewFlossDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("NewFlossDlg"), QSize()));
+    }
 }
 
 

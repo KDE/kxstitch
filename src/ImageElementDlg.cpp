@@ -44,6 +44,24 @@ ImageElementDlg::~ImageElementDlg()
 }
 
 
+void ImageElementDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("ImageElementDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void ImageElementDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("ImageElementDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("ImageElementDlg"), QSize()));
+    }
+}
+
+
 void ImageElementDlg::on_DialogButtonBox_accepted()
 {
     m_imageElement->setPatternRect(m_selectArea->patternRect());

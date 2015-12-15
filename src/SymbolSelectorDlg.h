@@ -25,6 +25,8 @@
 
 
 class SymbolLibrary;
+class QHideEvent;
+class QShowEvent;
 
 
 /**
@@ -45,6 +47,10 @@ public:
 
     void setSelectedSymbol(qint16 symbol, const QList<qint16> &usedSymbols);
     qint16 selectedSymbol();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 protected slots:
     void on_SymbolTable_itemClicked(QListWidgetItem *item);

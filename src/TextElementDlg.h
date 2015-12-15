@@ -19,6 +19,8 @@
 
 
 class TextElement;
+class QHideEvent;
+class QShowEvent;
 
 
 class TextElementDlg : public QDialog
@@ -28,6 +30,10 @@ class TextElementDlg : public QDialog
 public:
     TextElementDlg(QWidget *, TextElement *);
     ~TextElementDlg();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_FillBackground_toggled(bool);

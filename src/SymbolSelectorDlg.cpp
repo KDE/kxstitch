@@ -92,6 +92,34 @@ qint16 SymbolSelectorDlg::selectedSymbol()
 
 
 /**
+ * Override hideEvent to save the dialogs size.
+ *
+ * @param event a pointer to a QHideEvent
+ */
+void SymbolSelectorDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("SymbolSelectorDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+/**
+ * Override showEvent to restore the dialogs size.
+ *
+ * @param event a pointer to a QShowEvent
+ */
+void SymbolSelectorDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("SymbolSelectorDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("SymbolSelectorDlg"), QSize()));
+    }
+}
+
+
+/**
  * Set the selected symbol from the selected icon.
  * This slot is connected to the SymbolListWidget executed signal.
  * The index is stored as a data item in the QListWidgetItem.

@@ -23,6 +23,8 @@
 
 class LibraryListWidgetItem;
 class LibraryTreeWidgetItem;
+class QHideEvent;
+class QShowEvent;
 
 
 class LibraryManagerDlg : public QDialog
@@ -36,7 +38,9 @@ public:
     LibraryTreeWidgetItem *currentLibrary();
 
 protected:
-    virtual bool event(QEvent *);
+    virtual bool event(QEvent *) Q_DECL_OVERRIDE;
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 public slots:
     void setCellSize(double, double);

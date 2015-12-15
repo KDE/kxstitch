@@ -20,6 +20,8 @@
 
 
 class Document;
+class QHideEvent;
+class QShowEvent;
 class QWidget;
 
 
@@ -45,6 +47,10 @@ public:
     QColor fabricColor() const;
     QString instructions() const;
     QString flossScheme() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_UnitsFormat_activated(int);

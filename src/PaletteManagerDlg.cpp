@@ -61,6 +61,24 @@ const DocumentPalette &PaletteManagerDlg::palette() const
 }
 
 
+void PaletteManagerDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("PaletteManagerDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void PaletteManagerDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("PaletteManagerDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("PaletteManagerDlg"), QSize()));
+    }
+}
+
+
 void PaletteManagerDlg::on_ColorList_currentRowChanged(int currentRow)
 {
     ui.AddFloss->setEnabled((currentRow != -1) && symbolsAvailable());

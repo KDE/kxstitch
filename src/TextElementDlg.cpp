@@ -75,6 +75,24 @@ TextElementDlg::~TextElementDlg()
 }
 
 
+void TextElementDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("TextElementDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void TextElementDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("TextElementDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("TextElementDlg"), QSize()));
+    }
+}
+
+
 void TextElementDlg::on_FillBackground_toggled(bool checked)
 {
     ui.Text->setAutoFillBackground(checked);

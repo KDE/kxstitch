@@ -18,6 +18,10 @@
 #include <QDialog>
 
 
+class QHideEvent;
+class QShowEvent;
+
+
 class ExtendPatternDlg : public QDialog
 {
     Q_OBJECT
@@ -30,6 +34,10 @@ public:
     int left() const;
     int right() const;
     int bottom() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

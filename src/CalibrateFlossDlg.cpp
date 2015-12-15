@@ -11,8 +11,13 @@
 
 #include "CalibrateFlossDlg.h"
 
+#include <QHideEvent>
+#include <QShowEvent>
+
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include "Floss.h"
 #include "FlossScheme.h"
@@ -36,6 +41,24 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
 CalibrateFlossDlg::~CalibrateFlossDlg()
 {
     delete m_sample;
+}
+
+
+void CalibrateFlossDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("CalibrateFlossDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void CalibrateFlossDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("CalibrateFlossDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("CalibrateFlossDlg"), QSize()));
+    }
 }
 
 

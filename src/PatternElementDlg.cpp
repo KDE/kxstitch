@@ -80,6 +80,24 @@ PlanElement *PatternElementDlg::planElement() const
 }
 
 
+void PatternElementDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("PatternElementDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void PatternElementDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("PatternElementDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("PatternElementDlg"), QSize()));
+    }
+}
+
+
 void PatternElementDlg::on_DialogButtonBox_accepted()
 {
     m_patternElement->setPatternRect(m_selectArea->patternRect());

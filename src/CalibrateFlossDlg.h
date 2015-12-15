@@ -21,8 +21,10 @@
 #include "ui_CalibrateFloss.h"
 
 
+class QHideEvent;
 class QListWidgetItem;
 class QPixmap;
+class QShowEvent;
 class SchemeManager;
 
 
@@ -33,6 +35,10 @@ class CalibrateFlossDlg : public QDialog
 public:
     CalibrateFlossDlg(QWidget *, const QString &);
     ~CalibrateFlossDlg();
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_SchemeList_currentIndexChanged(const QString &);

@@ -144,6 +144,24 @@ QString FilePropertiesDlg::flossScheme() const
 }
 
 
+void FilePropertiesDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("FilePropertiesDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void FilePropertiesDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("FilePropertiesDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("FilePropertiesDlg"), QSize()));
+    }
+}
+
+
 void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 {
     m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);

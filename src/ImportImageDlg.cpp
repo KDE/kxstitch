@@ -95,6 +95,24 @@ bool ImportImageDlg::useFractionals() const
 }
 
 
+void ImportImageDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("ImportImageDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void ImportImageDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("ImportImageDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("ImportImageDlg"), QSize()));
+    }
+}
+
+
 void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString&)
 {
     createImageMap();

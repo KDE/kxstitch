@@ -24,6 +24,8 @@ class Document;
 class PlanElement;
 class PatternElement;
 class SelectArea;
+class QHideEvent;
+class QShowEvent;
 
 
 class PatternElementDlg : public QDialog
@@ -36,6 +38,10 @@ public:
 
     bool showPlan() const;
     PlanElement *planElement() const;
+
+protected:
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_DialogButtonBox_accepted();

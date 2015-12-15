@@ -89,6 +89,24 @@ bool LibraryManagerDlg::event(QEvent *event)
 }
 
 
+void LibraryManagerDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryManagerDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void LibraryManagerDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("LibraryManagerDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("LibraryManagerDlg"), QSize()));
+    }
+}
+
+
 void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 {
     ui.LibraryIcons->setCellSize(cellWidth, cellHeight);

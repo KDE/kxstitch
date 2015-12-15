@@ -15,6 +15,7 @@
 
 #include <QColorDialog>
 #include <QFontDialog>
+#include <QHideEvent>
 #include <QInputDialog>
 #include <QMargins>
 #include <QMenu>
@@ -93,9 +94,21 @@ const PrinterConfiguration &PrintSetupDlg::printerConfiguration() const
 }
 
 
+void PrintSetupDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("PrintSetupDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
 void PrintSetupDlg::showEvent(QShowEvent *event)
 {
     QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("PrintSetupDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("PrintSetupDlg"), QSize()));
+    }
 
     if (ui.Pages->count() == 0) {
         initialiseFromConfig();

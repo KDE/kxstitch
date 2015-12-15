@@ -20,6 +20,10 @@
 #include "ui_TextTool.h"
 
 
+class QHideEvent;
+class QShowEvent;
+
+
 class TextToolDlg : public QDialog
 {
     Q_OBJECT
@@ -29,6 +33,10 @@ public:
     ~TextToolDlg();
 
     QImage image();
+
+protected:
+    virtual void hideEvent(QHideEvent *);
+    virtual void showEvent(QShowEvent *);
 
 private slots:
     void on_TextToolFont_currentFontChanged(const QFont &);

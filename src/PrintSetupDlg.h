@@ -23,6 +23,7 @@
 #include "ui_PrintSetup.h"
 
 
+class QHideEvent;
 class QResizeEvent;
 class QShowEvent;
 class QString;
@@ -43,7 +44,8 @@ public:
     const PrinterConfiguration &printerConfiguration() const;
 
 protected:
-    void showEvent(QShowEvent *);
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_PaperSize_currentIndexChanged(const QString &);

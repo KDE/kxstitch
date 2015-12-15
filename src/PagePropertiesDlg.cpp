@@ -11,8 +11,10 @@
 
 #include "PagePropertiesDlg.h"
 
+#include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include "Page.h"
 #include "PageLayoutEditor.h"
@@ -55,6 +57,24 @@ bool PagePropertiesDlg::showGrid() const
 int PagePropertiesDlg::gridSize() const
 {
     return ui.GridSize->value();
+}
+
+
+void PagePropertiesDlg::hideEvent(QHideEvent *event)
+{
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("PagePropertiesDlg"), size());
+
+    QDialog::hideEvent(event);
+}
+
+
+void PagePropertiesDlg::showEvent(QShowEvent *event)
+{
+    QDialog::showEvent(event);
+
+    if (KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).hasKey(QStringLiteral("PagePropertiesDlg"))) {
+        resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("PagePropertiesDlg"), QSize()));
+    }
 }
 
 
