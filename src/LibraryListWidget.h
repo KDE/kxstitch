@@ -19,7 +19,6 @@
 #include "Renderer.h"
 
 
-class QDragObject;
 class QString;
 
 class Renderer;
