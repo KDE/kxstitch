@@ -50,7 +50,6 @@ public:
 
 protected:
     virtual bool queryClose() Q_DECL_OVERRIDE;
-    bool queryExit();
 
 protected slots:
     // File menu

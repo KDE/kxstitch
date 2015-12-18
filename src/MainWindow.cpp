@@ -262,12 +262,6 @@ bool MainWindow::queryClose()
 }
 
 
-bool MainWindow::queryExit()
-{
-    return true;
-}
-
-
 void MainWindow::setupActionsFromDocument()
 {
     KActionCollection *actions = actionCollection();
