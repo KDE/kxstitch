@@ -35,7 +35,7 @@ class PaletteManagerDlg : public QDialog
 
 public:
     PaletteManagerDlg(QWidget *, Document *);
-    ~PaletteManagerDlg();
+    virtual ~PaletteManagerDlg();
 
     const DocumentPalette &palette() const;
 

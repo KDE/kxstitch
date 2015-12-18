@@ -28,7 +28,7 @@ class Preview : public QWidget
 
 public:
     explicit Preview(QWidget *);
-    ~Preview();
+    virtual ~Preview();
 
     void setDocument(Document *);
     Document *document();
@@ -46,10 +46,10 @@ signals:
     void clicked(QRect);
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *);
-    virtual void mouseMoveEvent(QMouseEvent *);
-    virtual void mouseReleaseEvent(QMouseEvent *);
-    virtual void paintEvent(QPaintEvent *);
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
 private:
     QPoint contentToCell(const QPoint &content) const;

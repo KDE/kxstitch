@@ -29,7 +29,7 @@ class PagePropertiesDlg : public QDialog
 
 public:
     PagePropertiesDlg(QWidget *, const QMargins &, bool, int);
-    ~PagePropertiesDlg();
+    virtual ~PagePropertiesDlg();
 
     QMargins margins() const;
     bool showGrid() const;

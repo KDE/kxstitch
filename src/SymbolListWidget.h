@@ -42,7 +42,7 @@ class SymbolListWidget : public QListWidget
 {
 public:
     explicit SymbolListWidget(QWidget *parent);
-    ~SymbolListWidget();
+    virtual ~SymbolListWidget();
 
     void setIconSize(int size);
     void loadFromLibrary(SymbolLibrary *library);
@@ -55,7 +55,7 @@ public:
     static QIcon createIcon(const Symbol &symbol, int size);
 
 protected:
-    virtual bool event(QEvent *e);
+    virtual bool event(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QListWidgetItem *createItem(qint16 index);

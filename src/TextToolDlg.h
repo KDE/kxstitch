@@ -30,13 +30,13 @@ class TextToolDlg : public QDialog
 
 public:
     explicit TextToolDlg(QWidget *);
-    ~TextToolDlg();
+    virtual ~TextToolDlg();
 
     QImage image();
 
 protected:
-    virtual void hideEvent(QHideEvent *);
-    virtual void showEvent(QShowEvent *);
+    virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_TextToolFont_currentFontChanged(const QFont &);

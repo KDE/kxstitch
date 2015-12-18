@@ -24,8 +24,8 @@ class ScaledPixmapLabel : public QLabel
 public:
     explicit ScaledPixmapLabel(QWidget *parent = nullptr);
 
-    virtual int heightForWidth(int width) const;
-    virtual QSize sizeHint() const;
+    virtual int heightForWidth(int width) const Q_DECL_OVERRIDE;
+    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
 
 public slots:
     void setPixmap(const QPixmap &);

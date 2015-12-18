@@ -42,8 +42,8 @@ public:
     explicit FilePropertiesCommand(Document *);
     virtual ~FilePropertiesCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -56,8 +56,8 @@ public:
     explicit ImportImageCommand(Document *);
     virtual ~ImportImageCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -70,8 +70,8 @@ public:
     explicit PaintStitchesCommand(Document *);
     virtual ~PaintStitchesCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -84,8 +84,8 @@ public:
     explicit PaintKnotsCommand(Document *);
     virtual ~PaintKnotsCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -98,8 +98,8 @@ public:
     explicit DrawLineCommand(Document *);
     virtual ~DrawLineCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;    /**< pointer to the associated Document */
@@ -112,8 +112,8 @@ public:
     explicit EraseStitchesCommand(Document *);
     virtual ~EraseStitchesCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -126,8 +126,8 @@ public:
     explicit DrawRectangleCommand(Document *document);
     virtual ~DrawRectangleCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;    /**< pointer to the associated Document */
@@ -140,8 +140,8 @@ public:
     explicit FillRectangleCommand(Document *document);
     virtual ~FillRectangleCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;    /**< pointer to the associated Document */
@@ -154,8 +154,8 @@ public:
     explicit DrawEllipseCommand(Document *document);
     virtual ~DrawEllipseCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;    /**< pointer to the associated Document */
@@ -168,8 +168,8 @@ public:
     explicit FillEllipseCommand(Document *document);
     virtual ~FillEllipseCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;    /**< pointer to the associated Document */
@@ -182,8 +182,8 @@ public:
     explicit FillPolygonCommand(Document *);
     virtual ~FillPolygonCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -194,10 +194,10 @@ class AddStitchCommand : public QUndoCommand
 {
 public:
     AddStitchCommand(Document *, const QPoint &, Stitch::Type, int, QUndoCommand *);
-    ~AddStitchCommand();
+    virtual ~AddStitchCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -212,10 +212,10 @@ class DeleteStitchCommand : public QUndoCommand
 {
 public:
     DeleteStitchCommand(Document *, const QPoint &, Stitch::Type, int, QUndoCommand *);
-    ~DeleteStitchCommand();
+    virtual ~DeleteStitchCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -230,10 +230,10 @@ class AddBackstitchCommand : public QUndoCommand
 {
 public:
     AddBackstitchCommand(Document *, const QPoint &, const QPoint &, int);
-    ~AddBackstitchCommand();
+    virtual ~AddBackstitchCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -247,10 +247,10 @@ class DeleteBackstitchCommand : public QUndoCommand
 {
 public:
     DeleteBackstitchCommand(Document *, const QPoint &, const QPoint &, int);
-    ~DeleteBackstitchCommand();
+    virtual ~DeleteBackstitchCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -265,10 +265,10 @@ class AddKnotCommand : public QUndoCommand
 {
 public:
     AddKnotCommand(Document *, const QPoint &, int, QUndoCommand *);
-    ~AddKnotCommand();
+    virtual ~AddKnotCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -281,10 +281,10 @@ class DeleteKnotCommand : public QUndoCommand
 {
 public:
     DeleteKnotCommand(Document *, const QPoint &, int, QUndoCommand *);
-    ~DeleteKnotCommand();
+    virtual ~DeleteKnotCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -298,10 +298,10 @@ class SetPropertyCommand : public QUndoCommand
 {
 public:
     SetPropertyCommand(Document *, const QString &, const QVariant &, QUndoCommand *parent = nullptr);
-    ~SetPropertyCommand();
+    virtual ~SetPropertyCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -315,10 +315,10 @@ class AddBackgroundImageCommand : public QUndoCommand
 {
 public:
     AddBackgroundImageCommand(Document *, BackgroundImage *, MainWindow *);
-    ~AddBackgroundImageCommand();
+    virtual ~AddBackgroundImageCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -331,10 +331,10 @@ class FitBackgroundImageCommand : public QUndoCommand
 {
 public:
     FitBackgroundImageCommand(Document *, BackgroundImage *, const QRect &);
-    ~FitBackgroundImageCommand();
+    virtual ~FitBackgroundImageCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -347,10 +347,10 @@ class ShowBackgroundImageCommand : public QUndoCommand
 {
 public:
     ShowBackgroundImageCommand(Document *, BackgroundImage *, bool);
-    ~ShowBackgroundImageCommand();
+    virtual ~ShowBackgroundImageCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -363,10 +363,10 @@ class RemoveBackgroundImageCommand : public QUndoCommand
 {
 public:
     RemoveBackgroundImageCommand(Document *, BackgroundImage *, MainWindow *);
-    ~RemoveBackgroundImageCommand();
+    virtual ~RemoveBackgroundImageCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -379,10 +379,10 @@ class AddDocumentFlossCommand : public QUndoCommand
 {
 public:
     AddDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = nullptr);
-    ~AddDocumentFlossCommand();
+    virtual ~AddDocumentFlossCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -395,10 +395,10 @@ class RemoveDocumentFlossCommand : public QUndoCommand
 {
 public:
     RemoveDocumentFlossCommand(Document *, int, DocumentFloss *, QUndoCommand *parent = nullptr);
-    ~RemoveDocumentFlossCommand();
+    virtual ~RemoveDocumentFlossCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -411,10 +411,10 @@ class ReplaceDocumentFlossCommand : public QUndoCommand
 {
 public:
     ReplaceDocumentFlossCommand(Document *, int, DocumentFloss *);
-    ~ReplaceDocumentFlossCommand();
+    virtual ~ReplaceDocumentFlossCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -427,10 +427,10 @@ class ClearUnusedFlossesCommand : public QUndoCommand
 {
 public:
     explicit ClearUnusedFlossesCommand(Document *);
-    ~ClearUnusedFlossesCommand();
+    virtual ~ClearUnusedFlossesCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -441,10 +441,10 @@ class ResizeDocumentCommand : public QUndoCommand
 {
 public:
     ResizeDocumentCommand(Document *, int, int, QUndoCommand *parent = nullptr);
-    ~ResizeDocumentCommand();
+    virtual ~ResizeDocumentCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -462,10 +462,10 @@ class CropToPatternCommand : public QUndoCommand
 {
 public:
     explicit CropToPatternCommand(Document *);
-    ~CropToPatternCommand();
+    virtual ~CropToPatternCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -481,10 +481,10 @@ class CropToSelectionCommand : public QUndoCommand
 {
 public:
     CropToSelectionCommand(Document *, const QRect &);
-    ~CropToSelectionCommand();
+    virtual ~CropToSelectionCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -497,10 +497,10 @@ class InsertColumnsCommand : public QUndoCommand
 {
 public:
     InsertColumnsCommand(Document *, const QRect &);
-    ~InsertColumnsCommand();
+    virtual ~InsertColumnsCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -512,10 +512,10 @@ class InsertRowsCommand : public QUndoCommand
 {
 public:
     InsertRowsCommand(Document *, const QRect &);
-    ~InsertRowsCommand();
+    virtual ~InsertRowsCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -527,10 +527,10 @@ class ExtendPatternCommand : public QUndoCommand
 {
 public:
     ExtendPatternCommand(Document *, int, int, int, int);
-    ~ExtendPatternCommand();
+    virtual ~ExtendPatternCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -545,10 +545,10 @@ class CentrePatternCommand : public QUndoCommand
 {
 public:
     explicit CentrePatternCommand(Document *);
-    ~CentrePatternCommand();
+    virtual ~CentrePatternCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -561,10 +561,10 @@ class UpdateDocumentPaletteCommand : public QUndoCommand
 {
 public:
     UpdateDocumentPaletteCommand(Document *, const DocumentPalette &);
-    ~UpdateDocumentPaletteCommand();
+    virtual ~UpdateDocumentPaletteCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document        *m_document;
@@ -576,10 +576,10 @@ class ChangeSchemeCommand : public QUndoCommand
 {
 public:
     ChangeSchemeCommand(Document *, const QString &, QUndoCommand *parent = nullptr);
-    ~ChangeSchemeCommand();
+    virtual ~ChangeSchemeCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -592,10 +592,10 @@ class EditorReadDocumentSettingsCommand : public QUndoCommand
 {
 public:
     explicit EditorReadDocumentSettingsCommand(Editor *);
-    ~EditorReadDocumentSettingsCommand();
+    virtual ~EditorReadDocumentSettingsCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Editor  *m_editor;
@@ -606,10 +606,10 @@ class PreviewReadDocumentSettingsCommand : public QUndoCommand
 {
 public:
     explicit PreviewReadDocumentSettingsCommand(Preview *);
-    ~PreviewReadDocumentSettingsCommand();
+    virtual ~PreviewReadDocumentSettingsCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Preview *m_preview;
@@ -620,10 +620,10 @@ class PaletteReplaceColorCommand : public QUndoCommand
 {
 public:
     PaletteReplaceColorCommand(Document *document, int, int);
-    ~PaletteReplaceColorCommand();
+    virtual ~PaletteReplaceColorCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -639,10 +639,10 @@ class PaletteSwapColorCommand : public QUndoCommand
 {
 public:
     PaletteSwapColorCommand(Document *, int, int);
-    ~PaletteSwapColorCommand();
+    virtual ~PaletteSwapColorCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -655,10 +655,10 @@ class UpdatePrinterConfigurationCommand : public QUndoCommand
 {
 public:
     UpdatePrinterConfigurationCommand(Document *, const PrinterConfiguration &);
-    ~UpdatePrinterConfigurationCommand();
+    virtual ~UpdatePrinterConfigurationCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document                *m_document;
@@ -670,10 +670,10 @@ class EditCutCommand : public QUndoCommand
 {
 public:
     EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots);
-    ~EditCutCommand();
+    virtual ~EditCutCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document            *m_document;
@@ -691,10 +691,10 @@ class EditPasteCommand : public QUndoCommand
 {
 public:
     EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge, const QString &);
-    ~EditPasteCommand();
+    virtual ~EditPasteCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;
@@ -710,10 +710,10 @@ class MirrorSelectionCommand : public QUndoCommand
 {
 public:
     MirrorSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, Qt::Orientation, bool, const QByteArray &, Pattern *, const QPoint &, bool merge);
-    ~MirrorSelectionCommand();
+    virtual ~MirrorSelectionCommand();
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() Q_DECL_OVERRIDE;
+    virtual void undo() Q_DECL_OVERRIDE;
 
 private:
     Document            *m_document;
@@ -735,10 +735,10 @@ class RotateSelectionCommand : public QUndoCommand
 {
 public:
     RotateSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, StitchData::Rotation, bool, const QByteArray &, Pattern *, const QPoint &, bool);
-    ~RotateSelectionCommand();
+    virtual ~RotateSelectionCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     Document                *m_document;
@@ -760,10 +760,10 @@ class AlphabetCommand : public QUndoCommand
 {
 public:
     explicit AlphabetCommand(Document *);
-    ~AlphabetCommand();
+    virtual ~AlphabetCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
     void push(QUndoCommand *);
     QUndoCommand *pop();
@@ -780,10 +780,10 @@ class ConfigurationCommand : public QUndoCommand
 {
 public:
     explicit ConfigurationCommand(MainWindow *mainWindow);
-    ~ConfigurationCommand();
+    virtual ~ConfigurationCommand();
 
-    void redo();
-    void undo();
+    void redo() Q_DECL_OVERRIDE;
+    void undo() Q_DECL_OVERRIDE;
 
 private:
     MainWindow  *m_mainWindow;

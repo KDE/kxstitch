@@ -31,7 +31,7 @@ signals:
     void clicked(QPoint);
 
 protected:
-    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 };
 
 

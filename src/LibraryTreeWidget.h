@@ -34,11 +34,11 @@ public:
     virtual ~LibraryTreeWidget();
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent *event);
-    virtual void dragLeaveEvent(QDragLeaveEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual bool acceptDrag(QDropEvent *event) const;
+    virtual void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    virtual void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
+    virtual void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
+    virtual void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    bool acceptDrag(QDropEvent *event) const;
 
 private slots:
     void openBranch();

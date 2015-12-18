@@ -109,14 +109,14 @@ public:
     void setLengthColumn(bool);
     void setSkeinsColumn(bool);
 
-    virtual KeyElement *clone() const;
-    virtual void render(Document *, QPainter *painter) const;
+    virtual KeyElement *clone() const Q_DECL_OVERRIDE;
+    virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
 
     friend class KeyElementDlg;
 
 protected:
-    virtual QDataStream &streamOut(QDataStream &) const;
-    virtual QDataStream &streamIn(QDataStream &);
+    virtual QDataStream &streamOut(QDataStream &) const Q_DECL_OVERRIDE;
+    virtual QDataStream &streamIn(QDataStream &) Q_DECL_OVERRIDE;
 
 private:
     static const int version = 103; // added m_symbolColumnColor
@@ -153,12 +153,12 @@ public:
     QRect patternRect() const;
     void setPatternRect(const QRect &);
 
-    virtual PlanElement *clone() const;
-    virtual void render(Document *, QPainter *painter) const;
+    virtual PlanElement *clone() const Q_DECL_OVERRIDE;
+    virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
 
 protected:
-    virtual QDataStream &streamOut(QDataStream &) const;
-    virtual QDataStream &streamIn(QDataStream &);
+    virtual QDataStream &streamOut(QDataStream &) const Q_DECL_OVERRIDE;
+    virtual QDataStream &streamIn(QDataStream &) Q_DECL_OVERRIDE;
 
 private:
     static const int version = 100;
@@ -174,8 +174,8 @@ public:
     PatternElement(const PatternElement &);
     virtual ~PatternElement();
 
-    virtual PatternElement *clone() const;
-    virtual void render(Document *, QPainter *painter) const;
+    virtual PatternElement *clone() const Q_DECL_OVERRIDE;
+    virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
 
     bool showBorder() const;
     QColor borderColor() const;
@@ -211,8 +211,8 @@ public:
     friend class PatternElementDlg;
 
 protected:
-    virtual QDataStream &streamOut(QDataStream &) const;
-    virtual QDataStream &streamIn(QDataStream &);
+    virtual QDataStream &streamOut(QDataStream &) const Q_DECL_OVERRIDE;
+    virtual QDataStream &streamIn(QDataStream &) Q_DECL_OVERRIDE;
 
 private:
     static const int version = 102; // added m_showBorder, m_borderColor, m_borderThickness
@@ -248,14 +248,14 @@ public:
     ImageElement(const ImageElement &);
     virtual ~ImageElement();
 
-    virtual ImageElement *clone() const;
-    virtual void render(Document *, QPainter *painter) const;
+    virtual ImageElement *clone() const Q_DECL_OVERRIDE;
+    virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
 
     friend class ImageElementDlg;
 
 protected:
-    virtual QDataStream &streamOut(QDataStream &) const;
-    virtual QDataStream &streamIn(QDataStream &);
+    virtual QDataStream &streamOut(QDataStream &) const Q_DECL_OVERRIDE;
+    virtual QDataStream &streamIn(QDataStream &) Q_DECL_OVERRIDE;
 
 private:
     static const int version = 100;
@@ -293,14 +293,14 @@ public:
     void setAlignment(Qt::Alignment);
     void setText(const QString &);
 
-    virtual TextElement *clone() const;
-    virtual void render(Document *, QPainter *painter) const;
+    virtual TextElement *clone() const Q_DECL_OVERRIDE;
+    virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
 
     friend class TextElementDlg;
 
 protected:
-    virtual QDataStream &streamOut(QDataStream &) const;
-    virtual QDataStream &streamIn(QDataStream &);
+    virtual QDataStream &streamOut(QDataStream &) const Q_DECL_OVERRIDE;
+    virtual QDataStream &streamIn(QDataStream &) Q_DECL_OVERRIDE;
 
 private:
     QString convertedText(Document *) const;

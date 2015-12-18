@@ -68,7 +68,7 @@ public:
     };
 
     explicit Editor(QWidget*);
-    ~Editor();
+    virtual ~Editor();
 
     void setDocument(Document*);
     Document *document();
@@ -143,22 +143,22 @@ public slots:
     void drawContents(const QRect &);
 
 protected:
-    bool event(QEvent*);
-    void contextMenuEvent(QContextMenuEvent*);
-    void dragEnterEvent(QDragEnterEvent*);
-    void dragLeaveEvent(QDragLeaveEvent*);
-    void dragMoveEvent(QDragMoveEvent*);
-    void dropEvent(QDropEvent*);
-    void keyPressEvent(QKeyEvent*);
-    void keyReleaseEvent(QKeyEvent*);
-    void mousePressEvent(QMouseEvent*);
-    void mouseMoveEvent(QMouseEvent*);
-    void mouseReleaseEvent(QMouseEvent*);
-    void moveEvent(QMoveEvent*);
-    void resizeEvent(QResizeEvent*);
-    void paintEvent(QPaintEvent*);
-    void wheelEvent(QWheelEvent*);
-    bool eventFilter(QObject*, QEvent*);
+    virtual bool event(QEvent*) Q_DECL_OVERRIDE;
+    virtual void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
+    virtual void dragEnterEvent(QDragEnterEvent*) Q_DECL_OVERRIDE;
+    virtual void dragLeaveEvent(QDragLeaveEvent*) Q_DECL_OVERRIDE;
+    virtual void dragMoveEvent(QDragMoveEvent*) Q_DECL_OVERRIDE;
+    virtual void dropEvent(QDropEvent*) Q_DECL_OVERRIDE;
+    virtual void keyPressEvent(QKeyEvent*) Q_DECL_OVERRIDE;
+    virtual void keyReleaseEvent(QKeyEvent*) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent*) Q_DECL_OVERRIDE;
+    virtual void moveEvent(QMoveEvent*) Q_DECL_OVERRIDE;
+    virtual void resizeEvent(QResizeEvent*) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
+    virtual void wheelEvent(QWheelEvent*) Q_DECL_OVERRIDE;
+    virtual bool eventFilter(QObject*, QEvent*) Q_DECL_OVERRIDE;
 
 private:
     bool zoom(double);

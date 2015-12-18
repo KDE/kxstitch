@@ -28,7 +28,7 @@ class LibraryFilePathsDlg : public QDialog
 
 public:
     LibraryFilePathsDlg(QWidget *, const QString &, QStringList);
-    ~LibraryFilePathsDlg();
+    virtual ~LibraryFilePathsDlg();
 
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;

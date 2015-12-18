@@ -33,7 +33,7 @@ public:
     static QString keyString(int qtKey, Qt::KeyboardModifiers modifiers);
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *e);
+    virtual void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
 
 private:
     static QString findQtText(int qtKey);

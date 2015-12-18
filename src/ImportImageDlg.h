@@ -41,7 +41,7 @@ class ImportImageDlg : public QDialog
 
 public:
     ImportImageDlg(QWidget *, const Magick::Image &);
-    ~ImportImageDlg();
+    virtual ~ImportImageDlg();
 
     Magick::Image convertedImage() const;
     bool ignoreColor() const;

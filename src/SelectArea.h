@@ -32,16 +32,16 @@ class SelectArea : public QWidget
 
 public:
     SelectArea(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
-    ~SelectArea();
+    virtual ~SelectArea();
 
     QRect patternRect() const;
     void setPatternRect(const QRect &);
 
 protected:
-    void mousePressEvent(QMouseEvent *);
-    void mouseMoveEvent(QMouseEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
-    void paintEvent(QPaintEvent *);
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
 private:
     QPoint contentsToCell(const QPoint &) const;

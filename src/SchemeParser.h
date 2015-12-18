@@ -28,11 +28,11 @@ public:
     SchemeParser();
 
     FlossScheme *flossScheme();
-    virtual bool startDocument();
-    virtual bool startElement(const QString &namespaceURI, const QString &localName, const QString &, const QXmlAttributes &qxmlAttributes);
-    virtual bool characters(const QString &d);
-    virtual bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName);
-    virtual QString errorString() const;
+    virtual bool startDocument() Q_DECL_OVERRIDE;
+    virtual bool startElement(const QString &namespaceURI, const QString &localName, const QString &, const QXmlAttributes &qxmlAttributes) Q_DECL_OVERRIDE;
+    virtual bool characters(const QString &d) Q_DECL_OVERRIDE;
+    virtual bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) Q_DECL_OVERRIDE;
+    virtual QString errorString() const Q_DECL_OVERRIDE;
 
 private:
     int         m_errorCode;

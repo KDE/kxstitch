@@ -24,7 +24,7 @@ class Scale : public QWidget
 
 public:
     explicit Scale(Qt::Orientation);
-    ~Scale();
+    virtual ~Scale();
 
     void setUnits(Configuration::EnumEditor_FormatScalesAs::type);
     void setCellSize(double);
@@ -33,10 +33,10 @@ public:
     void setClothCount(double);
     void setClothCountUnits(Configuration::EnumEditor_ClothCountUnits::type);
     void setOffset(double);
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
 
 protected:
-    void paintEvent(QPaintEvent *);
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
 private:
     Configuration::EnumEditor_FormatScalesAs::type  m_units;

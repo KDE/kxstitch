@@ -39,7 +39,7 @@ class PrintSetupDlg : public QDialog
 
 public:
     PrintSetupDlg(QWidget *, Document *, QPrinter *);
-    ~PrintSetupDlg();
+    virtual ~PrintSetupDlg();
 
     const PrinterConfiguration &printerConfiguration() const;
 

@@ -38,7 +38,7 @@ public:
     MainWindow();
     explicit MainWindow(const QUrl &);
     explicit MainWindow(const QString &);
-    ~MainWindow();
+    virtual ~MainWindow();
 
     Editor *editor();
     Preview *preview();
@@ -49,7 +49,7 @@ public:
     void updateBackgroundImageActionLists();
 
 protected:
-    bool queryClose();
+    virtual bool queryClose() Q_DECL_OVERRIDE;
     bool queryExit();
 
 protected slots:

@@ -29,17 +29,17 @@ class LibraryListWidget : public QListWidget
 {
 public:
     explicit LibraryListWidget(QWidget *parent);
-    ~LibraryListWidget();
+    virtual ~LibraryListWidget();
 
     void setCellSize(double, double);
     void changeIconSize(int);
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent *);
-    virtual void dragMoveEvent(QDragMoveEvent *);
-    virtual void dragLeaveEvent(QDragLeaveEvent *);
-    virtual void mousePressEvent(QMouseEvent *);
-    virtual void mouseMoveEvent(QMouseEvent *);
+    virtual void dragEnterEvent(QDragEnterEvent *) Q_DECL_OVERRIDE;
+    virtual void dragMoveEvent(QDragMoveEvent *) Q_DECL_OVERRIDE;
+    virtual void dragLeaveEvent(QDragLeaveEvent *) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
     Renderer    m_renderer;

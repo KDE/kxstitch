@@ -29,7 +29,7 @@ public:
     explicit Palette(QWidget *);
     virtual ~Palette();
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
     Document *document() const;
 
     void setDocument(Document *);
@@ -48,9 +48,9 @@ signals:
     void signalStateChanged(QString, bool);
 
 protected:
-    virtual bool event(QEvent *);
-    virtual void paintEvent(QPaintEvent *);
-    virtual void mousePressEvent(QMouseEvent *);
+    virtual bool event(QEvent *) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
     Document    *m_document;

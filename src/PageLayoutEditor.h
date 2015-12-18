@@ -29,7 +29,7 @@ class PageLayoutEditor : public QWidget
 
 public:
     PageLayoutEditor(QWidget *, Document *);
-    ~PageLayoutEditor();
+    virtual ~PageLayoutEditor();
 
     double zoomFactor() const;
     int gridSize() const;
@@ -54,10 +54,10 @@ signals:
     void elementGeometryChanged();
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *);
-    virtual void mouseMoveEvent(QMouseEvent *);
-    virtual void mouseReleaseEvent(QMouseEvent *);
-    virtual void paintEvent(QPaintEvent *);
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void contextMenuRequestedOn(const QPoint &);
