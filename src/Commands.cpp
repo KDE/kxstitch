@@ -1390,7 +1390,7 @@ void UpdatePrinterConfigurationCommand::undo()
 
 
 EditCutCommand::EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots)
-    :   QUndoCommand("Cut"),
+    :   QUndoCommand(i18n("Cut")),
         m_document(document),
         m_selectionArea(selectionArea),
         m_colorMask(colorMask),
