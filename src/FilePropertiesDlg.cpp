@@ -35,21 +35,21 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     m_minHeight = extents.height();
     m_width = m_document->pattern()->stitches().width();
     m_height = m_document->pattern()->stitches().height();
-    m_horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
-    m_verticalClothCount = m_document->property("verticalClothCount").toDouble();
-    m_clothCountLink = m_document->property("clothCountLink").toBool();
-    m_clothCountUnits = static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt());
-    m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property("unitsFormat").toInt());
+    m_horizontalClothCount = m_document->property(QStringLiteral("horizontalClothCount")).toDouble();
+    m_verticalClothCount = m_document->property(QStringLiteral("verticalClothCount")).toDouble();
+    m_clothCountLink = m_document->property(QStringLiteral("clothCountLink")).toBool();
+    m_clothCountUnits = static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt());
+    m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt());
     ui.UnitsFormat->setCurrentIndex(m_unitsFormat);
     updatePatternSizes();
-    ui.PatternTitle->setText(m_document->property("title").toString());
-    ui.PatternAuthor->setText(m_document->property("author").toString());
-    ui.PatternCopyright->setText(m_document->property("copyright").toString());
-    ui.PatternFabric->setText(m_document->property("fabric").toString());
-    ui.FabricColor->setColor(m_document->property("fabricColor").value<QColor>());
+    ui.PatternTitle->setText(m_document->property(QStringLiteral("title")).toString());
+    ui.PatternAuthor->setText(m_document->property(QStringLiteral("author")).toString());
+    ui.PatternCopyright->setText(m_document->property(QStringLiteral("copyright")).toString());
+    ui.PatternFabric->setText(m_document->property(QStringLiteral("fabric")).toString());
+    ui.FabricColor->setColor(m_document->property(QStringLiteral("fabricColor")).value<QColor>());
     ui.FlossScheme->addItems(SchemeManager::schemes());
     ui.FlossScheme->setCurrentItem(m_document->pattern()->palette().schemeName());
-    ui.Instructions->setPlainText(m_document->property("instructions").toString());
+    ui.Instructions->setPlainText(m_document->property(QStringLiteral("instructions")).toString());
     ui.ClothCountLink->setChecked(m_clothCountLink);
     on_ClothCountLink_clicked(m_clothCountLink);
 }
@@ -242,7 +242,7 @@ void FilePropertiesDlg::on_VerticalClothCount_valueChanged(double d)
 
 void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
@@ -267,7 +267,7 @@ void FilePropertiesDlg::on_DialogButtonBox_rejected()
 
 void FilePropertiesDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PatternPropertiesDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PatternPropertiesDialog"), QStringLiteral("kxstitch"));
 }
 
 

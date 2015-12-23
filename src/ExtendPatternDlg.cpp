@@ -86,5 +86,5 @@ void ExtendPatternDlg::on_DialogButtonBox_rejected()
 
 void ExtendPatternDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("ExtendPatternDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("ExtendPatternDialog"), QStringLiteral("kxstitch"));
 }

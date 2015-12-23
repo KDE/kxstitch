@@ -245,7 +245,7 @@ void PaletteManagerDlg::on_NewFloss_clicked(bool)
 
         if (floss) {
             QListWidgetItem *listWidgetItem = new QListWidgetItem;
-            listWidgetItem->setText(QString("%1 %2").arg(floss->name()).arg(floss->description()));
+            listWidgetItem->setText(QString::fromLatin1("%1 %2").arg(floss->name()).arg(floss->description()));
             listWidgetItem->setData(Qt::DecorationRole, QColor(floss->color()));
             listWidgetItem->setData(Qt::UserRole, QString(floss->name()));
 
@@ -305,7 +305,7 @@ void PaletteManagerDlg::on_DialogButtonBox_rejected()
 
 void PaletteManagerDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PaletteManagerDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PaletteManagerDialog"), QStringLiteral("kxstitch"));
 }
 
 
@@ -317,7 +317,7 @@ void PaletteManagerDlg::fillLists()
 
     foreach (const Floss * floss, m_scheme->flosses()) {
         QListWidgetItem *listWidgetItem = new QListWidgetItem;
-        listWidgetItem->setText(QString("%1 %2").arg(floss->name()).arg(floss->description()));
+        listWidgetItem->setText(QString::fromLatin1("%1 %2").arg(floss->name()).arg(floss->description()));
         listWidgetItem->setData(Qt::DecorationRole, QColor(floss->color()));
         listWidgetItem->setData(Qt::UserRole, QString(floss->name()));
 

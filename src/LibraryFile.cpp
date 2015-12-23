@@ -225,7 +225,7 @@ QString LibraryFile::localFile() const
     QFileInfo path(m_path);
 
     if (path.isDir()) {
-        return m_path + "/kxstitch.library";
+        return m_path + QLatin1String("/kxstitch.library");
     } else {
         return m_path;
     }

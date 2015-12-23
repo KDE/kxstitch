@@ -1417,7 +1417,7 @@ void EditCutCommand::redo()
     stream << *m_originalPattern;
 
     QMimeData *mimeData = new QMimeData();
-    mimeData->setData("application/kxstitch", data);
+    mimeData->setData(QStringLiteral("application/kxstitch"), data);
 
     QApplication::clipboard()->setMimeData(mimeData);
 

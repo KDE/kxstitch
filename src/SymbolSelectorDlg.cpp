@@ -53,7 +53,7 @@ SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibra
     SymbolLibrary *library = SymbolManager::library(symbolLibrary);
 
     if (library == nullptr) {
-        library = SymbolManager::library("kxstitch");
+        library = SymbolManager::library(QStringLiteral("kxstitch"));
     }
 
     ui.SymbolTable->loadFromLibrary(library);
@@ -153,5 +153,5 @@ void SymbolSelectorDlg::on_DialogButtonBox_rejected()
  */
 void SymbolSelectorDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("SymbolSelectorDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("SymbolSelectorDialog"), QStringLiteral("kxstitch"));
 }

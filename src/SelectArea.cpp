@@ -90,7 +90,7 @@ void SelectArea::mouseMoveEvent(QMouseEvent *event)
         repaint(updateArea.adjusted(-8, -8, 8, 8));
     }
 
-    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(selectedArea.left()).arg(selectedArea.top()).arg(selectedArea.width()).arg(selectedArea.height()));
+    QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(selectedArea.left()).arg(selectedArea.top()).arg(selectedArea.width()).arg(selectedArea.height()));
 }
 
 
@@ -131,7 +131,7 @@ void SelectArea::paintEvent(QPaintEvent *event)
             painter.setPen(outline);
             painter.setBrush(color);
             painter.drawRect(previewRect);
-            painter.drawText(previewRect, Qt::AlignCenter, QString("%1").arg(page));
+            painter.drawText(previewRect, Qt::AlignCenter, QString::fromLatin1("%1").arg(page));
         }
     }
 

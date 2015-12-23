@@ -189,9 +189,9 @@ void Scale::paintEvent(QPaintEvent*)
 
         if ((i % majorTicks) == 0) {
             if (m_orientation == Qt::Horizontal) {
-                painter.drawText(QPointF(left + tickwidth + m_offset + 1, bottom - ticklen), QString("%1").arg(textValue));
+                painter.drawText(QPointF(left + tickwidth + m_offset + 1, bottom - ticklen), QString::fromLatin1("%1").arg(textValue));
             } else {
-                painter.drawText(QRectF(left, top + tickwidth + m_offset + 1, width, height), Qt::AlignTop, QString("%1").arg(textValue));
+                painter.drawText(QRectF(left, top + tickwidth + m_offset + 1, width, height), Qt::AlignTop, QString::fromLatin1("%1").arg(textValue));
             }
 
             textValue += textValueIncrement;

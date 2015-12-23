@@ -123,7 +123,7 @@ SymbolLibrary *SymbolManager::library(const QString &name)
  */
 void SymbolManager::refresh()
 {
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "symbols", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("symbols"), QStandardPaths::LocateDirectory);
 
     Q_FOREACH (const QString &dir, dirs) {
         QDirIterator it(dir, QStringList() << QStringLiteral("*.sym"));

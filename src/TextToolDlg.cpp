@@ -129,6 +129,6 @@ void TextToolDlg::on_DialogButtonBox_rejected()
 
 void TextToolDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("TextDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("TextDialog"), QStringLiteral("kxstitch"));
 }
 

@@ -38,7 +38,7 @@ private:
     int         m_errorCode;
     FlossScheme     *m_scheme;
     QMap<QString, QString>   m_flossMap;
-    QStack<QString*>    m_elements;
+    QStack<QString>     m_elements;
 };
 
 

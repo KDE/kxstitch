@@ -102,21 +102,21 @@ void Document::initialiseNew()
 
     m_pattern->stitches().resize(static_cast<int>(documentWidth), static_cast<int>(documentHeight));
 
-    setProperty("unitsFormat", Configuration::document_UnitsFormat());
-    setProperty("title", QString());
-    setProperty("author", QString());
-    setProperty("copyright", QString());
-    setProperty("fabric", QString());
-    setProperty("fabricColor", Configuration::editor_BackgroundColor());
-    setProperty("instructions", QString());
-    setProperty("cellHorizontalGrouping", Configuration::editor_CellHorizontalGrouping());
-    setProperty("cellVerticalGrouping", Configuration::editor_CellVerticalGrouping());
-    setProperty("horizontalClothCount", Configuration::editor_HorizontalClothCount());
-    setProperty("verticalClothCount", Configuration::editor_VerticalClothCount());
-    setProperty("clothCountUnits", Configuration::editor_ClothCountUnits());
-    setProperty("clothCountLink", Configuration::editor_ClothCountLink());
-    setProperty("thickLineColor", Configuration::editor_ThickLineColor());
-    setProperty("thinLineColor", Configuration::editor_ThinLineColor());
+    setProperty(QStringLiteral("unitsFormat"), Configuration::document_UnitsFormat());
+    setProperty(QStringLiteral("title"), QString());
+    setProperty(QStringLiteral("author"), QString());
+    setProperty(QStringLiteral("copyright"), QString());
+    setProperty(QStringLiteral("fabric"), QString());
+    setProperty(QStringLiteral("fabricColor"), Configuration::editor_BackgroundColor());
+    setProperty(QStringLiteral("instructions"), QString());
+    setProperty(QStringLiteral("cellHorizontalGrouping"), Configuration::editor_CellHorizontalGrouping());
+    setProperty(QStringLiteral("cellVerticalGrouping"), Configuration::editor_CellVerticalGrouping());
+    setProperty(QStringLiteral("horizontalClothCount"), Configuration::editor_HorizontalClothCount());
+    setProperty(QStringLiteral("verticalClothCount"), Configuration::editor_VerticalClothCount());
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::editor_ClothCountUnits());
+    setProperty(QStringLiteral("clothCountLink"), Configuration::editor_ClothCountLink());
+    setProperty(QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor());
+    setProperty(QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor());
 
     setUrl(i18n("Untitled"));
 }
@@ -444,36 +444,36 @@ void Document::readPCStitch5File(QDataStream &stream)
     stream >> height;
 
     m_pattern->stitches().resize(width, height);
-    setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
 
     quint16 clothCount;
     stream >> clothCount;
-    setProperty("horizontalClothCount", double(clothCount));
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     stream >> clothCount;
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
 
-    setProperty("author", readPCStitchString(stream));
-    setProperty("copyright", readPCStitchString(stream));
-    setProperty("title", readPCStitchString(stream));
-    setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", QColor(Qt::white));
+    setProperty(QStringLiteral("author"), readPCStitchString(stream));
+    setProperty(QStringLiteral("copyright"), readPCStitchString(stream));
+    setProperty(QStringLiteral("title"), readPCStitchString(stream));
+    setProperty(QStringLiteral("fabric"), readPCStitchString(stream));
+    setProperty(QStringLiteral("fabricColor"), QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf("}}");     // end of font defs
+        int index = instructions.indexOf(QLatin1String("}}"));      // end of font defs
         index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf('}', index);   // end of color table defs
+        index = instructions.indexOf(QLatin1Char('}'), index);   // end of color table defs
         index += 3;                                 // skip paste } and CR LF
-        index = instructions.indexOf(' ', index);   // find first space - end of text def
+        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
         index++;                                    // and skip past it
                                                     // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
 
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     char buffer[51];
     stream.readRawData(buffer, 25);
@@ -486,8 +486,8 @@ void Document::readPCStitch5File(QDataStream &stream)
 
         QString fontName = readPCStitchString(stream);  // the font name, usually 'PCStitch Symbols'
 
-        m_pattern->palette().setSchemeName("DMC");      // assume this palette will be DMC
-        FlossScheme *scheme = SchemeManager::scheme("DMC");
+        m_pattern->palette().setSchemeName(QStringLiteral("DMC"));      // assume this palette will be DMC
+        FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
@@ -513,12 +513,12 @@ void Document::readPCStitch5File(QDataStream &stream)
             QColor color(int(paletteEntry.RGBA[0]), int(paletteEntry.RGBA[1]), int(paletteEntry.RGBA[2]));
             QString colorName = QString::fromLatin1(paletteEntry.colorName, 10).trimmed();
 
-            if (colorName == "White") {
-                colorName = "Blanc";                        // fix colorName
+            if (colorName == QLatin1String("White")) {
+                colorName = QLatin1String("Blanc");                        // fix colorName
             }
 
-            if (colorName == "5200") {
-                colorName = "B5200";                        // fix colorName
+            if (colorName == QLatin1String("5200")) {
+                colorName = QLatin1String("B5200");                        // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
@@ -722,34 +722,34 @@ void Document::readPCStitch6File(QDataStream &stream)
     stream >> height;
 
     m_pattern->stitches().resize(width, height);
-    setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
 
     quint16 clothCount;
     stream >> clothCount;
-    setProperty("horizontalClothCount", double(clothCount));
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     stream >> clothCount;
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
 
-    setProperty("author", readPCStitchString(stream));
-    setProperty("copyright", readPCStitchString(stream));
-    setProperty("title", readPCStitchString(stream));
-    setProperty("fabric", readPCStitchString(stream));
-    setProperty("fabricColor", QColor(Qt::white));
+    setProperty(QStringLiteral("author"), readPCStitchString(stream));
+    setProperty(QStringLiteral("copyright"), readPCStitchString(stream));
+    setProperty(QStringLiteral("title"), readPCStitchString(stream));
+    setProperty(QStringLiteral("fabric"), readPCStitchString(stream));
+    setProperty(QStringLiteral("fabricColor"), QColor(Qt::white));
 
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf("}}");     // end of font defs
+        int index = instructions.indexOf(QLatin1String("}}"));     // end of font defs
         index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf(' ', index);   // find first space - end of text def
+        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
         index++;                                    // and skip past it
                                                     // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
 
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     char buffer[125];
     stream.readRawData(buffer, 25);
@@ -765,8 +765,8 @@ void Document::readPCStitch6File(QDataStream &stream)
 
         stream >> unknown32;
 
-        m_pattern->palette().setSchemeName("DMC");
-        FlossScheme *scheme = SchemeManager::scheme("DMC");
+        m_pattern->palette().setSchemeName(QStringLiteral("DMC"));
+        FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
@@ -794,12 +794,12 @@ void Document::readPCStitch6File(QDataStream &stream)
             QColor color = QColor(paletteEntry.RGBA[0], paletteEntry.RGBA[1], paletteEntry.RGBA[2]);
             QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
 
-            if (colorName == "White") {
-                colorName = "Blanc";                        // fix colorName
+            if (colorName == QLatin1String("White")) {
+                colorName = QLatin1String("Blanc");                        // fix colorName
             }
 
-            if (colorName == "5200") {
-                colorName = "B5200";                        // fix colorName
+            if (colorName == QLatin1String("5200")) {
+                colorName = QLatin1String("B5200");                        // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
@@ -1013,39 +1013,39 @@ void Document::readPCStitch7File(QDataStream &stream)
     stream >> height;
 
     m_pattern->stitches().resize(width, height);
-    setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
 
     quint16 clothCount;
     stream >> clothCount;
-    setProperty("horizontalClothCount", double(clothCount));
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     stream >> clothCount;
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
 
     unsigned char r;
     unsigned char g;
     unsigned char b;
     unsigned char a;
     stream >> r >> g >> b >> a;
-    setProperty("fabricColor", QColor(r, g, b)); // alpha defaults to 255
-    setProperty("author", readPCStitchString(stream));
-    setProperty("copyright", readPCStitchString(stream));
-    setProperty("title", readPCStitchString(stream));
-    setProperty("fabric", readPCStitchString(stream));
+    setProperty(QStringLiteral("fabricColor"), QColor(r, g, b)); // alpha defaults to 255
+    setProperty(QStringLiteral("author"), readPCStitchString(stream));
+    setProperty(QStringLiteral("copyright"), readPCStitchString(stream));
+    setProperty(QStringLiteral("title"), readPCStitchString(stream));
+    setProperty(QStringLiteral("fabric"), readPCStitchString(stream));
 
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf("}}");     // end of font defs
+        int index = instructions.indexOf(QLatin1String("}}"));     // end of font defs
         index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf(' ', index);   // find first space - end of text def
+        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
         index++;                                    // and skip past it
                                                     // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
 
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     QString keywords(readPCStitchString(stream));
     QString website(readPCStitchString(stream));
@@ -1063,8 +1063,8 @@ void Document::readPCStitch7File(QDataStream &stream)
         quint16 colors;
         stream >> colors;
 
-        m_pattern->palette().setSchemeName("DMC");
-        FlossScheme *scheme = SchemeManager::scheme("DMC");
+        m_pattern->palette().setSchemeName(QStringLiteral("DMC"));
+        FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
             throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
@@ -1094,12 +1094,12 @@ void Document::readPCStitch7File(QDataStream &stream)
             QColor color = QColor(int(paletteEntry.RGBA_1[0]), int(paletteEntry.RGBA_1[1]), int(paletteEntry.RGBA_1[2]));
             QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
 
-            if (colorName == "White") {
-                colorName = "Blanc";                        // fix colorName
+            if (colorName == QLatin1String("White")) {
+                colorName = QLatin1String("Blanc");     // fix colorName
             }
 
-            if (colorName == "5200") {
-                colorName = "B5200";                        // fix colorName
+            if (colorName == QLatin1String("5200")) {
+                colorName = QLatin1String("B5200");     // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
@@ -1213,7 +1213,7 @@ QString Document::readPCStitchString(QDataStream &stream)
     buffer = new char[stringSize + 1];
     stream.readRawData(buffer, stringSize);
     buffer[stringSize] = '\0';
-    QString string(buffer);
+    QString string = QString::fromLatin1(buffer);
     delete [] buffer;
 
     if (stream.status() != QDataStream::Ok) {
@@ -1275,9 +1275,9 @@ void Document::readKXStitchV2File(QDataStream &stream)
     stream  >> title
             >> author
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -1287,14 +1287,14 @@ void Document::readKXStitchV2File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
     stream  >> schemeIndex; // discard
 
     qint16 inches;
     stream  >> inches;
-    setProperty("unitsFormat", (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
@@ -1303,14 +1303,14 @@ void Document::readKXStitchV2File(QDataStream &stream)
 
     qint32 clothCount;
     stream  >> clothCount;
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     qint32 current;
@@ -1448,9 +1448,9 @@ void Document::readKXStitchV3File(QDataStream &stream)
     stream  >> title
             >> author
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -1460,14 +1460,14 @@ void Document::readKXStitchV3File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
     stream  >> schemeIndex; // discard
 
     qint16 inches;
     stream  >> inches;
-    setProperty("unitsFormat", (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
@@ -1476,14 +1476,14 @@ void Document::readKXStitchV3File(QDataStream &stream)
 
     qint32 clothCount;
     stream  >> clothCount;
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     QString schemeName;
@@ -1619,9 +1619,9 @@ void Document::readKXStitchV4File(QDataStream &stream)
     stream  >> title
             >> author
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -1631,14 +1631,14 @@ void Document::readKXStitchV4File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
     stream  >> schemeIndex; // discard
 
     qint16 inches;
     stream  >> inches;
-    setProperty("unitsFormat", (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
@@ -1647,14 +1647,14 @@ void Document::readKXStitchV4File(QDataStream &stream)
 
     qint32 clothCount;
     stream  >> clothCount;
-    setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
+    setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     QString schemeName;
@@ -1806,31 +1806,31 @@ void Document::readKXStitchV5File(QDataStream &stream)
             >> height;
 
     if (sizeUnits == i18n("Stitches")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Stitches);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
     }
 
     if (sizeUnits == i18n("CM")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::CM);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::CM);
     }
 
     if (sizeUnits == i18n("Inches")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Inches);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Inches);
     }
 
     double clothCount;
     QString clothCountUnits;
     stream  >> clothCount
             >> clothCountUnits;
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
 
-    if (clothCountUnits == "/cm") {
-        setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::CM);
+    if (clothCountUnits == QLatin1String("/cm")) {
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::CM);
     }
 
-    if (clothCountUnits == "/in") {
-        setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
+    if (clothCountUnits == QLatin1String("/in")) {
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
     }
 
     QString title;
@@ -1841,10 +1841,10 @@ void Document::readKXStitchV5File(QDataStream &stream)
             >> author
             >> copyright
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("copyright", copyright);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("copyright"), copyright);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -1854,14 +1854,14 @@ void Document::readKXStitchV5File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
     stream  >> schemeName;  // discard, also read in palette
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     stream  >> schemeName;
@@ -2012,31 +2012,31 @@ void Document::readKXStitchV6File(QDataStream &stream)
             >> height;
 
     if (sizeUnits == i18n("Stitches")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Stitches);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
     }
 
     if (sizeUnits == i18n("CM")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::CM);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::CM);
     }
 
     if (sizeUnits == i18n("Inches")) {
-        setProperty("unitsFormat", Configuration::EnumDocument_UnitsFormat::Inches);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Inches);
     }
 
     double clothCount;
     QString clothCountUnits;
     stream  >> clothCount
             >> clothCountUnits;
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
 
-    if (clothCountUnits == "/cm") {
-        setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::CM);
+    if (clothCountUnits == QLatin1String("/cm")) {
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::CM);
     }
 
-    if (clothCountUnits == "/in") {
-        setProperty("clothCountUnits", Configuration::EnumEditor_ClothCountUnits::Inches);
+    if (clothCountUnits == QLatin1String("/in")) {
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
     }
 
     QString title;
@@ -2047,10 +2047,10 @@ void Document::readKXStitchV6File(QDataStream &stream)
             >> author
             >> copyright
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("copyright", copyright);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("copyright"), copyright);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -2060,14 +2060,14 @@ void Document::readKXStitchV6File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
     stream  >> schemeName;  // discard, also read in palette
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     stream  >> schemeName;
@@ -2231,16 +2231,16 @@ void Document::readKXStitchV7File(QDataStream &stream)
     stream  >> sizeUnits
             >> width
             >> height;
-    setProperty("unitsFormat", convertSizeUnits[sizeUnits]);
+    setProperty(QStringLiteral("unitsFormat"), convertSizeUnits[sizeUnits]);
 
     double clothCount;
     qint32 clothCountUnits;
     stream  >> clothCount
             >> clothCountUnits;
-    setProperty("horizontalClothCount", double(clothCount));
-    setProperty("verticalClothCount", double(clothCount));
-    setProperty("clothCountLink", true);
-    setProperty("clothCountUnits", convertClothCountUnits[clothCountUnits]);
+    setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
+    setProperty(QStringLiteral("clothCountLink"), true);
+    setProperty(QStringLiteral("clothCountUnits"), convertClothCountUnits[clothCountUnits]);
 
     QString title;
     QString author;
@@ -2250,10 +2250,10 @@ void Document::readKXStitchV7File(QDataStream &stream)
             >> author
             >> copyright
             >> fabric;
-    setProperty("title", title);
-    setProperty("author", author);
-    setProperty("copyright", copyright);
-    setProperty("fabric", fabric);
+    setProperty(QStringLiteral("title"), title);
+    setProperty(QStringLiteral("author"), author);
+    setProperty(QStringLiteral("copyright"), copyright);
+    setProperty(QStringLiteral("fabric"), fabric);
 
     quint8 red;
     quint8 green;
@@ -2263,14 +2263,14 @@ void Document::readKXStitchV7File(QDataStream &stream)
             >> green
             >> blue
             >> alpha;
-    setProperty("fabricColor", QColor(red, green, blue, alpha));
+    setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
     stream  >> schemeName;  // discard, also read in palette
 
     QString instructions;
     stream  >> instructions;
-    setProperty("instructions", instructions);
+    setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     stream  >> schemeName;

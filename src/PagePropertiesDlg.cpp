@@ -92,5 +92,5 @@ void PagePropertiesDlg::on_DialogButtonBox_rejected()
 
 void PagePropertiesDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PrinterDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PrinterDialog"), QStringLiteral("kxstitch"));
 }

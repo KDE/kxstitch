@@ -26,30 +26,30 @@
 /**
     Valid tags that can exist in the file.
     */
-const char *validTags[] = {
-    "flossScheme",  /**< The enclosing tags for the file */
-    "title",    /**< The title of the scheme */
-    "floss",    /**< Enclosing tags for a floss definition */
-    "name",     /**< The name of the floss */
-    "description",  /**< The descriptive text for the floss */
-    "color",    /**< Enclosing tags for a color definition */
-    "red",      /**< Red color value */
-    "green",    /**< Green color value */
-    "blue",     /**< Blue color value */
-    0       /**< List termination value */
+const QStringList validTags = {
+    QStringLiteral("flossScheme"),  /**< The enclosing tags for the file */
+    QStringLiteral("title"),        /**< The title of the scheme */
+    QStringLiteral("floss"),        /**< Enclosing tags for a floss definition */
+    QStringLiteral("name"),         /**< The name of the floss */
+    QStringLiteral("description"),  /**< The descriptive text for the floss */
+    QStringLiteral("color"),        /**< Enclosing tags for a color definition */
+    QStringLiteral("red"),          /**< Red color value */
+    QStringLiteral("green"),        /**< Green color value */
+    QStringLiteral("blue")          /**< Blue color value */
 };
 
 
 /**
     Error messages.
+    TODO these need to be translatable
     */
-const char *errorMessages[] = {
-    "No error",
-    "Floss not completely defined",
-    "Unmatched element tags",
-    "Unknown element tag",
-    "Color value is invalid",
-    "Unknown error code"
+const QStringList errorMessages = {
+    QStringLiteral("No error"),
+    QStringLiteral("Floss not completely defined"),
+    QStringLiteral("Unmatched element tags"),
+    QStringLiteral("Unknown element tag"),
+    QStringLiteral("Color value is invalid"),
+    QStringLiteral("Unknown error code")
 };
 
 
@@ -100,14 +100,8 @@ bool SchemeParser::startElement(const QString &namespaceURI, const QString &loca
 
     QString name = qName.simplified();
 
-    int tag = 0;
-
-    while (validTags[tag] && name != validTags[tag]) {
-        tag++;
-    }
-
-    if (validTags[tag]) {
-        m_elements.push(new QString(name));
+    if (validTags.contains(name)) {
+        m_elements.push(name);
         return true;
     }
 
@@ -130,13 +124,13 @@ bool SchemeParser::characters(const QString &d)
         return true;
     }
 
-    if (*m_elements.top() == "title") {
+    if (m_elements.top() == QLatin1String("title")) {
         m_scheme->setSchemeName(data);
     } else {
-        m_flossMap.insert(*m_elements.top(), data);
+        m_flossMap.insert(m_elements.top(), data);
     }
 
-    if (*m_elements.top() == "red" || *m_elements.top() == "green" || *m_elements.top() == "blue") {
+    if (m_elements.top() == QLatin1String("red") || m_elements.top() == QLatin1String("green") || m_elements.top() == QLatin1String("blue")) {
         if (data.toInt() > 255) {
             // color value is not valid
             m_errorCode = 4;
@@ -161,12 +155,12 @@ bool SchemeParser::endElement(const QString &namespaceURI, const QString &localN
     Q_UNUSED(localName);
 
     QString name = qName.simplified();
-    QString *s = m_elements.pop();
+    QString s = m_elements.pop();
 
-    if (*s == name) {
-        if (name == "floss") {
-            if (m_flossMap.contains("name") && m_flossMap.contains("description") && m_flossMap.contains("red") && m_flossMap.contains("green") && m_flossMap.contains("blue")) {
-                m_scheme->addFloss(new Floss(m_flossMap["name"], m_flossMap["description"], QColor(m_flossMap["red"].toInt(), m_flossMap["green"].toInt(), m_flossMap["blue"].toInt())));
+    if (s == name) {
+        if (name == QLatin1String("floss")) {
+            if (m_flossMap.contains(QLatin1String("name")) && m_flossMap.contains(QLatin1String("description")) && m_flossMap.contains(QLatin1String("red")) && m_flossMap.contains(QLatin1String("green")) && m_flossMap.contains(QLatin1String("blue"))) {
+                m_scheme->addFloss(new Floss(m_flossMap[QLatin1String("name")], m_flossMap[QLatin1String("description")], QColor(m_flossMap[QLatin1String("red")].toInt(), m_flossMap[QLatin1String("green")].toInt(), m_flossMap[QLatin1String("blue")].toInt())));
                 m_flossMap.clear();
             } else {
                 // not all elements defined for a floss
@@ -178,8 +172,6 @@ bool SchemeParser::endElement(const QString &namespaceURI, const QString &localN
     {
         m_errorCode = 2;
     }
-
-    delete s;
 
     if (m_errorCode) {
         return false;
@@ -195,5 +187,5 @@ bool SchemeParser::endElement(const QString &namespaceURI, const QString &localN
     */
 QString SchemeParser::errorString() const
 {
-    return QString(errorMessages[m_errorCode]);
+    return errorMessages.at(m_errorCode);
 }

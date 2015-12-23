@@ -90,7 +90,7 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
             Pattern *pattern = item->libraryPattern()->pattern();
             stream << *pattern;
             QMimeData *mimeData = new QMimeData();
-            mimeData->setData("application/kxstitch", data);
+            mimeData->setData(QStringLiteral("application/kxstitch"), data);
 
             QPixmap pixmap(pattern->stitches().width()*m_cellWidth, pattern->stitches().height()*m_cellHeight);
             pixmap.fill(Qt::white);

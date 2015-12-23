@@ -140,5 +140,5 @@ void PatternElementDlg::on_DialogButtonBox_rejected()
 
 void PatternElementDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PatternElement", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PatternElement"), QStringLiteral("kxstitch"));
 }

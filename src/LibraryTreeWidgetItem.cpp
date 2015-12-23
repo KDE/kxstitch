@@ -221,7 +221,7 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
     }
 
     QString path = m_libraryFiles[0]->path();
-    path.remove(0, path.indexOf("/library"));
+    path.remove(0, path.indexOf(QLatin1String("/library")));
     path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     addPath(path);
     libraryFile = m_libraryFiles.last();

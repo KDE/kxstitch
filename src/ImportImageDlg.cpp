@@ -178,16 +178,16 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
         ui.VerticalClothCount->setValue(horizontalClothCount);
     }
 
-    QString formattedSizeWidth = QString("%1").arg(preferredSizeWidth, 0, 'g', 3);
-    QString formattedSizeHeight = QString("%1").arg(preferredSizeHeight, 0, 'g', 3);
+    QString formattedSizeWidth = QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'g', 3);
+    QString formattedSizeHeight = QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'g', 3);
     // TODO is there a better way of representing the dimensional values below for correct translations.
-    ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString("%1").arg(preferredSizeWidth, 0, 'g', 3), QString("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
+    ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'g', 3), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
 }
 
 
 void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
 {
-    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
+    ui.ClothCountLink->setIcon((checked) ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
 
     if (checked) {
         ui.VerticalClothCount->setValue(ui.HorizontalClothCount->value());
@@ -239,7 +239,7 @@ void ImportImageDlg::createImageMap()
 
 void ImportImageDlg::renderPixmap()
 {
-    QPixmap alpha = QIcon("alpha").pixmap(32, 32);
+    QPixmap alpha = QIcon(QStringLiteral("alpha")).pixmap(32, 32);
     ui.ImagePreview->setCursor(Qt::WaitCursor);
     calculateSizes();
     m_convertedImage.modifyImage();
@@ -347,7 +347,7 @@ void ImportImageDlg::on_DialogButtonBox_rejected()
 
 void ImportImageDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("ImportImageDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("ImportImageDialog"), QStringLiteral("kxstitch"));
 }
 
 
@@ -374,7 +374,7 @@ void ImportImageDlg::resetImportParameters()
     ui.VerticalClothCount->setValue(verticalClothCount);
     ui.VerticalClothCount->setEnabled(false);
     ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
-    ui.ClothCountLink->setIcon(QIcon::fromTheme("object-locked"));
+    ui.ClothCountLink->setIcon(QIcon::fromTheme(QStringLiteral("object-locked")));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();

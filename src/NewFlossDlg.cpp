@@ -102,5 +102,5 @@ void NewFlossDlg::on_DialogButtonBox_rejected()
 
 void NewFlossDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("NewFlossDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("NewFlossDialog"), QStringLiteral("kxstitch"));
 }

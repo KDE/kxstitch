@@ -437,7 +437,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    double unitLength = (1 / (document->property("horizontalClothCount").toDouble() * (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt() == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1.0))) * 0.0254;
+    double unitLength = (1 / (document->property(QStringLiteral("horizontalClothCount")).toDouble() * (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt() == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1.0))) * 0.0254;
     QMap<int, FlossUsage> flossUsage = document->pattern()->stitches().flossUsage();
     QMap<int, DocumentFloss *> flosses = document->pattern()->palette().flosses();
     QVector<int> sortedFlosses = document->pattern()->palette().sortedFlosses();
@@ -511,12 +511,12 @@ void KeyElement::render(Document *document, QPainter *painter) const
         FlossUsage usage = flossUsage[index];
 
         flossNameWidth = std::max(flossNameWidth, fontMetrics.width(flosses[index]->flossName()));
-        strandsWidth = std::max(strandsWidth, fontMetrics.width(QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
+        strandsWidth = std::max(strandsWidth, fontMetrics.width(QString::fromLatin1("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
         flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(scheme->find(flosses[index]->flossName())->description()));
-        stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString("%1").arg(usage.totalStitches())));
+        stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString::fromLatin1("%1").arg(usage.totalStitches())));
         double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(), 2);
-        lengthWidth = std::max(lengthWidth, fontMetrics.width(QString("%1").arg(flossLength)));
-        skeinsWidth = std::max(skeinsWidth, fontMetrics.width(QString("%1").arg(flossLength / 48)));    // 1 skein = 6 strands of 8m
+        lengthWidth = std::max(lengthWidth, fontMetrics.width(QString::fromLatin1("%1").arg(flossLength)));
+        skeinsWidth = std::max(skeinsWidth, fontMetrics.width(QString::fromLatin1("%1").arg(flossLength / 48)));    // 1 skein = 6 strands of 8m
     }
 
     font.setBold(true);
@@ -615,7 +615,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
             }
 
             if (m_strandsColumn) {
-                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth, y), QString::fromLatin1("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands()));
             }
 
             if (m_flossDescriptionColumn) {
@@ -623,17 +623,17 @@ void KeyElement::render(Document *document, QPainter *painter) const
             }
 
             if (m_stitchesColumn) {
-                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString("%1").arg(usage.totalStitches()));
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth, y), QString::fromLatin1("%1").arg(usage.totalStitches()));
             }
 
             double totalLength = usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands();
 
             if (m_lengthColumn) {
-                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString("%1").arg(round_n(totalLength, 2)));
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth, y), QString::fromLatin1("%1").arg(round_n(totalLength, 2)));
             }
 
             if (m_skeinsColumn) {
-                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), QString("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
+                painter->drawText(deviceTextArea.topLeft() + QPointF(symbolWidth + flossNameWidth + strandsWidth + flossDescriptionWidth + stitchesWidth + lengthWidth, y), QString::fromLatin1("%1 (%2)").arg(ceil(totalLength / 48)).arg(round_n(totalLength / 48, 2)));    // total length / 48m (6 strands of 8m)
             }
 
             y += lineSpacing;
@@ -912,7 +912,7 @@ void PlanElement::render(Document *document, QPainter *painter) const
 
     int documentWidth = document->pattern()->stitches().width();
     int documentHeight = document->pattern()->stitches().height();
-    double aspect = document->property("horizontalClothCount").toDouble() / document->property("verticalClothCount").toDouble();
+    double aspect = document->property(QStringLiteral("horizontalClothCount")).toDouble() / document->property(QStringLiteral("verticalClothCount")).toDouble();
     double mapWidth = m_rectangle.width() - 1;
     double cellWidth = mapWidth / documentWidth;
     double cellHeight = cellWidth * aspect;
@@ -1079,10 +1079,10 @@ void PatternElement::render(Document *document, QPainter *painter) const
     int documentWidth = document->pattern()->stitches().width();
     int documentHeight = document->pattern()->stitches().height();
 
-    double horizontalClothCount = document->property("horizontalClothCount").toDouble();
-    double verticalClothCount = document->property("verticalClothCount").toDouble();
+    double horizontalClothCount = document->property(QStringLiteral("horizontalClothCount")).toDouble();
+    double verticalClothCount = document->property(QStringLiteral("verticalClothCount")).toDouble();
 
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 
     // calculate the aspect ratio an the size of the cells to fit within the rectangle and the overall paint area size
     double patternWidth = m_rectangle.width() - scaleSize;
@@ -1098,12 +1098,12 @@ void PatternElement::render(Document *document, QPainter *painter) const
         cellHeight = patternHeight / m_patternRect.height();
     }
 
-    int cellHorizontalGrouping = document->property("cellHorizontalGrouping").toInt();
-    int cellVerticalGrouping = document->property("cellVerticalGrouping").toInt();
+    int cellHorizontalGrouping = document->property(QStringLiteral("cellHorizontalGrouping")).toInt();
+    int cellVerticalGrouping = document->property(QStringLiteral("cellVerticalGrouping")).toInt();
 
     renderer.setCellGrouping(cellHorizontalGrouping, cellVerticalGrouping);
     renderer.setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
-    renderer.setGridLineColors(document->property("thinLineColor").value<QColor>(), document->property("thickLineColor").value<QColor>());
+    renderer.setGridLineColors(document->property(QStringLiteral("thinLineColor")).value<QColor>(), document->property(QStringLiteral("thickLineColor")).value<QColor>());
 
     // find the position of the top left coordinate of the top left cell of the cells to be printed
     double patternHOffset = ((double(m_rectangle.width()) - double(patternWidth + scaleSize)) / 2);
@@ -1197,7 +1197,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
             int tickPosition = transform.map(QPointF(subTick * i, 0)).toPoint().x();
 
             if (tickPosition >= vpLeft + vpScaleWidth && tickPosition <= vpLeft + vpWidth && (i % majorTicks) == 0) {
-                painter->drawText(QRect(tickPosition - vpCellWidth, vpTop, vpCellWidth * 2, int(3 * deviceVRatio)), Qt::AlignHCenter | Qt::AlignBottom, QString("%1").arg((i / majorTicks) * textValueIncrement));
+                painter->drawText(QRect(tickPosition - vpCellWidth, vpTop, vpCellWidth * 2, int(3 * deviceVRatio)), Qt::AlignHCenter | Qt::AlignBottom, QString::fromLatin1("%1").arg((i / majorTicks) * textValueIncrement));
             }
         }
 
@@ -1272,7 +1272,7 @@ void PatternElement::render(Document *document, QPainter *painter) const
             int tickPosition = transform.map(QPointF(0, subTick * i)).toPoint().y();
 
             if (tickPosition >= vpTop + vpScaleHeight && tickPosition <= vpTop + vpHeight && (i % majorTicks) == 0) {
-                painter->drawText(QRect(vpLeft, tickPosition - vpScaleHeight, int(3 * deviceHRatio), vpScaleHeight * 2), Qt::AlignRight | Qt::AlignVCenter, QString("%1").arg((i / majorTicks) * textValueIncrement));
+                painter->drawText(QRect(vpLeft, tickPosition - vpScaleHeight, int(3 * deviceHRatio), vpScaleHeight * 2), Qt::AlignRight | Qt::AlignVCenter, QString::fromLatin1("%1").arg((i / majorTicks) * textValueIncrement));
             }
         }
 
@@ -1864,7 +1864,7 @@ void TextElement::setAlignment(Qt::Alignment alignment)
 
 void TextElement::setText(const QString &text)
 {
-    if (text.contains("<html>")) {
+    if (text.contains(QLatin1String("<html>"))) {
         m_text = text;
     } else {
         m_text = encodeToHtml(text);
@@ -1942,29 +1942,29 @@ void TextElement::render(Document *document, QPainter *painter) const
 QString TextElement::convertedText(Document *document) const
 {
     QString replacement = m_text;
-    replacement.replace(QRegExp("\\$\\{title\\}"), document->property("title").toString());
-    replacement.replace(QRegExp("\\$\\{author\\}"), document->property("author").toString());
-    replacement.replace(QRegExp("\\$\\{copyright\\}"), document->property("copyright").toString());
-    replacement.replace(QRegExp("\\$\\{fabric\\}"), document->property("fabric").toString());
-    replacement.replace(QRegExp("\\$\\{instructions\\}"), document->property("instructions").toString());
-    replacement.replace(QRegExp("\\$\\{horizontalClothCount\\}"), document->property("horizontalClothCount").toString());
-    replacement.replace(QRegExp("\\$\\{verticalClothCount\\}"), document->property("verticalClothCount").toString());
-    replacement.replace(QRegExp("\\$\\{width.stitches\\}"), QString("%1").arg(document->pattern()->stitches().width()));
-    replacement.replace(QRegExp("\\$\\{height.stitches\\}"), QString("%1").arg(document->pattern()->stitches().height()));
-    replacement.replace(QRegExp("\\$\\{width.inches\\}"), QString("%1").arg(round_n(document->pattern()->stitches().width() /
-                        (document->property("horizontalClothCount").toDouble() *
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
-    replacement.replace(QRegExp("\\$\\{height.inches\\}"), QString("%1").arg(round_n(document->pattern()->stitches().height() /
-                        (document->property("verticalClothCount").toDouble() *
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
-    replacement.replace(QRegExp("\\$\\{width.cm\\}"), QString("%1").arg(round_n(document->pattern()->stitches().width() /
-                        (document->property("horizontalClothCount").toDouble() /
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
-    replacement.replace(QRegExp("\\$\\{height.cm\\}"), QString("%1").arg(round_n(document->pattern()->stitches().height() /
-                        (document->property("verticalClothCount").toDouble() /
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
-    replacement.replace(QRegExp("\\$\\{scheme\\}"), document->pattern()->palette().schemeName());
-    replacement.replace(QRegExp("\\$\\{page\\}"), QString("%1").arg(parent()->pageNumber()));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{title\\}")), document->property(QStringLiteral("title")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{author\\}")), document->property(QStringLiteral("author")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{copyright\\}")), document->property(QStringLiteral("copyright")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{fabric\\}")), document->property(QStringLiteral("fabric")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{instructions\\}")), document->property(QStringLiteral("instructions")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{horizontalClothCount\\}")), document->property(QStringLiteral("horizontalClothCount")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{verticalClothCount\\}")), document->property(QStringLiteral("verticalClothCount")).toString());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{width.stitches\\}")), QString::fromLatin1("%1").arg(document->pattern()->stitches().width()));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{height.stitches\\}")), QString::fromLatin1("%1").arg(document->pattern()->stitches().height()));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{width.inches\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().width() /
+                        (document->property(QStringLiteral("horizontalClothCount")).toDouble() *
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{height.inches\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().height() /
+                        (document->property(QStringLiteral("verticalClothCount")).toDouble() *
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{width.cm\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().width() /
+                        (document->property(QStringLiteral("horizontalClothCount")).toDouble() /
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{height.cm\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().height() /
+                        (document->property(QStringLiteral("verticalClothCount")).toDouble() /
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{scheme\\}")), document->pattern()->palette().schemeName());
+    replacement.replace(QRegExp(QStringLiteral("\\$\\{page\\}")), QString::fromLatin1("%1").arg(parent()->pageNumber()));
     // repeat for all possible values
 
     return replacement;

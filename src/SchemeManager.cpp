@@ -176,7 +176,7 @@ bool SchemeManager::writeScheme(QString name)
             // TODO Allow user to select a location to store the calibrated schemes
         }
 
-        writableDir += "/schemes/";
+        writableDir += QLatin1String("/schemes/");
 
         if (!QDir(writableDir).exists()) {
             if (!QDir().mkpath(writableDir)) {
@@ -197,7 +197,7 @@ bool SchemeManager::writeScheme(QString name)
     if (schemeFile.open(QIODevice::WriteOnly)) {
         QTextStream stream(&schemeFile);
         stream << "<!DOCTYPE flossScheme SYSTEM \"flossScheme.dtd\">\n<flossScheme>\n";
-        stream << "<title>" << name.replace(QChar('&'), QString("&amp;")) << "</title>\n"; // includes fixup for the J&P Coates scheme
+        stream << "<title>" << name.replace(QLatin1Char('&'), QLatin1String("&amp;")) << "</title>\n"; // includes fixup for the J&P Coates scheme
         QListIterator<Floss*> it(flossScheme->flosses());
 
         while (it.hasNext()) {
@@ -224,10 +224,10 @@ bool SchemeManager::writeScheme(QString name)
     */
 void SchemeManager::refresh()
 {
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "schemes", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("schemes"), QStandardPaths::LocateDirectory);
 
     Q_FOREACH (const QString &dir, dirs) {
-        QDirIterator it(dir, QStringList() << QStringLiteral("*.xml"));
+        QDirIterator it(dir, QStringList() << QLatin1String("*.xml"));
 
         while (it.hasNext()) {
             FlossScheme *flossScheme = readScheme(it.next());

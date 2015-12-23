@@ -106,5 +106,5 @@ void KeyElementDlg::on_DialogButtonBox_rejected()
 
 void KeyElementDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("KeyElement", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("KeyElement"), QStringLiteral("kxstitch"));
 }

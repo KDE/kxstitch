@@ -55,14 +55,14 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_pageLayoutEditor = new PageLayoutEditor(ui.PagePreview, m_document);
     ui.PagePreview->setWidget(m_pageLayoutEditor);
 
-    ui.AddPage->setIcon(QIcon::fromTheme("document-new"));
-    ui.InsertPage->setIcon(QIcon::fromTheme("document-import"));
-    ui.DeletePage->setIcon(QIcon::fromTheme("document-close"));
-    ui.SelectElement->setIcon(QIcon::fromTheme("edit-select"));
-    ui.TextElement->setIcon(QIcon::fromTheme("insert-text"));
-    ui.PatternElement->setIcon(QIcon::fromTheme("insert-table"));
-    ui.ImageElement->setIcon(QIcon::fromTheme("insert-image"));
-    ui.KeyElement->setIcon(QIcon::fromTheme("documentation"));
+    ui.AddPage->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
+    ui.InsertPage->setIcon(QIcon::fromTheme(QStringLiteral("document-import")));
+    ui.DeletePage->setIcon(QIcon::fromTheme(QStringLiteral("document-close")));
+    ui.SelectElement->setIcon(QIcon::fromTheme(QStringLiteral("edit-select")));
+    ui.TextElement->setIcon(QIcon::fromTheme(QStringLiteral("insert-text")));
+    ui.PatternElement->setIcon(QIcon::fromTheme(QStringLiteral("insert-table")));
+    ui.ImageElement->setIcon(QIcon::fromTheme(QStringLiteral("insert-image")));
+    ui.KeyElement->setIcon(QIcon::fromTheme(QStringLiteral("documentation")));
 
     m_buttonGroup.addButton(ui.SelectElement);
     m_buttonGroup.addButton(ui.TextElement);
@@ -253,7 +253,7 @@ void PrintSetupDlg::on_DialogButtonBox_rejected()
 
 void PrintSetupDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PrinterDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PrinterDialog"), QStringLiteral("kxstitch"));
 }
 
 
@@ -501,7 +501,7 @@ void PrintSetupDlg::on_Templates_clicked()
         Element *element = new TextElement(page, QRect(printableArea.topLeft(), QSize(printableArea.width(), 30)));
         static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText("${title}");
+        static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
         page->addElement(element);
 
         element = new ImageElement(page, QRect(printableArea.topLeft() + QPoint(0, 60), QSize(printableArea.width(), printableArea.height() / 3)));
@@ -527,7 +527,7 @@ void PrintSetupDlg::on_Templates_clicked()
 
         // calculate the aspect ratio and the size of the cells to fit within the rectangle and the overall paint area size
         double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
-        double aspect =  m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
+        double aspect =  m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
         double cellHeight = cellWidth * aspect;
 
         if (cellHeight < cellWidth) {
@@ -558,7 +558,7 @@ void PrintSetupDlg::on_Templates_clicked()
                 element = new TextElement(page, headerTitleArea);
                 static_cast<TextElement *>(element)->setTextFont(titleFont);
                 static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-                static_cast<TextElement *>(element)->setText("${title}");
+                static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
                 page->addElement(element);
 
                 element = new PatternElement(page, patternArea);
@@ -585,7 +585,7 @@ void PrintSetupDlg::on_Templates_clicked()
         element = new TextElement(page, headerTitleArea);
         static_cast<TextElement *>(element)->setTextFont(titleFont);
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText("${title}");
+        static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
         page->addElement(element);
 
         element = new KeyElement(page, patternArea.adjusted(20, 0, -20, 0));

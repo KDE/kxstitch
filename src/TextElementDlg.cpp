@@ -31,13 +31,13 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
 
     ui.setupUi(this);
 
-    ui.BoldButton->setIcon(QIcon::fromTheme("format-text-bold"));
-    ui.UnderlineButton->setIcon(QIcon::fromTheme("format-text-underline"));
-    ui.ItalicButton->setIcon(QIcon::fromTheme("format-text-italic"));
-    ui.AlignLeft->setIcon(QIcon::fromTheme("format-justify-left"));
-    ui.AlignHCenter->setIcon(QIcon::fromTheme("format-justify-center"));
-    ui.AlignRight->setIcon(QIcon::fromTheme("format-justify-right"));
-    ui.AlignJustify->setIcon(QIcon::fromTheme("format-justify-fill"));
+    ui.BoldButton->setIcon(QIcon::fromTheme(QStringLiteral("format-text-bold")));
+    ui.UnderlineButton->setIcon(QIcon::fromTheme(QStringLiteral("format-text-underline")));
+    ui.ItalicButton->setIcon(QIcon::fromTheme(QStringLiteral("format-text-italic")));
+    ui.AlignLeft->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-left")));
+    ui.AlignHCenter->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-center")));
+    ui.AlignRight->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-right")));
+    ui.AlignJustify->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-fill")));
 
     QButtonGroup *group = new QButtonGroup(this);
     group->addButton(ui.AlignLeft);
@@ -229,7 +229,7 @@ void TextElementDlg::on_DialogButtonBox_rejected()
 
 void TextElementDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("TextElement", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("TextElement"), QStringLiteral("kxstitch"));
 }
 
 

@@ -172,7 +172,7 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
                     m_boundary.setRectangle(m_boundary.rectangle().translated(offset));
                 }
 
-                QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(m_boundary.rectangle().left()).arg(m_boundary.rectangle().top()).arg(m_boundary.rectangle().width()).arg(m_boundary.rectangle().height()));
+                QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_boundary.rectangle().left()).arg(m_boundary.rectangle().top()).arg(m_boundary.rectangle().width()).arg(m_boundary.rectangle().height()));
                 m_moved = true;
                 m_start = m_end;
                 update();
@@ -181,7 +181,7 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
             m_rubberBand = QRect(m_start, m_end).normalized();
             update();
 
-            QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
+            QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
         }
     } else {
         if (m_boundary.element() && (m_node = m_boundary.node(unscale(event->pos())))) {

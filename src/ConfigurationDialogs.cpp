@@ -18,7 +18,7 @@
 #include "SymbolManager.h"
 
 
-EditorConfigPage::EditorConfigPage(QWidget *parent, const char *name)
+EditorConfigPage::EditorConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);
@@ -26,7 +26,7 @@ EditorConfigPage::EditorConfigPage(QWidget *parent, const char *name)
 }
 
 
-PatternConfigPage::PatternConfigPage(QWidget *parent, const char *name)
+PatternConfigPage::PatternConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);
@@ -154,7 +154,7 @@ void PatternConfigPage::on_kcfg_Document_UnitsFormat_activated(int index)
 
 void PatternConfigPage::on_kcfg_Editor_ClothCountLink_toggled(bool checked)
 {
-    kcfg_Editor_ClothCountLink->setIcon((checked) ? QIcon::fromTheme("object-locked") : QIcon::fromTheme("object-unlocked"));
+    kcfg_Editor_ClothCountLink->setIcon((checked) ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
     kcfg_Editor_VerticalClothCount->setEnabled(!checked);
     kcfg_Editor_VerticalClothCount->setValue(kcfg_Editor_HorizontalClothCount->value());
 }
@@ -211,7 +211,7 @@ void PatternConfigPage::setPrecision()
 }
 
 
-PaletteConfigPage::PaletteConfigPage(QWidget *parent, const char *name)
+PaletteConfigPage::PaletteConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);
@@ -241,7 +241,7 @@ void PaletteConfigPage::defaultClicked()
 }
 
 
-ImportConfigPage::ImportConfigPage(QWidget *parent, const char *name)
+ImportConfigPage::ImportConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);
@@ -249,7 +249,7 @@ ImportConfigPage::ImportConfigPage(QWidget *parent, const char *name)
 }
 
 
-LibraryConfigPage::LibraryConfigPage(QWidget *parent, const char *name)
+LibraryConfigPage::LibraryConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);
@@ -257,7 +257,7 @@ LibraryConfigPage::LibraryConfigPage(QWidget *parent, const char *name)
 }
 
 
-PrinterConfigPage::PrinterConfigPage(QWidget *parent, const char *name)
+PrinterConfigPage::PrinterConfigPage(QWidget *parent, const QString &name)
     :   QWidget(parent)
 {
     setObjectName(name);

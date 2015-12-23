@@ -122,7 +122,7 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
         m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryToExportList()));
         m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryProperties()));
 
-        if (QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch")) {
+        if (QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch"))) {
             m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
         }
     }
@@ -142,7 +142,7 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
         m_contextMenu.addAction(i18n("Delete"), this, SLOT(deletePattern()));
         m_contextMenu.popup(QCursor::pos());
     } else {
-        if (QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch") && ui.LibraryTree->selectedItems().count() == 1) {
+        if (QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch")) && ui.LibraryTree->selectedItems().count() == 1) {
             m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
             m_contextMenu.popup(QCursor::pos());
         }
@@ -176,7 +176,7 @@ void LibraryManagerDlg::on_DialogButtonBox_rejected()
 
 void LibraryManagerDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PatternLibraryDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PatternLibraryDialog"), QStringLiteral("kxstitch"));
 }
 
 
@@ -226,14 +226,14 @@ void LibraryManagerDlg::newCategory()
         path = m_contextTreeItem->path();
 
         if (!fileInfo.isWritable()) {
-            path.remove(0, path.indexOf("/library"));
+            path.remove(0, path.indexOf(QLatin1String("/library")));
             path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
         }
     } else {
-        path = QString("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg("library");
+        path = QString::fromLatin1("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg(QLatin1String("library"));
     }
 
-    path = QString("%1/%2").arg(path).arg(category);
+    path = QString::fromLatin1("%1/%2").arg(path).arg(category);
 
     if (QDir().mkpath(path)) {
         newItem->addPath(path);
@@ -260,7 +260,7 @@ void LibraryManagerDlg::pasteFromClipboard()
 {
     LibraryTreeWidgetItem *item = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
     Pattern *pattern = new Pattern();
-    QByteArray data = QApplication::clipboard()->mimeData()->data("application/kxstitch");
+    QByteArray data = QApplication::clipboard()->mimeData()->data(QStringLiteral("application/kxstitch"));
     QDataStream stream(&data, QIODevice::ReadOnly);
     stream >> *pattern;
     item->addPattern(new LibraryPattern(pattern));
@@ -311,7 +311,7 @@ void LibraryManagerDlg::deletePattern()
 void LibraryManagerDlg::refreshLibraries()
 {
     ui.LibraryTree->clear();
-    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::DataLocation, "library", QStandardPaths::LocateDirectory);
+    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("library"), QStandardPaths::LocateDirectory);
     QStringListIterator libraryDirectoriesIterator(libraryDirectories);
 
     while (libraryDirectoriesIterator.hasNext()) {
@@ -330,9 +330,9 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
         QFileInfo fileInfo = fileInfoListIterator.next();
 
         if (fileInfo.isDir()) {
-            if (fileInfo.fileName() != "." && fileInfo.fileName() != "..") {
+            if (fileInfo.fileName() != QLatin1String(".") && fileInfo.fileName() != QLatin1String("..")) {
                 LibraryTreeWidgetItem *libraryTreeWidgetItem = nullptr;
-                QString subPath = QString("%1/%2").arg(path).arg(fileInfo.fileName());
+                QString subPath = QString::fromLatin1("%1/%2").arg(path).arg(fileInfo.fileName());
 
                 if (parent) {
                     int children = parent->childCount();

@@ -183,7 +183,7 @@ Palette::Palette(QWidget *parent)
         m_flosses(0),
         m_mode(Select)
 {
-    setObjectName("Palette#");
+    setObjectName(QStringLiteral("Palette#"));
 }
 
 
@@ -291,7 +291,7 @@ void Palette::paintEvent(QPaintEvent *)
     QPainter painter;
 
     if (m_flosses) {
-        emit signalStateChanged("palette_empty", KXMLGUIClient::StateReverse);
+        emit signalStateChanged(QStringLiteral("palette_empty"), KXMLGUIClient::StateReverse);
 
         m_cols = 5;
 
@@ -371,7 +371,7 @@ void Palette::paintEvent(QPaintEvent *)
 
         painter.end();
     } else {
-        emit signalStateChanged("palette_empty", KXMLGUIClient::StateNoReverse);
+        emit signalStateChanged(QStringLiteral("palette_empty"), KXMLGUIClient::StateNoReverse);
     }
 }
 

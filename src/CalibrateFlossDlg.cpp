@@ -79,7 +79,7 @@ void CalibrateFlossDlg::fillColorList()
     while (flossIterator.hasNext()) {
         Floss *floss = flossIterator.next();
         QListWidgetItem *listWidgetItem = new QListWidgetItem;
-        listWidgetItem->setText(QString("%1 %2").arg(floss->name()).arg(floss->description()));
+        listWidgetItem->setText(QString::fromLatin1("%1 %2").arg(floss->name()).arg(floss->description()));
         listWidgetItem->setData(Qt::DecorationRole, QColor(floss->color()));
         listWidgetItem->setData(Qt::UserRole, QString(floss->name()));
         listWidgetItem->setData(Qt::UserRole + 1, QString(floss->description()));
@@ -227,5 +227,5 @@ void CalibrateFlossDlg::on_DialogButtonBox_rejected()
 
 void CalibrateFlossDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("CalibrateDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("CalibrateDialog"), QStringLiteral("kxstitch"));
 }

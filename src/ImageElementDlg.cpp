@@ -81,5 +81,5 @@ void ImageElementDlg::on_DialogButtonBox_rejected()
 
 void ImageElementDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("ImageElement", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("ImageElement"), QStringLiteral("kxstitch"));
 }

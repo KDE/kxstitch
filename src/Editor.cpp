@@ -253,27 +253,27 @@ Scale *Editor::verticalScale()
 
 void Editor::readDocumentSettings()
 {
-    m_cellHorizontalGrouping = m_document->property("cellHorizontalGrouping").toInt();
-    m_cellVerticalGrouping = m_document->property("cellVerticalGrouping").toInt();
+    m_cellHorizontalGrouping = m_document->property(QStringLiteral("cellHorizontalGrouping")).toInt();
+    m_cellVerticalGrouping = m_document->property(QStringLiteral("cellVerticalGrouping")).toInt();
 
-    m_horizontalClothCount = m_document->property("horizontalClothCount").toDouble();
-    m_verticalClothCount = m_document->property("verticalClothCount").toDouble();
+    m_horizontalClothCount = m_document->property(QStringLiteral("horizontalClothCount")).toDouble();
+    m_verticalClothCount = m_document->property(QStringLiteral("verticalClothCount")).toDouble();
 
     m_horizontalScale->setCellGrouping(m_cellHorizontalGrouping);
     m_horizontalScale->setCellCount(m_document->pattern()->stitches().width());
     m_horizontalScale->setClothCount(m_horizontalClothCount);
-    m_horizontalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
+    m_horizontalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
     m_horizontalScale->setUnits(m_formatScalesAs);
 
     m_verticalScale->setCellGrouping(m_cellVerticalGrouping);
     m_verticalScale->setCellCount(m_document->pattern()->stitches().height());
     m_verticalScale->setClothCount(m_verticalClothCount);
-    m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()));
+    m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
     m_verticalScale->setUnits(m_formatScalesAs);
 
     m_renderer.setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
     m_renderer.setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
-    m_renderer.setGridLineColors(m_document->property("thinLineColor").value<QColor>(), m_document->property("thickLineColor").value<QColor>());
+    m_renderer.setGridLineColors(m_document->property(QStringLiteral("thinLineColor")).value<QColor>(), m_document->property(QStringLiteral("thickLineColor")).value<QColor>());
 
     zoom(m_zoomFactor);
 
@@ -303,7 +303,7 @@ void Editor::drawContents(const QRect &cells)
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setCompositionMode(QPainter::CompositionMode_Source);
     painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
-    painter.fillRect(cells, m_document->property("fabricColor").value<QColor>());
+    painter.fillRect(cells, m_document->property(QStringLiteral("fabricColor")).value<QColor>());
 
     if (m_renderBackgroundImages) {
         renderBackgroundImages(painter, cells);
@@ -354,7 +354,7 @@ void Editor::previewClicked(const QRect &cells)
     QRect visibleArea = parentWidget()->contentsRect();
     double visibleWidth = visibleArea.width();
     double visibleHeight = visibleArea.height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
     double widthScaleFactor = visibleWidth / (right - left) * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
     double heightScaleFactor = visibleHeight / (bottom - top) * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
@@ -375,7 +375,7 @@ bool Editor::zoom(double factor)
     double dpiX = logicalDpiX();
     double dpiY = logicalDpiY();
 
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
 
     m_cellWidth = dpiX * factor / ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54);
     m_cellHeight = dpiY * factor / ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54);
@@ -426,7 +426,7 @@ void Editor::fitToPage()
     QRect visibleArea = parentWidget()->contentsRect();
     double visibleWidth = visibleArea.width();
     double visibleHeight = visibleArea.height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
     double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
     double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
@@ -438,7 +438,7 @@ void Editor::fitToWidth()
 {
     int documentWidth = m_document->pattern()->stitches().width();
     double visibleWidth = parentWidget()->contentsRect().width();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
     double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
 
     zoom(widthScaleFactor);
@@ -449,7 +449,7 @@ void Editor::fitToHeight()
 {
     int documentHeight = m_document->pattern()->stitches().height();
     double visibleHeight = parentWidget()->contentsRect().height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
     double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
     zoom(heightScaleFactor);
@@ -498,7 +498,7 @@ void Editor::editCopy()
     stream << *pattern;
 
     QMimeData *mimeData = new QMimeData();
-    mimeData->setData("application/kxstitch", data);
+    mimeData->setData(QStringLiteral("application/kxstitch"), data);
 
     QApplication::clipboard()->setMimeData(mimeData);
 
@@ -508,7 +508,7 @@ void Editor::editCopy()
 
 void Editor::editPaste()
 {
-    m_pasteData = QApplication::clipboard()->mimeData()->data("application/kxstitch");
+    m_pasteData = QApplication::clipboard()->mimeData()->data(QStringLiteral("application/kxstitch"));
     m_pastePattern = new Pattern;
     QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
     stream >> *m_pastePattern;
@@ -751,7 +751,7 @@ bool Editor::event(QEvent *e)
         if (colorIndex != -1) {
             const DocumentFloss *documentFloss = m_document->pattern()->palette().flosses().value(colorIndex);
             Floss *floss = SchemeManager::scheme(m_document->pattern()->palette().schemeName())->find(documentFloss->flossName());
-            QToolTip::showText(helpEvent->globalPos(), QString("%1 %2").arg(floss->name()).arg(floss->description()));
+            QToolTip::showText(helpEvent->globalPos(), QString::fromLatin1("%1 %2").arg(floss->name()).arg(floss->description()));
         } else {
             QToolTip::hideText();
             e->ignore();
@@ -767,7 +767,7 @@ bool Editor::event(QEvent *e)
 void Editor::contextMenuEvent(QContextMenuEvent *e)
 {
     MainWindow *mainWindow = qobject_cast<MainWindow *>(topLevelWidget());
-    QMenu *context = static_cast<QMenu *>(mainWindow->guiFactory()->container("EditorPopup", mainWindow));
+    QMenu *context = static_cast<QMenu *>(mainWindow->guiFactory()->container(QStringLiteral("EditorPopup"), mainWindow));
     context->popup(e->globalPos());
     e->accept();
 }
@@ -775,7 +775,7 @@ void Editor::contextMenuEvent(QContextMenuEvent *e)
 
 void Editor::dragEnterEvent(QDragEnterEvent *e)
 {
-    if (e->mimeData()->hasFormat("application/kxstitch")) {
+    if (e->mimeData()->hasFormat(QStringLiteral("application/kxstitch"))) {
         e->accept();
     }
 }
@@ -783,7 +783,7 @@ void Editor::dragEnterEvent(QDragEnterEvent *e)
 
 void Editor::dragMoveEvent(QDragMoveEvent *e)
 {
-    if (e->mimeData()->hasFormat("application/kxstitch")) {
+    if (e->mimeData()->hasFormat(QStringLiteral("application/kxstitch"))) {
         e->accept();
     }
 }
@@ -797,7 +797,7 @@ void Editor::dragLeaveEvent(QDragLeaveEvent*)
 
 void Editor::dropEvent(QDropEvent *e)
 {
-    m_pasteData = e->mimeData()->data("application/kxstitch");
+    m_pasteData = e->mimeData()->data(QStringLiteral("application/kxstitch"));
     m_pastePattern = new Pattern;
     QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
     stream >> *m_pastePattern;
@@ -2041,7 +2041,7 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
     m_rubberBand = QRect(m_cellStart, m_cellEnd).normalized();
     update();
 
-    QToolTip::showText(QCursor::pos(), QString("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
+    QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
 }
 
 

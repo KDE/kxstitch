@@ -87,5 +87,5 @@ void LibraryPatternPropertiesDlg::on_DialogButtonBox_rejected()
 
 void LibraryPatternPropertiesDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("PatternLibraryDialog", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("PatternLibraryDialog"), QStringLiteral("kxstitch"));
 }

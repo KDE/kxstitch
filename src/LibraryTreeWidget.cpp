@@ -107,7 +107,7 @@ void LibraryTreeWidget::dropEvent(QDropEvent *event)
     m_openBranchTimer->stop();
 
     if (m_dropItem && m_dropItem != m_currentItem) {
-        QByteArray data = event->mimeData()->data("application/kxstitch");
+        QByteArray data = event->mimeData()->data(QStringLiteral("application/kxstitch"));
         Pattern *pattern = new Pattern;
         QDataStream stream(&data, QIODevice::ReadOnly);
         stream >> *pattern;
@@ -123,7 +123,7 @@ void LibraryTreeWidget::dropEvent(QDropEvent *event)
 
 bool LibraryTreeWidget::acceptDrag(QDropEvent *event) const
 {
-    return event->mimeData()->hasFormat("application/kxstitch");
+    return event->mimeData()->hasFormat(QStringLiteral("application/kxstitch"));
 }
 
 

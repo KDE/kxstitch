@@ -88,7 +88,7 @@ MainWindow::MainWindow(const QUrl &url)
     fileOpen(url);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
-    this->findChild<QDockWidget *>("ImportedImage#")->hide();
+    this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->hide();
 }
 
 
@@ -107,13 +107,13 @@ MainWindow::MainWindow(const QString &source)
     convertPreview(source);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
-    this->findChild<QDockWidget *>("ImportedImage#")->show();
+    this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
 }
 
 
 void MainWindow::setupMainWindow()
 {
-    setObjectName("MainWindow#");
+    setObjectName(QStringLiteral("MainWindow#"));
     setAutoSaveSettings();
 }
 
@@ -162,20 +162,20 @@ void MainWindow::setupConnections()
 {
     KActionCollection *actions = actionCollection();
 
-    connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action("edit_undo"), SLOT(setEnabled(bool)));
-    connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action("file_revert"), SLOT(setEnabled(bool)));
-    connect(&(m_document->undoStack()), SIGNAL(canRedoChanged(bool)), actions->action("edit_redo"), SLOT(setEnabled(bool)));
+    connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action(QStringLiteral("edit_undo")), SLOT(setEnabled(bool)));
+    connect(&(m_document->undoStack()), SIGNAL(canUndoChanged(bool)), actions->action(QStringLiteral("file_revert")), SLOT(setEnabled(bool)));
+    connect(&(m_document->undoStack()), SIGNAL(canRedoChanged(bool)), actions->action(QStringLiteral("edit_redo")), SLOT(setEnabled(bool)));
     connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_cut"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("edit_copy"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorHorizontal"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("mirrorVertical"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate90"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate180"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("rotate270"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("patternCropToSelection"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("insertColumns"), SLOT(setEnabled(bool)));
-    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action("insertRows"), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("edit_cut")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("edit_copy")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("mirrorHorizontal")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("mirrorVertical")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("rotate90")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("rotate180")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("rotate270")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("patternCropToSelection")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("insertColumns")), SLOT(setEnabled(bool)));
+    connect(m_editor, SIGNAL(selectionMade(bool)), actionCollection()->action(QStringLiteral("insertRows")), SLOT(setEnabled(bool)));
     connect(&(m_document->undoStack()), SIGNAL(undoTextChanged(QString)), this, SLOT(undoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(redoTextChanged(QString)), this, SLOT(redoTextChanged(QString)));
     connect(&(m_document->undoStack()), SIGNAL(cleanChanged(bool)), this, SLOT(documentModified(bool)));
@@ -194,14 +194,14 @@ void MainWindow::setupActionDefaults()
 {
     KActionCollection *actions = actionCollection();
 
-    actions->action("maskStitch")->setChecked(false);
-    actions->action("maskColor")->setChecked(false);
-    actions->action("maskBackstitch")->setChecked(false);
-    actions->action("maskKnot")->setChecked(false);
+    actions->action(QStringLiteral("maskStitch"))->setChecked(false);
+    actions->action(QStringLiteral("maskColor"))->setChecked(false);
+    actions->action(QStringLiteral("maskBackstitch"))->setChecked(false);
+    actions->action(QStringLiteral("maskKnot"))->setChecked(false);
 
-    actions->action("stitchFull")->trigger();   // Select full stitch
+    actions->action(QStringLiteral("stitchFull"))->trigger();   // Select full stitch
 
-    actions->action("toolPaint")->trigger();    // Select paint tool
+    actions->action(QStringLiteral("toolPaint"))->trigger();    // Select paint tool
 
     clipboardDataChanged();
 }
@@ -266,9 +266,9 @@ void MainWindow::setupActionsFromDocument()
 {
     KActionCollection *actions = actionCollection();
 
-    actions->action("file_revert")->setEnabled(!m_document->undoStack().isClean());
-    actions->action("edit_undo")->setEnabled(m_document->undoStack().canUndo());
-    actions->action("edit_redo")->setEnabled(m_document->undoStack().canRedo());
+    actions->action(QStringLiteral("file_revert"))->setEnabled(!m_document->undoStack().isClean());
+    actions->action(QStringLiteral("edit_undo"))->setEnabled(m_document->undoStack().canUndo());
+    actions->action(QStringLiteral("edit_redo"))->setEnabled(m_document->undoStack().canRedo());
 
     updateBackgroundImageActionLists();
 }
@@ -305,9 +305,9 @@ void MainWindow::fileOpen(const QUrl &url)
                     try {
                         m_document->readKXStitch(stream);
                         m_document->setUrl(url);
-                        KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
+                        KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
                         action->addUrl(url);
-                        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
+                        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
                     } catch (const InvalidFile &e) {
                         stream.device()->seek(0);
 
@@ -389,9 +389,9 @@ void MainWindow::fileSaveAs()
 
         m_document->setUrl(url);
         fileSave();
-        KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action("file_open_recent"));
+        KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
         action->addUrl(url);
-        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
+        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     }
 }
 
@@ -510,7 +510,7 @@ void MainWindow::fileImportImage()
                 if (docEmpty) {
                     convertImage(tmpFile.fileName());
                     convertPreview(tmpFile.fileName());
-                    this->findChild<QDockWidget *>("ImportedImage#")->show();
+                    this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
                 } else {
                     window = new MainWindow(tmpFile.fileName());
                     window->show();
@@ -626,17 +626,17 @@ void MainWindow::convertImage(const QString &source)
             // A fix has been introduced, but this is a final catch if there are any still found
             qDebug() << "Found a missing color name and attempting to fix";
 
-            if (schemeName == "DMC") {
-                new ChangeSchemeCommand(m_document, "Anchor", importImageCommand);
+            if (schemeName == QLatin1String("DMC")) {
+                new ChangeSchemeCommand(m_document, QStringLiteral("Anchor"), importImageCommand);
             } else {
-                new ChangeSchemeCommand(m_document, "DMC", importImageCommand);
+                new ChangeSchemeCommand(m_document, QStringLiteral("DMC"), importImageCommand);
             }
 
             new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
         }
 
-        new SetPropertyCommand(m_document, "horizontalClothCount", importImageDlg->horizontalClothCount(), importImageCommand);
-        new SetPropertyCommand(m_document, "verticalClothCount", importImageDlg->verticalClothCount(), importImageCommand);
+        new SetPropertyCommand(m_document, QStringLiteral("horizontalClothCount"), importImageDlg->horizontalClothCount(), importImageCommand);
+        new SetPropertyCommand(m_document, QStringLiteral("verticalClothCount"), importImageDlg->verticalClothCount(), importImageCommand);
         m_document->undoStack().push(importImageCommand);
     }
 
@@ -663,48 +663,48 @@ void MainWindow::fileProperties()
             new ResizeDocumentCommand(m_document, filePropertiesDlg->documentWidth(), filePropertiesDlg->documentHeight(), cmd);
         }
 
-        if (filePropertiesDlg->unitsFormat() != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property("unitsFormat").toInt())) {
-            new SetPropertyCommand(m_document, "unitsFormat", QVariant(filePropertiesDlg->unitsFormat()), cmd);
+        if (filePropertiesDlg->unitsFormat() != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt())) {
+            new SetPropertyCommand(m_document, QStringLiteral("unitsFormat"), QVariant(filePropertiesDlg->unitsFormat()), cmd);
         }
 
-        if (filePropertiesDlg->horizontalClothCount() != m_document->property("horizontalClothCount").toDouble()) {
-            new SetPropertyCommand(m_document, "horizontalClothCount", QVariant(filePropertiesDlg->horizontalClothCount()), cmd);
+        if (filePropertiesDlg->horizontalClothCount() != m_document->property(QStringLiteral("horizontalClothCount")).toDouble()) {
+            new SetPropertyCommand(m_document, QStringLiteral("horizontalClothCount"), QVariant(filePropertiesDlg->horizontalClothCount()), cmd);
         }
 
-        if (filePropertiesDlg->clothCountLink() != m_document->property("clothCountLink").toBool()) {
-            new SetPropertyCommand(m_document, "clothCountLink", QVariant(filePropertiesDlg->clothCountLink()), cmd);
+        if (filePropertiesDlg->clothCountLink() != m_document->property(QStringLiteral("clothCountLink")).toBool()) {
+            new SetPropertyCommand(m_document, QStringLiteral("clothCountLink"), QVariant(filePropertiesDlg->clothCountLink()), cmd);
         }
 
-        if (filePropertiesDlg->verticalClothCount() != m_document->property("verticalClothCount").toDouble()) {
-            new SetPropertyCommand(m_document, "verticalClothCount", QVariant(filePropertiesDlg->verticalClothCount()), cmd);
+        if (filePropertiesDlg->verticalClothCount() != m_document->property(QStringLiteral("verticalClothCount")).toDouble()) {
+            new SetPropertyCommand(m_document, QStringLiteral("verticalClothCount"), QVariant(filePropertiesDlg->verticalClothCount()), cmd);
         }
 
-        if (filePropertiesDlg->clothCountUnits() != static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property("clothCountUnits").toInt())) {
-            new SetPropertyCommand(m_document, "clothCountUnits", QVariant(filePropertiesDlg->clothCountUnits()), cmd);
+        if (filePropertiesDlg->clothCountUnits() != static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())) {
+            new SetPropertyCommand(m_document, QStringLiteral("clothCountUnits"), QVariant(filePropertiesDlg->clothCountUnits()), cmd);
         }
 
-        if (filePropertiesDlg->title() != m_document->property("title").toString()) {
-            new SetPropertyCommand(m_document, "title", QVariant(filePropertiesDlg->title()), cmd);
+        if (filePropertiesDlg->title() != m_document->property(QStringLiteral("title")).toString()) {
+            new SetPropertyCommand(m_document, QStringLiteral("title"), QVariant(filePropertiesDlg->title()), cmd);
         }
 
-        if (filePropertiesDlg->author() != m_document->property("author").toString()) {
-            new SetPropertyCommand(m_document, "author", QVariant(filePropertiesDlg->author()), cmd);
+        if (filePropertiesDlg->author() != m_document->property(QStringLiteral("author")).toString()) {
+            new SetPropertyCommand(m_document, QStringLiteral("author"), QVariant(filePropertiesDlg->author()), cmd);
         }
 
-        if (filePropertiesDlg->copyright() != m_document->property("copyright").toString()) {
-            new SetPropertyCommand(m_document, "copyright", QVariant(filePropertiesDlg->copyright()), cmd);
+        if (filePropertiesDlg->copyright() != m_document->property(QStringLiteral("copyright")).toString()) {
+            new SetPropertyCommand(m_document, QStringLiteral("copyright"), QVariant(filePropertiesDlg->copyright()), cmd);
         }
 
-        if (filePropertiesDlg->fabric() != m_document->property("fabric").toString()) {
-            new SetPropertyCommand(m_document, "fabric", QVariant(filePropertiesDlg->fabric()), cmd);
+        if (filePropertiesDlg->fabric() != m_document->property(QStringLiteral("fabric")).toString()) {
+            new SetPropertyCommand(m_document, QStringLiteral("fabric"), QVariant(filePropertiesDlg->fabric()), cmd);
         }
 
-        if (filePropertiesDlg->fabricColor() != m_document->property("fabricColor").value<QColor>()) {
-            new SetPropertyCommand(m_document, "fabricColor", QVariant(filePropertiesDlg->fabricColor()), cmd);
+        if (filePropertiesDlg->fabricColor() != m_document->property(QStringLiteral("fabricColor")).value<QColor>()) {
+            new SetPropertyCommand(m_document, QStringLiteral("fabricColor"), QVariant(filePropertiesDlg->fabricColor()), cmd);
         }
 
-        if (filePropertiesDlg->instructions() != m_document->property("instructions").toString()) {
-            new SetPropertyCommand(m_document, "instructions", QVariant(filePropertiesDlg->instructions()), cmd);
+        if (filePropertiesDlg->instructions() != m_document->property(QStringLiteral("instructions")).toString()) {
+            new SetPropertyCommand(m_document, QStringLiteral("instructions"), QVariant(filePropertiesDlg->instructions()), cmd);
         }
 
         if (filePropertiesDlg->flossScheme() != m_document->pattern()->palette().schemeName()) {
@@ -780,19 +780,19 @@ void MainWindow::editRedo()
 
 void MainWindow::undoTextChanged(const QString &text)
 {
-    actionCollection()->action("edit_undo")->setText(i18n("Undo %1", text));
+    actionCollection()->action(QStringLiteral("edit_undo"))->setText(i18n("Undo %1", text));
 }
 
 
 void MainWindow::redoTextChanged(const QString &text)
 {
-    actionCollection()->action("edit_redo")->setText(i18n("Redo %1", text));
+    actionCollection()->action(QStringLiteral("edit_redo"))->setText(i18n("Redo %1", text));
 }
 
 
 void MainWindow::clipboardDataChanged()
 {
-    actionCollection()->action("edit_paste")->setEnabled(QApplication::clipboard()->mimeData()->hasFormat("application/kxstitch"));
+    actionCollection()->action(QStringLiteral("edit_paste"))->setEnabled(QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch")));
 }
 
 
@@ -870,7 +870,7 @@ void MainWindow::viewFitBackgroundImage()
 
 void MainWindow::paletteContextMenu(const QPoint &pos)
 {
-    static_cast<QMenu *>(guiFactory()->container("PalettePopup", this))->popup(qobject_cast<QWidget *>(sender())->mapToGlobal(pos));
+    static_cast<QMenu *>(guiFactory()->container(QStringLiteral("PalettePopup"), this))->popup(qobject_cast<QWidget *>(sender())->mapToGlobal(pos));
 }
 
 
@@ -932,22 +932,22 @@ void MainWindow::insertRows()
 
 void MainWindow::preferences()
 {
-    if (KConfigDialog::showDialog("preferences")) {
+    if (KConfigDialog::showDialog(QStringLiteral("preferences"))) {
         return;
     }
 
-    KConfigDialog *dialog = new KConfigDialog(this, "preferences", Configuration::self());
+    KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("preferences"), Configuration::self());
 //    dialog->setHelp("ConfigurationDialog");
     dialog->setFaceType(KPageDialog::List);
 
-    dialog->addPage(new EditorConfigPage(0, "EditorConfigPage"), i18nc("The Editor config page", "Editor"), "preferences-desktop");
-    dialog->addPage(new PatternConfigPage(0, "PatternConfigPage"), i18n("Pattern"), "ksnapshot");
-    PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(0, "PaletteConfigPage");
-    dialog->addPage(paletteConfigPage, i18n("Palette"), "preferences-desktop-color");
+    dialog->addPage(new EditorConfigPage(0, QStringLiteral("EditorConfigPage")), i18nc("The Editor config page", "Editor"), QStringLiteral("preferences-desktop"));
+    dialog->addPage(new PatternConfigPage(0, QStringLiteral("PatternConfigPage")), i18n("Pattern"), QStringLiteral("ksnapshot"));
+    PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(0, QStringLiteral("PaletteConfigPage"));
+    dialog->addPage(paletteConfigPage, i18n("Palette"), QStringLiteral("preferences-desktop-color"));
     connect(dialog, SIGNAL(defaultClicked()), paletteConfigPage, SLOT(defaultClicked()));
-    dialog->addPage(new ImportConfigPage(0, "ImportConfigPage"), i18n("Import"), "insert-image");
-    dialog->addPage(new LibraryConfigPage(0, "LibraryConfigPage"), i18n("Library"), "accessories-dictionary");
-    dialog->addPage(new PrinterConfigPage(0, "PrinterConfigPage"), i18n("Printer Configuration"), "preferences-desktop-printer");
+    dialog->addPage(new ImportConfigPage(0, QStringLiteral("ImportConfigPage")), i18n("Import"), QStringLiteral("insert-image"));
+    dialog->addPage(new LibraryConfigPage(0, QStringLiteral("LibraryConfigPage")), i18n("Library"), QStringLiteral("accessories-dictionary"));
+    dialog->addPage(new PrinterConfigPage(0, QStringLiteral("PrinterConfigPage")), i18n("Printer Configuration"), QStringLiteral("preferences-desktop-printer"));
 
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()));
 
@@ -960,20 +960,20 @@ void MainWindow::settingsChanged()
     QList<QUndoCommand *> documentChanges;
     ConfigurationCommand *configurationCommand = new ConfigurationCommand(this);
 
-    if (m_document->property("cellHorizontalGrouping") != Configuration::editor_CellHorizontalGrouping()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "cellHorizontalGrouping", Configuration::editor_CellHorizontalGrouping(), configurationCommand));
+    if (m_document->property(QStringLiteral("cellHorizontalGrouping")) != Configuration::editor_CellHorizontalGrouping()) {
+        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("cellHorizontalGrouping"), Configuration::editor_CellHorizontalGrouping(), configurationCommand));
     }
 
-    if (m_document->property("cellVerticalGrouping") != Configuration::editor_CellVerticalGrouping()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "cellVerticalGrouping", Configuration::editor_CellVerticalGrouping(), configurationCommand));
+    if (m_document->property(QStringLiteral("cellVerticalGrouping")) != Configuration::editor_CellVerticalGrouping()) {
+        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("cellVerticalGrouping"), Configuration::editor_CellVerticalGrouping(), configurationCommand));
     }
 
-    if (m_document->property("thickLineColor") != Configuration::editor_ThickLineColor()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "thickLineColor", Configuration::editor_ThickLineColor(), configurationCommand));
+    if (m_document->property(QStringLiteral("thickLineColor")) != Configuration::editor_ThickLineColor()) {
+        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor(), configurationCommand));
     }
 
-    if (m_document->property("thinLineColor") != Configuration::editor_ThinLineColor()) {
-        documentChanges.append(new SetPropertyCommand(m_document, "thinLineColor", Configuration::editor_ThinLineColor(), configurationCommand));
+    if (m_document->property(QStringLiteral("thinLineColor")) != Configuration::editor_ThinLineColor()) {
+        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor(), configurationCommand));
     }
 
     if (documentChanges.count()) {
@@ -999,27 +999,27 @@ void MainWindow::loadSettings()
 
     KActionCollection *actions = actionCollection();
 
-    actions->action("makesCopies")->setChecked(Configuration::tool_MakesCopies());
+    actions->action(QStringLiteral("makesCopies"))->setChecked(Configuration::tool_MakesCopies());
 
-    actions->action("colorHighlight")->setChecked(Configuration::renderer_ColorHilight());
+    actions->action(QStringLiteral("colorHighlight"))->setChecked(Configuration::renderer_ColorHilight());
 
-    actions->action("renderStitches")->setChecked(Configuration::renderer_RenderStitches());
-    actions->action("renderBackstitches")->setChecked(Configuration::renderer_RenderBackstitches());
-    actions->action("renderFrenchKnots")->setChecked(Configuration::renderer_RenderFrenchKnots());
-    actions->action("renderGrid")->setChecked(Configuration::renderer_RenderGrid());
-    actions->action("renderBackgroundImages")->setChecked(Configuration::renderer_RenderBackgroundImages());
+    actions->action(QStringLiteral("renderStitches"))->setChecked(Configuration::renderer_RenderStitches());
+    actions->action(QStringLiteral("renderBackstitches"))->setChecked(Configuration::renderer_RenderBackstitches());
+    actions->action(QStringLiteral("renderFrenchKnots"))->setChecked(Configuration::renderer_RenderFrenchKnots());
+    actions->action(QStringLiteral("renderGrid"))->setChecked(Configuration::renderer_RenderGrid());
+    actions->action(QStringLiteral("renderBackgroundImages"))->setChecked(Configuration::renderer_RenderBackgroundImages());
 
     switch (Configuration::editor_FormatScalesAs()) {
     case Configuration::EnumEditor_FormatScalesAs::Stitches:
-        actions->action("formatScalesAsStitches")->trigger();
+        actions->action(QStringLiteral("formatScalesAsStitches"))->trigger();
         break;
 
     case Configuration::EnumEditor_FormatScalesAs::Inches:
-        actions->action("formatScalesAsInches")->trigger();
+        actions->action(QStringLiteral("formatScalesAsInches"))->trigger();
         break;
 
     case Configuration::EnumEditor_FormatScalesAs::CM:
-        actions->action("formatScalesAsCM")->trigger();
+        actions->action(QStringLiteral("formatScalesAsCM"))->trigger();
         break;
 
     default:
@@ -1028,23 +1028,23 @@ void MainWindow::loadSettings()
 
     switch (Configuration::renderer_RenderStitchesAs()) {
     case Configuration::EnumRenderer_RenderStitchesAs::Stitches:
-        actions->action("renderStitchesAsRegularStitches")->trigger();
+        actions->action(QStringLiteral("renderStitchesAsRegularStitches"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols:
-        actions->action("renderStitchesAsBlackWhiteSymbols")->trigger();
+        actions->action(QStringLiteral("renderStitchesAsBlackWhiteSymbols"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols:
-        actions->action("renderStitchesAsColorSymbols")->trigger();
+        actions->action(QStringLiteral("renderStitchesAsColorSymbols"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks:
-        actions->action("renderStitchesAsColorBlocks")->trigger();
+        actions->action(QStringLiteral("renderStitchesAsColorBlocks"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols:
-        actions->action("renderStitchesAsColorBlocksSymbols")->trigger();
+        actions->action(QStringLiteral("renderStitchesAsColorBlocksSymbols"))->trigger();
         break;
 
     default:
@@ -1053,11 +1053,11 @@ void MainWindow::loadSettings()
 
     switch (Configuration::renderer_RenderBackstitchesAs()) {
     case Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines:
-        actions->action("renderBackstitchesAsColorLines")->trigger();
+        actions->action(QStringLiteral("renderBackstitchesAsColorLines"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols:
-        actions->action("renderBackstitchesAsBlackWhiteSymbols")->trigger();
+        actions->action(QStringLiteral("renderBackstitchesAsBlackWhiteSymbols"))->trigger();
         break;
 
     default:
@@ -1066,26 +1066,26 @@ void MainWindow::loadSettings()
 
     switch (Configuration::renderer_RenderKnotsAs()) {
     case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks:
-        actions->action("renderKnotsAsColorBlocks")->trigger();
+        actions->action(QStringLiteral("renderKnotsAsColorBlocks"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols:
-        actions->action("renderKnotsAsColorBlocksSymbols")->trigger();
+        actions->action(QStringLiteral("renderKnotsAsColorBlocksSymbols"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols:
-        actions->action("renderKnotsAsColorSymbols")->trigger();
+        actions->action(QStringLiteral("renderKnotsAsColorSymbols"))->trigger();
         break;
 
     case Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols:
-        actions->action("renderKnotsAsBlackWhiteSymbols")->trigger();
+        actions->action(QStringLiteral("renderKnotsAsBlackWhiteSymbols"))->trigger();
         break;
 
     default:
         break;
     }
 
-    actions->action("paletteShowSymbols")->setChecked(Configuration::palette_ShowSymbols());
+    actions->action(QStringLiteral("paletteShowSymbols"))->setChecked(Configuration::palette_ShowSymbols());
 }
 
 
@@ -1105,7 +1105,7 @@ void MainWindow::setupActions()
     // File menu
     KStandardAction::openNew(this, SLOT(fileNew()), actions);
     KStandardAction::open(this, SLOT(fileOpen()), actions);
-    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "RecentFiles"));
+    KStandardAction::openRecent(this, SLOT(fileOpen(QUrl)), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     KStandardAction::save(this, SLOT(fileSave()), actions);
     KStandardAction::saveAs(this, SLOT(fileSaveAs()), actions);
     KStandardAction::revert(this, SLOT(fileRevert()), actions);
@@ -1113,24 +1113,24 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Print Setup..."));
     connect(action, SIGNAL(triggered()), this, SLOT(filePrintSetup()));
-    actions->addAction("filePrintSetup", action);
+    actions->addAction(QStringLiteral("filePrintSetup"), action);
 
     KStandardAction::print(this, SLOT(filePrint()), actions);
 
     action = new QAction(this);
     action->setText(i18n("Import Image"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileImportImage()));
-    actions->addAction("fileImportImage", action);
+    actions->addAction(QStringLiteral("fileImportImage"), action);
 
     action = new QAction(this);
     action->setText(i18n("File Properties"));
     connect(action, SIGNAL(triggered()), this, SLOT(fileProperties()));
-    actions->addAction("fileProperties", action);
+    actions->addAction(QStringLiteral("fileProperties"), action);
 
     action = new QAction(this);
     action->setText(i18n("Add Background Image..."));
     connect(action, SIGNAL(triggered()), this, SLOT(fileAddBackgroundImage()));
-    actions->addAction("fileAddBackgroundImage", action);
+    actions->addAction(QStringLiteral("fileAddBackgroundImage"), action);
 
     KStandardAction::close(this, SLOT(fileClose()), actions);
     KStandardAction::quit(this, SLOT(fileQuit()), actions);
@@ -1140,76 +1140,76 @@ void MainWindow::setupActions()
     KStandardAction::undo(this, SLOT(editUndo()), actions);
     KStandardAction::redo(this, SLOT(editRedo()), actions);
     KStandardAction::cut(m_editor, SLOT(editCut()), actions);
-    actions->action("edit_cut")->setEnabled(false);
+    actions->action(QStringLiteral("edit_cut"))->setEnabled(false);
     KStandardAction::copy(m_editor, SLOT(editCopy()), actions);
-    actions->action("edit_copy")->setEnabled(false);
+    actions->action(QStringLiteral("edit_copy"))->setEnabled(false);
     KStandardAction::paste(m_editor, SLOT(editPaste()), actions);
 
     action = new QAction(this);
     action->setText(i18n("Mirror/Rotate makes copies"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMakesCopies(bool)));
-    actions->addAction("makesCopies", action);
+    actions->addAction(QStringLiteral("makesCopies"), action);
 
     action = new QAction(this);
     action->setText(i18n("Horizontally"));
     action->setData(Qt::Horizontal);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
-    actions->addAction("mirrorHorizontal", action);
+    actions->addAction(QStringLiteral("mirrorHorizontal"), action);
 
     action = new QAction(this);
     action->setText(i18n("Vertically"));
     action->setData(Qt::Vertical);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(mirrorSelection()));
     action->setEnabled(false);
-    actions->addAction("mirrorVertical", action);
+    actions->addAction(QStringLiteral("mirrorVertical"), action);
 
     action = new QAction(this);
     action->setText(i18n("90 Degrees"));
     action->setData(StitchData::Rotate90);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
-    actions->addAction("rotate90", action);
+    actions->addAction(QStringLiteral("rotate90"), action);
 
     action = new QAction(this);
     action->setText(i18n("180 Degrees"));
     action->setData(StitchData::Rotate180);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
-    actions->addAction("rotate180", action);
+    actions->addAction(QStringLiteral("rotate180"), action);
 
     action = new QAction(this);
     action->setText(i18n("270 Degrees"));
     action->setData(StitchData::Rotate270);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(rotateSelection()));
     action->setEnabled(false);
-    actions->addAction("rotate270", action);
+    actions->addAction(QStringLiteral("rotate270"), action);
 
     // Selection mask sub menu
     action = new QAction(this);
     action->setText(i18n("Stitch Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskStitch(bool)));
-    actions->addAction("maskStitch", action);
+    actions->addAction(QStringLiteral("maskStitch"), action);
 
     action = new QAction(this);
     action->setText(i18n("Color Mask"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskColor(bool)));
-    actions->addAction("maskColor", action);
+    actions->addAction(QStringLiteral("maskColor"), action);
 
     action = new QAction(this);
     action->setText(i18n("Exclude Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskBackstitch(bool)));
-    actions->addAction("maskBackstitch", action);
+    actions->addAction(QStringLiteral("maskBackstitch"), action);
 
     action = new QAction(this);
     action->setText(i18n("Exclude Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered(bool)), m_editor, SLOT(setMaskKnot(bool)));
-    actions->addAction("maskKnot", action);
+    actions->addAction(QStringLiteral("maskKnot"), action);
 
 
     // View menu
@@ -1217,11 +1217,11 @@ void MainWindow::setupActions()
     KStandardAction::zoomOut(m_editor, SLOT(zoomOut()), actions);
     KStandardAction::actualSize(m_editor, SLOT(actualSize()), actions);
     action = KStandardAction::fitToPage(m_editor, SLOT(fitToPage()), actions);
-    action->setIcon(QIcon::fromTheme("zoom-fit-best"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("zoom-fit-best")));
     action = KStandardAction::fitToWidth(m_editor, SLOT(fitToWidth()), actions);
-    action->setIcon(QIcon::fromTheme("zoom-fit-width"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("zoom-fit-width")));
     action = KStandardAction::fitToHeight(m_editor, SLOT(fitToHeight()), actions);
-    action->setIcon(QIcon::fromTheme("zoom-fit-height"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("zoom-fit-height")));
 
     // Entries for Show/Hide Preview and Palette dock windows are added dynamically
     // Entries for Show/Hide and Remove background images are added dynamically
@@ -1234,64 +1234,64 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Quarter Stitch"));
     action->setData(Editor::StitchQuarter);
-    action->setIcon(QIcon::fromTheme("kxstitch-quarter-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-quarter-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchQuarter", action);
+    actions->addAction(QStringLiteral("stitchQuarter"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Half Stitch"));
     action->setData(Editor::StitchHalf);
-    action->setIcon(QIcon::fromTheme("kxstitch-half-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-half-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchHalf", action);
+    actions->addAction(QStringLiteral("stitchHalf"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("3 Quarter Stitch"));
     action->setData(Editor::Stitch3Quarter);
-    action->setIcon(QIcon::fromTheme("kxstitch-3quarter-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-3quarter-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitch3Quarter", action);
+    actions->addAction(QStringLiteral("stitch3Quarter"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Full Stitch"));
     action->setData(Editor::StitchFull);
-    action->setIcon(QIcon::fromTheme("kxstitch-full-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-full-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchFull", action);
+    actions->addAction(QStringLiteral("stitchFull"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Small Half Stitch"));
     action->setData(Editor::StitchSmallHalf);
-    action->setIcon(QIcon::fromTheme("kxstitch-small-half-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-small-half-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchSmallHalf", action);
+    actions->addAction(QStringLiteral("stitchSmallHalf"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Small Full Stitch"));
     action->setData(Editor::StitchSmallFull);
-    action->setIcon(QIcon::fromTheme("kxstitch-small-full-stitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-small-full-stitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchSmallFull", action);
+    actions->addAction(QStringLiteral("stitchSmallFull"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("French Knot"));
     action->setData(Editor::StitchFrenchKnot);
-    action->setIcon(QIcon::fromTheme("kxstitch-frenchknot"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-frenchknot")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectStitch()));
-    actions->addAction("stitchFrenchKnot", action);
+    actions->addAction(QStringLiteral("stitchFrenchKnot"), action);
     actionGroup->addAction(action);
 
 
@@ -1302,198 +1302,198 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Paint"));
     action->setData(Editor::ToolPaint);
-    action->setIcon(QIcon::fromTheme("draw-brush"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-brush")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolPaint", action);
+    actions->addAction(QStringLiteral("toolPaint"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Draw"));
     action->setData(Editor::ToolDraw);
-    action->setIcon(QIcon::fromTheme("draw-freehand"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-freehand")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolDraw", action);
+    actions->addAction(QStringLiteral("toolDraw"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Erase"));
     action->setData(Editor::ToolErase);
-    action->setIcon(QIcon::fromTheme("draw-eraser"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-eraser")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolErase", action);
+    actions->addAction(QStringLiteral("toolErase"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Draw Rectangle"));
     action->setData(Editor::ToolRectangle);
-    action->setIcon(QIcon::fromTheme("draw-rectangle"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-rectangle")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolRectangle", action);
+    actions->addAction(QStringLiteral("toolRectangle"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Fill Rectangle"));
     action->setData(Editor::ToolFillRectangle);
-    action->setIcon(QIcon::fromTheme("kxstitch-draw-rectangle-filled"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-draw-rectangle-filled")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolFillRectangle", action);
+    actions->addAction(QStringLiteral("toolFillRectangle"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Draw Ellipse"));
     action->setData(Editor::ToolEllipse);
-    action->setIcon(QIcon::fromTheme("draw-ellipse"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-ellipse")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolEllipse", action);
+    actions->addAction(QStringLiteral("toolEllipse"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Fill Ellipse"));
     action->setData(Editor::ToolFillEllipse);
-    action->setIcon(QIcon::fromTheme("kxstitch-draw-ellipse-filled"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-draw-ellipse-filled")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolFillEllipse", action);
+    actions->addAction(QStringLiteral("toolFillEllipse"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Fill Polygon"));
     action->setData(Editor::ToolFillPolygon);
-    action->setIcon(QIcon::fromTheme("draw-polyline"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-polyline")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolFillPolygon", action);
+    actions->addAction(QStringLiteral("toolFillPolygon"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Text"));
     action->setData(Editor::ToolText);
-    action->setIcon(QIcon::fromTheme("draw-text"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-text")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolText", action);
+    actions->addAction(QStringLiteral("toolText"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Alphabet"));
     action->setData(Editor::ToolAlphabet);
-    action->setIcon(QIcon::fromTheme("text-field"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("text-field")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolAlphabet", action);
+    actions->addAction(QStringLiteral("toolAlphabet"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setData(Editor::ToolSelect);
-    action->setIcon(QIcon::fromTheme("select-rectangular"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("select-rectangular")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolSelectRectangle", action);
+    actions->addAction(QStringLiteral("toolSelectRectangle"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Backstitch"));
     action->setData(Editor::ToolBackstitch);
-    action->setIcon(QIcon::fromTheme("kxstitch-backstitch"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-backstitch")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolBackstitch", action);
+    actions->addAction(QStringLiteral("toolBackstitch"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Picker"));
     action->setData(Editor::ToolColorPicker);
-    action->setIcon(QIcon::fromTheme("color-picker"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("color-picker")));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(selectTool()));
-    actions->addAction("toolColorPicker", action);
+    actions->addAction(QStringLiteral("toolColorPicker"), action);
     actionGroup->addAction(action);
 
 
     // Palette Menu
     action = new QAction(this);
     action->setText(i18n("Palette Manager..."));
-    action->setIcon(QIcon::fromTheme("kxstitch-color-add"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-color-add")));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteManager()));
-    actions->addAction("paletteManager", action);
+    actions->addAction(QStringLiteral("paletteManager"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Symbols"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), this, SLOT(paletteShowSymbols(bool)));
-    actions->addAction("paletteShowSymbols", action);
+    actions->addAction(QStringLiteral("paletteShowSymbols"), action);
 
     action = new QAction(this);
     action->setText(i18n("Clear Unused"));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteClearUnused()));
-    actions->addAction("paletteClearUnused", action);
+    actions->addAction(QStringLiteral("paletteClearUnused"), action);
 
     action = new QAction(this);
     action->setText(i18n("Calibrate Scheme..."));
     connect(action, SIGNAL(triggered()), this, SLOT(paletteCalibrateScheme()));
-    actions->addAction("paletteCalibrateScheme", action);
+    actions->addAction(QStringLiteral("paletteCalibrateScheme"), action);
 
     action = new QAction(this);
     action->setText(i18n("Swap Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(swapColors()));
-    actions->addAction("paletteSwapColors", action);
+    actions->addAction(QStringLiteral("paletteSwapColors"), action);
 
     action = new QAction(this);
     action->setText(i18n("Replace Colors"));
     connect(action, SIGNAL(triggered()), m_palette, SLOT(replaceColor()));
-    actions->addAction("paletteReplaceColor", action);
+    actions->addAction(QStringLiteral("paletteReplaceColor"), action);
 
 
     // Pattern Menu
     action = new QAction(this);
     action->setText(i18n("Extend Pattern..."));
-    action->setIcon(QIcon::fromTheme("kxstitch-extend-pattern"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-extend-pattern")));
     connect(action, SIGNAL(triggered()), this, SLOT(patternExtend()));
-    actions->addAction("patternExtend", action);
+    actions->addAction(QStringLiteral("patternExtend"), action);
 
     action = new QAction(this);
     action->setText(i18n("Center Pattern"));
-    action->setIcon(QIcon::fromTheme("kxstitch-center-pattern"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-center-pattern")));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCentre()));
-    actions->addAction("patternCentre", action);
+    actions->addAction(QStringLiteral("patternCentre"), action);
 
     action = new QAction(this);
     action->setText(i18n("Crop Canvas to Pattern"));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCrop()));
-    actions->addAction("patternCrop", action);
+    actions->addAction(QStringLiteral("patternCrop"), action);
 
     action = new QAction(this);
     action->setText(i18n("Crop Canvas to Selection"));
-    action->setIcon(QIcon::fromTheme("transform-crop"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("transform-crop")));
     connect(action, SIGNAL(triggered()), this, SLOT(patternCropToSelection()));
     action->setEnabled(false);
-    actions->addAction("patternCropToSelection", action);
+    actions->addAction(QStringLiteral("patternCropToSelection"), action);
 
     action = new QAction(this);
     action->setText(i18n("Insert Rows"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertRows()));
     action->setEnabled(false);
-    actions->addAction("insertRows", action);
+    actions->addAction(QStringLiteral("insertRows"), action);
 
     action = new QAction(this);
     action->setText(i18n("Insert Columns"));
     connect(action, SIGNAL(triggered()), this, SLOT(insertColumns()));
     action->setEnabled(false);
-    actions->addAction("insertColumns", action);
+    actions->addAction(QStringLiteral("insertColumns"), action);
 
 
     // Library Menu
     action = new QAction(this);
     action->setText(i18n("Library Manager..."));
     connect(action, SIGNAL(triggered()), m_editor, SLOT(libraryManager()));
-    actions->addAction("libraryManager", action);
+    actions->addAction(QStringLiteral("libraryManager"), action);
 
     // Settings Menu
     KStandardAction::preferences(this, SLOT(preferences()), actions);
@@ -1505,21 +1505,21 @@ void MainWindow::setupActions()
     action->setText(i18n("Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsStitches()));
-    actions->addAction("formatScalesAsStitches", action);
+    actions->addAction(QStringLiteral("formatScalesAsStitches"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("CM"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCM()));
-    actions->addAction("formatScalesAsCM", action);
+    actions->addAction(QStringLiteral("formatScalesAsCM"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Inches"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsInches()));
-    actions->addAction("formatScalesAsInches", action);
+    actions->addAction(QStringLiteral("formatScalesAsInches"), action);
     actionGroup->addAction(action);
 
     // ShowStitchesAs
@@ -1532,7 +1532,7 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     action->setChecked(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderStitchesAs()));
-    actions->addAction("renderStitchesAsRegularStitches", action);
+    actions->addAction(QStringLiteral("renderStitchesAsRegularStitches"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1540,7 +1540,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderStitchesAs()));
-    actions->addAction("renderStitchesAsBlackWhiteSymbols", action);
+    actions->addAction(QStringLiteral("renderStitchesAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1548,7 +1548,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderStitchesAs()));
-    actions->addAction("renderStitchesAsColorSymbols", action);
+    actions->addAction(QStringLiteral("renderStitchesAsColorSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1556,7 +1556,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderStitchesAs()));
-    actions->addAction("renderStitchesAsColorBlocks", action);
+    actions->addAction(QStringLiteral("renderStitchesAsColorBlocks"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1564,7 +1564,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderStitchesAs()));
-    actions->addAction("renderStitchesAsColorBlocksSymbols", action);
+    actions->addAction(QStringLiteral("renderStitchesAsColorBlocksSymbols"), action);
     actionGroup->addAction(action);
 
     // ShowBackstitchesAs
@@ -1577,7 +1577,7 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     action->setChecked(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderBackstitchesAs()));
-    actions->addAction("renderBackstitchesAsColorLines", action);
+    actions->addAction(QStringLiteral("renderBackstitchesAsColorLines"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1585,7 +1585,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderBackstitchesAs()));
-    actions->addAction("renderBackstitchesAsBlackWhiteSymbols", action);
+    actions->addAction(QStringLiteral("renderBackstitchesAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
 
     // ShowKnotsAs
@@ -1598,7 +1598,7 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     action->setChecked(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderKnotsAs()));
-    actions->addAction("renderKnotsAsColorBlocks", action);
+    actions->addAction(QStringLiteral("renderKnotsAsColorBlocks"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1606,7 +1606,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderKnotsAs()));
-    actions->addAction("renderKnotsAsColorBlocksSymbols", action);
+    actions->addAction(QStringLiteral("renderKnotsAsColorBlocksSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1614,7 +1614,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderKnotsAs()));
-    actions->addAction("renderKnotsAsColorSymbols", action);
+    actions->addAction(QStringLiteral("renderKnotsAsColorSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1622,7 +1622,7 @@ void MainWindow::setupActions()
     action->setData(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()), m_editor, SLOT(renderKnotsAs()));
-    actions->addAction("renderKnotsAsBlackWhiteSymbols", action);
+    actions->addAction(QStringLiteral("renderKnotsAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
 
 
@@ -1630,47 +1630,47 @@ void MainWindow::setupActions()
     action->setText(i18n("Color Highlight"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(colorHighlight(bool)));
-    actions->addAction("colorHighlight", action);
+    actions->addAction(QStringLiteral("colorHighlight"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Stitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderStitches(bool)));
-    actions->addAction("renderStitches", action);
+    actions->addAction(QStringLiteral("renderStitches"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Backstitches"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackstitches(bool)));
-    actions->addAction("renderBackstitches", action);
+    actions->addAction(QStringLiteral("renderBackstitches"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show French Knots"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderFrenchKnots(bool)));
-    actions->addAction("renderFrenchKnots", action);
+    actions->addAction(QStringLiteral("renderFrenchKnots"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Grid"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderGrid(bool)));
-    actions->addAction("renderGrid", action);
+    actions->addAction(QStringLiteral("renderGrid"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Background Images"));
     action->setCheckable(true);
     connect(action, SIGNAL(toggled(bool)), m_editor, SLOT(renderBackgroundImages(bool)));
-    actions->addAction("renderBackgroundImages", action);
+    actions->addAction(QStringLiteral("renderBackgroundImages"), action);
 
-    m_horizontalScale->addAction(actions->action("formatScalesAsStitches"));
-    m_horizontalScale->addAction(actions->action("formatScalesAsCM"));
-    m_horizontalScale->addAction(actions->action("formatScalesAsInches"));
+    m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsStitches")));
+    m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsCM")));
+    m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsInches")));
 
-    m_verticalScale->addAction(actions->action("formatScalesAsStitches"));
-    m_verticalScale->addAction(actions->action("formatScalesAsCM"));
-    m_verticalScale->addAction(actions->action("formatScalesAsInches"));
+    m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsStitches")));
+    m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsCM")));
+    m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsInches")));
 
-    setupGUI(KXmlGuiWindow::Default, "kxstitchui.rc");
+    setupGUI(KXmlGuiWindow::Default, QStringLiteral("kxstitchui.rc"));
 }
 
 
@@ -1678,9 +1678,9 @@ void MainWindow::updateBackgroundImageActionLists()
 {
     QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages().backgroundImages();
 
-    unplugActionList("removeBackgroundImageActions");
-    unplugActionList("fitBackgroundImageActions");
-    unplugActionList("showBackgroundImageActions");
+    unplugActionList(QStringLiteral("removeBackgroundImageActions"));
+    unplugActionList(QStringLiteral("fitBackgroundImageActions"));
+    unplugActionList(QStringLiteral("showBackgroundImageActions"));
 
     QList<QAction *> removeBackgroundImageActions;
     QList<QAction *> fitBackgroundImageActions;
@@ -1710,16 +1710,16 @@ void MainWindow::updateBackgroundImageActionLists()
         showBackgroundImageActions.append(action);
     }
 
-    plugActionList("removeBackgroundImageActions", removeBackgroundImageActions);
-    plugActionList("fitBackgroundImageActions", fitBackgroundImageActions);
-    plugActionList("showBackgroundImageActions", showBackgroundImageActions);
+    plugActionList(QStringLiteral("removeBackgroundImageActions"), removeBackgroundImageActions);
+    plugActionList(QStringLiteral("fitBackgroundImageActions"), fitBackgroundImageActions);
+    plugActionList(QStringLiteral("showBackgroundImageActions"), showBackgroundImageActions);
 }
 
 
 void MainWindow::setupDockWindows()
 {
     QDockWidget *dock = new QDockWidget(i18n("Preview"), this);
-    dock->setObjectName("PreviewDock#");
+    dock->setObjectName(QStringLiteral("PreviewDock#"));
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     QScrollArea *scrollArea = new QScrollArea();
     m_preview = new Preview(scrollArea);
@@ -1729,31 +1729,31 @@ void MainWindow::setupDockWindows()
     scrollArea->setMinimumSize(std::min(300, m_preview->width()), std::min(400, m_preview->height()));
     dock->setWidget(scrollArea);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
-    actionCollection()->addAction("showPreviewDockWidget", dock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("showPreviewDockWidget"), dock->toggleViewAction());
 
     dock = new QDockWidget(i18n("Palette"), this);
-    dock->setObjectName("PaletteDock#");
+    dock->setObjectName(QStringLiteral("PaletteDock#"));
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_palette = new Palette(this);
     m_palette->setContextMenuPolicy(Qt::CustomContextMenu);
     dock->setWidget(m_palette);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
-    actionCollection()->addAction("showPaletteDockWidget", dock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("showPaletteDockWidget"), dock->toggleViewAction());
 
     dock = new QDockWidget(i18n("History"), this);
-    dock->setObjectName("HistoryDock#");
+    dock->setObjectName(QStringLiteral("HistoryDock#"));
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_history = new QUndoView(this);
     dock->setWidget(m_history);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
-    actionCollection()->addAction("showHistoryDockWidget", dock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("showHistoryDockWidget"), dock->toggleViewAction());
 
     dock = new QDockWidget(i18n("Imported Image"), this);
-    dock->setObjectName("ImportedImage#");
+    dock->setObjectName(QStringLiteral("ImportedImage#"));
     dock->setAllowedAreas(Qt::AllDockWidgetAreas);
     m_imageLabel = new ScaledPixmapLabel(this);
     m_imageLabel->setScaledContents(false);
     dock->setWidget(m_imageLabel);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
-    actionCollection()->addAction("showImportedDockWidget", dock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("showImportedDockWidget"), dock->toggleViewAction());
 }

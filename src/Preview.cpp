@@ -25,7 +25,7 @@ Preview::Preview(QWidget *parent)
         m_document(nullptr),
         m_zoomFactor(1.0)
 {
-    setObjectName("Preview#");
+    setObjectName(QStringLiteral("Preview#"));
     m_renderer.setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
     m_renderer.setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
     m_renderer.setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
@@ -55,7 +55,7 @@ void Preview::readDocumentSettings()
     int width = m_document->pattern()->stitches().width();
     int height = m_document->pattern()->stitches().height();
     m_cellWidth = 4;
-    m_cellHeight = 4 * m_document->property("horizontalClothCount").toDouble() / m_document->property("verticalClothCount").toDouble();
+    m_cellHeight = 4 * m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
     m_previewWidth = m_cellWidth * width * m_zoomFactor;
     m_previewHeight = m_cellHeight * height * m_zoomFactor;
     resize(m_previewWidth, m_previewHeight);
@@ -118,7 +118,7 @@ void Preview::drawContents()
         return;
     }
 
-    m_cachedContents.fill(m_document->property("fabricColor").value<QColor>());
+    m_cachedContents.fill(m_document->property(QStringLiteral("fabricColor")).value<QColor>());
 
     QPainter painter(&m_cachedContents);
     painter.setRenderHint(QPainter::Antialiasing, true);

@@ -42,7 +42,7 @@ public:
 DocumentPaletteData::DocumentPaletteData()
     :   QSharedData(),
         m_schemeName(Configuration::palette_DefaultScheme()),
-        m_symbolLibrary("kxstitch"),
+        m_symbolLibrary(QLatin1String("kxstitch")),
         m_currentIndex(-1)
 {
 }
@@ -354,7 +354,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     case 102:
         stream >> documentPalette.d->m_schemeName;
-        documentPalette.d->m_symbolLibrary = QString("kxstitch");
+        documentPalette.d->m_symbolLibrary = QLatin1String("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> documentPaletteCount;
@@ -370,7 +370,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     case 101:
         stream >> documentPalette.d->m_schemeName;
-        documentPalette.d->m_symbolLibrary = QString("kxstitch");
+        documentPalette.d->m_symbolLibrary = QLatin1String("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> showSymbols;
@@ -387,7 +387,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
 
     case 100:
         stream >> documentPalette.d->m_schemeName;
-        documentPalette.d->m_symbolLibrary = QString("kxstitch");
+        documentPalette.d->m_symbolLibrary = QLatin1String("kxstitch");
         stream >> currentIndex;
         documentPalette.d->m_currentIndex = currentIndex;
         stream >> showSymbols;
@@ -454,7 +454,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
                                   count));
 
         foreach (DocumentFloss *documentFloss, missingSymbols) {
-            information += QString("%1\n").arg(documentFloss->flossName());
+            information += QString::fromLatin1("%1\n").arg(documentFloss->flossName());
         }
 
         if (int count = emptySymbols.count()) {
@@ -463,7 +463,7 @@ QDataStream &operator>>(QDataStream &stream, DocumentPalette &documentPalette)
                                          count));
 
             foreach (const QString &name, emptySymbols) {
-                information += QString("%1\n").arg(name);
+                information += QString::fromLatin1("%1\n").arg(name);
             }
         }
 

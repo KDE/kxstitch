@@ -62,5 +62,5 @@ void LibraryFilePathsDlg::on_DialogButtonBox_accepted()
 
 void LibraryFilePathsDlg::on_DialogButtonBox_helpRequested()
 {
-    KHelpClient::invokeHelp("LibraryPaths", "kxstitch");
+    KHelpClient::invokeHelp(QStringLiteral("LibraryPaths"), QStringLiteral("kxstitch"));
 }
