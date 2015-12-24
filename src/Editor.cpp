@@ -212,15 +212,6 @@ Editor::Editor(QWidget *parent)
 }
 
 
-Editor::~Editor()
-{
-    // TODO resolve ownership of these pointers
-//  delete m_libraryManagerDlg;
-//  delete m_horizontalScale;
-//  delete m_verticalScale;
-}
-
-
 void Editor::setDocument(Document *document)
 {
     m_document = document;

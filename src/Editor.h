@@ -68,7 +68,7 @@ public:
     };
 
     explicit Editor(QWidget*);
-    virtual ~Editor();
+    virtual ~Editor() = default;
 
     void setDocument(Document*);
     Document *document();
