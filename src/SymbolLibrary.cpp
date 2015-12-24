@@ -51,7 +51,6 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QPainter>
-#include <QtAlgorithms>
 
 #include <KLocalizedString>
 
@@ -222,7 +221,7 @@ void SymbolLibrary::setName(const QString &name)
 QList<qint16> SymbolLibrary::indexes() const
 {
     QList<qint16> keys = m_symbols.keys();
-    qSort(keys.begin(), keys.end());
+    std::sort(keys.begin(), keys.end());
     return keys;
 }
 
