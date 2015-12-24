@@ -189,7 +189,7 @@ Editor::Editor(QWidget *parent)
     :   QWidget(parent),
         m_horizontalScale(new Scale(Qt::Horizontal)),
         m_verticalScale(new Scale(Qt::Vertical)),
-        m_libraryManagerDlg(0),
+        m_libraryManagerDlg(nullptr),
         m_zoomFactor(Configuration::editor_DefaultZoomFactor()),
         m_toolMode(ToolPaint),
         m_renderBackgroundImages(Configuration::renderer_RenderBackgroundImages()),
@@ -202,9 +202,9 @@ Editor::Editor(QWidget *parent)
         m_maskBackstitch(false),
         m_maskKnot(false),
         m_makesCopies(Configuration::tool_MakesCopies()),
-        m_activeCommand(0),
+        m_activeCommand(nullptr),
         m_colorHighlight(Configuration::renderer_ColorHilight()),
-        m_pastePattern(0)
+        m_pastePattern(nullptr)
 {
     setAcceptDrops(true);
     setFocusPolicy(Qt::StrongFocus);
