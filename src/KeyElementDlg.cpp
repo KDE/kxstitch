@@ -50,11 +50,6 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
 }
 
 
-KeyElementDlg::~KeyElementDlg()
-{
-}
-
-
 void KeyElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("KeyElementDlg"), size());

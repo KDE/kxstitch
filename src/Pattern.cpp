@@ -22,11 +22,6 @@ Pattern::Pattern(Document *document)
 }
 
 
-Pattern::~Pattern()
-{
-}
-
-
 void Pattern::clear()
 {
     m_documentPalette = DocumentPalette();

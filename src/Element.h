@@ -34,7 +34,7 @@ public:
 
     Element(Page *, const QRect &, Element::Type);
     Element(const Element &);
-    virtual ~Element();
+    virtual ~Element() = default;
 
     virtual Element *clone() const = 0;
     virtual void render(Document *, QPainter *) const = 0;
@@ -67,7 +67,7 @@ class KeyElement : public Element
 public:
     KeyElement(Page *, const QRect &, Element::Type type = Element::Key);
     KeyElement(const KeyElement &);
-    virtual ~KeyElement();
+    virtual ~KeyElement() = default;
 
     bool showBorder() const;
     QColor borderColor() const;
@@ -148,7 +148,7 @@ class PlanElement : public Element
 public:
     PlanElement(Page *, const QRect &, Element::Type type = Element::Plan);
     PlanElement(const PlanElement &);
-    virtual ~PlanElement();
+    virtual ~PlanElement() = default;
 
     QRect patternRect() const;
     void setPatternRect(const QRect &);
@@ -172,7 +172,7 @@ class PatternElement : public Element
 public:
     PatternElement(Page *, const QRect &, Element::Type type = Element::Pattern);
     PatternElement(const PatternElement &);
-    virtual ~PatternElement();
+    virtual ~PatternElement() = default;
 
     virtual PatternElement *clone() const Q_DECL_OVERRIDE;
     virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
@@ -246,7 +246,7 @@ class ImageElement : public PatternElement
 public:
     ImageElement(Page *, const QRect &, Element::Type type = Element::Image);
     ImageElement(const ImageElement &);
-    virtual ~ImageElement();
+    virtual ~ImageElement() = default;
 
     virtual ImageElement *clone() const Q_DECL_OVERRIDE;
     virtual void render(Document *, QPainter *painter) const Q_DECL_OVERRIDE;
@@ -267,7 +267,7 @@ class TextElement : public Element
 public:
     TextElement(Page *, const QRect &, Element::Type type = Element::Text);
     TextElement(const TextElement &);
-    virtual ~TextElement();
+    virtual ~TextElement() = default;
 
     bool showBorder() const;
     QColor borderColor() const;

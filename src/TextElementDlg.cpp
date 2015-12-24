@@ -70,11 +70,6 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
 }
 
 
-TextElementDlg::~TextElementDlg()
-{
-}
-
-
 void TextElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("TextElementDlg"), size());

@@ -187,11 +187,6 @@ Palette::Palette(QWidget *parent)
 }
 
 
-Palette::~Palette()
-{
-}
-
-
 QSize Palette::sizeHint() const
 {
     return QSize(400, 600);

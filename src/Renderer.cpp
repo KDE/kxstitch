@@ -29,7 +29,6 @@ class RendererData : public QSharedData
 public:
     RendererData();
     RendererData(const RendererData &);
-    ~RendererData();
 
     friend class Renderer;
 
@@ -178,11 +177,6 @@ RendererData::RendererData(const RendererData &other)
         m_renderTR3Q(other.m_renderTR3Q),
         m_renderBL3Q(other.m_renderBL3Q),
         m_renderBR3Q(other.m_renderBR3Q)
-{
-}
-
-
-RendererData::~RendererData()
 {
 }
 

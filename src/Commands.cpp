@@ -36,11 +36,6 @@ FilePropertiesCommand::FilePropertiesCommand(Document *document)
 }
 
 
-FilePropertiesCommand::~FilePropertiesCommand()
-{
-}
-
-
 void FilePropertiesCommand::redo()
 {
     QUndoCommand::redo();
@@ -62,11 +57,6 @@ void FilePropertiesCommand::undo()
 ImportImageCommand::ImportImageCommand(Document *document)
     :   QUndoCommand(i18n("Import Image")),
         m_document(document)
-{
-}
-
-
-ImportImageCommand::~ImportImageCommand()
 {
 }
 
@@ -96,11 +86,6 @@ PaintStitchesCommand::PaintStitchesCommand(Document *document)
 }
 
 
-PaintStitchesCommand::~PaintStitchesCommand()
-{
-}
-
-
 void PaintStitchesCommand::redo()
 {
     QUndoCommand::redo();
@@ -120,11 +105,6 @@ void PaintStitchesCommand::undo()
 PaintKnotsCommand::PaintKnotsCommand(Document *document)
     :   QUndoCommand(i18n("Paint Knots")),
         m_document(document)
-{
-}
-
-
-PaintKnotsCommand::~PaintKnotsCommand()
 {
 }
 
@@ -152,11 +132,6 @@ DrawLineCommand::DrawLineCommand(Document *document)
 }
 
 
-DrawLineCommand::~DrawLineCommand()
-{
-}
-
-
 void DrawLineCommand::redo()
 {
     QUndoCommand::redo();
@@ -176,11 +151,6 @@ void DrawLineCommand::undo()
 EraseStitchesCommand::EraseStitchesCommand(Document *document)
     :   QUndoCommand(i18n("Erase Stitches")),
         m_document(document)
-{
-}
-
-
-EraseStitchesCommand::~EraseStitchesCommand()
 {
 }
 
@@ -208,11 +178,6 @@ DrawRectangleCommand::DrawRectangleCommand(Document *document)
 }
 
 
-DrawRectangleCommand::~DrawRectangleCommand()
-{
-}
-
-
 void DrawRectangleCommand::redo()
 {
     QUndoCommand::redo();
@@ -232,11 +197,6 @@ void DrawRectangleCommand::undo()
 FillRectangleCommand::FillRectangleCommand(Document *document)
     :   QUndoCommand(i18n("Fill Rectangle")),
         m_document(document)
-{
-}
-
-
-FillRectangleCommand::~FillRectangleCommand()
 {
 }
 
@@ -265,11 +225,6 @@ DrawEllipseCommand::DrawEllipseCommand(Document *document)
 }
 
 
-DrawEllipseCommand::~DrawEllipseCommand()
-{
-}
-
-
 void DrawEllipseCommand::redo()
 {
     QUndoCommand::redo();
@@ -293,11 +248,6 @@ FillEllipseCommand::FillEllipseCommand(Document *document)
 }
 
 
-FillEllipseCommand::~FillEllipseCommand()
-{
-}
-
-
 void FillEllipseCommand::redo()
 {
     QUndoCommand::redo();
@@ -317,11 +267,6 @@ void FillEllipseCommand::undo()
 FillPolygonCommand::FillPolygonCommand(Document *document)
     :   QUndoCommand(i18n("Fill Polygon")),
         m_document(document)
-{
-}
-
-
-FillPolygonCommand::~FillPolygonCommand()
 {
 }
 
@@ -429,11 +374,6 @@ AddBackstitchCommand::AddBackstitchCommand(Document *document, const QPoint &sta
 }
 
 
-AddBackstitchCommand::~AddBackstitchCommand()
-{
-}
-
-
 void AddBackstitchCommand::redo()
 {
     m_document->pattern()->stitches().addBackstitch(m_start, m_end, m_colorIndex);
@@ -493,11 +433,6 @@ AddKnotCommand::AddKnotCommand(Document *document, const QPoint &snap, int color
 }
 
 
-AddKnotCommand::~AddKnotCommand()
-{
-}
-
-
 void AddKnotCommand::redo()
 {
     m_document->pattern()->stitches().addFrenchKnot(m_snap, m_colorIndex);
@@ -548,12 +483,6 @@ SetPropertyCommand::SetPropertyCommand(Document *document, const QString &name, 
 }
 
 
-SetPropertyCommand::~SetPropertyCommand()
-{
-    // nothing needs to be done here
-}
-
-
 void SetPropertyCommand::redo()
 {
     m_oldValue = m_document->property(m_name);
@@ -572,11 +501,6 @@ AddBackgroundImageCommand::AddBackgroundImageCommand(Document *document, Backgro
         m_document(document),
         m_backgroundImage(backgroundImage),
         m_mainWindow(mainWindow)
-{
-}
-
-
-AddBackgroundImageCommand::~AddBackgroundImageCommand()
 {
 }
 
@@ -606,11 +530,6 @@ FitBackgroundImageCommand::FitBackgroundImageCommand(Document *document, Backgro
 }
 
 
-FitBackgroundImageCommand::~FitBackgroundImageCommand()
-{
-}
-
-
 void FitBackgroundImageCommand::redo()
 {
     m_rect = m_document->backgroundImages().fitBackgroundImage(m_backgroundImage, m_rect);
@@ -630,11 +549,6 @@ ShowBackgroundImageCommand::ShowBackgroundImageCommand(Document *document, Backg
         m_document(document),
         m_backgroundImage(backgroundImage),
         m_visible(visible)
-{
-}
-
-
-ShowBackgroundImageCommand::~ShowBackgroundImageCommand()
 {
 }
 
@@ -663,6 +577,7 @@ RemoveBackgroundImageCommand::RemoveBackgroundImageCommand(Document *document, B
 
 RemoveBackgroundImageCommand::~RemoveBackgroundImageCommand()
 {
+    // TODO resolve ownership of m_backgroundImage
     // delete m_backgroundImage;
     // m_backgroundImage may also be deleted by the document, potential for a crash or memory leak
 }
@@ -695,11 +610,6 @@ AddDocumentFlossCommand::AddDocumentFlossCommand(Document *document, int key, Do
         m_document(document),
         m_key(key),
         m_documentFloss(documentFloss)
-{
-}
-
-
-AddDocumentFlossCommand::~AddDocumentFlossCommand()
 {
 }
 
@@ -777,11 +687,6 @@ ClearUnusedFlossesCommand::ClearUnusedFlossesCommand(Document *document)
 }
 
 
-ClearUnusedFlossesCommand::~ClearUnusedFlossesCommand()
-{
-}
-
-
 void ClearUnusedFlossesCommand::redo()
 {
     QUndoCommand::redo();
@@ -801,11 +706,6 @@ ResizeDocumentCommand::ResizeDocumentCommand(Document *document, int width, int 
         m_document(document),
         m_width(width),
         m_height(height)
-{
-}
-
-
-ResizeDocumentCommand::~ResizeDocumentCommand()
 {
 }
 
@@ -838,11 +738,6 @@ CropToPatternCommand::CropToPatternCommand(Document *document)
 }
 
 
-CropToPatternCommand::~CropToPatternCommand()
-{
-}
-
-
 void CropToPatternCommand::redo()
 {
     m_originalWidth = m_document->pattern()->stitches().width();
@@ -870,11 +765,6 @@ CropToSelectionCommand::CropToSelectionCommand(Document *document, const QRect &
     :   QUndoCommand(i18n("Crop to Selection")),
         m_document(document),
         m_selectionArea(selectionArea)
-{
-}
-
-
-CropToSelectionCommand::~CropToSelectionCommand()
 {
 }
 
@@ -916,11 +806,6 @@ InsertColumnsCommand::InsertColumnsCommand(Document *document, const QRect &sele
     :   QUndoCommand(i18n("Insert Columns")),
         m_document(document),
         m_selectionArea(selectionArea)
-{
-}
-
-
-InsertColumnsCommand::~InsertColumnsCommand()
 {
 }
 
@@ -967,11 +852,6 @@ InsertRowsCommand::InsertRowsCommand(Document *document, const QRect &selectionA
     :   QUndoCommand(i18n("Insert Rows")),
         m_document(document),
         m_selectionArea(selectionArea)
-{
-}
-
-
-InsertRowsCommand::~InsertRowsCommand()
 {
 }
 
@@ -1025,11 +905,6 @@ ExtendPatternCommand::ExtendPatternCommand(Document *document, int top, int left
 }
 
 
-ExtendPatternCommand::~ExtendPatternCommand()
-{
-}
-
-
 void ExtendPatternCommand::redo()
 {
     StitchData &stitchData = m_document->pattern()->stitches();
@@ -1071,11 +946,6 @@ CentrePatternCommand::CentrePatternCommand(Document *document)
 }
 
 
-CentrePatternCommand::~CentrePatternCommand()
-{
-}
-
-
 void CentrePatternCommand::redo()
 {
     QRect extents = m_document->pattern()->stitches().extents();
@@ -1112,11 +982,6 @@ UpdateDocumentPaletteCommand::UpdateDocumentPaletteCommand(Document *document, c
 }
 
 
-UpdateDocumentPaletteCommand::~UpdateDocumentPaletteCommand()
-{
-}
-
-
 void UpdateDocumentPaletteCommand::redo()
 {
     DocumentPalette palette = m_document->pattern()->palette();
@@ -1139,11 +1004,6 @@ ChangeSchemeCommand::ChangeSchemeCommand(Document *document, const QString &sche
     :   QUndoCommand(i18n("Change Floss Scheme"), parent),
         m_document(document),
         m_schemeName(schemeName)
-{
-}
-
-
-ChangeSchemeCommand::~ChangeSchemeCommand()
 {
 }
 
@@ -1179,10 +1039,6 @@ EditorReadDocumentSettingsCommand::EditorReadDocumentSettingsCommand(Editor *edi
 }
 
 
-EditorReadDocumentSettingsCommand::~EditorReadDocumentSettingsCommand()
-{
-}
-
 void EditorReadDocumentSettingsCommand::redo()
 {
     m_editor->readDocumentSettings();
@@ -1198,11 +1054,6 @@ void EditorReadDocumentSettingsCommand::undo()
 PreviewReadDocumentSettingsCommand::PreviewReadDocumentSettingsCommand(Preview *preview)
     :   QUndoCommand(),
         m_preview(preview)
-{
-}
-
-
-PreviewReadDocumentSettingsCommand::~PreviewReadDocumentSettingsCommand()
 {
 }
 
@@ -1224,11 +1075,6 @@ PaletteReplaceColorCommand::PaletteReplaceColorCommand(Document *document, int o
         m_document(document),
         m_originalIndex(originalIndex),
         m_replacementIndex(replacementIndex)
-{
-}
-
-
-PaletteReplaceColorCommand::~PaletteReplaceColorCommand()
 {
 }
 
@@ -1342,11 +1188,6 @@ PaletteSwapColorCommand::PaletteSwapColorCommand(Document *document, int origina
 }
 
 
-PaletteSwapColorCommand::~PaletteSwapColorCommand()
-{
-}
-
-
 void PaletteSwapColorCommand::redo()
 {
     m_document->pattern()->palette().swap(m_originalIndex, m_swappedIndex);
@@ -1366,11 +1207,6 @@ UpdatePrinterConfigurationCommand::UpdatePrinterConfigurationCommand(Document *d
     :   QUndoCommand(i18n("Update Printer Configuration")),
         m_document(document),
         m_printerConfiguration(printerConfiguration)
-{
-}
-
-
-UpdatePrinterConfigurationCommand::~UpdatePrinterConfigurationCommand()
 {
 }
 
@@ -1443,11 +1279,6 @@ EditPasteCommand::EditPasteCommand(Document *document, Pattern *pattern, const Q
         m_pastePattern(pattern),
         m_cell(cell),
         m_merge(merge)
-{
-}
-
-
-EditPasteCommand::~EditPasteCommand()
 {
 }
 
@@ -1629,11 +1460,6 @@ int AlphabetCommand::childCount() const
 ConfigurationCommand::ConfigurationCommand(MainWindow *mainWindow)
     :   QUndoCommand(i18n("Configure KXStitch")),
         m_mainWindow(mainWindow)
-{
-}
-
-
-ConfigurationCommand::~ConfigurationCommand()
 {
 }
 

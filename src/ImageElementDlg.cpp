@@ -39,11 +39,6 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
 }
 
 
-ImageElementDlg::~ImageElementDlg()
-{
-}
-
-
 void ImageElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("ImageElementDlg"), size());

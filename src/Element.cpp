@@ -55,11 +55,6 @@ Element::Element(const Element &other)
 }
 
 
-Element::~Element()
-{
-}
-
-
 Page *Element::parent() const
 {
     return m_parent;
@@ -189,11 +184,6 @@ KeyElement::KeyElement(const KeyElement &other)
         m_stitchesColumn(other.m_stitchesColumn),
         m_lengthColumn(other.m_lengthColumn),
         m_skeinsColumn(other.m_skeinsColumn)
-{
-}
-
-
-KeyElement::~KeyElement()
 {
 }
 
@@ -886,11 +876,6 @@ PlanElement::PlanElement(const PlanElement &other)
 }
 
 
-PlanElement::~PlanElement()
-{
-}
-
-
 void PlanElement::setPatternRect(const QRect &rect)
 {
     m_patternRect = rect;
@@ -1007,11 +992,6 @@ PatternElement::PatternElement(const PatternElement &other)
     if (other.m_planElement) {
         m_planElement = new PlanElement(*other.m_planElement);
     }
-}
-
-
-PatternElement::~PatternElement()
-{
 }
 
 
@@ -1649,11 +1629,6 @@ ImageElement::ImageElement(const ImageElement &other)
 }
 
 
-ImageElement::~ImageElement()
-{
-}
-
-
 ImageElement *ImageElement::clone() const
 {
     return new ImageElement(*this);
@@ -1727,11 +1702,6 @@ TextElement::TextElement(const TextElement &other)
         m_textColor(other.m_textColor),
         m_alignment(other.m_alignment),
         m_text(other.m_text)
-{
-}
-
-
-TextElement::~TextElement()
 {
 }
 

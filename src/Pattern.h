@@ -24,7 +24,6 @@ class Pattern
 {
 public:
     explicit Pattern(Document *document = nullptr);
-    ~Pattern();
 
     void clear();
 

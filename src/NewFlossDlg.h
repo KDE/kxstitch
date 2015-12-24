@@ -32,7 +32,7 @@ class NewFlossDlg : public QDialog
 
 public:
     NewFlossDlg(QWidget *, FlossScheme *flossScheme);
-    virtual ~NewFlossDlg();
+    virtual ~NewFlossDlg() = default;
 
     Floss *floss();
 

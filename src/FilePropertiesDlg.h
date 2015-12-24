@@ -31,7 +31,7 @@ class FilePropertiesDlg : public QDialog
 
 public:
     FilePropertiesDlg(QWidget *, Document *);
-    virtual ~FilePropertiesDlg();
+    virtual ~FilePropertiesDlg() = default;
 
     int documentWidth() const;
     int documentHeight() const;

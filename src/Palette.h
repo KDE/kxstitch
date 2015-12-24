@@ -27,7 +27,7 @@ public:
     enum Mode {Select, Replace, Swap};
 
     explicit Palette(QWidget *);
-    virtual ~Palette();
+    virtual ~Palette() = default;
 
     virtual QSize sizeHint() const Q_DECL_OVERRIDE;
     Document *document() const;

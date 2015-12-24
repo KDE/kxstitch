@@ -45,28 +45,12 @@ InvalidFile::InvalidFile()
 
 
 /**
- * Destructor
- */
-InvalidFile::~InvalidFile()
-{
-}
-
-
-/**
  * Constructor
  *
  * @param v the version of the file that was being read
  */
 InvalidFileVersion::InvalidFileVersion(const QString &v)
     :   version(v)
-{
-}
-
-
-/**
- * Destructor
- */
-InvalidFileVersion::~InvalidFileVersion()
 {
 }
 
@@ -100,28 +84,12 @@ FailedReadFile::FailedReadFile(const QString &s)
 
 
 /**
- * Destructor
- */
-FailedReadFile::~FailedReadFile()
-{
-}
-
-
-/**
  * Constructor
  *
  * @param status the status of the QDataStream that caused the exception
  */
 FailedWriteFile::FailedWriteFile(QDataStream::Status status)
     :   m_status(status)
-{
-}
-
-
-/**
- * Destructor
- */
-FailedWriteFile::~FailedWriteFile()
 {
 }
 
@@ -152,13 +120,5 @@ QString FailedWriteFile::statusMessage() const
  */
 InvalidSymbolVersion::InvalidSymbolVersion(qint32 v)
     :   version(v)
-{
-}
-
-
-/**
- * Destructor
- */
-InvalidSymbolVersion::~InvalidSymbolVersion()
 {
 }

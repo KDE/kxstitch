@@ -42,7 +42,7 @@ class SymbolListWidget : public QListWidget
 {
 public:
     explicit SymbolListWidget(QWidget *parent);
-    virtual ~SymbolListWidget();
+    virtual ~SymbolListWidget() = default;
 
     void setIconSize(int size);
     void loadFromLibrary(SymbolLibrary *library);

@@ -33,7 +33,6 @@ class InvalidFile
 {
 public:
     InvalidFile();
-    ~InvalidFile();
 
 private:
 };
@@ -50,7 +49,6 @@ class InvalidFileVersion
 {
 public:
     explicit InvalidFileVersion(const QString &v);
-    ~InvalidFileVersion();
 
     QString version;    /**< the version of the file read */
 };
@@ -66,7 +64,6 @@ class FailedReadFile
 public:
     explicit FailedReadFile(QDataStream::Status s);
     explicit FailedReadFile(const QString &s);
-    ~FailedReadFile();
 
     QString status;   /**< the status of the error */
 };
@@ -81,7 +78,6 @@ class FailedWriteFile
 {
 public:
     explicit FailedWriteFile(QDataStream::Status status);
-    ~FailedWriteFile();
 
     QString statusMessage() const;
 
@@ -99,7 +95,6 @@ class InvalidSymbolVersion
 {
 public:
     explicit InvalidSymbolVersion(qint32 v);
-    ~InvalidSymbolVersion();
 
     qint32  version;    /** the version of the symbol read */
 };

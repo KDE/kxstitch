@@ -28,7 +28,7 @@ class ExtendPatternDlg : public QDialog
 
 public:
     explicit ExtendPatternDlg(QWidget *);
-    virtual ~ExtendPatternDlg();
+    virtual ~ExtendPatternDlg() = default;
 
     int top() const;
     int left() const;

@@ -58,14 +58,6 @@ SymbolListWidget::SymbolListWidget(QWidget *parent)
 
 
 /**
- * Destructor.
- */
-SymbolListWidget::~SymbolListWidget()
-{
-}
-
-
-/**
  * Set the size of the icons to be used.
  * The base QListWidget has the icon size and grid size set to this value.
  *

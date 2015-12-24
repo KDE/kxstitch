@@ -32,7 +32,7 @@ class SelectArea : public QWidget
 
 public:
     SelectArea(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
-    virtual ~SelectArea();
+    virtual ~SelectArea() = default;
 
     QRect patternRect() const;
     void setPatternRect(const QRect &);

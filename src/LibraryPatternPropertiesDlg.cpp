@@ -32,11 +32,6 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32
 }
 
 
-LibraryPatternPropertiesDlg::~LibraryPatternPropertiesDlg()
-{
-}
-
-
 qint32 LibraryPatternPropertiesDlg::key() const
 {
     return ui.KeyCode->key();

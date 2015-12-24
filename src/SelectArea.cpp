@@ -40,11 +40,6 @@ SelectArea::SelectArea(QWidget *parent, PatternElement *patternElement, Document
 }
 
 
-SelectArea::~SelectArea()
-{
-}
-
-
 QRect SelectArea::patternRect() const
 {
     return m_patternRect;

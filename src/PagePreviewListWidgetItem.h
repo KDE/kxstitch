@@ -25,7 +25,7 @@ class PagePreviewListWidgetItem : public QListWidgetItem
 {
 public:
     PagePreviewListWidgetItem(Document *, Page *);
-    virtual ~PagePreviewListWidgetItem();
+    virtual ~PagePreviewListWidgetItem() = default;
 
     QPrinter::PaperSize paperSize() const;
     QPrinter::Orientation orientation() const;

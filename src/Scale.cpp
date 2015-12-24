@@ -38,11 +38,6 @@ Scale::Scale(Qt::Orientation orientation)
 }
 
 
-Scale::~Scale()
-{
-}
-
-
 void Scale::setUnits(Configuration::EnumEditor_FormatScalesAs::type units)
 {
     m_units = units;

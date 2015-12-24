@@ -29,7 +29,7 @@ class PageLayoutEditor : public QWidget
 
 public:
     PageLayoutEditor(QWidget *, Document *);
-    virtual ~PageLayoutEditor();
+    virtual ~PageLayoutEditor() = default;
 
     double zoomFactor() const;
     int gridSize() const;

@@ -63,11 +63,6 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
 }
 
 
-PatternElementDlg::~PatternElementDlg()
-{
-}
-
-
 bool PatternElementDlg::showPlan() const
 {
     return ui.ShowPlan->isChecked();

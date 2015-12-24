@@ -37,11 +37,6 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, b
 }
 
 
-PagePropertiesDlg::~PagePropertiesDlg()
-{
-}
-
-
 QMargins PagePropertiesDlg::margins() const
 {
     return QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());

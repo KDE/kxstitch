@@ -48,11 +48,6 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 }
 
 
-ImportImageDlg::~ImportImageDlg()
-{
-}
-
-
 Magick::Image ImportImageDlg::convertedImage() const
 {
     return m_convertedImage;

@@ -55,11 +55,6 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
 }
 
 
-FilePropertiesDlg::~FilePropertiesDlg()
-{
-}
-
-
 int FilePropertiesDlg::documentWidth() const
 {
     return m_width;

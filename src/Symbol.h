@@ -37,7 +37,6 @@ class Symbol
 {
 public:
     Symbol();
-    ~Symbol();
 
     QPainterPath path(Stitch::Type type);
     QPainterPath path() const;

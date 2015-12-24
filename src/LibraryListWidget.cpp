@@ -32,11 +32,6 @@ LibraryListWidget::LibraryListWidget(QWidget *parent)
 }
 
 
-LibraryListWidget::~LibraryListWidget()
-{
-}
-
-
 void LibraryListWidget::setCellSize(double cellWidth, double cellHeight)
 {
     m_cellWidth = cellWidth;

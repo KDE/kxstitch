@@ -31,11 +31,6 @@ PagePreviewListWidgetItem::PagePreviewListWidgetItem(Document *document, Page *p
 }
 
 
-PagePreviewListWidgetItem::~PagePreviewListWidgetItem()
-{
-}
-
-
 QPrinter::PaperSize PagePreviewListWidgetItem::paperSize() const
 {
     return m_page->paperSize();

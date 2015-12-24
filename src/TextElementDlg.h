@@ -29,7 +29,7 @@ class TextElementDlg : public QDialog
 
 public:
     TextElementDlg(QWidget *, TextElement *);
-    virtual ~TextElementDlg();
+    virtual ~TextElementDlg() = default;
 
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;

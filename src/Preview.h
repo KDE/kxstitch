@@ -28,7 +28,7 @@ class Preview : public QWidget
 
 public:
     explicit Preview(QWidget *);
-    virtual ~Preview();
+    virtual ~Preview() = default;
 
     void setDocument(Document *);
     Document *document();

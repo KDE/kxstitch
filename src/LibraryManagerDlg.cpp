@@ -49,11 +49,6 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
 }
 
 
-LibraryManagerDlg::~LibraryManagerDlg()
-{
-}
-
-
 LibraryTreeWidgetItem *LibraryManagerDlg::currentLibrary()
 {
     return static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());

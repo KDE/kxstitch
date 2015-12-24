@@ -32,7 +32,7 @@ class ImageElementDlg : public QDialog
 
 public:
     ImageElementDlg(QWidget *, ImageElement *, Document *);
-    virtual ~ImageElementDlg();
+    virtual ~ImageElementDlg() = default;
 
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;

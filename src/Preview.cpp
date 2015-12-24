@@ -32,11 +32,6 @@ Preview::Preview(QWidget *parent)
 }
 
 
-Preview::~Preview()
-{
-}
-
-
 void Preview::setDocument(Document *document)
 {
     m_document = document;

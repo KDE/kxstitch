@@ -28,7 +28,7 @@ class LibraryPatternPropertiesDlg : public QDialog
 
 public:
     LibraryPatternPropertiesDlg(QWidget *, qint32, Qt::KeyboardModifiers, qint16, const QString &, int, int, const QIcon &);
-    virtual ~LibraryPatternPropertiesDlg();
+    virtual ~LibraryPatternPropertiesDlg() = default;
 
     qint32 key() const;
     Qt::KeyboardModifiers modifiers() const;

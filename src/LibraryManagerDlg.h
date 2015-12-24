@@ -33,7 +33,7 @@ class LibraryManagerDlg : public QDialog
 
 public:
     explicit LibraryManagerDlg(QWidget *parent);
-    virtual ~LibraryManagerDlg();
+    virtual ~LibraryManagerDlg() = default;
 
     LibraryTreeWidgetItem *currentLibrary();
 

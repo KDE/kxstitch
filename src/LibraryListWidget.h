@@ -28,7 +28,7 @@ class LibraryListWidget : public QListWidget
 {
 public:
     explicit LibraryListWidget(QWidget *parent);
-    virtual ~LibraryListWidget();
+    virtual ~LibraryListWidget() = default;
 
     void setCellSize(double, double);
     void changeIconSize(int);

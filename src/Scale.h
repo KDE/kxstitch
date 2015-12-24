@@ -24,7 +24,7 @@ class Scale : public QWidget
 
 public:
     explicit Scale(Qt::Orientation);
-    virtual ~Scale();
+    virtual ~Scale() = default;
 
     void setUnits(Configuration::EnumEditor_FormatScalesAs::type);
     void setCellSize(double);

@@ -31,11 +31,6 @@ LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStrin
 }
 
 
-LibraryFilePathsDlg::~LibraryFilePathsDlg()
-{
-}
-
-
 void LibraryFilePathsDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryFilePathsDlg"), size());

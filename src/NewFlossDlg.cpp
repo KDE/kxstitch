@@ -33,11 +33,6 @@ NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
 }
 
 
-NewFlossDlg::~NewFlossDlg()
-{
-}
-
-
 Floss *NewFlossDlg::floss()
 {
     return m_floss;

@@ -53,11 +53,6 @@ PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
 }
 
 
-PageLayoutEditor::~PageLayoutEditor()
-{
-}
-
-
 double PageLayoutEditor::zoomFactor() const
 {
     return m_zoomFactor;

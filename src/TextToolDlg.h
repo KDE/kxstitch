@@ -30,7 +30,7 @@ class TextToolDlg : public QDialog
 
 public:
     explicit TextToolDlg(QWidget *);
-    virtual ~TextToolDlg();
+    virtual ~TextToolDlg() = default;
 
     QImage image();
 

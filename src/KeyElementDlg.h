@@ -29,7 +29,7 @@ class KeyElementDlg : public QDialog
 
 public:
     KeyElementDlg(QWidget *, KeyElement *);
-    virtual ~KeyElementDlg();
+    virtual ~KeyElementDlg() = default;
 
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;

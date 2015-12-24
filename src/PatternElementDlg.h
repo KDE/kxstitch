@@ -34,7 +34,7 @@ class PatternElementDlg : public QDialog
 
 public:
     PatternElementDlg(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
-    virtual ~PatternElementDlg();
+    virtual ~PatternElementDlg() = default;
 
     bool showPlan() const;
     PlanElement *planElement() const;

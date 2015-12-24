@@ -33,11 +33,6 @@ TextToolDlg::TextToolDlg(QWidget *parent)
 }
 
 
-TextToolDlg::~TextToolDlg()
-{
-}
-
-
 QImage TextToolDlg::image()
 {
     QBitmap bitmap(1000, 100);

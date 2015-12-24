@@ -25,11 +25,6 @@ ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
 }
 
 
-ExtendPatternDlg::~ExtendPatternDlg()
-{
-}
-
-
 int ExtendPatternDlg::top() const
 {
     return ui.TopMargin->value();
