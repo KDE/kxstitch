@@ -41,15 +41,14 @@ const QStringList validTags = {
 
 /**
     Error messages.
-    TODO these need to be translatable
     */
-const QStringList errorMessages = {
-    QStringLiteral("No error"),
-    QStringLiteral("Floss not completely defined"),
-    QStringLiteral("Unmatched element tags"),
-    QStringLiteral("Unknown element tag"),
-    QStringLiteral("Color value is invalid"),
-    QStringLiteral("Unknown error code")
+const char *errorMessages[] = {
+    I18N_NOOP("No error"),
+    I18N_NOOP("Floss not completely defined"),
+    I18N_NOOP("Unmatched element tags"),
+    I18N_NOOP("Unknown element tag"),
+    I18N_NOOP("Color value is invalid"),
+    I18N_NOOP("Unknown error code")
 };
 
 
@@ -187,5 +186,5 @@ bool SchemeParser::endElement(const QString &namespaceURI, const QString &localN
     */
 QString SchemeParser::errorString() const
 {
-    return errorMessages.at(m_errorCode);
+    return i18n(errorMessages[m_errorCode]);
 }
