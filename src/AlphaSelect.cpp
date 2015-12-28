@@ -9,13 +9,21 @@
  */
 
 
+/** @file
+ * This file implements an overlay to be used on top of a QLabel to allow the
+ * selection of a pixel point to be used as a color to be ignored.
+ */
+
+
+// Class include
 #include "AlphaSelect.h"
 
+// Qt includes
 #include <QMouseEvent>
 
 
-AlphaSelect::AlphaSelect(QLabel *parent)
-    :   QLabel(parent)
+AlphaSelect::AlphaSelect(ScaledPixmapLabel *parent)
+    :   ScaledPixmapLabel(parent)
 {
     resize(parent->size());
     setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
@@ -26,5 +34,7 @@ AlphaSelect::AlphaSelect(QLabel *parent)
 
 void AlphaSelect::mouseReleaseEvent(QMouseEvent *event)
 {
-    emit clicked(event->pos());
+    if (pixmapRect().contains(event->pos())) {
+        emit clicked(event->pos());
+    }
 }

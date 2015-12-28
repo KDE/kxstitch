@@ -9,6 +9,14 @@
  */
 
 
+/** @file
+ * This file defines an extension to a QLabel that scales the associated QPixmap
+ * to maintain the aspect ratio when scaling to fill the extents of the QLabel
+ * area.
+ */
+
+
+// Class include
 #include "ScaledPixmapLabel.h"
 
 
@@ -40,7 +48,21 @@ QSize ScaledPixmapLabel::sizeHint() const
 }
 
 
-void ScaledPixmapLabel::resizeEvent(QResizeEvent *)
+QRect ScaledPixmapLabel::pixmapRect() const
 {
+    QSize previewSize = size();
+    QSize pixmapSize  = pixmap()->size();
+
+    int dx = (previewSize.width()  - pixmapSize.width())  / 2;
+    int dy = (previewSize.height() - pixmapSize.height()) / 2;
+
+    return QRect(dx, dy, pixmapSize.width(), pixmapSize.height());
+}
+
+
+void ScaledPixmapLabel::resizeEvent(QResizeEvent *event)
+{
+    Q_UNUSED(event);
+
     QLabel::setPixmap(m_pixmap.scaled(this->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }

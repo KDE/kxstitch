@@ -9,29 +9,61 @@
  */
 
 
+/** @file
+ * This file defines an overlay to be used on top of a QLabel to allow the
+ * selection of a pixel point to be used as a color to be ignored.
+ */
+
+
 #ifndef AlphaSelect_H
 #define AlphaSelect_H
 
 
-#include <QLabel>
+// Qt includes
 #include <QPoint>
 
+// Application includes
+#include "ScaledPixmapLabel.h"
 
+// Forward declaration of Qt classes
 class QMouseEvent;
 
-
-class AlphaSelect : public QLabel
+/**
+ * This class defines a widget based on a ScaledPixmapLabel that will allow
+ * user selection of a point on the widget to define a color to be ignored for
+ * import.
+ */
+class AlphaSelect : public ScaledPixmapLabel
 {
     Q_OBJECT
 
 public:
-    explicit AlphaSelect(QLabel *);
+    /**
+     * Constructor to initialise the class from the parent ScaledPixmapLabel
+     * used in the ImportImageDlg ui file. This class becomes a child of
+     * the parent and initialises it with the parents QPixmap.
+     *
+     * @param parent is a pointer to the parent ScaledPixmapLabel
+     */
+    explicit AlphaSelect(ScaledPixmapLabel *parent);
 
 signals:
+    /**
+     * This signal is emmitted when the user clicks the mouse button and includes
+     * the QPoint of the clicked position relative to the origin of the
+     * widget.
+     */
     void clicked(QPoint);
 
 protected:
-    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    /**
+     * This overrides the base class method to determine where the user clicked
+     * the mouse. If the cursor is within the image preview the clicked
+     * signal will be emmitted.
+     *
+     * @param event is a pointer to the QMouseEvent
+     */
+    virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 };
 
 

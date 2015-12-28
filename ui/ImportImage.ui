@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>642</width>
-    <height>338</height>
+    <width>640</width>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,9 +15,9 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0" rowspan="2">
-    <widget class="QLabel" name="ImagePreview">
+    <widget class="ScaledPixmapLabel" name="ImagePreview">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -347,6 +347,11 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ScaledPixmapLabel</class>
+   <extends>QLabel</extends>
+   <header>ScaledPixmapLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

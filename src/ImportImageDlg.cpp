@@ -25,6 +25,28 @@
 #include "SymbolLibrary.h"
 
 
+const uchar alphaData[] = {
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+    0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52,
+    0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x04,
+    0x08, 0x06, 0x00, 0x00, 0x00, 0xa9, 0xf1, 0x9e,
+    0x7e, 0x00, 0x00, 0x00, 0x04, 0x73, 0x42, 0x49,
+    0x54, 0x08, 0x08, 0x08, 0x08, 0x7c, 0x08, 0x64,
+    0x88, 0x00, 0x00, 0x00, 0x09, 0x70, 0x48, 0x59,
+    0x73, 0x00, 0x00, 0x0b, 0x13, 0x00, 0x00, 0x0b,
+    0x13, 0x01, 0x00, 0x9a, 0x9c, 0x18, 0x00, 0x00,
+    0x00, 0x31, 0x49, 0x44, 0x41, 0x54, 0x08, 0x99,
+    0x4d, 0xc1, 0xc1, 0x0d, 0xc0, 0x20, 0x0c, 0x04,
+    0x30, 0x53, 0xb1, 0x51, 0xa6, 0x65, 0x2a, 0xc4,
+    0x3e, 0x28, 0xd7, 0x4f, 0x1f, 0xb5, 0xc7, 0x5a,
+    0x2b, 0x70, 0xce, 0xd1, 0xdd, 0x1e, 0x9f, 0x7b,
+    0xaf, 0x24, 0xe6, 0xde, 0x1b, 0x54, 0x15, 0x98,
+    0x49, 0xfc, 0xbd, 0x57, 0x37, 0x14, 0x37, 0x6c,
+    0x77, 0x53, 0x2d, 0x00, 0x00, 0x00, 0x00, 0x49,
+    0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
+};
+
+
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
     :   QDialog(parent),
         m_alphaSelect(nullptr),
@@ -130,9 +152,11 @@ void ImportImageDlg::on_MaximumColors_valueChanged(int)
 
 void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 {
-    m_ignoreColor = checked;
     delete m_alphaSelect;
     m_alphaSelect = nullptr;
+
+    m_ignoreColor = checked;
+    renderPixmap();
 }
 
 
@@ -234,7 +258,9 @@ void ImportImageDlg::createImageMap()
 
 void ImportImageDlg::renderPixmap()
 {
-    QPixmap alpha = QIcon(QStringLiteral("alpha")).pixmap(32, 32);
+    QPixmap alpha;
+    alpha.loadFromData(alphaData, 143);
+
     ui.ImagePreview->setCursor(Qt::WaitCursor);
     calculateSizes();
     m_convertedImage.modifyImage();
@@ -246,7 +272,6 @@ void ImportImageDlg::renderPixmap()
                                     std::min(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count()) :
                                     SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
     m_convertedImage.quantize();
-
     m_convertedImage.map(m_colorMap);
     m_convertedImage.modifyImage();
 
@@ -316,14 +341,28 @@ void ImportImageDlg::pickColor()
 
 void ImportImageDlg::selectColor(const QPoint &p)
 {
+    QSize trueSize(m_convertedImage.columns(), m_convertedImage.rows());
+    QRect pixmapRect = m_alphaSelect->pixmapRect();
+
     delete m_alphaSelect;
     m_alphaSelect = nullptr;
-    QPixmap swatch(ui.ColorButton->size());
-    int x = p.x() - ((ui.ImagePreview->width() - m_pixmap.width()) / 2);
-    int y = p.y() - ((ui.ImagePreview->height() - m_pixmap.height()) / 2);
+
+    // convert p that is relative to the ScaledImageLabel to the pixmap size
+    int x = (((p.x() - pixmapRect.left()) * trueSize.width()) / pixmapRect.width());
+    int y = (((p.y() - pixmapRect.top()) * trueSize.height()) / pixmapRect.height());
+
+    x = (x < 0) ? 0 : std::min(x, trueSize.width());
+    y = (y < 0) ? 0 : std::min(y, trueSize.height());
+
     m_ignoreColorValue = m_convertedImage.pixelColor(x, y);
+    QPixmap swatch(ui.ColorButton->size());
+#if MAGICKCORE_QUANTUM_DEPTH == 8
+    swatch.fill(QColor(m_ignoreColorValue.redQuantum(), m_ignoreColorValue.greenQuantum(), m_ignoreColorValue.blueQuantum()));
+#else
     swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 256, m_ignoreColorValue.greenQuantum() / 256, m_ignoreColorValue.blueQuantum() / 256));
+#endif
     ui.ColorButton->setIcon(swatch);
+
     renderPixmap();
 }
 
