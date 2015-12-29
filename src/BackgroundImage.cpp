@@ -9,16 +9,23 @@
  */
 
 
+/** @file
+ * This file implements a background image to be used as an overlay on a canvas for
+ * the purpose of tracing.
+ */
+
+
+// Class include
 #include "BackgroundImage.h"
 
+// Qt includes
+#include <QDataStream>
+
+// KF5 includes
 #include <KLocalizedString>
 
+// Application includes
 #include "Exceptions.h"
-
-
-BackgroundImage::BackgroundImage()
-{
-}
 
 
 BackgroundImage::BackgroundImage(const QUrl &url, const QRect &location)

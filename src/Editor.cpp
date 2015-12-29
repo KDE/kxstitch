@@ -1347,14 +1347,14 @@ bool Editor::eventFilter(QObject *object, QEvent *e)
 
 void Editor::renderBackgroundImages(QPainter &painter, const QRect &updateRectangle)
 {
-    QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages().backgroundImages();
+    auto backgroundImages = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImages.hasNext()) {
-        BackgroundImage *background = backgroundImages.next();
+        auto backgroundImage = backgroundImages.next();
 
-        if (background->isVisible()) {
-            if (background->location().intersects(updateRectangle)) {
-                painter.drawImage(background->location(), background->image());
+        if (backgroundImage->isVisible()) {
+            if (backgroundImage->location().intersects(updateRectangle)) {
+                painter.drawImage(backgroundImage->location(), backgroundImage->image());
             }
         }
     }

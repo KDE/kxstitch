@@ -9,59 +9,60 @@
  */
 
 
+/** @file
+ * This file implements a collection of background images to be used as overlays on
+ * a canvas for the purpose of tracing.
+ */
+
+
+// Class include
 #include "BackgroundImages.h"
 
+// Qt includes
+#include <QDataStream>
+
+// KF5 includes
 #include <KLocalizedString>
 
+// Appplication includes
 #include "BackgroundImage.h"
 #include "Exceptions.h"
 
 
-BackgroundImages::BackgroundImages()
-{
-}
-
-
-BackgroundImages::~BackgroundImages()
-{
-    clear();
-}
-
-
 void BackgroundImages::clear()
 {
-    qDeleteAll(m_backgroundImages);
     m_backgroundImages.clear();
 }
 
 
-QListIterator<BackgroundImage *> BackgroundImages::backgroundImages()
+QListIterator<QSharedPointer<BackgroundImage>> BackgroundImages::backgroundImages()
 {
-    return QListIterator<BackgroundImage *>(m_backgroundImages);
+    return QListIterator<QSharedPointer<BackgroundImage>>(m_backgroundImages);
 }
 
 
-void BackgroundImages::addBackgroundImage(BackgroundImage *backgroundImage)
+void BackgroundImages::addBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage)
 {
     m_backgroundImages.append(backgroundImage);
 }
 
 
-bool BackgroundImages::removeBackgroundImage(BackgroundImage *backgroundImage)
+bool BackgroundImages::removeBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage)
 {
     return m_backgroundImages.removeOne(backgroundImage);
 }
 
 
-QRect BackgroundImages::fitBackgroundImage(BackgroundImage *backgroundImage, const QRect &rectangle)
+QRect BackgroundImages::fitBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage, const QRect &rectangle)
 {
     QRect oldRectangle = backgroundImage->location();
     backgroundImage->setLocation(rectangle);
+
     return oldRectangle;
 }
 
 
-bool BackgroundImages::showBackgroundImage(BackgroundImage *backgroundImage, bool show)
+bool BackgroundImages::showBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage, bool show)
 {
     bool shown = backgroundImage->isVisible();
     backgroundImage->setVisible(show);
@@ -75,10 +76,8 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImages &backgroundI
     stream << qint32(backgroundImages.version);
     stream << qint32(backgroundImages.m_backgroundImages.count());
 
-    QListIterator<BackgroundImage *> backgroundImageIterator(backgroundImages.m_backgroundImages);
-
-    while (backgroundImageIterator.hasNext()) {
-        stream << *backgroundImageIterator.next();
+    for (auto backgroundImage : backgroundImages.m_backgroundImages) {
+        stream << *backgroundImage;
     }
 
     if (stream.status() != QDataStream::Ok) {
@@ -93,7 +92,6 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImages &backgroundImages)
 {
     qint32 version;
     qint32 backgroundImageCount;
-    BackgroundImage *backgroundImage;
 
     stream >> version;
 
@@ -102,7 +100,7 @@ QDataStream &operator>>(QDataStream &stream, BackgroundImages &backgroundImages)
         stream >> backgroundImageCount;
 
         while (backgroundImageCount--) {
-            backgroundImage = new BackgroundImage;
+            QSharedPointer<BackgroundImage> backgroundImage(new BackgroundImage);
             stream >> *backgroundImage;
             backgroundImages.m_backgroundImages.append(backgroundImage);
         }

@@ -496,7 +496,7 @@ void SetPropertyCommand::undo()
 }
 
 
-AddBackgroundImageCommand::AddBackgroundImageCommand(Document *document, BackgroundImage *backgroundImage, MainWindow *mainWindow)
+AddBackgroundImageCommand::AddBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, MainWindow *mainWindow)
     :   QUndoCommand(i18n("Add Background Image")),
         m_document(document),
         m_backgroundImage(backgroundImage),
@@ -521,7 +521,7 @@ void AddBackgroundImageCommand::undo()
 }
 
 
-FitBackgroundImageCommand::FitBackgroundImageCommand(Document *document, BackgroundImage *backgroundImage, const QRect &rect)
+FitBackgroundImageCommand::FitBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, const QRect &rect)
     :   QUndoCommand(i18n("Fit Background to Selection")),
         m_document(document),
         m_backgroundImage(backgroundImage),
@@ -544,7 +544,7 @@ void FitBackgroundImageCommand::undo()
 }
 
 
-ShowBackgroundImageCommand::ShowBackgroundImageCommand(Document *document, BackgroundImage *backgroundImage, bool visible)
+ShowBackgroundImageCommand::ShowBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, bool visible)
     :   QUndoCommand(i18n("Show Background Image")),
         m_document(document),
         m_backgroundImage(backgroundImage),
@@ -566,7 +566,7 @@ void ShowBackgroundImageCommand::undo()
 }
 
 
-RemoveBackgroundImageCommand::RemoveBackgroundImageCommand(Document *document, BackgroundImage *backgroundImage, MainWindow *mainWindow)
+RemoveBackgroundImageCommand::RemoveBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, MainWindow *mainWindow)
     :   QUndoCommand(i18n("Remove Background Image")),
         m_document(document),
         m_backgroundImage(backgroundImage),
@@ -814,10 +814,10 @@ void InsertColumnsCommand::redo()
 {
     m_document->pattern()->stitches().insertColumns(m_selectionArea.left(), m_selectionArea.width());
 
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
 
         if (backgroundImage->location().left() >= m_selectionArea.left()) {
             backgroundImage->setLocation(backgroundImage->location().translated(m_selectionArea.width(), 0));
@@ -833,10 +833,10 @@ void InsertColumnsCommand::undo()
 {
     m_document->pattern()->stitches().removeColumns(m_selectionArea.left(), m_selectionArea.width());
 
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
 
         if (backgroundImage->location().left() > m_selectionArea.left()) {
             backgroundImage->setLocation(backgroundImage->location().translated(-m_selectionArea.width(), 0));
@@ -860,10 +860,10 @@ void InsertRowsCommand::redo()
 {
     m_document->pattern()->stitches().insertRows(m_selectionArea.top(), m_selectionArea.height());
 
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
 
         if (backgroundImage->location().top() >= m_selectionArea.top()) {
             backgroundImage->setLocation(backgroundImage->location().translated(0, m_selectionArea.height()));
@@ -879,10 +879,10 @@ void InsertRowsCommand::undo()
 {
     m_document->pattern()->stitches().removeRows(m_selectionArea.top(), m_selectionArea.height());
 
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
 
         if (backgroundImage->location().top() > m_selectionArea.top()) {
             backgroundImage->setLocation(backgroundImage->location().translated(0, -m_selectionArea.height()));
@@ -910,10 +910,10 @@ void ExtendPatternCommand::redo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.resize(stitchData.width() + m_left + m_right, stitchData.height() + m_top + m_bottom);
     stitchData.movePattern(m_left, m_top);
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
         backgroundImage->setLocation(backgroundImage->location().translated(m_left, m_top));
     }
 
@@ -927,10 +927,10 @@ void ExtendPatternCommand::undo()
     StitchData &stitchData = m_document->pattern()->stitches();
     stitchData.movePattern(-m_left, -m_top);
     stitchData.resize(stitchData.width() - m_left - m_right, stitchData.height() - m_top - m_bottom);
-    QListIterator<BackgroundImage *> backgroundImageIterator = m_document->backgroundImages().backgroundImages();
+    auto backgroundImageIterator = m_document->backgroundImages().backgroundImages();
 
     while (backgroundImageIterator.hasNext()) {
-        BackgroundImage *backgroundImage = backgroundImageIterator.next();
+        auto backgroundImage = backgroundImageIterator.next();
         backgroundImage->setLocation(backgroundImage->location().translated(-m_left, -m_top));
     }
 

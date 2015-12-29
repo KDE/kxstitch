@@ -314,7 +314,7 @@ private:
 class AddBackgroundImageCommand : public QUndoCommand
 {
 public:
-    AddBackgroundImageCommand(Document *, BackgroundImage *, MainWindow *);
+    AddBackgroundImageCommand(Document *, QSharedPointer<BackgroundImage>, MainWindow *);
     virtual ~AddBackgroundImageCommand() = default;
 
     virtual void redo() Q_DECL_OVERRIDE;
@@ -322,7 +322,7 @@ public:
 
 private:
     Document        *m_document;
-    BackgroundImage *m_backgroundImage;
+    QSharedPointer<BackgroundImage> m_backgroundImage;
     MainWindow      *m_mainWindow;
 };
 
@@ -330,7 +330,7 @@ private:
 class FitBackgroundImageCommand : public QUndoCommand
 {
 public:
-    FitBackgroundImageCommand(Document *, BackgroundImage *, const QRect &);
+    FitBackgroundImageCommand(Document *, QSharedPointer<BackgroundImage>, const QRect &);
     virtual ~FitBackgroundImageCommand() = default;
 
     virtual void redo() Q_DECL_OVERRIDE;
@@ -338,7 +338,7 @@ public:
 
 private:
     Document        *m_document;
-    BackgroundImage *m_backgroundImage;
+    QSharedPointer<BackgroundImage> m_backgroundImage;
     QRect           m_rect;
 };
 
@@ -346,7 +346,7 @@ private:
 class ShowBackgroundImageCommand : public QUndoCommand
 {
 public:
-    ShowBackgroundImageCommand(Document *, BackgroundImage *, bool);
+    ShowBackgroundImageCommand(Document *, QSharedPointer<BackgroundImage>, bool);
     virtual ~ShowBackgroundImageCommand() = default;
 
     virtual void redo() Q_DECL_OVERRIDE;
@@ -354,7 +354,7 @@ public:
 
 private:
     Document        *m_document;
-    BackgroundImage *m_backgroundImage;
+    QSharedPointer<BackgroundImage> m_backgroundImage;
     bool            m_visible;
 };
 
@@ -362,7 +362,7 @@ private:
 class RemoveBackgroundImageCommand : public QUndoCommand
 {
 public:
-    RemoveBackgroundImageCommand(Document *, BackgroundImage *, MainWindow *);
+    RemoveBackgroundImageCommand(Document *, QSharedPointer<BackgroundImage>, MainWindow *);
     virtual ~RemoveBackgroundImageCommand();
 
     virtual void redo() Q_DECL_OVERRIDE;
@@ -370,7 +370,7 @@ public:
 
 private:
     Document        *m_document;
-    BackgroundImage *m_backgroundImage;
+    QSharedPointer<BackgroundImage> m_backgroundImage;
     MainWindow      *m_mainWindow;
 };
 

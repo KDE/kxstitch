@@ -729,12 +729,10 @@ void MainWindow::fileAddBackgroundImage()
     if (!url.path().isNull()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
         QRect selectionArea = m_editor->selectionArea();
-        BackgroundImage *backgroundImage = new BackgroundImage(url, (selectionArea.isValid() ? selectionArea : patternArea));
+        QSharedPointer<BackgroundImage> backgroundImage(new BackgroundImage(url, (selectionArea.isValid() ? selectionArea : patternArea)));
 
         if (backgroundImage->isValid()) {
             m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage, this));
-        } else {
-            delete backgroundImage;
         }
     }
 }
@@ -743,7 +741,7 @@ void MainWindow::fileAddBackgroundImage()
 void MainWindow::fileRemoveBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
-    m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), this));
+    m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), this));
 }
 
 
@@ -864,7 +862,7 @@ void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
 void MainWindow::viewFitBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
-    m_document->undoStack().push(new FitBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), m_editor->selectionArea()));
+    m_document->undoStack().push(new FitBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), m_editor->selectionArea()));
 }
 
 
@@ -877,7 +875,7 @@ void MainWindow::paletteContextMenu(const QPoint &pos)
 void MainWindow::viewShowBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
-    m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, QVariantPtr<BackgroundImage>::asPtr(action->data()), action->isChecked()));
+    m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), action->isChecked()));
 }
 
 
@@ -1676,7 +1674,7 @@ void MainWindow::setupActions()
 
 void MainWindow::updateBackgroundImageActionLists()
 {
-    QListIterator<BackgroundImage *> backgroundImages = m_document->backgroundImages().backgroundImages();
+    auto backgroundImages = m_document->backgroundImages().backgroundImages();
 
     unplugActionList(QStringLiteral("removeBackgroundImageActions"));
     unplugActionList(QStringLiteral("fitBackgroundImageActions"));
@@ -1687,25 +1685,25 @@ void MainWindow::updateBackgroundImageActionLists()
     QList<QAction *> showBackgroundImageActions;
 
     while (backgroundImages.hasNext()) {
-        BackgroundImage *background = backgroundImages.next();
+        QSharedPointer<BackgroundImage> backgroundImage = backgroundImages.next();
 
-        QAction *action = new QAction(background->url().fileName(), this);
-        action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
-        action->setIcon(background->icon());
+        QAction *action = new QAction(backgroundImage->url().fileName(), this);
+        action->setData(QVariant::fromValue(backgroundImage));
+        action->setIcon(backgroundImage->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(fileRemoveBackgroundImage()));
         removeBackgroundImageActions.append(action);
 
-        action = new QAction(background->url().fileName(), this);
-        action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
-        action->setIcon(background->icon());
+        action = new QAction(backgroundImage->url().fileName(), this);
+        action->setData(QVariant::fromValue(backgroundImage));
+        action->setIcon(backgroundImage->icon());
         connect(action, SIGNAL(triggered()), this, SLOT(viewFitBackgroundImage()));
         fitBackgroundImageActions.append(action);
 
-        action = new QAction(background->url().fileName(), this);
-        action->setData(QVariantPtr<BackgroundImage>::asQVariant(background));
-        action->setIcon(background->icon());
+        action = new QAction(backgroundImage->url().fileName(), this);
+        action->setData(QVariant::fromValue(backgroundImage));
+        action->setIcon(backgroundImage->icon());
         action->setCheckable(true);
-        action->setChecked(background->isVisible());
+        action->setChecked(backgroundImage->isVisible());
         connect(action, SIGNAL(triggered()), this, SLOT(viewShowBackgroundImage()));
         showBackgroundImageActions.append(action);
     }
