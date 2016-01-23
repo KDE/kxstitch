@@ -6,6 +6,7 @@
   <name xml:lang="ast">KXStitch</name>
   <name xml:lang="ca">KXStitch</name>
   <name xml:lang="ca-valencia">KXStitch</name>
+  <name xml:lang="cs">KXStitch</name>
   <name xml:lang="de">KXStitch</name>
   <name xml:lang="en-GB">KXStitch</name>
   <name xml:lang="es">KXStitch</name>
@@ -22,6 +23,7 @@
   <summary>A cross stitch pattern creator</summary>
   <summary xml:lang="ca">Un creador de patrons de punt de creu</summary>
   <summary xml:lang="ca-valencia">Un creador de patrons de punt de creu</summary>
+  <summary xml:lang="cs">Tvůrce předloh výšivek křížkovým stehem</summary>
   <summary xml:lang="de">Ein Kreuzstich-Musterersteller</summary>
   <summary xml:lang="en-GB">A cross stitch pattern creator</summary>
   <summary xml:lang="es">Un creador de patrones de punto de cruz</summary>
@@ -50,6 +52,7 @@
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funciones:</p>
