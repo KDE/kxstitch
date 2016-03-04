@@ -24,7 +24,7 @@
 // KF5 includes
 #include <KLocalizedString>
 
-// Appplication includes
+// Application includes
 #include "BackgroundImage.h"
 #include "Exceptions.h"
 
