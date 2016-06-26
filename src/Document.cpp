@@ -118,7 +118,7 @@ void Document::initialiseNew()
     setProperty(QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor());
     setProperty(QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor());
 
-    setUrl(i18n("Untitled"));
+    setUrl(QUrl(i18n("Untitled")));
 }
 
 

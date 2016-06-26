@@ -290,7 +290,7 @@ void MainWindow::fileOpen()
 void MainWindow::fileOpen(const QUrl &url)
 {
     MainWindow *window;
-    bool docEmpty = (m_document->undoStack().isClean() && (m_document->url() == i18n("Untitled")));
+    bool docEmpty = (m_document->undoStack().isClean() && (m_document->url().toString() == i18n("Untitled")));
 
     if (url.isValid()) {
         if (docEmpty) {
@@ -346,10 +346,11 @@ void MainWindow::fileSave()
 {
     QUrl url = m_document->url();
 
-    if (url == i18n("Untitled")) {
+    if (url.toString() == i18n("Untitled")) {
         fileSaveAs();
     } else {
-        QSaveFile file(url.path());
+        // ### Why use QUrl everywhere if this only supports local files?
+        QSaveFile file(url.toLocalFile());
 
         if (file.open(QIODevice::WriteOnly)) {
             QDataStream stream(&file);
@@ -497,8 +498,8 @@ void MainWindow::printPages()
 void MainWindow::fileImportImage()
 {
     MainWindow *window;
-    bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url() == i18n("Untitled")));
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url().toString() == i18n("Untitled")));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (url.isValid()) {
         QTemporaryFile tmpFile;
@@ -724,9 +725,9 @@ void MainWindow::fileProperties()
 
 void MainWindow::fileAddBackgroundImage()
 {
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Background Image"), QUrl(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Background Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
-    if (!url.path().isNull()) {
+    if (!url.isEmpty()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
         QRect selectionArea = m_editor->selectionArea();
         QSharedPointer<BackgroundImage> backgroundImage(new BackgroundImage(url, (selectionArea.isValid() ? selectionArea : patternArea)));
