@@ -29,12 +29,12 @@
             <!-- TRANS:ROLES_OF_TRANSLATORS -->
         </authorgroup>
         <copyright>
-            <year>2015</year>
+            <year>2016</year>
             <holder>Stephen P. Allewell</holder>
         </copyright>
         <legalnotice>&FDLNotice;</legalnotice>
-        <date>15/7/2015</date>
-        <releaseinfo>V.1.99.0</releaseinfo>
+        <date>2016-10-11</date>
+        <releaseinfo>V.2.0.0</releaseinfo>
         <abstract>
             <para>
                 &kapp; is an application designed to allow people to create cross stitch patterns and print them.
