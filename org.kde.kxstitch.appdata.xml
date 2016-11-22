@@ -13,6 +13,7 @@
   <name xml:lang="gl">KXStitch</name>
   <name xml:lang="it">KXStitch</name>
   <name xml:lang="nl">KXStitch</name>
+  <name xml:lang="nn">KXStitch</name>
   <name xml:lang="pl">KXStitch</name>
   <name xml:lang="pt">KXStitch</name>
   <name xml:lang="pt-BR">KXStitch</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="gl">Un creador de padróns de cruz en punta.</summary>
   <summary xml:lang="it">Un creatore di schemi a punto croce</summary>
   <summary xml:lang="nl">Een ontwerpprogramma voor kruissteek-patronen</summary>
+  <summary xml:lang="nn">Redigeringsprogram for krossting</summary>
   <summary xml:lang="pl">Tworzenie wzorca ściegu krzyżykowego.</summary>
   <summary xml:lang="pt">Um criador de padrões de ponto de cruz</summary>
   <summary xml:lang="pt-BR">Um criador de padrões em ponto cruz</summary>
@@ -64,6 +66,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
