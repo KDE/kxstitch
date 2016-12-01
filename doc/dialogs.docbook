@@ -207,7 +207,7 @@
         </para>
         <para>
             The text dialog allows you to select a font and size, then enter the text.  Clicking <guibutton>OK</guibutton> closes the
-            dialog and returns you to the &kapp; window. Positioning the text is the same as pasting any other
+            dialog and returns you to the &kxstitch; window. Positioning the text is the same as pasting any other
             element. Press the &LMB; on the canvas roughly where you want the text, this will show a preview of
             the text, position the text exactly where you want it, then release the &LMB;.
         </para>

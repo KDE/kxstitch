@@ -1,7 +1,6 @@
 <?xml version = '1.0'?>
     <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
     <!ENTITY kxstitch '<application>KXStitch</application>'>
-    <!ENTITY kapp "&kxstitch;">
     <!ENTITY % addindex "IGNORE">
     <!ENTITY % English "INCLUDE">
     <!ENTITY introduction SYSTEM "introduction.docbook">
@@ -11,14 +10,13 @@
     <!ENTITY patterns SYSTEM "patterns.docbook">
     <!ENTITY printing SYSTEM "printing.docbook">
     <!ENTITY dialogs SYSTEM "dialogs.docbook">
-    <!ENTITY faq SYSTEM "faq.docbook">
     <!ENTITY credits SYSTEM "credits.docbook">
     <!ENTITY install SYSTEM "install.docbook">
     ]>
 
 <book lang="&language;">
     <bookinfo>
-        <title>The &kapp; Handbook</title>
+        <title>The &kxstitch; Handbook</title>
         <authorgroup>
             <author>
                 <firstname>Stephen</firstname>
@@ -33,11 +31,11 @@
             <holder>Stephen P. Allewell</holder>
         </copyright>
         <legalnotice>&FDLNotice;</legalnotice>
-        <date>15/7/2015</date>
-        <releaseinfo>V.1.99.0</releaseinfo>
+        <date>2016-12-01</date>
+        <releaseinfo>KXStitch 2.0.0</releaseinfo>
         <abstract>
             <para>
-                &kapp; is an application designed to allow people to create cross stitch patterns and print them.
+                &kxstitch; is an application designed to allow people to create cross stitch patterns and print them.
                 These patterns can be either created from scratch on a user defined size of grid, or an image can be
                 imported from various graphic files.
             </para>
@@ -58,7 +56,6 @@
     &patterns;
     &printing;
     &dialogs;
-    &faq;
     &credits;
     &install;
 

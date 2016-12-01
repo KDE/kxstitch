@@ -2,9 +2,9 @@
     <title>Creating patterns</title>
 
     <sect1 id="starting-kxstitch">
-        <title>Starting &kapp;</title>
+        <title>Starting &kxstitch;</title>
         <para>
-            When starting &kapp; you will be presented with a blank canvas of the default
+            When starting &kxstitch; you will be presented with a blank canvas of the default
             size. This is also the case when selecting <menuchoice><guimenu>File</guimenu><guimenuitem>New</guimenuitem></menuchoice>.
             The default sizes can be set in the pattern properties dialog by enabling the set as default checkbox.
         </para>
@@ -23,7 +23,7 @@
     <sect1 id="importing-images">
         <title>Importing Images</title>
         <para>
-            &kapp; allows you to import an image. A dialog will be displayed that previews the
+            &kxstitch; allows you to import an image. A dialog will be displayed that previews the
             image based on the default import options.
         </para>
         <para>

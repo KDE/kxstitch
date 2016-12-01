@@ -2,7 +2,7 @@
     <title>Command Reference</title>
 
     <sect1 id="kxstitch-menus" >
-        <title>&kapp; Menus</title>
+        <title>&kxstitch; Menus</title>
         <sect2>
             <title>The File Menu</title>
             <para>
@@ -61,7 +61,7 @@
                     </varlistentry>
                     <varlistentry>
                         <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut><guimenuitem>Quit</guimenuitem></menuchoice></term>
-                        <listitem><simpara><action>Quits</action> &kapp;</simpara></listitem>
+                        <listitem><simpara><action>Quits</action> &kxstitch;</simpara></listitem>
                     </varlistentry>
                 </variablelist>
             </para>
@@ -139,7 +139,7 @@
                     to limit the selection.
                 </para>
                 <para>
-                    The paste operation in &kapp; allows you to press and hold the &LMB; down roughly in the position that
+                    The paste operation in &kxstitch; allows you to press and hold the &LMB; down roughly in the position that
                     the paste data is to go which will provide an image of the paste data to allow accurate positioning before
                     releasing the mouse button to finalize the position.  This technique is also used for the mirroring and
                     rotate functions. The cursor keys can also be used to move the pasted pattern around and the &Enter; key
@@ -446,7 +446,7 @@
         <sect2>
             <title>The Settings Menu</title>
             <para>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/ui.html#menus-settings">
-            Settings Menu</ulink> chapter of the &kde; Fundamentals &kapp; has these application specific menu entries:
+            Settings Menu</ulink> chapter of the &kde; Fundamentals &kxstitch; has these application specific menu entries:
             </para>
             <para>
                 <variablelist>
@@ -491,8 +491,8 @@
                         <listitem><simpara><action>Show or hide all the background images</action></simpara></listitem>
                     </varlistentry>
 		    <varlistentry>
-                        <term><menuchoice><guimenuitem>Configure &kapp;</guimenuitem></menuchoice></term>
-			<listitem><simpara><action>Open &kapp; <link linkend="ConfigurationDialog">configuration dialog</link>.</action></simpara></listitem>
+                        <term><menuchoice><guimenuitem>Configure &kxstitch;</guimenuitem></menuchoice></term>
+			<listitem><simpara><action>Open &kxstitch; <link linkend="ConfigurationDialog">configuration dialog</link>.</action></simpara></listitem>
                     </varlistentry>
                 </variablelist>
             </para>
@@ -502,7 +502,7 @@
         <sect2>
             <title>The Help Menu</title>
             <para>
-            Additionally &kapp; has the common &kde; Help
+            Additionally &kxstitch; has the common &kde; Help
             menu items, for more information read the section about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
             of the &kde; Fundamentals.
             </para>

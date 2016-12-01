@@ -2,15 +2,15 @@
     <title>The User Interface</title>
 
     <sect1 id="face-screenshot">
-        <title>The &kapp; Main Window</title>
+        <title>The &kxstitch; Main Window</title>
         <para>
             <screenshot>
-                <screeninfo>Here's a screen shot of &kapp;</screeninfo>
+                <screeninfo>Here's a screen shot of &kxstitch;</screeninfo>
                 <mediaobject><imageobject><imagedata fileref="user-interface.png" format="PNG" /></imageobject></mediaobject>
             </screenshot>
         </para>
         <para>
-            The &kapp; main window consists of an editor window shown on the right in the image above
+            The &kxstitch; main window consists of an editor window shown on the right in the image above
             with three dock windows. The dock windows provide a preview of the pattern, the palette of
             flosses and a history list. If an image is imported, an additional dock window showing a
             preview of the original image for reference will be shown. Each of these dock windows can

@@ -2,11 +2,11 @@
     <title>Printing patterns</title>
 
     <para>
-        Once you have completed your design, you will no doubt want to print it. &kapp; allows
+        Once you have completed your design, you will no doubt want to print it. &kxstitch; allows
         you to customize the printing, from what is printed to how big the final print is.
     </para>
     <para>
-        This version of &kapp; allows a fully customized printing layout. The new printer configuration
+        This version of &kxstitch; allows a fully customized printing layout. The new printer configuration
         allows pages to be added, inserted or removed.  The paper size and orientation can be selected and
         each page can contain text elements, pattern elements or key elements.
     </para>
