@@ -134,32 +134,6 @@ add_subdirectory(doc)
 
 kconfig_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 
-qt5_wrap_ui(kxstitch_SRCS
-    ui/CalibrateFloss.ui
-    ui/ExtendPattern.ui
-    ui/FileProperties.ui
-    ui/ImageElement.ui
-    ui/KeyElement.ui
-    ui/ImportImage.ui
-    ui/LibraryFilePaths.ui
-    ui/LibraryManager.ui
-    ui/LibraryPatternProperties.ui
-    ui/NewFloss.ui
-    ui/PageProperties.ui
-    ui/PaletteManager.ui
-    ui/PatternElement.ui
-    ui/PrintSetup.ui
-    ui/SymbolSelector.ui
-    ui/TextElement.ui
-    ui/TextTool.ui
-    ui/EditorConfigPage.ui
-    ui/PaletteConfigPage.ui
-    ui/PatternConfigPage.ui
-    ui/ImportConfigPage.ui
-    ui/LibraryConfigPage.ui
-    ui/PrinterConfigPage.ui
-)
-
 ecm_install_icons(ICONS 32-apps-kxstitch.png DESTINATION ${ICON_INSTALL_DIR})
 
 add_executable (kxstitch ${kxstitch_SRCS})
@@ -226,8 +200,6 @@ add_definitions(
     ${magick_config_hdri}
     ${magick_config_quantum}
 )
-
-add_definitions(-DTRANSLATION_DOMAIN="kxstitch")
 
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kxstitch)
