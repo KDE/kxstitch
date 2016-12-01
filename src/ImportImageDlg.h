@@ -91,10 +91,10 @@ private:
     bool        m_ignoreColor;
     int         m_timer;
     AlphaSelect *m_alphaSelect;
-    Magick::Color   m_ignoreColorValue;
-    Magick::Image   m_originalImage;
-    Magick::Image   m_convertedImage;
-    Magick::Image   m_colorMap;
+    Magick::ColorRGB    m_ignoreColorValue;
+    Magick::Image       m_originalImage;
+    Magick::Image       m_convertedImage;
+    Magick::Image       m_colorMap;
 };
 
 

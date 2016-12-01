@@ -38,26 +38,10 @@ Floss *FlossScheme::convert(const QColor &color)
     Magick::Image image = Magick::Image(1, 1, "RGB", MagickLib::CharPixel, c);
 #endif
     image.map(*m_map);
-    Magick::Pixels cache(image);
-    const Magick::PixelPacket *pixels = cache.get(0, 0, 1, 1);
-    Magick::PixelPacket packet = *pixels;
-#if MAGICKCORE_QUANTUM_DEPTH == 8
-    QColor newColor(packet.red, packet.green, packet.blue);
-#else
-    QColor newColor(packet.red / 256, packet.green / 256, packet.blue / 256);
-#endif
+    const Magick::PixelPacket *pixels = image.getConstPixels(0, 0, 1, 1);
+    const Magick::ColorRGB rgb = Magick::Color(*pixels);
 
-    QListIterator<Floss *> flossIterator(m_flosses);
-
-    while (flossIterator.hasNext()) {
-        Floss *floss = flossIterator.next();
-
-        if (floss->color() == newColor) {
-            return floss;
-        }
-    }
-
-    return nullptr;  // return 0 as nothing found. It shouldn't happen though
+    return find(QColor((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue())));
 }
 
 
@@ -77,19 +61,25 @@ Floss *FlossScheme::find(const QString &name) const
 }
 
 
-QString FlossScheme::find(const QColor &color) const
+Floss *FlossScheme::find(const QColor &color) const
 {
     QListIterator<Floss *> flossIterator(m_flosses);
 
     while (flossIterator.hasNext()) {
         Floss *floss = flossIterator.next();
+        QColor c = floss->color();
 
-        if (floss->color() == color) {
-            return floss->name();
+        if (c == color) {
+            return floss;
+        }
+
+        // the color mapping may not be perfect so search for a near match.
+        if (abs(color.red()-c.red())<2 && abs(color.green()-c.green())<2 && abs(color.blue()-c.blue())<2) {
+            return floss;
         }
     }
 
-    return QString();
+    return nullptr;
 }
 
 
@@ -123,6 +113,9 @@ void FlossScheme::clearScheme()
 {
     qDeleteAll(m_flosses);
     m_flosses.clear();
+
+    delete m_map;
+    m_map = nullptr;
 }
 
 
@@ -163,7 +156,7 @@ Magick::Image *FlossScheme::createImageMap()
 #else
         m_map = new Magick::Image(m_flosses.size() + 1, 1, "RGBA", MagickLib::CharPixel, pixels);
 #endif
-        delete pixels;
+        delete[] pixels;
     }
 
     return m_map;
