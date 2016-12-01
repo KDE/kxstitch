@@ -527,6 +527,7 @@ void MainWindow::fileImportImage()
 void MainWindow::convertImage(const QString &source)
 {
     Magick::Image image(source.toStdString());
+
     QMap<int, QColor> documentFlosses;
     QList<qint16> symbolIndexes = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes();
 
@@ -542,6 +543,7 @@ void MainWindow::convertImage(const QString &source)
 
         bool useFractionals = importImageDlg->useFractionals();
 
+        bool hasTransparency = convertedImage.matte();
         bool ignoreColor = importImageDlg->ignoreColor();
         Magick::Color ignoreColorValue = importImageDlg->ignoreColorValue();
 
@@ -561,9 +563,8 @@ void MainWindow::convertImage(const QString &source)
 
         QProgressDialog progress(i18n("Converting to stitches"), i18n("Cancel"), 0, pixelCount, this);
         progress.setWindowModality(Qt::WindowModal);
-        Magick::Pixels cache(convertedImage);
-        const Magick::PixelPacket *pixels = cache.getConst(0, 0, imageWidth, imageHeight);
-        bool colorNotFound = false;
+
+        const Magick::PixelPacket *pixels = convertedImage.getConstPixels(0, 0, imageWidth, imageHeight);
 
         for (int dy = 0 ; dy < imageHeight ; dy++) {
             progress.setValue(dy * imageWidth);
@@ -576,16 +577,14 @@ void MainWindow::convertImage(const QString &source)
             }
 
             for (int dx = 0 ; dx < imageWidth ; dx++) {
-                Magick::PixelPacket packet = *pixels++;
+                Magick::ColorRGB rgb = Magick::Color(*pixels++);
 
-                if (!(packet.opacity)) {
-                    if (!(ignoreColor && Magick::Color(packet) == ignoreColorValue)) {
+                if (hasTransparency && (rgb.alpha() == 1)) {
+                    // ignore this pixel as it is transparent
+                } else {
+                    if (!(ignoreColor && (rgb == ignoreColorValue))) {
                         int flossIndex;
-#if MAGICKCORE_QUANTUM_DEPTH == 8
-                        QColor color(packet.red, packet.green, packet.blue);
-#else
-                        QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
-#endif
+                        QColor color((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue()));
 
                         for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; ++flossIndex) {
                             if (documentFlosses[flossIndex] == color) {
@@ -596,14 +595,10 @@ void MainWindow::convertImage(const QString &source)
                         if (flossIndex == documentFlosses.count()) { // reached the end of the list
                             qint16 stitchSymbol = symbolIndexes.takeFirst();
                             Qt::PenStyle backstitchSymbol(Qt::SolidLine);
-                            QString foundName = flossScheme->find(color);
+                            Floss *floss = flossScheme->find(color);
 
-                            if (foundName.isEmpty()) {
-                                colorNotFound = true;
-                            }
-
-                            DocumentFloss *documentFloss = new DocumentFloss(foundName, stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
-                            documentFloss->setFlossColor(color);
+                            DocumentFloss *documentFloss = new DocumentFloss(floss->name(), stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+                            documentFloss->setFlossColor(floss->color());
                             new AddDocumentFlossCommand(m_document, flossIndex, documentFloss, importImageCommand);
                             documentFlosses.insert(flossIndex, color);
                         }
@@ -619,21 +614,6 @@ void MainWindow::convertImage(const QString &source)
                     }
                 }
             }
-        }
-
-        if (colorNotFound) {
-            // Examples of imported images have missing color names
-            // This will fix those that are found by changing the scheme to something else and then back to the required one
-            // A fix has been introduced, but this is a final catch if there are any still found
-            qDebug() << "Found a missing color name and attempting to fix";
-
-            if (schemeName == QLatin1String("DMC")) {
-                new ChangeSchemeCommand(m_document, QStringLiteral("Anchor"), importImageCommand);
-            } else {
-                new ChangeSchemeCommand(m_document, QStringLiteral("DMC"), importImageCommand);
-            }
-
-            new ChangeSchemeCommand(m_document, schemeName, importImageCommand);
         }
 
         new SetPropertyCommand(m_document, QStringLiteral("horizontalClothCount"), importImageDlg->horizontalClothCount(), importImageCommand);

@@ -230,7 +230,7 @@ int DocumentPalette::add(const QColor &srcColor)
     int colorIndex = -1;
 
     FlossScheme *scheme = SchemeManager::scheme(d->m_schemeName);
-    Floss *floss = scheme->find(scheme->find(srcColor));
+    Floss *floss = scheme->find(srcColor);
 
     if (floss == nullptr) {
         floss = scheme->convert(srcColor);

@@ -35,7 +35,7 @@ public:
 
     Floss *convert(const QColor &color);
     Floss *find(const QString &name) const;
-    QString find(const QColor &color) const;
+    Floss *find(const QColor &color) const;
     QString schemeName() const;
     QString path() const;
     const QList<Floss *> &flosses() const;

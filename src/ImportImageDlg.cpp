@@ -140,6 +140,8 @@ void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString&)
 void ImportImageDlg::on_UseMaximumColors_toggled(bool checked)
 {
     m_useMaximumColors = checked;
+    killTimer(m_timer);
+    m_timer = startTimer(500);
 }
 
 
@@ -244,6 +246,7 @@ void ImportImageDlg::calculateSizes()
 
     Magick::Geometry geometry(imageSize.width(), imageSize.height());
     geometry.percent(false);
+    geometry.aspect(true);      // set to true to ignore maintaining the aspect ratio
     m_convertedImage.sample(geometry);
     on_HorizontalClothCount_valueChanged(ui.HorizontalClothCount->value());
 }
@@ -264,6 +267,7 @@ void ImportImageDlg::renderPixmap()
     ui.ImagePreview->setCursor(Qt::WaitCursor);
     calculateSizes();
     m_convertedImage.modifyImage();
+
     m_pixmap = QPixmap(m_convertedImage.columns(), m_convertedImage.rows());
     m_pixmap.fill();
 
@@ -285,8 +289,8 @@ void ImportImageDlg::renderPixmap()
     QProgressDialog progress(i18n("Rendering preview"), i18n("Cancel"), 0, pixelCount, this);
     progress.setWindowModality(Qt::WindowModal);
 
-    Magick::Pixels cache(m_convertedImage);
-    const Magick::PixelPacket *pixels = cache.getConst(0, 0, width, height);
+    bool hasTransparency = m_convertedImage.matte();
+    const Magick::PixelPacket *pixels = m_convertedImage.getConstPixels(0, 0, width, height);
 
     for (int dy = 0 ; dy < height ; dy++) {
         QApplication::processEvents();
@@ -297,15 +301,13 @@ void ImportImageDlg::renderPixmap()
         }
 
         for (int dx = 0 ; dx < width ; dx++) {
-            Magick::PixelPacket packet = *pixels++;
+            Magick::ColorRGB rgb = Magick::Color(*pixels++);
 
-            if (!(packet.opacity)) {
-                if (!(m_ignoreColor && packet == m_ignoreColorValue)) {
-#if MAGICKCORE_QUANTUM_DEPTH == 8
-                    QColor color(packet.red, packet.green, packet.blue);
-#else
-                    QColor color(packet.red / 256, packet.green / 256, packet.blue / 256);
-#endif
+            if (hasTransparency && (rgb.alpha() == 1)) {
+                //ignore this pixel as it is transparent
+            } else {
+                if (!(m_ignoreColor && rgb == m_ignoreColorValue)) {
+                    QColor color((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue()));
                     painter.setPen(QPen(color));
                     painter.drawPoint(dx, dy);
                 }
@@ -321,7 +323,7 @@ void ImportImageDlg::renderPixmap()
 
 void ImportImageDlg::timerEvent(QTimerEvent*)
 {
-    killTimer(m_timer);;
+    killTimer(m_timer);
     renderPixmap();
 }
 
@@ -356,11 +358,7 @@ void ImportImageDlg::selectColor(const QPoint &p)
 
     m_ignoreColorValue = m_convertedImage.pixelColor(x, y);
     QPixmap swatch(ui.ColorButton->size());
-#if MAGICKCORE_QUANTUM_DEPTH == 8
-    swatch.fill(QColor(m_ignoreColorValue.redQuantum(), m_ignoreColorValue.greenQuantum(), m_ignoreColorValue.blueQuantum()));
-#else
-    swatch.fill(QColor(m_ignoreColorValue.redQuantum() / 256, m_ignoreColorValue.greenQuantum() / 256, m_ignoreColorValue.blueQuantum() / 256));
-#endif
+    swatch.fill(QColor((int)(255*m_ignoreColorValue.red()), (int)(255*m_ignoreColorValue.green()), (int)(255*m_ignoreColorValue.blue())));
     ui.ColorButton->setIcon(swatch);
 
     renderPixmap();
