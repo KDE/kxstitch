@@ -18,6 +18,7 @@
 #include <KSharedConfig>
 
 #include "FlossScheme.h"
+#include "SchemeManager.h"
 
 
 NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
@@ -83,6 +84,7 @@ void NewFlossDlg::on_DialogButtonBox_accepted()
         KMessageBox::questionYesNo(this, i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()), i18n("Overwrite")) == KMessageBox::Yes) {
         m_floss = new Floss(ui.FlossName->text(), ui.FlossDescription->text(), ui.ColorButton->color());
         m_flossScheme->addFloss(m_floss);
+        SchemeManager::writeScheme(m_flossScheme->schemeName());
     }
 
     accept();
