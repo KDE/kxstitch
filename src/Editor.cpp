@@ -1354,7 +1354,9 @@ void Editor::renderBackgroundImages(QPainter &painter, const QRect &updateRectan
 
         if (backgroundImage->isVisible()) {
             if (backgroundImage->location().intersects(updateRectangle)) {
+                painter.setClipRect(updateRectangle.x(), updateRectangle.y(), updateRectangle.width(), updateRectangle.height());
                 painter.drawImage(backgroundImage->location(), backgroundImage->image());
+                painter.setClipping(false);
             }
         }
     }
