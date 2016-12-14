@@ -125,7 +125,7 @@ void Scale::paintEvent(QPaintEvent*)
         // Set to default above
         break;
 
-    case Configuration::EnumEditor_FormatScalesAs::CM:
+    case Configuration::EnumEditor_FormatScalesAs::Centimeters:
         // subtick should be 1/10 CM
         subTick = m_cellSize * m_clothCount / (clothCountUnitsInches ? 25.4 : 10);
         minorTicks = 5;

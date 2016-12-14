@@ -70,10 +70,11 @@ private:
 
     Document    *m_document;
 
-    int m_width;
-    int m_height;
-    int m_minWidth;
-    int m_minHeight;
+    int m_widthStitches;
+    int m_heightStitches;
+    int m_minWidthStitches;
+    int m_minHeightStitches;
+
     double  m_horizontalClothCount;
     double  m_verticalClothCount;
     bool    m_clothCountLink;

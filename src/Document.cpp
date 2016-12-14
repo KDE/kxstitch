@@ -67,29 +67,33 @@ void Document::initialiseNew()
 
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
     double verticalClothCount = Configuration::editor_VerticalClothCount();
-    int clothCountUnitsIndex = Configuration::editor_ClothCountUnits();
+    Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
+
+    if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Default) {
+        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem)?Configuration::EnumEditor_ClothCountUnits::Centimeters:Configuration::EnumEditor_ClothCountUnits::Inches;
+    }
 
     switch (Configuration::document_UnitsFormat()) {
-    case 0: // Stitches
+    case Configuration::EnumDocument_UnitsFormat::Stitches:
         // nothing needs to be done to convert these values
         break;
 
-    case 1: // Inches
+    case Configuration::EnumDocument_UnitsFormat::Inches:
         documentWidth *= horizontalClothCount;
         documentHeight *= verticalClothCount;
 
-        if (clothCountUnitsIndex == 1) { // CM
+        if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Centimeters) {
             documentWidth *= 2.54;
             documentHeight *= 2.54;
         }
 
         break;
 
-    case 2: // CM
+    case Configuration::EnumDocument_UnitsFormat::Centimeters:
         documentWidth *= horizontalClothCount;
         documentHeight *= verticalClothCount;
 
-        if (clothCountUnitsIndex == 0) { // Inches
+        if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Inches) {
             documentWidth /= 2.54;
             documentHeight /= 2.54;
         }
@@ -113,7 +117,7 @@ void Document::initialiseNew()
     setProperty(QStringLiteral("cellVerticalGrouping"), Configuration::editor_CellVerticalGrouping());
     setProperty(QStringLiteral("horizontalClothCount"), Configuration::editor_HorizontalClothCount());
     setProperty(QStringLiteral("verticalClothCount"), Configuration::editor_VerticalClothCount());
-    setProperty(QStringLiteral("clothCountUnits"), Configuration::editor_ClothCountUnits());
+    setProperty(QStringLiteral("clothCountUnits"), clothCountUnits);
     setProperty(QStringLiteral("clothCountLink"), Configuration::editor_ClothCountLink());
     setProperty(QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor());
     setProperty(QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor());
@@ -1810,7 +1814,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
     }
 
     if (sizeUnits == i18n("CM")) {
-        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::CM);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Centimeters);
     }
 
     if (sizeUnits == i18n("Inches")) {
@@ -1826,7 +1830,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
     setProperty(QStringLiteral("clothCountLink"), true);
 
     if (clothCountUnits == QLatin1String("/cm")) {
-        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::CM);
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Centimeters);
     }
 
     if (clothCountUnits == QLatin1String("/in")) {
@@ -2016,7 +2020,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
     }
 
     if (sizeUnits == i18n("CM")) {
-        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::CM);
+        setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Centimeters);
     }
 
     if (sizeUnits == i18n("Inches")) {
@@ -2032,7 +2036,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
     setProperty(QStringLiteral("clothCountLink"), true);
 
     if (clothCountUnits == QLatin1String("/cm")) {
-        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::CM);
+        setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Centimeters);
     }
 
     if (clothCountUnits == QLatin1String("/in")) {
@@ -2215,13 +2219,13 @@ void Document::readKXStitchV7File(QDataStream &stream)
     /* Working */
     Configuration::EnumDocument_UnitsFormat::type convertSizeUnits[] = {
         Configuration::EnumDocument_UnitsFormat::Stitches,
-        Configuration::EnumDocument_UnitsFormat::CM,        // was MM
-        Configuration::EnumDocument_UnitsFormat::CM,
+        Configuration::EnumDocument_UnitsFormat::Centimeters,        // was MM
+        Configuration::EnumDocument_UnitsFormat::Centimeters,
         Configuration::EnumDocument_UnitsFormat::Inches
     };
     Configuration::EnumEditor_ClothCountUnits::type convertClothCountUnits[] = {
         Configuration::EnumEditor_ClothCountUnits::Inches,  // was Stitches
-        Configuration::EnumEditor_ClothCountUnits::CM,
+        Configuration::EnumEditor_ClothCountUnits::Centimeters,
         Configuration::EnumEditor_ClothCountUnits::Inches
     };
     // read header

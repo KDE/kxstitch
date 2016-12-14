@@ -9,11 +9,9 @@
  */
 
 
-#include "ConfigurationDialogs.h"
-
 #include <KConfigDialogManager>
 
-#include "configuration.h"
+#include "ConfigurationDialogs.h"
 #include "SchemeManager.h"
 #include "SymbolManager.h"
 
@@ -34,23 +32,31 @@ PatternConfigPage::PatternConfigPage(QWidget *parent, const QString &name)
 
     m_currentDocumentUnitsIndex = Configuration::document_UnitsFormat();
     m_currentClothCountUnitsIndex = Configuration::editor_ClothCountUnits();
-    kcfg_Editor_VerticalClothCount->setEnabled(!Configuration::editor_ClothCountLink());
-
-    setPrecision();
+    
+    // change the Default list item for cloth count measurement to append with the users locale measurement
+    QString localeUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? i18n("Default (Centimeters)") : i18n("Default (Inches)");
+    kcfg_Editor_ClothCountUnits->setItemText(kcfg_Editor_ClothCountUnits->findText(i18n("Default")), localeUnits);
+    
+    setPatternSizePrecision();
+    setClothCountPrecision();
 }
 
 
 void PatternConfigPage::on_kcfg_Editor_ClothCountUnits_activated(int index)
 {
-    if (m_currentClothCountUnitsIndex != index) {
-        m_currentClothCountUnitsIndex = index;
+    Configuration::EnumEditor_ClothCountUnits::type clothCountTypeSelected = static_cast<Configuration::EnumEditor_ClothCountUnits::type>(index);
+    
+    if (clothCountTypeSelected == Configuration::EnumEditor_ClothCountUnits::Default) {
+        clothCountTypeSelected = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters : Configuration::EnumEditor_ClothCountUnits::Inches;
+    }
 
-        setPrecision();
+    if (m_currentClothCountUnitsIndex != clothCountTypeSelected) {
+        m_currentClothCountUnitsIndex = clothCountTypeSelected;
 
         double horizontalClothCount = kcfg_Editor_HorizontalClothCount->value();
         double verticalClothCount = kcfg_Editor_VerticalClothCount->value();
-
-        if (index == 0) {
+        
+        if (clothCountTypeSelected == Configuration::EnumEditor_ClothCountUnits::Inches) {
             horizontalClothCount *= 2.54;
             verticalClothCount *= 2.54;
         } else {
@@ -58,19 +64,21 @@ void PatternConfigPage::on_kcfg_Editor_ClothCountUnits_activated(int index)
             verticalClothCount /= 2.54;
         }
 
+        setClothCountPrecision();
+        
         kcfg_Editor_HorizontalClothCount->setValue(horizontalClothCount);
         kcfg_Editor_VerticalClothCount->setValue(verticalClothCount);
     }
-
 }
 
 
 void PatternConfigPage::on_kcfg_Document_UnitsFormat_activated(int index)
 {
-    if (m_currentDocumentUnitsIndex != index) {
+    Configuration::EnumDocument_UnitsFormat::type documentUnitsTypeSelected = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);
+
+    if (m_currentDocumentUnitsIndex != documentUnitsTypeSelected) {
         int originalDocumentUnitsIndex = m_currentDocumentUnitsIndex;
-        m_currentDocumentUnitsIndex = index;
-        setPrecision();
+        m_currentDocumentUnitsIndex = documentUnitsTypeSelected;
 
         double documentWidth = kcfg_Document_Width->value();
         double documentHeight = kcfg_Document_Height->value();
@@ -79,73 +87,87 @@ void PatternConfigPage::on_kcfg_Document_UnitsFormat_activated(int index)
         double verticalClothCount = kcfg_Editor_VerticalClothCount->value();
 
         switch (originalDocumentUnitsIndex) {
-        case 0: // Stitches
+        case Configuration::EnumDocument_UnitsFormat::Stitches:
             documentWidth /= horizontalClothCount;
             documentHeight /= verticalClothCount;
 
-            switch (index) {
-            case 1: // Inches
-                if (m_currentClothCountUnitsIndex == 1) {
+            switch (documentUnitsTypeSelected) {
+            case Configuration::EnumDocument_UnitsFormat::Inches:
+                if (m_currentClothCountUnitsIndex == Configuration::EnumEditor_ClothCountUnits::Centimeters) { // from stitches to inches with cloth count in centimeters
                     documentWidth /= 2.54;
                     documentHeight /= 2.54;
                 }
 
                 break;
 
-            case 2: // CM
-                if (m_currentClothCountUnitsIndex == 0) {
+            case Configuration::EnumDocument_UnitsFormat::Centimeters:
+                if (m_currentClothCountUnitsIndex == Configuration::EnumEditor_ClothCountUnits::Inches) { // from stitches to centimeters with cloth count in inches
                     documentWidth *= 2.54;
                     documentHeight *= 2.54;
                 }
 
+                break;
+
+            default:
+                // Do not need to do anything
                 break;
             }
 
             break;
 
-        case 1: // Inches
-            switch (index) {
-            case 0: // Stitches
+        case Configuration::EnumDocument_UnitsFormat::Inches:
+            switch (documentUnitsTypeSelected) {
+            case Configuration::EnumDocument_UnitsFormat::Stitches:
                 documentWidth *= horizontalClothCount;
                 documentHeight *= verticalClothCount;
 
-                if (m_currentClothCountUnitsIndex == 1) {
+                if (m_currentClothCountUnitsIndex == Configuration::EnumEditor_ClothCountUnits::Centimeters) { // from inches to stitches with cloth count in centimeters
                     documentWidth *= 2.54;
                     documentHeight *= 2.54;
                 }
 
                 break;
 
-            case 2: // CM
+            case Configuration::EnumDocument_UnitsFormat::Centimeters: // from inches to centimeters with cloch count in inches
                 documentWidth *= 2.54;
                 documentHeight *= 2.54;
                 break;
+
+            default:
+                // do not need to do anything
+                break;
             }
 
             break;
 
-        case 2: // CM
-            switch (index) {
-            case 0: // Stitches
+        case Configuration::EnumDocument_UnitsFormat::Centimeters:
+            switch (documentUnitsTypeSelected) {
+            case Configuration::EnumDocument_UnitsFormat::Stitches:
                 documentWidth *= horizontalClothCount;
                 documentHeight *= verticalClothCount;
 
-                if (m_currentClothCountUnitsIndex == 0) {
+                if (m_currentClothCountUnitsIndex == Configuration::EnumEditor_ClothCountUnits::Inches) { // from centimeters to stitches with cloth count in inches
                     documentWidth /= 2.54;
                     documentHeight /= 2.54;
                 }
 
                 break;
 
-            case 1: // Inches
+            case Configuration::EnumDocument_UnitsFormat::Inches: // from centimeters to inches with cloth count in centimeters
                 documentWidth /= 2.54;
                 documentHeight /= 2.54;
+                break;
+
+            default:
+                // do not need to do anything
                 break;
             }
 
             break;
         }
 
+        setPatternSizePrecision();
+        
         kcfg_Document_Width->setValue(documentWidth);
         kcfg_Document_Height->setValue(documentHeight);
     }
@@ -168,44 +190,65 @@ void PatternConfigPage::on_kcfg_Editor_HorizontalClothCount_valueChanged(double 
 }
 
 
-void PatternConfigPage::setPrecision()
+void PatternConfigPage::setPatternSizePrecision()
 {
     switch (m_currentDocumentUnitsIndex) {
-    case 0: // Stitches
+    case Configuration::EnumDocument_UnitsFormat::Stitches:
         kcfg_Document_Width->setDecimals(0);
-        kcfg_Document_Width->setSingleStep(1.0);
         kcfg_Document_Height->setDecimals(0);
-        kcfg_Document_Height->setSingleStep(1.0);
+        kcfg_Document_Width->setSingleStep(1);
+        kcfg_Document_Height->setSingleStep(1);
         break;
-
-    case 1: // Inches
+        
+    case Configuration::EnumDocument_UnitsFormat::Inches:
         kcfg_Document_Width->setDecimals(2);
-        kcfg_Document_Width->setSingleStep(0.01);
         kcfg_Document_Height->setDecimals(2);
+        kcfg_Document_Width->setSingleStep(0.01);
         kcfg_Document_Height->setSingleStep(0.01);
         break;
 
-    case 2: // CM
+    case Configuration::EnumDocument_UnitsFormat::Centimeters:
         kcfg_Document_Width->setDecimals(2);
-        kcfg_Document_Width->setSingleStep(0.01);
         kcfg_Document_Height->setDecimals(2);
+        kcfg_Document_Width->setSingleStep(0.01);
         kcfg_Document_Height->setSingleStep(0.01);
+        break;
+        
+    default:
         break;
     }
 
+    kcfg_Document_Width->setRange(Configuration::document_Min_Width(), Configuration::document_Max_Width());
+    kcfg_Document_Height->setRange(Configuration::document_Min_Height(), Configuration::document_Max_Height());
+}
+     
+     
+void PatternConfigPage::setClothCountPrecision()
+{
+    if (m_currentClothCountUnitsIndex == Configuration::EnumEditor_ClothCountUnits::Default) {
+        m_currentClothCountUnitsIndex = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters : Configuration::EnumEditor_ClothCountUnits::Inches;
+    }
+    
     switch (m_currentClothCountUnitsIndex) {
-    case 0: // Inches
+    case Configuration::EnumEditor_ClothCountUnits::Inches:
         kcfg_Editor_HorizontalClothCount->setDecimals(0);
         kcfg_Editor_HorizontalClothCount->setSingleStep(1.0);
+        kcfg_Editor_HorizontalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
         kcfg_Editor_VerticalClothCount->setDecimals(0);
         kcfg_Editor_VerticalClothCount->setSingleStep(1.0);
+        kcfg_Editor_VerticalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
         break;
 
-    case 1: // CM
-        kcfg_Editor_HorizontalClothCount->setDecimals(2);
-        kcfg_Editor_HorizontalClothCount->setSingleStep(0.01);
-        kcfg_Editor_VerticalClothCount->setDecimals(2);
-        kcfg_Editor_VerticalClothCount->setSingleStep(0.01);
+    case Configuration::EnumEditor_ClothCountUnits::Centimeters:
+        kcfg_Editor_HorizontalClothCount->setDecimals(1);
+        kcfg_Editor_HorizontalClothCount->setSingleStep(0.1);
+        kcfg_Editor_HorizontalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        kcfg_Editor_VerticalClothCount->setDecimals(1);
+        kcfg_Editor_VerticalClothCount->setSingleStep(0.1);
+        kcfg_Editor_VerticalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        break;
+
+    default:
         break;
     }
 }

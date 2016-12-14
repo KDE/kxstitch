@@ -13,6 +13,7 @@
 #define ConfigurationDialogs_H
 
 
+#include "configuration.h"
 #include "ui_EditorConfigPage.h"
 #include "ui_PatternConfigPage.h"
 #include "ui_PaletteConfigPage.h"
@@ -44,10 +45,11 @@ protected slots:
     void on_kcfg_Editor_HorizontalClothCount_valueChanged(double);
 
 private:
-    void setPrecision();
+    void setPatternSizePrecision();
+    void setClothCountPrecision();
 
-    int m_currentDocumentUnitsIndex;
-    int m_currentClothCountUnitsIndex;
+    Configuration::EnumDocument_UnitsFormat::type   m_currentDocumentUnitsIndex;
+    Configuration::EnumEditor_ClothCountUnits::type m_currentClothCountUnitsIndex;
 };
 
 

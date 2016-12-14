@@ -44,7 +44,7 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
 
     ui.FormatScalesAs->setItemData(0, Configuration::EnumEditor_FormatScalesAs::Stitches);
     ui.FormatScalesAs->setItemData(1, Configuration::EnumEditor_FormatScalesAs::Inches);
-    ui.FormatScalesAs->setItemData(2, Configuration::EnumEditor_FormatScalesAs::CM);
+    ui.FormatScalesAs->setItemData(2, Configuration::EnumEditor_FormatScalesAs::Centimeters);
 
     m_selectArea = new SelectArea(ui.PreviewFrame, patternElement, document, patternRects);
     ui.PreviewFrame->setWidget(m_selectArea);

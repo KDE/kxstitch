@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>317</width>
-    <height>449</height>
+    <height>584</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,7 +89,7 @@
               </item>
               <item>
                <property name="text">
-                <string>CM</string>
+                <string>Centimeters</string>
                </property>
               </item>
              </widget>
@@ -356,14 +356,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KRichTextEdit</class>
-   <extends>KTextEdit</extends>
-   <header>krichtextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
   </customwidget>
   <customwidget>
    <class>KComboBox</class>
@@ -371,19 +366,24 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KColorButton</class>
-   <extends>QPushButton</extends>
-   <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
    <class>KTextEdit</class>
    <extends>QTextEdit</extends>
    <header>ktextedit.h</header>
   </customwidget>
   <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
    <class>KRichTextWidget</class>
    <extends>KRichTextEdit</extends>
    <header>krichtextwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KRichTextEdit</class>
+   <extends>KTextEdit</extends>
+   <header>krichtextedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

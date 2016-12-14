@@ -110,7 +110,7 @@ public slots:
     void pastePattern(ToolMode);
 
     void formatScalesAsStitches();
-    void formatScalesAsCM();
+    void formatScalesAsCentimeters();
     void formatScalesAsInches();
 
     void renderStitches(bool);

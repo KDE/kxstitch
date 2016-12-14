@@ -186,23 +186,39 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
 {
     double preferredSizeWidth = m_preferredSize.width();
     double preferredSizeHeight = m_preferredSize.height();
-    QString suffix(i18n("Stitches"));
-    Configuration::EnumDocument_UnitsFormat::type units = Configuration::document_UnitsFormat();
 
-    if (units != Configuration::EnumDocument_UnitsFormat::Stitches) {
+    QString suffix;
+
+    switch (Configuration::document_UnitsFormat()) {
+    case Configuration::EnumDocument_UnitsFormat::Stitches:
+        suffix = QString(i18n("Stitches"));
+        break;
+        
+    case Configuration::EnumDocument_UnitsFormat::Inches:
         preferredSizeWidth /= horizontalClothCount;
         preferredSizeHeight /= verticalClothCount;
-        suffix = ui.HorizontalClothCount->suffix().right(2);
+        suffix = QString(i18n("Inches"));
+        break;
+        
+    case Configuration::EnumDocument_UnitsFormat::Centimeters:
+        preferredSizeWidth /= horizontalClothCount;
+        preferredSizeHeight /= verticalClothCount;
+        suffix = QString(i18n("Centimeters"));
+        break;
+        
+    default:
+        break;
     }
-
+    
     if (ui.ClothCountLink->isChecked()) {
         ui.VerticalClothCount->setValue(horizontalClothCount);
     }
 
-    QString formattedSizeWidth = QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'g', 3);
-    QString formattedSizeHeight = QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'g', 3);
-    // TODO is there a better way of representing the dimensional values below for correct translations.
-    ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'g', 3), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'g', 3), suffix)));
+    if (Configuration::document_UnitsFormat() == Configuration::EnumDocument_UnitsFormat::Stitches) {
+        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 0), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 0), suffix)));
+    } else {
+        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 2), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 2), suffix)));
+    }
 }
 
 
@@ -397,18 +413,78 @@ void ImportImageDlg::resetImportParameters()
 {
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
     double verticalClothCount = Configuration::editor_VerticalClothCount();
+
     Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
-    ui.HorizontalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
-    ui.VerticalClothCount->setSuffix((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
-    ui.HorizontalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
-    ui.VerticalClothCount->setSingleStep((clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? 0.01 : 1.0);
+
+    if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Default) {
+        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters : Configuration::EnumEditor_ClothCountUnits::Inches;
+    }
+
+    if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Centimeters) {
+        ui.HorizontalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        ui.VerticalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        ui.HorizontalClothCount->setSingleStep(0.1);
+        ui.VerticalClothCount->setSingleStep(0.1);
+        ui.HorizontalClothCount->setDecimals(1);
+        ui.VerticalClothCount->setDecimals(1);
+    } else {
+        ui.HorizontalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
+        ui.VerticalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
+        ui.HorizontalClothCount->setSingleStep(1.0);
+        ui.VerticalClothCount->setSingleStep(1.0);
+        ui.HorizontalClothCount->setDecimals(0);
+        ui.VerticalClothCount->setDecimals(0);
+    }
+
     ui.HorizontalClothCount->setValue(horizontalClothCount);
     ui.VerticalClothCount->setValue(verticalClothCount);
-    ui.VerticalClothCount->setEnabled(false);
     ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
-    ui.ClothCountLink->setIcon(QIcon::fromTheme(QStringLiteral("object-locked")));
+    ui.VerticalClothCount->setEnabled(!ui.ClothCountLink->isChecked());
+    ui.ClothCountLink->setIcon(ui.ClothCountLink->isChecked() ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
+
+    Configuration::EnumDocument_UnitsFormat::type preferredSizeUnits = Configuration::document_UnitsFormat();
+    
+    switch (preferredSizeUnits) {
+    case Configuration::EnumDocument_UnitsFormat::Inches:
+        switch (clothCountUnits) {
+        case Configuration::EnumEditor_ClothCountUnits::Inches:
+            m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount, m_preferredSize.height() * verticalClothCount);
+            break;
+            
+        case Configuration::EnumEditor_ClothCountUnits::Centimeters:
+            m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount * 2.54, m_preferredSize.height() * verticalClothCount * 2.54);
+            break;
+            
+        default:
+            // No conversion required
+            break;
+        }
+        
+        break;
+            
+    case Configuration::EnumDocument_UnitsFormat::Centimeters:
+        switch (clothCountUnits) {
+        case Configuration::EnumEditor_ClothCountUnits::Inches:
+            m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount / 2.54, m_preferredSize.height() * verticalClothCount / 2.54);
+            break;
+            
+        case Configuration::EnumEditor_ClothCountUnits::Centimeters:
+            m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount, m_preferredSize.height() * verticalClothCount);
+            break;
+            
+        default:
+            // No conversion required
+            break;
+        }
+        
+        break;
+        
+    default:
+        break;
+    }
+
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
     int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
     int scale = std::min(scaledWidth, scaledHeight);

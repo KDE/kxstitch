@@ -573,9 +573,9 @@ void Editor::formatScalesAsStitches()
 }
 
 
-void Editor::formatScalesAsCM()
+void Editor::formatScalesAsCentimeters()
 {
-    m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::CM;
+    m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::Centimeters;
     m_horizontalScale->setUnits(m_formatScalesAs);
     m_verticalScale->setUnits(m_formatScalesAs);
 }

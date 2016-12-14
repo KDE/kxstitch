@@ -44,10 +44,11 @@
         </entry>
         <entry name="Editor_ClothCountUnits" type="Enum">
             <label>The cloth count units.</label>
-            <default>Inches</default>
+            <default>Default</default>
             <choices>
                 <choice name="Inches" />
-                <choice name="CM" />
+                <choice name="Centimeters" />
+                <choice name="Default" />
             </choices>
         </entry>
         <entry name="Editor_ClothCountLink" type="Bool">
@@ -68,7 +69,7 @@
             <choices>
                 <choice name="Stitches" />
                 <choice name="Inches" />
-                <choice name="CM" />
+                <choice name="Centimeters" />
             </choices>
         </entry>
         <entry name="Editor_MinimumZoomFactor" type="Double">
@@ -146,11 +147,11 @@
     </group>
 
     <group name="document">
-        <entry name="Document_Width" type="Int">
+        <entry name="Document_Width" type="Double">
             <label>The default width of a new pattern in the units specified.</label>
             <default>100</default>
         </entry>
-        <entry name="Document_Height" type="Int">
+        <entry name="Document_Height" type="Double">
             <label>The default height of a new pattern in the units specified.</label>
             <default>80</default>
         </entry>
@@ -160,8 +161,24 @@
             <choices>
                 <choice name="Stitches" />
                 <choice name="Inches" />
-                <choice name="CM" />
+                <choice name="Centimeters" />
             </choices>
+        </entry>
+        <entry name="Document_Min_Width" type="Double">
+            <label>The minimum width of a pattern in the units specified.</label>
+            <default>1</default>
+        </entry>
+        <entry name="Document_Min_Height" type="Double">
+            <label>The minimum height of a pattern in the units specified.</label>
+            <default>1</default>
+        </entry>
+        <entry name="Document_Max_Width" type="Double">
+            <label>The maximum width of a pattern in the units specified.</label>
+            <default>500</default>
+        </entry>
+        <entry name="Document_Max_Height" type="Double">
+            <label>The maximum height of a pattern in the units specified.</label>
+            <default>500</default>
         </entry>
     </group>
 

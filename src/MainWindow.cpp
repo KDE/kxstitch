@@ -916,14 +916,12 @@ void MainWindow::preferences()
     }
 
     KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("preferences"), Configuration::self());
-//    dialog->setHelp("ConfigurationDialog");
     dialog->setFaceType(KPageDialog::List);
 
     dialog->addPage(new EditorConfigPage(0, QStringLiteral("EditorConfigPage")), i18nc("The Editor config page", "Editor"), QStringLiteral("preferences-desktop"));
     dialog->addPage(new PatternConfigPage(0, QStringLiteral("PatternConfigPage")), i18n("Pattern"), QStringLiteral("ksnapshot"));
     PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(0, QStringLiteral("PaletteConfigPage"));
     dialog->addPage(paletteConfigPage, i18n("Palette"), QStringLiteral("preferences-desktop-color"));
-    connect(dialog, SIGNAL(defaultClicked()), paletteConfigPage, SLOT(defaultClicked()));
     dialog->addPage(new ImportConfigPage(0, QStringLiteral("ImportConfigPage")), i18n("Import"), QStringLiteral("insert-image"));
     dialog->addPage(new LibraryConfigPage(0, QStringLiteral("LibraryConfigPage")), i18n("Library"), QStringLiteral("accessories-dictionary"));
     dialog->addPage(new PrinterConfigPage(0, QStringLiteral("PrinterConfigPage")), i18n("Printer Configuration"), QStringLiteral("preferences-desktop-printer"));
@@ -997,8 +995,8 @@ void MainWindow::loadSettings()
         actions->action(QStringLiteral("formatScalesAsInches"))->trigger();
         break;
 
-    case Configuration::EnumEditor_FormatScalesAs::CM:
-        actions->action(QStringLiteral("formatScalesAsCM"))->trigger();
+    case Configuration::EnumEditor_FormatScalesAs::Centimeters:
+        actions->action(QStringLiteral("formatScalesAsCentimeters"))->trigger();
         break;
 
     default:
@@ -1488,10 +1486,10 @@ void MainWindow::setupActions()
     actionGroup->addAction(action);
 
     action = new QAction(this);
-    action->setText(i18n("CM"));
+    action->setText(i18n("Centimeters"));
     action->setCheckable(true);
-    connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCM()));
-    actions->addAction(QStringLiteral("formatScalesAsCM"), action);
+    connect(action, SIGNAL(triggered()), m_editor, SLOT(formatScalesAsCentimeters()));
+    actions->addAction(QStringLiteral("formatScalesAsCentimeters"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
@@ -1642,11 +1640,11 @@ void MainWindow::setupActions()
     actions->addAction(QStringLiteral("renderBackgroundImages"), action);
 
     m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsStitches")));
-    m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsCM")));
+    m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsCentimeters")));
     m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsInches")));
 
     m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsStitches")));
-    m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsCM")));
+    m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsCentimeters")));
     m_verticalScale->addAction(actions->action(QStringLiteral("formatScalesAsInches")));
 
     setupGUI(KXmlGuiWindow::Default, QStringLiteral("kxstitchui.rc"));

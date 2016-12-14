@@ -11,6 +11,7 @@
 
 #include "FilePropertiesDlg.h"
 
+#include <QLocale>
 #include <QRect>
 
 #include <KHelpClient>
@@ -30,40 +31,60 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     setWindowTitle(i18n("File Properties"));
     ui.setupUi(this);
 
+    ui.FlossScheme->addItems(SchemeManager::schemes());
+    ui.FlossScheme->setCurrentItem(m_document->pattern()->palette().schemeName());
+
+    m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt());
+
+    // get the extents of the pattern so that absolute minimum values for
+    // the height and width of the pattern can be set.
     QRect extents = m_document->pattern()->stitches().extents();
-    m_minWidth = extents.width();
-    m_minHeight = extents.height();
-    m_width = m_document->pattern()->stitches().width();
-    m_height = m_document->pattern()->stitches().height();
+
+    // extents will be (-1, -1) if no stitches have been added, set extents to minimum size
+    if (extents.width() == -1) {
+        extents.setWidth(1);
+    }
+
+    if (extents.height() == -1) {
+        extents.setHeight(1);
+    }
+
+    m_minWidthStitches = extents.width();
+    m_minHeightStitches = extents.height();
+
+    // get the current width and height of the pattern in stitches.
+    m_widthStitches = m_document->pattern()->stitches().width();
+    m_heightStitches = m_document->pattern()->stitches().height();
+
     m_horizontalClothCount = m_document->property(QStringLiteral("horizontalClothCount")).toDouble();
     m_verticalClothCount = m_document->property(QStringLiteral("verticalClothCount")).toDouble();
+
     m_clothCountLink = m_document->property(QStringLiteral("clothCountLink")).toBool();
     m_clothCountUnits = static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt());
-    m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt());
-    ui.UnitsFormat->setCurrentIndex(m_unitsFormat);
+
     updatePatternSizes();
+
+    ui.ClothCountLink->setChecked(m_clothCountLink);
+    on_ClothCountLink_clicked(m_clothCountLink);
+
     ui.PatternTitle->setText(m_document->property(QStringLiteral("title")).toString());
     ui.PatternAuthor->setText(m_document->property(QStringLiteral("author")).toString());
     ui.PatternCopyright->setText(m_document->property(QStringLiteral("copyright")).toString());
     ui.PatternFabric->setText(m_document->property(QStringLiteral("fabric")).toString());
     ui.FabricColor->setColor(m_document->property(QStringLiteral("fabricColor")).value<QColor>());
-    ui.FlossScheme->addItems(SchemeManager::schemes());
-    ui.FlossScheme->setCurrentItem(m_document->pattern()->palette().schemeName());
     ui.Instructions->setPlainText(m_document->property(QStringLiteral("instructions")).toString());
-    ui.ClothCountLink->setChecked(m_clothCountLink);
-    on_ClothCountLink_clicked(m_clothCountLink);
 }
 
 
 int FilePropertiesDlg::documentWidth() const
 {
-    return m_width;
+    return m_widthStitches;
 }
 
 
 int FilePropertiesDlg::documentHeight() const
 {
-    return m_height;
+    return m_heightStitches;
 }
 
 
@@ -161,32 +182,6 @@ void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 {
     m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);
 
-    switch (m_unitsFormat) {
-    case Configuration::EnumDocument_UnitsFormat::Stitches:
-        break;
-
-    case Configuration::EnumDocument_UnitsFormat::Inches:
-        if (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) {
-            m_horizontalClothCount *= 2.54;
-            m_verticalClothCount *= 2.54;
-        }
-
-        m_clothCountUnits = Configuration::EnumEditor_ClothCountUnits::Inches;
-        break;
-
-    case Configuration::EnumDocument_UnitsFormat::CM:
-        if (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Inches) {
-            m_horizontalClothCount /= 2.54;
-            m_verticalClothCount /= 2.54;
-        }
-
-        m_clothCountUnits = Configuration::EnumEditor_ClothCountUnits::CM;
-        break;
-
-    default: // Avoid compilation warnings about unhandled values
-        break;
-    }
-
     updatePatternSizes();
 }
 
@@ -197,7 +192,7 @@ void FilePropertiesDlg::on_PatternWidth_valueChanged(double d)
         d *= m_horizontalClothCount;
     }
 
-    m_width = std::max((int)d, m_minWidth);
+    m_widthStitches = std::max((int)d, m_minWidthStitches);
 }
 
 
@@ -207,7 +202,7 @@ void FilePropertiesDlg::on_PatternHeight_valueChanged(double d)
         d *= m_horizontalClothCount;
     }
 
-    m_height = std::max((int)d, m_minHeight);
+    m_heightStitches = std::max((int)d, m_minHeightStitches);
 }
 
 
@@ -219,9 +214,7 @@ void FilePropertiesDlg::on_HorizontalClothCount_valueChanged(double d)
         ui.VerticalClothCount->setValue(d);
     }
 
-    if (m_unitsFormat != Configuration::EnumDocument_UnitsFormat::Stitches) {
-        ui.PatternWidth->setValue(m_width / m_horizontalClothCount);
-    }
+    updatePatternSizes();
 }
 
 
@@ -229,9 +222,7 @@ void FilePropertiesDlg::on_VerticalClothCount_valueChanged(double d)
 {
     m_verticalClothCount = d;
 
-    if (m_unitsFormat != Configuration::EnumDocument_UnitsFormat::Stitches) {
-        ui.PatternHeight->setValue(m_height / m_verticalClothCount);
-    }
+    updatePatternSizes();
 }
 
 
@@ -268,27 +259,92 @@ void FilePropertiesDlg::on_DialogButtonBox_helpRequested()
 
 void FilePropertiesDlg::updatePatternSizes()
 {
+    // block signals from elements to avoid recursive calls
+    ui.UnitsFormat->blockSignals(true);
+    ui.PatternWidth->blockSignals(true);
+    ui.PatternHeight->blockSignals(true);
+    ui.HorizontalClothCount->blockSignals(true);
+    ui.VerticalClothCount->blockSignals(true);
+
     ui.UnitsFormat->setCurrentIndex(m_unitsFormat);
 
-    double horizontalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches) ? 1 : m_horizontalClothCount;
-    double verticalScale = (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches) ? 1 : m_verticalClothCount;
-    double scaledMinWidth = m_minWidth / horizontalScale;
-    double scaledMinHeight = m_minHeight / verticalScale;
-    double scaledWidth = m_width / horizontalScale;
-    double scaledHeight = m_height / verticalScale;
+    double horizontalScale = 1.0;
+    double verticalScale = 1.0;
+
+    switch (m_unitsFormat) {
+    case Configuration::EnumDocument_UnitsFormat::Inches:
+        if (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Inches) {
+            horizontalScale = m_horizontalClothCount;
+            verticalScale = m_verticalClothCount;
+        } else {
+            horizontalScale = m_horizontalClothCount * 2.54;
+            verticalScale = m_verticalClothCount * 2.54;
+        }
+
+        break;
+
+    case Configuration::EnumDocument_UnitsFormat::Centimeters:
+        if (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Centimeters) {
+            horizontalScale = m_horizontalClothCount;
+            verticalScale = m_verticalClothCount;
+        } else {
+            horizontalScale = m_horizontalClothCount / 2.54;
+            verticalScale = m_verticalClothCount / 2.54;
+        }
+
+        break;
+
+    default:
+        break;
+    }
+
+    double scaledMinWidth = m_minWidthStitches / horizontalScale;
+    double scaledMinHeight = m_minHeightStitches / verticalScale;
+
+    double scaledWidth = m_widthStitches / horizontalScale;
+    double scaledHeight = m_heightStitches / verticalScale;
+
+    if (m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches) {
+        ui.PatternWidth->setDecimals(0);
+        ui.PatternHeight->setDecimals(0);
+        ui.PatternWidth->setSingleStep(1);
+        ui.PatternHeight->setSingleStep(1);
+    } else {
+        ui.PatternWidth->setDecimals(2);
+        ui.PatternHeight->setDecimals(2);
+        ui.PatternWidth->setSingleStep(0.01);
+        ui.PatternHeight->setSingleStep(0.01);
+    }
 
     ui.PatternWidth->setMinimum(scaledMinWidth);
     ui.PatternHeight->setMinimum(scaledMinHeight);
+
     ui.PatternWidth->setValue(scaledWidth);
     ui.PatternHeight->setValue(scaledHeight);
+
+    if (m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Centimeters) {
+        ui.HorizontalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        ui.VerticalClothCount->setSuffix(i18nc("Per centimeter measurements", "/cm"));
+        ui.HorizontalClothCount->setDecimals(1);
+        ui.VerticalClothCount->setDecimals(1);
+        ui.HorizontalClothCount->setSingleStep(0.1);
+        ui.VerticalClothCount->setSingleStep(0.1);
+    } else {
+        ui.HorizontalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
+        ui.VerticalClothCount->setSuffix(i18nc("Per inch measurements", "/in"));
+        ui.HorizontalClothCount->setDecimals(0);
+        ui.VerticalClothCount->setDecimals(0);
+        ui.HorizontalClothCount->setSingleStep(1);
+        ui.VerticalClothCount->setSingleStep(1);
+    }
+
     ui.HorizontalClothCount->setValue(m_horizontalClothCount);
     ui.VerticalClothCount->setValue(m_verticalClothCount);
 
-    QString suffix = ((m_clothCountUnits == Configuration::EnumEditor_ClothCountUnits::CM) ? i18nc("Per centimeter measurements", "/cm") : i18nc("Per inch measurements", "/in"));
-    ui.HorizontalClothCount->setSuffix(suffix);
-    ui.VerticalClothCount->setSuffix(suffix);
-
-    double step = ((m_unitsFormat == Configuration::EnumDocument_UnitsFormat::Stitches) ? 1 : 0.01);
-    ui.PatternWidth->setSingleStep(step);
-    ui.PatternHeight->setSingleStep(step);
+    // re-enable signals from elements to avoid recursive calls
+    ui.UnitsFormat->blockSignals(false);
+    ui.PatternWidth->blockSignals(false);
+    ui.PatternHeight->blockSignals(false);
+    ui.HorizontalClothCount->blockSignals(false);
+    ui.VerticalClothCount->blockSignals(false);
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kxstitch" version="2.0.0">
+<kpartgui name="kxstitch" version="2.0.1">
 <MenuBar>
     <Menu name="file"><text>&amp;File</text>
         <Action name="filePrintSetup" append="print_merge"/>
@@ -34,7 +34,7 @@
         <Menu name="formatScalesAs">
             <text>Format Scales As</text>
             <Action name="formatScalesAsStitches"/>
-            <Action name="formatScalesAsCM"/>
+            <Action name="formatScalesAsCentimeters"/>
             <Action name="formatScalesAsInches"/>
         </Menu>
         <Menu name="renderStitchesAs">
@@ -139,7 +139,7 @@
     <Menu name="formatScalesAs">
         <text>Format Scales As</text>
         <Action name="formatScalesAsStitches"/>
-        <Action name="formatScalesAsCM"/>
+        <Action name="formatScalesAsCentimeters"/>
         <Action name="formatScalesAsInches"/>
     </Menu>
     <Menu name="renderStitchesAs">

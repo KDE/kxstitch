@@ -427,7 +427,7 @@ void KeyElement::render(Document *document, QPainter *painter) const
 {
     painter->save();
 
-    double unitLength = (1 / (document->property(QStringLiteral("horizontalClothCount")).toDouble() * (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt() == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1.0))) * 0.0254;
+    double unitLength = (1 / (document->property(QStringLiteral("horizontalClothCount")).toDouble() * (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt() == Configuration::EnumEditor_ClothCountUnits::Centimeters) ? 2.54 : 1.0))) * 0.0254;
     QMap<int, FlossUsage> flossUsage = document->pattern()->stitches().flossUsage();
     QMap<int, DocumentFloss *> flosses = document->pattern()->palette().flosses();
     QVector<int> sortedFlosses = document->pattern()->palette().sortedFlosses();
@@ -1116,8 +1116,8 @@ void PatternElement::render(Document *document, QPainter *painter) const
             // set as defaults above
             break;
 
-        case Configuration::EnumEditor_FormatScalesAs::CM:
-            // subtick should be 1/10 CM
+        case Configuration::EnumEditor_FormatScalesAs::Centimeters:
+            // subtick should be 1/10 Centimeters
             subTick = horizontalClothCount / (clothCountUnitsInches ? 25.4 : 10);
             minorTicks = 5;
             majorTicks = 10;
@@ -1191,8 +1191,8 @@ void PatternElement::render(Document *document, QPainter *painter) const
             textValueIncrement = cellVerticalGrouping;
             break;
 
-        case Configuration::EnumEditor_FormatScalesAs::CM:
-            // subTick should be 1/10 CM
+        case Configuration::EnumEditor_FormatScalesAs::Centimeters:
+            // subTick should be 1/10 Centimeters
             subTick = verticalClothCount / (clothCountUnitsInches ? 25.4 : 10);
             minorTicks = 5;
             majorTicks = 10;
@@ -1923,10 +1923,10 @@ QString TextElement::convertedText(Document *document) const
     replacement.replace(QRegExp(QStringLiteral("\\$\\{height.stitches\\}")), QString::fromLatin1("%1").arg(document->pattern()->stitches().height()));
     replacement.replace(QRegExp(QStringLiteral("\\$\\{width.inches\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().width() /
                         (document->property(QStringLiteral("horizontalClothCount")).toDouble() *
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Centimeters) ? 2.54 : 1)), 2)));
     replacement.replace(QRegExp(QStringLiteral("\\$\\{height.inches\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().height() /
                         (document->property(QStringLiteral("verticalClothCount")).toDouble() *
-                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::CM) ? 2.54 : 1)), 2)));
+                         ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Centimeters) ? 2.54 : 1)), 2)));
     replacement.replace(QRegExp(QStringLiteral("\\$\\{width.cm\\}")), QString::fromLatin1("%1").arg(round_n(document->pattern()->stitches().width() /
                         (document->property(QStringLiteral("horizontalClothCount")).toDouble() /
                          ((static_cast<Configuration::EnumEditor_ClothCountUnits::type>(document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches) ? 2.54 : 1)), 2)));
