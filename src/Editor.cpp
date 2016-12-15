@@ -1123,6 +1123,8 @@ void Editor::toolInitText()
             delete m_pastePattern;
             m_pastePattern = nullptr;
         }
+    } else { // dialog was cancelled, reset tool to paint
+        topLevelWidget()->findChild<QAction *>(QStringLiteral("toolPaint"))->trigger();
     }
 }
 
