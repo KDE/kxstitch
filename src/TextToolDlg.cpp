@@ -30,6 +30,7 @@ TextToolDlg::TextToolDlg(QWidget *parent)
 
     ui.TextToolFont->setCurrentFont(QFont(Configuration::textTool_FontFamily()));
     ui.TextToolSize->setValue(Configuration::textTool_FontSize());
+    ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
 
