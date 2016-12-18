@@ -11,6 +11,8 @@
 
 #include "PaletteManagerDlg.h"
 
+#include <QDesktopWidget>
+#include <QScreen>
 #include <QWidget>
 
 #include <KCharSelect>
@@ -287,6 +289,38 @@ void PaletteManagerDlg::on_Calibrate_clicked(bool)
 
     if (calibrateFlossDlg->exec() == QDialog::Accepted) {
         fillLists();
+    }
+}
+
+
+void PaletteManagerDlg::on_PickColor_clicked()
+{
+    setMouseTracking(true);
+    setCursor(Qt::CrossCursor);
+    grabMouse();
+}
+
+
+void PaletteManagerDlg::mouseReleaseEvent(QMouseEvent *event)
+{
+    releaseMouse();
+    setCursor(Qt::ArrowCursor);
+
+    QColor color = QGuiApplication::primaryScreen()->grabWindow(0).toImage().pixelColor(event->globalPos());
+    Floss *floss = m_scheme->convert(color);
+
+    QList<QListWidgetItem *> foundItems = ui.CurrentList->findItems(floss->name(), Qt::MatchStartsWith);
+
+    if (foundItems.count()) {
+        ui.CurrentList->setCurrentItem(foundItems.at(0));
+        ui.CurrentList->setFocus();
+    } else {
+        foundItems = ui.ColorList->findItems(floss->name(), Qt::MatchStartsWith);
+
+        if (foundItems.count()) {
+            ui.ColorList->setCurrentItem(foundItems.at(0));
+            ui.ColorList->setFocus();
+        }
     }
 }
 

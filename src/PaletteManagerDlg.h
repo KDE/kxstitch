@@ -14,6 +14,7 @@
 
 
 #include <QDialog>
+#include <QMouseEvent>
 
 #include "Document.h"
 #include "FlossScheme.h"
@@ -56,10 +57,12 @@ private slots:
     void on_NewFloss_clicked(bool);
     void on_ClearUnused_clicked(bool);
     void on_Calibrate_clicked(bool);
+    void on_PickColor_clicked();
     void on_DialogButtonBox_accepted();
     void on_DialogButtonBox_rejected();
     void on_DialogButtonBox_helpRequested();
-
+    void mouseReleaseEvent(QMouseEvent *);
+    
 private:
     void fillLists();
     void insertListWidgetItem(QListWidget *, QListWidgetItem *);
