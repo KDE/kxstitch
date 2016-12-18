@@ -15,6 +15,14 @@
             You can allocate the number of strands of cotton used for each floss, for both stitching and backstitching.
             This information will be used in calculating the amount of floss required in the final design.
         </para>
+        <para>
+            The dialog includes a <guilabel>Pick Color</guilabel> button which allows selection of a color from anywhere on screen. This could be from a
+            background image for example to allow easy selection of matching colors. The cursor will change to a cross with a color swatch indicating the
+            color of the pixel under the cross. After clicking on a pixel, a floss that closely matches the selected color will be selected in the flosses list.
+        </para>
+        <para>
+            <screenshot><mediaobject><imageobject><imagedata fileref="pick-color-cursor.png" format="PNG" /></imageobject></mediaobject></screenshot>
+        </para>
         <sect2 id="SymbolSelectorDialog" >
             <title>Symbol Selector</title>
             <para>
