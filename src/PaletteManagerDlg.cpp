@@ -341,7 +341,8 @@ void PaletteManagerDlg::on_PickColor_clicked()
 
 void PaletteManagerDlg::mouseMoveEvent(QMouseEvent *event)
 {
-    QColor color = QGuiApplication::primaryScreen()->grabWindow(0).toImage().pixelColor(event->globalPos());
+    QPoint hotSpot = event->globalPos();
+    QColor color = QGuiApplication::primaryScreen()->grabWindow(0, hotSpot.x(), hotSpot.y(), 1, 1).toImage().pixelColor(0, 0);
     QPixmap pixmap(32, 32);
     pixmap.fill(color);
 
