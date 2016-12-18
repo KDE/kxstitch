@@ -61,8 +61,9 @@ private slots:
     void on_DialogButtonBox_accepted();
     void on_DialogButtonBox_rejected();
     void on_DialogButtonBox_helpRequested();
+    void mouseMoveEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *);
-    
+
 private:
     void fillLists();
     void insertListWidgetItem(QListWidget *, QListWidgetItem *);
