@@ -151,8 +151,10 @@ void PrintSetupDlg::on_Zoom_currentIndexChanged(int zoomIndex)
 }
 
 
-void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListWidgetItem *)
+void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
+    Q_UNUSED(previous);
+
     if (current) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(current);
         m_pageLayoutEditor->setPagePreview(pagePreview);
@@ -196,7 +198,7 @@ void PrintSetupDlg::on_DeletePage_clicked()
         if (int rows = ui.Pages->count()) {
             ui.Pages->setCurrentRow(std::min(currentRow, rows - 1));
         } else {
-            on_Pages_currentItemChanged(0, pagePreview);
+            on_Pages_currentItemChanged(0, 0);
         }
     }
 
