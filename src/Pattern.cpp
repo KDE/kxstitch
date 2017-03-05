@@ -75,9 +75,9 @@ Pattern *Pattern::cut(const QRect &area, int colorMask, const QList<Stitch::Type
             QPoint src(column, row);
             QPoint dst(src - area.topLeft());
             StitchQueue *srcQ = stitches().takeStitchQueueAt(src);
-            StitchQueue *dstQ = new StitchQueue;
 
             if (srcQ) {
+                StitchQueue *dstQ = new StitchQueue;
                 // iterate the queue adding anything that matches the stitch mask or color mask to a new queue
                 int count = srcQ->count();
 
@@ -153,9 +153,9 @@ Pattern *Pattern::copy(const QRect &area,  int colorMask, const QList<Stitch::Ty
             QPoint src(column, row);
             QPoint dst(src - area.topLeft());
             StitchQueue *srcQ = stitches().stitchQueueAt(src);
-            StitchQueue *dstQ = new StitchQueue;
 
             if (srcQ) {
+                StitchQueue *dstQ = new StitchQueue;
                 QListIterator<Stitch *> stitchIterator(*srcQ);
 
                 while (stitchIterator.hasNext()) {
