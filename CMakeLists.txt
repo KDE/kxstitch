@@ -205,7 +205,7 @@ install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kxstitch)
 install (FILES kxstitch.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install (FILES org.kde.kxstitch.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install (FILES org.kde.kxstitch.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata)
+install (FILES org.kde.kxstitch.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 IF (SHARED_MIME_INFO_FOUND AND IS_DIRECTORY ${XDG_MIME_INSTALL_DIR})
     install (FILES kxstitch.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
