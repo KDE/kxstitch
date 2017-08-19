@@ -18,3 +18,5 @@ ECM_INSTALL_ICONS(ICONS
     DESTINATION ${ICON_INSTALL_DIR}
     THEME hicolor
 )
+
+add_subdirectory(app)

@@ -134,8 +134,6 @@ add_subdirectory(doc)
 
 kconfig_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 
-ecm_install_icons(ICONS 32-apps-kxstitch.png DESTINATION ${ICON_INSTALL_DIR})
-
 add_executable (kxstitch ${kxstitch_SRCS})
 
 target_link_libraries (kxstitch
