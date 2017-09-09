@@ -248,8 +248,8 @@ void Document::readKXStitch(QDataStream &stream)
 
         case 101:
             stream.setVersion(QDataStream::Qt_4_0); // maintain consistancy in the qt types
+            [[gnu::fallthrough]];                   // flow through to version 100
 
-            // flow through to version 100
         case 100:
             stream >> m_properties;
             stream >> layers;
