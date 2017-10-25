@@ -9,10 +9,20 @@
  */
 
 
+/** @file
+ * This file implements an overlay rectangle with corner nodes to be used on top
+ * of an element on the print layout pages allowing the user to change the size
+ * and position of the underlying element.
+ */
+
+
+// Class include
 #include "Boundary.h"
 
+// Qt includes
 #include <QPainter>
 
+// Application includes
 #include "Element.h"
 
 
@@ -28,12 +38,12 @@ Element *Boundary::element() const
 }
 
 
-const QPoint *Boundary::node(const QPoint &pos) const
+const QPoint *Boundary::node(const QPoint &point) const
 {
     int snapDistance = Configuration::page_SelectNodeSnapDistance();
 
     for (int node = 0 ; node < 4 ; node++) {
-        if (QRect(-snapDistance, -snapDistance, snapDistance * 2, snapDistance * 2).translated(m_nodes[node]).contains(pos)) {
+        if (QRect(-snapDistance, -snapDistance, snapDistance * 2, snapDistance * 2).translated(m_nodes[node]).contains(point)) {
             return &m_nodes[node];
         }
     }
@@ -91,13 +101,13 @@ void Boundary::setRectangle(const QRect &rectangle)
 }
 
 
-void Boundary::moveNode(const QPoint *node, const QPoint &pos)
+void Boundary::moveNode(const QPoint *node, const QPoint &point)
 {
     for (int i = 0 ; i < 4 ; i++) {
         if (m_nodes[i] == *node) {
-            int dx = pos.x() - node->x();
-            int dy = pos.y() - node->y();
-            m_nodes[i] = pos;
+            int dx = point.x() - node->x();
+            int dy = point.y() - node->y();
+            m_nodes[i] = point;
 
             switch (i) {
             case 0:
