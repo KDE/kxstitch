@@ -38,8 +38,8 @@ Floss *FlossScheme::convert(const QColor &color)
     Magick::Image image = Magick::Image(1, 1, "RGB", MagickLib::CharPixel, c);
 #endif
     image.map(*m_map);
-    const Magick::PixelPacket *pixels = image.getConstPixels(0, 0, 1, 1);
-    const Magick::ColorRGB rgb = Magick::Color(*pixels);
+
+    const Magick::ColorRGB rgb = image.pixelColor(0,0);
 
     return find(QColor((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue())));
 }

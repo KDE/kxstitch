@@ -305,9 +305,12 @@ void ImportImageDlg::renderPixmap()
     QProgressDialog progress(i18n("Rendering preview"), i18n("Cancel"), 0, pixelCount, this);
     progress.setWindowModality(Qt::WindowModal);
 
+#if MagickLibVersion < 0x700
     bool hasTransparency = m_convertedImage.matte();
-    const Magick::PixelPacket *pixels = m_convertedImage.getConstPixels(0, 0, width, height);
-
+#else
+    bool hasTransparency = m_convertedImage.alpha();
+#endif
+    
     for (int dy = 0 ; dy < height ; dy++) {
         QApplication::processEvents();
         progress.setValue(dy * width);
@@ -317,7 +320,7 @@ void ImportImageDlg::renderPixmap()
         }
 
         for (int dx = 0 ; dx < width ; dx++) {
-            Magick::ColorRGB rgb = Magick::Color(*pixels++);
+            Magick::ColorRGB rgb = m_convertedImage.pixelColor(dx, dy);
 
             if (hasTransparency && (rgb.alpha() == 1)) {
                 //ignore this pixel as it is transparent

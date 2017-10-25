@@ -543,7 +543,11 @@ void MainWindow::convertImage(const QString &source)
 
         bool useFractionals = importImageDlg->useFractionals();
 
+#if MagickLibVersion < 0x700
         bool hasTransparency = convertedImage.matte();
+#else
+        bool hasTransparency = convertedImage.alpha();
+#endif
         bool ignoreColor = importImageDlg->ignoreColor();
         Magick::Color ignoreColorValue = importImageDlg->ignoreColorValue();
 
@@ -564,8 +568,6 @@ void MainWindow::convertImage(const QString &source)
         QProgressDialog progress(i18n("Converting to stitches"), i18n("Cancel"), 0, pixelCount, this);
         progress.setWindowModality(Qt::WindowModal);
 
-        const Magick::PixelPacket *pixels = convertedImage.getConstPixels(0, 0, imageWidth, imageHeight);
-
         for (int dy = 0 ; dy < imageHeight ; dy++) {
             progress.setValue(dy * imageWidth);
             QApplication::processEvents();
@@ -577,8 +579,8 @@ void MainWindow::convertImage(const QString &source)
             }
 
             for (int dx = 0 ; dx < imageWidth ; dx++) {
-                Magick::ColorRGB rgb = Magick::Color(*pixels++);
-
+                Magick::ColorRGB rgb = convertedImage.pixelColor(dx, dy);
+                
                 if (hasTransparency && (rgb.alpha() == 1)) {
                     // ignore this pixel as it is transparent
                 } else {
