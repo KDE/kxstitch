@@ -342,7 +342,7 @@ void PaletteManagerDlg::on_PickColor_clicked()
 void PaletteManagerDlg::mouseMoveEvent(QMouseEvent *event)
 {
     QPoint hotSpot = event->globalPos();
-    QColor color = QGuiApplication::primaryScreen()->grabWindow(0, hotSpot.x(), hotSpot.y(), 1, 1).toImage().pixelColor(0, 0);
+    QColor color(QGuiApplication::primaryScreen()->grabWindow(0, hotSpot.x(), hotSpot.y(), 1, 1).toImage().pixel(0, 0));
     QPixmap pixmap(32, 32);
     pixmap.fill(color);
 
@@ -366,7 +366,7 @@ void PaletteManagerDlg::mouseReleaseEvent(QMouseEvent *event)
     setCursor(Qt::ArrowCursor);
     setMouseTracking(false);
 
-    QColor color = QGuiApplication::primaryScreen()->grabWindow(0).toImage().pixelColor(event->globalPos());
+    QColor color(QGuiApplication::primaryScreen()->grabWindow(0).toImage().pixel(event->globalPos()));
     Floss *floss = m_scheme->convert(color);
 
     QList<QListWidgetItem *> foundItems = ui.CurrentList->findItems(floss->name(), Qt::MatchStartsWith);
