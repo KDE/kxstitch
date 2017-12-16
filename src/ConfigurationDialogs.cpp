@@ -9,9 +9,10 @@
  */
 
 
+#include "ConfigurationDialogs.h"
+
 #include <KConfigDialogManager>
 
-#include "ConfigurationDialogs.h"
 #include "SchemeManager.h"
 #include "SymbolManager.h"
 
