@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 
     KAboutData aboutData(QStringLiteral("kxstitch"),                    // component name
                          QString(i18n("kxstitch")),                     // display name
-                         QStringLiteral("2.0.0"),                       // version
+                         QStringLiteral("2.1.0"),                       // version
                          i18n("A cross stitch pattern creator."),       // short description
                          KAboutLicense::GPL_V2,                         // license
                          i18n("(c) 2010-2015 Stephen Allewell"),        // copyright
