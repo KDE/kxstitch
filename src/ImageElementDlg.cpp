@@ -26,6 +26,8 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
         m_imageElement(imageElement),
         m_document(document)
 {
+    setWindowModality(Qt::WindowModal);
+    
     setWindowTitle(i18n("Image Element Properties"));
     ui.setupUi(this);
 

@@ -49,6 +49,8 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
         m_document(document),
         m_printer(printer)
 {
+    setWindowModality(Qt::WindowModal);
+    
     setWindowTitle(i18n("Print Setup"));
 
     ui.setupUi(this);

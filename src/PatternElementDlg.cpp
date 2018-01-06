@@ -25,6 +25,8 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
         m_document(document),
         m_patternRects(patternRects)
 {
+    setWindowModality(Qt::WindowModal);
+    
     setWindowTitle(i18n("Pattern Element Properties"));
 
     ui.setupUi(this);
