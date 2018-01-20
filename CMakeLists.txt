@@ -199,6 +199,12 @@ add_definitions(
     ${magick_config_quantum}
 )
 
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    message (STATUS "Processing translations")
+    ki18n_install(po)
+    kdoctools_install(po)
+endif(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+
 install (TARGETS kxstitch DESTINATION ${BIN_INSTALL_DIR})
 install (FILES kxstitchui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kxstitch)
 install (FILES kxstitch.kcfg DESTINATION ${KCFG_INSTALL_DIR})
@@ -211,3 +217,4 @@ IF (SHARED_MIME_INFO_FOUND AND IS_DIRECTORY ${XDG_MIME_INSTALL_DIR})
 ENDIF(SHARED_MIME_INFO_FOUND AND IS_DIRECTORY ${XDG_MIME_INSTALL_DIR})
 
 feature_summary (WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
