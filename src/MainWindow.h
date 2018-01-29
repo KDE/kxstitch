@@ -119,7 +119,7 @@ private:
     void setupActionDefaults();
     void setupActionsFromDocument();
     void convertImage(const QString &);
-    void convertPreview(const QString &);
+    void convertPreview(const QString &, const QRect &);
     QPrinter *printer();
 
     Document    *m_document;

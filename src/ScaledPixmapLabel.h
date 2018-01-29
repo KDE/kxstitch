@@ -24,6 +24,9 @@
 #include <QLabel>
 #include <QPixmap>
 
+// Forward declaration of classes
+class QMouseEvent;
+
 
 /**
  * This class extends QLabel to scale the associated QPixmap to fill the QLabel
@@ -65,7 +68,18 @@ public:
      * @return a QRect representing the area occupied by the pixmap
      */
     QRect pixmapRect() const;
-
+    
+signals:
+    /**
+     * Emit a signal to notify a change in the crop area.
+     * The value is scaled to relate to the modified image not the size of the QLabel.
+     * A QRectF is used for accuracy to prevent rounding error with the various scaling
+     * that occurs.
+     * 
+     * @param rect a QRect defining the area of the image being cropped
+     */
+    void imageCropped(const QRectF &rectF);
+    
 public slots:
     /**
      * Set the pixmap of the QLabel to a scaled version of the supplied pixmap.
@@ -75,6 +89,13 @@ public slots:
      * @param pixmap a const reference to the QPixmap to be assigned to the QLabel
      */
     void setPixmap(const QPixmap &pixmap);
+    
+    /**
+     * Enable cropping of the image
+     *
+     * @param checked is a bool enabling cropping of the image
+     */
+    void setCropping(bool checked);
 
 protected:
     /**
@@ -86,9 +107,52 @@ protected:
      * @param event is a pointer to a QResizeEvent
      */
     virtual void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    
+    /**
+     * Override the paint event to allow drawing of a crop rectangle based on the
+     * value of m_crop.
+     * 
+     * @param event is a pointer to a QPaintEvent
+     */
+    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    
+    /**
+     * Override the mousePressEvent to begin a crop operation of the image
+     * defining the start position.
+     * 
+     * @param event is a pointer to the QMouseEvent
+     */
+    virtual void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    
+    /**
+     * Override the mouseMoveEvent to drag a selection rectangle across the
+     * image to define the crop area.
+     * 
+     * @param event is a pointer to the QMouseEvent
+     */
+    virtual void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    
+    /** 
+     * Override the mouseReleaseEvent to end the selection of a crop area.
+     * 
+     * @param event is a pointer to the QMouseEvent
+     */
+    virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    
+    /**
+     * When the mouse leaves the widget, update the view so that the
+     * guides are removed.
+     *
+     * @param event is a pointer to the QEvent
+     */
+    virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QPixmap m_pixmap;   /**< copy of the pixmap which is scaled to fill the label */
+    bool    m_cropping; /**< true if cropping is enabled */
+    QPoint  m_start;    /**< start position of the crop rectangle */
+    QPoint  m_end;      /**< end position of the crop rectangle */
+    QRect   m_crop;     /**< rectangle defining the crop area in normalized coordinates */
 };
 
 

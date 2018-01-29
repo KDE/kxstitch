@@ -50,6 +50,7 @@ public:
     double horizontalClothCount() const;
     double verticalClothCount() const;
     bool useFractionals() const;
+    QRect croppedArea() const;
 
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
@@ -66,6 +67,9 @@ private slots:
     void on_VerticalClothCount_valueChanged(double);
     void on_ClothCountLink_clicked(bool);
     void on_PatternScale_valueChanged(int);
+    void on_CropEnabled_toggled(bool);
+    void on_CropReset_clicked(bool);
+    void imageCropped(const QRectF &rectF);
     void on_UseFractionals_toggled(bool);
     void selectColor(const QPoint &);
     void on_DialogButtonBox_accepted();
@@ -74,6 +78,7 @@ private slots:
     void on_DialogButtonBox_clicked(QAbstractButton *);
 
 private:
+    void updateWindowTitle();
     void resetImportParameters();
     void clothCountChanged(double, double);
     void calculateSizes();
@@ -86,15 +91,13 @@ private:
     QPixmap     m_pixmap;
     QSize       m_originalSize;
     QSize       m_preferredSize;
-    bool        m_useMaximumColors;
-    bool        m_useFractionals;
-    bool        m_ignoreColor;
     int         m_timer;
     AlphaSelect *m_alphaSelect;
     Magick::ColorRGB    m_ignoreColorValue;
     Magick::Image       m_originalImage;
     Magick::Image       m_convertedImage;
     Magick::Image       m_colorMap;
+    QRect       m_crop;
 };
 
 

@@ -104,7 +104,6 @@ MainWindow::MainWindow(const QString &source)
     setupActionDefaults();
     loadSettings();
     convertImage(source);
-    convertPreview(source);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
@@ -510,7 +509,6 @@ void MainWindow::fileImportImage()
             if (job->exec()) {
                 if (docEmpty) {
                     convertImage(tmpFile.fileName());
-                    convertPreview(tmpFile.fileName());
                     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
                 } else {
                     window = new MainWindow(tmpFile.fileName());
@@ -621,16 +619,19 @@ void MainWindow::convertImage(const QString &source)
         new SetPropertyCommand(m_document, QStringLiteral("horizontalClothCount"), importImageDlg->horizontalClothCount(), importImageCommand);
         new SetPropertyCommand(m_document, QStringLiteral("verticalClothCount"), importImageDlg->verticalClothCount(), importImageCommand);
         m_document->undoStack().push(importImageCommand);
+        
+        convertPreview(source, importImageDlg->croppedArea());
     }
 
     delete importImageDlg;
 }
 
 
-void MainWindow::convertPreview(const QString &source)
+void MainWindow::convertPreview(const QString &source, const QRect &croppedArea)
 {
     QPixmap pixmap;
     pixmap.load(source);
+    pixmap = pixmap.copy(croppedArea);
     m_imageLabel->setPixmap(pixmap);
 }
 

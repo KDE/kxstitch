@@ -54,19 +54,52 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
 {
     ui.setupUi(this);
 
-    ui.FlossScheme->addItems(SchemeManager::schemes());
+    m_crop = QRect(0, 0, m_originalImage.columns(), m_originalImage.rows());
+    m_originalSize = QSize(m_crop.width(), m_crop.height());
+    updateWindowTitle();
+    
+    // disable some signals whilst the dialog is setup
+    ui.FlossScheme->blockSignals(true);
+    ui.UseMaximumColors->blockSignals(true);
+    ui.MaximumColors->blockSignals(true);
+    ui.IgnoreColor->blockSignals(true);
+    ui.ColorButton->blockSignals(true);
+    ui.HorizontalClothCount->blockSignals(true);
+    ui.VerticalClothCount->blockSignals(true);
+    ui.ClothCountLink->blockSignals(true);
+    ui.PatternScale->blockSignals(true);
+    ui.CropEnabled->blockSignals(true);
+    ui.CropReset->blockSignals(true);
+    ui.UseFractionals->blockSignals(true);
 
-    m_originalSize = QSize(m_originalImage.columns(), m_originalImage.rows());
-    QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_originalSize.width(), m_originalSize.height());
-    setWindowTitle(caption);
+    ui.FlossScheme->addItems(SchemeManager::schemes());
+    ui.CropReset->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
 
     resetImportParameters();
-
-    m_useFractionals = ui.UseFractionals->isChecked();
-    m_ignoreColor = ui.IgnoreColor->isChecked();
-
     createImageMap();
     renderPixmap();
+
+    // unblock signals now the dialog is setup
+    ui.FlossScheme->blockSignals(false);
+    ui.UseMaximumColors->blockSignals(false);
+    ui.MaximumColors->blockSignals(false);
+    ui.IgnoreColor->blockSignals(false);
+    ui.ColorButton->blockSignals(false);
+    ui.HorizontalClothCount->blockSignals(false);
+    ui.VerticalClothCount->blockSignals(false);
+    ui.ClothCountLink->blockSignals(false);
+    ui.PatternScale->blockSignals(false);
+    ui.CropEnabled->blockSignals(false);
+    ui.CropReset->blockSignals(false);
+    ui.UseFractionals->blockSignals(false);
+    connect(ui.ImagePreview, SIGNAL(imageCropped(const QRectF &)), this, SLOT(imageCropped(const QRectF &)));
+}
+
+
+void ImportImageDlg::updateWindowTitle()
+{
+    QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_crop.width(), m_crop.height());
+    setWindowTitle(caption);
 }
 
 
@@ -78,7 +111,7 @@ Magick::Image ImportImageDlg::convertedImage() const
 
 bool ImportImageDlg::ignoreColor() const
 {
-    return m_ignoreColor;
+    return ui.IgnoreColor->isChecked();
 }
 
 
@@ -108,7 +141,13 @@ double ImportImageDlg::verticalClothCount() const
 
 bool ImportImageDlg::useFractionals() const
 {
-    return m_useFractionals;
+    return ui.UseFractionals->isChecked();
+}
+
+
+QRect ImportImageDlg::croppedArea() const
+{
+    return m_crop;
 }
 
 
@@ -139,7 +178,8 @@ void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString&)
 
 void ImportImageDlg::on_UseMaximumColors_toggled(bool checked)
 {
-    m_useMaximumColors = checked;
+    Q_UNUSED(checked);
+    
     killTimer(m_timer);
     m_timer = startTimer(500);
 }
@@ -154,10 +194,11 @@ void ImportImageDlg::on_MaximumColors_valueChanged(int)
 
 void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 {
+    Q_UNUSED(checked);
+    
     delete m_alphaSelect;
     m_alphaSelect = nullptr;
 
-    m_ignoreColor = checked;
     renderPixmap();
 }
 
@@ -242,9 +283,47 @@ void ImportImageDlg::on_PatternScale_valueChanged(int)
 }
 
 
+void ImportImageDlg::on_CropEnabled_toggled(bool checked)
+{
+    ui.ImagePreview->setCropping(checked);
+    if (!checked) {
+        on_CropReset_clicked(true);
+    }
+}
+
+
+void ImportImageDlg::on_CropReset_clicked(bool checked)
+{
+    Q_UNUSED(checked);
+    
+    m_convertedImage = m_originalImage;
+    m_crop = QRect(0, 0, m_originalImage.columns(), m_originalImage.rows());
+    updateWindowTitle();
+
+    renderPixmap();
+}
+
+
+void ImportImageDlg::imageCropped(const QRectF &rectF)
+{
+    // rectF is new crop rectangle relative to m_convertedImage size
+    // scale rect from m_convertedImage size to m_originalSize
+    // m_original size may be cropped from m_originalImage, but is not scaled.
+    // add new crop to original one.
+    double scaleFactor = (double)m_originalSize.width() / (double)m_convertedImage.columns();
+    QRect scaledCrop = QRect(scaleFactor*rectF.left(), scaleFactor*rectF.top(), scaleFactor*rectF.width(), scaleFactor*rectF.height());
+    m_crop = QRect(m_crop.left()+scaledCrop.left(), m_crop.top()+scaledCrop.top(), scaledCrop.width(), scaledCrop.height());
+    
+    updateWindowTitle();
+    
+    renderPixmap();
+}
+
+
 void ImportImageDlg::on_UseFractionals_toggled(bool checked)
 {
-    m_useFractionals = checked;
+    Q_UNUSED(checked);
+    
     killTimer(m_timer);
     m_timer = startTimer(500);
 }
@@ -253,10 +332,17 @@ void ImportImageDlg::on_UseFractionals_toggled(bool checked)
 void ImportImageDlg::calculateSizes()
 {
     m_convertedImage = m_originalImage;
-    m_preferredSize = m_originalSize * ui.PatternScale->value() / 100;
+    
+    if (m_crop.isValid()) {
+        m_convertedImage.chop(Magick::Geometry(m_crop.left(),m_crop.top()));
+        m_convertedImage.crop(Magick::Geometry(m_crop.width(),m_crop.height()));
+        m_originalSize = QSize(m_convertedImage.columns(), m_convertedImage.rows());
+    }
+    
+    m_preferredSize = m_originalSize * ui.PatternScale->value() / 100;    
     QSize imageSize = m_preferredSize;
 
-    if (m_useFractionals) {
+    if (ui.UseFractionals->isChecked()) {
         imageSize *= 2;
     }
 
@@ -325,7 +411,7 @@ void ImportImageDlg::renderPixmap()
             if (hasTransparency && (rgb.alpha() == 1)) {
                 //ignore this pixel as it is transparent
             } else {
-                if (!(m_ignoreColor && rgb == m_ignoreColorValue)) {
+                if (!(ui.IgnoreColor->isChecked() && rgb == m_ignoreColorValue)) {
                     QColor color((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue()));
                     painter.setPen(QPen(color));
                     painter.drawPoint(dx, dy);
@@ -349,7 +435,7 @@ void ImportImageDlg::timerEvent(QTimerEvent*)
 
 void ImportImageDlg::pickColor()
 {
-    if (m_ignoreColor) {
+    if (ui.IgnoreColor->isChecked()) {
         m_alphaSelect = new AlphaSelect(ui.ImagePreview);
         connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(QPoint)));
         m_alphaSelect->show();
@@ -405,8 +491,8 @@ void ImportImageDlg::on_DialogButtonBox_helpRequested()
 void ImportImageDlg::on_DialogButtonBox_clicked(QAbstractButton *button)
 {
     if (ui.DialogButtonBox->button(QDialogButtonBox::Reset) == button) {
-        // Reset values
         m_convertedImage = m_originalImage;
+        resetImportParameters();
         renderPixmap();
     }
 }
@@ -446,7 +532,7 @@ void ImportImageDlg::resetImportParameters()
     ui.ClothCountLink->setIcon(ui.ClothCountLink->isChecked() ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
-
+    
     Configuration::EnumDocument_UnitsFormat::type preferredSizeUnits = Configuration::document_UnitsFormat();
     
     switch (preferredSizeUnits) {
@@ -491,7 +577,7 @@ void ImportImageDlg::resetImportParameters()
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
     int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
     int scale = std::min(scaledWidth, scaledHeight);
-
+    
     QString scheme = Configuration::palette_DefaultScheme();
 
     if (SchemeManager::scheme(scheme) == nullptr) {
@@ -501,6 +587,7 @@ void ImportImageDlg::resetImportParameters()
     ui.FlossScheme->setCurrentItem(scheme);
     ui.PatternScale->setValue(scale);
     ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
+    ui.MaximumColors->setEnabled(ui.UseMaximumColors->isChecked());
     ui.MaximumColors->setValue(Configuration::import_MaximumColors());
     ui.MaximumColors->setMaximum(SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
     ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));

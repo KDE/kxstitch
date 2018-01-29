@@ -19,19 +19,35 @@
 // Class include
 #include "ScaledPixmapLabel.h"
 
+// Qt includes
+#include <QMouseEvent>
+#include <QPainter>
+#include <QStyleOptionRubberBand>
+
 
 ScaledPixmapLabel::ScaledPixmapLabel(QWidget *parent)
-    : QLabel(parent)
+    : QLabel(parent),
+      m_cropping(false)
 {
     setMinimumSize(1,1);
     setAlignment(Qt::AlignCenter);
+    setMouseTracking(true);
 }
 
 
 void ScaledPixmapLabel::setPixmap(const QPixmap &pixmap)
 {
     m_pixmap = pixmap;
+    m_crop = QRect();
     QLabel::setPixmap(m_pixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+}
+
+
+void ScaledPixmapLabel::setCropping(bool checked)
+{
+    m_cropping = checked;
+    m_crop = QRect();
+    update();
 }
 
 
@@ -65,4 +81,76 @@ void ScaledPixmapLabel::resizeEvent(QResizeEvent *event)
     Q_UNUSED(event);
 
     QLabel::setPixmap(m_pixmap.scaled(this->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+}
+
+
+void ScaledPixmapLabel::paintEvent(QPaintEvent *event)
+{
+    QLabel::paintEvent(event);
+
+    QPainter painter(this);    
+    painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
+
+    if (m_crop.isValid()) {
+
+        QStyleOptionRubberBand opt;
+        opt.initFrom(this);
+        opt.shape = QRubberBand::Rectangle;
+        opt.opaque = false;
+        opt.rect = m_crop.adjusted(0, 0, 1, 1);
+
+        style()->drawControl(QStyle::CE_RubberBand, &opt, &painter);
+    } else {
+        if (m_cropping && underMouse() && (children().count() == 0)) {
+            // draw guides
+            QPoint cursor = mapFromGlobal(QCursor::pos());
+            painter.drawLine(cursor.x(),0,cursor.x(),size().height());
+            painter.drawLine(0,cursor.y(),size().width(),cursor.y());
+        }
+    }
+}
+
+
+void ScaledPixmapLabel::mousePressEvent(QMouseEvent *event)
+{
+    if (m_cropping) {
+        m_start = event->pos();
+        m_crop = QRect();
+        update();
+    }
+}
+
+
+void ScaledPixmapLabel::mouseMoveEvent(QMouseEvent *event)
+{
+    if (m_cropping && (event->buttons() & Qt::LeftButton)) {
+        m_end = event->pos();
+        m_crop = pixmapRect().intersected(QRect(m_start, m_end).normalized());
+    }   
+
+    update();
+}
+
+
+void ScaledPixmapLabel::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (m_cropping) {
+        m_end = event->pos();
+        m_crop = pixmapRect().intersected(QRect(m_start, m_end).normalized());
+        update();
+        
+        double scale = (double)m_pixmap.size().width()/(double)pixmap()->size().width();
+        m_crop.translate(-pixmapRect().topLeft());
+        QRectF cropF(scale*m_crop.x(), scale*m_crop.y(), scale*m_crop.width(), scale*m_crop.height());
+
+        emit imageCropped(cropF);
+        
+        m_crop = QRect();
+    }
+}
+
+void ScaledPixmapLabel::leaveEvent(QEvent *event)
+{
+    update();
+    QLabel::leaveEvent(event);
 }
