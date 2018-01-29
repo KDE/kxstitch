@@ -125,6 +125,12 @@
             changed as required.
         </para>
         <para>
+            The <guilabel>Crop image</guilabel> checkbox enables cropping of the preview image. Click and drag across the preview image to
+            select the area required. Guide lines are shown before selecting the starting point to allow more accurate placement. Once an
+            area is selected the preview will be rerendered to show the cropped area. Further cropping can be done if required. Clicking on
+            the reset button, or turning off cropping will revert the preview to the original image.
+        </para>
+        <para>
             The <guilabel>Use fractionals</guilabel> checkbox will enable the use of fractional stitches in the imported pattern.  This
             effectively doubles the import resolution without affecting the overall size of the pattern.
         </para>
