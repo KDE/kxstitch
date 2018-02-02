@@ -307,8 +307,10 @@ void ImportImageDlg::renderPixmap()
 
 #if MagickLibVersion < 0x700
     bool hasTransparency = m_convertedImage.matte();
+    double transparent = 1.0;
 #else
     bool hasTransparency = m_convertedImage.alpha();
+    double transparent = 0.0;
 #endif
     
     for (int dy = 0 ; dy < height ; dy++) {
@@ -322,7 +324,7 @@ void ImportImageDlg::renderPixmap()
         for (int dx = 0 ; dx < width ; dx++) {
             Magick::ColorRGB rgb = m_convertedImage.pixelColor(dx, dy);
 
-            if (hasTransparency && (rgb.alpha() == 1)) {
+            if (hasTransparency && (rgb.alpha() == transparent)) {
                 //ignore this pixel as it is transparent
             } else {
                 if (!(m_ignoreColor && rgb == m_ignoreColorValue)) {
