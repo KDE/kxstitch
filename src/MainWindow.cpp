@@ -543,8 +543,10 @@ void MainWindow::convertImage(const QString &source)
 
 #if MagickLibVersion < 0x700
         bool hasTransparency = convertedImage.matte();
+        double transparent = 1.0;
 #else
         bool hasTransparency = convertedImage.alpha();
+        double transparent = 0.0;
 #endif
         bool ignoreColor = importImageDlg->ignoreColor();
         Magick::Color ignoreColorValue = importImageDlg->ignoreColorValue();
@@ -579,7 +581,7 @@ void MainWindow::convertImage(const QString &source)
             for (int dx = 0 ; dx < imageWidth ; dx++) {
                 Magick::ColorRGB rgb = convertedImage.pixelColor(dx, dy);
                 
-                if (hasTransparency && (rgb.alpha() == 1)) {
+                if (hasTransparency && (rgb.alpha() == transparent)) {
                     // ignore this pixel as it is transparent
                 } else {
                     if (!(ignoreColor && (rgb == ignoreColorValue))) {
