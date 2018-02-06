@@ -92,7 +92,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     ui.CropEnabled->blockSignals(false);
     ui.CropReset->blockSignals(false);
     ui.UseFractionals->blockSignals(false);
-    connect(ui.ImagePreview, SIGNAL(imageCropped(const QRectF &)), this, SLOT(imageCropped(const QRectF &)));
+    connect(ui.ImagePreview, SIGNAL(imageCropped(QRectF)), this, SLOT(imageCropped(QRectF)));
 }
 
 
