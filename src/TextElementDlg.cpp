@@ -16,6 +16,7 @@
 #include "TextElementDlg.h"
 
 #include <QColorDialog>
+#include <QButtonGroup>
 
 #include <KHelpClient>
 #include <KLocalizedString>

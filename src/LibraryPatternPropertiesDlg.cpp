@@ -11,6 +11,8 @@
 
 #include "LibraryPatternPropertiesDlg.h"
 
+#include <QIcon>
+
 #include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
