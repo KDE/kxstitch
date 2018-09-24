@@ -1084,22 +1084,16 @@ void PaletteReplaceColorCommand::redo()
     if (m_stitches.count() || m_backstitches.count() || m_knots.count()) {
         // populated from a previous redo call
         // iterator over the existing pointers
-        QListIterator<Stitch *> stitchIterator(m_stitches);
-
-        while (stitchIterator.hasNext()) {
-            stitchIterator.next()->colorIndex = m_replacementIndex;
+        for (Stitch *stitch : m_stitches) {
+            stitch->colorIndex = m_replacementIndex;
         }
 
-        QListIterator<Backstitch *> backstitchIterator(m_backstitches);
-
-        while (backstitchIterator.hasNext()) {
-            backstitchIterator.next()->colorIndex = m_replacementIndex;
+        for (Backstitch *backstitch : m_backstitches) {
+            backstitch->colorIndex = m_replacementIndex;
         }
 
-        QListIterator<Knot *> knotIterator(m_knots);
-
-        while (knotIterator.hasNext()) {
-            knotIterator.next()->colorIndex = m_replacementIndex;
+        for (Knot *knot : m_knots) {
+            knot->colorIndex = m_replacementIndex;
         }
     } else {
         // search the stitch data for stitches of the required color
