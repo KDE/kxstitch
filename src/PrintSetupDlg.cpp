@@ -73,9 +73,9 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
 
-    connect(m_pageLayoutEditor, SIGNAL(selectionMade(QRect)), this, SLOT(selectionMade(QRect)));
-    connect(m_pageLayoutEditor, SIGNAL(elementGeometryChanged()), this, SLOT(elementGeometryChanged()));
-    connect(m_pageLayoutEditor, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(previewContextMenuRequested(QPoint)));
+    connect(m_pageLayoutEditor, &PageLayoutEditor::selectionMade, this, &PrintSetupDlg::selectionMade);
+    connect(m_pageLayoutEditor, &PageLayoutEditor::elementGeometryChanged, this, &PrintSetupDlg::elementGeometryChanged);
+    connect(m_pageLayoutEditor, &PageLayoutEditor::customContextMenuRequested, this, &PrintSetupDlg::previewContextMenuRequested);
 
     ui.PaperSize->setCurrentIndex(Configuration::page_Size());
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
@@ -319,11 +319,11 @@ void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
         QMenu *contextMenu = new QMenu(this);
 
         if (m_elementUnderCursor == nullptr || m_elementUnderCursor->type() != Element::Plan) {
-            contextMenu->addAction(i18n("Properties"), this, SLOT(properties()));
+            contextMenu->addAction(i18n("Properties"), this, &PrintSetupDlg::properties);
 
             if (m_elementUnderCursor) {
                 contextMenu->addSeparator();
-                contextMenu->addAction(i18n("Delete Element"), this, SLOT(deleteElement()));
+                contextMenu->addAction(i18n("Delete Element"), this, &PrintSetupDlg::deleteElement);
             }
         }
 

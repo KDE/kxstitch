@@ -38,7 +38,7 @@ LibraryTreeWidget::LibraryTreeWidget(QWidget *parent)
 {
     setAcceptDrops(true);
     m_openBranchTimer = new QTimer(this);
-    connect(m_openBranchTimer, SIGNAL(timeout()), this, SLOT(openBranch()));
+    connect(m_openBranchTimer, &QTimer::timeout, this, &LibraryTreeWidget::openBranch);
 }
 
 

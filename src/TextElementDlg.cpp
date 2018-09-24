@@ -46,7 +46,7 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     group->addButton(ui.AlignRight);
     group->addButton(ui.AlignJustify);
     group->setExclusive(true);
-    connect(group, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(textAlign(QAbstractButton*)));
+    connect(group, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked), this, &TextElementDlg::textAlign);
     alignmentChanged(m_textElement->m_alignment);
 
     ui.MarginLeft->setValue(m_textElement->m_margins.left());

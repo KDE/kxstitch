@@ -49,7 +49,7 @@ PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
     setPagePreview(nullptr);
     setMouseTracking(true);
 
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequestedOn(QPoint)));
+    connect(this, &PageLayoutEditor::customContextMenuRequested, this, &PageLayoutEditor::contextMenuRequestedOn);
 }
 
 

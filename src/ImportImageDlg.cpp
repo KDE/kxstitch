@@ -92,7 +92,7 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     ui.CropEnabled->blockSignals(false);
     ui.CropReset->blockSignals(false);
     ui.UseFractionals->blockSignals(false);
-    connect(ui.ImagePreview, SIGNAL(imageCropped(QRectF)), this, SLOT(imageCropped(QRectF)));
+    connect(ui.ImagePreview, &ScaledPixmapLabel::imageCropped, this, &ImportImageDlg::imageCropped);
 }
 
 
@@ -206,7 +206,7 @@ void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 void ImportImageDlg::on_ColorButton_clicked(bool)
 {
     m_alphaSelect = new AlphaSelect(ui.ImagePreview);
-    connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(QPoint)));
+    connect(m_alphaSelect, &AlphaSelect::clicked, this, &ImportImageDlg::selectColor);
     m_alphaSelect->show();
 }
 
@@ -439,7 +439,7 @@ void ImportImageDlg::pickColor()
 {
     if (ui.IgnoreColor->isChecked()) {
         m_alphaSelect = new AlphaSelect(ui.ImagePreview);
-        connect(m_alphaSelect, SIGNAL(clicked(QPoint)), this, SLOT(selectColor(QPoint)));
+        connect(m_alphaSelect, &AlphaSelect::clicked, this, &ImportImageDlg::selectColor);
         m_alphaSelect->show();
     } else {
         delete m_alphaSelect;

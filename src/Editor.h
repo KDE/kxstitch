@@ -119,16 +119,15 @@ public slots:
     void renderGrid(bool);
     void renderBackgroundImages(bool);
 
-    void renderStitchesAs();
-    void renderBackstitchesAs();
-    void renderKnotsAs();
+    void renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type);
+    void renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type);
+    void renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type);
 
     void colorHighlight(bool);
 
-    void selectTool();
     void selectTool(ToolMode);
 
-    void selectStitch();
+    void selectStitch(Editor::SelectedStitchType);
 
     void setMaskStitch(bool);
     void setMaskColor(bool);

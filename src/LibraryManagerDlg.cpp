@@ -111,14 +111,14 @@ void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &position)
 {
     m_contextMenu.clear();
-    m_contextMenu.addAction(i18n("New Category"), this, SLOT(newCategory()));
+    m_contextMenu.addAction(i18n("New Category"), this, &LibraryManagerDlg::newCategory);
 
     if ((m_contextTreeItem = static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->itemAt(position)))) {
-        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addLibraryToExportList()));
-        m_contextMenu.addAction(i18n("Properties..."), this, SLOT(libraryProperties()));
+        m_contextMenu.addAction(i18n("Add to Export List"), this, &LibraryManagerDlg::addLibraryToExportList);
+        m_contextMenu.addAction(i18n("Properties..."), this, &LibraryManagerDlg::libraryProperties);
 
         if (QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch"))) {
-            m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
+            m_contextMenu.addAction(i18n("Paste"), this, &LibraryManagerDlg::pasteFromClipboard);
         }
     }
 
@@ -131,14 +131,14 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
     m_contextMenu.clear();
 
     if ((m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))) {
-        m_contextMenu.addAction(i18n("Properties..."), this, SLOT(patternProperties()));
+        m_contextMenu.addAction(i18n("Properties..."), this, &LibraryManagerDlg::patternProperties);
 //        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 //        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
-        m_contextMenu.addAction(i18n("Delete"), this, SLOT(deletePattern()));
+        m_contextMenu.addAction(i18n("Delete"), this, &LibraryManagerDlg::deletePattern);
         m_contextMenu.popup(QCursor::pos());
     } else {
         if (QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch")) && ui.LibraryTree->selectedItems().count() == 1) {
-            m_contextMenu.addAction(i18n("Paste"), this, SLOT(pasteFromClipboard()));
+            m_contextMenu.addAction(i18n("Paste"), this, &LibraryManagerDlg::pasteFromClipboard);
             m_contextMenu.popup(QCursor::pos());
         }
     }

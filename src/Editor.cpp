@@ -624,25 +624,25 @@ void Editor::renderBackgroundImages(bool show)
 }
 
 
-void Editor::renderStitchesAs()
+void Editor::renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type type)
 {
-    m_renderStitchesAs = static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(qobject_cast<QAction *>(sender())->data().toInt());
+    m_renderStitchesAs = type;
     m_renderer.setRenderStitchesAs(m_renderStitchesAs);
     drawContents();
 }
 
 
-void Editor::renderBackstitchesAs()
+void Editor::renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type type)
 {
-    m_renderBackstitchesAs = static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(qobject_cast<QAction *>(sender())->data().toInt());
+    m_renderBackstitchesAs = type;
     m_renderer.setRenderBackstitchesAs(m_renderBackstitchesAs);
     drawContents();
 }
 
 
-void Editor::renderKnotsAs()
+void Editor::renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type type)
 {
-    m_renderKnotsAs = static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(qobject_cast<QAction *>(sender())->data().toInt());
+    m_renderKnotsAs = type;
     m_renderer.setRenderKnotsAs(m_renderKnotsAs);
     drawContents();
 }
@@ -652,12 +652,6 @@ void Editor::colorHighlight(bool set)
 {
     m_colorHighlight = set;
     drawContents();
-}
-
-
-void Editor::selectTool()
-{
-    selectTool(static_cast<Editor::ToolMode>(qobject_cast<QAction *>(sender())->data().toInt()));
 }
 
 
@@ -675,9 +669,9 @@ void Editor::selectTool(ToolMode toolMode)
 }
 
 
-void Editor::selectStitch()
+void Editor::selectStitch(Editor::SelectedStitchType stitchType)
 {
-    m_currentStitchType = static_cast<Editor::SelectedStitchType>(qobject_cast<QAction *>(sender())->data().toInt());
+    m_currentStitchType = stitchType;
 }
 
 
