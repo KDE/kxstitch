@@ -65,21 +65,23 @@ Floss *FlossScheme::find(const QColor &color) const
 {
     QListIterator<Floss *> flossIterator(m_flosses);
 
+    Floss *matched = nullptr;
+    int closest = 100;
+
     while (flossIterator.hasNext()) {
         Floss *floss = flossIterator.next();
         QColor c = floss->color();
 
-        if (c == color) {
-            return floss;
-        }
-
         // the color mapping may not be perfect so search for a near match.
-        if (abs(color.red()-c.red())<2 && abs(color.green()-c.green())<2 && abs(color.blue()-c.blue())<2) {
-            return floss;
+        int distance = abs(color.red()-c.red()) + abs(color.green()-c.green()) + abs(color.blue()-c.blue());
+
+        if (distance < closest) {
+            matched = floss;
+            closest = distance;
         }
     }
 
-    return nullptr;
+    return matched;
 }
 
 
