@@ -111,6 +111,7 @@
       <li>Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
       <li xml:lang="ca">Edició de patrons existents: El KXStitch també pot llegir fitxers de PC Stitch</li>
       <li xml:lang="ca-valencia">Edició de patrons existents: El KXStitch també pot llegir fitxers de PC Stitch</li>
+      <li xml:lang="de">Bearbeitung von vorhandenen Mustern - KXStitch kann auch Dateien des Programms PC Stitch lesen</li>
       <li xml:lang="en-GB">Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
       <li xml:lang="es">Edición de los patrones existentes (KXStitch también puede leer archivos de PC Stitch)</li>
       <li xml:lang="et">Olemasolevate mustrite muutmine - KXStitch suudab lugeda ka PC Stitchi faile</li>
@@ -147,6 +148,7 @@
       <li>Creation of custom palettes and colors</li>
       <li xml:lang="ca">Creació de paletes i colors personalitzats</li>
       <li xml:lang="ca-valencia">Creació de paletes i colors personalitzats</li>
+      <li xml:lang="de">Erstellen von eigenen Paletten und Farben</li>
       <li xml:lang="en-GB">Creation of custom palettes and colours</li>
       <li xml:lang="es">Creación de paletas y colores personalizados</li>
       <li xml:lang="et">Kohandatud palettide ja värvide loomine</li>
@@ -202,6 +204,7 @@
       <li>Importing of various picture formats</li>
       <li xml:lang="ca">Importació de diversos formats d'imatge</li>
       <li xml:lang="ca-valencia">Importació de diversos formats d'imatge</li>
+      <li xml:lang="de">Import verschiedener Bildformate</li>
       <li xml:lang="en-GB">Importing of various picture formats</li>
       <li xml:lang="es">Importación de diversos formatos de imágenes</li>
       <li xml:lang="et">Mitmesuguste pildivormingute import</li>
