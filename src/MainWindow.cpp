@@ -178,14 +178,14 @@ void MainWindow::setupConnections()
     connect(&(m_document->undoStack()), &QUndoStack::undoTextChanged, this, &MainWindow::undoTextChanged);
     connect(&(m_document->undoStack()), &QUndoStack::redoTextChanged, this, &MainWindow::redoTextChanged);
     connect(&(m_document->undoStack()), &QUndoStack::cleanChanged, this, &MainWindow::documentModified);
-    connect(m_palette, &Palette::colorSelected, m_editor, QOverload<>::of(&Editor::drawContents));
-    connect(m_palette, QOverload<int,int>::of(&Palette::swapColors), this, &MainWindow::paletteSwapColors);
-    connect(m_palette, QOverload<int,int>::of(&Palette::replaceColor), this, &MainWindow::paletteReplaceColor);
-    connect(m_palette, &Palette::signalStateChanged, this, QOverload<const QString &, bool>::of(&KXmlGuiWindow::slotStateChanged));
+    connect(m_palette, &Palette::colorSelected, m_editor, static_cast<void (Editor::*)()>(&Editor::drawContents));
+    connect(m_palette, static_cast<void (Palette::*)(int, int)>(&Palette::swapColors), this, &MainWindow::paletteSwapColors);
+    connect(m_palette, static_cast<void (Palette::*)(int, int)>(&Palette::replaceColor), this, &MainWindow::paletteReplaceColor);
+    connect(m_palette, &Palette::signalStateChanged, this, static_cast<void (KXmlGuiWindow::*)(const QString &, bool)>(&KXmlGuiWindow::slotStateChanged));
     connect(m_palette, &Palette::customContextMenuRequested, this, &MainWindow::paletteContextMenu);
     connect(m_editor,  &Editor::changedVisibleCells, m_preview, &Preview::setVisibleCells);
-    connect(m_preview, QOverload<QPoint>::of(&Preview::clicked), m_editor, QOverload<const QPoint &>::of(&Editor::previewClicked));
-    connect(m_preview, QOverload<QRect>::of(&Preview::clicked), m_editor, QOverload<const QRect &>::of(&Editor::previewClicked));
+    connect(m_preview, static_cast<void (Preview::*)(QPoint)>(&Preview::clicked), m_editor, static_cast<void (Editor::*)(const QPoint &)>(&Editor::previewClicked));
+    connect(m_preview, static_cast<void (Preview::*)(QRect)>(&Preview::clicked), m_editor, static_cast<void (Editor::*)(const QRect &)>(&Editor::previewClicked));
 }
 
 
@@ -1103,8 +1103,8 @@ void MainWindow::setupActions()
 
     // File menu
     KStandardAction::openNew(this, &MainWindow::fileNew, actions);
-    KStandardAction::open(this, QOverload<>::of(&MainWindow::fileOpen), actions);
-    KStandardAction::openRecent(this, QOverload<const QUrl &>::of(&MainWindow::fileOpen), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
+    KStandardAction::open(this, static_cast<void (MainWindow::*)()>(&MainWindow::fileOpen), actions);
+    KStandardAction::openRecent(this, static_cast<void (MainWindow::*)(const QUrl &)>(&MainWindow::fileOpen), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     KStandardAction::save(this, &MainWindow::fileSave, actions);
     KStandardAction::saveAs(this, &MainWindow::fileSaveAs, actions);
     KStandardAction::revert(this, &MainWindow::fileRevert, actions);
@@ -1421,12 +1421,12 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Swap Colors"));
-    connect(action, &QAction::triggered, m_palette, QOverload<>::of(&Palette::swapColors));
+    connect(action, &QAction::triggered, m_palette, static_cast<void (Palette::*)()>(&Palette::swapColors));
     actions->addAction(QStringLiteral("paletteSwapColors"), action);
 
     action = new QAction(this);
     action->setText(i18n("Replace Colors"));
-    connect(action, &QAction::triggered, m_palette, QOverload<>::of(&Palette::replaceColor));
+    connect(action, &QAction::triggered, m_palette, static_cast<void (Palette::*)()>(&Palette::replaceColor));
     actions->addAction(QStringLiteral("paletteReplaceColor"), action);
 
 
@@ -1603,31 +1603,31 @@ void MainWindow::setupActions()
     action = new QAction(this);
     action->setText(i18n("Show Stitches"));
     action->setCheckable(true);
-    connect(action, &QAction::toggled, m_editor, QOverload<bool>::of(&Editor::renderStitches));
+    connect(action, &QAction::toggled, m_editor, static_cast<void (Editor::*)(bool)>(&Editor::renderStitches));
     actions->addAction(QStringLiteral("renderStitches"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Backstitches"));
     action->setCheckable(true);
-    connect(action, &QAction::toggled, m_editor, QOverload<bool>::of(&Editor::renderBackstitches));
+    connect(action, &QAction::toggled, m_editor, static_cast<void (Editor::*)(bool)>(&Editor::renderBackstitches));
     actions->addAction(QStringLiteral("renderBackstitches"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show French Knots"));
     action->setCheckable(true);
-    connect(action, &QAction::toggled, m_editor, QOverload<bool>::of(&Editor::renderFrenchKnots));
+    connect(action, &QAction::toggled, m_editor, static_cast<void (Editor::*)(bool)>(&Editor::renderFrenchKnots));
     actions->addAction(QStringLiteral("renderFrenchKnots"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Grid"));
     action->setCheckable(true);
-    connect(action, &QAction::toggled, m_editor, QOverload<bool>::of(&Editor::renderGrid));
+    connect(action, &QAction::toggled, m_editor, static_cast<void (Editor::*)(bool)>(&Editor::renderGrid));
     actions->addAction(QStringLiteral("renderGrid"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Background Images"));
     action->setCheckable(true);
-    connect(action, &QAction::toggled, m_editor, QOverload<bool>::of(&Editor::renderBackgroundImages));
+    connect(action, &QAction::toggled, m_editor, static_cast<void (Editor::*)(bool)>(&Editor::renderBackgroundImages));
     actions->addAction(QStringLiteral("renderBackgroundImages"), action);
 
     m_horizontalScale->addAction(actions->action(QStringLiteral("formatScalesAsStitches")));
