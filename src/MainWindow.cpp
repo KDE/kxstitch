@@ -593,7 +593,7 @@ void MainWindow::convertImage(const QString &source)
 
             for (int dx = 0 ; dx < imageWidth ; dx++) {
 #if MagickLibVersion < 0x700
-                Magick::ColorRGB rgb = Magick::Color(*pixels++); // is this a memory leak
+                Magick::ColorRGB rgb = Magick::Color(*pixels++);
 #else
                 Magick::ColorRGB rgb = convertedImage.pixelColor(dx, dy);
 #endif
