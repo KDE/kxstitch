@@ -391,9 +391,21 @@ void ImportImageDlg::renderPixmap()
     QProgressDialog progress(i18n("Rendering preview"), i18n("Cancel"), 0, pixelCount, this);
     progress.setWindowModality(Qt::WindowModal);
 
+/*
+ * ImageMagick prior to V7 used matte (opacity) to determine if an image has transparency.
+ * 0.0 for transparent to 1.0 for opaque
+ * 
+ * ImageMagick V7 now uses alpha (transparency).
+ * 1.0 for transparent to 0.0 for opaque
+ * 
+ * Access to pixels has changed too, V7 can use pixelColor to access the color of a particular
+ * pixel, but although this was available in V6, it doesn't appear to produce the same result
+ * and has resulted in black images when importing.
+ */
 #if MagickLibVersion < 0x700
     bool hasTransparency = m_convertedImage.matte();
     double transparent = 1.0;
+    const Magick::PixelPacket *pixels = m_convertedImage.getConstPixels(0, 0, width, height);
 #else
     bool hasTransparency = m_convertedImage.alpha();
     double transparent = 0.0;
@@ -408,7 +420,11 @@ void ImportImageDlg::renderPixmap()
         }
 
         for (int dx = 0 ; dx < width ; dx++) {
+#if MagickLibVersion < 0x700
+            Magick::ColorRGB rgb = Magick::Color(*pixels++);
+#else
             Magick::ColorRGB rgb = m_convertedImage.pixelColor(dx, dy);
+#endif
 
             if (hasTransparency && (rgb.alpha() == transparent)) {
                 //ignore this pixel as it is transparent
