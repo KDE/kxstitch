@@ -16,6 +16,7 @@
   <name xml:lang="gl">KXStitch</name>
   <name xml:lang="id">KXStitch</name>
   <name xml:lang="it">KXStitch</name>
+  <name xml:lang="ko">KXStitch</name>
   <name xml:lang="nl">KXStitch</name>
   <name xml:lang="nn">KXStitch</name>
   <name xml:lang="pl">KXStitch</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="gl">Un creador de padróns de cruz en punta</summary>
   <summary xml:lang="id">Sebuah aplikasi penciptaan pola kristik (cross stitch)</summary>
   <summary xml:lang="it">Un creatore di schemi a punto croce</summary>
+  <summary xml:lang="ko">십자수 패턴 생성기</summary>
   <summary xml:lang="nl">Een ontwerpprogramma voor kruissteek-patronen</summary>
   <summary xml:lang="nn">Redigeringsprogram for krossting</summary>
   <summary xml:lang="pl">Tworzenie wzorca ściegu krzyżykowego.</summary>
@@ -62,6 +64,7 @@
     <p xml:lang="gl">KXStitch é un programa que lle permite crear padróns e gráficos de cruz en punta. Pode crear padróns desde cero sobre unha grade de tamaño personalizado. Tamén pode importar imaxes en varios formatos, o que lle permitirá restrinxir o número de cores e restrinxir a conversión a puntadas completas ou usar opcionalmente puntadas fraccionadas. Tamén pode usar imaxes de fondo, para trazar sobre elas. As imaxes importadas poden modificarse mediante as ferramentas fornecidas para producir o deseño final.</p>
     <p xml:lang="id">KXStitch adalah program yang menyegerakanmu menciptakan bagan dan pola kristik. Pola-pola dapat diciptakan dari awal pada ukuran kisi yang ditentukan pengguna, yang mana ukuran  bisa diperbesar atau diperkecil saat selagi progres polamu. Selain itu kamu bisa mengimpor image dari banyak format file grafik yang akan memungkinkanmu untuk mengurangi jumlah warna dan untuk membatasi konversi untuk memenuhi stitch-stitch atau secara opsional menggunakan stitch kecil-kecil. Kamu juga bisa menggunakan image sebagai latarbelakang untuk mengeblabnya. Image yang diimpor tersebut kemudian dapat dimodifikasi menggunakan peralatan yang disediakan untuk menghasilkan desain finalmu.</p>
     <p xml:lang="it">KXStitch è un programma che ti permette di creare schemi e grafici a punto croce. Puoi creare i modelli da zero, su una griglia di cui puoi definire la grandezza: puoi ingrandirla o ridurla man mano che sviluppi il modello. In alternativa è possibile importare immagini da molti formati; questo ti permette di ridurre il numero dei colori, e di restringere la conversione a punto pieno oppure anche a mezzo punto. Puoi anche usare delle immagini come sfondo, disegnandoci sopra. Queste immagini possono poi essere modificate con gli strumenti del programma per produrre il disegno finale.</p>
+    <p xml:lang="ko">KXStitch는 십자수 패턴과 차트를 만들 수 있는 프로그램입니다. 사용자 정의 크기 모눈에서 패턴을 만들 수 있으며, 나중에 크기를 조정할 수도 있습니다. 또한 다양한 그래픽 파일 형식을 가져올 수 있으며, 색상의 수를 제한할 수 있고 완전한 십자형 및 한 쪽 대각선만 사용하도록 할 수도 있습니다. 가져온 그림을 배경 그림으로 사용하여 따라서 그릴 수 있으며, 제공하는 도구를 사용하여 최종 디자인을 만들 수 있습니다.</p>
     <p xml:lang="nl">KXStitch is een programma waarmee u kruissteekpatronen en kaarten kunt creëren. Patronen kunt u vanaf het begin op een door u bepaald formaat raster ontwerpen, dat raster kunt u later vergroten of verkleinen naar gelang het patroon zich ontwikkelt. Als alternatief kunt u ook afbeeldingen importeren in veel verschillende grafische formaten waarbij u het aantal kleuren kunt beperken en alleen maar hele steken  of ook gedeeltelijke steken wilt gebruiken. U kunt ook afbeeldingen als achtergrond gebruiken, waarmee u er overheen kunt werken. Deze geïmporteerde afbeeldingen kunt u vervolgens met de meegeleverde hulpmiddelen wijzigen om uw uiteindelijke ontwerp te krijgen.</p>
     <p xml:lang="nn">KXStitch er eit program som lèt deg laga og skriva ut krosstingmønster. Du kan teikna mønstera frå grunnen, på ein sjølvvald vev som du eventuelt kan gjera større eller mindre etter kvart som du arbeider med mønsteret. Du kan òg importera bilete frå ulike biletformat og redusera talet på fargar i desse, slik at dei eignar seg som krosstingmønster, anten med heilsting eller delsting. Det er òg mogleg å bruka bilete som bakgrunn og teikna av desse. Til slutt kan finpussa på mønstera med ulike verktøy.</p>
     <p xml:lang="pl">KXStitch jest programem umożliwiającym tworzenie wzorów ściegów krzyżowych. Wzory można tworzyć od początku na podanej przez użytkownika siatce, którą można powiększać lub pomniejszać w trakcie wykonywania ściegu. Alternatywnie można zaimportować obrazy z wielu różnych formatów plików graficznych z możliwością ograniczenia liczby barw i ustawienia przekształcania na pełne ściegi lub ułamkowe. Można także używać obrazów jako tła i szydełkować na nich. Tak zaimportowane obrazy można później zmienić przy użyciu dostępnych narzędzi, aby ostateczne ukończyć dzieło.</p>
@@ -86,6 +89,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pl">Możliwości:</p>
@@ -110,6 +114,7 @@
       <li xml:lang="gl">Creación de padróns novos.</li>
       <li xml:lang="id">Penciptaan pola-pola baru</li>
       <li xml:lang="it">Creazione di nuovi modelli</li>
+      <li xml:lang="ko">새 패턴 만들기</li>
       <li xml:lang="nl">Maken van nieuwe patronen</li>
       <li xml:lang="nn">Kan teikna nye mønster</li>
       <li xml:lang="pl">Tworzenie nowych wzorców</li>
@@ -132,6 +137,7 @@
       <li xml:lang="gl">Edición de padróns existentes. KXStitch tamén pode ler ficheiros de PC Stitch.</li>
       <li xml:lang="id">Pengeditan pola-pola yang ada - KXStitch juga mampu membaca PC Stitch</li>
       <li xml:lang="it">Modifica di un modello esistente - KXStitch può anche leggere un file PC Stitch</li>
+      <li xml:lang="ko">기존 패턴 편집하기 - KXStitch에서는 PC Stitch 파일을 편집할 수 있습니다</li>
       <li xml:lang="nl">Bewerken van bestaande patronen - KXStitch kan ook PC Stitch-bestanden lezen</li>
       <li xml:lang="nn">Kan redigera gamle mønster og lesa mønster frå PC Stitch</li>
       <li xml:lang="pl">Edytowanie istniejących wzorców - KXStitch może też odczytywać pliki PC Stitch</li>
@@ -153,6 +159,7 @@
       <li xml:lang="gl">Uso de varios xergóns de fío, DMC, Anchor e Madeira.</li>
       <li xml:lang="id">Menggunakan beberapa palet floss, DMC, Anchor, Madeira</li>
       <li xml:lang="it">Uso di varie matasse di filo, DMC, Anchor, Madeira</li>
+      <li xml:lang="ko">DMC, Anchor, Madeira 등 다양한 색실 사용</li>
       <li xml:lang="nl">Gebruik van verschillende garen paletten, DMC, Anchor, Madeira</li>
       <li xml:lang="nn">Støtte for ulike trådsystem: DMC, Anchor og Madeira</li>
       <li xml:lang="pl">Różne palety nitek, DMC, Anchor, Madeira</li>
@@ -175,6 +182,7 @@
       <li xml:lang="gl">Creación de paletas e cores personalizadas.</li>
       <li xml:lang="id">Penciptaan warna dan pallet-pallet kustom</li>
       <li xml:lang="it">Creazione di tavolozze e colori personalizzati</li>
+      <li xml:lang="ko">사용자 정의 팔레트와 색상 생성</li>
       <li xml:lang="nl">Eigen paletten en kleuren aanmaken</li>
       <li xml:lang="nn">Kan laga eigne tråd-/fargepalettar</li>
       <li xml:lang="pl">Tworzenie własnych palet i barw</li>
@@ -197,6 +205,7 @@
       <li xml:lang="gl">Uso de puntadas estándar.</li>
       <li xml:lang="id">Menggunakan stitch standar</li>
       <li xml:lang="it">Uso di punti standard</li>
+      <li xml:lang="ko">표준 십자수 사용</li>
       <li xml:lang="nl">Het gebruik van standaard steken</li>
       <li xml:lang="nn">Kan teikna ulike typar sting</li>
       <li xml:lang="pl">Standardowe ściegi</li>
@@ -218,6 +227,7 @@
       <li xml:lang="gl">Uso libre de puntadas atrás.</li>
       <li xml:lang="id">Bebas penggunaan backstitching</li>
       <li xml:lang="it">Uso libero dell'impuntitura</li>
+      <li xml:lang="ko">자유로운 박음질 사용</li>
       <li xml:lang="nl">Vrij gebruik van achtersteken</li>
       <li xml:lang="nn">Fri bruk av attersting</li>
       <li xml:lang="pl">Dowolne używanie ściegów wstecznych</li>
@@ -240,6 +250,7 @@
       <li xml:lang="gl">Importación de varios formatos de imaxe.</li>
       <li xml:lang="id">Mengimpor berbagai format gambar</li>
       <li xml:lang="it">Importazione da vari formati d'immagine</li>
+      <li xml:lang="ko">다양한 형식의 그림 가져오기</li>
       <li xml:lang="nl">Verschillende afbeeldingsformaten</li>
       <li xml:lang="nn">Importering av bilete i ulike format</li>
       <li xml:lang="pl">Importowanie różnych formatów obrazów</li>
@@ -261,6 +272,7 @@
       <li xml:lang="gl">Impresión de padróns e claves de fíos.</li>
       <li xml:lang="id">Pencetakan kunci floss dan pola-pola</li>
       <li xml:lang="it">Stampa di modelli e farfalle in plastica</li>
+      <li xml:lang="ko">패턴과 실 식별자 인쇄</li>
       <li xml:lang="nl">Afdrukken van patronen en garensleutels</li>
       <li xml:lang="nn">Utskrift av mønster og symbolforklaring</li>
       <li xml:lang="pl">Drukowanie wzorów i kluczy nitkowych</li>
