@@ -737,7 +737,7 @@ bool Editor::event(QEvent *e)
         if (colorIndex != -1) {
             const DocumentFloss *documentFloss = m_document->pattern()->palette().flosses().value(colorIndex);
             Floss *floss = SchemeManager::scheme(m_document->pattern()->palette().schemeName())->find(documentFloss->flossName());
-            QToolTip::showText(helpEvent->globalPos(), QString::fromLatin1("%1 %2").arg(floss->name()).arg(floss->description()));
+            QToolTip::showText(helpEvent->globalPos(), QString::fromLatin1("%1 %2").arg(floss->name(), floss->description()));
         } else {
             QToolTip::hideText();
             e->ignore();

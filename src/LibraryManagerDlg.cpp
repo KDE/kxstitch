@@ -228,7 +228,7 @@ void LibraryManagerDlg::newCategory()
         path = QString::fromLatin1("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg(QLatin1String("library"));
     }
 
-    path = QString::fromLatin1("%1/%2").arg(path).arg(category);
+    path = QString::fromLatin1("%1/%2").arg(path, category);
 
     if (QDir().mkpath(path)) {
         newItem->addPath(path);
@@ -327,7 +327,7 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
         if (fileInfo.isDir()) {
             if (fileInfo.fileName() != QLatin1String(".") && fileInfo.fileName() != QLatin1String("..")) {
                 LibraryTreeWidgetItem *libraryTreeWidgetItem = nullptr;
-                QString subPath = QString::fromLatin1("%1/%2").arg(path).arg(fileInfo.fileName());
+                QString subPath = QString::fromLatin1("%1/%2").arg(path, fileInfo.fileName());
 
                 if (parent) {
                     int children = parent->childCount();
