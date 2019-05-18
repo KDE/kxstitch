@@ -107,7 +107,7 @@ public slots:
     void mirrorSelection();
     void rotateSelection();
 
-    void pastePattern(ToolMode);
+    void pastePattern(Editor::ToolMode);
 
     void formatScalesAsStitches();
     void formatScalesAsCentimeters();
@@ -125,7 +125,7 @@ public slots:
 
     void colorHighlight(bool);
 
-    void selectTool(ToolMode);
+    void selectTool(Editor::ToolMode);
 
     void selectStitch(Editor::SelectedStitchType);
 
