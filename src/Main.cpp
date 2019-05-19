@@ -90,10 +90,10 @@ int main(int argc, char *argv[])
 
     KAboutData aboutData(QStringLiteral("kxstitch"),                    // component name
                          QString(i18n("kxstitch")),                     // display name
-                         QStringLiteral("2.1.99"),                      // version
+                         QStringLiteral("2.2.0"),                       // version
                          i18n("A cross stitch pattern creator."),       // short description
                          KAboutLicense::GPL_V2,                         // license
-                         i18n("(c) 2010-2015 Stephen Allewell"),        // copyright
+                         i18n("(c) 2010-2019 Stephen Allewell"),        // copyright
                          QString(),                                     // other text
                          QStringLiteral("http://userbase.kde.org/KXStitch")    // home page
                          // bug address defaults to submit@bugs.kde.org
