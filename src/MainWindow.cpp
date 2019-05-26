@@ -296,40 +296,56 @@ void MainWindow::fileOpen(const QUrl &url)
             QTemporaryFile tmpFile;
 
             if (tmpFile.open()) {
+                tmpFile.close();
+                
                 KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
 
                 if (job->exec()) {
-                    QDataStream stream(&tmpFile);
-
-                    try {
-                        m_document->readKXStitch(stream);
-                        m_document->setUrl(url);
-                        KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
-                        action->addUrl(url);
-                        action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
-                    } catch (const InvalidFile &e) {
-                        stream.device()->seek(0);
+                    /* In earlier versions of KDE/Qt creating a QDataStream on tmpFile allowed reading the data from the copied file.
+                     * Somewhere after KDE 5.55.0/Qt 5.9.7 this no longer possible as tmpFile size() is reported with a length of 0
+                     * whereas previously tmpFile size() was reported as the size of the copied file.
+                     * Therefore open a new QFile on the temporary file after downloading to allow reading.
+                     */
+                    QFile reader(tmpFile.fileName());
+                    if (reader.open(QIODevice::ReadOnly)) {
+                        QDataStream stream(&reader);
 
                         try {
-                            m_document->readPCStitch(stream);
+                            m_document->readKXStitch(stream);
+                            m_document->setUrl(url);
+                            KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
+                            action->addUrl(url);
+                            action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
                         } catch (const InvalidFile &e) {
-                            KMessageBox::sorry(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
-                        }
-                    } catch (const InvalidFileVersion &e) {
-                        KMessageBox::sorry(nullptr, i18n("This version of the file is not supported.\n%1", e.version));
-                    } catch (const FailedReadFile &e) {
-                        KMessageBox::error(nullptr, i18n("Failed to read the file.\n%1.", e.status));
-                        m_document->initialiseNew();
-                    }
+                            stream.device()->seek(0);
 
-                    setupActionsFromDocument();
-                    m_editor->readDocumentSettings();
-                    m_preview->readDocumentSettings();
-                    m_palette->update();
-                    documentModified(true); // this is the clean value true
+                            try {
+                                m_document->readPCStitch(stream);
+                            } catch (const InvalidFile &e) {
+                                KMessageBox::sorry(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
+                            }
+                        } catch (const InvalidFileVersion &e) {
+                            KMessageBox::sorry(nullptr, i18n("This version of the file is not supported.\n%1", e.version));
+                        } catch (const FailedReadFile &e) {
+                            KMessageBox::error(nullptr, i18n("Failed to read the file.\n%1.", e.status));
+                            m_document->initialiseNew();
+                        }
+
+                        setupActionsFromDocument();
+                        m_editor->readDocumentSettings();
+                        m_preview->readDocumentSettings();
+                        m_palette->update();
+                        documentModified(true); // this is the clean value true
+                        
+                        reader.close();
+                    } else {
+                        KMessageBox::error(nullptr, reader.errorString());
+                    }
                 } else {
                     KMessageBox::error(nullptr, job->errorString());
                 }
+                
+                tmpFile.close();
             } else {
                 KMessageBox::error(nullptr, tmpFile.errorString());
             }
