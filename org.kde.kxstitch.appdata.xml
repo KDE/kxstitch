@@ -29,6 +29,7 @@
   <name xml:lang="uk">KXStitch</name>
   <name xml:lang="x-test">xxKXStitchxx</name>
   <name xml:lang="zh-CN">KXStitch</name>
+  <name xml:lang="zh-TW">KXStitch</name>
   <summary>A cross stitch pattern creator</summary>
   <summary xml:lang="ca">Un creador de patrons de punt de creu</summary>
   <summary xml:lang="ca-valencia">Un creador de patrons de punt de creu</summary>
@@ -102,6 +103,7 @@
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
+    <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Creation of new patterns</li>
       <li xml:lang="ca">Creació de patrons nous</li>
@@ -126,6 +128,7 @@
       <li xml:lang="uk">Створення візерунків</li>
       <li xml:lang="x-test">xxCreation of new patternsxx</li>
       <li xml:lang="zh-CN">创建新的图案</li>
+      <li xml:lang="zh-TW">建立新式樣</li>
       <li>Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
       <li xml:lang="ca">Edició de patrons existents: El KXStitch també pot llegir fitxers de PC Stitch</li>
       <li xml:lang="ca-valencia">Edició de patrons existents: El KXStitch també pot llegir fitxers de PC Stitch</li>
@@ -149,6 +152,7 @@
       <li xml:lang="uk">Редагування наявних візерунків — програма KXStitch здатна читати файли PC Stitch.</li>
       <li xml:lang="x-test">xxEditing of existing patterns - KXStitch is also capable of reading PC Stitch filesxx</li>
       <li xml:lang="zh-CN">编辑现有图案 - KXStitch 也能读取 PC Stitch 的文件</li>
+      <li xml:lang="zh-TW">編輯存在式樣 - KXStitch 也可以讀取 PC Stitch 檔案</li>
       <li>Use of various floss pallets, DMC, Anchor, Madeira</li>
       <li xml:lang="ca">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
       <li xml:lang="ca-valencia">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
@@ -194,6 +198,7 @@
       <li xml:lang="uk">Створення нетипових палітр і кольорів.</li>
       <li xml:lang="x-test">xxCreation of custom palettes and colorsxx</li>
       <li xml:lang="zh-CN">创建自定义调色板和颜色</li>
+      <li xml:lang="zh-TW">建立自動調色盤及顏色</li>
       <li>Use of standard stitches</li>
       <li xml:lang="ca">Ús de punts estàndard</li>
       <li xml:lang="ca-valencia">Ús de punts estàndard</li>
@@ -262,6 +267,7 @@
       <li xml:lang="uk">Імпортування зображень у різних форматах.</li>
       <li xml:lang="x-test">xxImporting of various picture formatsxx</li>
       <li xml:lang="zh-CN">导入多种图片格式</li>
+      <li xml:lang="zh-TW">匯入各種影像格式</li>
       <li>Printing of patterns and floss keys</li>
       <li xml:lang="ca">Impressió de patrons i claus de cabdells</li>
       <li xml:lang="ca-valencia">Impressió de patrons i claus de cabdells</li>
