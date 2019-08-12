@@ -138,6 +138,8 @@ void MainWindow::setupLayout()
     layout->setLayout(gridLayout);
 
     setCentralWidget(layout);
+
+    setStatusBar(nullptr);
 }
 
 
@@ -297,7 +299,7 @@ void MainWindow::fileOpen(const QUrl &url)
 
             if (tmpFile.open()) {
                 tmpFile.close();
-                
+
                 KIO::FileCopyJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tmpFile.fileName()), -1, KIO::Overwrite);
 
                 if (job->exec()) {
@@ -336,7 +338,7 @@ void MainWindow::fileOpen(const QUrl &url)
                         m_preview->readDocumentSettings();
                         m_palette->update();
                         documentModified(true); // this is the clean value true
-                        
+
                         reader.close();
                     } else {
                         KMessageBox::error(nullptr, reader.errorString());
@@ -344,7 +346,7 @@ void MainWindow::fileOpen(const QUrl &url)
                 } else {
                     KMessageBox::error(nullptr, job->errorString());
                 }
-                
+
                 tmpFile.close();
             } else {
                 KMessageBox::error(nullptr, tmpFile.errorString());
@@ -560,10 +562,10 @@ void MainWindow::convertImage(const QString &source)
 /*
  * ImageMagick prior to V7 used matte (opacity) to determine if an image has transparency.
  * 0.0 for transparent to 1.0 for opaque
- * 
+ *
  * ImageMagick V7 now uses alpha (transparency).
  * 1.0 for transparent to 0.0 for opaque
- * 
+ *
  * Access to pixels has changed too, V7 can use pixelColor to access the color of a particular
  * pixel, but although this was available in V6, it doesn't appear to produce the same result
  * and has resulted in black images when importing.
@@ -576,7 +578,7 @@ void MainWindow::convertImage(const QString &source)
         bool hasTransparency = convertedImage.alpha();
         double transparent = 0.0;
 #endif
-        
+
         bool ignoreColor = importImageDlg->ignoreColor();
         Magick::Color ignoreColorValue = importImageDlg->ignoreColorValue();
 
@@ -613,7 +615,7 @@ void MainWindow::convertImage(const QString &source)
 #else
                 Magick::ColorRGB rgb = convertedImage.pixelColor(dx, dy);
 #endif
-                
+
                 if (hasTransparency && (rgb.alpha() == transparent)) {
                     // ignore this pixel as it is transparent
                 } else {
@@ -654,7 +656,7 @@ void MainWindow::convertImage(const QString &source)
         new SetPropertyCommand(m_document, QStringLiteral("horizontalClothCount"), importImageDlg->horizontalClothCount(), importImageCommand);
         new SetPropertyCommand(m_document, QStringLiteral("verticalClothCount"), importImageDlg->verticalClothCount(), importImageCommand);
         m_document->undoStack().push(importImageCommand);
-        
+
         convertPreview(source, importImageDlg->croppedArea());
     }
 
