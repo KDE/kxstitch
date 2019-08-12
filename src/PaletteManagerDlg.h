@@ -43,6 +43,8 @@ public:
 protected:
     virtual void hideEvent(QHideEvent *) Q_DECL_OVERRIDE;
     virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private slots:
     void on_ColorList_currentRowChanged(int);
@@ -61,8 +63,6 @@ private slots:
     void on_DialogButtonBox_accepted();
     void on_DialogButtonBox_rejected();
     void on_DialogButtonBox_helpRequested();
-    void mouseMoveEvent(QMouseEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
 
 private:
     void fillLists();
