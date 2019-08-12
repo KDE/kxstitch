@@ -21,6 +21,7 @@
 // wrap include to silence unused-parameter warning from Magick++ include file
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wsuggest-override"
 #include <Magick++.h>
 #pragma GCC diagnostic pop
 
