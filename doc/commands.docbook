@@ -445,7 +445,7 @@
 
         <sect2>
             <title>The Settings Menu</title>
-            <para>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/ui.html#menus-settings">
+            <para>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/menus.html#menus-settings">
             Settings Menu</ulink> chapter of the &kde; Fundamentals &kxstitch; has these application specific menu entries:
             </para>
             <para>
@@ -503,7 +503,7 @@
             <title>The Help Menu</title>
             <para>
             Additionally &kxstitch; has the common &kde; Help
-            menu items, for more information read the section about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+            menu items, for more information read the section about the <ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink>
             of the &kde; Fundamentals.
             </para>
         </sect2>
