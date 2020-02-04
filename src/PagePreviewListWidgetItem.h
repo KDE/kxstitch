@@ -27,13 +27,13 @@ public:
     PagePreviewListWidgetItem(Document *, Page *);
     virtual ~PagePreviewListWidgetItem() = default;
 
-    QPrinter::PaperSize paperSize() const;
-    QPrinter::Orientation orientation() const;
+    QPageSize pageSize() const;
+    QPageLayout::Orientation orientation() const;
     int paperWidth() const;
     int paperHeight() const;
 
-    void setPaperSize(QPrinter::PaperSize);
-    void setOrientation(QPrinter::Orientation);
+    void setPageSize(QPageSize);
+    void setOrientation(QPageLayout::Orientation);
 
     Page *page() const;
     void generatePreviewIcon();

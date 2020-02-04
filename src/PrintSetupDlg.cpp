@@ -50,7 +50,7 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
         m_printer(printer)
 {
     setWindowModality(Qt::WindowModal);
-    
+
     setWindowTitle(i18n("Print Setup"));
 
     ui.setupUi(this);
@@ -77,7 +77,7 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     connect(m_pageLayoutEditor, &PageLayoutEditor::elementGeometryChanged, this, &PrintSetupDlg::elementGeometryChanged);
     connect(m_pageLayoutEditor, &PageLayoutEditor::customContextMenuRequested, this, &PrintSetupDlg::previewContextMenuRequested);
 
-    ui.PaperSize->setCurrentIndex(Configuration::page_Size());
+    ui.PageSize->setCurrentIndex(Configuration::page_Size());
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
     ui.Zoom->setCurrentIndex(4);    // 200%
     ui.SelectElement->click();      // select mode
@@ -124,11 +124,11 @@ void PrintSetupDlg::showEvent(QShowEvent *event)
 }
 
 
-void PrintSetupDlg::on_PaperSize_currentIndexChanged(const QString &paperSize)
+void PrintSetupDlg::on_PageSize_currentIndexChanged(const QString &pageSize)
 {
     if (ui.Pages->count() && ui.Pages->currentItem()) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
-        pagePreview->setPaperSize(PaperSizes::size(paperSize));
+        pagePreview->setPageSize(QPageSize(PageSizes::size(pageSize)));
         m_pageLayoutEditor->updatePagePreview();
         ui.Pages->repaint();
     }
@@ -139,7 +139,7 @@ void PrintSetupDlg::on_Orientation_currentIndexChanged(int orientation)
 {
     if (ui.Pages->count() && ui.Pages->currentItem()) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
-        pagePreview->setOrientation((orientation == 0) ? QPrinter::Portrait : QPrinter::Landscape);
+        pagePreview->setOrientation((orientation == 0) ? QPageLayout::Portrait : QPageLayout::Landscape);
         m_pageLayoutEditor->updatePagePreview();
         ui.Pages->repaint();
     }
@@ -160,8 +160,8 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
     if (current) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(current);
         m_pageLayoutEditor->setPagePreview(pagePreview);
-        ui.PaperSize->setCurrentItem(PaperSizes::name(pagePreview->paperSize()));
-        ui.Orientation->setCurrentIndex((pagePreview->orientation() == QPrinter::Portrait) ? 0 : 1);
+        ui.PageSize->setCurrentItem(PageSizes::name(pagePreview->pageSize().id()));
+        ui.Orientation->setCurrentIndex((pagePreview->orientation() == QPageLayout::Portrait) ? 0 : 1);
         ui.InsertPage->setEnabled(true);
         ui.DeletePage->setEnabled(true);
     } else {
@@ -174,7 +174,7 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
 
 void PrintSetupDlg::on_AddPage_clicked()
 {
-    Page *page = new Page(selectedPaperSize(), selectedOrientation());
+    Page *page = new Page(selectedPageSize(), selectedOrientation());
     m_printerConfiguration.addPage(page);
     addPage(ui.Pages->count(), page);
 }
@@ -182,7 +182,7 @@ void PrintSetupDlg::on_AddPage_clicked()
 
 void PrintSetupDlg::on_InsertPage_clicked()
 {
-    Page *page = new Page(selectedPaperSize(), selectedOrientation());
+    Page *page = new Page(selectedPageSize(), selectedOrientation());
     m_printerConfiguration.insertPage(ui.Pages->currentRow(), page);
     addPage(ui.Pages->currentRow(), page);
 }
@@ -393,7 +393,7 @@ void PrintSetupDlg::properties()
             delete keyElementDlg;
         }
     } else {
-        QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview->page()->margins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
+        QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview->page()->margins().toMargins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
 
         if (pagePropertiesDlg->exec() == QDialog::Accepted) {
             updatePreviews = true;
@@ -440,15 +440,15 @@ void PrintSetupDlg::addPage(int position, Page *page)
 }
 
 
-QPrinter::PaperSize PrintSetupDlg::selectedPaperSize()
+QPageSize PrintSetupDlg::selectedPageSize()
 {
-    return PaperSizes::size(ui.PaperSize->currentText());
+    return QPageSize(PageSizes::size(ui.PageSize->currentText()));
 }
 
 
-QPrinter::Orientation PrintSetupDlg::selectedOrientation()
+QPageLayout::Orientation PrintSetupDlg::selectedOrientation()
 {
-    return (ui.Orientation->currentIndex() == 0) ? QPrinter::Portrait : QPrinter::Landscape;
+    return (ui.Orientation->currentIndex() == 0) ? QPageLayout::Portrait : QPageLayout::Landscape;
 }
 
 
@@ -492,7 +492,7 @@ void PrintSetupDlg::on_Templates_clicked()
         QFont pageFont;
         pageFont.setPointSize(8);
 
-        Page *page = new Page(QPrinter::A4, QPrinter::Portrait);
+        Page *page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
         m_printerConfiguration.addPage(page);
         addPage(ui.Pages->count(), page);
 
@@ -555,7 +555,7 @@ void PrintSetupDlg::on_Templates_clicked()
 
         for (int verticalPage = 0 ; verticalPage < pagesTall ; ++verticalPage) {
             for (int horizontalPage = 0 ; horizontalPage < pagesWide ; ++horizontalPage) {
-                page = new Page(QPrinter::A4, QPrinter::Portrait);
+                page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
                 m_printerConfiguration.addPage(page);
                 addPage(ui.Pages->count(), page);
 
@@ -582,7 +582,7 @@ void PrintSetupDlg::on_Templates_clicked()
         }
 
         // key page
-        page = new Page(QPrinter::A4, QPrinter::Portrait);
+        page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
         m_printerConfiguration.addPage(page);
         addPage(ui.Pages->count(), page);
 

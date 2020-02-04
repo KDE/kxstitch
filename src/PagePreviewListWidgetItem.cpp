@@ -31,13 +31,13 @@ PagePreviewListWidgetItem::PagePreviewListWidgetItem(Document *document, Page *p
 }
 
 
-QPrinter::PaperSize PagePreviewListWidgetItem::paperSize() const
+QPageSize PagePreviewListWidgetItem::pageSize() const
 {
-    return m_page->paperSize();
+    return m_page->pageSize();
 }
 
 
-QPrinter::Orientation PagePreviewListWidgetItem::orientation() const
+QPageLayout::Orientation PagePreviewListWidgetItem::orientation() const
 {
     return m_page->orientation();
 }
@@ -55,14 +55,14 @@ int PagePreviewListWidgetItem::paperHeight() const
 }
 
 
-void PagePreviewListWidgetItem::setPaperSize(QPrinter::PaperSize paperSize)
+void PagePreviewListWidgetItem::setPageSize(QPageSize pageSize)
 {
-    m_page->setPaperSize(paperSize);
+    m_page->setPageSize(pageSize);
     generatePreviewIcon();
 }
 
 
-void PagePreviewListWidgetItem::setOrientation(QPrinter::Orientation orientation)
+void PagePreviewListWidgetItem::setOrientation(QPageLayout::Orientation orientation)
 {
     m_page->setOrientation(orientation);
     generatePreviewIcon();
@@ -77,8 +77,8 @@ Page *PagePreviewListWidgetItem::page() const
 
 void PagePreviewListWidgetItem::generatePreviewIcon()
 {
-    m_paperWidth = PaperSizes::width(m_page->paperSize(), m_page->orientation());
-    m_paperHeight = PaperSizes::height(m_page->paperSize(), m_page->orientation());
+    m_paperWidth = PageSizes::width(m_page->pageSize().id(), m_page->orientation());
+    m_paperHeight = PageSizes::height(m_page->pageSize().id(), m_page->orientation());
 
     QPixmap pixmap(m_paperWidth, m_paperHeight);
     pixmap.fill(Qt::white);

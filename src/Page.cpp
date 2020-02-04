@@ -22,16 +22,15 @@
 #include "PaperSizes.h"
 
 
-Page::Page(QPrinter::PaperSize paperSize, QPrinter::Orientation orientation)
-    :   m_pageNumber(0),
-        m_paperSize(paperSize),
-        m_orientation(orientation),
-        m_margins(QMargins(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom()))
+Page::Page(QPageSize pageSize, QPageLayout::Orientation orientation)
+    :   QPageLayout(pageSize, orientation, QMarginsF(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom()), QPageLayout::Millimeter),
+        m_pageNumber(0)
 {
 }
 
 
 Page::Page(const Page &other)
+    :   QPageLayout(other)
 {
     *this = other;
 }
@@ -50,9 +49,6 @@ Page &Page::operator=(const Page &other)
         m_elements.clear();
 
         m_pageNumber = other.m_pageNumber;
-        m_paperSize = other.m_paperSize;
-        m_orientation = other.m_orientation;
-        m_margins = other.m_margins;
 
         QListIterator<Element *> elementIterator(other.m_elements);
 
@@ -85,24 +81,6 @@ int Page::pageNumber() const
 }
 
 
-QPrinter::PaperSize Page::paperSize() const
-{
-    return m_paperSize;
-}
-
-
-QPrinter::Orientation Page::orientation() const
-{
-    return m_orientation;
-}
-
-
-const QMargins &Page::margins() const
-{
-    return m_margins;
-}
-
-
 const QList<Element *> Page::elements() const
 {
     return m_elements;
@@ -112,24 +90,6 @@ const QList<Element *> Page::elements() const
 void Page::setPageNumber(int pageNumber)
 {
     m_pageNumber = pageNumber;
-}
-
-
-void Page::setPaperSize(QPrinter::PaperSize paperSize)
-{
-    m_paperSize = paperSize;
-}
-
-
-void Page::setOrientation(QPrinter::Orientation orientation)
-{
-    m_orientation = orientation;
-}
-
-
-void Page::setMargins(const QMargins &margins)
-{
-    m_margins = margins;
 }
 
 
@@ -151,7 +111,7 @@ void Page::render(Document *document, QPainter *painter) const
 
     if (painter->device()->paintEngine() == nullptr) {
         painter->setPen(QPen(Qt::red, 0.05));
-        painter->drawRect(painter->window().marginsRemoved(m_margins));
+        painter->drawRect(painter->window().marginsRemoved(margins().toMargins()));
     }
 
     QListIterator<Element *> elementIterator(m_elements);
@@ -192,12 +152,12 @@ QDataStream &operator<<(QDataStream &stream, const Page &page)
     stream << qint32(page.version);
 
     stream  << qint32(page.m_pageNumber)
-            << qint32(page.m_paperSize)
-            << qint32(page.m_orientation)
-            << qint32(page.m_margins.left())
-            << qint32(page.m_margins.top())
-            << qint32(page.m_margins.right())
-            << qint32(page.m_margins.bottom())
+            << qint32(page.pageSize().id())
+            << qint32(page.orientation())
+            << qint32(page.margins().left())
+            << qint32(page.margins().top())
+            << qint32(page.margins().right())
+            << qint32(page.margins().bottom())
             << qint32(page.m_elements.count());
 
     QListIterator<Element *> elementIterator(page.m_elements);
@@ -223,7 +183,7 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
 {
     qint32 version;
     qint32 pageNumber;
-    qint32 paperSize;
+    qint32 pageSizeId;
     qint32 orientation;
     qint32 left;
     qint32 top;
@@ -239,23 +199,23 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
     switch (version) {
     case 102:
         stream  >> pageNumber
-                >> paperSize
+                >> pageSizeId
                 >> orientation
                 >> left
                 >> top
                 >> right
                 >> bottom;
         page.m_pageNumber = pageNumber;
-        page.m_paperSize = static_cast<QPrinter::PaperSize>(paperSize);
-        page.m_orientation = static_cast<QPrinter::Orientation>(orientation);
-        page.m_margins = QMargins(left, top, right, bottom);
+        page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
+        page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
+        page.setMargins(QMarginsF(left, top, right, bottom));
 
         page.readElements(stream);
         break;
 
     case 101:
         stream  >> pageNumber
-                >> paperSize
+                >> pageSizeId
                 >> orientation
                 >> left
                 >> top
@@ -265,9 +225,9 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
                 >> gridX
                 >> gridY;
         page.m_pageNumber = pageNumber;
-        page.m_paperSize = static_cast<QPrinter::PaperSize>(paperSize);
-        page.m_orientation = static_cast<QPrinter::Orientation>(orientation);
-        page.m_margins = QMargins(left, top, right, bottom);
+        page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
+        page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
+        page.setMargins(QMarginsF(left, top, right, bottom));
 
         page.readElements(stream);
 
@@ -275,15 +235,15 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
         break;
 
     case 100:
-        stream  >> paperSize
+        stream  >> pageSizeId
                 >> orientation
                 >> left
                 >> top
                 >> right
                 >> bottom;
-        page.m_paperSize = static_cast<QPrinter::PaperSize>(paperSize);
-        page.m_orientation = static_cast<QPrinter::Orientation>(orientation);
-        page.m_margins = QMargins(left, top, right, bottom);
+        page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
+        page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
+        page.setMargins(QMarginsF(left, top, right, bottom));
 
         page.readElements(stream);
 

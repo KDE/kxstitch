@@ -13,16 +13,16 @@
 #define PaperSizes_H
 
 
-#include <QPrinter>
+#include <QPageLayout>
 
 
-class PaperSizes
+class PageSizes
 {
 public:
-    static QPrinter::PaperSize size(const QString &);
-    static QString name(QPrinter::PaperSize);
-    static int width(QPrinter::PaperSize, QPrinter::Orientation);
-    static int height(QPrinter::PaperSize, QPrinter::Orientation);
+    static QPageSize::PageSizeId size(const QString &);
+    static QString name(QPageSize::PageSizeId);
+    static int width(QPageSize::PageSizeId, QPageLayout::Orientation);
+    static int height(QPageSize::PageSizeId, QPageLayout::Orientation);
 };
 
 

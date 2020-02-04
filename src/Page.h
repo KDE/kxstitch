@@ -24,25 +24,19 @@ class Element;
 class QPainter;
 
 
-class Page
+class Page : public QPageLayout
 {
 public:
-    explicit Page(QPrinter::PaperSize paperSize = QPrinter::A4, QPrinter::Orientation orientation = QPrinter::Portrait);
+    explicit Page(QPageSize pageSize = QPageSize(QPageSize::A4), QPageLayout::Orientation orientation = QPageLayout::Portrait);
     Page(const Page &);
     ~Page();
 
     Page &operator=(const Page &);
 
     int pageNumber() const;
-    QPrinter::PaperSize paperSize() const;
-    QPrinter::Orientation orientation() const;
-    const QMargins &margins() const;
     const QList<Element *> elements() const;
 
     void setPageNumber(int);
-    void setPaperSize(QPrinter::PaperSize);
-    void setOrientation(QPrinter::Orientation);
-    void setMargins(const QMargins &);
 
     void addElement(Element *);
     void removeElement(Element *);
@@ -62,11 +56,6 @@ private:
     static const int version = 102;
 
     int     m_pageNumber;
-
-    QPrinter::PaperSize     m_paperSize;
-    QPrinter::Orientation   m_orientation;
-
-    QMargins    m_margins;
 
     QList<Element *>  m_elements;
 };

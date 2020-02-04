@@ -199,7 +199,7 @@
     </widget>
    </item>
    <item row="0" column="5">
-    <widget class="KComboBox" name="PaperSize">
+    <widget class="KComboBox" name="PageSize">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -648,8 +648,8 @@
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
-        <x>8</x>
-        <y>21</y>
+        <x>4</x>
+        <y>0</y>
         <width>450</width>
         <height>450</height>
        </rect>

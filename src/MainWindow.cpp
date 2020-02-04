@@ -483,16 +483,16 @@ void MainWindow::printPages()
 
     const Page *page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
 
-    m_printer->setPaperSize(page->paperSize());             // DEPRECATED
-    m_printer->setOrientation(page->orientation());         // DEPRECATED
+    m_printer->setPageSize(page->pageSize());
+    m_printer->setPageOrientation(page->orientation());
 
     QPainter painter;
     painter.begin(m_printer);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
     for (int p = 0 ; p < totalPages ;) {
-        int paperWidth = PaperSizes::width(page->paperSize(), page->orientation());
-        int paperHeight = PaperSizes::height(page->paperSize(), page->orientation());
+        int paperWidth = PageSizes::width(page->pageSize().id(), page->orientation());
+        int paperHeight = PageSizes::height(page->pageSize().id(), page->orientation());
 
         painter.setWindow(0, 0, paperWidth, paperHeight);
 
@@ -501,8 +501,8 @@ void MainWindow::printPages()
         if (++p < totalPages) {
             page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
 
-            m_printer->setPaperSize(page->paperSize());     // DEPRECATED
-            m_printer->setOrientation(page->orientation()); // DEPRECATED
+            m_printer->setPageSize(page->pageSize());
+            m_printer->setPageOrientation(page->orientation());
 
             m_printer->newPage();
         }

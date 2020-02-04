@@ -48,7 +48,7 @@ protected:
     virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
-    void on_PaperSize_currentIndexChanged(const QString &);
+    void on_PageSize_currentIndexChanged(const QString &);
     void on_Orientation_currentIndexChanged(int);
     void on_Zoom_currentIndexChanged(int);
     void on_Pages_currentItemChanged(QListWidgetItem *, QListWidgetItem *);
@@ -79,8 +79,8 @@ private:
     void updatePageNumbers();
 //    void selectTemplate();
 
-    QPrinter::PaperSize selectedPaperSize();
-    QPrinter::Orientation selectedOrientation();
+    QPageSize selectedPageSize();
+    QPageLayout::Orientation selectedOrientation();
     double selectedZoom();
 
     Ui::PrintSetup  ui;
