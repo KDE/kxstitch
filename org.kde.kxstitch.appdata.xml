@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
   <id>org.kde.kxstitch.desktop</id>
-  <metadata_license>GFDL-1.2-without-invariant</metadata_license>
+  <metadata_license>GFDL-1.2-only</metadata_license>
   <name>KXStitch</name>
   <name xml:lang="ca">KXStitch</name>
   <name xml:lang="ca-valencia">KXStitch</name>
@@ -282,6 +282,10 @@
       <li xml:lang="zh-CN">打印图案和线键</li>
     </ul>
   </description>
+  <releases>
+    <release date="2019-06-07" version="2.2.0"/>
+  </releases>
+  <content_rating type="oars-1.1" />
   <url type="homepage">https://userbase.kde.org/Special:myLanguage/KXStitch</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kxstitch</url>
   <url type="help">http://docs.kde.org/development/en/extragear-graphics/kxstitch/index.html</url>
