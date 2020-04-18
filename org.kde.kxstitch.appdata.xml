@@ -11,6 +11,7 @@
   <name xml:lang="en-GB">KXStitch</name>
   <name xml:lang="es">KXStitch</name>
   <name xml:lang="et">KXStitch</name>
+  <name xml:lang="eu">KXStitch</name>
   <name xml:lang="fi">KXStitch</name>
   <name xml:lang="fr">KXStitch</name>
   <name xml:lang="gl">KXStitch</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="en-GB">A cross stitch pattern creator</summary>
   <summary xml:lang="es">Un creador de patrones de punto de cruz</summary>
   <summary xml:lang="et">Tikkimismustrite loomise rakendus</summary>
+  <summary xml:lang="eu">Gurutze-puntuko eredu sortzaile bat</summary>
   <summary xml:lang="fr">Concepteur d'ouvrages au point de croix</summary>
   <summary xml:lang="gl">Un creador de padróns de cruz en punta</summary>
   <summary xml:lang="id">Sebuah aplikasi penciptaan pola kristik (cross stitch)</summary>
@@ -61,6 +63,7 @@
     <p xml:lang="en-GB">KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colours and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
     <p xml:lang="es">KXStitch es un programa que le permite crear patrones y diseños de punto de cruz. Puede crear patrones desde cero en una cuadrícula del tamaño que desee, que además podrá cambiar a medida que avance. De forma alternativa, puede importar imágenes de diversos formatos de archivos gráficos que le permitirán reducir el número de colores y restringir la conversión a puntos completos o usar puntos puntos fraccionarios. También puede usar imágenes a modo de fondo y trazar sus diseños sobre ellas. Podrá modificar estas imágenes importadas usando las herramientas que se suministran para producir un diseño final.</p>
     <p xml:lang="et">KXStitch on rakendus, mis võimaldab luua tikkimismustreid ja mustrilehti. Mustreid võib luua nullist peale kasutaja määratud suurusega alusvõrgul, mida saab vastavalt mustri edenemisele suurendada või vähendada. Teise võimalusena võib importida pilte paljudest graafikafailivormingutest, mille juures saab vähendada värvide arvu ja piirata teisendamist täispistetega, aga vajadusel korral siiski kasutada ka murdarvulisi pisteid, mis tagab sujuvamad jooned. Samuti võib kasutada pilte taustana. Imporditud pilte saab seejärel muuta olemasolevate tööriistadega, et luua nende põhjal lõplik muster.</p>
+    <p xml:lang="eu">KXStitch gurutze-puntuko ereduak eta diagramak sortzeko aukera ematen duen programa bat da. Ereduak hutsetik sor daitezke erabiltzaileak zehaztutako neurriko lauki-sare batean, zure eredua garatu ahala handiagotu edo txikiagotu daitekeelarik. Beste aukera bat irudiak inportatzea da, fitxategi-formatu grafiko askotakoak, kolore kopurua murriztu ahal izango duzu eta bihurketa puntada osoetara edo hautazko gisa puntada zatikietara murrizteko aukera emango dizu. Irudiak hondo gisa ere erabil ditzakezu haien gainetik trazatzeko. Inportatutako irudi hauek alda daitezke hornitutako tresnak erabiliz zure azken diseinua sortzeko.</p>
     <p xml:lang="fr">KXStitch est un programme qui vous permet de créer des ouvrages au point de croix. Les ouvrages peuvent être créés à partir de rien sur une grille définie par l'utilisateur, qui peut être agrandie ou réduite au fur et à mesure de la création de l'ouvrage. Vous pouvez également importer des images grâce à un des nombreux formats de fichiers pris en charge, à l'aide d'options vous permettant de réduire le nombre de couleurs et d'imposer des restrictions, pour n'utiliser que des points de croix complets ou autoriser les points fractionnés. Vous pouvez aussi utiliser des images de fond, afin de pouvoir dessiner dessus. Ces images importées peuvent ensuite être modifiées à l'aide des outils fournis, vous permettant ainsi de produire un ouvrage complet.</p>
     <p xml:lang="gl">KXStitch é un programa que lle permite crear padróns e gráficos de cruz en punta. Pode crear padróns desde cero sobre unha grade de tamaño personalizado. Tamén pode importar imaxes en varios formatos, o que lle permitirá restrinxir o número de cores e restrinxir a conversión a puntadas completas ou usar opcionalmente puntadas fraccionadas. Tamén pode usar imaxes de fondo, para trazar sobre elas. As imaxes importadas poden modificarse mediante as ferramentas fornecidas para producir o deseño final.</p>
     <p xml:lang="id">KXStitch adalah program yang menyegerakanmu menciptakan bagan dan pola kristik. Pola-pola dapat diciptakan dari awal pada ukuran kisi yang ditentukan pengguna, yang mana ukuran  bisa diperbesar atau diperkecil saat selagi progres polamu. Selain itu kamu bisa mengimpor citra dari banyak format file grafik yang akan memungkinkanmu untuk mengurangi jumlah warna dan untuk membatasi konversi untuk memenuhi stitch-stitch atau secara opsional menggunakan stitch kecil-kecil. Kamu juga bisa menggunakan citra sebagai latarbelakang untuk mengeblabnya. Citra yang diimpor tersebut kemudian dapat dimodifikasi menggunakan peralatan yang disediakan untuk menghasilkan desain finalmu.</p>
@@ -85,6 +88,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Ezaugarriak:</p>
     <p xml:lang="fi">Ominaisuudet:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -112,6 +116,7 @@
       <li xml:lang="en-GB">Creation of new patterns</li>
       <li xml:lang="es">Creación de nuevos patrones</li>
       <li xml:lang="et">Uute mustrite loomine</li>
+      <li xml:lang="eu">Eredu berriak sortzea</li>
       <li xml:lang="fr">Création de nouveaux ouvrages</li>
       <li xml:lang="gl">Creación de padróns novos.</li>
       <li xml:lang="id">Penciptaan pola-pola baru</li>
@@ -136,6 +141,7 @@
       <li xml:lang="en-GB">Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
       <li xml:lang="es">Edición de los patrones existentes (KXStitch también puede leer archivos de PC Stitch)</li>
       <li xml:lang="et">Olemasolevate mustrite muutmine - KXStitch suudab lugeda ka PC Stitchi faile</li>
+      <li xml:lang="eu">Existitzen den eredu bat editatzea - KXStitch «PC Stitch» fitxategiak irakurtzeko gai da</li>
       <li xml:lang="fr">Édition d'ouvrages existants : KXStitch est également en mesure de lire les fichiers PC Stitch</li>
       <li xml:lang="gl">Edición de padróns existentes. KXStitch tamén pode ler ficheiros de PC Stitch.</li>
       <li xml:lang="id">Pengeditan pola-pola yang ada - KXStitch juga mampu membaca PC Stitch</li>
@@ -159,6 +165,7 @@
       <li xml:lang="en-GB">Use of various floss pallets, DMC, Anchor, Madeira</li>
       <li xml:lang="es">Uso de ovillos de hilo variados, DMC, Anchor, Madeira</li>
       <li xml:lang="et">Mitmesuguste lõngapalettide (DMC, Anchor, Madeira jt) kasutamine</li>
+      <li xml:lang="eu">Harizko hainbat paleta erabiltzea, DMC, Anchor, Madeira</li>
       <li xml:lang="fr">Utilisation de différentes palettes de fils : DMC, Anchor, Madeira</li>
       <li xml:lang="gl">Uso de varios xergóns de fío, DMC, Anchor e Madeira.</li>
       <li xml:lang="id">Menggunakan beberapa palet floss, DMC, Anchor, Madeira</li>
@@ -182,6 +189,7 @@
       <li xml:lang="en-GB">Creation of custom palettes and colours</li>
       <li xml:lang="es">Creación de paletas y colores personalizados</li>
       <li xml:lang="et">Kohandatud palettide ja värvide loomine</li>
+      <li xml:lang="eu">Norberak finkatutako paletak eta koloreak sortzea</li>
       <li xml:lang="fr">Création de nuanciers et de couleurs personnalisés</li>
       <li xml:lang="gl">Creación de paletas e cores personalizadas.</li>
       <li xml:lang="id">Penciptaan warna dan pallet-pallet kustom</li>
@@ -206,6 +214,7 @@
       <li xml:lang="en-GB">Use of standard stitches</li>
       <li xml:lang="es">Uso de puntos estándares</li>
       <li xml:lang="et">Standardsete pistete kasutamine</li>
+      <li xml:lang="eu">Puntu estandarrak erabiltzea</li>
       <li xml:lang="fr">Utilisation des points standards</li>
       <li xml:lang="gl">Uso de puntadas estándar.</li>
       <li xml:lang="id">Menggunakan stitch standar</li>
@@ -228,6 +237,7 @@
       <li xml:lang="en-GB">Free use of backstitching</li>
       <li xml:lang="es">Libre uso de pespuntes</li>
       <li xml:lang="et">Tikkpistete vaba kasutamine</li>
+      <li xml:lang="eu">Atzera-puntadaren erabilera askea</li>
       <li xml:lang="fr">Utilisation libre des points arrière</li>
       <li xml:lang="gl">Uso libre de puntadas atrás.</li>
       <li xml:lang="id">Bebas penggunaan backstitching</li>
@@ -251,6 +261,7 @@
       <li xml:lang="en-GB">Importing of various picture formats</li>
       <li xml:lang="es">Importación de diversos formatos de imágenes</li>
       <li xml:lang="et">Mitmesuguste pildivormingute import</li>
+      <li xml:lang="eu">Hainbat irudi-formatu inportatzea</li>
       <li xml:lang="fr">Importation de différents formats d'image</li>
       <li xml:lang="gl">Importación de varios formatos de imaxe.</li>
       <li xml:lang="id">Mengimpor berbagai format gambar</li>
@@ -274,6 +285,7 @@
       <li xml:lang="en-GB">Printing of patterns and floss keys</li>
       <li xml:lang="es">Impresión de patrones y claves de hilos</li>
       <li xml:lang="et">Mustrite ja legendide trükkimine</li>
+      <li xml:lang="eu">Ereduak inprimatzea eta hari-txirrikak</li>
       <li xml:lang="fr">Impression d'ouvrages et de tableaux des fils</li>
       <li xml:lang="gl">Impresión de padróns e claves de fíos.</li>
       <li xml:lang="id">Pencetakan kunci floss dan pola-pola</li>
