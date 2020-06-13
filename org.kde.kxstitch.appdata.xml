@@ -58,7 +58,7 @@
   <summary xml:lang="zh-CN">十字绣图案创建器</summary>
   <description>
     <p>KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colors and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
-    <p xml:lang="ca">El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, que es pot ampliar o reduir de mida quan el patró s'està fent. Alternativament, podeu importar imatges des de molts formats de fitxers per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a punts sencers. També podeu usar imatges com a fons, dibuixant-hi a sobre. Aquestes imatges importades es poden modificar usant les eines subministrades per a produir el disseny final.</p>
+    <p xml:lang="ca">El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, que es pot ampliar o reduir de mida quan el patró s'està fent. Alternativament, podeu importar imatges des de molts formats de fitxers per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a puntades senceres. També podeu usar imatges com a fons, dibuixant-hi a sobre. Aquestes imatges importades es poden modificar usant les eines subministrades per a produir el disseny final.</p>
     <p xml:lang="ca-valencia">El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, que es pot ampliar o reduir de mida quan el patró s'està fent. Alternativament, podeu importar imatges des de molts formats de fitxers per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a punts sencers. També podeu usar imatges com a fons, dibuixant-hi damunt. Aquestes imatges importades es poden modificar usant les eines subministrades per a produir el disseny final.</p>
     <p xml:lang="en-GB">KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colours and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
     <p xml:lang="es">KXStitch es un programa que le permite crear patrones y diseños de punto de cruz. Puede crear patrones desde cero en una cuadrícula del tamaño que desee, que además podrá cambiar a medida que avance. De forma alternativa, puede importar imágenes de diversos formatos de archivos gráficos que le permitirán reducir el número de colores y restringir la conversión a puntos completos o usar puntos puntos fraccionarios. También puede usar imágenes a modo de fondo y trazar sus diseños sobre ellas. Podrá modificar estas imágenes importadas usando las herramientas que se suministran para producir un diseño final.</p>
@@ -208,7 +208,7 @@
       <li xml:lang="zh-CN">创建自定义调色板和颜色</li>
       <li xml:lang="zh-TW">建立自動調色盤及顏色</li>
       <li>Use of standard stitches</li>
-      <li xml:lang="ca">Ús de punts estàndard</li>
+      <li xml:lang="ca">Ús de puntades estàndard</li>
       <li xml:lang="ca-valencia">Ús de punts estàndard</li>
       <li xml:lang="de">Standardstiche verwenden</li>
       <li xml:lang="en-GB">Use of standard stitches</li>
@@ -280,7 +280,7 @@
       <li xml:lang="zh-CN">导入多种图片格式</li>
       <li xml:lang="zh-TW">匯入各種影像格式</li>
       <li>Printing of patterns and floss keys</li>
-      <li xml:lang="ca">Impressió de patrons i claus de cabdells</li>
+      <li xml:lang="ca">Impressió de patrons i claus de fil</li>
       <li xml:lang="ca-valencia">Impressió de patrons i claus de cabdells</li>
       <li xml:lang="en-GB">Printing of patterns and floss keys</li>
       <li xml:lang="es">Impresión de patrones y claves de hilos</li>
