@@ -32,6 +32,7 @@ find_package (KF5 REQUIRED COMPONENTS
     Config
     ConfigWidgets
     Completion
+    GuiAddons
     I18n
     KIO
     TextWidgets
@@ -145,6 +146,7 @@ target_link_libraries (kxstitch
     Qt5::X11Extras
     KF5::Completion
     KF5::ConfigGui
+    KF5::GuiAddons
     KF5::KIOFileWidgets
     KF5::I18n
     KF5::TextWidgets
