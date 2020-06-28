@@ -24,7 +24,6 @@
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
 #include <QToolTip>
-#include <QX11Info>
 
 #include <KLocalizedString>
 #include <KMessageBox>

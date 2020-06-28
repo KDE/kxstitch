@@ -23,7 +23,6 @@ find_package (Qt5 CONFIG REQUIRED
     Core
     PrintSupport
     Widgets
-    X11Extras
 )
 
 find_package (KF5DocTools)
@@ -41,7 +40,6 @@ find_package (KF5 REQUIRED COMPONENTS
 )
 
 find_package (ImageMagick COMPONENTS MagickCore Magick++ REQUIRED)
-find_package (X11 REQUIRED)
 find_package (Doxygen)
 find_package (SharedMimeInfo)
 
@@ -57,7 +55,6 @@ include_directories (BEFORE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_D
 # only in older cmake versions, while the latter only in newer ones
 include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
 include_directories (${ImageMagick_Magick++_INCLUDE_DIRS} ${ImageMagick_MagickCore_INCLUDE_DIRS})
-include_directories (${X11_INCLUDE_DIR})
 
 set (kxstitch_SRCS
     src/BackgroundImage.cpp
@@ -96,7 +93,6 @@ set (kxstitch_SRCS
     src/Symbol.cpp
     src/SymbolLibrary.cpp
     src/SymbolManager.cpp
-    src/XKeyLock.cpp
 
     src/AlphaSelect.cpp
     src/CalibrateFlossDlg.cpp
@@ -143,7 +139,6 @@ target_link_libraries (kxstitch
     Qt5::Core
     Qt5::PrintSupport
     Qt5::Widgets
-    Qt5::X11Extras
     KF5::Completion
     KF5::ConfigGui
     KF5::GuiAddons
@@ -153,7 +148,6 @@ target_link_libraries (kxstitch
     KF5::WidgetsAddons
     KF5::XmlGui
     ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
-    ${X11_LIBRARIES}
 )
 
 set (WITH_PROFILING OFF CACHE BOOL "Build with profiling support")
