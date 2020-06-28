@@ -46,7 +46,6 @@
 #include "Scale.h"
 #include "SchemeManager.h"
 #include "TextToolDlg.h"
-#include "XKeyLock.h"
 
 
 const Editor::keyPressCallPointer Editor::keyPressCallPointers[] = {
@@ -858,10 +857,9 @@ void Editor::keyPressText(QKeyEvent *e)
 
 void Editor::keyPressAlphabet(QKeyEvent *e)
 {
-    XKeyLock keylock(QX11Info::display());
     Qt::KeyboardModifiers modifiers = e->modifiers();
 
-    if (keylock.getCapsLock() && Configuration::alphabet_UseCapsLock()) {
+    if (m_keyInfo.isKeyPressed(Qt::Key_CapsLock) && Configuration::alphabet_UseCapsLock()) {
         modifiers = static_cast<Qt::KeyboardModifiers>(modifiers ^ Qt::ShiftModifier);
     }
 

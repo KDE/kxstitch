@@ -16,6 +16,8 @@
 #include <QStack>
 #include <QWidget>
 
+#include <KModifierKeyInfo>
+
 #include "Stitch.h"
 
 #include "configuration.h"
@@ -336,6 +338,8 @@ private:
 
     QStack<QPoint>  m_cursorStack;
     QMap<int, int>  m_cursorCommands;
+
+    KModifierKeyInfo m_keyInfo;
 
     typedef void (Editor::*keyPressCallPointer)(QKeyEvent*);
     typedef void (Editor::*toolInitCallPointer)();
