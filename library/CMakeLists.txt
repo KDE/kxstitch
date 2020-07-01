@@ -1,0 +1,7 @@
+file(GLOB _library "*")
+foreach(ITEM ${_library})
+    if(IS_DIRECTORY "${ITEM}")
+        list(APPEND _libraries "${ITEM}")
+    endif()
+endforeach()
+install(DIRECTORY ${_libraries} DESTINATION ${DATA_INSTALL_DIR}/kxstitch/library)

@@ -129,6 +129,7 @@ ki18n_wrap_ui(kxstitch_SRCS ${kxstitch_UI})
 add_subdirectory(icons)
 add_subdirectory(schemes)
 add_subdirectory(symbols)
+add_subdirectory(library)
 add_subdirectory(doc)
 
 kconfig_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
