@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -116,8 +116,6 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
     parser.setApplicationDescription(aboutData.shortDescription());
-    parser.addHelpOption();
-    parser.addVersionOption();
 
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("Document to open."), QStringLiteral("[urls...]"));
 
