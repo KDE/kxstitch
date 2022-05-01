@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1250,7 +1250,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Quarter Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-quarter-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-quarter-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchQuarter); });
     actions->addAction(QStringLiteral("stitchQuarter"), action);
@@ -1258,7 +1258,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Half Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-half-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-half-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchHalf); });
     actions->addAction(QStringLiteral("stitchHalf"), action);
@@ -1266,7 +1266,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("3 Quarter Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-3quarter-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-3quarter-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::Stitch3Quarter); });
     actions->addAction(QStringLiteral("stitch3Quarter"), action);
@@ -1274,7 +1274,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Full Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-full-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-full-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchFull); });
     actions->addAction(QStringLiteral("stitchFull"), action);
@@ -1282,7 +1282,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Small Half Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-small-half-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-small-half-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchSmallHalf); });
     actions->addAction(QStringLiteral("stitchSmallHalf"), action);
@@ -1290,7 +1290,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Small Full Stitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-small-full-stitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-small-full-stitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchSmallFull); });
     actions->addAction(QStringLiteral("stitchSmallFull"), action);
@@ -1298,7 +1298,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("French Knot"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-frenchknot")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-frenchknot")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchFrenchKnot); });
     actions->addAction(QStringLiteral("stitchFrenchKnot"), action);
@@ -1343,7 +1343,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Fill Rectangle"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-draw-rectangle-filled")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-draw-rectangle-filled")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillRectangle);});
     actions->addAction(QStringLiteral("toolFillRectangle"), action);
@@ -1359,7 +1359,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Fill Ellipse"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-draw-ellipse-filled")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-draw-ellipse-filled")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillEllipse);});
     actions->addAction(QStringLiteral("toolFillEllipse"), action);
@@ -1367,7 +1367,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Fill Polygon"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("draw-polyline")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("tool_polygon")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillPolygon);});
     actions->addAction(QStringLiteral("toolFillPolygon"), action);
@@ -1399,7 +1399,7 @@ void MainWindow::setupActions()
 
     action = new QAction(this);
     action->setText(i18n("Backstitch"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-backstitch")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-backstitch")));
     action->setCheckable(true);
     connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolBackstitch);});
     actions->addAction(QStringLiteral("toolBackstitch"), action);
@@ -1417,7 +1417,7 @@ void MainWindow::setupActions()
     // Palette Menu
     action = new QAction(this);
     action->setText(i18n("Palette Manager..."));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-color-add")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-color-add")));
     connect(action, &QAction::triggered, this, &MainWindow::paletteManager);
     actions->addAction(QStringLiteral("paletteManager"), action);
 
@@ -1451,13 +1451,13 @@ void MainWindow::setupActions()
     // Pattern Menu
     action = new QAction(this);
     action->setText(i18n("Extend Pattern..."));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-extend-pattern")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-extend-pattern")));
     connect(action, &QAction::triggered, this, &MainWindow::patternExtend);
     actions->addAction(QStringLiteral("patternExtend"), action);
 
     action = new QAction(this);
     action->setText(i18n("Center Pattern"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("kxstitch-center-pattern")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-center-pattern")));
     connect(action, &QAction::triggered, this, &MainWindow::patternCentre);
     actions->addAction(QStringLiteral("patternCentre"), action);
 
