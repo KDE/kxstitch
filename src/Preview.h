@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -13,7 +13,7 @@
 #define Preview_H
 
 
-#include <QImage>
+#include <QPixmap>
 #include <QWidget>
 
 #include "Renderer.h"
@@ -67,7 +67,7 @@ private:
     double      m_previewHeight;
     double      m_zoomFactor;
 
-    QImage      m_cachedContents;
+    QPixmap     m_cachedContents;
 };
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1251,7 +1251,7 @@ void Editor::resizeEvent(QResizeEvent *e)
     int height = e->size().height();
 
     if (m_cachedContents.isNull()) {
-        m_cachedContents = QImage(width, height, QImage::Format_ARGB32_Premultiplied);
+        m_cachedContents = QPixmap(width, height);
     } else {
         m_cachedContents = m_cachedContents.scaled(width, height);
         repaint();
@@ -1273,7 +1273,7 @@ void Editor::paintEvent(QPaintEvent *e)
     QPainter painter(this);
 
     painter.fillRect(dirtyRect, Qt::white);
-    painter.drawImage(dirtyRect, m_cachedContents, dirtyRect);
+    painter.drawPixmap(dirtyRect, m_cachedContents, dirtyRect);
     painter.setWindow(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
 
     if (renderToolSpecificGraphics[m_toolMode]) {

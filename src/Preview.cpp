@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -54,7 +54,7 @@ void Preview::readDocumentSettings()
     m_previewWidth = m_cellWidth * width * m_zoomFactor;
     m_previewHeight = m_cellHeight * height * m_zoomFactor;
     resize(m_previewWidth, m_previewHeight);
-    m_cachedContents = QImage(m_previewWidth, m_previewHeight, QImage::Format_ARGB32_Premultiplied);
+    m_cachedContents = QPixmap(m_previewWidth, m_previewHeight);
     drawContents();
 }
 
@@ -134,7 +134,7 @@ void Preview::paintEvent(QPaintEvent *)
 
     QPainter painter(this);
 
-    painter.drawImage(0, 0, m_cachedContents);
+    painter.drawPixmap(0, 0, m_cachedContents);
 
     QPen visibleAreaPen(Qt::white);
     visibleAreaPen.setCosmetic(true);

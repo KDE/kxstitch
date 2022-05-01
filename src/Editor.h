@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2015 by Stephen Allewell
+ * Copyright (C) 2010-2022 by Stephen Allewell
  * steve.allewell@gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -334,7 +334,7 @@ private:
     QByteArray  m_pasteData;
     Pattern     *m_pastePattern;
 
-    QImage      m_cachedContents;
+    QPixmap     m_cachedContents;
 
     QStack<QPoint>  m_cursorStack;
     QMap<int, int>  m_cursorCommands;
