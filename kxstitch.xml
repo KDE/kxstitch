@@ -2,6 +2,11 @@
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <mime-type type="application/x-kxs">
     <comment>KXStitch pattern</comment>
+    <comment xml:lang="ca">Patró del KXStitch</comment>
+    <comment xml:lang="nl">KXStitch patroon</comment>
+    <comment xml:lang="pt">Padrão do KXStitch</comment>
+    <comment xml:lang="tr">KX Dikiş deseni</comment>
+    <comment xml:lang="uk">візерунок KXStitch</comment>
     <magic priority="50">
       <match type="string" value="KXStitchDoc" offset="0"/>
     </magic>
