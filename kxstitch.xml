@@ -3,8 +3,10 @@
   <mime-type type="application/x-kxs">
     <comment>KXStitch pattern</comment>
     <comment xml:lang="ca">Patró del KXStitch</comment>
+    <comment xml:lang="fr">Profil de KXStitch</comment>
     <comment xml:lang="nl">KXStitch patroon</comment>
     <comment xml:lang="pt">Padrão do KXStitch</comment>
+    <comment xml:lang="sl">Vzorec KXStitch</comment>
     <comment xml:lang="tr">KX Dikiş deseni</comment>
     <comment xml:lang="uk">візерунок KXStitch</comment>
     <magic priority="50">
