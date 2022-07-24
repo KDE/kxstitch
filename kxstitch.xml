@@ -3,6 +3,7 @@
   <mime-type type="application/x-kxs">
     <comment>KXStitch pattern</comment>
     <comment xml:lang="ca">Patró del KXStitch</comment>
+    <comment xml:lang="ca@valencia">Patró de KXStitch</comment>
     <comment xml:lang="en_GB">KXStitch pattern</comment>
     <comment xml:lang="es">Patrón de KXStitch</comment>
     <comment xml:lang="fr">Profil de KXStitch</comment>
@@ -11,6 +12,7 @@
     <comment xml:lang="sl">Vzorec KXStitch</comment>
     <comment xml:lang="tr">KX Dikiş deseni</comment>
     <comment xml:lang="uk">візерунок KXStitch</comment>
+    <comment xml:lang="zh_TW">KXStitch 圖樣</comment>
     <magic priority="50">
       <match type="string" value="KXStitchDoc" offset="0"/>
     </magic>
