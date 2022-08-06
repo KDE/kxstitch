@@ -11,8 +11,6 @@
 
 #include "ConfigurationDialogs.h"
 
-#include <KConfigDialogManager>
-
 #include "SchemeManager.h"
 #include "SymbolManager.h"
 
