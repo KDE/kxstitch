@@ -13,7 +13,7 @@ set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include (KDEInstallDirs)
 include (KDECMakeSettings)
-include (KDECompilerSettings)
+include (KDECompilerSettings NO_POLICY_SCOPE)
 include (ECMInstallIcons)
 include (FeatureSummary)
 
