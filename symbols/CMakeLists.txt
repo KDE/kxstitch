@@ -1,2 +1,2 @@
 file(GLOB _symbols "*.sym")
-install(FILES ${_symbols} DESTINATION ${DATA_INSTALL_DIR}/kxstitch/symbols)
+install(FILES ${_symbols} DESTINATION ${KDE_INSTALL_DATADIR}/kxstitch/symbols)

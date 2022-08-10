@@ -15,7 +15,7 @@ ECM_INSTALL_ICONS(ICONS
     22-actions-kxs-quarter-stitch.png
     22-actions-kxs-small-full-stitch.png
     22-actions-kxs-small-half-stitch.png
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )
 
