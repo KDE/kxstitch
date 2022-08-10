@@ -958,13 +958,13 @@ void MainWindow::preferences()
     KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("preferences"), Configuration::self());
     dialog->setFaceType(KPageDialog::List);
 
-    dialog->addPage(new EditorConfigPage(0, QStringLiteral("EditorConfigPage")), i18nc("The Editor config page", "Editor"), QStringLiteral("preferences-desktop"));
-    dialog->addPage(new PatternConfigPage(0, QStringLiteral("PatternConfigPage")), i18n("Pattern"), QStringLiteral("ksnapshot"));
-    PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(0, QStringLiteral("PaletteConfigPage"));
+    dialog->addPage(new EditorConfigPage(nullptr, QStringLiteral("EditorConfigPage")), i18nc("The Editor config page", "Editor"), QStringLiteral("preferences-desktop"));
+    dialog->addPage(new PatternConfigPage(nullptr, QStringLiteral("PatternConfigPage")), i18n("Pattern"), QStringLiteral("ksnapshot"));
+    PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(nullptr, QStringLiteral("PaletteConfigPage"));
     dialog->addPage(paletteConfigPage, i18n("Palette"), QStringLiteral("preferences-desktop-color"));
-    dialog->addPage(new ImportConfigPage(0, QStringLiteral("ImportConfigPage")), i18n("Import"), QStringLiteral("insert-image"));
-    dialog->addPage(new LibraryConfigPage(0, QStringLiteral("LibraryConfigPage")), i18n("Library"), QStringLiteral("accessories-dictionary"));
-    dialog->addPage(new PrinterConfigPage(0, QStringLiteral("PrinterConfigPage")), i18n("Printer Configuration"), QStringLiteral("preferences-desktop-printer"));
+    dialog->addPage(new ImportConfigPage(nullptr, QStringLiteral("ImportConfigPage")), i18n("Import"), QStringLiteral("insert-image"));
+    dialog->addPage(new LibraryConfigPage(nullptr, QStringLiteral("LibraryConfigPage")), i18n("Library"), QStringLiteral("accessories-dictionary"));
+    dialog->addPage(new PrinterConfigPage(nullptr, QStringLiteral("PrinterConfigPage")), i18n("Printer Configuration"), QStringLiteral("preferences-desktop-printer"));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::settingsChanged);
 

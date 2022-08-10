@@ -23,7 +23,7 @@
 
 
 PagePreviewListWidgetItem::PagePreviewListWidgetItem(Document *document, Page *page)
-    :   QListWidgetItem(0, QListWidgetItem::UserType),
+    :   QListWidgetItem(nullptr, QListWidgetItem::UserType),
         m_document(document),
         m_page(page)
 {

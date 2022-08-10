@@ -118,7 +118,7 @@ void LibraryFile::readFile()
                 QByteArray data;
                 LibraryPattern *libraryPattern;
 
-                QProgressDialog progress(0);
+                QProgressDialog progress(nullptr);
                 progress.setLabelText(i18n("Loading Library %1", file.fileName()));
 
                 stream >> version;

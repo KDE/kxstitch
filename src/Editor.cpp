@@ -48,59 +48,59 @@
 
 
 const Editor::keyPressCallPointer Editor::keyPressCallPointers[] = {
-    0,                          // Paint
-    0,                          // Draw
-    0,                          // Erase
-    0,                          // Rectangle
-    0,                          // Fill Rectangle
-    0,                          // Ellipse
-    0,                          // Fill Ellipse
+    nullptr,                    // Paint
+    nullptr,                    // Draw
+    nullptr,                    // Erase
+    nullptr,                    // Rectangle
+    nullptr,                    // Fill Rectangle
+    nullptr,                    // Ellipse
+    nullptr,                    // Fill Ellipse
     &Editor::keyPressPolygon,   // Fill Polygon
     &Editor::keyPressText,      // Text
     &Editor::keyPressAlphabet,  // Alphabet
-    0,                          // Select
-    0,                          // Backstitch
-    0,                          // Color Picker
+    nullptr,                    // Select
+    nullptr,                    // Backstitch
+    nullptr,                    // Color Picker
     &Editor::keyPressPaste,     // Paste
     &Editor::keyPressMirror,    // Mirror
     &Editor::keyPressRotate     // Rotate
 };
 
 const Editor::toolInitCallPointer Editor::toolInitCallPointers[] = {
-    0,                          // Paint
-    0,                          // Draw
-    0,                          // Erase
-    0,                          // Rectangle
-    0,                          // Fill Rectangle
-    0,                          // Ellipse
-    0,                          // Fill Ellipse
+    nullptr,                    // Paint
+    nullptr,                    // Draw
+    nullptr,                    // Erase
+    nullptr,                    // Rectangle
+    nullptr,                    // Fill Rectangle
+    nullptr,                    // Ellipse
+    nullptr,                    // Fill Ellipse
     &Editor::toolInitPolygon,   // Fill Polygon
     &Editor::toolInitText,      // Text
     &Editor::toolInitAlphabet,  // Alphabet
-    0,                          // Select
-    0,                          // Backstitch
-    0,                          // Color Picker
-    0,                          // Paste
-    0,                          // Mirror
-    0                           // Rotate
+    nullptr,                    // Select
+    nullptr,                    // Backstitch
+    nullptr,                    // Color Picker
+    nullptr,                    // Paste
+    nullptr,                    // Mirror
+    nullptr                     // Rotate
 };
 
 
 const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] = {
-    0,                              // Paint
-    0,                              // Draw
-    0,                              // Erase
-    0,                              // Rectangle
-    0,                              // Fill Rectangle
-    0,                              // Ellipse
-    0,                              // Fill Ellipse
+    nullptr,                        // Paint
+    nullptr,                        // Draw
+    nullptr,                        // Erase
+    nullptr,                        // Rectangle
+    nullptr,                        // Fill Rectangle
+    nullptr,                        // Ellipse
+    nullptr,                        // Fill Ellipse
     &Editor::toolCleanupPolygon,    // Fill Polygon
-    0,                              // Text
+    nullptr,                        // Text
     &Editor::toolCleanupAlphabet,   // Alphabet
     &Editor::toolCleanupSelect,     // Select
-    0,                              // Backstitch
-    0,                              // Color Picker
-    0,                              // Paste
+    nullptr,                        // Backstitch
+    nullptr,                        // Color Picker
+    nullptr,                        // Paste
     &Editor::toolCleanupMirror,     // Mirror
     &Editor::toolCleanupRotate      // Rotate
 };
@@ -164,9 +164,9 @@ const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] = {
 };
 
 const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGraphics[] = {
-    0,                                  // Paint
+    nullptr,                            // Paint
     &Editor::renderRubberBandLine,      // Draw
-    0,                                  // Erase
+    nullptr,                            // Erase
     &Editor::renderRubberBandRectangle, // Rectangle
     &Editor::renderRubberBandRectangle, // Fill Rectangle
     &Editor::renderRubberBandEllipse,   // Ellipse
@@ -176,7 +176,7 @@ const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGr
     &Editor::renderAlphabetCursor,      // Alphabet
     &Editor::renderRubberBandRectangle, // Select
     &Editor::renderRubberBandLine,      // Backstitch
-    0,                                  // Color Picker
+    nullptr,                            // Color Picker
     &Editor::renderPasteImage,          // Paste
     &Editor::renderPasteImage,          // Mirror - Paste performs the same functions
     &Editor::renderPasteImage           // Rotate - Paste performs the same functions

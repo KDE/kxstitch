@@ -45,7 +45,7 @@ static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
     :   QDialog(parent),
         m_printerConfiguration(document->printerConfiguration()),
-        m_elementUnderCursor(0),
+        m_elementUnderCursor(nullptr),
         m_document(document),
         m_printer(printer)
 {
@@ -200,7 +200,7 @@ void PrintSetupDlg::on_DeletePage_clicked()
         if (int rows = ui.Pages->count()) {
             ui.Pages->setCurrentRow(std::min(currentRow, rows - 1));
         } else {
-            on_Pages_currentItemChanged(0, 0);
+            on_Pages_currentItemChanged(nullptr, nullptr);
         }
     }
 
