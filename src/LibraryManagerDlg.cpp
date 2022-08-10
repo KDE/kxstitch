@@ -201,7 +201,7 @@ void LibraryManagerDlg::newCategory()
     }
 
     if (exists) {
-        KMessageBox::sorry(this, i18n("This category already exists."), i18n("Category Exists"));
+        KMessageBox::error(this, i18n("This category already exists."), i18n("Category Exists"));
         return;
     }
 

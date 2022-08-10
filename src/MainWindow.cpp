@@ -324,10 +324,10 @@ void MainWindow::fileOpen(const QUrl &url)
                             try {
                                 m_document->readPCStitch(stream);
                             } catch (const InvalidFile &e) {
-                                KMessageBox::sorry(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
+                                KMessageBox::error(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
                             }
                         } catch (const InvalidFileVersion &e) {
-                            KMessageBox::sorry(nullptr, i18n("This version of the file is not supported.\n%1", e.version));
+                            KMessageBox::error(nullptr, i18n("This version of the file is not supported.\n%1", e.version));
                         } catch (const FailedReadFile &e) {
                             KMessageBox::error(nullptr, i18n("Failed to read the file.\n%1.", e.status));
                             m_document->initialiseNew();

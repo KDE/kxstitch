@@ -171,7 +171,7 @@ bool SchemeManager::writeScheme(QString name)
         QString writableDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation); // this may be empty or may not exist
 
         if (writableDir.isEmpty()) {
-            KMessageBox::sorry(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
+            KMessageBox::error(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
             return false;
             // TODO Allow user to select a location to store the calibrated schemes
         }
@@ -180,7 +180,7 @@ bool SchemeManager::writeScheme(QString name)
 
         if (!QDir(writableDir).exists()) {
             if (!QDir().mkpath(writableDir)) {
-                KMessageBox::sorry(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
+                KMessageBox::error(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
                 return false;
                 // TODO Allow user to select a location to store the calibrated schemes
             }

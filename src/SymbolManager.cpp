@@ -159,22 +159,22 @@ SymbolLibrary *SymbolManager::readLibrary(const QString &name)
             stream >> *symbolLibrary;
             symbolLibrary->setName(QFileInfo(name).baseName());
         } catch (const InvalidFile &e) {
-            KMessageBox::sorry(nullptr, i18n("This does not appear to be a valid symbol file"));
+            KMessageBox::error(nullptr, i18n("This does not appear to be a valid symbol file"));
             delete symbolLibrary;
             symbolLibrary = nullptr;
         } catch (const InvalidFileVersion &e) {
-            KMessageBox::sorry(nullptr, e.version);
+            KMessageBox::error(nullptr, e.version);
             delete symbolLibrary;
             symbolLibrary = nullptr;
         } catch (const FailedReadFile &e) {
-            KMessageBox::sorry(nullptr, e.status);
+            KMessageBox::error(nullptr, e.status);
             delete symbolLibrary;
             symbolLibrary = nullptr;
         }
 
         file.close();
     } else {
-        KMessageBox::sorry(nullptr, i18n("Failed to open the file %1", name));
+        KMessageBox::error(nullptr, i18n("Failed to open the file %1", name));
         delete symbolLibrary;
         symbolLibrary = nullptr;
     }
