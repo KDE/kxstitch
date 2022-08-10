@@ -53,8 +53,8 @@ endif (DOXYGEN_FOUND)
 include_directories (BEFORE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/src)
 # use both the _DIR and _DIRS variables, since the former are available
 # only in older cmake versions, while the latter only in newer ones
-include_directories (${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
-include_directories (${ImageMagick_Magick++_INCLUDE_DIRS} ${ImageMagick_MagickCore_INCLUDE_DIRS})
+include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
+include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIRS} ${ImageMagick_MagickCore_INCLUDE_DIRS})
 
 set (kxstitch_SRCS
     src/BackgroundImage.cpp
