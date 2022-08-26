@@ -1606,7 +1606,6 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
 void Editor::mousePressEvent_Erase(QMouseEvent *e)
 {
     QPoint p = e->pos();
-    QRect rect;
     QUndoCommand *cmd;
 
     if (e->modifiers() & Qt::ControlModifier) {
@@ -1642,7 +1641,6 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
 void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 {
     QPoint p = e->pos();
-    QRect rect;
     QUndoCommand *cmd;
 
     if (e->modifiers() & Qt::ControlModifier) {
