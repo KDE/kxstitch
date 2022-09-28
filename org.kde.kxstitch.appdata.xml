@@ -52,6 +52,7 @@
   <summary xml:lang="pl">Tworzenie wzorca ściegu krzyżykowego.</summary>
   <summary xml:lang="pt">Um criador de padrões de ponto de cruz</summary>
   <summary xml:lang="pt-BR">Um criador de padrões em ponto cruz</summary>
+  <summary xml:lang="ru">Создание схем для вышивки крестом</summary>
   <summary xml:lang="sk">Tvorca vzorov krížových stehov</summary>
   <summary xml:lang="sl">Ustvarjalec vzorcev za vezenje</summary>
   <summary xml:lang="sv">Ett program för att skapa korsstygnsmönster</summary>
@@ -78,6 +79,7 @@
     <p xml:lang="pl">KXStitch jest programem umożliwiającym tworzenie wzorów ściegów krzyżowych. Wzory można tworzyć od początku na podanej przez użytkownika siatce, którą można powiększać lub pomniejszać w trakcie wykonywania ściegu. Alternatywnie można zaimportować obrazy z wielu różnych formatów plików graficznych z możliwością ograniczenia liczby barw i ustawienia przekształcania na pełne ściegi lub ułamkowe. Można także używać obrazów jako tła i szydełkować na nich. Tak zaimportowane obrazy można później zmienić przy użyciu dostępnych narzędzi, aby ostateczne ukończyć dzieło.</p>
     <p xml:lang="pt">O KXStitch é um programa que lhe permite criar padrões e desenhos de ponto de cruz. Poderá criar os padrões do zero com um tamanho de grelha definido pelo utilizador, o qual poderá aumentar ou diminuir no seu tamanho, à medida que o seu padrão evolui. Em alternativa, poderá importar imagens de diversos formatos de ficheiros de imagens, o que lhe permitirá reduzir o número de cores e restringir a conversão para pontos completos ou fraccionários. Também poderá usar imagens como fundos, permitindo-lhe desenhar sobre eles. Estas imagens importadas poderão então ser modificadas com as ferramentas oferecidas, de modo a produzir o seu desenho final.</p>
     <p xml:lang="pt-BR">KXStitch é um programa que lhe permite criar padrões e gráficos em ponto cruz. Os padrões podem ser criados do zero, com um tamanho de grade definido pelo usuário, que poderá ser aumentado ou reduzido, à medida que o seu padrão evolui. Alternativamente, poderá importar imagens de diversos formatos, permitindo reduzir o número de cores e restringir a conversão a pontos completos ou, opcionalmente, a pontos fracionários. Também poderá usar as imagens como fundo, permitindo desenhar sobre elas. Essas imagens importadas poderão então ser modificadas, usando as ferramentas oferecidas para produzir o seu desenho final.</p>
+    <p xml:lang="ru">Программа KXStitch позволяет создавать схемы для вышивки крестом. Схемы возможно создавать с нуля, указав размер сетки (впоследствии его возможно увеличить или уменьшить). Кроме того, изображения возможно импортировать из файлов во многих графических форматах; программа уменьшит количество цветов и преобразует изображение таким образом, что его можно будет вышить полными или дробными стежками. Изображения также могут использоваться в качестве фона вышивки. Импортированные изображения возможно изменять с помощью встроенных в программу инструментов, чтобы добиться необходимого вида вышивки.</p>
     <p xml:lang="sk">KXStitch je program, ktorý vám umožní vytvárať vzory a grafy krížových stehov. Vzory sa dajú vytvoriť od začiatku na používateľom definovanej mriežke, ktorá sa dá zväčšiť alebo zmenšiť pri postupe pri vytváraní vzoru. Alternatívne môžete importovať obrázky z mnohých grafických súborových formátov, ktoré vám umožnia znížiť počet farieb a obmedziť konverziu na plné stehy alebo voliteľne použiť frakčné stehy. Môžete aj použiť obrázky ako pozadie, čo vám umožní trasovať nad ne. Tieto importované obrázky sa potom dajú zmeniť pomocou dodaných nástrojov na vytvorenie vášho konečného dizajnu.</p>
     <p xml:lang="sl">KXStitch je program, ki vam omogoča ustvariti vzorce in grafikone za vezenje. Vzorce lahko ustvarite iz nič na uporabniško določeni velikosti mreže, ki jo lahko povečate ali zmanjšate, ko vaš vzorec napreduje. Lahko pa uvozite slike iz številnih vrst grafičnih datotek, ki vam bodo omogočile, da zmanjšate število barv in omejite pretvorbo na polne vbode ali po želji uporabite delne vbode. Slike lahko uporabite tudi kot ozadja, ki vam omogočajo sledenje nad njimi. Te uvožene slike lahko nato spremenite s priloženimi orodji za izdelavo končnega načrta.</p>
     <p xml:lang="sv">KXStitch är ett program som låter dig skapa korsstygnsmönster och diagram Mönster kan skapas från början på ett rutnät med användardefinierad storlek, som kan göras större eller mindre allteftersom mönstret utvecklas. Som alternativ kan du importera bilder från många grafikfilformat, vilket låter dig reducera antal färger och begränsa konverteringen till hela stygn, eller valfritt använda delstygn. Du kan också använda bilder som bakgrunder, vilket gör det möjligt att kalkera från dem. De importerade bilderna kan sedan ändras genom att använda tillgängliga verktyg för att skapa den slutliga designen.</p>
@@ -133,6 +135,7 @@
       <li xml:lang="pl">Tworzenie nowych wzorców</li>
       <li xml:lang="pt">Criação de novos padrões</li>
       <li xml:lang="pt-BR">Criação de novos padrões</li>
+      <li xml:lang="ru">Создание новых схем</li>
       <li xml:lang="sk">Vytváranie nových vzorov</li>
       <li xml:lang="sl">Ustvarjanje novih vzorcev</li>
       <li xml:lang="sv">Skapa nya mönster</li>
@@ -159,6 +162,7 @@
       <li xml:lang="pl">Edytowanie istniejących wzorców - KXStitch może też odczytywać pliki PC Stitch</li>
       <li xml:lang="pt">Edição dos padrões existentes - o KXStitch também é capaz de ler ficheiros do PC Stitch</li>
       <li xml:lang="pt-BR">Edição dos padrões existentes - O KXStitch também é capaz de ler arquivos do PC Stitch</li>
+      <li xml:lang="ru">Редактирование существующих схем — KXStitch также поддерживает чтение файлов PC Stitch</li>
       <li xml:lang="sk">Použitie existujúcich vzorov - KXStitch dokáže čítať súbory PC Stitch</li>
       <li xml:lang="sl">Urejanje obstoječih vzorcev - KXStitch zmore brati tudi datoteke PC Stitch</li>
       <li xml:lang="sv">Redigering av befintliga mönster: KXStitch klarar också av att läsa PC Stitch-filer</li>
@@ -184,6 +188,7 @@
       <li xml:lang="pl">Różne palety nitek, DMC, Anchor, Madeira</li>
       <li xml:lang="pt">Uso de diversos novelos de fio, DMC, Anchor, Madeira</li>
       <li xml:lang="pt-BR">Uso de diversos novelos de fio, DMC, Anchor, Madeira</li>
+      <li xml:lang="ru">Использование различных наборов ниток, DMC, Anchor, Madeira</li>
       <li xml:lang="sk">Použitie rôznych paliet šijacieho hodvábu, DMC, Anchor, Madeira</li>
       <li xml:lang="sl">Uporaba različnih palet niti, DMC, Anchor, Madeira</li>
       <li xml:lang="sv">Användning av diverse garnpaletter, DMC, Anchor, Madeira</li>
@@ -209,6 +214,7 @@
       <li xml:lang="pl">Tworzenie własnych palet i barw</li>
       <li xml:lang="pt">Criação de paletas e cores personalizadas</li>
       <li xml:lang="pt-BR">Criação de paletas e cores personalizadas</li>
+      <li xml:lang="ru">Создание пользовательских палитр и цветов</li>
       <li xml:lang="sk">Vytváranie vlastných paliet a farieb</li>
       <li xml:lang="sl">Ustvarjanje palet in barv po meri</li>
       <li xml:lang="sv">Skapa egna paletter och färger</li>
@@ -235,6 +241,7 @@
       <li xml:lang="pl">Standardowe ściegi</li>
       <li xml:lang="pt">Usar pontos-padrão</li>
       <li xml:lang="pt-BR">Uso de pontos padrão</li>
+      <li xml:lang="ru">Использование стандартных стежков</li>
       <li xml:lang="sk">Použitie štandardných stehov</li>
       <li xml:lang="sl">Uporaba standardnih vbodov</li>
       <li xml:lang="sv">Användning av standardstygn</li>
@@ -259,6 +266,7 @@
       <li xml:lang="pl">Dowolne używanie ściegów wstecznych</li>
       <li xml:lang="pt">Utilização livre de pontos traseiros</li>
       <li xml:lang="pt-BR">Uso livre de pespontos</li>
+      <li xml:lang="ru">Произвольное использование обратных стежков</li>
       <li xml:lang="sk">Voľné použitie zadných stehov</li>
       <li xml:lang="sl">Prosta raba hrbtnih vbodov</li>
       <li xml:lang="sv">Fri användning av efterstygn</li>
@@ -284,6 +292,7 @@
       <li xml:lang="pl">Importowanie różnych formatów obrazów</li>
       <li xml:lang="pt">Importação de diversos formatos de imagens</li>
       <li xml:lang="pt-BR">Importação de vários formatos de imagem</li>
+      <li xml:lang="ru">Импорт изображений в различных форматах</li>
       <li xml:lang="sk">Import rôznych obrazových formátov</li>
       <li xml:lang="sl">Uvoz različnih vrst slik</li>
       <li xml:lang="sv">Import av diverse bildformat</li>
@@ -309,6 +318,7 @@
       <li xml:lang="pl">Drukowanie wzorów i kluczy nitkowych</li>
       <li xml:lang="pt">Impressão de padrões e chaves dos novelos</li>
       <li xml:lang="pt-BR">Impressão dos padrões e das chaves dos novelos</li>
+      <li xml:lang="ru">Печать схем и условных обозначений к ним</li>
       <li xml:lang="sk">Tlač vzorov a kľúčov šijacieho hodvábu</li>
       <li xml:lang="sl">Tiskanje vzorcev in ključev niti</li>
       <li xml:lang="sv">Utskrift av mönster och garnförklaringar</li>
