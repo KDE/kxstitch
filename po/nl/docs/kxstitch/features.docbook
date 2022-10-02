@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Mogelijkheden</title>
+    <para
+>De huidige lijst met mogelijkheden en andere geplande mogelijkheden wordt hier getoond.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Maken van nieuwe patronen <itemizedlist>
+                <listitem
+><para
+>Gebruikergedefinieerde grootte</para
+></listitem>
+                <listitem
+><para
+>Selectie van materiaalkleur</para
+></listitem>
+                <listitem
+><para
+>Invoegen van een achtergrondafbeelding om te volgen</para
+></listitem>
+                <listitem
+><para
+>Importeren van verschillende formats van afbeeldingen</para
+></listitem>
+                <listitem
+><para
+>Import optie´s <itemizedlist>
+                        <listitem
+><para
+>Beperken van het aantal kleuren</para
+></listitem>
+                        <listitem
+><para
+>Beperken van het aantal kleuren tot een specifiek palet</para
+></listitem>
+                        <listitem
+><para
+>Schalen tot een eindafmeting</para
+></listitem>
+                        <listitem
+><para
+>Ondersteuning voor transparantie in afbeeldingen</para
+></listitem>
+                        <listitem
+><para
+>Sta het gebruik van gedeeltelijk steken toe</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Bewerken van bestaande patronen, er zijn bewerkingsgereedschappen voor <itemizedlist>
+                <listitem
+><para
+>Open en gevulde rechthoeken</para
+></listitem>
+                <listitem
+><para
+>Open en gevulde ellipsen</para
+></listitem>
+                <listitem
+><para
+>Gevulde veelhoeken</para
+></listitem>
+                <listitem
+><para
+>Schilderen</para
+></listitem>
+                <listitem
+><para
+>Lijnen</para
+></listitem>
+                <listitem
+><para
+>Verwijderen van steken, knopen en achtersteken</para
+></listitem>
+                <listitem
+><para
+>Selecteren van kleur van bestaande steken</para
+></listitem>
+                <listitem
+><para
+>Twee kleuren wisselen</para
+></listitem>
+                <listitem
+><para
+>Een kleur vervangen door een andere</para
+></listitem>
+                <listitem
+><para
+>Tekst met door gebruiker gedefinieerde fonts en groottes</para
+></listitem>
+                <listitem
+><para
+>Knippen, kopiëren en plakken van rechthoekige selecties.</para
+></listitem>
+                <listitem
+><para
+>Onbeperkt ongedaan maken en opnieuw uitvoeren</para
+></listitem>
+                <listitem
+><para
+>Spiegelen, horizontaal en verticaal.</para
+></listitem>
+                <listitem
+><para
+>Roteren, 90, 180 en 270 graden (tegen de klok in).</para
+></listitem>
+                <listitem
+><para
+>Veranderen van de doekmaat <itemizedlist>
+                        <listitem
+><para
+>Doek uitbreiden naar links, boven, rechts, beneden</para
+></listitem>
+                        <listitem
+><para
+>Afknippen van doek tot patroon</para
+></listitem>
+                        <listitem
+><para
+>Afknippen doek tot selectie</para
+></listitem>
+                        <listitem
+><para
+>Invoegen van extra rijen en kolommen</para
+></listitem>
+                        <listitem
+><para
+>Patroon centreren op het doek</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Omzetten van garen-schema naar garen-schema</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Gebruik van standaard garen paletten, DMC, Anchor, enz.</para
+></listitem>
+        <listitem
+><para
+>Aanmaak van eigen garen paletten</para
+></listitem>
+        <listitem
+><para
+>Aanmaak van nieuwe kleuren voor elk garen palet</para
+></listitem>
+        <listitem
+><para
+>Bewaren / Laden huidige palet</para
+></listitem>
+        <listitem
+><para
+>Het gebruik van standaard steken</para
+></listitem>
+        <listitem
+><para
+>Beheer van patroon-bibliotheken <itemizedlist>
+                <listitem
+><para
+>Met maken van eigen patroon-bibliotheken</para
+></listitem>
+                <listitem
+><para
+>Het plakken van bibliotheek-patronen in een ontwerp</para
+></listitem>
+                <listitem
+><para
+>Het verslepen van een patroon uit de bibliotheek naar het werkvlak</para
+></listitem>
+                <listitem
+><para
+>Verslepen en loslaten uit de ene bibliotheek naar een andere</para
+></listitem>
+                <listitem
+><para
+>Het toewijzen en verbinden van een toets (letter) aan een patroon voor gebruik met de Alphabet-tool</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Vrij gebruik van achtersteken</para
+></listitem>
+        <listitem
+><para
+>Afdrukken van complete patronen met garen-overzichten <itemizedlist>
+                <listitem
+><para
+>Patroon afbeelding</para
+></listitem>
+                <listitem
+><para
+>Instructies</para
+></listitem>
+                <listitem
+><para
+>Garen-overzicht en steken legenda</para
+></listitem>
+                <listitem
+><para
+>Patroon kaart met pagina indeling</para
+></listitem>
+                <listitem
+><para
+>Tekstvakken</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Koppelen van symbolen met garens</para
+></listitem>
+        <listitem
+><para
+>Geef het aantal draden op voor steken en achtersteken</para
+></listitem>
+        <listitem
+><para
+>Garen kleuren kalibreren</para
+></listitem>
+    </itemizedlist>
+    <para
+>Verzoeken voor nieuw onderdelen en mogelijkheden kunt u indienen via het <ulink url="http://bugs.kde.org"
+>KDE Bugtracking System</ulink
+></para>
+</chapter>

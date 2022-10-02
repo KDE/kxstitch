@@ -1,0 +1,492 @@
+<chapter id="Dialogs">
+    <title
+>Dialogen</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>Het dialoogvenster Paletbeheerder</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Met de paletmanager kunt u garens toe voegen, verwijderen of verwisselen bij het huidige palet en het geselecteerde kleuren-schema.U kunt alle niet gebruikte garens van het huidige palet verwijderen en ook kunt u nieuwe garens aan het kleuren-schema toevoegen.Ook kunt u van hieruit de <link linkend="CalibrateDialog"
+>garen kalibratie dialoog</link
+> openen. </para>
+        <para
+>U kunt een aantal katoen-strengen gebruikt voor elk garen toewijzen, zowel voor de steken als voor de rijgsteken. De berekening voor de totale benodigde hoeveelheid garen in het uiteindelijke ontwerp zal deze informatie gebruiken. </para>
+        <para
+>De dialoog bevat een knop <guilabel
+>Kleur kiezen</guilabel
+> die de selectie van een kleur ergens van het scherm toestaat. Dit kan bijvoorbeeld zijn van een achtergrondafbeelding om gemakkelijke selectie van overeenkomstige kleuren mogelijk te maken. De cursor zal veranderen in een kruis met een kleurenstaal die de kleur van het pixel onder het kruis aangeeft. Na klikken op een pixel, zal een draad gekozen worden, uit de lijst met draden, met een kleur die dichtbij de geselecteerde kleur ligt. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Selectie van symbolen</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>U kunt aan elk van de garens een symbool verbinden. De dialoog voor symboolselectie toont alle beschikbare symbolen. Onbruikbare symbolen zijn zichtbaar als een vierkantje, symbolen die al gebruikt zijn zien er rood uit. Als u met de muis erboven zweeft dan laat een tekstballon de tekst <quote
+>Gebruikt</quote
+> zien. Voor het palet kunt u de gebruikte symboolbibliotheek inwisselen door een ander uit de keuzelijst te selecteren. Alle garens zullen vervolgens aan een symbool uit de nieuwe bibliotheek worden gekoppeld. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>Het dialoogvenster Nieuwe keur</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>De dialoog toont de naam van het schema waaraan de nieuwe kleur wordt toegevoegd. Voor de nieuwe kleur moet u een naam en een omschrijving opgeven, deze kunnen vrij worden gekozen maar meestal is de naam voor de kleur door de garenfabrikant opgegeven. </para>
+        <para
+>Door op de knop <guilabel
+>Kleuren</guilabel
+> te klikken komt de standaard <ulink url="help:/fundamentals/colors.html"
+>&kde; kleuren-selectie dialoog</ulink
+> te voorschijn. U kunt een kleur kiezen waarna u de parameters kan veranderen om de gekozen kleur aan te passen. </para>
+        <para
+>Wanneer de nieuwe kleur aan het schema is toegevoegd, is deze beschikbaar om aan het palet te worden toegevoegd via <guilabel
+>Paletbeheerder</guilabel
+> . De kleur kan ook worden aangepast via <link linkend="CalibrateDialog"
+>kleuren kalibreren dialoog</link
+> . </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>Het dialoogvenster Calibratie van draadjes</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Dit dialoogvenster heeft twee delen </para>
+        <para
+>Aan de linkerkant, een lijst met schema's die beschikbaar zijn samen met een lijst van kleuren die in het gekozen schema aanwezig zijn. De kleur-omschrijving krijgt de toevoeging <guilabel
+>(gekalibreerd)</guilabel
+> indien het is veranderd in de huidige opening van deze dialoog. </para>
+        <para
+>Aan de rechterkant, is de naam en de omschrijving van de huidige gekozen kleur, deze krijgt de toevoeging <guilabel
+>(aangepast)</guilabel
+> als de kleur is veranderd, een voorbeeld van de kleur, en de huidige RGB waarden van de kleur. </para>
+        <para
+>Ook zien we een knop <guibutton
+>kleur terugzetten</guibutton
+>. Deze zet de nu geselecteerde kleur terug naar de waarde die het had toen deze dialoog werd geopend. </para>
+        <para
+>Op de knop <guibutton
+>OK</guibutton
+> drukken zal alle gewijzigde kleuren vastleggen. </para>
+        <para
+>Op de knop <guibutton
+>Annuleren</guibutton
+> drukken zal alle gewijzigde kleuren terugbrengen naar hun originele waarden. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>Het configuratievenster</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Dit dialoogvenster laat u een aantal elementen van KXStitch instellen. </para>
+        <para
+>De meeste mogelijkheden verklaren zichzelf. U kunt de zichtbaarheid van verschillende onderdelen kunnen met keuzevakjes in- of uitschakelen. Met keuzelijsten kunt u kiezen uit diverse mogelijkheden voor deze onderdelen. </para>
+        <para
+>U kunt door gebruik te maken van de knop <guibutton
+>Standaarden</guibutton
+> terugkeren naar de standaardinstellingen. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>De "afbeelding importeren" dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Aan de linkerkant is een voorbeeld te zien van het ingevoegde afbeelding, gebaseerd op de instellingen rechts. </para>
+        <para
+>Het garenschema voor het uiteindelijke patroon is instelbaar, standaard is dit dezelfde als die in <guilabel
+>Bestand eigenschappen</guilabel
+> dialoogvenster. Voor het patroon is het maximum aantal kleuren inschakelbaar en zo nodig aanpasbaar, standaard heeft het geïmporteerde patroon hetzelfde aantal kleuren als dat er in de originele afbeelding aanwezig waren. Door het inschakelen van <guilabel
+>Kleur negeren</guilabel
+> kunt met behulp van de druppelaar een kleur in de afbeelding selecteren die bij het importeren genegeerd wordt. Dit is handig om de achtergrond te verwijderen die ongewenst is bij het omzetten naar steken. De genegeerde kleuren zijn in de voorbeeldweergave te zien als een schaakbordpatroon. </para>
+        <para
+>De waarde van het stoftellen begint standaard met waarde uit <guilabel
+>Bestand eigenschappen</guilabel
+> dialoog en de schaal zal zo worden gekozen dat de uiteindelijke afmetingen zo dicht als mogelijk bij de standaard patroon-afmetingen blijft. Deze waarden kunt u later nog naar wens wijzigen. </para>
+        <para
+>Het keuzevakje <guilabel
+>Afbeelding bijsnijden</guilabel
+> stelt u in staat de voorbeeldafbeelding af te snijden. Klik en sleep over de voorbeeldafbeelding om het gewenste gebied te selecteren. Rasterlijnen worden getoond voor het selecteren van het beginpunt om meer accurate plaatsing te geven. Nadat een gebied is geselecteerd zal het voorbeeld opnieuw worden gerenderd om het afgesneden gebied te tonen. Verder bijsnijden kan gedaan worden indien vereist. Klikken op de resetknop of bijsnijden uitzetten zal het voorbeeld terug brengen naar de originele afbeelding. </para>
+        <para
+>Het keuzevakje <guilabel
+>Breuk-steken gebruiken</guilabel
+> maakt het mogelijk om breuksteken te gebruiken bij een geïmporteerde afbeelding. Dit maakt de resolutie van een geïmporteerde afbeelding twee keer zo groot zonder de afmeting van het patroon te veranderen. </para>
+        <para
+>Door op de knop <guibutton
+>OK</guibutton
+> te klikken zal de afbeelding omgezet worden naar een patroon. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>Het Bestandseigenschappen dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Het formaat van het patroon kan gekozen worden in steken, centimeters of inches. De breedte en hoogte zullen automatisch omgezet worden naar het equivalent als de eenheden veranderen. </para>
+        <para
+>De stoftelling is gedefinieerd in eenheden per centimeter of inch, afhankelijk  hoe de eenheden zijn gekozen, &ie; indien voor de eenheden CM is gekozen zal de stoftelling in eenheden per centimeter zijn, hetzelfde geldt voor inches. Indien voor de <guilabel
+>Eenheden</guilabel
+> is gekozen voor <guimenuitem
+>Steken</guimenuitem
+>, dan zal de stoftelling blijven staan op de voorlaatste gekozen (CM of inch) eenheden. </para>
+        <para
+>De Titel, Auteur, Auteursrecht en Stofsoort velden zijn vrije teksten, zodat U hier elk gewenste tekst kan invullen. De kleur van de stof kan ingesteld worden door op de kleur knop te drukken en de gewenste kleur te kiezen. Deze zal dan getoond worden in het voorbeeld scherm en het werkscherm.  </para>
+        <para
+>Het garen schema heeft een keuzelijst voor alle aanwezige garenschema's, inclusief diegene die U zelf bedacht heeft. </para>
+        <para
+>Het <guilabel
+>Instructies</guilabel
+> tab kunt u gebruiken voor specifieke instructies op te geven voor het naaien van het patroon. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>Het "patroon bibliotheek" dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>De patroon bibliotheek manager toont links een hiërarchische boom van categorieën met rechts van de gekozen categorie een lijst van patronen. Dit venster heeft niet de focus en daarom hoeft u het niet te sluiten als u aan het patroon werkt. </para>
+        <para
+>De eenvoudigste manier om de bibliotheek-patronen te gebruiken is door ze te verslepen naar het werkvlak. Als alternatief kunt u met &RMB; op een patroon in de bibliotheek klikken zodat er een context-menu te zien is met een kopieer-keuze, deze kunt u vervolgens net zoveel in het werkvlak plakken als u wenst. </para>
+        <para
+>Andere items in het context-menu zijn: <itemizedlist>
+                <listitem
+><para
+>Verwijderen: Verwijdert een item uit de bibliotheek, dit moet u wel bevestigen in een venstertje.</para
+></listitem>
+                <listitem
+><para
+>Eigenschappen: Toont de eigenschappen voor het onderdeel.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Het eigenschappen-venster toont voor elk item de maat, de gebruikte kleuren, de startlijn en de erbij horende toets op het toetsenbord . De startlijn wordt gebruikt voor de verticale positie van de letter ten op zichtte van de cursor-positie wanneer de Alphabet-tool wordt gebruikt.Een positieve waarde beweegt het omlaag, een negatieve waarde omhoog. De bijbehorende letter is alleen nodig voor gebruik met het Alphabet tool.Na het klikken op de bijbehorende tekst-venster, wordt de volgende ingedrukte toets, inclusief modifiers (&Shift;, &Ctrl;, &etc;) gebruikt als toets. </para>
+        <para
+>Creëer een nieuwe bibliotheek door met de &RMB; te klikken op een bestaande categorie voor een sub-categorie, of op een leeg gedeelte van de bibliotheek voor een nieuwe categorie op het bovenste niveau, selecteer <guibutton
+>Nieuwe categorie</guibutton
+> , kies een naam en klik op <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>Maak een nieuwe bibliotheek-patroon door een gebied te selecteren op het werkvlak, selecteer kopiëren, gebruik daarna &RMB; op een bestaande categorie en gebruik plakken.Pas indien nodig de eigenschappen aan om het te verbinden met een toets zodat het gebruikt kan worden in de letter bibliotheek. </para>
+        <para
+>Bibliotheek-patronen kunt u naar andere een bibliotheek-verzameling verslepen, zodat u ze opnieuw naar wens kunt indelen. Let op: er is geen controle of de toegewezen letter uniek is , als een tweetal bibliotheek-patronen een zelfde letter hebben toegewezen, moet men dat zelf verhelpen. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>Het "tekst invoegen" dialoog.</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>De "tekst invoegen" dialoog maakt het mogelijk om een lettertype en lettergrootte te kiezen, en daarna de gewenste tekst in te geven. Door op <guibutton
+>OK</guibutton
+> te klikken , sluit u de dialoog en keert u terug naar &kxstitch; scherm . De tekst plaatst U net zoals elk ander onderdeel. Klik met &LMB; ongeveer op de plek waar U de tekst wilt hebben, u krijgt nu een voorbeeld van de tekst te zien, Plaats nu de tekst exact op de gewenste plek, en laat de &LMB; los. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Het ¨patroon uitbreiden¨ dialoog</title>
+        <para
+>Dit gebruikt u voor het in diverse richtingen uitbreiden van het patroon met een aantal vakjes. Geef het aantal vakjes op in de invoervakken en druk op <guibutton
+>OK</guibutton
+> om het patroon uit te breiden. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>Het "Afdrukken" dialoog.</title>
+        <para
+>Het dialoog heeft links een paneel met voorbeelden voor elk van de pagina´s. Het paneel rechts toont een layout-editor waar u onderdelen kunt plaatsen. Elk onderdeel is instelbaar via het contextmenu en verplaatsbaar om het aan uw wensen te laten voldoen. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Selecteer een printerconfiguratie-sjabloon. Op dit moment is er een vergelijkbaar met KDE3 meegeleverd.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Een pagina toevoegen - Een pagina aan het eind van de lijst invoegen.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Voeg een pagina in - Een pagina voor de in de lijst geselecteerde pagina invoegen.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Verwijder een pagina - Dit zal de in de list geselecteerde pagina verwijderen.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Selecteer een element - Dit gebruikt u om een element te selecteren voor bewerking.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Een tekstelement invoegen - Dit gebruikt u om een tekstelement toe te voegen aan de geselecteerde pagina.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Een patroonelement invoegen - Dit gebruikt u om een patroonelement toe te voegen aan de geselecteerde pagina.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Een afbeeldingselement invoegen - Dit gebruikt u om een afbeeldingselement toe te voegen aan de geselecteerde pagina.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Een sleutelelement invoegen - Dit gebruikt u om een garenafbeeldingselement toe te voegen aan de geselecteerde pagina.</para>
+
+        <para
+>Voor het toevoegen van elementen, selecteer het gewenste element pictogram, selecteer vervolgens het gewenste gebied van de pagina waar u het element wilt hebben door te klikken en vervolgens met de &LMB; van de ene hoek naar de andere hoek te verslepen. U kunt de eigenschappen bestuderen en wijzigen via het contextmenu dat u opent met de &RMB; </para>
+        <para
+>U kunt de grootte van de elementen wijzigen door ze te selecteren met het selectiehulpmiddel <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, dit laat randen van het element zien als een rechthoek. De hoeken kunt u verslepen zodat u de grootte van het hele element aanpast maar u kunt ook het hele element verplaatsen met de &LMB;. </para>
+        <para
+>De pagina heeft een bijbehorend dialoog voor de eigenschappen waarmee u de kantlijnen van de pagina, de zichtbaarheid en grootte van het raster kunt instellen. De paginamarge biedt een richtlijn voor de plaatsing van objecten maar voorkomt niet dat elementen gepositioneerd worden buien de gedefinieerde marge. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Patroonelement</title>
+            <para
+>Het patroonelement laat de verdeling van de steken over het rooster zien. U kunt het eigenschappendialoogvenster gebruiken om in te stellen hoe u de steken krijgt te zien. Hier kunt u instellen dat u het als een afbeelding van het patroon ziet of dat het patroon symbolen laat zien. </para>
+            <para
+>Het patroonelement laat standaard het hele gecreëerde patroon zien. In het eigenschappendialoogvenster kunt u een selectie maken door een geselecteerd gebied te maken met klikken en verslepen. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Kaartelement</title>
+                <para
+>De kaartelement gebruikt u in de gevallen dat het patroon meerdere bladen bedekt. Het toont het gedeelte van gehele patroon dat dit blad weergeeft. U kunt het inschakelen in de patroonelement-eigenschappen. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Tekstelement</title>
+            <para
+>Een tekstelement kunt u gebruiken om aan een patroon notities toe te voegen, titels te laten zien of commentaar te laten zien. U kunt van de tekst het lettertype, de kleur en de transparantie instellen, bovendien kunt u ook de rand laten zien. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>In tekstelementen kunnen ook variabelen aanwezig zijn die bij de eigenschappen van het patroon horen. </para>
+            <sect3 id="TextVariables">
+                <title
+>Tekstvariabelen</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Sleutelelement</title>
+            <para
+>Het sleutelelement toont de gebruikte garens. In het eigenschappen dialoogvenster kunt de velden selecteren die u wilt tonen. De <guilabel
+>Eerste element</guilabel
+> en <guilabel
+>Aantal elementen</guilabel
+> kunt u gebruiken voor grote overzichten die meerdere pagina´s beslaan zodat sommige symbolen op de ene pagina en andere op de volgende pagina komen. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Document-afmetingen aanpassen</title>
+            <para
+>U kunt de grootte van alle elementen aanpassen door ze selecteren met de <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> wat de randen van de element laat zien. Het gehele element kunt u verplaatsen door erin te klikken en het daarna te verslepen. Voor het wijzigen van de grootte, zweeft u met uw muis boven een van hoekpunten, klik erop en versleep het vervolgens naar de gewenste grootte. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

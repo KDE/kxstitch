@@ -1,0 +1,41 @@
+<chapter id="credits">
+    <title
+>Créditos e Licença</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Programa com 'copyright' 2002-2015 de Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Contribuições: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: Correcções de erros, ícones da aplicação</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: Página do manual</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: Correcções de erros, melhorias</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Documentação com 'copyright' 2015 de Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+    <para
+>Tradução de Nuno Donato <email
+>nunodonato@iol.pt</email
+></para
+> 
+&underFDL; &underGPL; </chapter>

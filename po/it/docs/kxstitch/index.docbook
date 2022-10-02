@@ -1,0 +1,109 @@
+<?xml version = '1.0'?>
+    <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+    <!ENTITY kxstitch '<application
+>KXStitch</application
+>'>
+    <!ENTITY % addindex "IGNORE">
+    <!ENTITY % Italian "INCLUDE">
+    <!ENTITY introduction SYSTEM "introduction.docbook">
+    <!ENTITY features SYSTEM "features.docbook">
+    <!ENTITY ui SYSTEM "ui.docbook">
+    <!ENTITY commands SYSTEM "commands.docbook">
+    <!ENTITY patterns SYSTEM "patterns.docbook">
+    <!ENTITY printing SYSTEM "printing.docbook">
+    <!ENTITY dialogs SYSTEM "dialogs.docbook">
+    <!ENTITY credits SYSTEM "credits.docbook">
+    <!ENTITY install SYSTEM "install.docbook">
+    ]>
+
+<book lang="&language;">
+    <bookinfo>
+        <title
+>Manuale di &kxstitch;</title>
+        <authorgroup>
+            <author
+><firstname
+>Stephen</firstname
+> <othername
+>P.</othername
+> <surname
+>Allewell</surname
+> <affiliation
+><address
+><email
+>steve.allewell@gmail.com</email
+></address
+></affiliation>
+            </author>
+            <othercredit role="translator"
+><firstname
+>Vincenzo</firstname
+><surname
+>Reale</surname
+><affiliation
+><address
+><email
+>smart2128vr@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Ercole</firstname
+><surname
+>Carpanetto</surname
+><affiliation
+><address
+><email
+>ercole69@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+        </authorgroup>
+        <copyright>
+            <year
+>2016</year>
+            <holder
+>Stephen P. Allewell</holder>
+        </copyright>
+        <legalnotice
+>&FDLNotice;</legalnotice>
+        <date
+>19/5/2019</date>
+        <releaseinfo
+>&kxstitch; 2.2.0</releaseinfo>
+        <abstract>
+            <para
+>&kxstitch; è un applicazione creata per permettere la creazione di modelli per il punto croce e stamparli. Questi modelli possono essere creati da zero su una griglia definita dall'utente, o un'immagine può essere importata da vari formati grafici. </para>
+        </abstract>
+        <keywordset>
+            <keyword
+>KDE</keyword>
+            <keyword
+>Ricamo</keyword>
+            <keyword
+>Modello</keyword>
+            <keyword
+>Croce</keyword>
+            <keyword
+>Punto</keyword>
+        </keywordset>
+    </bookinfo>
+
+    &introduction;
+    &features;
+    &ui;
+    &commands;
+    &patterns;
+    &printing;
+    &dialogs;
+    &credits;
+    &install;
+
+    &documentation.index;
+</book>

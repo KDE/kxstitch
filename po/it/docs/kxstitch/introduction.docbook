@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Introduzione</title>
+    <para
+>&kxstitch; è un programma che consente di creare modelli di punto croce e grafici. I modelli possono essere creati da zero su una griglia di dimensioni definite dall'utente, che può essere allargata o ridotta in dimensioni mentre il proprio modello avanza. In alternativa, è possibile importare immagini da molti formati grafici. Quando si importano le immagini, è possibile limitare la conversione in punti pieni o, facoltativamente, utilizzare punti frazionari. È inoltre possibile utilizzare le immagini come sfondi ridimensionandole per adattarle a un'area selezionata. Queste immagini importate possono quindi essere modificate utilizzando gli strumenti forniti per produrre il progetto finale. </para>
+    <para
+>Ci sono molti strumenti destinati ad aiutare la progettazione del proprio modello, da rettangoli ed ellissi aperti e pieni, poligoni e linee pieni e impunture. Inoltre, è possibile utilizzare taglia, copia e incolla per duplicare le aree selezionate. Le aree selezionate possono anche essere ruotate di 90, 180 e 270 gradi in senso antiorario o specchiate in orizzontale o in verticale. </para>
+    <para
+>Esiste anche una libreria di modelli che può essere utilizzata per memorizzare porzioni piccole e non così piccole di modelli che possono essere riutilizzate in altri modelli. I modelli in queste librerie sono memorizzati in un elenco gerarchico che semplifica l'ordinamento e la navigazione per trovare quelli desiderati. Queste librerie di modelli possono anche essere utilizzate come alfabeti assegnando un carattere a ciascuna. Utilizzando lo strumento Alfabeto, ogni tasto premuto viene cercato nella libreria attuale e, se presente, il modello di libreria associato sarà inserito nel modello. </para>
+    <para
+>Segnala qualsiasi problema o richiesta di miglioramenti sul <ulink url="http://bugs.kde.org"
+>Sistema di gestione dei bug di KDE</ulink
+> o alla <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>lista di distribuzione di &kxstitch;</ulink
+> </para>
+</chapter>

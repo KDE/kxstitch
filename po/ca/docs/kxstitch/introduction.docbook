@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Introducció</title>
+    <para
+>El &kxstitch; és un programa que permet crear patrons i gràfics de punt de creu. Els patrons es poden crear des de zero en una mida de quadrícula definida per l'usuari, els quals es poden ampliar o reduir en mida a mesura que avanceu amb el vostre patró. De manera alternativa, podeu importar imatges des de molts formats gràfics. En importar imatges, podreu restringir la conversió a puntades completes, o de manera opcional fer servir puntades fraccionàries. També podreu utilitzar imatges com a fons redimensionant-les perquè càpiguen en una àrea seleccionada. Aquestes imatges importades es podran modificar utilitzant les eines subministrades per a produir el disseny final. </para>
+    <para
+>Hi ha moltes eines d'ajuda per a dissenyar el vostre patró, a partir de rectangles i el·lipses oberts i emplenats, polígons i línies o repunts emplenats. A més de retallar, copiar i enganxar es pot utilitzar per a duplicar les àrees seleccionades. Les àrees seleccionades també es poden girar 90, 180 i 270 graus en sentit antihorari, o reflectir-les en horitzontal o vertical. </para>
+    <para
+>També hi ha una biblioteca de patrons que es pot utilitzar per emmagatzemar petites i no tan petites porcions de patrons que poden reutilitzar-se en altres patrons. Els patrons d'aquestes biblioteques s'emmagatzemen en una llista jeràrquica, la qual facilita ordenar i navegar per trobar les que vulgueu. Aquestes biblioteques de patrons també poden utilitzar-se com a alfabets mitjançant l'assignació d'un caràcter per a cadascun. Utilitzant l'eina de l'alfabet, cada pulsació de tecla se cercarà a la biblioteca actual i si està present, el patró de biblioteca associat serà inserit en el patró. </para>
+    <para
+>Si us plau, podeu informar de qualsevol problema o petició de característica al <ulink url="https://bugs.kde.org/"
+>sistema de seguiment d'errors del &kde;</ulink
+> (escriviu-hi en anglès) o a la <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>llista de correu del &kxstitch;</ulink
+>. </para>
+</chapter>

@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Inledning</title>
+    <para
+>&kxstitch; är ett program som låter dig skapa korsstygnsmönster och diagram. Mönster kan skapas från början på ett rutnät med användardefinierad storlek, som kan göras större eller mindre allteftersom mönstret utvecklas. Som alternativ kan du importera bilder från många grafikformat. När bilder importeras kan du begränsa konverteringen till hela stygn, eller valfritt använda delstygn. Du kan också använda bilder som bakgrund, och ändra deras storlek så att de passar i ett valt område. De importerade bilderna kan sedan ändras genom att använda tillgängliga verktyg för att skapa den slutliga designen. </para>
+    <para
+>Det finns många verktyg som hjälper till att skapa mönstret, från öppna och fyllda rektanglar och ellipser, fyllda polygoner och linjer till stygn. Dessutom kan klipp ut, kopiera och klistra in användas för att duplicera valda områden. Valda områden kan också roteras 90, 180 och 270 grader moturs eller speglas horisontellt och vertikalt. </para>
+    <para
+>Det finns också ett mönsterbibliotek som kan användas för att lagra små eller inte så små delar av mönster som sedan kan återanvändas i andra mönster. Mönstren i dessa bibliotek lagras i en hierarkisk lista som gör det lätt att sortera och navigera bland dem för att hitta de du vill ha. Mönsterbiblioteken kan också användas som alfabeten genom att tilldela ett tecken till vart och ett. Genom att använda alfabetsverktyget, eftersöks varje tangentnedtryckning i det aktuella biblioteket, och om det finns infogas motsvarande biblioteksmönster i mönstret. </para>
+    <para
+>Rapportera gärna eventuella problem eller önskemål om funktioner via <ulink url="http://bugs.kde.org"
+>KDE:s felspårningssystem</ulink
+> eller <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>e-postlistan för &kxstitch;</ulink
+>. </para>
+</chapter>

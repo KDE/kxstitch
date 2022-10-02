@@ -1,0 +1,1395 @@
+<chapter id="commands">
+    <title
+>Guida ai comandi</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Menu di &kxstitch;</title>
+        <sect2>
+            <title
+>Il menu File</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Nuovo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Crea un nuovo modello utilizzando i valori predefiniti imposta nella finestra delle proprietà del modello.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Apri</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Apre un modello esistente</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Apri recenti</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Aprire un modello utilizzato di recente</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Salva</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Salva il modello</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Salva come</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Salva il modello con un nuovo nome.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ripristinare</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ripristinare il modello all'ultimo stato salvato</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Stampa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Stampare il modello</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Impostazioni di stampa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Impostare l'impaginazione di stampa</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Importa immagine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Importare un file di immagine convertendolo in punti</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Proprietà del file</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visualizzare / Modificare le proprietà del documento</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Aggiungi immagine di sfondo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inserire un'immagine come sfondo per la traccia.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rimuovi immagine di sfondo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selezionare un'immagine di sfondo da rimuovere. Il sottomenu per questo è popolato dalle immagini di sfondo precedentemente inserite.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Chiudi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Chiudere il modello</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Esci</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Esce</action
+> &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Modifica</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Annulla</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Annullare l'ultima modifica. L'elenco delle modifiche viene visualizzato nella finestra Cronologia.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Rifai</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ripetere l'ultima modifica annullata. L'elenco delle modifiche viene visualizzato nella finestra Cronologia.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Taglia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tagliare l'area selezionata negli appunti</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Copia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Copiare l'area selezionata negli appunti</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Incolla</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tagliare l'area selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Maschere di selezione</guisubmenu
+><guimenuitem
+>Maschera di punti</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limitare le selezioni al tipo di punto attualmente selezionato</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Maschere di selezione</guisubmenu
+><guimenuitem
+>Maschera di colori</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limitare le selezioni al colore attualmente selezionato</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Maschere di selezione</guisubmenu
+><guimenuitem
+>Escludi impunture</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Escludere le impunture dalla selezione</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Maschere di selezione</guisubmenu
+><guimenuitem
+>Escludi nodi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Escludere i nodi dalla selezione</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rispecchia / Ruota crea delle copie</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Se impostata, le funzioni di rispecchiamento e rotazione eseguiranno una copia della selezione, altrimenti l'area selezionata sarà spostata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Rispecchia selezione</guisubmenu
+><guimenuitem
+>Orizzontalmente</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rispecchia l'area selezionata in orizzontale, cioè ribaltata da sinistra a destra</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Rispecchia selezione</guisubmenu
+><guimenuitem
+>Verticalmente</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rispecchia l'area selezionata in verticale, cioè ribaltata da sopra a sotto</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Ruota selezione</guisubmenu
+><guimenuitem
+>90 gradi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ruotare l'area selezionata in senso antiorario di 90 gradi</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Ruota selezione</guisubmenu
+><guimenuitem
+>180 gradi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ruotare l'area selezionata in senso antiorario di 180 gradi</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Ruota selezione</guisubmenu
+><guimenuitem
+>270 gradi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ruotare l'area selezionata in senso antiorario di 270 gradi</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Taglia, copia e incolla</title>
+                <para
+>Il taglio e la copia di aree del modello possono utilizzare maschere per punti e colori e l'esclusione di impunture e nodi per limitare la selezione. </para>
+                <para
+>L'operazione incolla in &kxstitch; consente di tenere premuto il &LMB; all'incirca nella posizione in cui devono andare i dati da incollare che forniranno un'immagine dei dati da incollare per consentire un posizionamento accurato prima di rilasciare il pulsante del mouse per finalizzare la posizione. Questa tecnica viene utilizzata anche per le funzioni di rispecchiamento e rotazione. I tasti cursore possono essere utilizzati anche per spostare il motivo incollato e il tasto &Enter;  utilizzato per fissare la posizione. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Visualizza</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dimensione effettiva</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ingrandire la vista in modo che la dimensione dello schermo si avvicini alla dimensione fisica</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Adatta alla pagina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ingrandire la vista in modo che l'intero modello si adatti all'area visibile</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Adatta alla larghezza della pagina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ingrandire la vista in modo che la larghezza dei modelli si adatti all'area visibile</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Adatta all'altezza della pagina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ingrandire la vista in modo che l'altezza dei modelli si adatti all'area visibile</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ingrandisci</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ingrandire nella vista dell'editor</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Rimpicciolisci</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rimpicciolire nella vista dell'editor</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Anteprima</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere la finestra di anteprima</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tavolozza</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere la finestra della tavolozza</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Cronologia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere la finestra della cronologia</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Immagine importata</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere la finestra di anteprima dell'immagine importata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra immagine di sfondo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere un'immagine di sfondo. L'elenco viene generato dinamicamente in base alle immagini di sfondo inserite</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Adatta immagine di sfondo alla selezione</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Adattare l'immagine di sfondo selezionata all'area di selezione attuale</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Punti</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Quarto di punto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Quarto di punto, la posizione è determinata dal quadrante della cella selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mezzo punto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mezzo punto, la direzione è determinata dal quadrante della cella selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tre quarti di punto</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Tre quarti di punto, l'orientazione è determinata dal quadrante della cella selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Punto pieno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Punto pieno</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mezzo punto piccolo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mezzo punto piccolo, la posizione è determinata dal quadrante della cella selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Punto pieno piccolo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Un punto pieno piccolo, la posizione è determinata dal quadrante della cella selezionata</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nodo francese</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Punto francese</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Strumenti</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dipingi</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Dipingere punti sulla tela - Premere il &LMB; e trascinare intorno alla finestra. I punti saranno aggiunti a ciascuna cella sorvolata. Rilasciare il pulsante del mouse per interrompere la pittura. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Traccia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tracciare una linea di punti sulla tela - Tenere premuto il &LMB; all'inizio della linea, trascinare al punto finale della linea desiderato e rilasciare il pulsante del mouse. I punti saranno aggiunti a ogni attraversata dalla linea. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Cancella</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Eliminare punti - Premere il &LMB; e trascinare sopra i punti da eliminare. Tutti i punti all'interno delle celle sorvolate saranno rimossi. Rilasciare il pulsante del mouse per interrompere la cancellazione. Per cancellare le impunture, tenere premuto il tasto &Ctrl; e fare clic con il tasto sinistro nel punto iniziale o finale dell'impuntura, se nel punto digitalizzato è presente più di un'impuntura questo metodo cancellerà la prima trovata. Per eliminare un'impuntura specifica, fare clic e trascinare da un'estremità all'altra. Per cancellare i nodi francesi, tenere premuto il tasto &Shift; e fare clic con il tasto sinistro sul nodo per eliminarlo. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Traccia rettangolo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tracciare un rettangolo - Tenere premuto il &LMB; in un angolo del rettangolo e trascinare nell'angolo opposto. Rilasciare il pulsante del mouse e un rettangolo di punti non riempito sarà aggiunto alla tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Riempi rettangolo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tracciare un rettangolo pieno - Tenere premuto il &LMB; in un angolo del rettangolo e trascinare nell'angolo opposto. Rilasciare il pulsante del mouse e un rettangolo di punti pieno sarà aggiunto alla tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Traccia ellisse</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tracciare un'ellisse - Tenere premuto il &LMB; in un angolo dell'ellisse e trascinare nell'angolo opposto. Rilasciare il pulsante del mouse e un'ellisse di punti non riempita sarà aggiunta alla tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Riempi ellisse</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tracciare un'ellisse piena - Tenere premuto il &LMB; in un angolo dell'ellisse e trascinare nell'angolo opposto. Rilasciare il pulsante del mouse e un'ellisse di punti piena sarà aggiunta alla tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Riempi poligono</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Disegna un poligono pieno - fare clic su ciascuna cella che marca i vertici del poligono, fare clic e trascinare per creare curve più complesse. Ciascuno dei vertici è contrassegnato da un cerchio con una linea nera che li unisce. Per chiudere il poligono, fare di nuovo clic sulla cella iniziale. È possibile utilizzare il tasto &Backspace; per rimuovere l'ultimo punto, oppure &Esc; per rimuovere tutti i vertici e annullare l'operazione. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Testo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inserire il testo nei punti. Questo richiama la finestra del testo. Selezionare il carattere richiesto e la dimensione, inserire il testo e fare clic su <guibutton
+>OK</guibutton
+>. Premere il &LMB; all'incirca dove si desidera il testo, spostare il mouse per posizionare il testo con precisione e quindi rilasciare il pulsante del mouse. È uguale alla funzione incolla. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabeto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inserire i modelli della libreria attualmente selezionata che corrispondono ai tasti premuti. Ciò consente la creazione di alfabeti di modello che possono essere assegnati a dei tasti. Dopo aver selezionato questo strumento e aver fatto clic su una posizione sul modello per il punto di inserimento, ciascun tasto premuto sarà cercato nella libreria attuale per un modello corrispondente. Se trovato, questo sarà inserito nella posizione del modello e la posizione di inserimento avanzerà in base alla larghezza del modello di caratteri inserito. Lo spazio del modello sarà esteso a destra per consentire l'inserimento di ulteriori caratteri. La pressione di &Enter; inizierà una nuova linea sotto la posizione del punto di inserimento originale, lo spazio del motivo sarà esteso verso il basso per accogliere la nuova linea se lo spazio disponibile è insufficiente. &Backspace; eliminerà l'ultimo carattere inserito e il tasto <keycap
+>Spazio</keycap
+> farà avanzare il punto di inserimento della larghezza di un carattere di spaziatura nella libreria o di una quantità predeterminata se non esiste alcun carattere di spaziatura. Il testo sarà spostato alla riga successiva se viene raggiunto il bordo del modello e viene rilevata la fine di una parola. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Seleziona</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selezionare una regione rettangolare - Tenere premuto il &LMB; in un angolo del rettangolo e trascinare nell'angolo opposto e rilasciare il pulsante. Una selezione rettangolare è mostrata per indicare l'area. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Selettore del colore</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Consente la selezione di un colore dai punti esistenti. Passando il mouse sopra i punti, sarà visualizzata una descrizione che indica il colore sotto il cursore. Un clic con il &LMB; lo selezionerà. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Impuntura</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Aggiungere impunture alla tela - Premere il &LMB; all'inizio dell'impuntura, si aggancerà al più vicino dei 9 punti nella cella, trascinare sul punto finale dell'impuntura e rilasciare il pulsante del mouse, di nuovo questo si aggancerà al più vicino dei 9 punti nella cella. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Tavolozza</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gestore della tavolozza</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Aggiungere e rimuovere colori alla tavolozza attuale. Assegnare i simboli e il numero di capi per le cuciture e per le impunture. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra simboli</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare i simboli associati a ogni colore</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Cancella inutilizzati</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rimuove i colori inutilizzati dalla tavolozza.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Scambia colori</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Il colore successivo selezionato sarà scambiato con il colore attualmente selezionato. Se si seleziona lo strumento contagocce, è possibile scegliere il colore da scambiare direttamente dal modello. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sostituisci colori</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Il colore successivo selezionato sostituirà il colore attualmente selezionato. Come per i colori di scambio, è possibile utilizzare lo strumento contagocce per selezionare il colore dal modello. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Libreria</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gestore delle librerie</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Aprire il gestore delle librerie di modelli che è una finestra non modale che consente la creazione e l'uso di librerie di modelli o alfabeti. Il trascinamento della selezione è disponibile per consentire il trascinamento dei modelli dalla libreria al modello. Conversione automatica dei fili per adattarsi al modello attuale e ridimensionamento dell'immagine alla scala del modello attuale per un posizionamento accurato. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Modello</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Estendi modello</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Estendere il modello in alto, a sinistra, a destra e in basso</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Centra modello</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centrare il modello nella tela</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ritaglia tela al modello</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ritagliare la tela fino all'estremità del modello</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ritaglia tela alla selezione</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ritagliare la tela fino all'estensione della selezione attuale</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Inserisci righe</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inserire numero di righe rappresentate da un'area di selezione</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Inserisci colonne</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inserire numero di colonne rappresentate da un'area di selezione</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Impostazioni</title>
+            <para
+>Oltre agli elementi comuni del menu Impostazioni di &kde;, descritti nel capitolo <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menu Impostazioni</ulink
+> dei Fondamentali di &kde;, &kxstitch; ha queste voci di menu specifiche per l'applicazione: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Formatta scale come</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cambiare il formato di visualizzazione della scala in punti, cm o pollici.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rendi punti come</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cambiare il modo in cui i punti sono visualizzati.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rendi impunture come</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cambiare il modo in cui le impunture sono visualizzate.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rendi nodi come</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cambiare il modo in cui i nodi sono visualizzati.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Evidenzia colori</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Abilitare o disabilitare la modalità di evidenziazione dei colori</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra punti</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere i punti</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra impunture</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere le impunture</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra nodi francesi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere i nodi francesi</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra griglia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere la griglia</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra immagini di sfondo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostrare o nascondere tutte le immagini di sfondo</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Configura &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Aprire la <link linkend="ConfigurationDialog"
+>finestra di configurazione</link
+> di &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Il menu Aiuto</title>
+            <para
+>&kxstitch; ha inoltre gli elementi comuni del menu Aiuto di &kde;; per maggiori informazioni leggere le sezioni sul <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei Fondamentali di &kde;. </para>
+        </sect2>
+    </sect1>
+</chapter>

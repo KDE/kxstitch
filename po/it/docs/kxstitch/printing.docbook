@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Stampa dei modelli</title>
+
+    <para
+>Una volta completato il proprio disegno, è probabile che si desideri stamparlo. &kxstitch; consente di personalizzare la stampa, da ciò che viene stampato a quanto è grande la stampa finale. </para>
+    <para
+>Questa versione di &kxstitch; consente un'impaginazione della stampa completamente personalizzata. La nuova configurazione della stampante consente di aggiungere, inserire o rimuovere pagine. È possibile selezionare il formato e l'orientamento della carta e ciascuna pagina può contenere elementi di testo, elementi di modelli o legende. </para>
+    <para
+>Per ulteriori dettagli, vedere la <link linkend="PrinterDialog"
+>finestra delle stampanti</link
+></para>
+</chapter>

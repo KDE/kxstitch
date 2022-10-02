@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Criar padrões</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Iniciar o &kxstitch;</title>
+        <para
+>Quando iniciar o &kxstitch;, ser-lhe-á apresentada uma tela em branco com o tamanho predefinido. Este também é o caso quando seleccionar a opção <menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Novo</guimenuitem
+></menuchoice
+>. Os tamanhos predefinidos podem ser configurados na janela de propriedades do padrão, activando a opção de marcação como predefinição. </para>
+        <para
+>Se o tamanho predefinido não for adequado para o seu padrão planeado, poderá usar a janela <menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Propriedades</guimenuitem
+></menuchoice
+> para o alterar. Ajuste os valores como desejar e, depois de carregar em <guibutton
+>OK</guibutton
+>, o padrão mudará para esse novo tamanho. </para>
+        <para
+>Antes de criar um padrão, irá necessitar de adicionar alguns novelos à paleta com a opção <menuchoice
+><guimenu
+>Paleta</guimenu
+> <guimenuitem
+>Gestor da Paleta</guimenuitem
+></menuchoice
+>. Isto irá activar as ferramentas respectivas no menu <menuchoice
+><guimenu
+>Ferramentas</guimenu
+></menuchoice
+> e na barra de ferramentas. Veja a <link linkend="PaletteManagerDialog"
+>Janela do Gestor da Paleta</link
+> para mais informações. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Importar as Imagens</title>
+        <para
+>O &kxstitch; permite-lhe importar uma imagem. Será apresentada uma janela de antevisão da imagem, com base nas opções de importação predefinidas. </para>
+        <para
+>O tamanho inicial do padrão será baseado no tamanho predefinido dos padrões. </para>
+        <para
+>As opções de importação permitem-lhe alterar o esquema de novelos usado e limitar o número de cores. Também pode alterar a escala para reduzir ou aumentar o padrão final. </para>
+        <para
+>Se assinalar a opção <guilabel
+>Usar fraccionários</guilabel
+>, irá permitir o uso de pontos fraccionários para dar mais detalhe para qualquer tamanho de padrão. </para>
+        <para
+>Se assinalar a opção para <guilabel
+>Ignorar as cores</guilabel
+>, permitirá seleccionar uma cor dentro da imagem que, por sua vez, será considerada a cor transparente e será ignorada durante a importação. </para>
+        <para
+>Depois de a imagem ter sido importada, ficará disponível outra janela acoplável adicional, que dará uma antevisão da imagem original, sem quaisquer transições de cores. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Imagens de Fundo</title>
+        <para
+>Poderá inserir uma imagem como fundo para a janela de edição. Isto é útil se a importação da imagem não for desejada ou se der maus resultados. </para>
+        <para
+>A imagem é normalmente ajustada para cobrir a grelha do padrão por inteiro. Isto poderá não ser adequado; como tal, poderá usar a ferramenta de selecção para escolher uma área que deseja cobrir e depois seleccionar a opção <menuchoice
+><guimenu
+>Padrão</guimenu
+> <guimenuitem
+>Ajustar o fundo à selecção</guimenuitem
+></menuchoice
+>. Isto irá ajustar a escala da imagem para caber na área seleccionada. Poderá continuar a fazer isto até que esteja satisfeito com o resultado, mesmo que tenha começado a adicionar pontos novos. </para>
+        <para
+>Não existe limite para o número de imagens de fundo que podem ser adicionadas. De qualquer forma, os limites práticos dos menus irão determinar quantos podem ser adicionados. As imagens de fundo são guardadas dentro do documento, pelo que ficarão disponíveis quando o padrão for recarregado. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Bibliotecas de Padrões</title>
+        <para
+>O gestor da biblioteca de padrões pode ser usado para guardar padrões e inseri-los no padrão em curso. Estes podem ser organizados numa hierarquia de categorias e sub-categorias com vários nós de topo na lista de bibliotecas. A ferramenta do Alfabeto tira partido dessas bibliotecas para fornecer um alfabeto de caracteres a inserir, os quais poderão ter uma tecla associada. </para>
+        <para
+>O gestor da biblioteca é uma janela não-modal, podendo ficar aberta enquanto trabalha no seu padrão. Poderá seleccionar várias bibliotecas se necessário e depois arrastar e largar os padrões da biblioteca para o padrão em curso. </para>
+        <para
+>A adição de novos cabeçalhos da categoria poderá ser feito com o &RMB; sobre um item existente, para criar uma sub-categoria, ou sobre um espaço vazio na lista da biblioteca, para criar um novo item de topo, seleccionando a opção <guimenuitem
+>Nova Categoria</guimenuitem
+>. Indique o nome da categoria e carregue em <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>A criação de um novo padrão da biblioteca é feito através da selecção de uma área do seu padrão de trabalho, copiando e colando para uma das categorias existentes. </para>
+        <para
+>Cada padrão da biblioteca tem propriedades que podem ser acedidas através do seu menu de contexto. Estas propriedades incluem o tamanho, o esquema de novelos, o valor de base e a tecla associada. O valor de base é usado pela ferramenta do Alfabeto para ajustar a altura de um carácter para cima ou, com valores negativos, para baixo do ponto de inserção. A tecla associada é usada de novo pela ferramenta do Alfabeto para corresponder à tecla carregada no teclado. </para>
+    </sect1>
+</chapter>

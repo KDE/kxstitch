@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Introdução</title>
+    <para
+>O &kxstitch; é um programa que lhe permite criar padrões e gráficos em ponto de cruz. Os padrões podem ser criados do zero, com um tamanho da grelha definido pelo utilizador, o qual poderá ser alargado ou reduzido, à medida que o seu padrão evolui. Em alternativa, poderá importar imagens a partir de uma grande variedade de formatos. Quando importar as imagens, poderá restringir a conversão a pontos completos ou a pontos fraccionários, opcionalmente. Também poderá usar as imagens como fundos, ajustando o seu tamanho para caber numa dada área seleccionada. Estas imagens importadas poderão então ser modificadas, usando as ferramentas oferecidas para produzir o seu desenho final. </para>
+    <para
+>Existem muitas ferramentas para ajudar a desenhar o seu padrão, desde rectângulos ou elipses abertos e preenchidos a polígonos preenchidos, linhas e pontos traseiros. Para além disso, as operações para cortar, copiar e colar podem ser usadas para duplicar as áreas seleccionadas. As mesmas áreas seleccionadas também podem ser rodadas em 90, 180 e 270 graus, no sentido anti-horário ou espelhados na vertical ou na horizontal. </para>
+    <para
+>Existe também uma biblioteca de padrões que pode ser usada para guardar porções de padrões, pequenas ou não, que poderão então ser reutilizadas noutros padrões. Os padrões nessas bibliotecas são guardados numa lista hierárquica que torna simples a ordenação e navegação pelas mesmas, de forma a descobrir as que deseja. Estas bibliotecas de padrões também podem ser usadas como alfabetos, caso atribua um dado carácter a cada uma. Ao usar a ferramenta do Alfabeto, sempre que carregar numa tecla, a mesma será pesquisada na biblioteca actual e, se estiver presente, o padrão associado da biblioteca será inserido no padrão. </para>
+    <para
+>Por favor, comunique quaisquer erros ou pedidos de funcionalidades no <ulink url="http://bugs.kde.org"
+>Sistema de Registo de Erros do KDE</ulink
+> ou na <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>lista de correio do &kxstitch;</ulink
+> </para>
+</chapter>

@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Patronen afdrukken</title>
+
+    <para
+>Nadat u uw ontwerp hebt beëindigd wilt u het zonder twijfel afdrukken. &kxstitch; stelt u in staat het afdrukken aan te passen, vanaf wat wordt afgedrukt tot hoe groot de uiteindelijke afdruk is. </para>
+    <para
+>Deze versie van &kxstitch; stelt u in staat de opmaak van de afdruk volledig aan te passen. De nieuwe printerinstelling stelt u in staat pagina's toe te voegen, in te voegen of te verwijderen. De papiergrootte en oriëntatie kan geselecteerd worden en elke pagina kan tekst-, patroon- of sleutelelementen bevatten. </para>
+    <para
+>Voor verdere details zie de <link linkend="PrinterDialog"
+>printerdialoog</link
+></para>
+</chapter>

@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Funzionalità</title>
+    <para
+>L'elenco attuale delle funzionalità e altre funzionalità pianificate è mostrato qui.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Creazione di nuovi modelli <itemizedlist>
+                <listitem
+><para
+>Dimensione definita dall'utente</para
+></listitem>
+                <listitem
+><para
+>Selezione del colore del materiale</para
+></listitem>
+                <listitem
+><para
+>Inserimento di immagini di sfondo per la traccia</para
+></listitem>
+                <listitem
+><para
+>Importazione di vari formati di immagine</para
+></listitem>
+                <listitem
+><para
+>Importazione delle opzioni consentita <itemizedlist>
+                        <listitem
+><para
+>Limitare il numero di colori</para
+></listitem>
+                        <listitem
+><para
+>Limitare il numero di colori a una tavolozza specifica</para
+></listitem>
+                        <listitem
+><para
+>Ridimensionare a una dimensione finita</para
+></listitem>
+                        <listitem
+><para
+>Supporto della trasparenza nelle immagini</para
+></listitem>
+                        <listitem
+><para
+>Consentire l'uso di punti frazionari</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Modifica di modelli esistenti, gli strumenti di modifica includeranno <itemizedlist>
+                <listitem
+><para
+>Rettangoli aperti e pieni</para
+></listitem>
+                <listitem
+><para
+>Ellissi aperte e piene</para
+></listitem>
+                <listitem
+><para
+>Poligoni pieni</para
+></listitem>
+                <listitem
+><para
+>Disegno</para
+></listitem>
+                <listitem
+><para
+>Linee</para
+></listitem>
+                <listitem
+><para
+>Cancellare punti, nodi e impunture</para
+></listitem>
+                <listitem
+><para
+>Selezione del colore da punti esistenti</para
+></listitem>
+                <listitem
+><para
+>Scambiare due colori</para
+></listitem>
+                <listitem
+><para
+>Sostituire un colore con un altro</para
+></listitem>
+                <listitem
+><para
+>Testo con caratteri e dimensioni definiti dall'utente</para
+></listitem>
+                <listitem
+><para
+>Taglia, copia e incolla di aree rettangolari.</para
+></listitem>
+                <listitem
+><para
+>Annulla e rifai illimitati</para
+></listitem>
+                <listitem
+><para
+>Rispecchiamento, orizzontale e verticale.</para
+></listitem>
+                <listitem
+><para
+>Rotazione, 90, 180, 270 gradi in senso antiorario.</para
+></listitem>
+                <listitem
+><para
+>Ridimensionamento delle tele <itemizedlist>
+                        <listitem
+><para
+>Estendere le tele a sinistra, in alto, a destra, in basso</para
+></listitem>
+                        <listitem
+><para
+>Ritaglio della tela al modello</para
+></listitem>
+                        <listitem
+><para
+>Ritaglio della tela alla selezione</para
+></listitem>
+                        <listitem
+><para
+>Inserire righe e colonne</para
+></listitem>
+                        <listitem
+><para
+>Centrare il modello sulla tela</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Conversione tra schemi di fili</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Utilizzo di tavolozze di filo standard, DMC, Anchor, ecc.</para
+></listitem>
+        <listitem
+><para
+>Creare tavolozze di filo personalizzate</para
+></listitem>
+        <listitem
+><para
+>Creare nuovi colori per ogni tavolozza di filo</para
+></listitem>
+        <listitem
+><para
+>Salvare / Caricare la tavolozza attuale</para
+></listitem>
+        <listitem
+><para
+>Utilizzo dei punti standard</para
+></listitem>
+        <listitem
+><para
+>Gestore delle librerie di modelli <itemizedlist>
+                <listitem
+><para
+>Creare nuovi modelli di librerie</para
+></listitem>
+                <listitem
+><para
+>Inserire i modelli di librerie in un progetto</para
+></listitem>
+                <listitem
+><para
+>Trascinare e rilasciare dalla libreria al modello</para
+></listitem>
+                <listitem
+><para
+>Trascinare e rilasciare da una libreria a un'altra</para
+></listitem>
+                <listitem
+><para
+>Assegnare un tasto ai modelli per utilizzarli con lo strumento Alfabeto</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Utilizzo libero dell'impuntura</para
+></listitem>
+        <listitem
+><para
+>Stampa di modelli completati e farfalle di filo <itemizedlist>
+                <listitem
+><para
+>Immagine del modello</para
+></listitem>
+                <listitem
+><para
+>Istruzioni</para
+></listitem>
+                <listitem
+><para
+>Farfalla del filo e riepilogo dei punti</para
+></listitem>
+                <listitem
+><para
+>Grafico del modello con mappa della pagina</para
+></listitem>
+                <listitem
+><para
+>Caselle di testo</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Associazione dei simboli ai fili</para
+></listitem>
+        <listitem
+><para
+>Specificare il numero di fili per punti e impunture</para
+></listitem>
+        <listitem
+><para
+>Calibrazione dei colori del filo</para
+></listitem>
+    </itemizedlist>
+    <para
+>Richieste di nuove funzionalità possono essere inviate al <ulink url="http://bugs.kde.org"
+>Sistema di tracciamento dei bug di KDE</ulink
+></para>
+</chapter>

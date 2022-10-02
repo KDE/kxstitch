@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Imprimir els patrons</title>
+
+    <para
+>Un cop hàgiu completat el disseny, sens dubte voldreu imprimir-lo. El &kxstitch; permet personalitzar la impressió, des del que s'imprimeix fins a la mida de la impressió final. </para>
+    <para
+>Aquesta versió del &kxstitch; permet un disseny d'impressió totalment personalitzat. La nova configuració de la impressora permet afegir, inserir o eliminar pàgines. Es pot seleccionar la mida i l'orientació del paper i cada pàgina pot contenir elements de text, elements de patró o elements clau. </para>
+    <para
+>Per a més detalls, vegeu el <link linkend="PrinterDialog"
+>diàleg d'impressió</link
+>.</para>
+</chapter>

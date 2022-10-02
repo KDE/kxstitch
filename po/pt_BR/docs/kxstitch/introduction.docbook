@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Introdução</title>
+    <para
+>O &kxstitch; é um programa que lhe permite criar padrões e gráficos em ponto cruz. Os padrões podem ser criados do zero, com um tamanho de grade definido pelo usuário, que poderá ser aumentado ou reduzido, à medida que o seu padrão evolui. Alternativamente, você poderá importar imagens a partir de uma grande variedade de formatos. Quando importar as imagens, você poderá restringir a conversão a pontos completos ou, opcionalmente, a pontos fracionários. Também poderá usar as imagens como fundos, ajustando o seu tamanho para caber em uma área selecionada. Essas imagens importadas poderão então ser modificadas, usando as ferramentas oferecidas para produzir o seu desenho final. </para>
+    <para
+>Existem muitas ferramentas para ajudar a desenhar o seu padrão, como retângulos ou elipses abertos e preenchidos, polígonos preenchidos, linhas e pontos traseiros. Além disso, as operações para cortar, copiar e colar podem ser usadas para duplicar as áreas selecionadas. Essa áreas também podem ser rotacionadas em 90, 180 e 270 graus, no sentido anti-horário ou espelhados na vertical ou na horizontal. </para>
+    <para
+>Há também uma biblioteca de padrões que pode ser usada para armazenar porções de padrões, pequenas e não tão pequenas, que poderão ser reutilizadas em outros padrões. Os padrões nessas bibliotecas são armazenados em uma lista hierárquica que torna simples a ordenação e navegação pelas mesmas, de forma a encontrar as que deseja. Essas bibliotecas de padrões também podem ser usadas como alfabetos, caso atribua um determinado caractere a cada uma. Ao usar a ferramenta Alfabeto, para cada tecla pressionada será feita uma pesquisa na biblioteca atual e, se estiver presente, o padrão associado da biblioteca será inserido no padrão. </para>
+    <para
+>Comunique os erros encontrados ou solicite novas funcionalidades no <ulink url="http://bugs.kde.org"
+>KDE Bugtracking System</ulink
+> ou na <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>lista de discussão do &kxstitch;</ulink
+> </para>
+</chapter>

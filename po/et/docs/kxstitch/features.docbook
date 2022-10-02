@@ -1,0 +1,256 @@
+<chapter id="kxstitch-features">
+    <title
+>Omadused</title>
+    <para
+>Siin näeb rakenduse praeguste ja mõningate plaanitavate omaduste loetelu.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Uute mustrite loomine <itemizedlist>
+                <listitem
+><para
+>Kasutaja määratud suurus</para
+></listitem>
+                <listitem
+><para
+>Materjali tüübi valik (pole veel toetatud)</para
+></listitem>
+                <listitem
+><para
+>Materjali värvi valik</para
+></listitem>
+                <listitem
+><para
+>Taustapildi lisamine viiteks</para
+></listitem>
+                <listitem
+><para
+>Mitmesuguste pildivormingute import</para
+></listitem>
+                <listitem
+><para
+>Importimisvalikud võimaldavad <itemizedlist>
+                        <listitem
+><para
+>piirata värvide arvu</para
+></listitem>
+                        <listitem
+><para
+>piirata värve konkreetse paletiga</para
+></listitem>
+                        <listitem
+><para
+>skaleerida lõplikule suurusele</para
+></listitem>
+                        <listitem
+><para
+>kärpida pilti (pole veel toetatud)</para
+></listitem>
+                        <listitem
+><para
+>läbipaistvuse kasutamist piltides</para
+></listitem>
+                        <listitem
+><para
+>osaliste ristpistete kasutamist</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Olemasolevate mustrite muutmine. Muutmistööriistade seas leiab järgmisi: <itemizedlist>
+                <listitem
+><para
+>Täitmata ja täidetud ristkülikud</para
+></listitem>
+                <listitem
+><para
+>Täitmata ja täidetud ellipsid</para
+></listitem>
+                <listitem
+><para
+>Täidetud hulknurgad</para
+></listitem>
+                <listitem
+><para
+>Joonistamine</para
+></listitem>
+                <listitem
+><para
+>Jooned</para
+></listitem>
+                <listitem
+><para
+>Rist-, sõlm- ja tikkpistete kustutamine</para
+></listitem>
+                <listitem
+><para
+>Värvi valimine olemasolevalt pistelt</para
+></listitem>
+                <listitem
+><para
+>Kahe värvi vahetamine</para
+></listitem>
+                <listitem
+><para
+>Ühe värvi asendamine teisega</para
+></listitem>
+                <listitem
+><para
+>Tekst kasutaja määratud fondi ja suurusega</para
+></listitem>
+                <listitem
+><para
+>Ristkülikukujuliste alade lõikamine, kopeerimine ja asetamine</para
+></listitem>
+                <listitem
+><para
+>Piiramata tagasivõtmine ja uuestitegemine</para
+></listitem>
+                <listitem
+><para
+>Peegeldamine rõht- ja püstsuunas</para
+></listitem>
+                <listitem
+><para
+>Pööramine 90, 180 ja 270 kraadi vastupäeva</para
+></listitem>
+                <listitem
+><para
+>Kanvaa suuruse muutmine <itemizedlist>
+                        <listitem
+><para
+>kanvaa laiendamine vasakule, üles, paremale, alla</para
+></listitem>
+                        <listitem
+><para
+>kanvaa kärpimine mustri suurusele</para
+></listitem>
+                        <listitem
+><para
+>kanvaa kärpimine valiku suurusele</para
+></listitem>
+                        <listitem
+><para
+>ridade ja veergude lisamine</para
+></listitem>
+                        <listitem
+><para
+>mustri tsentreerimine kanvaal</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Lõngatüüpide teisendamine</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Standardsete lõngapalettide (DMC, Anchor jt.) kasutamine</para
+></listitem>
+        <listitem
+><para
+>Kohandatud lõngapalettide loomine</para
+></listitem>
+        <listitem
+><para
+>Uute värvide loomine kõigis lõngapalettides</para
+></listitem>
+        <listitem
+><para
+>Aktiivse paleti salvestamine ja laadimine</para
+></listitem>
+        <listitem
+><para
+>Standardsete pistete kasutamine</para
+></listitem>
+        <listitem
+><para
+>Kohandatud pistete loomine (pole veel toetatud)</para
+></listitem>
+        <listitem
+><para
+>Mustrikogu haldur <itemizedlist>
+                <listitem
+><para
+>Kogudes uute mustrite loomine</para
+></listitem>
+                <listitem
+><para
+>Kogu mustrite lisamine aktiivsesse mustrisse</para
+></listitem>
+                <listitem
+><para
+>Valitud mustrite eksport (pole veel toetatud)</para
+></listitem>
+                <listitem
+><para
+>Mustrite import välisest allikast (pole veel toetatud)</para
+></listitem>
+                <listitem
+><para
+>Lohistamine kogust mustrisse</para
+></listitem>
+                <listitem
+><para
+>Klahvivajutuste seostamine mustriga alfabeeditööriista tarbeks</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Tikkpistete vaba kasutamine</para
+></listitem>
+        <listitem
+><para
+>Valmis mustrite ja legendide trükkimine <itemizedlist>
+                <listitem
+><para
+>Mustri pilt</para
+></listitem>
+                <listitem
+><para
+>Juhised</para
+></listitem>
+                <listitem
+><para
+>Legend (teave lõnga ja kõige muu kohta)</para
+></listitem>
+                <listitem
+><para
+>Mustrileht</para
+></listitem>
+                <listitem
+><para
+>Tekstikastid</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Lõngade seostamine sümbolitega</para
+></listitem>
+        <listitem
+><para
+>Rist- ja tikkpistete lõnga niitide arvu määramine</para
+></listitem>
+        <listitem
+><para
+>Lõnga värvide kalibreerimine</para
+></listitem>
+    </itemizedlist>
+    <para
+>Uusi omadusi saab taotleda <ulink url="http://bugs.kde.org"
+>KDE veateadete jälgimise süsteemis</ulink
+>.</para>
+</chapter>

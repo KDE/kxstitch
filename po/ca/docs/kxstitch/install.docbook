@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Instal·lació</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Com obtenir el &kxstitch;</title>
+        <para
+>El codi font del &kxstitch; es pot trobar a <ulink url="https://download.kde.org/stable/kxstitch/"
+>https://download.kde.org/stable/kxstitch/</ulink
+>. La pàgina d'inici del &kxstitch; es pot trobar a <ulink url="https://userbase.kde.org/KXStitch"
+>https://userbase.kde.org/KXStitch</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Requisits</title>
+        <para
+>El &kxstitch; està escrit amb les &Qt; 5.x i els &kf5-full;. </para>
+        <para
+>Per a les funcions d'importació d'imatge es requereixen les biblioteques ImageMagick, això inclou les capçaleres de desenvolupament ImageMagick i Magick++, aquestes estan disponibles amb la vostra distribució o des de <ulink url="https://imagemagick.org/"
+>https://imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Compilació i instal·lació</title>
+        <para
+>La compilació del &kxstitch; requereix el cmake i les eines de compilació adequades, make, gcc, &etc; S'ha proporcionat un script de compilació que realitzarà les operacions de compilació necessàries i instal·larà el &kxstitch;, per al qual se us podria demanar que introduïu la contrasenya de root. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

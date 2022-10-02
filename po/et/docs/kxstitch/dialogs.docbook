@@ -1,0 +1,480 @@
+<chapter id="Dialogs">
+    <title
+>Dialoogid</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>Paletihalduri dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Paletihaldur võimaldab lisada, eemaldada või vahetada lõngu aktiivses paletis ja valitud lõngatüübis. Aktiivsest paletist saab eemaldada kõik kasutamata lõngad, samuti saab lõngatüübile lisada uusi lõngu. Lisaks saab siit käivitada <link linkend="CalibrateDialog"
+>lõnga kalibreerimise dialoogi</link
+>. </para>
+        <para
+>Igale lõngale võib nii rist- kui ka tikkpistete jaoks määrata kindlaks teatava arvu niitide kasutamise. Selle abil saab välja arvutada, kui palju lõnga lõpuks mustri loomiseks vaja läheb. </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Sümbolite valija</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Iga lõnga võib seostada kindla sümboliga. Sümbolite valimise dialoog näitab kõiki saadaolevaid sümboleid. Kasutatud sümbolid on hallid ning hiirekursori viimisel nende kohale näeb kohtspikrit <quote
+>Kasutusel</quote
+>. Paleti korral saab kasutatavat sümbolikogu vahetada, kui see valida rippmenüüst. Seejärel seostatakse kõik lõngad uue kogu sümbolitega. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>Uue värvi dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Dialoog näitab lõngatüübi nime, millele uus värv lisatakse. Värv vajab nime ja kirjeldust, mis võib olla just selline, nagu soovid, kuigi tavaliselt määrab värvi nime kindlaks lõnga tootja. </para>
+        <para
+>Nupule <guilabel
+>Värv</guilabel
+> klõpsates avaneb tavaline <ulink url="help:/fundamentals/colors.html"
+>&kde; värvi valimise dialoog</ulink
+>. Seal saab valida algse värvi, misjärel võib kohendada selle parameetreid, et saada just vajalik värv. </para>
+        <para
+>Lisamise järel saab uue värvi lisada mustri paletile <guilabel
+>paletihalduri</guilabel
+> abil. Samuti saab seda kohandada <link linkend="CalibrateDialog"
+>lõnga kalibreerimise dialoogis</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>Lõnga kalibreerimise dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Sel dialoogil on kaks osa. </para>
+        <para
+>Vasakult leiab parajasti saadaolevate lõngatüüpide ja selles leiduvate värvide nimekirja. Värvi kirjeldusele on lisatud <guilabel
+>(kalibreeritud)</guilabel
+>, kui värvi peaks olema muudetud dialoogi kasutamise käigus. </para>
+        <para
+>Paremal näeb parajasti valitud värvi nime ja kirjeldust, millele on lisatud <guilabel
+>(muudetud)</guilabel
+>, kui värvi peaks olema muudetud, värvi eelvaatlust ja selle kehtivaid RGB väärtusi. </para>
+        <para
+>Samuti on siin nupp <guibutton
+>Lähtesta värv</guibutton
+>. Sellega saab anda parajasti valitud värvile algväärtused, kui neid on dialoogi kasutamise käigus muudetud. </para>
+        <para
+>Nupule <guibutton
+>OK</guibutton
+> klõpsates võetakse kõik muudetud värvid kasutusele. </para>
+        <para
+>Nupule <guibutton
+>Loobu</guibutton
+> klõpsates taastatakse kõigi muudetud värvide algväärtused. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>Seadistustedialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>See dialoog võimaldab muuta mitmeid KXStitchi käitumisjooni. </para>
+        <para
+>Enamik valikuid peaksid olema enesestmõistetavad. Märkekastidega saab funktsioone või elemente lubada või keelata. Nimekirjades saab valida nende elementide vajaliku vormingu. </para>
+        <para
+>Parameetrite algsed väärtused saab taastada klõpsuga nupule <guibutton
+>Vaikeväärtused</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>Pildi importimise dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Vasakul poolel dialoogis näeb imporditava pildi eelvaatlus vastavalt paremal määratud parameetritele. </para>
+        <para
+>Valida saab mustri lõngatüübi, mis vaikimisi on sama <guilabel
+>uue mustri omaduste</guilabel
+> dialoogi vaikeväärtusega. Märkekasti ja selle kõrval oleva kerimiskastiga saab määrata maksimaalse mustris kasutatavate värvide arvu. Vaikimisi on imporditud pildil sama palju värve nagu on originaalpildil, mis teisendatakse lõnga värvideks. Kastikese <guilabel
+>Värvi eiramine</guilabel
+> märkimisel saab klõpsata värvivalija nupule ning valida pildil värvi, mida importimisel eiratakse. See on kasulik näiteks tausta eemaldamisel, mida sa ei soovi pisteteks teisendada. Eiratavat värvi näidatakse eelvaatluses malelauamustriga. </para>
+        <para
+>Koetihedus on vaikimisi sama <guilabel
+>uue mustri omaduste</guilabel
+> dialoogi vaikeväärtusega ning skaala selline, et lõplik suurus oleks võimalikult lähedal <guilabel
+>uue mustri omaduste</guilabel
+> dialoogis määratud mustri suurusele. Soovi korral saab neid väärtusi muidugi muuta. </para>
+        <para
+>Märkekastiga <guilabel
+>Osaliste ristpistete kasutamine</guilabel
+> saab lubada osaliste ristpistete kasutamist imporditavas mustris. Sisuliselt muudab see imporditava pildi lahutuse kahekordseks, mõjutamata samas mustri üldist suurust. </para>
+        <para
+>Klõpsuga nupule <guibutton
+>Impordi</guibutton
+> teisendatakse pilt mustriks. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>Failiomaduste dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Mustri suurust saab määrata pistetes, sentimeetrites või tollides. Laiust ja kõrgust uuendatakse ühiku muutmisel automaatselt vastavalt uuele ühikule. </para>
+        <para
+>Koetihedust saab määrata ühikutes sentimeetri või tolli kohta ning see sõltub kasutatavast suuruseühikut - kui näiteks suurust näidatakse sentimeetrites, siis on ka koetihedus antud sentimeetri kohta. Kui <guilabel
+>ühikuks</guilabel
+> valida <guimenuitem
+>pisted</guimenuitem
+>, kasutatakse koetiheduse puhul viimast sentimeetrites või tollides väärtust. </para>
+        <para
+>Nimi, autor, autoriõigus ja kangas on vaba tekstiga väljad, nii et sinna võib kirjutada just seda, mis vaja. Kanga värvi saab valida, kui klõpsata värvinupule ja valida värv. Seda näidatakse seejärel redaktoris ja eelvaatluses. </para>
+        <para
+>Lõngatüübi saab valida kõigi saadaolevate, sealhulgas nende seast, mille oled ise loonud. </para>
+        <para
+>Kaardil <guilabel
+>Juhised</guilabel
+> saab kirja panna konkreetsed suunised mustri tikkimiseks. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>Mustrikogu dialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Mustrikogu halduris näeb vasakul kategooriate hierarhilist puuvaadet ning valitud kategooria mustrite ikoonivaadet paremal. Dialoog ei ole modaalne, mis tähendab, et see võib olla avatud, kui koostad parajasti oma mustrit. </para>
+        <para
+>Lihtsaim viis kogu mustreid kasutada on lohistada need loodava mustri alale. Teine võimalik on klõpsata &HPNga; kogu mustril ning ilmuvast kontekstimenüüst valida kopeerimine, misjärel kopeeritu saab nii mitu korda kui vaja asetada loodava mustri alale. </para>
+        <para
+>Veel leiab kontekstimenüüst järgmised kirjed: <itemizedlist>
+                <listitem
+><para
+>Kustuta: kustutab kogu elemendi; selle valimisel ilmub kinnitust küsiv dialoog</para
+></listitem>
+                <listitem
+><para
+>Lisa ekspordinimekirja: võimaldab luua eksporditavate elementide nimekirja, näiteks kellelegi saatmiseks</para
+></listitem>
+                <listitem
+><para
+>Omadused: avab elemendi omaduste dialoogi</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Kõigi elementide omaduste dialoogis on näha nende suurus ja kasutatav lõngatüüp, kontrolljoone väärtus ja seonduv klaviatuuriklahv. Kontrolljoont kasutatakse märgi vertikaalsel asetamisel kursori asukoha suhtes (alfabeeditööriista puhul). Positiivne väärtus liigutab selle alla, negatiivne üles. Seonduv klahv on mõeldud ainult alfabeeditööriista jaoks. Selle määramiseks tuleb klõpsata vastavasse kasti ning seejärel vajutatavaid klahve, sealhulgas muuteklahve (&Shift;, &Ctrl; &etc;) kasutatakse vastavat elementi lisava kiirklahvina. </para>
+        <para
+>Uusi kogusid saab luua kas klõpsates &HPNga; olemasoleval kategoorial, mis võimaldab luua alamkategooria, või kogude loendi tühjal alal, mis võimaldab luua uue tipptaseme kategooria, ning valides <guimenuitem
+>Uus kategooria</guimenuitem
+>, sisestades seejärel uue kategooria nime ja klõpsates <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>Kogusse uue mustri lisamiseks vali alal mustriredaktoris, kopeeri see ning seejärel klõpsa &HPNga; olemasoleval kategoorial ja aseta kopeeritu. Vajaduse korral saad omaduste all seostada mustriga mõne klahvi või klahvikombinatsiooni, mis võimaldab mustrit kasutada alfabeeditööriista abil. </para>
+        <para
+>Kogude mustreid saab lohistada teistesse nimekirjas leiduvatesse kogudesse, kui soovid neid oma vajaduste järgi ümber korraldada. Pane tähele, et ei kontrollita, kas mustrile omistatud kiirklahv on unikaalne või mitte, mistõttu sul tuleb endal vajaduse korral neid muuta, et ei tekiks konflikte. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>Tekstidialoog</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Tekstidialoogis saab valida fondi ja selle suuruse ning seejärel sisestada teksti. Klõps nupule <guibutton
+>OK</guibutton
+> suleb dialoogi ja toob tagasi &kapp;i aknasse. Teksti asetamine käib samamoodi nagu kõigi teiste elementide puhul. Klõpsa &HVNga; kanvaal umbes kohta, kuhu soovid teksti asetada, misjärel ilmub teksti eelvaatlus, mida saad seejärel täpsesse asupaika nihutada, enne kui &HVN; vabastada. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Mustri laiendamise dialoog</title>
+        <para
+>Selle dialoogiga saab mustrit eri suundades teatava arvu ruutude võrra laiendada. Kirjuta ruutude arv kerimiskasti ja klõpsa <guibutton
+>OK</guibutton
+> mustri laiendamiseks. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>Printeridialoog</title>
+        <para
+>Dialoogi vasakus servas näidatakse kõigi lehtede pisipilti. Paremal asub paigutusredaktor, kus saab paika panna elemente. Kõik elemendid on kohandatavad kontekstimenüü abil ning neid saab asetada just sinna kuhu vaja ja sellise suurusega nagu vaja. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab valida printeri seadistamise malli. Praegu on kaasa pandud KDE3 omale sarnanev mall.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab lisada lehe nimekirja lõppu.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab lisada lehe parajasti nimekirja valitud lehe ette.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab kustutada nimekirjas parajasti valitud lehe.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab valida elemendi redigeerimiseks või suuruse muutmiseks.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab lisada aktiivsele lehele tekstielemendi.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Võimaldab lisada aktiivsele lehele mustrielemendi.</para>
+
+        <para
+>Elemendi lisamisel vali nõutav elemendi ikoon ning seejärel lehel ala, kuhu element peab minema, klõpsates ja lohistades &HVNga; selleks ala ühest nurgast tise. Elemendi omadusi saab näha ja muuta kontekstimenüü vahendusel, mis avaneb &HPNga; klõpsates. </para>
+        <para
+>Elementide suurust saab muuta, kui valida nad ikooni <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> abil, mis tekitab elemendi ümber muudetava suurusega ristküliku. Suuruse muutmiseks lohista ristküliku nurgad vajalikule kaugusele. Soovi korral saab &HVNga; kogu ristküliku ja seeläbi elemendi teise kohta lohistada. </para>
+        <para
+>Lehel on enda omaduste dialoog, kus saab määrata lehe veerised ning alusvõrgu suuruse ja nähtavuse. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Mustrielement</title>
+            <para
+>Mustrielement näitab pistete paigutust alusvõrgul. Omaduste dialoogis saab määrata, kuidas pisteid kuvatakse. Nii saab lasta mustrit näidata pildina või sümboleid kujutava mustrina. </para>
+            <para>
+                <inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></inlinemediaobject
+>  <inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-symbols-properties-dialog.png" format="PNG"/></imageobject
+></inlinemediaobject>
+            </para>
+            <para
+>Vaikimisi näitab mustrielement loomisel kogu mustrit. Omaduste dialoogis saab aga eelvaatluse aknale toetudes valida ka konkreetse ala, mida näidata. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-selection.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Kaardielement</title>
+                <para
+>Kaardielementi kasutatakse siis, kui muster ulatub üle mitme lehe. See näitab ala tervikmustris, mida antud element kujutab. Selle kasutamise saab lubada mustrielemendi omaduste dialoogis. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Tekstielement</title>
+            <para
+>Tekstielemendi abil saab lisada mustrile tekstilisi märkusi või näidata nimesid või kommentaare. Teksti puhul saab seadistada fonti, värvi ja läbipaistvust. Lisaks võib lasta näidata piiret. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Tekstielemendis saab samuti kasutada muutujaid, mis teisendatakse järgmiselt kindlateks omadusteks: </para>
+            <sect3 id="TextVariables">
+                <title
+>Teksti muutujad</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Legendielement</title>
+            <para
+>Legendielement näitab kasutatud lõngu. Omaduste dialoogis saab valida näidatavad väljad. Väljad <guilabel
+>Esimene element</guilabel
+> ja <guilabel
+>Elementide arv</guilabel
+> on mõeldud suurte legendide tarbeks, mis ulatuvad üle mitme lehe ja mille puhul saab lasta mõningaid sümboleid näidata ühel, teisi teisel lehel. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Elemendi suuruse muutmine</title>
+            <para
+>Kõigi elementide suurust saab muuta ikooni <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> abil, mis näitab elemendi ümber suuruse muutmise piirjoont. Kogu elementi saab liigutada, kui klõpsata elemendi sees ja lohistada. Suuruse muutmiseks vii hiirekursor mõne piirjoone pideme kohale, klõpsa ja lohista vajalikule kaugusele. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

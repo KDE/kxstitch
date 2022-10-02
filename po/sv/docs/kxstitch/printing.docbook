@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Skriva ut mönster</title>
+
+    <para
+>När designen väl är färdig, vill du helt säkert skriva ut den. &kxstitch; låter dig anpassa utskriften, från vad som skrivs ut till hur stor den slutliga utskriften är. </para>
+    <para
+>Den här versionen av &kxstitch; tillåter en fullständigt anpassad utskriftslayout. Den nya utskriftsinställningen gör det möjligt att lägga till, infoga eller ta bort sidor. Pappersstorlek och orientering kan väljas och varje sida kan innehålla textelement, mönsterelement eller förklaringselement. </para>
+    <para
+>För ytterligare information se <link linkend="PrinterDialog"
+>utskriftsdialogrutan</link
+>.</para>
+</chapter>

@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Funktioner</title>
+    <para
+>Den aktuella listan över funktioner, och andra planerade funktioner visas här.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Skapa nya mönster <itemizedlist>
+                <listitem
+><para
+>Användardefinierad storlek</para
+></listitem>
+                <listitem
+><para
+>Val av materialfärg</para
+></listitem>
+                <listitem
+><para
+>Infoga bakgrundsbilder för kalkering</para
+></listitem>
+                <listitem
+><para
+>Import av diverse bildformat</para
+></listitem>
+                <listitem
+><para
+>Importalternativ tillåter: <itemizedlist>
+                        <listitem
+><para
+>Begränsning av antal färger</para
+></listitem>
+                        <listitem
+><para
+>Begränsning av färger till en angiven palett</para
+></listitem>
+                        <listitem
+><para
+>Skalning till en slutlig storlek</para
+></listitem>
+                        <listitem
+><para
+>Stöd för genomskinlighet i bilder</para
+></listitem>
+                        <listitem
+><para
+>Tillåt användning av delstygn</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Redigering av befintliga mönster, redigeringsverktygen omfattar: <itemizedlist>
+                <listitem
+><para
+>Öppna och fyllda rektanglar</para
+></listitem>
+                <listitem
+><para
+>Öppna och fyllda ellipser</para
+></listitem>
+                <listitem
+><para
+>Fyllda polygoner</para
+></listitem>
+                <listitem
+><para
+>Målning</para
+></listitem>
+                <listitem
+><para
+>Linjer</para
+></listitem>
+                <listitem
+><para
+>Radering av stygn, knutsöm och efterstygn</para
+></listitem>
+                <listitem
+><para
+>Färgval från befintliga stygn</para
+></listitem>
+                <listitem
+><para
+>Byta två färger</para
+></listitem>
+                <listitem
+><para
+>Ersätta en färg med en annan</para
+></listitem>
+                <listitem
+><para
+>Text med användardefinierade teckensnitt och storlekar</para
+></listitem>
+                <listitem
+><para
+>Urklippning, kopiering och inklistring av rektangulära områden</para
+></listitem>
+                <listitem
+><para
+>Obegränsat ångra och gör om</para
+></listitem>
+                <listitem
+><para
+>Spegling, horisontell och vertikal</para
+></listitem>
+                <listitem
+><para
+>Rotation, 90, 180 och 270 grader moturs</para
+></listitem>
+                <listitem
+><para
+>Storleksändring av duken <itemizedlist>
+                        <listitem
+><para
+>Utöka duken åt vänster, uppåt, åt höger, nedåt</para
+></listitem>
+                        <listitem
+><para
+>Beskära duken till mönstret</para
+></listitem>
+                        <listitem
+><para
+>Beskära duken till markeringen</para
+></listitem>
+                        <listitem
+><para
+>Infoga rader och kolumner</para
+></listitem>
+                        <listitem
+><para
+>Centrera mönstret på duken</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Konvertering mellan garntyper</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Användning av standardiserade garnpaletter, DMC, Anchor, etc.</para
+></listitem>
+        <listitem
+><para
+>Skapa anpassade garnpaletter</para
+></listitem>
+        <listitem
+><para
+>Skapa nya färger för vilken garnpalett som helst</para
+></listitem>
+        <listitem
+><para
+>Spara och läsa in aktuell palett</para
+></listitem>
+        <listitem
+><para
+>Användning av standardstygn</para
+></listitem>
+        <listitem
+><para
+>Mönsterbibliotekshanterare <itemizedlist>
+                <listitem
+><para
+>Skapa nya biblioteksmönster</para
+></listitem>
+                <listitem
+><para
+>Infoga biblioteksmönster i en design</para
+></listitem>
+                <listitem
+><para
+>Dra och släpp från biblioteket till mönstret</para
+></listitem>
+                <listitem
+><para
+>Dra och släpp från ett bibliotek till ett annat</para
+></listitem>
+                <listitem
+><para
+>Tilldela tangentnedtryckningar till mönster för användning med alfabetsverktyget</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Fri användning av efterstygn</para
+></listitem>
+        <listitem
+><para
+>Utskrift av färdiga mönster och garnförklaringar <itemizedlist>
+                <listitem
+><para
+>Mönsterbild</para
+></listitem>
+                <listitem
+><para
+>Instruktioner</para
+></listitem>
+                <listitem
+><para
+>Garnförklaring och stygnsammanfattning</para
+></listitem>
+                <listitem
+><para
+>Mönsterdiagram med sidavbildning</para
+></listitem>
+                <listitem
+><para
+>Textrutor</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Avbildning av symboler till garn</para
+></listitem>
+        <listitem
+><para
+>Ange antal trådar för stygn och efterstygn</para
+></listitem>
+        <listitem
+><para
+>Kalibrering av garnfärger</para
+></listitem>
+    </itemizedlist>
+    <para
+>Önskemål om nya funktioner kan göras via <ulink url="http://bugs.kde.org"
+>KDE:s felspårningssystem</ulink
+></para>
+</chapter>

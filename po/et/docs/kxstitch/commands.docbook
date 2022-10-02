@@ -1,0 +1,1580 @@
+<chapter id="commands">
+    <title
+>Käskude seletused</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>&kapp;i menüüd</title>
+        <sect2>
+            <title
+>Menüü Fail</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Uus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Uue mustri loomine, kasutades mustri omaduste dialoogis määratud vaikeväärtusi.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ava</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Olemasoleva mustri avamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ava viimati kasutatud</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Viimati kasutatud mustri avamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Salvesta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri salvestamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Salvesta kui</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri salvestamine uue nimega.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lähtesta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri lähtestamine viimasesse salvestatud olekusse.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Trüki</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri trükkimine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Trükkimise seadistamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Trükkimispaigutuse seadistamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pildi import</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pildifaili importimine seda pisteteks teisendades.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Faili omadused</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dokumendi omaduste näitamine ja muutmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lisa taustapilt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pildi lisamine taustale.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Taustapildi eemaldamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Eemaldatava taustapildi valimine. Alammenüü täidetakse varem lisatud taustapiltidega.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Sulge</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri sulgemine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Välju</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+>&kapp;i <action
+>töö lõpetamine</action
+>.</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Redigeerimine</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Võta tagasi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Viimase muudatuse tähistamine. Muudatuste nimekirja näeb ajalooaknas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Tee uuesti</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Viimase tühistatud muudatuse taastegemine. Muudatuste nimekirja näeb ajalooaknas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Lõika</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala lõikamine lõikepuhvrisse.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Kopeeri</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala kopeerimine lõikepuhvrisse.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Aseta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala asetamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Valikumaskid</guisubmenu
+><guimenuitem
+>Pistemask</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valikute piiramine parajasti valitud pistetüübiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valikumaskid</guisubmenu
+><guimenuitem
+>Värvimask</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valikute piiramine parajasti valitud värviga.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valikumaskid</guisubmenu
+><guimenuitem
+>Välja arvatud tikkpisted</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tikkpistete väljajätmine valikust.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valikumaskid</guisubmenu
+><guimenuitem
+>Välja arvatud sõlmpisted</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sõlmpistete väljajätmine valikust.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Peegeldamine/pööramine valmistab koopia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valimise korral luuakse peegeldamise ja pööramise korral valikust koopia, vastasel juhul valitud ala liigutatakse.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valiku peegeldamine</guisubmenu
+><guimenuitem
+>Rõhtselt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala peegeldamine rõhtselt, s.t. vasakult paremale.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valiku peegeldamine</guisubmenu
+><guimenuitem
+>Püstiselt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala peegeldamise püstiselt, s.t. alt üles.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valiku pööramine</guisubmenu
+><guimenuitem
+>90 kraadi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala pööramine 90 kraadi vastupäeva.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valiku pööramine</guisubmenu
+><guimenuitem
+>180 kraadi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala pööramine 180 kraadi vastupäeva.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Valiku pööramine</guisubmenu
+><guimenuitem
+>270 kraadi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud ala pööramine 270 kraadi vastupäeva.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Lõikamine, kopeerimine ja asetamine</title>
+                <para
+>Mustri alade lõikamisel ja kopeerimisel saab piste- ja värvimaskide ning tikk- või sõlmpistete väljajätmisega valikut piirata. </para>
+                <para
+>Asetamisel &kapp;is saab &HVNga; klõpsates ja seda all hoides asetatavad andmed paigutada enam-vähem sinna, kuhu vaja, mille järel saab enne hiirenupu vabastamist juba kanvaal kuvatavad andmed täpselt vajalikku paika nihutada. Sama meetodit kasutatakse peegeldamisel ja pööramisel. Samuti võib asetatud andmete nihutamiseks kasutada nooleklahve ning fikseerida asukoha klahvi &Enter; vajutamisega. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Vaade</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tegelik suurus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vaate suurendamine nii, et ekraanisuurus võrduks ligikaudu füüsilise suurusega.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mahuta leheküljele</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vaate suurendamine või vähendamine nii, et terve muster kataks kogu nähtava ala.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mahuta lehekülje laiusele</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vaate suurendamine või vähendamine nii, et muster laiuse poolest kataks kogu nähtava ala.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mahuta lehekülje kõrgusele</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vaate suurendamine või vähendamine nii, et muster kõrguse poolest kataks kogu nähtava ala.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Suurenda</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Redaktorivaate suurendamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Vähenda</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Redaktorivaate vähendamine.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Eelvaatlus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Eelvaatlusakna näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Palett</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Paletiakna näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajalugu</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ajalooakna näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Imporditud pilt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Imporditud pildi eelvaatlusakna näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Taustapildi näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Taustapildi näitamine või peitmine. Nimekiri luuakse dünaamiliselt vastavalt taustapiltide lisamisele.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Taustapildi mahutamine valikule</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valitud taustapildi mahutamine aktiivsesse valikualasse.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Pisted</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Veerandristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Veerandristpiste, mille asukoht määratakse valitud ruudu veerandiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Poolristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Poolristpiste, mille suund määratakse valitud ruudu veerandiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kolmveerandristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Veerandristpiste, mille orientatsioon määratakse valitud ruudu veerandiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Täisristpiste</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Väike poolristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Väike poolristpiste, mille asukoht määratakse valitud ruudu veerandiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Väike ristpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Väike ristpiste, mille asukoht määratakse valitud ruudu veerandiga.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sõlmpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sõlmpiste.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Tööriistad</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Vabakäejoonistus</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Pistete joonistamine kanvaale: vajuta &HVN; alla ja lohista aknas. Pisted lisatakse igasse läbitud ruutu. Joonistamise katkestamiseks vabasta hiirenupp. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Joone tõmbamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pistete joone tõmbamine kanvaale: vajuta alla &HVN; joone alguspunktis, lohista vajaliku lõpp-punktini ja vabasta hiirenupp. Pisted lisatakse igasse ruutu, mida joon läbib. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kustutamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pistete kustutamine: vajuta alla &HVN; ja lohista üle kustutatavate pistete. Kõik pisted hiirenupu alla jäävates ruutudes eemaldatakse. Kustutamise lõpetamiseks vabasta hiirenupp. Tikkpistete eemaldamiseks vajuta alla klahv &Ctrl; ning klõpsa tikkpiste algus- või lõpp-punktis. Kui punktiga on seotud üle ühe tikkpiste, kustutatakse selle meetodiga esimene leitud piste. Konkreetse tikkpiste kustutamiseks klõpsa ja lohista piste ühest otsast teise. Sõlmpiste kustutamiseks vajuta alla klahv &Shift; ja klõpsa sõlmele. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ristküliku joonistamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ristküliku joonistamine: vajuta alla &HVN; ristküliku ühes nurgas ja lohista vastasnurka. Vabasta hiirenupp ning kanvaale lisatakse täitmata pistete ristkülik. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Täidetud ristkülik</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Täidetud ristküliku joonistamine: vajuta alla &HVN; ristküliku ühes nurgas ja lohista vastasnurka. Vabasta hiirenupp ning kanvaale lisatakse täidetud pistete ristkülik. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ellipsi joonistamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ellipsi joonistamine: vajuta alla &HVN; ellipsi ühes nurgas ja lohista vastasnurka. Vabasta hiirenupp ning kanvaale lisatakse täitmata pistete ellips. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Täidetud ellips</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Täidetud ellipsi joonistamine: vajuta alla &HVN; ellipsi ühes nurgas ja lohista vastasnurka. Vabasta hiirenupp ning kanvaale lisatakse täidetud pistete ellips. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Täidetud hulknurk</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Täidetud hulknurga joonistamine: klõpsa kõigil hulknurga tippe tähistatavates ruutudes või klõpsa ja lohista keerulisemate kõverate loomiseks. Iga tipp tähistatakse ringikesega, neid ühendavad mustad jooned. Hulknurga sulgemiseks klõpsa taas algusruudul. Klahviga &Backspace; saab eemaldada viimase punkti, klahviga &Esc; kõik tipud ja seeläbi toimingust loobuda. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tekst</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teksti lisamine pistetesse. See avab tekstidialoogi. Vali vajalik font ja suurus, sisesta tekst ja klõpsa <guibutton
+>OK</guibutton
+>. Vajuta &HVN; alla umbes seal, kus soovid teksti näha, nihuta hiirega tekst täpselt paika ja vabasta hiirenupp. See toiming sarnaneb asetamisele. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabeet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri lisamine parajasti valitud kogust, mis vastab vajutatud klahvile. See võimaldab luua mustrialfabeete, millele on omistatud klahvid. Valinud selle tööriista ja klõpsanud kohta, kuhu muster tuleb lisada, otsitakse vajutatud klahvi alusel aktiivses kogus sobivat mustrit. Leidmise korral lisatakse see valitud asukohta ning lisamispunkt nihkub seejärel edasi lisatud mustri laiuse võrra. Mustri ruumi laiendatakse paremale, võimaldamaks lisada järgmisi märke. Klahvi &Enter; vajutamine alustab uut rida algse lisamiskoha all, millisel juhul mustri ruumi laiendatakse allapoole uue rea mahutamiseks, kui ruumi ei peaks muidu piisama. Klahviga &Backspace; saab kustutada viimase sisestatud märgi ning <keycap
+>tühikuklahviga</keycap
+> liigutada lisamispunkti edasi kas kogu tühimärgi laiuse võrra või eelmääratud koguse võrra, kui tühimärki selles ei leidu. Tekst murtakse järgmisele reale, kui jõutakse mustri servani ja tuvastatakse sõnalõpp. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Valimine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ristkülikulise ala valimine: vajuta &HVN; alla ristküliku ühes nurgas, lohista teise nurka ja vabasta hiirenupp. Ala tähistamiseks näidatakse valikuristkülikut. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Värvivalija</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Värvi valimise võimaldamine olemasolevatelt pistetelt. Hiirekursori viimisel piste kohale näeb kohtspikrina selle all olevat värvi. Klõps &HVNga; valib värvi. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tikkpiste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tikkpiste lisamine kanvaale: vajuta &HVN; alla tikkpiste alguskohas, mis haaratakse ruudu lähimale 9 punktile, lohista tikkpiste lõpp-punkti ja vabasta hiirenupp (ka sel korral tõmbutakse ruudu lähimale 9 punktile). </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Palett</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paletihaldur</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Värvide lisamine ja eemaldamine aktiivses paletis, samuti sümbolite omistamine ja kiudude arvu määramine rist- ja tikkpistete tarbeks. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sümbolite näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Iga värviga seostatud sümbolite näitamine.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Puhasta kasutamata</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kasutamata värvide eemaldamine paletist.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Värvide vahetamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Järgmine valitud värv vahetatakse parajasti valitud värviga. Kui valid värvivalija tööriista, saad vahetatava värvi valida otse mustrist. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Värvide asendamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Järgmine valitud värv asendab parajasti valitud värvi. Nagu värvide vahetamise korral, saab ka siin värvivalija kasutamisel valida värvi otse mustrist. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Kogu</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Koguhaldur</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustrikogu halduri avamine. See kujutab endast mittemodaalset dialoogi, mis võimaldab luua ja kasutada mustrite kogusid ehk alfabeete. Mustreid saab otse kogust kanvaale lohistada. Samuti on võimalik lõngade automaatne teisendamine aktiivse mustriga sobitamiseks ning piltide skaleerimine vastavalt aktiivse mustri skaalale nende täpseks asetamiseks. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Muster</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Laienda mustrit</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri laiendamine üles, vasakule, paremale või alla.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tsentreeri muster</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mustri tsentreerimise kanvaal.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kärbi kanvaa mustrile</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kanvaa kärpimine mustri mõõtudeni.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kärbi kanvaa valikule</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kanvaa kärpimine aktiivse valiku mõõtudeni.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lisa read</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valikualale ridade lisamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lisa veerud</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Valikualale veergude lisamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Seadistused</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Skaala vorming</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Skaala vormingu vahetamine pistete, sentimeetrite ja tollide vahel.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ristpistete renderdamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ristpistete näitamise viisi muutmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tikkpistete renderdamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tikkpistete näitamise viisi muutmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sõlmpistete renderdamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sõlmpistete näitamise viisi muutmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Värvi esiletõstmine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Värvi esiletõstmise režiimi lubamine või keelamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ristpistete näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ristpistete näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tikkpistete näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tikkpistete näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sõlmpistete näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sõlmpistete näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alusvõrgu näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Alusvõrgu näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Taustapiltide näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kõigi taustapiltide näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Näidatavad tööriistaribad</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tööriistaribade näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Peamine tööriistariba</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Peamise tööriistariba näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pisteriba</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pisteriba näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tööriistade riba</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tööriistade riba näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Suurendusriba</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Suurendusriba näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Olekuriba näitamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Olekuriba näitamine või peitmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kiirklahvide seadistamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rakenduse kiirklahvide seadistamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tööriistaribade seadistamine</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rakenduse tööriistaribade seadistamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>&kapp;i seadistamine</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>&kapp;i <link linkend="ConfigurationDialog"
+>seadistustedialoogi</link
+> avamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menüü Abi</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>&kapp;i käsiraamat</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Käesoleva käsiraamatu avamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mis see on?</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Abi näitamine konkreetse omaduse kohta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Saada vearaport</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Veateate saatmine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Vaheta rakenduse keelt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rakenduse keele vahetamine.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>&kapp;i info</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teave &kapp;i kohta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>KDE info</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teave KDE kohta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

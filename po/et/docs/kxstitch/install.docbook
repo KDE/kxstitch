@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Paigaldamine</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>&kapp;i hankimine</title>
+        <para
+>&kapp;i lähtekoodi leiab aadressilt <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. &kapp;i kodulehekülg asub aadressil <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Nõuded</title>
+        <para
+>&kapp; on kirjutatud &kde; 4.x jaoks, mis kasutab &Qt; 4.x. </para>
+        <para
+>Piltide importimise jaoks on vajalikud ImageMagicku teegid, sealhulgas ImageMagicku ja Magick++ arenduspäised, mille leiad enda distributsioonist või aadressilt <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Kompileerimine ja paigaldamine</title>
+        <para
+>KXStitchi kompileerimine nõuab cmake'i ja sobivaid ehitamistööriistu: make, gcc jne. Kaasas on ehitamisskript, mis peaks sooritama vajalikud kompileerimisoperatsioonid ja paigaldama KXStitchi, mille jaoks võib olla vajalik anda administraatori parool. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

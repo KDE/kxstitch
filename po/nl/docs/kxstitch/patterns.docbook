@@ -1,0 +1,96 @@
+<chapter id="creatingpatterns">
+    <title
+>Patronen maken</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>&kxstitch; opstarten</title>
+        <para
+>Bij het starten van &kxstitch; krijgt u een leeg werkblad te zien met de standaard afmetingen. Dit is ook het geval bij het kiezen van <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Nieuw</guimenuitem
+></menuchoice
+>. De standaard afmetingen kunnen ingesteld worden in de eigenschappendialoog van het patroon door het keuzevak instellen als standaard te activeren. </para>
+        <para
+>Indien de standaard afmetingen niet geschikt zijn voor uw gepland patroon, dan kunt U via <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Eigenschappen</guimenuitem
+> menu dat naar wens aan passen.Stel de waarden in zoals gewenst en klik op <guibutton
+>OK</guibutton
+>, het doek krijgt nu de nieuwe gewenste afmetingen. </para>
+        <para
+>Voordat u een patroon kan maken moet u eerst enkele garens aan het palet toevoegen via <menuchoice
+><guimenu
+>Palet</guimenu
+> <guimenuitem
+>Paletbeheerder</guimenuitem
+></menuchoice
+>. hierna komen de gereedschappen in <menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+></menuchoice
+> menu en werkbalk beschikbaar. Lees in <link linkend="PaletteManagerDialog"
+>Paletbeheerder Dialoog</link
+> voor meer informatie. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Afbeeldingen importeren</title>
+        <para
+>Met &kxstitch; kunt u een afbeelding importeren. U krijgt een dialoogvenster met een voorbeeld van de foto te zien gebaseerd op de standaard import instellingen. </para>
+        <para
+>De initiële grootte van het patroon zal gebaseerd worden op de standaard patroongrootte. </para>
+        <para
+>Bij het importeren heeft u keuzemogelijkheden voor het wijzigen van het garenschema en om het aantal kleuren te beperken. U kunt ook de schaal wijzigen om de grootte van het uiteindelijke patroon te wijzigen. </para>
+        <para
+>Het inschakelen van <guilabel
+>Breuk-steken gebruiken</guilabel
+> maakt het gebruik van breuk-steken mogelijk voor meer details in elk opgegeven patroon-formaat. </para>
+        <para
+>Het inschakelen van <guilabel
+>Kleur negeren</guilabel
+> maakt de selectie van een kleur in de afbeelding mogelijk die vervolgens tijdens de import transparant zal zijn. </para>
+        <para
+>Nadat de afbeelding is geïmporteerd, krijgt u nog een voorbeeldvenster zien van de originele afbeelding zonder kleur-wijzigingen. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Achtergrondafbeeldingen</title>
+        <para
+>U kunt een afbeelding als achtergrond in het bewerkingsvenster gebruiken. Dit kan handig zijn in die gevallen dat het importeren van een afbeelding ongewenst is of slechte resultaten geeft. </para>
+        <para
+>Normaal gesproken wordt de foto zodanig verschaalt dat het gehele patroon is bedekt. Dit kan ongewenst zijn, u kunt het selectie hulpmiddel gebruiken om een gebied te selecteren dat u bedekt wilt hebben om vervolgens <menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Achtergrondafbeelding aanpassen aan selectie</guimenuitem
+></menuchoice
+> te selecteren. Dit zal de afbeelding zodanig verschalen zodat het in het geselecteerde gebied past. U kunt net zolang dit opnieuw doen totdat u tevreden bent met het resultaat, zelfs nadat u al begonnen met het invoegen met steken. </para>
+        <para
+>Er is geen grens aan het aantal achtergrondafbeeldingen dat u kunt toevoegen. Maar de beperkingen van het menu bepaald wel hoeveel u kunt toevoegen. De achtergrondafbeeldingen zijn in het document opgeslagen, en zijn daarom weer beschikbaar bij het opnieuw laden van het patroon. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Patroonbibliotheken</title>
+        <para
+>U kunt de patroonbibliotheek beheerder gebruiken voor het opslaan van stukken patroon die u later aan het patroon waaraan u werkt kunt toevoegen. U kunt ze indelen in categorieën en subcategorieën in de bibliotheek. Het Alphabet gereedschap maakt gebruik van deze bibliotheken voor het geven van een alphabet met karakters die u met de bijbehorende letter kunt invoegen. </para>
+        <para
+>De bibliotheekbeheer heeft niet de focus en daarom hoeft u het niet te sluiten als u aan het patroon in het hoofdvenster werkt. U kunt indien gewenst verschillende bibliotheken selecteren en vervolgens patronen hieruit naar het werkvlak verslepen. </para>
+        <para
+>U kunt een nieuwe subcategorie toevoegen door met de &RMB; op een bestaand categorie te klikken, of een nieuwe categorie door op een lege regel in de lijst te klikken, en vervolgens de keuze <guimenuitem
+>Nieuwe categorie</guimenuitem
+> te selecteren. Voer voor de categorie een naam in en klik op <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>U creëert een nieuw bibliotheekpatroon door een een gebied in het patroon waaraan u werkt te selecteren, deze te kopiëren en daarna in een van de bestaande categorieën te plakken. </para>
+        <para
+>Elk bibliotheekpatroon heeft eigenschappen waar u via een contextmenu toegang toe heeft. Deze eigenschappen zijn het formaat, garen-schema, basislijn waarde en geassocieerd teken. Het alfabet gereedschap gebruikt de basislijn voor het aanpassen van de hoogte van een karakter boven (negatieve waarde) of onder het insertion punt. Het geassocieerd teken wordt door het alfabet gereedschap gebruikt voor een match met de op het toetsenbord ingedrukte toets. </para>
+    </sect1>
+</chapter>

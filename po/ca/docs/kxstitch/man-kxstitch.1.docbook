@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>El manual d'usuari del KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Primera versió de la pàgina «man» del KXStitch per al projecte Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Actualització de la pàgina «man».</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29 de juny de 2016</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>creador de patrons de punt de creu i editor pel &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>fitxer</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descripció</title>
+<para
+>El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, que es pot ampliar o reduir de mida quan el patró s'està fent. Alternativament, podeu importar imatges des de molts formats gràfics de fitxers que permeten reduir el nombre de colors i restringir la conversió a punts sencers. També podeu usar una imatge com a fons. Aquestes imatges importades es poden modificar usant les eines subministrades per a produir el disseny final.</para>
+
+<para
+>Hi ha moltes eines d'ajuda per a dissenyar el vostre patró, a partir de rectangles i el·lipses oberts i farcits, polígons i línies o repunts farcits. A més de retallar, copiar i enganxar es pot utilitzar per a duplicar les àrees seleccionades. Les àrees seleccionades també es poden girar 90, 180 i 270 graus en sentit antihorari, o reflectir-les en horitzontal o vertical.</para>
+
+<para
+>També hi ha una biblioteca de patrons que es pot utilitzar per emmagatzemar petites i no tan petites porcions de patrons que poden reutilitzar-se en altres patrons. Els patrons d'aquestes biblioteques s'emmagatzemen en una llista jeràrquica, la qual facilita ordenar i navegar per trobar les que vulgueu. Aquestes biblioteques de patrons també poden utilitzar-se com a alfabets mitjançant l'assignació d'un caràcter per a cadascun. Utilitzant l'eina de l'alfabet, cada pulsació de tecla se cercarà a la biblioteca actual i si està present, el patró associat serà inserit en el patró.</para>
+
+<para
+>Quan estigueu llest, podreu imprimir el vostre disseny en diversos formats. Hi ha opcions per imprimir els fulls, instruccions i un cabdell, incloent-hi la quantitat de fils utilitzada i el nombre de puntades.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Arguments</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>fitxer</replaceable
+></term>
+<listitem>
+<para
+>Document de punt de creu a obrir.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vegeu també</title>
+<simplelist>
+<member
+>Hi ha disponible documentació d'usuari més detallada des de <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (podeu emprar aquest &URL; al &konqueror; o bé executar <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>També hi ha més informació disponible la <ulink url="http://userbase.kde.org/KXStitch"
+>pàgina inicial del KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Autors</title>
+<para
+>El KXStitch va ser escrit per en <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

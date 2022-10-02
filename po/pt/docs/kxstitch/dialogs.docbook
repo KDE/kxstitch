@@ -1,0 +1,490 @@
+<chapter id="Dialogs">
+    <title
+>Janelas</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>A Janela de Gestão da Paleta</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>O gestor da paleta permite-lhe adicionar, remover ou trocar os novelos da sua paleta actual, bem como o esquema seleccionado. Poderá remover todos os novelos não usados da sua paleta actual e poderá também adicionar novos ao esquema. Para além disso, poderá invocar a <link linkend="CalibrateDialog"
+>janela de calibração de novelos</link
+> a partir daqui. </para>
+        <para
+>Poderá reservar o número de fios de algodão usados para cada novelo, tanto nos pontos normais como nos pontos traseiros. Esta informação será usada para calcular a quantidade de fio que é necessária para o desenho final. </para>
+        <para
+>A janela inclui um botão para <guilabel
+>Escolher uma Cor</guilabel
+>, que permite a selecção de uma cor em qualquer ponto do ecrã. Poderá ser numa imagem de fundo, por exemplo, para permitir a selecção fácil de cores correspondentes. O cursor irá mudar para uma cruz com uma pipeta de cores, que indica a cor do pixel sob a cruz. Depois de carregar sobre um pixel, irá aparecer um novelo que se assemelha à cor seleccionado na lista de novelos. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Selector de Símbolos</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Para cada um dos novelos poderá reservar um símbolo. A janela de selecção de símbolos mostra todos os símbolos disponíveis. Os símbolos usados são apresentados a cinzento e será apresentada uma dica <quote
+>Usado</quote
+> quando passar o cursor do rato sobre o símbolo. Para a paleta, a biblioteca de símbolos usada também poderá ser alterada se seleccionar uma na lista. Todos os novelos ficarão então com um símbolo associado na nova biblioteca. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>A Janela de Nova Cor</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>A janela mostra o nome do esquema aonde a nova cor será adicionada. A cor precisa de um nome e uma descrição, os quais poderão ser a seu gosto, ainda que o nome da cor seja normalmente definido pelo fabricante do novelo. </para>
+        <para
+>Se carregar no botão <guilabel
+>Cor</guilabel
+>, irá mostrar uma <ulink url="help:/fundamentals/colors.html"
+>janela normal do &kde; para seleccionar cores</ulink
+>. A cor inicial poderá ser seleccionada e depois os parâmetros poderão ser ajustados para dar origem à cor correcta. </para>
+        <para
+>Logo que for adicionada, esta cor nova ficará disponível para inclusão na sua paleta de padrões através da janela <guilabel
+>Gestor da Paleta</guilabel
+>. Também poderá ser ajustada se usar a janela <link linkend="CalibrateDialog"
+>Calibração do Novelo</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>A Janela de Calibração do Novelo</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Esta janela tem duas partes. </para>
+        <para
+>À esquerda encontra-se uma lista dos esquemas que estão disponíveis de momento, em conjunto com uma lista das cores existentes nesse esquema. A descrição da cor será seguida de <guilabel
+>(Calibrado)</guilabel
+> se a cor tiver sido modificada pela invocação actual desta janela. </para>
+        <para
+>Do lado direito, encontra-se o nome e a descrição da cor seleccionada de momento; esta será seguida de <guilabel
+>(Modificado)</guilabel
+> se a cor tiver sido alterada; possui também uma antevisão da cor e os valores actuais de RGB para a respectiva cor. </para>
+        <para
+>Também aparece um botão <guibutton
+>Repor a Cor</guibutton
+>. Este botão irá repor a cor seleccionada de momento com o valor que tinha quando a janela foi invocada da primeira vez. </para>
+        <para
+>Se carregar no botão <guibutton
+>OK</guibutton
+> irá confirmar todas as cores alteradas. </para>
+        <para
+>Se carregar no botão <guibutton
+>Cancelar</guibutton
+>, irá repor todas as cores alteradas com os seus valores originais. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>A Janela de Configuração</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Esta janela permite-lhe configurar um conjunto de elementos do KXStitch. </para>
+        <para
+>A maioria das opções são simples. As opções em si activam ou desactivam diversas funções ou elementos. As listas permitem a selecção do formato necessário desses elementos. </para>
+        <para
+>Poderá voltar ao conjunto de parâmetros predefinido, usando o botão <guibutton
+>Predefinições</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>A Janela de Importação de Imagens</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>À esquerda da janela, existe uma antevisão da imagem importada, com base nos parâmetros à direita. </para>
+        <para
+>O esquema de novelos para o padrão terminado poderá ser seleccionado; por omissão, este é o mesmo que o valor por omissão da janela de <guilabel
+>Propriedades do Novo Padrão</guilabel
+>. Poderá activar e modificar o número máximo de cores para o padrão de acordo com as necessidades; por omissão, o padrão importado irá ter tantas cores quantas as definidas na imagem original que forem convertidas para cores dos novelos. Se assinalar a opção <guilabel
+>Ignorar a Cor</guilabel
+>, poderá carregar na ferramenta de largada para seleccionar uma cor na imagem que será ignorada na importação. Isto é útil para remover os fundos que não precisar de converter para pontos. A cor ignorada será apresentada com um padrão em xadrez na antevisão. </para>
+        <para
+>O valor da quantidade de tecido usa por omissão a janela de <guilabel
+>Propriedades do Novo Padrão</guilabel
+> e a escala está definida de forma que o tamanho final é tão próximo do tamanho do padrão das <guilabel
+>Propriedades do Novo Padrão</guilabel
+> quanto possível. Estes valores podem ser alterados de acordo com a necessidade. </para>
+        <para
+>A opção <guilabel
+>Usar fraccionários</guilabel
+> irá permitir o uso de pontos fraccionários no padrão importado. Isto efectivamente duplica a resolução da importação sem afectar o tamanho global do padrão. </para>
+        <para
+>Se carregar em <guibutton
+>OK</guibutton
+>, irá converter a imagem num padrão. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>A Janela de Propriedades do Ficheiro</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>O tamanho do padrão poderá ser definido em unidades de pontos, centímetros ou polegadas. Os valores da altura e largura serão actualizados automaticamente para o tamanho equivalente no novo tipo de unidade, caso o tipo de unidade seja alterado. </para>
+        <para
+>A quantidade de tecido é definida em unidade por centímetro ou polegada e depende das unidades de tamanho; &ie;, se tiver seleccionado CM para as unidades, então a quantidade de tecido será em unidades por centímetro, aplicando-se o mesmo para as polegadas. Se a <guilabel
+>Unidade</guilabel
+> estiver configurada como <guimenuitem
+>Pontos</guimenuitem
+>, então as unidades de quantidade de tecido ficarão como o último valor em CM ou polegadas. </para>
+        <para
+>Os campos do Título, Autor, 'Copyright' e Tecido são de texto livre, pelo que poderá escrever aqui o que desejar. A cor do tecido pode ser definida se carregar no botão de cor e seleccionar a cor desejada. Esta será então apresentada nas janelas do editor e de antevisão. </para>
+        <para
+>O esquema de novelos tem uma lista de selecção para todos os esquemas de novelos disponíveis, incluindo os que tiver definido você mesmo. </para>
+        <para
+>A página de <guilabel
+>Instruções</guilabel
+> pode ser usada para introduzir instruções específicas para bordar o padrão. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>A Janela da Biblioteca de Padrões</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>O Gestor da Biblioteca de Padrões tem uma árvore hierárquica (mais parecida com uma floresta, de facto) de categorias à esquerda, com uma área de ícones para a categoria de padrões seleccionada à direita. Esta janela não é modal e pode ser deixada em aberto enquanto trabalha no padrão. </para>
+        <para
+>A forma mais simples de usar os padrões da biblioteca é arrastá-los e largá-los sobre o espaço do padrão. Em alternativa, se usar o &RMB; sobre um padrão da biblioteca, irá mostrar um menu de contexto com uma opção para o copiar e, posteriormente, colar no padrão as vezes que forem necessárias. </para>
+        <para
+>Os itens adicionais no menu de contexto são: <itemizedlist>
+                <listitem
+><para
+>Apagar: Apaga um item da biblioteca; nesse caso, será apresentada uma janela de confirmação.</para
+></listitem>
+                <listitem
+><para
+>Propriedades: Mostra a janela de propriedades do item.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>A janela de propriedades de cada item mostra o seu tamanho e o esquema de novelos usados, o valor do marco de base e a tecla do teclado associada. A linha do marco de base é usada para posicionar o padrão do carácter na vertical, face à posição do cursor, usando a ferramenta do Alfabeto. Os valores positivos puxam-no para baixo, enquanto os valores negativos o sobem. O carácter associado só é necessário se usar a ferramenta do Alfabeto. Depois de carregar no campo de texto do carácter associado, a próxima combinação de teclas, incluindo os modificadores (&Shift;, &Ctrl;, etc) é usado como tecla. </para>
+        <para
+>Crie novas bibliotecas, carregando para tal no &RMB; numa categoria existente, para criar uma sub-categoria, ou sobre uma área em branco da lista da biblioteca, para criar uma nova categoria de topo e seleccionar a opção <guimenuitem
+>Nova Categoria</guimenuitem
+>, indicando o nome e carregando finalmente em <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>Pode criar uma nova biblioteca se seleccionar uma área do editor de padrões, seleccionar a opção 'Copiar' e depois usar o &RMB; sobre uma categoria existente, seleccionando finalmente a opção 'Colar'. Se necessário, poderá usar a opção de propriedades para adicionar uma tecla associada, caso a deseje usar como uma biblioteca de caracteres. </para>
+        <para
+>Os padrões da biblioteca poderão ser arrastados e largados sobre outras bibliotecas na lista, por forma a permitir-lhe reorganizá-las de acordo com as suas necessidades. Lembre-se que não serão feitas quaisquer validações para garantir que os códigos das teclas associados aos padrões da biblioteca são únicos, pelo que deverá corrigir os necessários, caso existam duplicados. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>A Janela de Texto</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>A janela de texto permite-lhe seleccionar um tipo e tamanho de letra, introduzindo depois o texto. Se carregar em <guibutton
+>OK</guibutton
+>, irá fechar a janela e voltar à janela do &kxstitch;. Se posicionar o texto, será equivalente a colar qualquer outro elemento. Carregue com o &LMB; sobre a tela, no local aproximado onde deseja o texto, sendo que isto irá mostrar uma antevisão do texto; depois posicione o texto exactamente onde o deseja, e largue finalmente o &LMB;. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Janela de Extensão do Padrão</title>
+        <para
+>Esta é usada para alargar o padrão em várias direcções num dado número de células. Indique o número de células nos campos incrementais e carregue em <guibutton
+>OK</guibutton
+> para alargar o padrão. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>A Janela da Impressora</title>
+        <para
+>A janela tem uma lista de páginas à esquerda que mostra uma miniatura para cada uma das páginas. O painel da direita contém o editor da disposição, onde poderá colocar os elementos. Cada elemento pode ser personalizado com o menu de contexto e poderá ser posicionado e aumentado de acordo com os seus requisitos. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Seleccione um modelo de configuração da impressora. De momento, está incluído um semelhante ao do KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Adicionar uma página - Isto irá adicionar uma página ao fim da lista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserir uma página - Isto irá inserir uma página antes da que está seleccionada de momento na lista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Apagar uma página - Isto irá apagar a página seleccionada de momento na lista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Seleccionar um elemento - É usada para seleccionar os elementos para os editar ou dimensionar.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserir um elemento de texto - É usada para inserir um elemento de texto na página actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserir um elemento de padrão - É usado para inserir um elemento de padrão na página actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserir um elemento de imagem - É usada para inserir um elemento de imagem na página actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserir um elemento-chave - É usada para inserir um elemento-chave na página actual.</para>
+
+        <para
+>Ao adicionar os elementos, seleccione o ícone do elemento desejado, depois seleccione a área da página que o elemento virá a ocupar, carregando e arrastando com o &LMB; desde um canto até ao outro. As propriedades do elemento podem ser vistas e alteradas, usando o menu de contexto que poderá aceder com o &RMB; </para>
+        <para
+>Poderá dimensionar os elementos se os seleccionar com a opção <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>; esta irá oferecer um rectângulo de dimensionamento em torno do elemento. Os cantos poderão ser arrastados para ajustar o tamanho ou o elemento completo poderá ser movido, caso carregue neles e os arraste com o &LMB;. </para>
+        <para
+>A página tem uma janela de propriedades associada, a qual permite configurar a margem da página, o tamanho da grelha e a sua visibilidade. A margem da página oferece uma guia para a colocação dos objectos, mas não evita que os elementos sejam colocados fora da margem definida. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Elemento de Padrão</title>
+            <para
+>O elemento do padrão irá mostrar a organização dos pontos na grelha. A janela de propriedades poderá ser usada para configurar como é que serão apresentados os pontos. Isto permite ao elemento aparecer como uma imagem do padrão ou como o padrão de trabalho que mostra os símbolos. </para>
+            <para
+>O elemento do padrão por omissão mostra o padrão por completo quando for criado. Se usar a janela de propriedades, poderá fazer uma selecção da área necessária na janela de antevisão, carregando e arrastando uma área da selecção. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Elemento de Mapa</title>
+                <para
+>O elemento de mapa é usado quando o padrão ocupa várias páginas. Ele mostra a área do padrão completo que este elemento representa. Poderá ser activado nas propriedades do elemento de padrão. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Elemento de Texto</title>
+            <para
+>Poderá usar um elemento de texto para adicionar notas de texto ao padrão ou para mostrar títulos ou comentários. O texto é configurável com os tipos de letra, cores e transparências. Para além disso, pode ser apresentado um contorno. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Os elementos de texto também pode usar variáveis que serão convertidas para propriedades do padrão. </para>
+            <sect3 id="TextVariables">
+                <title
+>Variáveis de Texto</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Elemento-Chave</title>
+            <para
+>O elemento de chave mostra os novelos usados. A janela de propriedades permite a selecção dos campos que poderão estar visíveis. O <guilabel
+>Primeiro elemento</guilabel
+> e o <guilabel
+>Nº de elementos</guilabel
+> poderão ser usados para as chaves grandes que possam ocupar várias páginas, permitindo também que alguns símbolos estejam numa página e outros símbolos noutra. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Dimensionar o Elemento</title>
+            <para
+>Todos os elementos podem ser dimensionados se os seleccionar com a opção <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, que irá mostrar os limites do dimensionamento. Todo o elemento pode ser movido se carregar e arrastar dentro do elemento. Para dimensionar, passe o cursor sobre as pegas de dimensionamento aos cantos, carregando e arrastando para o tamanho desejado. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

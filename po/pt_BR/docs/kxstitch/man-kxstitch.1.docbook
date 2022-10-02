@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual do usuário do KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Primeira versão da página de manual do KXStitch para o projeto Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Atualizou a página de manual.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29/06/2017</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>criador e editor de padrões em ponto cruz do &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>arquivo</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrição</title>
+<para
+>KXStitch é um programa que lhe permite criar padrões e gráficos em ponto cruz. Os padrões podem ser criados do zero, com um tamanho de grade definido pelo usuário, que poderá ser aumentado ou reduzido, à medida que o seu padrão evolui. Isso permite-lhe reduzir o número de cores e restringir a conversão a pontos completos ou, opcionalmente, a pontos fracionários. Também poderá usar as imagens como fundo. Essas imagens importadas poderão então ser modificadas, usando as ferramentas oferecidas para produzir o seu desenho final.</para>
+
+<para
+>Existem muitas ferramentas para ajudar a desenhar o seu padrão, como retângulos ou elipses abertos e preenchidos, polígonos preenchidos, linhas e pontos traseiros. Além disso, as operações para cortar, copiar e colar podem ser usadas para duplicar as áreas selecionadas. Essa áreas também podem ser rotacionadas em 90, 180 e 270 graus, no sentido anti-horário ou espelhados na vertical ou na horizontal.</para>
+
+<para
+>Há também uma biblioteca de padrões que pode ser usada para armazenar porções de padrões, pequenas e não tão pequenas, que poderão ser reutilizadas em outros padrões. Os padrões nessas bibliotecas são armazenados em uma lista hierárquica que torna simples a ordenação e navegação pelas mesmas, de forma a encontrar as que deseja. Essas bibliotecas de padrões também podem ser usadas como alfabetos, caso atribua um determinado caractere a cada uma. Ao usar a ferramenta Alfabeto, para cada tecla pressionada será feita uma pesquisa na biblioteca atual e, se estiver presente, o padrão associado será inserido no padrão.</para>
+
+<para
+>Quando estiver pronto, você poderá imprimir o seu desenho em vários formatos. Existem opções para imprimir as folhas de capa, as instruções e uma lista de novelos, incluindo a quantidade de fio usado e o número de pontos.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Argumentos</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>arquivo</replaceable
+></term>
+<listitem>
+<para
+>O documento de ponto cruz a abrir.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Veja também</title>
+<simplelist>
+<member
+>A documentação mais detalhada para o usuário está disponível em <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (tanto poderá inserir esta <acronym
+>URL</acronym
+> no &konqueror;, como executar o comando <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Existem ainda mais informações disponíveis no <ulink url="http://userbase.kde.org/KXStitch"
+>site do KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Autores</title>
+<para
+>O KXStitch foi criado por <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

@@ -1,0 +1,1399 @@
+<chapter id="commands">
+    <title
+>Referència d'ordres</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Els menús del &kxstitch;</title>
+        <sect2>
+            <title
+>El menú Fitxer</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Nou</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Crea un patró nou, utilitzant els valors predeterminats establerts en el diàleg de propietats del patró.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Obre</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Obre un patró existent.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Obre'n un de recent</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Obre un patró utilitzat recentment.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Desa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desa el patró.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Desa com a</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desa el patró amb un nom nou.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Reverteix</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Retorna el patró al darrer estat desat.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Imprimeix</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Imprimeix el patró.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Configura la impressió</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Estableix la disposició de la impressió.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Importa una imatge</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Importa un fitxer d'imatge convertint-lo en puntades.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Propietats del fitxer</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Suprimeix / Edita les propietats del document.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Insereix una imatge de fons</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insereix una imatge com a fons per al seguiment.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Elimina la imatge de fons</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selecciona una imatge de fons per eliminar. El submenú per això es completa a partir de les imatges de fons inserides prèviament.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Tanca</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tanca el patró.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Surt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Surt</action
+> del &kxstitch;.</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Edita</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+><guimenuitem
+>Desfés</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desfà l'últim moviment. La llista de canvis es mostra a la finestra Historial.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+><guimenuitem
+>Refés</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Refà l'últim moviment desfet. La llista de canvis es mostra a la finestra Historial.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Retalla</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Retalla el text seleccionat al porta-retalls.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Copia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Copia el text seleccionat al porta-retalls.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Enganxa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Enganxa l'àrea seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Màscares de selecció</guisubmenu
+><guimenuitem
+>Màscara de puntades</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limita les seleccions al tipus de puntada actualment seleccionat.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Màscares de selecció</guisubmenu
+><guimenuitem
+>Màscara de color</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limita les seleccions al color actualment seleccionat.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Màscares de selecció</guisubmenu
+><guimenuitem
+>Exclou els repunts</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Exclou els repunts de la selecció.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Màscares de selecció</guisubmenu
+><guimenuitem
+>Exclou els nusos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Exclou els nusos de la selecció.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Emmiralla / Gira fent còpies</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Si està establert, les funcions d'emmirallar i girar faran una còpia de la selecció. En cas contrari, es mourà l'àrea seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Emmiralla la selecció</guisubmenu
+><guimenuitem
+>Horitzontalment</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Emmiralla horitzontalment l'àrea seleccionada, &ead;, se li dona la volta d'esquerra a dreta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Emmiralla la selecció</guisubmenu
+><guimenuitem
+>Verticalment</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Emmiralla verticalment l'àrea seleccionada, &ead;, se li dona la volta de dalt a baix.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Gira la selecció</guisubmenu
+><guimenuitem
+>90 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira l'àrea seleccionada 90 graus en sentit antihorari.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Gira la selecció</guisubmenu
+><guimenuitem
+>180 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira l'àrea seleccionada 180 graus en sentit antihorari.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Gira la selecció</guisubmenu
+><guimenuitem
+>270 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira l'àrea seleccionada 270 graus en sentit antihorari.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Retallar, Copiar i Enganxar</title>
+                <para
+>Retallar i copiar àrees del patró pot fer ús de les màscares de puntades i de color, així com excloure els repunts i nusos per a limitar la selecció. </para>
+                <para
+>L'operació d'enganxat en el &kxstitch; permet prémer i mantenir premut el &BER; aproximadament a la ubicació en la qual han anat les dades enganxades, el qual proporcionarà una imatge de les dades enganxades per a permetre una col·locació precisa abans de deixar anar el botó del ratolí per a finalitzar la ubicació. Aquesta tècnica també s'utilitza per a les funcions d'emmirallar i girar. Les tecles del cursor també es poden utilitzar per a moure el patró enganxat i la tecla &Intro; per a fixar la ubicació. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Visualitza</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mida real</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Fa zoom a la vista perquè la mida de la pantalla s'aproximi a la mida física.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajusta a la pàgina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Fa zoom a la vista perquè tot el patró encaixi dins de l'àrea visible.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajusta a l'amplada de la pàgina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Fa zoom a la vista de manera que l'amplada dels patrons encaixi dins de l'àrea visible.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajusta a l'alçada de la pàgina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Fa zoom a la vista de manera que l'alçada dels patrons encaixi dins de l'àrea visible.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Apropa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Apropa sobre la vista de l'editor.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Allunya</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Allunya sobre la vista de l'editor.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Vista prèvia</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta la finestra de vista prèvia.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paleta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta la finestra de la paleta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Historial</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta la finestra de l'historial.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Imatge importada</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta la finestra de vista prèvia de la imatge importada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra la imatge de fons</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta una imatge de fons. La llista es genera dinàmicament en funció de les imatges de fons inserides.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Encabeix la imatge de fons a la selecció</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Encabeix la imatge de fons seleccionada a l'àrea de selecció actual.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Puntades</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Quart de punt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Quart de punt, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mig punt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mig punt, la direcció està determinada pel quadrant de la cel·la seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>3 quarts de punt</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Tres quarts de punt, l'orientació està determinada pel quadrant de la cel·la seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Punt sencer</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Punt sencer</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mig punt petit</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mig punt petit, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Punt sencer petit</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Punt sencer petit, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nus francès</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Puntada de nus francès.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Eines</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pinta</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Pinta les puntades en el llenç: premeu el &BER; i arrossegueu al voltant de la finestra. S'afegiran puntades a cada cel·la per on es passi. Deixeu anar el botó del ratolí per a deixar de pintar. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dibuixa</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa una línia de puntades en el llenç: premeu el &BER; a l'inici de la línia, arrossegueu fins al punt final requerit de la línia i deixeu anar el botó del ratolí. S'afegiran puntades a cada cel·la per la qual passa la línia. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Esborra</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Esborra les puntades: premeu el &BER; i arrossegueu sobre les puntades que voleu suprimir. S'eliminaran totes les puntades dins de les cel·les per on es passi. Deixeu anar el botó del ratolí per a deixar d'esborrar. Per esborrar els repunts, premeu la tecla &Ctrl; i feu clic esquerre en el punt inicial o final del repunt, si hi ha més d'un repunt en el punt digitalitzat, aquest mètode esborrarà el primer que trobi. Per a suprimir un repunt específic, feu clic i arrossegueu d'un extrem a l'altre. Per esborrar les puntades de nus francès, premeu la tecla &Maj; i feu clic esquerre sobre el nus per a suprimir-lo. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dibuixa un rectangle</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa un rectangle: premeu el &BER; a una cantonada del rectangle i arrossegueu-lo fins a la cantonada oposada. Deixeu anar el botó del ratolí i s'afegirà al llenç un rectangle de puntades sense emplenar. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rectangle emplenat</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa un rectangle emplenat: premeu el &BER; a una cantonada del rectangle i arrossegueu-lo fins a la cantonada oposada. Deixeu anar el botó del ratolí i s'afegirà al llenç un rectangle emplenat de puntades. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dibuixa una el·lipse</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa una el·lipse: premeu el &BER; a una cantonada de l'el·lipse i arrossegueu-la fins a la cantonada oposada. Deixeu anar el botó del ratolí i s'afegirà al llenç una el·lipse de puntades sense emplenar. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>El·lipse emplenada</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa una el·lipse emplenada: premeu el &BER; a una cantonada de l'el·lipse i arrossegueu-la fins a la cantonada oposada. Deixeu anar el botó del ratolí i s'afegirà al llenç una el·lipse emplenada de puntades. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Polígon emplenat</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dibuixa un polígon emplenat: feu clic sobre cada cel·la que marca els vèrtexs del polígon, feu-hi clic i arrossegueu-los per a crear corbes més complexes. Cadascun dels vèrtexs està marcat per un cercle amb una línia negra que els uneix. Per a tancar el polígon, feu clic de nou sobre la cel·la inicial. Feu servir la tecla &Retro; per eliminar l'últim punt, o la tecla &Esc; per eliminar tots els vèrtexs i cancel·lar l'operació. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Text</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insereix text amb les puntades. Això invoca el diàleg de text. Seleccioneu el tipus de lletra requerit i la mida, introduïu el text i feu clic a <guibutton
+>D'acord</guibutton
+>. Premeu el &BER; aproximadament on us agradaria tenir el text, moveu el ratolí per a situar el text amb precisió i després deixeu anar el botó del ratolí. Això és el mateix que la funció enganxa. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insereix patrons des de la biblioteca seleccionada que coincideixen amb les tecles premudes. Això permet la creació d'alfabets de patrons que poden tenir una assignació de tecla. Després de seleccionar aquesta eina i fer clic a una posició sobre el patró per al punt d'inserció, cada tecla premuda se cercarà a la biblioteca actual per trobar un patró coincident. Si es troba, s'inserirà a la posició del patró i a la posició d'inserció, després avançarà per l'amplada del patró de caràcters inserit. L'espai del patró s'estendrà a la dreta per permetre que s'introdueixin més caràcters. En prémer &Intro; es començarà una línia nova a sota de la posició del punt d'inserció original, l'espai del patró s'estendrà cap avall per acomodar la línia nova si no hi ha prou espai disponible. La tecla &Retro; suprimirà l'últim caràcter introduït i la tecla <keycap
+>Espai</keycap
+> avançarà el punt d'inserció ja sigui per l'amplada d'un caràcter d'espai a la biblioteca o per una quantitat predeterminada si no hi ha un caràcter d'espai. El text s'ajustarà a la següent línia si s'abasta la vora del patró i es detecta el final d'una paraula. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Selecciona</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selecciona una regió rectangular: premeu el &BER; a una cantonada del rectangle, arrossegueu-la fins a la cantonada oposada i deixeu anar el botó. Es mostrarà un rectangle de selecció per indicar l'àrea. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Selector de color</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Permet la selecció d'un color a partir les puntades existents. En passar el cursor per sobre de les puntades es mostrarà un consell d'eina indicant el color que es troba sota el cursor. En fer clic amb el &BER;, se seleccionarà. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Repunt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Afegeix repunts al llenç: premeu el &BER; a l'inici del repunt, s'ajustarà al més proper dels 9 punts a la cel·la, arrossegueu fins al punt final del repunt i deixeu anar el botó del ratolí, de nou això s'ajustarà al més proper dels 9 punts a la cel·la. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Paleta</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gestor de la paleta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Afegeix i elimina colors a la paleta actual. Assigneu símbols i el nombre de brins per a les puntades i els repunts. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra els símbols</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra els símbols associats amb cada color.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Neteja els no emprats</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Elimina de la paleta els colors no emprats.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Intercanvia els colors</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>El següent color seleccionat s'intercanviarà amb el color actualment seleccionat. Si seleccioneu l'eina de comptagotes, podreu triar el color amb el qual s'intercanviarà directament des del patró. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Substitueix els colors</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>El següent color seleccionat substituirà el color actualment seleccionat. Com amb els colors d'intercanvi, podreu utilitzar l'eina de comptagotes per a seleccionar el color des del patró. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Biblioteca</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gestor de la biblioteca</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Obre el gestor de la biblioteca de patrons, el qual és un diàleg no modal que permet la creació i l'ús de biblioteques de patrons o alfabets. El fer arrossega i deixa està disponible per a permetre arrossegar i deixar anar patrons des de la biblioteca cap al patró. La conversió automàtica de fils per adaptar-los al patró actual i escalar la imatge fins a l'escala del patró actual per a un posicionament precís. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Patró</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Amplia el patró</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia el patró a dalt, esquerra, dreta i a baix.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Centra el patró</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centrar el patró sobre el llenç.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Escapça el llenç al patró</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Escapça el llenç en la mesura del patró.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Escapça el llenç a la selecció.</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Escapça el llenç en la mesura de la selecció actual.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Insereix files</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insereix diverses files representades per una àrea de selecció.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Insereix columnes</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insereix diverses columnes representades per una àrea de selecció.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Arranjament</title>
+            <para
+>A part dels elements comuns al &kde; del menú <guimenu
+>Arranjament</guimenu
+> que es descriuen al capítol <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> en els Fonaments del &kde;, el &kxstitch; té aquestes entrades de menú específiques de l'aplicació: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Format de l'escala com a</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Canvia el format de visualització de l'escala a Puntades, CM o Polzades.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra les puntades com a</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Canviar la forma en què es mostren les puntades.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra els repunts com a</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Canviar la forma en què es mostren els repunts.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra els nusos com a</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Canviar la forma en què es mostren els nusos.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ressaltat amb color</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Activa o desactiva el mode ressaltat del color.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra les puntades</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta les puntades.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra els repunts</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta els repunts.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra les puntades de nus francès</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta les puntades de nus francès.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra la quadrícula</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta la quadrícula.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostra les imatges de fons</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra o oculta totes les imatges de fons.</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Configura el &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Obre el <link linkend="ConfigurationDialog"
+>diàleg de configuració</link
+> del &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>El menú Ajuda</title>
+            <para
+>De manera addicional, el &kxstitch; té la configuració comuna al &kde; i els elements del menú <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu la secció sobre <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+        </sect2>
+    </sect1>
+</chapter>

@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>La interfície d'usuari</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>La finestra principal del &kxstitch;</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Aquesta és una captura de pantalla del &kxstitch;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>La finestra principal del &kxstitch; consisteix en una finestra de l'editor que a la imatge de dalt es mostra a la dreta amb tres finestres acoblades a l'esquerra. Les finestres acoblades proporcionen una vista prèvia del patró, la paleta de fils i una llista d'historial. Si s'importa una imatge, es mostrarà una finestra acoblada addicional que mostra una vista prèvia de la imatge original com a referència. Cadascuna d'aquestes finestres acoblades es pot moure a diverses vores de la finestra principal, separar de la vista o desactivar i tornar a activar. </para>
+        <para
+>Les seccions estan dividides per divisors, els quals es poden moure per a canviar la quantitat d'espai assignat a qualsevol de les seccions. </para>
+        <para
+>La disposició dels altres elements, la barra de menús, les barres d'eines i la barra d'estat és similar a les altres aplicacions &kde; que executeu. </para>
+        <para
+>La barra d'estat a la part inferior de la finestra mostra diversos missatges d'estat. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Finestra de l'editor</title>
+        <para
+>La finestra d'edició principal mostra un patró de quadrícula i les escales superior i esquerra. Les escales poden tenir format en puntades, centímetres o polzades. L'editor és una vista per fer desplaçable i ampliable, i permet utilitzar les diverses eines d'edició per a modificar el vostre disseny. </para>
+        <para
+>Generalment, el &BER; s'utilitza per activar qualsevol de les eines en el patró. Els detalls de cadascuna de les eines i el seu ús es mostren a <link linkend="commands"
+>la secció Referència d'ordres</link
+>. </para>
+        <para
+>La quadrícula mostra línies més gruixudes que divideixen les cel·les en grups. El nombre de cel·les per grup és configurable, el valor predeterminat és 10, com els colors per a les línies. Això és útil si esteu creant patrons sobre un llenç en color fosc que requereix línies de color més clares per al contrast. </para>
+        <para
+>Una opció del menú permet afegir imatges de fons a la finestra de l'editor, per utilitzar-les com a plantilla per afegir les puntades. Per a més informació, consulteu la secció sobre <link linkend="creatingpatterns"
+>Crear els patrons</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Menú contextual</title>
+            <para
+>En emprar el &BDR; sobre l'editor, s'activarà un menú contextual que permet canviar el format de les escales i l'aparença visual de les puntades. També permet activar o desactivar les imatges de fons, les puntades, els repunts, la quadrícula i les escales. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Finestra de vista prèvia</title>
+        <para
+>La finestra <guilabel
+>Vista prèvia</guilabel
+> mostra una visió general amb desplaçament del disseny actual a una escala més petita que la finestra Editor. La <guilabel
+>Vista prèvia</guilabel
+> mostra un rectangle negre que representa la vista actual dins de la finestra de l'Editor. </para>
+        <para
+>En fer clic al &BER; a dins de la finestra de vista prèvia, la finestra de l'Editor se centrarà en aquest punt. A més, en prémer el &BER; i arrossegar un rectangle al voltant d'una àrea, la finestra de l'Editor s'ampliarà per incloure aquesta àrea. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Finestra de la paleta</title>
+        <para
+>La finestra <guilabel
+>Paleta</guilabel
+> mostra els colors del fil actualment en aquesta paleta de patrons com a blocs de color, i de manera opcional amb els símbols associats amb cada color. En moure el punter del ratolí sobre un bloc de color, apareixerà un consell d'eina mostrant el número i el nom del color. En fer clic sobre un color, se seleccionarà aquest color per a la següent funció de pintura o dibuix. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Menú contextual</title>
+            <para
+>En emprar el &BDR; sobre la vista <guilabel
+>Paleta</guilabel
+>, s'activarà un menú contextual que permet realitzar diverses funcions sobre la paleta. Per obtenir més detalls sobre el seu ús, vegeu <link linkend="commands"
+>la referència d'ordres</link
+>. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

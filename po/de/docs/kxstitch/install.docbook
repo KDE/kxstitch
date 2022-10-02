@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Installation</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Bezugsquellen von &kxstitch;</title>
+        <para
+>Den Quelltext von &kxstitch; finden Sie unter <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+> und die Webseite von &kxstitch; auf <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Anforderungen</title>
+        <para
+>&kxstitch; wurde mit &Qt; 5.x und &kf5-full; geschrieben. </para>
+        <para
+>Für die Funktionen zum Importieren von Bildern werden die ImageMagick-Bibliotheken benötigt, einschließlich der Entwicklungs-Header von ImageMagick und Magick++. Diese erhalten sie durch Ihre Distribution oder von <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Kompilierung und Installation</title>
+        <para
+>Zur Kompilierung von KXStitch benötigen Sie CMake und zugehörige Erstellungs-Programme, make, gcc usw. Es wird ein Skript zum Kompilieren und zum Installieren von KXStitch bereitgestellt, Dafür ist eventuell die Eingabe des Passworts des Systemverwalters erforderlich. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

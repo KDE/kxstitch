@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Mustrite loomine</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>&kapp;i käivitamine</title>
+        <para
+>&kapp;i käivitamisel ilmub vaikimisi suurusega tühi kanvaa. Sama tulemuse annab menüükäsk <menuchoice
+><guimenu
+>Fail</guimenu
+><guimenuitem
+>Uus</guimenuitem
+></menuchoice
+>. Vaikimisi suurused saab kindlaks määrata mustri omaduste dialoogis, kus tuleb muudetud väärtused muuta vaikeväärtusteks. </para>
+        <para
+>Kui vaikimisi suurus sinu kavandatavale mustrile ei sobi, saab seda muuta dialoogiga, mis avaneb menüükäsuga <menuchoice
+><guimenu
+>Fail</guimenu
+><guimenuitem
+>Faili omadused</guimenuitem
+></menuchoice
+>. Muuda väärtusi, nagu vaja, ning kui klõpsad nupule <guibutton
+>OK</guibutton
+>, muudetaksegi mustri suurus vajalikuks. </para>
+        <para
+>Enne mustri loomise kallale asumist tuleb lisada lõngu paletile, valides menüükäsu <menuchoice
+><guimenu
+>Palett</guimenu
+><guimenuitem
+>Paletihaldur</guimenuitem
+></menuchoice
+>. Nii muutuvad aktiivseks ka tööriistad menüüs <menuchoice
+><guimenu
+>Tööriistad</guimenu
+></menuchoice
+> ja tööriistaribal. Täpsemalt kõneleb sellest <link linkend="PaletteManagerDialog"
+>paletihalduri dialoogi</link
+> tutvustav osa. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Piltide importimine</title>
+        <para
+>&kapp; võimaldab pilte importida. Ilmub dialoog, kus on näha vaikimisi importimisvalikute põhjal tekkiva pildi eelvaatlust. </para>
+        <para
+>Mustri algne suurus põhineb vaikimisi mustri suurusel. </para>
+        <para
+>Importimisvalikud võimaldavad muuta kasutatavat lõngatüüpi ja piirata värvide arvu. Samuti saab pilti skaleerida lõpliku mustri vähendamiseks või suurendamiseks. </para>
+        <para
+>Kastikese <guilabel
+>Murdarvuliste ristpistete kasutamine</guilabel
+> võimaldab kasutada murdarvulisi ristpisteid (veerand-, pool- või kolmveerandpisted), mis tagab mis tahes mustri suuruse korral suurema detailsuse. </para>
+        <para
+>Kastikese <guilabel
+>Värvi eiramine</guilabel
+> märkimine võimaldab valida pildil värvi, mida peetakse läbipaistvaks ja mida importimisel eiratakse. </para>
+        <para
+>Kui pilt on imporditud, on kasutamisvalmis veel üks dokiaken, kus näeb algse pildi eelvaatlust ilma mingite värvimanipulatsioonideta. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Taustapildid</title>
+        <para
+>Redaktoriaknasse saab lisada taustapilte. See on abiks, kui pildi importimine ei ole mingil põhjusel soovitud või see annab kesiseid tulemusi. </para>
+        <para
+>Tavaliselt skaleeritakse pilt nii, et see kataks kogu mustri alusvõrgu. See ei pruugi alati sobida, mistõttu saab valikutööriistaga valida ala, mida soovid pildi tarbeks pruukida, ja seejärel kasutada menüükäsku <menuchoice
+><guimenu
+>Vaade</guimenu
+><guimenuitem
+>Taustapildi mahutamine valikule</guimenuitem
+></menuchoice
+>. Sellega skaleeritakse pilt ümber, nii et see mahuks valitud alasse. Seda toimingut võib korrata, kuni oled tulemusega rahul - ka juba siis, kui oled hakanud pisteid lisama. </para>
+        <para
+>Lisatavate taustapiltide arvule ei ole piiranguid. Tõsi, puhtfüüsiliselt muudab liiga paljude taustapiltide rakendamine menüüde kasutamise äärmiselt tülikaks. Taustapildid salvestatakse koos dokumendiga, nii et need ka laaditakse uuesti mustri taasavamisel. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Mustrikogud</title>
+        <para
+>Mustrikogude haldurisse saab salvestada mustreid, mida hiljem mõnda muusse mustrisse lisada. Neid saab liigendada kategooriatesse ja alamkategooriatesse, kusjuures juurkategooriaid võib olla kui tahes palju. Alfabeeditööriistaga saab neid kogusid samuti kasutada: selle korral omistatakse kindlale klahvile teatavad sisestatavad tähed. </para>
+        <para
+>Koguhaldur on mittemodaalne dialoog, mis tähendab, et see võib mustri kallal vaeva nähes kõrval lahti olla. Nii saab valida igal hetkel vajaliku kogu ning lohistada selles leiduvaid mustreid enda loodavasse mustrisse. </para>
+        <para
+>Uue kategooria saab lisada kas &HPNga; olemasoleval kategoorial klõpsates, misjärel on võimalik luua alamkategooria, või klõpsates tühjal alal, misjärel on võimalik luua uus põhikategooria. Mõlemal juhul tuleb valida <guimenuitem
+>Uus kategooria</guimenuitem
+>. Kirjuta kategooria nimi ja klõpsa nupule <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>Kogu uue mustri loomiseks vali oma aktiivses mustris vajalik ala ning kopeeri ja aseta see mõnda olemasolevasse kategooriasse. </para>
+        <para
+>Igal kogu mustril on oma omadused, mida näeb mustri kontekstimenüü vahendusel. Nende hulka kuuluvad suurus, lõngatüüp, kontrolljoone väärtus ja omistatud klahv. Kontrolljoone väärtust kasutab alfabeeditööriist märgi kõrguse kohandamiseks lisamispunkti kohal (negatiivne väärtus) või all. Omistatud klahvi kasutab sama tööriist vastavuse leidmiseks klaviatuuri vajutatud klahviga. </para>
+    </sect1>
+</chapter>

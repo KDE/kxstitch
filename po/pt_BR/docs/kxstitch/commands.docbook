@@ -1,0 +1,1395 @@
+<chapter id="commands">
+    <title
+>Referência de comandos</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Menus do &kxstitch;</title>
+        <sect2>
+            <title
+>Menu Arquivo</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Novo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cria um novo padrão, usando os valores predefinidos configurados na caixa de diálogo de propriedades do padrão.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Abrir</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Abre um padrão existente</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Abrir recente</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Abre um padrão usado recentemente</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Salvar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Salva o padrão</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Salvar como</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Salva o padrão com um novo nome</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Reverter</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Reverte o padrão para o último estado salvo</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Imprimir</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Imprime o padrão</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Configurar impressão</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Configura o layout de impressão</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Importar imagem</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Importa um arquivo de imagem, convertendo-o para pontos</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Propriedades do arquivo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra/Edita as propriedades do documento</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Adicionar imagem de fundo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insere uma imagem como fundo para desenhar.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Remover a imagem de fundo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Seleciona uma imagem de fundo para remover. O submenu para esta opção está preenchido com as imagens de fundo inseridas anteriormente.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Fechar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Fecha o padrão</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Sair</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sai</action
+> do &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Editar</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Desfazer</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desfaz a última alteração. A lista de alterações é apresentada na janela Histórico.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Refazer</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Refaz a última alteração desfeita. A lista de alterações é apresentada na janela Histórico.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Recortar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Recorta a área selecionada para a área de transferência</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Copiar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Copia a área selecionada para a área de transferência</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Colar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cola a área selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Máscaras de seleção</guisubmenu
+><guimenuitem
+>Máscara de pontos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limita as seleções apenas ao tipo de ponto selecionado</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Máscaras de seleção</guisubmenu
+><guimenuitem
+>Máscara de cores</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Limita as seleções apenas à cor selecionada</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Máscaras de seleção</guisubmenu
+><guimenuitem
+>Excluir os pespontos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Exclui os pespontos da seleção</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Máscaras de seleção</guisubmenu
+><guimenuitem
+>Excluir os nós</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Exclui os nós da seleção</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Espelhar/Girar cria cópias</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Se a opção estiver assinalada, as funções de espelho e de rotação criarão uma cópia da seleção, caso contrário, a área selecionada será movida</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Espelhar a seleção</guisubmenu
+><guimenuitem
+>Horizontalmente</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cria uma imagem espelhada da área selecionada na horizontal, &ie;, invertido da esquerda para a direita</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Espelhar a seleção</guisubmenu
+><guimenuitem
+>Verticalmente</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Cria uma imagem espelhada da área selecionada na vertical, &ie;, invertido de cima para baixo</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Girar a seleção</guisubmenu
+><guimenuitem
+>90 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira a área selecionada em 90 graus no sentido anti-horário</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Girar a seleção</guisubmenu
+><guimenuitem
+>180 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira a área selecionada em 180 graus no sentido anti-horário</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Girar a seleção</guisubmenu
+><guimenuitem
+>270 graus</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gira a área selecionada em 270 graus no sentido anti-horário</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Recortar, Copiar e Colar</title>
+                <para
+>O recorte e a cópia de áreas do padrão poderão utilizar as máscaras de pontos e de cores e da exclusão dos pespontos e nós, para limitar a seleção. </para>
+                <para
+>A operação de colagem no &kxstitch; permite-lhe pressionar e manter pressionado o &LMB; na posição aproximada onde deseja colar os dados, permitindo-lhe visualizar uma imagem desses dados e ajudando a colocar o elemento na posição final, antes mesmo de soltar o botão do mouse. Essa técnica também é usada para as funções de espelho e rotação. As teclas de cursores também podem ser usadas para mover o padrão colado e a tecla &Enter; para fixar a posição. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Exibir</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tamanho real</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia a área de visualização de forma que o tamanho na tela se aproxime do tamanho físico</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajustar à página</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia a área de visualização de forma que o padrão completo caiba dentro da área visível</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajustar à largura da página</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia a área de visualização de forma que a largura do padrão caiba dentro da área visível</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajustar à altura da página</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia a área de visualização de forma que a altura do padrão caiba dentro da área visível</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ampliar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Amplia a área de edição</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Reduzir</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Reduz a área de edição</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visualização</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta a janela de visualização</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paleta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta a janela da paleta</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Histórico</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta a janela do histórico</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Imagem importada</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta a janela de visualização da imagem importada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar a imagem de fundo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta uma imagem de fundo. A lista é gerada dinamicamente com base nas imagens de fundo inseridas</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ajustar a imagem de fundo à seleção</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ajusta a imagem de fundo selecionada à área de seleção atual</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Pontos</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Quarto de ponto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Quarto de ponto - a posição é determinada pelo quadrante da célula selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Meio ponto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Meio ponto - a direção é determinada pelo quadrante da célula selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>3 quartos de ponto</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Três quartos de ponto - a orientação é determinada pelo quadrante da célula selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ponto completo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ponto completo</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Meio ponto pequeno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Um meio ponto pequeno, sendo a posição determinada pelo quadrante da célula selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ponto completo pequeno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Um ponto completo pequeno, sendo a posição determinada pelo quadrante da célula selecionada</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nó francês</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ponto de nó francês</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Ferramentas</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pintar</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Pinta os pontos na tela - Mantenha pressionado o &LMB; e arraste-o pela janela. Os pontos serão adicionados a cada célula por onde passar. Solte o botão do mouse para interromper a pintura. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha uma linha de pontos na tela - Mantenha pressionado o &LMB; no início da linha, arraste para o ponto final desejado da linha e solte o botão do mouse. Os pontos serão adicionados a cada célula por onde passar a linha. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Apagar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Apaga pontos - Mantenha pressionado o &LMB; e arraste o cursor sobre os pontos que deseja apagar. Todos os pontos dentro das células por onde passou serão apagados. Solte o botão do mouse para concluir a limpeza. Para apagar os pespontos, mantenha pressionada a tecla &Ctrl; e clique com o botão esquerdo sobre o ponto inicial e final do pesponto. Se existir mais de um pesponto sobre os pontos selecionados, esse método irá apagar o primeiro encontrado. Para apagar um pesponto específico, clique e arraste de um extremo ao outro. Para apagar os nós franceses, mantenha pressionada a tecla &Shift; e clique com o botão esquerdo sobre o nó para apagá-lo. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar retângulo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha um retângulo - Mantenha pressionado o &LMB; sobre um canto do retângulo e arraste-o para o canto oposto. Solte o botão do mouse para que seja adicionado um retângulo de pontos não preenchido à tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Preencher o retângulo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha um retângulo preenchido - Mantenha pressionado o &LMB; sobre um canto do retângulo e arraste-o para o canto oposto. Solte o botão do mouse para que seja adicionado um retângulo de pontos preenchido à tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar elipse</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha uma elipse - Mantenha pressionado o &LMB; sobre um canto da elipse e arraste-o para o canto oposto. Solte o botão do mouse para que seja adicionado uma elipse de pontos não preenchida à tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Preencher a elipse</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha uma elipse preenchida - Mantenha pressionado o &LMB; sobre um canto da elipse e arraste-o para o canto oposto. Solte o botão do mouse para que seja adicionado uma elipse de pontos preenchida à tela. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Preencher o polígono</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Desenha um polígono preenchido - Clique em cada uma das células que marca os vértices do polígono e depois clique e arraste para criar mais curvas complexas. Cada vértice é marcado por um círculo com uma linha preta que os une. Para fechar o polígono, clique na célula inicial novamente. Você poderá usar a tecla &Backspace; para remover o último ponto ou a tecla &Esc; para remover todos os vértices e cancelar a operação. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Texto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insere um determinado texto em pontos. Essa ação abrirá a caixa de diálogo de texto. Selecione a fonte desejada e seu tamanho, depois insira o texto e clique no botão <guibutton
+>OK</guibutton
+>. Pressione o &LMB; próximo do local onde deseja o texto, mova o mouse para posicionar o texto com maior precisão e então solte o botão do mouse. Esse comportamento é o mesmo da função de colagem. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabeto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insere padrões da biblioteca selecionada, que correspondam às teclas pressionadas. Isso permite a criação de alfabetos de padrões que poderão ter uma associação de teclas. Depois de selecionar essa ferramenta e de clicar em uma posição no padrão para o ponto de inserção, cada tecla pressionada será pesquisada na biblioteca atual à procura de um padrão correspondente. Se for encontrado, ele será inserido na posição do padrão e a posição de inserção irá então avançar de acordo com a largura do padrão de caracteres inserido. O espaço do padrão será ampliado para a direita, de forma a permitir a introdução de mais caracteres. Se pressionar &Enter; irá iniciar uma nova linha sob a posição do ponto de inserção original, sendo o espaço do padrão ampliado para baixo, de forma a acomodar a nova linha, caso não exista espaço suficiente. A tecla &Backspace; irá apagar o último caractere digitado e a tecla <keycap
+>Espaço</keycap
+> irá avançar o ponto de inserção em um caractere de espaço na biblioteca ou em uma quantidade predefinida, caso não exista nenhum caractere associado ao espaço. O texto irá mudar para a linha seguinte, caso o extremo do padrão seja atingido e detectado o fim de uma palavra. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Selecionar</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Seleciona uma região rectangular - Mantenha pressionado o &LMB; em um canto do retângulo, arraste para o canto oposto e solte o botão. Um retângulo de seleção será mostrado para indicar a respectiva área. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Seletor de cores</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Permite a seleção de uma cor a partir dos pontos existentes. Ao passar o ponteiro do mouse sobre os pontos, irá aparecer uma dica que indica a cor sob o ponteiro. Se pressionar o &LMB;, ela será selecionada. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pesponto</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Adiciona os pespontos à tela - Mantenha pressionado o &LMB; no início do pesponto para ajustá-lo aos 9 pontos mais próximos na célula, depois arraste para o ponto final do pesponto e solte o botão do mouse. Mais uma vez, este será ajustado ao mais próximo dos 9 pontos na célula. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Paleta</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gerenciador de Paletas</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Adicione e remova cores da paleta atual. Atribua símbolos e o número de fios para os pontos e pespontos. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar símbolos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra os símbolos associados a cada cor</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Limpar as não usadas</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Remove as cores não usadas da paleta.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Trocar as cores</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>A próxima cor selecionada será trocada com a cor atualmente selecionada. Se você selecionar a ferramenta de conta-gotas, poderá escolher a cor a ser trocada diretamente a partir do padrão. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Substituir as cores</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>A próxima cor selecionada irá substituir a cor atualmente selecionada. Da mesma forma como troca de cores, você poderá escolher a ferramenta de conta-gotas para selecionar a cor a partir do padrão. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Biblioteca</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Gerenciador de Bibliotecas</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Abre o gerenciador da biblioteca de padrões, o qual é uma caixa de diálogo não-modal, que permite a criação e uso das bibliotecas de padrões ou alfabetos. É possível arrastar e soltar padrões da biblioteca para o padrão, a conversão automática dos novelos para se adequar ao padrão atual e também o ajuste da escala da imagem para a escala do padrão atual, para ter um posicionamento mais exato. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Padrão</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Estender padrão</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Estende o padrão para cima, à esquerda, à direita ou para baixo</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Centralizar padrão</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centralizar o padrão na tela</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Recortar a tela ao padrão</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Recorta a tela aos limites definidos pelo padrão</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Recortar a tela à seleção</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Recorta a tela aos limites definidos pela seleção atual</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Inserir linhas</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insere um conjunto de linhas representados por uma área de seleção</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Inserir colunas</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Insere um conjunto de colunas representados por uma área de seleção</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Configurações</title>
+            <para
+>Além dos itens do menu Configurações normais do &kde;, descritos no capítulo do <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Configurações</ulink
+> dos Fundamentos do &kde;, o &kxstitch; tem estes itens de menu específicos do aplicativo: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Formatar as escalas como</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Altera o formato de apresentação da escala para Pontos, CM ou Polegadas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar os pontos como</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Altera a forma como os pontos são apresentados.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar os pespontos como</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Altera a forma como os pespontos são apresentados.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Desenhar os nós como</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Altera a forma como os nós são apresentados.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Realce de cores</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ativa ou desativa o modo de realce de cores</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar os pontos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta os pontos</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar os pespontos</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta os pespontos</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar os nós franceses</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta os nós franceses</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar grade</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta a grade</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Mostrar as imagens de fundo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Mostra ou oculta todas as imagens de fundo</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Configurar o &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Abre a <link linkend="ConfigurationDialog"
+>caixa de diálogo de configuração</link
+> do &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Menu Ajuda</title>
+            <para
+>O &kxstitch; tem os itens do menu Ajuda comuns do &kde;. Para mais informações, leia a seção do <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Ajuda</ulink
+> dos Fundamentos do &kde;. </para>
+        </sect2>
+    </sect1>
+</chapter>
