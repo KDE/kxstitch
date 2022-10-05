@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:43+0000\n"
-"PO-Revision-Date: 2022-02-19 09:45+0100\n"
+"PO-Revision-Date: 2022-10-04 19:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -249,7 +249,7 @@ msgstr "L'esquema predeterminat del fil per als documents nous."
 #: kxstitch.kcfg:206
 #, kde-format
 msgid "The default symbol library to be used for new documents."
-msgstr "L'esquema predeterminat del símbol per als documents nous."
+msgstr "La biblioteca predeterminada de símbols per als documents nous."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
 #: kxstitch.kcfg:210
