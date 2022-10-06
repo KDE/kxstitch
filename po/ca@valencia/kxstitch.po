@@ -623,7 +623,7 @@ msgstr "El color del text"
 #: kxstitchui.rc:5
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
 #: kxstitchui.rc:10 src/Commands.cpp:570
@@ -689,7 +689,7 @@ msgstr "Mostra els nusos com a"
 #: kxstitchui.rc:68
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
 #: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
