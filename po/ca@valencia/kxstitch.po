@@ -1496,7 +1496,7 @@ msgstr "joan4@users.sourceforge.net"
 #: src/Main.cpp:123
 #, kde-format
 msgid "Document to open."
-msgstr "Document que cal obrir."
+msgstr "Document que s'obrirà."
 
 #: src/MainWindow.cpp:242
 #, kde-format
@@ -1592,7 +1592,7 @@ msgstr "Voleu revertir els canvis en el document?"
 #: src/MainWindow.cpp:462
 #, kde-format
 msgid "There is nothing to print"
-msgstr "No hi ha res a imprimir"
+msgstr "No hi ha res per a imprimir"
 
 #: src/MainWindow.cpp:519 src/MainWindow.cpp:748
 #, kde-format
@@ -2536,8 +2536,8 @@ msgid ""
 "pages.</body></html>"
 msgstr ""
 "<html><head/><body>Feu clic i arrossegueu per a seleccionar la zona del "
-"patró a mostrar.<br />Les zones ombrejades ja han sigut seleccionades en "
-"esta o en altres pàgines.</body></html>"
+"patró que es mostrarà.<br />Les zones ombrejades ja han sigut seleccionades "
+"en esta o en altres pàgines.</body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
@@ -2792,7 +2792,7 @@ msgstr "Primer element"
 #: ui/KeyElement.ui:328
 #, kde-format
 msgid "The first line of the key to display"
-msgstr "Primera línia de la clau a mostrar"
+msgstr "Primera línia de la clau que s'ha de mostrar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/KeyElement.ui:341
@@ -2804,7 +2804,7 @@ msgstr "Nre. d'elements"
 #: ui/KeyElement.ui:348
 #, kde-format
 msgid "The number of key elements to display (0 for all)"
-msgstr "El nombre dels elements de clau a mostrar (0 per a tots)"
+msgstr "El nombre dels elements de clau que s'han de mostrar (0 per a tots)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/KeyElement.ui:369
