@@ -33,6 +33,7 @@
 #include <QUndoView>
 #include <QUrl>
 
+#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KIO/FileCopyJob>
@@ -239,10 +240,23 @@ bool MainWindow::queryClose()
     }
 
     while (true) {
-        int messageBoxResult = KMessageBox::warningYesNoCancel(this, i18n("Save changes to document?\nSelecting No discards changes."));
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        int messageBoxResult = KMessageBox::warningTwoActionsCancel(this,
+#else
+        int messageBoxResult = KMessageBox::warningYesNoCancel(this,
+#endif
+                                                               i18n("Save changes to document?"),
+                                                               QString(),
+                                                               KStandardGuiItem::save(),
+                                                               KStandardGuiItem::discard(),
+                                                               KStandardGuiItem::cancel());
 
         switch (messageBoxResult) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        case KMessageBox::PrimaryAction :
+#else
         case KMessageBox::Yes :
+#endif
             fileSave();
 
             if (m_document->undoStack().isClean()) {
@@ -253,7 +267,11 @@ bool MainWindow::queryClose()
 
             break;
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        case KMessageBox::SecondaryAction :
+#else
         case KMessageBox::No :
+#endif
             return true;
 
         case KMessageBox::Cancel :
@@ -409,7 +427,19 @@ void MainWindow::fileSaveAs()
 void MainWindow::fileRevert()
 {
     if (!m_document->undoStack().isClean()) {
-        if (KMessageBox::warningYesNo(this, i18n("Revert changes to document?")) == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        if (KMessageBox::warningTwoActions(this,
+#else
+        if (KMessageBox::warningYesNo(this,
+#endif
+                                      i18n("Revert changes to document?"), QString(),
+                                      KGuiItem(i18nc("@action:button", "Revert"), QStringLiteral("document-revert")),
+                                      KStandardGuiItem::cancel())
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+            == KMessageBox::PrimaryAction) {
+#else
+            == KMessageBox::Yes) {
+#endif
             m_document->undoStack().setIndex(m_document->undoStack().cleanIndex());
         }
     }

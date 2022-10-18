@@ -20,6 +20,7 @@
 #include <QStandardPaths>
 #include <QToolTip>
 
+#include <kwidgetsaddons_version.h>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -296,7 +297,19 @@ void LibraryManagerDlg::copyToClipboard()
 
 void LibraryManagerDlg::deletePattern()
 {
-    if (KMessageBox::warningYesNo(nullptr, i18n("Delete this pattern.")) == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::warningTwoActions(nullptr,
+#else
+    if (KMessageBox::warningYesNo(nullptr,
+#endif
+                                  i18n("Delete this pattern."), QString(),
+                                  KStandardGuiItem::del(),
+                                  KStandardGuiItem::cancel())
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        == KMessageBox::PrimaryAction) {
+#else
+        == KMessageBox::Yes) {
+#endif
         static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem())->deletePattern(m_contextListItem->libraryPattern());
         delete m_contextListItem;
     }

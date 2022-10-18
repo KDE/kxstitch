@@ -23,6 +23,7 @@
 #include <QPrinter>
 #include <QShowEvent>
 
+#include <kwidgetsaddons_version.h>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -474,7 +475,19 @@ void PrintSetupDlg::on_Templates_clicked()
     bool okToCreate = true;
 
     if (!m_printerConfiguration.isEmpty()) {
-        okToCreate = (KMessageBox::questionYesNo(this, i18n("Overwrite the current configuration?"), i18n("Overwrite")) == KMessageBox::Yes);
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        okToCreate = (KMessageBox::questionTwoActions(this,
+#else
+        okToCreate = (KMessageBox::questionYesNo(this,
+#endif
+                                                 i18n("Overwrite the current configuration?"), i18n("Overwrite"),
+                                                 KStandardGuiItem::overwrite(),
+                                                 KStandardGuiItem::cancel())
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+                      == KMessageBox::PrimaryAction);
+#else
+                      == KMessageBox::Yes);
+#endif
     }
 
     if (okToCreate) {
