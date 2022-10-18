@@ -397,14 +397,6 @@ void MainWindow::fileSaveAs()
     QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl::fromLocalFile(QDir::homePath()), i18n("Cross Stitch Patterns (*.kxs)"));
 
     if (url.isValid()) {
-        KIO::StatJob *statJob = KIO::stat(url, KIO::StatJob::DestinationSide, 0);
-
-        if (statJob->exec()) {
-            if (KMessageBox::warningYesNo(this, i18n("This file already exists\nDo you want to overwrite it?")) == KMessageBox::No) {
-                return;
-            }
-        }
-
         m_document->setUrl(url);
         fileSave();
         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
