@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-07-19 13:46+0300\n"
+"PO-Revision-Date: 2022-10-19 12:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.08.1\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -323,7 +323,7 @@ msgstr "Şekil araçları kesirli dikiş kullansın mı"
 #: kxstitch.kcfg:267
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr "TextToolDlg'de kullanılacak yazı tipi ailesi"
+msgstr "TextToolDlg'de kullanılacak yazıtipi ailesi"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:271
@@ -948,7 +948,7 @@ msgstr "Kes"
 #: src/Commands.cpp:1402 src/Editor.cpp:2001 src/MainWindow.cpp:1407
 #, kde-format
 msgid "Alphabet"
-msgstr "Alfabe"
+msgstr "Abece"
 
 #: src/Commands.cpp:1455
 #, kde-format
@@ -1486,10 +1486,9 @@ msgid "Document to open."
 msgstr "Açılacak belge."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Belgedeki değişiklikleri geri al?"
+msgstr "Değişiklikler belgeye kaydedilsin mi?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1567,7 +1566,7 @@ msgstr "Belgedeki değişiklikleri geri al?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Geri Al"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1922,11 +1921,10 @@ msgstr ""
 "Seçilen renk ve açıklama ile üzerine yaz."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Üzerine Yaz"
+msgstr "Üzerine Yazma"
 
 #: src/Page.cpp:254
 #, kde-format
@@ -2415,13 +2413,13 @@ msgstr "Aynalama / Döndürme kopya oluşturur"
 #: ui/EditorConfigPage.ui:412
 #, kde-format
 msgid "Text tool font"
-msgstr "Metin aracı yazı tipi"
+msgstr "Metin aracı yazıtipi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: ui/EditorConfigPage.ui:422
 #, kde-format
 msgid "Font size"
-msgstr "Yazı tipi boyutu"
+msgstr "Yazıtipi boyutu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -2760,7 +2758,7 @@ msgstr "Öge İçeriği"
 #: ui/KeyElement.ui:301 ui/TextTool.ui:25
 #, kde-format
 msgid "Font"
-msgstr "Yazı tipi"
+msgstr "Yazıtipi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #: ui/KeyElement.ui:313
@@ -2856,7 +2854,7 @@ msgstr "Simge öntanımlı boyutu"
 #: ui/LibraryConfigPage.ui:41
 #, kde-format
 msgid "Alphabets"
-msgstr "Alfabe"
+msgstr "Abeceler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
 #: ui/LibraryConfigPage.ui:47
@@ -3635,7 +3633,7 @@ msgstr "Metin kutusunun saydamlığı"
 #: ui/TextElement.ui:288
 #, kde-format
 msgid "Text font family"
-msgstr "Metin yazı tipi ailesi"
+msgstr "Metin yazıtipi ailesi"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
 #: ui/TextElement.ui:301

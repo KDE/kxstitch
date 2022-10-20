@@ -1496,10 +1496,9 @@ msgid "Document to open."
 msgstr "O documento a abrir."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Deseja reverter as alterações ao documento?"
+msgstr "Deseja gravar as alterações no documento?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1578,7 +1577,7 @@ msgstr "Deseja reverter as alterações ao documento?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1932,11 +1931,10 @@ msgstr ""
 "Substituirá pela descrição e cor seleccionada."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Sobrepor"
+msgstr "Não Sobrepor"
 
 #: src/Page.cpp:254
 #, kde-format

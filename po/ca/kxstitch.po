@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-10-04 19:42+0200\n"
+"PO-Revision-Date: 2022-10-19 09:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1498,10 +1498,9 @@ msgid "Document to open."
 msgstr "Document a obrir."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Reverteixo els canvis al document?"
+msgstr "Deso els canvis al document?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1580,7 +1579,7 @@ msgstr "Reverteixo els canvis al document?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Reverteix"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1934,11 +1933,10 @@ msgstr ""
 "Sobreescriu amb la descripció i el color seleccionats."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Sobreescriu"
+msgstr "No sobreescriguis"
 
 #: src/Page.cpp:254
 #, kde-format
@@ -3698,17 +3696,3 @@ msgstr "Alinea a la dreta"
 #, kde-format
 msgid "Align justified"
 msgstr "Alinea justificat"
-
-#~ msgid ""
-#~ "Save changes to document?\n"
-#~ "Selecting No discards changes."
-#~ msgstr ""
-#~ "Deso els canvis al document?\n"
-#~ "Selecciona no descartar els canvis."
-
-#~ msgid ""
-#~ "This file already exists\n"
-#~ "Do you want to overwrite it?"
-#~ msgstr ""
-#~ "Aquest fitxer ja existeix.\n"
-#~ "Voleu sobreescriure'l?"

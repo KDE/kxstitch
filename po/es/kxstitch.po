@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Joan Teixido Parramona <joan4@users.sourceforge.net>, 2012, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2018, 2019.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2018, 2019, 2022.
 # Sofia Priego <spriego@darksylvania.net>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2019-06-11 20:34+0200\n"
+"PO-Revision-Date: 2022-10-19 16:58+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.04.2\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -1499,10 +1499,9 @@ msgid "Document to open."
 msgstr "Documento a abrir."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "¿Revertir cambios al documento?"
+msgstr "¿Guardar cambios en el documento?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1582,7 +1581,7 @@ msgstr "¿Revertir cambios al documento?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Revertir"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1936,11 +1935,10 @@ msgstr ""
 "Sobrescribe con la descripción y el color seleccionado."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Sobrescribe"
+msgstr "No sobrescribir"
 
 #: src/Page.cpp:254
 #, kde-format

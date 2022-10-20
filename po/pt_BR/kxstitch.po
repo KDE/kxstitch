@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2014, 2015, 2018.
-# Luiz Fernando Ranghetti <elchevive68@gmail.com>, 2015, 2018, 2019.
+# Luiz Fernando Ranghetti <elchevive68@gmail.com>, 2015, 2018, 2019, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2019-06-11 10:22-0300\n"
+"PO-Revision-Date: 2022-10-19 15:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 19.04.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1495,10 +1495,9 @@ msgid "Document to open."
 msgstr "Documento a abrir."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Deseja reverter as alterações ao documento?"
+msgstr "Salvar alterações do documento?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1577,7 +1576,7 @@ msgstr "Deseja reverter as alterações ao documento?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1931,11 +1930,10 @@ msgstr ""
 "Substituir pela descrição e cor selecionada."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Sobrescrever"
+msgstr "Não sobrescrever"
 
 #: src/Page.cpp:254
 #, kde-format
