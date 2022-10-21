@@ -3,6 +3,7 @@
 # zoe <chp321@gmail.com>, 2014.
 # Sebastien Renard <renard@kde.org>, 2014.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
 #
 # Translators:
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2020-01-01 19:08+0800\n"
-"Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
+"PO-Revision-Date: 2022-10-19 18:49+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 19.07.70\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1500,10 +1501,9 @@ msgid "Document to open."
 msgstr "Document à ouvrir"
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Revenir sur les changements apportés au document ?"
+msgstr "Enregistrer les modifications apportées au document ?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1581,7 +1581,7 @@ msgstr "Revenir sur les changements apportés au document ?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Revenir en arrière"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1935,11 +1935,10 @@ msgstr ""
 "Écraser avec la description et la couleur choisie."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Écraser"
+msgstr "Ne pas écraser"
 
 #: src/Page.cpp:254
 #, kde-format

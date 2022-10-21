@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-09-30 10:40+0200\n"
+"PO-Revision-Date: 2022-10-20 06:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -263,13 +263,13 @@ msgstr ""
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr ""
+msgstr "სიმბოლოების პალიტრაში ჩვენება."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr ""
+msgstr "სიმბოლოების მომრგვალებულად ჩვენება"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:229
@@ -329,7 +329,7 @@ msgstr ""
 #: kxstitch.kcfg:271
 #, kde-format
 msgid "The text size in pixels"
-msgstr ""
+msgstr "ტექსტის ზომა პიქსელებში"
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
 #: kxstitch.kcfg:275
@@ -341,49 +341,49 @@ msgstr ""
 #: kxstitch.kcfg:282
 #, kde-format
 msgid "The page left margin"
-msgstr ""
+msgstr "გვერდის მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
 #: kxstitch.kcfg:286
 #, kde-format
 msgid "The page top margin"
-msgstr ""
+msgstr "გვერდის ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
 #: kxstitch.kcfg:290
 #, kde-format
 msgid "The page right margin"
-msgstr ""
+msgstr "გვერდის მარჯვენა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
 #: kxstitch.kcfg:294
 #, kde-format
 msgid "The page bottom margin"
-msgstr ""
+msgstr "გვერდის ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
 #: kxstitch.kcfg:298
 #, kde-format
 msgid "Show the layout editor"
-msgstr ""
+msgstr "განლაგების რედაქტორის ჩვენება"
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
 #: kxstitch.kcfg:302
 #, kde-format
 msgid "The grid size in mm"
-msgstr ""
+msgstr "ბადის ზომა, მმ-ში"
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
 #: kxstitch.kcfg:306
 #, kde-format
 msgid "The default page size"
-msgstr ""
+msgstr "გვერდის ნაგულისხმები ზომა"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page orientation"
-msgstr ""
+msgstr "გვერდის ნაგულისხმები ორიენტაცია"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -417,35 +417,35 @@ msgstr ""
 #: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
 #, kde-format
 msgid "The thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "საზღვრის სისქე 1/10 მმ-ში"
 
 #. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
 #: kxstitch.kcfg:335 kxstitch.kcfg:478
 #, kde-format
 msgid "The left margin"
-msgstr ""
+msgstr "მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
 #: kxstitch.kcfg:339 kxstitch.kcfg:474
 #, kde-format
 msgid "The top margin"
-msgstr ""
+msgstr "ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
 #: kxstitch.kcfg:343 kxstitch.kcfg:482
 #, kde-format
 msgid "The right margin"
-msgstr ""
+msgstr "ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:347 kxstitch.kcfg:486
 #, kde-format
 msgid "The bottom margin"
-msgstr ""
+msgstr "ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
 #: kxstitch.kcfg:351
@@ -471,56 +471,56 @@ msgstr ""
 #: kxstitch.kcfg:364
 #, kde-format
 msgid "Show a border around the image"
-msgstr ""
+msgstr "სურათის გარშემო საზღვრის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr ""
+msgstr "აჩვენეთ საზღვარი გასაღების გარშემო"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
 #: kxstitch.kcfg:389 kxstitch.kcfg:462
 #, kde-format
 msgid "Fill the background"
-msgstr ""
+msgstr "ფონის შევსება"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:393
 #, kde-format
 msgid "The color of the background"
-msgstr ""
+msgstr "ფონის ფერი"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:397
 #, kde-format
 msgid "Transparency of the background"
-msgstr ""
+msgstr "ფონის გამჭვირვალობა"
 
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
 #: kxstitch.kcfg:401
 #, kde-format
 msgid "The key element left margin"
-msgstr ""
+msgstr "ძირითადი ელემენტის მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
 #: kxstitch.kcfg:405
 #, kde-format
 msgid "The key element top margin"
-msgstr ""
+msgstr "ძირითადი ელემენტის ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
 #: kxstitch.kcfg:409
 #, kde-format
 msgid "The key element right margin"
-msgstr ""
+msgstr "ძირითადი ელემენტის მარჯვენა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:413
 #, kde-format
 msgid "The key element bottom margin"
-msgstr ""
+msgstr "ძირითადი ელემენტის ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
 #: kxstitch.kcfg:417
@@ -574,14 +574,14 @@ msgstr ""
 #: kxstitch.kcfg:450
 #, kde-format
 msgid "Show the border"
-msgstr ""
+msgstr "საზღვრის ჩვენება"
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
 #: kxstitch.kcfg:454 ui/TextElement.ui:184
 #, kde-format
 msgid "The border color"
-msgstr ""
+msgstr "საზღვრის ფერი"
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
@@ -589,19 +589,19 @@ msgstr ""
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "საზღვრის სისქე 1/10 მმ-ში"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:466
 #, kde-format
 msgid "Color of the background"
-msgstr ""
+msgstr "ფონის ფერი"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:470
 #, kde-format
 msgid "The transparency value"
-msgstr ""
+msgstr "გამჭვირვალობის მნიშვნელობა"
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
 #: kxstitch.kcfg:490
@@ -637,7 +637,7 @@ msgstr ""
 #: kxstitchui.rc:23 src/Commands.cpp:1306
 #, kde-format
 msgid "Mirror Selection"
-msgstr ""
+msgstr "მონიშნულის სარკული ასლი"
 
 #. i18n: ectx: Menu (rotate)
 #: kxstitchui.rc:27 src/Commands.cpp:1354
@@ -1488,6 +1488,8 @@ msgid ""
 "Failed to read the file.\n"
 "%1."
 msgstr ""
+"ფაილის წაკითხვის შეცდომა.\n"
+"%1."
 
 #: src/MainWindow.cpp:402
 #, kde-format
@@ -1495,6 +1497,8 @@ msgid ""
 "Failed to save the file.\n"
 "%1"
 msgstr ""
+"ფაილის შენახვა ვერ მოხერხდა.\n"
+"%1"
 
 #: src/MainWindow.cpp:406
 #, kde-format
@@ -1502,6 +1506,8 @@ msgid ""
 "Failed to open the file.\n"
 "%1"
 msgstr ""
+"ფაილის გახსნა ვერ მოხერხდა.\n"
+"%1"
 
 #: src/MainWindow.cpp:415
 #, kde-format
@@ -1522,7 +1528,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "დაბრუნება"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1875,11 +1881,10 @@ msgid ""
 msgstr ""
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "თავზე გადაწერა"
+msgstr "არ გადააწერო"
 
 #: src/Page.cpp:254
 #, kde-format
@@ -2196,25 +2201,25 @@ msgstr ""
 #: ui/EditorConfigPage.ui:90
 #, kde-format
 msgid "Thick line width"
-msgstr ""
+msgstr "სქელი ხაზის სიგანე"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/EditorConfigPage.ui:104
 #, kde-format
 msgid "Thick line color"
-msgstr ""
+msgstr "სქელი ხაზის ფერი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/EditorConfigPage.ui:114
 #, kde-format
 msgid "Thin line width"
-msgstr ""
+msgstr "თხელი ხაზის სიგანე"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/EditorConfigPage.ui:128
 #, kde-format
 msgid "Thin line color"
-msgstr ""
+msgstr "თხელი ხაზის ფერი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/EditorConfigPage.ui:138
@@ -2410,7 +2415,7 @@ msgstr ""
 #, kde-format
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
-msgstr ""
+msgstr "ჰორიზონტალური"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
@@ -2476,7 +2481,7 @@ msgstr "საზღვარი"
 #: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
 #, kde-format
 msgid "Show border"
-msgstr ""
+msgstr "საზღვრის ჩვენება"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2543,14 +2548,14 @@ msgstr "მმ"
 #: ui/ImportConfigPage.ui:14
 #, kde-format
 msgid "Import Configuration"
-msgstr ""
+msgstr "კონფიგურაციის შემოტანა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
 #: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
 #, kde-format
 msgid "Maximum colors"
-msgstr ""
+msgstr "მაქსიმალური ფერები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
@@ -2563,7 +2568,7 @@ msgstr ""
 #: ui/ImportImage.ui:118
 #, kde-format
 msgid "Ignore color"
-msgstr ""
+msgstr "ფერის უგულებელყოფა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
 #: ui/ImportImage.ui:165
@@ -2594,7 +2599,7 @@ msgstr ""
 #: ui/ImportImage.ui:283
 #, kde-format
 msgid "Pattern scale"
-msgstr ""
+msgstr "ნიმუშის მასშტაბი"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
 #: ui/ImportImage.ui:302
@@ -2606,7 +2611,7 @@ msgstr "%"
 #: ui/ImportImage.ui:315
 #, kde-format
 msgid "Pattern size"
-msgstr ""
+msgstr "ნიმუშის ზომა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
 #: ui/ImportImage.ui:339
@@ -2619,7 +2624,7 @@ msgstr "გამოსახულების ამოჭრა"
 #: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:780
 #, kde-format
 msgid "Key Element"
-msgstr ""
+msgstr "ძირითადი ელემენტი"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2636,25 +2641,25 @@ msgstr "გვერდის ველები"
 #: ui/KeyElement.ui:49 ui/PageProperties.ui:39
 #, kde-format
 msgid "Top margin in mm"
-msgstr ""
+msgstr "ზედა ზღვარი მმ-ში"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #: ui/KeyElement.ui:78 ui/PageProperties.ui:71
 #, kde-format
 msgid "Left margin in mm"
-msgstr ""
+msgstr "მარცხენა ზღვარი მმ-ში"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
 #: ui/KeyElement.ui:107 ui/PageProperties.ui:103
 #, kde-format
 msgid "Right margin in mm"
-msgstr ""
+msgstr "მარჯვენა ზღვარი მმ-ში"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
 #: ui/KeyElement.ui:136 ui/PageProperties.ui:135
 #, kde-format
 msgid "Bottom margin in mm"
-msgstr ""
+msgstr "ქვედა ზღვარი მმ-ში"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -2671,7 +2676,7 @@ msgstr "ფონი"
 #: ui/TextElement.ui:238
 #, kde-format
 msgid "Fill background"
-msgstr ""
+msgstr "ფონის შევსება"
 
 #. i18n: ectx: property (text), widget (QLabel, label_22)
 #. i18n: ectx: property (text), widget (QLabel, label_26)
@@ -2687,7 +2692,7 @@ msgstr "გამჭვირვალე"
 #: ui/KeyElement.ui:295
 #, kde-format
 msgid "Element Content"
-msgstr ""
+msgstr "ელემენტის შემცელობა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
@@ -2700,13 +2705,13 @@ msgstr "ფონტი"
 #: ui/KeyElement.ui:313
 #, kde-format
 msgid "Key Elements"
-msgstr ""
+msgstr "ძირითადი ელემენტები"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/KeyElement.ui:321
 #, kde-format
 msgid "First element"
-msgstr ""
+msgstr "პირველი ელემენტი"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
 #: ui/KeyElement.ui:328
@@ -2870,7 +2875,7 @@ msgstr "ფერი"
 #, kde-format
 msgctxt "The horizontal axis"
 msgid "Size"
-msgstr ""
+msgstr "ზომა"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
 #: ui/PageProperties.ui:202
@@ -3003,7 +3008,7 @@ msgstr ""
 #: ui/PatternElement.ui:189
 #, kde-format
 msgid "As"
-msgstr ""
+msgstr "როგორც"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
 #: ui/PatternElement.ui:179
@@ -3021,7 +3026,7 @@ msgstr ""
 #: ui/PatternElement.ui:225
 #, kde-format
 msgid "Show map"
-msgstr ""
+msgstr "რუკის ჩვენება"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
@@ -3381,7 +3386,7 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:528
 #, kde-format
 msgid "Text Element"
-msgstr ""
+msgstr "ტექსტის ელემენტი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
@@ -3467,7 +3472,7 @@ msgstr ""
 #: ui/PrintSetup.ui:396
 #, kde-format
 msgid "Zoom factor"
-msgstr ""
+msgstr "გადიდების კოეფიციენტი"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
 #: ui/PrintSetup.ui:456
@@ -3503,13 +3508,13 @@ msgstr ""
 #: ui/PrintSetup.ui:606
 #, kde-format
 msgid "Page list"
-msgstr ""
+msgstr "გვერდების სია"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
 #: ui/PrintSetup.ui:634
 #, kde-format
 msgid "Page preview"
-msgstr ""
+msgstr "გვერდების გადახედვა"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
 #: ui/SymbolSelector.ui:14

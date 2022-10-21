@@ -1,24 +1,24 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
 #
-# Martin Srebotnjak <miles@filmsi.net>, 2022.
 #
+# Martin Srebotnjak <miles@filmsi.net>, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-01-03 18:01+0100\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"PO-Revision-Date: 2022-10-20 07:21+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1513,10 +1513,9 @@ msgid "Document to open."
 msgstr "Dokument za odpiranje."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Ali želite povrniti spremembe dokumenta?"
+msgstr "Ali želite shraniti spremembe dokumenta?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1593,7 +1592,7 @@ msgstr "Ali želite povrniti spremembe dokumenta?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Povrni"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1947,11 +1946,10 @@ msgstr ""
 "Prepišite z izbranim opisom in barvo."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Prepiši"
+msgstr "Ne prepiši"
 
 #: src/Page.cpp:254
 #, kde-format
