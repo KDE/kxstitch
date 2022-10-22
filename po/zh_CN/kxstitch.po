@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-10-19 13:23\n"
+"PO-Revision-Date: 2022-10-22 05:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1870,11 +1870,10 @@ msgid ""
 msgstr ""
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "覆盖"
+msgstr ""
 
 #: src/Page.cpp:254
 #, kde-format
@@ -3612,10 +3611,3 @@ msgstr "右对齐"
 #, kde-format
 msgid "Align justified"
 msgstr "两端对齐"
-
-#~ msgid ""
-#~ "This file already exists\n"
-#~ "Do you want to overwrite it?"
-#~ msgstr ""
-#~ "文件已经存在。\n"
-#~ "您是否想要覆盖？"
