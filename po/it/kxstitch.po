@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the kxstitch package.
 # Ercole Carpanetto <ercole69@gmail.com>, 2014, 2017.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2020, 2021.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2020, 2021, 2022.
 #
 # Translators:
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2021-04-07 14:21+0200\n"
+"PO-Revision-Date: 2022-10-22 15:28+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1495,10 +1495,9 @@ msgid "Document to open."
 msgstr "Documento da aprire."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Annulla i cambiamenti al documento?"
+msgstr "Vuoi salvare le modifiche al documento?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1579,7 +1578,7 @@ msgstr "Annulla i cambiamenti al documento?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Ripristina"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1933,11 +1932,10 @@ msgstr ""
 "Sovrascrivi con la descrizione e il colore selezionato."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Sovrascrivi"
+msgstr "Non sovrascrivere"
 
 #: src/Page.cpp:254
 #, kde-format
