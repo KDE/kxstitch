@@ -1100,7 +1100,7 @@ msgid ""
 "There are insufficient symbols available in the symbol library for this "
 "pattern. An extra %1 are required."
 msgstr ""
-"No hi ha prou símbols disponibles a la biblioteca per a este patró. És "
+"No hi ha prou símbols disponibles en la biblioteca per a este patró. És "
 "necessari %1 símbols més."
 
 #: src/DocumentPalette.cpp:435
@@ -1120,11 +1120,11 @@ msgid_plural ""
 "\n"
 msgstr[0] ""
 "El símbol del següent color de fil ha sigut\n"
-"substituït, perquè que no existix a la biblioteca de símbols.\n"
+"substituït, perquè que no existix en la biblioteca de símbols.\n"
 "\n"
 msgstr[1] ""
 "Els símbols dels següents colors de fil han sigut\n"
-"substituïts, perquè no existixen a la biblioteca de símbols.\n"
+"substituïts, perquè no existixen en la biblioteca de símbols.\n"
 "\n"
 
 #: src/DocumentPalette.cpp:461
