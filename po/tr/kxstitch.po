@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-10-19 12:26+0300\n"
+"PO-Revision-Date: 2022-11-21 22:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -649,7 +649,7 @@ msgstr "Döndürme Seçimi"
 #: kxstitchui.rc:33
 #, kde-format
 msgid "&Settings"
-msgstr "&Ayarlar"
+msgstr "Ayar&lar"
 
 #. i18n: ectx: Menu (formatScalesAs)
 #: kxstitchui.rc:35 kxstitchui.rc:140
