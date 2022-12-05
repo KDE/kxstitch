@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-11-21 22:35+0300\n"
+"PO-Revision-Date: 2022-12-04 14:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1230,7 +1230,7 @@ msgstr "Bilinmeyen durum mesajı durumu %1"
 #: src/Exceptions.cpp:107
 #, kde-format
 msgid "Failed to write to the device"
-msgstr "Cihaza yazma başarısız"
+msgstr "Aygıta yazma başarısız"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
 #: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
