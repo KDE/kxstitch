@@ -123,7 +123,7 @@ msgstr "El factor màxim d'ampliació"
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr "El factor d'ampliació per defecte"
+msgstr "El factor predeterminat d'ampliació"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
@@ -2320,7 +2320,7 @@ msgstr "Factor màxim d'ampliació"
 #: ui/EditorConfigPage.ui:218
 #, kde-format
 msgid "Default zoom factor"
-msgstr "Factor d'ampliació per defecte"
+msgstr "Factor predeterminat d'ampliació"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
 #: ui/EditorConfigPage.ui:239
@@ -3516,7 +3516,7 @@ msgstr "Símbols"
 #: ui/PrintSetup.ui:68
 #, kde-format
 msgid "Create a default layout"
-msgstr "Crea un disseny per defecte"
+msgstr "Crea un disseny predeterminat"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
 #: ui/PrintSetup.ui:107
