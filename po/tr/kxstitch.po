@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-12-04 14:38+0300\n"
+"PO-Revision-Date: 2022-12-10 18:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -131,37 +131,37 @@ msgstr "Renk vurgulama kipini etkinleştir"
 #: kxstitch.kcfg:95
 #, kde-format
 msgid "Render the background images"
-msgstr "Arka plan görsellerini gerçekle"
+msgstr "Arka plan görsellerini sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
 #: kxstitch.kcfg:99
 #, kde-format
 msgid "Render the grid"
-msgstr "Izgarayı gerçekle"
+msgstr "Izgarayı sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
 #: kxstitch.kcfg:103
 #, kde-format
 msgid "Render the stitches"
-msgstr "Dikişleri gerçekle"
+msgstr "Dikişleri sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
 #: kxstitch.kcfg:107
 #, kde-format
 msgid "Render the backstitches"
-msgstr "İğne ardı dikişleri gerçekle"
+msgstr "İğne ardı dikişleri sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
 #: kxstitch.kcfg:111
 #, kde-format
 msgid "Render the french knots"
-msgstr "Fransız düğümünü gerçekle"
+msgstr "Fransız düğümünü sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
 #: kxstitch.kcfg:115
 #, kde-format
 msgid "Render stitch hints for colored blocks"
-msgstr "Renkli bloklar için dikiş ipucunu gerçekle"
+msgstr "Renkli bloklar için dikiş ipucunu sun"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
 #: kxstitch.kcfg:119
@@ -661,19 +661,19 @@ msgstr "Ölçekleri Şu Şekilde Biçimlendir"
 #: kxstitchui.rc:41 kxstitchui.rc:146
 #, kde-format
 msgid "Render Stitches As"
-msgstr "Dikişleri Şu Şekilde Gerçekle"
+msgstr "Dikişleri Şöyle Sun"
 
 #. i18n: ectx: Menu (renderBackstitchesAs)
 #: kxstitchui.rc:49 kxstitchui.rc:154
 #, kde-format
 msgid "Render Backstitches As"
-msgstr "İgne Ardı Dikişleri Şu Şekilde Gerçekle"
+msgstr "İğne Ardı Dikişleri Şöyle Sun"
 
 #. i18n: ectx: Menu (renderKnotsAs)
 #: kxstitchui.rc:54 kxstitchui.rc:159
 #, kde-format
 msgid "Render Knots As"
-msgstr "Düğümler Şu Şekilde Gerçekle"
+msgstr "Düğümleri Şöyle Sun"
 
 #. i18n: ectx: Menu (view)
 #: kxstitchui.rc:68
@@ -1260,7 +1260,7 @@ msgstr "%1 x %2 %3"
 #: src/ImportImageDlg.cpp:391
 #, kde-format
 msgid "Rendering preview"
-msgstr "Önizleme gerçekleniyor"
+msgstr "Önizleme sunuluyor"
 
 #: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:621
 #, kde-format
@@ -2311,7 +2311,7 @@ msgstr "Öntanımlı yakınlaştırma çarpanı"
 #: ui/EditorConfigPage.ui:239
 #, kde-format
 msgid "Renderer"
-msgstr "Gerçekleyici"
+msgstr "Sunucu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
@@ -2363,7 +2363,7 @@ msgstr "Renk vurgulama"
 #: ui/EditorConfigPage.ui:296
 #, kde-format
 msgid "Render stitches as"
-msgstr "Dikişleri şu şekilde gerçekle"
+msgstr "Dikişleri şöyle sun"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
@@ -2383,13 +2383,13 @@ msgstr "Renk Blokları ve Semboller"
 #: ui/EditorConfigPage.ui:332
 #, kde-format
 msgid "Render backstitches as"
-msgstr "İğne ardı dikişleri şu şekilde gerçekle"
+msgstr "İğne ardı dikişleri şöyle sun"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: ui/EditorConfigPage.ui:353
 #, kde-format
 msgid "Render knots as"
-msgstr "Düğümleri şu şekilde gerçekle"
+msgstr "Düğümleri şöyle sun"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
 #: ui/EditorConfigPage.ui:387
