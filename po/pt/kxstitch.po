@@ -2914,7 +2914,7 @@ msgstr "Localizações"
 #: ui/LibraryManager.ui:91
 #, kde-format
 msgid "Icon size"
-msgstr "Tamanho dos ícones"
+msgstr "Tamanho do ícone"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/LibraryPatternProperties.ui:83
