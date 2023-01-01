@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Steve Allewell <sallewell@users.sourceforge.net>, 2011, 2012, 2013, 2014.
-# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
+# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2020-06-09 22:24+0100\n"
+"PO-Revision-Date: 2022-12-31 15:34+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1489,10 +1489,9 @@ msgid "Document to open."
 msgstr "Document to open."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Revert changes to document?"
+msgstr "Save changes to document?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1569,7 +1568,7 @@ msgstr "Revert changes to document?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Revert"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1923,11 +1922,10 @@ msgstr ""
 "Overwrite with the description and colour selected."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Overwrite"
+msgstr "Do Not Overwrite"
 
 #: src/Page.cpp:254
 #, kde-format
