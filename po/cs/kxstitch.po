@@ -1501,10 +1501,9 @@ msgid "Document to open."
 msgstr "Dokument k otevření."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Vrátit zpět změny v dokumentu?"
+msgstr "Uložit změny v dokumentu?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1582,7 +1581,7 @@ msgstr "Vrátit zpět změny v dokumentu?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Vrátit zpět"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1936,11 +1935,10 @@ msgstr ""
 "Přepsat popisem a vybranou barvou."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Přepsat"
+msgstr "Nepřepisovat"
 
 #: src/Page.cpp:254
 #, kde-format
@@ -3702,17 +3700,3 @@ msgstr "Zarovnat vpravo"
 #, kde-format
 msgid "Align justified"
 msgstr "Zarovnat do bloku"
-
-#~ msgid ""
-#~ "Save changes to document?\n"
-#~ "Selecting No discards changes."
-#~ msgstr ""
-#~ "Uložit změny do dokumentu?\n"
-#~ "Volba Ne zahodí změny."
-
-#~ msgid ""
-#~ "This file already exists\n"
-#~ "Do you want to overwrite it?"
-#~ msgstr ""
-#~ "Soubor již existuje\n"
-#~ "Chcete jej přepsat?"
