@@ -1,13 +1,14 @@
-<chapter id="printingpatterns">
-    <title
->Muster drucken</title>
+<chapter id="printingpatterns" >
+    <title>Printing patterns</title>
 
-    <para
->Wenn Sie Ihren Entwurf fertiggestellt haben, möchten Sie ihn wahrscheinlich ausdrucken. In &kxstitch; können Sie den Ausdruck einrichten, von der Auswahl der zu druckenden Teile bis zur Größe des Ausdrucks. </para>
-    <para
->Mit dieser Version von &kxstitch; eine vollständig benutzerdefinierte Druckausgabe möglich. Im neuen Drucker-Einrichtungsdialog könne  Sie Seiten hinzufügen, einfügen oder entfernen. Sie können die Papiergröße und Ausrichtung wählen und jede Seite kann Texte, Muster oder Schlüssel-Elemente enthalten. </para>
-    <para
->Weitere Details finden Sie im Abschnitt über den <link linkend="PrinterDialog"
->Druckdialog</link
->.</para>
+    <para>
+        Once you have completed your design, you will no doubt want to print it. &kxstitch; allows
+        you to customize the printing, from what is printed to how big the final print is.
+    </para>
+    <para>
+        This version of &kxstitch; allows a fully customized printing layout. The new printer configuration
+        allows pages to be added, inserted or removed.  The paper size and orientation can be selected and
+        each page can contain text elements, pattern elements or key elements.
+    </para>
+    <para>For further details see the <link linkend="PrinterDialog">printer dialog</link></para>
 </chapter>

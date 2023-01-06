@@ -1,0 +1,95 @@
+<chapter id="using-kapp" >
+    <title>The User Interface</title>
+
+    <sect1 id="face-screenshot">
+        <title>The &kxstitch; Main Window</title>
+        <para>
+            <screenshot>
+                <screeninfo>Here's a screen shot of &kxstitch;</screeninfo>
+                <mediaobject><imageobject><imagedata fileref="user-interface.png" format="PNG" /></imageobject></mediaobject>
+            </screenshot>
+        </para>
+        <para>
+            The &kxstitch; main window consists of an editor window shown on the right in the image above
+            with three dock windows. The dock windows provide a preview of the pattern, the palette of
+            flosses and a history list. If an image is imported, an additional dock window showing a
+            preview of the original image for reference will be shown. Each of these dock windows can
+            be moved around to various edges of the main window, detached from the view or turned off
+            and back on.
+        </para>
+        <para>
+            The sections are divided by splitters, which can be moved to change the amount of space
+            allocated to any of the sections.
+        </para>
+        <para>
+            The layout of other elements, menu bar, toolbars and the status bar, is similar to other &kde;
+            applications you run.
+        </para>
+        <para>
+            The status bar at the bottom of the window shows various status messages.
+        </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor" >
+        <title>Editor Window</title>
+        <para>
+            The main editing window shows a grid pattern and scales top and left. The scales can be formatted
+            in stitches, centimeters or inches. The editor is a scrolling, zoomable view of your pattern
+            and allows you to use the various editing tools to modify your design.
+        </para>
+        <para>
+            Generally the &LMB; is used to activate any of the tools on the pattern. Details of each of the
+            tools and their use is shown in <link linkend="commands">the command reference section</link>.
+        </para>
+        <para>
+            The grid shows heavier lines dividing the cells into groups. The number of cells per group is
+            configurable, the default is 10, as are the colors for the lines. This is useful if you are
+            creating patterns on a dark colored canvas that requires lighter colored lines for contrast.
+        </para>
+        <para>
+            A menu option allows you to add background images to the editor window, to use as a template for
+            adding stitches. For more details see the section on <link linkend="creatingpatterns">Creating Patterns</link>.
+        </para>
+        <sect2 id="kxstitch-editor-context" >
+            <title>Context Menu</title>
+            <para>
+                Using your &RMB; on the editor will activate a context menu allowing you to change the format
+                of the scales and the visual appearance of the stitches. It also allows you to toggle on or off
+                the background images, the stitches, backstitches, the grid and the scales.
+                <screenshot><mediaobject><imageobject><imagedata fileref="editor-context-menu.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview" >
+        <title>Preview Window</title>
+        <para>
+            The <guilabel>Preview</guilabel> window shows a scrolling overview of the current design at a smaller scale than the
+            Editor window.  The <guilabel>Preview</guilabel> shows a black rectangle representing the current view within the
+            Editor window.
+        </para>
+        <para>
+            By clicking the &LMB; within the preview window, the Editor window will be centered on that point.
+            Additionally by pressing down the &LMB; and dragging a rectangle around an area, the Editor window
+            will be zoomed to encompass that area.
+        </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette" >
+        <title>Palette Window</title>
+        <para>
+            The <guilabel>Palette</guilabel> window shows the floss colors currently in this patterns palette as colored blocks,
+            and optionally with the symbols that are associated with each color.  Moving the mouse pointer
+            over a color block will pop up a tool tip showing the color number and name for that color.
+            Clicking on a color selects that color for the next painting or drawing function.
+        </para>
+        <sect2 id="kxstitch-palette-context" >
+            <title>Context Menu</title>
+            <para>
+                Using your &RMB; on the <guilabel>Palette</guilabel> view will activate a context menu allowing you to perform several
+                functions on the palette. See <link linkend="commands">the command reference</link> for more details on their use.
+                <screenshot><mediaobject><imageobject><imagedata fileref="palette-context-menu.png" format="PNG" /></imageobject></mediaobject></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

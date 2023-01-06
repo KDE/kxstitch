@@ -1,98 +1,59 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % German "INCLUDE">
+<!ENTITY % English "INCLUDE">
 ]>
 
 <refentry lang="&language;">
 <refentryinfo>
-<title
->KXStitch-Benutzerhandbuch</title>
-<author
-><firstname
->Eric</firstname
-> <surname
->Pareja</surname
-> <contrib
->Erste Version der Benutzerhandbuch von KXStitch für das Debian-Projekt.</contrib
-> <email
->xenos@upm.edu.ph</email
-></author>
-<author
-><firstname
->Yuri</firstname
-><surname
->Chornoivan</surname
-> <contrib
->Aktualisierung des Benutzerhandbuchs</contrib
-> <email
->yurchor@ukr.net</email
-></author>
-<date
->2016-06-29</date>
-<releaseinfo
->KXStitch 2.0</releaseinfo>
+<title>KXStitch User's Manual</title>
+<author><firstname>Eric</firstname>
+<surname>Pareja</surname>
+<contrib>First version of KXStitch man page for Debian project.</contrib>
+<email>xenos@upm.edu.ph</email></author>
+<author><firstname>Yuri</firstname>
+<surname>Chornoivan</surname>
+<contrib>Updated man page.</contrib>
+<email>yurchor@ukr.net</email></author>
+<date>2016-06-29</date>
+<releaseinfo>KXStitch 2.0</releaseinfo>
 </refentryinfo>
 
 <refmeta>
-<refentrytitle
-><command
->kxstitch</command
-></refentrytitle>
-<manvolnum
->1</manvolnum>
+<refentrytitle><command>kxstitch</command></refentrytitle>
+<manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname
-><command
->kxstitch</command
-></refname>
-<refpurpose
->Programm zum Erstellen und Bearbeiten von Kreuzstichmustern</refpurpose>
+<refname><command>kxstitch</command></refname>
+<refpurpose>cross stitch pattern creator and editor by &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<cmdsynopsis
-><command
->kxstitch</command
-> <arg choice="opt"
-><option
-><replaceable
->file</replaceable
-></option
-></arg
-> </cmdsynopsis>
+<cmdsynopsis>
+<command>kxstitch</command>
+<arg choice="opt"><option><replaceable>file</replaceable></option></arg>
+</cmdsynopsis>
 </refsynopsisdiv>
 
 <refsect1>
-<title
->Beschreibung</title>
-<para
->KXStitch ist ein Programm, mit dem Sie Kreuzstichmuster und Diagramme erstellen können. Muster können von Grund auf neu auf einem benutzerdefinierten Raster erstellt werden, das später vergrößert oder verkleinert werden kann. Alternativ können Sie auch Bilder aus vielen Grafikformaten importieren. Beim Importieren können Sie die Zahl der Farben reduzieren und die Konvertierung auf volle Stiche beschränken oder optional Teilstiche verwenden. Sie können Bilder auch als Hintergründe verwenden. Diese importierten Bilder können dann mit den mitgelieferten Werkzeugen bearbeitet werden, um Ihren endgültigen Entwurf zu erstellen.</para>
+<title>Description</title>
+<para>KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics formats which will allow you to reduce the number of colors and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use an image as a background. These imported images can then be modified using the supplied tools to produce your final design.</para>
 
-<para
->Es gibt viele Werkzeuge, die bei der Gestaltung Ihres Musters helfen, z. B. offene und gefüllte Rechtecke und Ellipsen, gefüllten Polygone und Linien sowie Rückstiche. Zusätzlich können Sie mit Ausschneiden, Kopieren und Einfügen ausgewählte Bereiche duplizieren. Ausgewählte Bereiche können auch um 90, 180 und 270 Grad gegen den Uhrzeigersinn gedreht oder waagerecht und senkrecht gespiegelt werden.</para>
+<para>There are many tools to aid designing your pattern, from open and filled rectangles and ellipses, filled polygons and lines and backstitching. Additionally cut, copy and paste can be used to duplicate selected areas. Selected areas can also be rotated 90, 180 and 270 degrees anti clockwise, or mirrored horizontally or vertically.</para>
 
-<para
->Es gibt auch eine Musterbibliothek, die verwendet werden kann, um beliebige Teile von Mustern zu speichern, die dann in anderen Mustern wiederverwendet werden können. Die Muster in diesen Bibliotheken werden in einer hierarchischen Liste gespeichert, daher ist es einfach, sie zu sortieren und nach gewünschten Muster zu suchen. Diese Muster-Bibliotheken können auch als Alphabete verwendet werden, indem man jedem Muster ein Zeichen zuordnet. Bei Verwendung des Alphabets wird jeder Tastendruck in der aktuellen Bibliothek gesucht und wenn vorhanden, wird das zugehörige Bibliotheksmuster in das aktuell bearbeitete Muster eingefügt.</para>
+<para>There is also a pattern library that can be used to store small and not so small portions of patterns that can then be reused in other patterns. The patterns in these libraries are stored in a hierarchical list that makes it easy to sort and navigate them to find the ones you want. These pattern libraries can also be used as alphabets by assigning a character to each one. By using the Alphabet tool, each key press is searched for in the current library and if present, the associated pattern will be inserted in the pattern.</para>
 
-<para
->Wenn Sie fertig sind, können Sie Ihren Entwurf in verschiedenen Formaten ausdrucken. Es gibt Einstellungen zum Ausdrucken von Deckblättern, Anleitungen und einer Garntabelle mit Menge des verwendeten Garns und Anzahl der Stiche.</para>
+<para>When your ready, you can print out your design in several formats. There are options to print out cover sheets, instructions and a floss key including amount of thread used and number of stitches.</para>
 </refsect1>
 
 <refsect1>
-<title
->Argumente</title>
+<title>Arguments</title>
 
 <variablelist>
 <varlistentry>
-  <term
-><replaceable
->datei</replaceable
-></term>
+  <term><replaceable>file</replaceable></term>
 <listitem>
-<para
->Zu öffnendes Kreuzstich-Dokument.</para>
+<para>Cross stitch document to open.</para>
 </listitem>
 </varlistentry>
 
@@ -101,45 +62,25 @@
 </refsect1>
 
 <refsect1>
-<title
->Siehe auch</title>
+<title>See Also</title>
 <simplelist>
-<member
->Weitere ausführliche Dokumentation finden Sie unter <ulink url="help:/kxstitch"
->help:/kxstitch</ulink
-> (geben Sie diese <acronym
->URL</acronym
-> entweder im &konqueror; ein oder starten Sie <userinput
-><command
->khelpcenter</command
-> <parameter
->help:/kxstitch</parameter
-></userinput
->).</member>
-<member
->kf5options(7)</member>
-<member
->qt5options(7)</member>
-<member
->Weitere Informationen finden Sie außerdem auf der <ulink url="http://userbase.kde.org/KXStitch"
->Weseite von KXStitch</ulink
->.</member>
+<member>More detailed user documentation is available from <ulink
+url="help:/kxstitch">help:/kxstitch</ulink>
+(either enter this <acronym>URL</acronym> into &konqueror;, or run
+<userinput><command>khelpcenter</command>
+<parameter>help:/kxstitch</parameter></userinput>).</member>
+<member>kf5options(7)</member>
+<member>qt5options(7)</member>
+<member>There is also further information available at the <ulink
+url="http://userbase.kde.org/KXStitch">KXStitch home page</ulink>.</member>
 </simplelist>
 </refsect1>
 
 <refsect1>
-<title
->Autoren</title>
-<para
->KXStitch wurde von <personname
-><firstname
->Stephen</firstname
-><surname
->Allewell</surname
-></personname
-> <email
->steve.allewell@gmail.com</email
-> geschrieben.</para>
+<title>Authors</title>
+<para>KXStitch was written by
+<personname><firstname>Stephen</firstname><surname>Allewell</surname></personname>
+<email>steve.allewell@gmail.com</email>.</para>
 </refsect1>
 
 </refentry>
