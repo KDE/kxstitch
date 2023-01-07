@@ -1,30 +1,16 @@
-<chapter id="introduction" >
-    <title>Introduction</title>
-    <para>
-        &kxstitch; is a program that lets you create cross stitch patterns and charts.
-        Patterns can be created from scratch on a user defined size of grid, which can be
-        enlarged or reduced in size as your pattern progresses.  Alternatively you can
-        import images from many graphics formats. When importing images you can restrict
-        the conversion to full stitches or optionally use fractional stitches.  You may
-        also use images as backgrounds resizing them to fit in a selected area. These
-        imported images can then be modified using the supplied tools to produce your final design.
-    </para>
-    <para>
-        There are many tools to aid designing your pattern, from open and filled rectangles
-        and ellipses, filled polygons and lines and backstitching.  Additionally cut, copy
-        and paste can be used to duplicate selected areas.  Selected areas can also be
-        rotated 90, 180 and 270 degrees anti clockwise, or mirrored horizontally or vertically.
-    </para>
-    <para>
-        There is also a pattern library that can be used to store small and not so small
-        portions of patterns that can then be reused in other patterns.  The patterns in these
-        libraries are stored in a hierarchical list that makes it easy to sort and navigate them
-        to find the ones you want.  These pattern libraries can also be used as alphabets by assigning
-        a character to each one.  By using the Alphabet tool, each key press is searched for in the current
-        library and if present, the associated library pattern will be inserted in the pattern.
-    </para>
-    <para>
-        Please report any bugs or feature requests to the <ulink url="http://bugs.kde.org">KDE Bugtracking System</ulink>
-        or the <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch">&kxstitch; mailing list</ulink>
-    </para>
+<chapter id="introduction">
+    <title
+>Einführung</title>
+    <para
+>&kxstitch; ist ein Programm, mit dem Sie Kreuzstichmuster und Diagramme erstellen können. Muster können von Grund auf neu auf einem benutzerdefinierten Raster erstellt werden, das später vergrößert oder verkleinert werden kann. Alternativ können Sie auch Bilder aus vielen Grafikformaten importieren. Beim Importieren können Sie die Konvertierung auf volle Stiche beschränken oder optional Teilstiche verwenden. Sie können Bilder auch als Hintergründe verwenden, indem Sie die Größe so anpassen, dass sie in einen ausgewählten Bereich passen. Diese importierten Bilder können dann mit den mitgelieferten Werkzeugen bearbeitet werden, um Ihren endgültiges Entwurf zu erstellen. </para>
+    <para
+>Es gibt viele Werkzeuge, die bei der Gestaltung Ihres Musters helfen, z. B. offene und gefüllte Rechtecke und Ellipsen, gefüllten Polygone und Linien sowie Rückstiche. Zusätzlich können Sie mit Ausschneiden, Kopieren und Einfügen ausgewählte Bereiche duplizieren. Ausgewählte Bereiche können auch um 90, 180 und 270 Grad gegen den Uhrzeigersinn gedreht oder waagerecht und senkrecht gespiegelt werden. </para>
+    <para
+>Es gibt auch eine Musterbibliothek, die verwendet werden kann, um beliebige Teile von Mustern zu speichern, die dann in anderen Mustern wiederverwendet werden können. Die Muster in diesen Bibliotheken werden in einer hierarchischen Liste gespeichert, daher ist es einfach, sie zu sortieren und nach gewünschten Muster zu suchen. Diese Muster-Bibliotheken können auch als Alphabete verwendet werden, indem man jedem Muster ein Zeichen zuordnet. Bei Verwendung des Alphabets wird jeder Tastendruck in der aktuellen Bibliothek gesucht und wenn vorhanden, wird das zugehörige Bibliotheksmuster in das aktuell bearbeitete Muster eingefügt. </para>
+    <para
+>Bitte berichten Sie Fehler oder Wünsche im <ulink url="http://bugs.kde.org"
+>KDE-Fehlerverfolgungssystem</ulink
+> oder auf der <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>&kxstitch;-Mailingliste</ulink
+>. </para>
 </chapter>

@@ -1,19 +1,36 @@
-<chapter id="credits" >
-    <title>Credits and License</title>
-    <para>&kxstitch;</para>
-    <para>Program copyright 2002-2015 Stephen P. Allewell  <email>steve.allewell@gmail.com</email></para>
-    <para>
-        Contributors:
-        <itemizedlist>
-	<listitem><para>Pierre Brua <email>kxstitchdev@paralline.com</email>: Bug fixes, application icons</para></listitem>
-	<listitem><para>Eric Pareja <email>xenos@upm.edu.ph</email>: Man page</para></listitem>
-	<listitem><para>Adam Gundy <email>adam@starsilk.net</email>: Bug fixes, improvements</para></listitem>
+<chapter id="credits">
+    <title
+>Danksagungen und Lizenz</title>
+    <para
+>&kapp;</para>
+    <para
+>Programm Copyright 2002-2014 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Mitwirkende: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: Fehlerkorrekturen, Programm-Symbole</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: Handbuchseite</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: Fehlerkorrekturen, Verbesserungen</para
+></listitem>
         </itemizedlist>
     </para>
-    <para>
-        Documentation copyright 2015 Stephen P. Allewell <email>steve.allewell@gmail.com</email>
-    </para>
-    <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-    &underFDL;
-    &underGPL;
-</chapter>
+    <para
+>Dokumentation Copyright 2014 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+&underFDL; &underGPL; </chapter>
