@@ -1646,7 +1646,7 @@ msgstr "Biblioteca"
 #: src/MainWindow.cpp:989 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
-msgstr "Configuració de la impressora"
+msgstr "Configureu la impressora"
 
 #: src/MainWindow.cpp:1153
 #, kde-format
@@ -2018,7 +2018,7 @@ msgstr "Propietats de l'element de patró"
 #: src/PrinterConfiguration.cpp:133
 #, kde-format
 msgid "Printer configuration %1"
-msgstr "Configuració de la impressora %1"
+msgstr "Configureu la impressora %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
 #: src/PrintSetupDlg.cpp:55 ui/PrintSetup.ui:20
@@ -2850,7 +2850,7 @@ msgstr "Madeixes"
 #: ui/LibraryConfigPage.ui:14
 #, kde-format
 msgid "Library Configuration"
-msgstr "Configuració de la biblioteca"
+msgstr "Configureu la biblioteca"
 
 #. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
@@ -2961,7 +2961,7 @@ msgstr "Espaiat X de la quadrícula en mm"
 #: ui/PaletteConfigPage.ui:14
 #, kde-format
 msgid "Palette Configuration"
-msgstr "Configuració de la paleta"
+msgstr "Configureu la paleta"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
 #: ui/PaletteConfigPage.ui:43
@@ -3072,7 +3072,7 @@ msgstr "Puntejat en guió, guió"
 #: ui/PatternConfigPage.ui:14
 #, kde-format
 msgid "Pattern Configuration"
-msgstr "Configuració del patró"
+msgstr "Configureu el patró"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -3594,7 +3594,7 @@ msgstr "Vista prèvia de la pàgina"
 #: ui/SymbolSelector.ui:14
 #, kde-format
 msgid "Symbol Selection"
-msgstr "Selecció dels símbols"
+msgstr "Seleccioneu els símbols"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
 #: ui/TextElement.ui:39
