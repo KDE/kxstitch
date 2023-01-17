@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Instalação</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Como obter o &kapp;</title>
+        <para
+>O código-fonte do &kapp; pode ser encontrado em <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. A página Web do &kapp; pode ser encontrada em <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Requisitos</title>
+        <para
+>O &kapp; foi feito para o &kde; 5.x com &Qt; 5.x. </para>
+        <para
+>Para as funções de importação de imagens, são necessárias as bibliotecas do ImageMagick. Isso inclui os arquivos de cabeçalho de desenvolvimento para o ImageMagick e o Magick++. Esses arquivos estão disponíveis através da sua distribuição ou em <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Compilação e instalação</title>
+        <para
+>A compilação do KXStitch necessita do 'cmake' e de outras ferramentas associadas, como o 'make', o 'gcc', etc. Foi fornecido um script que deverá efetuar as operações de compilação necessárias e instalar o KXStitch, que devem ser efetuadas com senha de usuário administrador (root). </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

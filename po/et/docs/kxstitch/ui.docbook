@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>Kasutajaliides</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>&kapp;i peaaken</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Selline näeb välja &kapp;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>&kapp;i peaaken koosneb redaktoriaknast, mis pildil on näha paremal koos kolme dokiaknaga. Dokiaknad näitavad antud juhul mustri eelvaatlust, lõngade paletti ja ajaloonimekirja. Pildi importimisel näidatakse veel üht dokiakent, kus on näha algse pildi eelvaatlus. Kõiki dokiaknaid võib liigutada peaakna mis tahes serva, haakida peaaknast üldse lahti või ka peita. </para>
+        <para
+>Sektsioone lahutavad eraldajad, mida võib lohistada, et anda ühele või teisele sektsioonile vastavalt vajadusele vähem või rohkem ruumi. </para>
+        <para
+>Muude elementide - menüüribad, tööriistaribad ja olekuriba - paigutus sarnaneb teiste &kde; rakenduste omaga. </para>
+        <para
+>Olekuriba akna allservas näitab mitmesuguseid olekuteateid. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Redaktoriaken</title>
+        <para
+>Redaktoriaken näitab alusvõrku ning üleval ja vasakul joonlaudu. Viimased võivad näidata pisteid, sentimeetreid või tolle. Redaktor kujutab endast keritavat ning suurendatavat ja vähendatavat mustri vaadet. Samuti võimaldab redaktori kasutada mustri muutmiseks mitmesuguseid redigeerimistööriistu. </para>
+        <para
+>Üldiselt saab &HVNga; klõpsates aktiveerida kanvaal mis tahes tööriista. Üksikasju tööriistade ja nende kasutamise kohta toob ära <link linkend="commands"
+>käske seletav osa</link
+>. </para>
+        <para
+>Alusvõrgul on jämedamad jooned, mis jaotavad ruudud rühmadeks. Rühma kuuluvate ruudude arv on seadistatav (vaikimisi on neid 10), nagu ka joonte värv. Sellest on kasu näiteks siis, kui lood mustreid tumedat värvi kanvaal, mille puhul heledamad jooned pakuvad meeldivat kontrasti. </para>
+        <para
+>Menüüst saab valida redaktoriaknasse taustapilte, mida saab tarvitada eeskujuna pistete lisamisel. Täpsemalt kõneldakse selles osas <link linkend="creatingpatterns"
+>Mustrite loomine</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Kontekstimenüü</title>
+            <para
+>&HPNga; redaktoris klõpsates saab avada kontekstimenüü, mis lubab muuta joonlaudade vormingut ja pistete visuaalset välimust. Samuti saab selle abil sisse või välja lülitada taustapiltide, ristpistete, tikkpistete, alusvõrgu ja joonlaudade näitamist. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Eelvaatluse aken</title>
+        <para
+><guilabel
+>Eelvaatluse</guilabel
+> aken näitab aktiivse mustri keritavat ülevaadet väiksemalt kui redaktoriaknas. <guilabel
+>Eelvaatluses</guilabel
+> on näha must ristkülik, mis tähistab aktiivset vaadet redaktoriaknas. </para>
+        <para
+>&HVNga; eelvaatluse aknas klõpsates tsentreeritakse redaktoriaken klõpsatud punktile. Kui &HVNga; klõpsamise järel lohistada ristkülik ümber mingi ala, suurendatakse redaktoriaknas vastavat ala. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Paletiaken</title>
+        <para
+><guilabel
+>Paletiaken</guilabel
+> näitab parajasti mustri paletis kasutatavaid lõngavärve värviliste plokkidena ja soovi korral ka iga värviga seostatud sümboleid. Hiirekursori viimisel värviploki kohale näeb kohtspikrit värvi numbri ja nimega. Värvil klõpsates saab selle valida järgmiseks joonistamisoperatsiooniks. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Kontekstimenüü</title>
+            <para
+>&HVNga; <guilabel
+>paletiaknas</guilabel
+> klõpsates ilmub kontekstimenüü mitme toiminguga, mida saab paletiga ette võtta. Täpsemalt kirjeldab neid <link linkend="commands"
+>käske selgitav osa</link
+>. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

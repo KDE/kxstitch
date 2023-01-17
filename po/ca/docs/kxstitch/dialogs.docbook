@@ -1,0 +1,492 @@
+<chapter id="Dialogs">
+    <title
+>Diàlegs</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>El diàleg Gestor de la paleta</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>El gestor de la paleta permet afegir, eliminar o intercanviar fils des de la vostra paleta actual i l'esquema seleccionat. Podreu eliminar tots els fils no utilitzats de la vostra paleta actual i en podreu afegir de nous a l'esquema. A més, des d'aquí podreu obrir el <link linkend="CalibrateDialog"
+>diàleg de calibratge del fil</link
+>. </para>
+        <para
+>Podeu assignar el nombre de brins de cotó utilitzats per a cada fil, tant per a puntades com per a repunts. Aquesta informació s'utilitzarà per a calcular la quantitat de fil requerit en el disseny final. </para>
+        <para
+>El diàleg inclou un botó <guilabel
+>Tria el color</guilabel
+>, el qual permet seleccionar un color des de qualsevol lloc de la pantalla. Aquest podria ser des d'una imatge de fons, per exemple, per a permetre una fàcil selecció de colors coincidents. El cursor canviarà a una creu amb una mostra de color indicant el color del píxel que es troba a sota de la creu. Després de fer clic en un píxel, se seleccionarà un fil que coincideixi estretament amb el color seleccionat a la llista de fils. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Selector de símbols</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Per a cadascun dels fils es pot assignar un símbol. El diàleg selector de símbols mostra tots els símbols disponibles. Els símbols emprats es mostren en gris i un consell d'eina mostrarà <quote
+>Usat</quote
+> quan es passi per sobre del símbol. Per a la paleta, la biblioteca de símbols utilitzada també es pot canviar seleccionant-ne una des de la llista desplegable. A tots els fils se'ls assignarà un símbol des de la biblioteca nova. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>El diàleg Color nou</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>El diàleg mostrarà el nom de l'esquema al qual s'afegirà al color nou. El color requereix un nom i una descripció, el qual pot ser qualsevol cosa que vulgueu, encara que el nom del color generalment serà definit pel fabricant del fil. </para>
+        <para
+>En fer clic al botó <guilabel
+>Color</guilabel
+> es mostrarà un <ulink url="help:/fundamentals/colors.html"
+>diàleg de selecció de color estàndard del &kde;</ulink
+>. Es pot seleccionar el color inicial i després ajustar els paràmetres per obtenir el color correcte. </para>
+        <para
+>Un cop afegit, aquest color nou estarà disponible per a ser inclòs a la vostra paleta de patrons mitjançant el diàleg <guilabel
+>Gestor de la paleta</guilabel
+>. També es pot ajustar mitjançant el diàleg <link linkend="CalibrateDialog"
+>Calibratge del fil</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>El diàleg Calibratge del fil</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Aquest diàleg té dues parts. </para>
+        <para
+>A l'esquerra, una llista de selecció dels esquemes que estan actualment disponibles juntament amb una llista dels colors que es troben en aquest esquema. La descripció del color s'annexarà amb <guilabel
+>(Calibrat)</guilabel
+> si el color ha estat modificat per la invocació actual d'aquest diàleg. </para>
+        <para
+>A la dreta, es troba el nom i la descripció del color actualment seleccionat, això s'ha d'annexar amb <guilabel
+>(Modificat)</guilabel
+> si el color ha estat modificat, una vista prèvia del color i els valors RGB actuals per al color. </para>
+        <para
+>També es mostra un botó <guibutton
+>Restableix el color</guibutton
+>. Aquest restablirà el color actualment seleccionat al valor que tenia quan es va invocar el diàleg per primera vegada. </para>
+        <para
+>En prémer el botó <guibutton
+>D'acord</guibutton
+>, es confirmaran tots els colors canviats. </para>
+        <para
+>En prémer el botó <guibutton
+>Cancel·la</guibutton
+>, tots els colors canviats tornaran als seus valors originals. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>El diàleg de configuració</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Aquest diàleg permet configurar una sèrie d'elements del &kxstitch;. </para>
+        <para
+>La majoria de les opcions s'expliquen per si mateixes. Les caselles de selecció habiliten o inhabiliten diverses funcions o elements. Les llistes de selecció permeten la selecció del format requerit per aquests elements. </para>
+        <para
+>Podreu tornar al conjunt predeterminat de paràmetres amb el botó <guibutton
+>Per omissió</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>El diàleg Importació d'una imatge</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>A l'esquerra del diàleg hi ha una vista prèvia de la imatge importada, basada en els paràmetres de la dreta. </para>
+        <para
+>Es pot seleccionar l'esquema del fil per al patró acabat, de manera predeterminada això és el mateix que els valors predeterminats del diàleg Propietats del patró nou. Els colors màxims que s'utilitzaran per al patró es poden habilitar i canviar segons sigui necessari, de manera predeterminada el patró importat tindrà tants colors com es defineixin a la imatge original, els quals es convertiran en colors del fil. Marcar la casella de selecció <guilabel
+>Ignora el color</guilabel
+> permet fer clic sobre l'eina de comptagotes per a seleccionar un color en la imatge que s'ignorarà durant la importació. Això és útil per eliminar fons que no necessiteu convertir en puntades. El color ignorat es mostrarà a la vista prèvia com un patró de tauler d'escacs. </para>
+        <para
+>El valor del recompte de la tela s'estableix de manera predeterminada en el diàleg <guilabel
+>Propietats del patró nou</guilabel
+> i l'escala s'estableix de manera que la mida final sigui la més propera possible a la mida del patró <guilabel
+>Propietats del patró nou</guilabel
+>. Aquests valors es podran canviar segons sigui necessari. </para>
+        <para
+>La casella de selecció <guilabel
+>Retalla la imatge</guilabel
+> permet retallar la imatge de la vista prèvia. Feu clic i arrossegueu sobre la imatge de vista prèvia per a seleccionar l'àrea requerida. Les línies de guia es mostraran abans de seleccionar el punt de partida per a permetre una col·locació més precisa. Una vegada se selecciona una àrea, la vista prèvia es tornarà a mostrar per a mostrar l'àrea a retallar. Si cal, es poden fer més retalls. En fer clic sobre el botó de reinici o desactivar la retallada, es revertirà la vista prèvia a la imatge original. </para>
+        <para
+>La casella de selecció <guilabel
+>Usa les fraccions</guilabel
+> permetrà l'ús de puntades fraccionàries en el patró importat. Això efectivament duplicarà la resolució de la importació sense afectar la mida general del patró. </para>
+        <para
+>En fer clic a <guibutton
+>D'acord</guibutton
+>, la imatge es convertirà en un patró. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>El diàleg Propietats del fitxer</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>La mida del patró es pot definir en unitats de puntades, centímetres o polzades. Si es canvia el tipus d'unitat, els valors d'amplada i alçada s'actualitzaran automàticament a la mida equivalent en el nou tipus d'unitat. </para>
+        <para
+>El recompte de la tela es defineix en unitats per centímetre o polzades i depèn de les unitats de mida. &ead;, si se selecciona CM per a les unitats, el recompte de la tela estarà en unitats per centímetre, de manera similar per a polzades. Si les <guilabel
+>Unitats</guilabel
+> es canvien a <guilabel
+>Puntades</guilabel
+>, el recompte de les unitats de la tela romandran com l'últim valor en CM o polzades. </para>
+        <para
+>Els camps Títol, Autor, Copyright i Teixit són de text lliure, així que hi podreu introduir el que vulgueu. El color del teixit es pot configurar prement el botó de color i seleccionant el color requerit. Això es mostrarà a l'editor i en les finestres de vista prèvia. </para>
+        <para
+>L'esquema del fil té una llista de selecció per a tots els esquemes del fil que hi ha disponibles, inclòs el que hàgiu definit. </para>
+        <para
+>La pestanya <guilabel
+>Instruccions</guilabel
+> es pot utilitzar per introduir qualsevol instrucció específica per cosir el patró. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>El diàleg Biblioteca de patrons</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>El Gestor de la biblioteca de patrons té una vista en arbre jeràrquica (en realitat, més que un bosc) de categories a l'esquerra amb una vista d'icona de la categoria de patrons seleccionada a la dreta. Aquest diàleg no és modal i es podrà deixar obert mentre es treballa en el patró. </para>
+        <para
+>La manera més senzilla d'utilitzar els patrons de la biblioteca és arrossegar i deixar-los anar a dins de l'espai del patró. De manera alternativa, utilitzant el &BDR; sobre un patró de biblioteca mostrarà un menú contextual amb una opció per copiar-lo, que després es podrà enganxar a dins del patró tantes vegades com sigui necessari. </para>
+        <para
+>Els elements addicionals en el menú contextual són: <itemizedlist>
+                <listitem
+><para
+>Suprimeix: suprimeix un element de la biblioteca, per al qual es mostrarà un diàleg de confirmació.</para
+></listitem>
+                <listitem
+><para
+>Propietats: mostra el diàleg de propietats per a l'element.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>El diàleg de propietats per a cada element mostra la seva mida i l'esquema del fil utilitzat, el valor de la línia base i el caràcter associat del teclat. Quan s'utilitza l'eina Alfabet, la línia de base es fa servir per a col·locar el patró de caràcters verticalment en relació amb la posició de l'indicador. Els valors positius el mouen cap avall, els valors negatius el mouen cap amunt. El caràcter associat només es requereix per utilitzar amb l'eina Alfabet. Després de fer clic al quadre de text del caràcter associat, la següent tecla premuda, inclosos els modificadors (&Maj;, &Ctrl;, &etc;) es farà servir com a tecla. </para>
+        <para
+>Es creen biblioteques noves fent clic amb el &BDR; sobre una categoria existent, per a crear una subcategoria o en una àrea en blanc de la llista de biblioteques, per a una categoria nova de nivell superior, i seleccioneu l'opció <guimenuitem
+>Categoria nova</guimenuitem
+>, introduïu el nom i feu clic a <guibutton
+>D'acord</guibutton
+>. </para>
+        <para
+>Crear un nou patró de biblioteca seleccionant una àrea a l'editor de patrons, seleccioneu copiar, després utilitzeu el &BDR; sobre una categoria existent i seleccioneu enganxar. Si cal, podreu utilitzar l'opció de propietats per afegir una clau associada si voleu emprar-la com una biblioteca de caràcters. </para>
+        <para
+>Els patrons de la biblioteca es poden arrossegar i deixar anar a altres biblioteques de la llista per permetre reorganitzar-ho segons les vostres necessitats. Tingueu en compte que no hi ha comprovacions per a garantir que els codis clau assignats als patrons de la biblioteca siguin únics i haureu de modificar els que dupliquin un d'existent. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>El diàleg Text</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>El diàleg de text permet seleccionar un tipus de lletra i mida, després introduïu el text. En fer clic a <guibutton
+>D'acord</guibutton
+>, es tancarà el diàleg i tornareu a la finestra del &kxstitch;. Posicionar el text és el mateix que enganxar qualsevol altre element. Premeu el &BER; sobre el llenç més o menys on voleu el text, això mostrarà una vista prèvia del text, poseu el text exactament on el voleu, després deixeu anar el &BER;. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>El diàleg Amplia el patró</title>
+        <para
+>Això es fa servir per estendre el patró en diverses direccions a través de diverses cel·les. Introduïu el nombre de cel·les en els botons de selecció de valors i premeu <guibutton
+>D'acord</guibutton
+> per estendre el patró. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>El diàleg Impressora</title>
+        <para
+>El diàleg té una llista de pàgines a l'esquerra que mostra una miniatura per a cadascuna de les pàgines. El plafó dret conté l'editor de la disposició on es poden col·locar els elements. Cada element es pot personalitzar utilitzant el menú contextual i, es pot col·locar i dimensionar per a satisfer les vostres necessitats. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Seleccioneu una plantilla de configuració de la impressora. Actualment s'inclou una similar al KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Annexa una pàgina: això annexarà una pàgina al final de la llista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Insereix una pàgina: això inserirà una pàgina abans a l'actualment seleccionada a la llista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Suprimeix una pàgina: això suprimirà la pàgina actualment seleccionada a la llista.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Selecciona un element: s'utilitza per a seleccionar elements per editar o canviar la mida.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Insereix un element de text: s'utilitza per inserir un element de text a la pàgina actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Insereix un element de patró: s'utilitza per inserir un element de patró a la pàgina actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Insereix un element d'imatge: s'utilitza per inserir un element d'imatge a la pàgina actual.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Insereix un element clau: s'utilitza per inserir un element clau de fil a la pàgina actual.</para>
+
+        <para
+>En afegir elements, seleccioneu la icona de l'element requerit, després seleccioneu l'àrea de la pàgina que ocuparà l'element fent-hi clic i arrossegant amb el &BER; des d'una cantonada a una altra. Les propietats de l'element es poden veure i canviar utilitzant el menú contextual, al qual s'accedeix amb el &BDR;. </para>
+        <para
+>Es pot canviar la mida dels elements seleccionant-los amb l'eina de selecció <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, això proporcionarà un rectangle de mida al voltant de l'element. Les cantonades es poden arrossegar per ajustar la mida o es pot moure tot l'element fent-hi clic i arrossegant-lo amb el &BER;. </para>
+        <para
+>La pàgina té un diàleg de propietats associat que permet configurar el marge de la pàgina, així com la mida i la visibilitat de la quadrícula. El marge de la pàgina proporciona una guia per a la col·locació dels objectes, però no evita que els elements es posicionin fora del marge definit. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Element de patró</title>
+            <para
+>L'element de patró mostrarà la disposició de les puntades a la quadrícula. El diàleg de propietats es pot utilitzar per a configurar com es mostraran les puntades. Això permet que l'element es mostri com una imatge del patró o com el patró de treball que mostra els símbols. </para>
+            <para
+>L'element de patró predeterminat mostra tot el patró quan es crea. Mitjançant el diàleg de propietats, es pot fer una selecció de l'àrea requerida a la finestra de vista prèvia fent-hi clic i arrossegant una àrea de selecció. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Element de mapa</title>
+                <para
+>L'element de mapa s'utilitza quan el patró abasta múltiples fulls. Mostra l'àrea de tot el patró que representa aquest element. Es pot habilitar a les propietats de l'element de patró. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Element de text</title>
+            <para
+>Es pot utilitzar un element de text per afegir notes de text al patró o per a mostrar els títols o comentaris. El text es pot configurar amb els tipus de lletra, color i transparència. A més, es pot mostrar una vora. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Els elements de text també poden utilitzar variables que es convertiran en propietats des del patró. </para>
+            <sect3 id="TextVariables">
+                <title
+>Variables de text</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Element de clau</title>
+            <para
+>L'element clau mostra els fils utilitzats. El diàleg de propietats permet la selecció dels camps que es podran mostrar. Les opcions <guilabel
+>Primer element</guilabel
+> i <guilabel
+>Núm. d'elements</guilabel
+> es poden utilitzar per a tecles grans que poden abastar múltiples pàgines i permet que alguns símbols estiguin en una pàgina i els altres en una altra. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Redimensiona l'element</title>
+            <para
+>Es pot canviar la mida de tots els elements seleccionant-los amb <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, el qual mostrarà el límit del canvi de mida. Tot l'element es podrà moure fent-hi clic i arrossegant a dins de l'element. Per a canviar la mida, manteniu el cursor a sobre de les nanses que hi ha a les cantonades, feu-hi clic i arrossegueu fins a la mida necessària. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

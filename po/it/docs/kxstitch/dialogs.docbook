@@ -1,0 +1,494 @@
+<chapter id="Dialogs">
+    <title
+>Finestre</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>La finestra Gestore della tavolozza</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Il gestore della tavolozza consente di aggiungere, rimuovere o scambiare i fili dalla tavolozza attuale e lo schema selezionato. È possibile rimuovere tutti i fili non utilizzati dalla tavolozza attuale e aggiungere nuovi fili allo schema. Inoltre è possibile visualizzare <link linkend="CalibrateDialog"
+>la finestra di calibrazione del filo</link
+> da qui. </para>
+        <para
+>È possibile allocare il numero di capi di cotone utilizzati per ciascun filo, sia per le cuciture che per le impunture. Queste informazioni saranno utilizzate nel calcolo della quantità di filo necessaria nel progetto finale. </para>
+        <para
+>La finestra include un pulsante <guilabel
+>Seleziona colore</guilabel
+> che consente la selezione di un colore da qualsiasi punto dello schermo. Ciò potrebbe essere, ad esempio, da un'immagine di sfondo per consentire una facile selezione dei colori corrispondenti. Il cursore si trasformerà in una croce con un campione di colore che indica il colore del pixel sotto la croce. Dopo aver fatto clic su un pixel, un filo che corrisponde strettamente al colore scelto sarà selezionato nell'elenco dei fili. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Selettore dei simboli</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Per ciascuno dei fili è possibile assegnare un simbolo. La finestra di selezione dei simboli mostra tutti i simboli disponibili. I simboli usati sono visualizzati in grigio e un suggerimento mostrerà <quote
+>Utilizzato</quote
+> quando si sorvola il simbolo. Per la tavolozza, la libreria dei simboli utilizzata può anche essere cambiata selezionandone una dall'elenco a discesa. A tutti i fili sarà quindi assegnato un simbolo dalla nuova libreria. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>La finestra Nuovo colore</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>La finestra mostra il nome dello schema a cui sarà aggiunto il nuovo colore. Il colore richiede un nome e una descrizione, che possono essere qualsiasi cosa si voglia, sebbene il nome del colore sia generalmente definito dal produttore del filo. </para>
+        <para
+>Facendo clic sul pulsante <guilabel
+>Colore</guilabel
+> sarà visualizzato un <ulink url="help:/fundamentals/colors.html"
+>finestra standard di &kde; per la selezione del colore</ulink
+>. È possibile selezionare il colore iniziale e quindi regolare i parametri per ottenere il colore corretto. </para>
+        <para
+>Una volta aggiunto, questo nuovo colore sarà disponibile per essere incluso nella tavolozza dei modelli tramite la finestra <guilabel
+>Gestione della tavolozza</guilabel
+>. Può anche essere regolato utilizzando la <link linkend="CalibrateDialog"
+>finestra Calibrazione filo</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>La finestra Calibrazione del filo</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Questa finestra ha due parti. </para>
+        <para
+>A sinistra, un elenco di selezione degli schemi attualmente disponibili insieme a un elenco di colori che si trovano in quello schema. La descrizione del colore sarà aggiunta con <guilabel
+>(calibrato)</guilabel
+> se il colore è stato modificato dall'invocazione di questa finestra. </para>
+        <para
+>A destra, ci sono il nome e la descrizione del colore attualmente selezionato, questo sarà aggiunto con <guilabel
+>(modificato)</guilabel
+> se il colore è stato modificato, un'anteprima del colore e i valori RGB attuali per il colore. </para>
+        <para
+>Viene anche mostrato un pulsante <guibutton
+>Ripristina colore</guibutton
+>. Ciò ripristinerà il colore attualmente selezionato sul valore che aveva quando la finestra è stata invocata per la prima volta. </para>
+        <para
+>Premendo il pulsante <guibutton
+>OK</guibutton
+> si applicheranno tutti i colori modificati. </para>
+        <para
+>Premendo il pulsante <guibutton
+>Annulla</guibutton
+> si ripristineranno tutti i colori modificati ai loro valori originali. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>La finestra di configurazione</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Questa finestra consente di configurare diversi elementi di KXStitch. </para>
+        <para
+>La maggior parte delle opzioni sono auto-esplicative. Le caselle di controllo abilitano o disabilitano varie funzioni o elementi. Gli elenchi di selezione consentono di selezionare il formato richiesto di tali elementi. </para>
+        <para
+>È possibile tornare all'insieme di parametri predefinito utilizzando <guibutton
+>Impostazioni predefinite</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>La finestra Importa immagine</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>A sinistra della finestra c'è un'anteprima dell'immagine importata, basata sui parametri a destra. </para>
+        <para
+>È possibile selezionare lo schema del filo per il modello finito, in modo predefinito questo è lo stesso delle impostazioni predefinite della finestra <guilabel
+>Nuove proprietà del modello</guilabel
+>. Il numero massimo di colori da utilizzare per il modello può essere abilitato e modificato in base alle esigenze, per impostazione predefinita il modello importato avrà tutti i colori definiti nell'immagine originale che vengono convertiti in colori del filo. Selezionando la casella <guilabel
+>Ignora colore</guilabel
+> è possibile fare clic sullo strumento contagocce per selezionare un colore nell'immagine che sarà ignorato durante l'importazione. Ciò è utile per rimuovere gli sfondi che non è necessario convertire in punti. Il colore ignorato sarà visualizzato come modello a scacchiera nell'anteprima. </para>
+        <para
+>Il valore di conteggio dei tessuti viene impostato automaticamente sulla finestra <guilabel
+>Nuove proprietà del modello</guilabel
+> e la scala viene impostata in modo tale che la dimensione finale sia il più vicino possibile alla dimensione del modello <guilabel
+>Nuove proprietà del motivo</guilabel
+>. Questi valori possono essere modificati in base alle esigenze. </para>
+        <para
+>La casella di controllo <guilabel
+>Ritaglia immagine</guilabel
+> consente di ritagliare l'immagine di anteprima. Fare clic e trascinare sull'immagine di anteprima per selezionare l'area richiesta. Le linee guida sono visualizzate prima di selezionare il punto di partenza per consentire un posizionamento più accurato. Una volta selezionata un'area, l'anteprima sarà ritrasformata per mostrare l'area ritagliata. Ulteriori ritagli possono essere fatti se necessario. Facendo clic sul pulsante di ripristino o disattivando il ritaglio, l'anteprima sarà ripristinata sull'immagine originale. </para>
+        <para
+>La casella di selezione <guilabel
+>Usa frazionari</guilabel
+> consentirà l'uso di punti frazionali nel modello importato. Ciò raddoppia efficacemente la risoluzione di importazione senza influire sulla dimensione complessiva del modello. </para>
+        <para
+>Facendo clic su <guibutton
+>OK</guibutton
+>, l'immagine sarà convertita in un modello. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>La finestra Proprietà file</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>La dimensione del modello può essere definita in unità di punti, centimetri o pollici. I valori di larghezza e altezza saranno automaticamente aggiornati alle dimensioni equivalenti nel nuovo tipo di unità, se il tipo di unità viene modificato. </para>
+        <para
+>Il conteggio dei tessuti è definito in unità per centimetro o pollici e dipende dalle unità di misura. Cioè, se cm è selezionato per le unità, il conteggio dei tessuti sarà in unità per centimetro, analogamente per i pollici. Se <guilabel
+>Unità</guilabel
+> viene modificato in <guimenuitem
+>Punti</guimenuitem
+>, le unità di conteggio dei tessuti rimarranno all'ultimo valore in cm o pollici. </para>
+        <para
+>I campi Titolo, Autore, Copyright e Tessuto sono testo libero, quindi è possibile inserire tutto ciò che si preferisce. Il colore del tessuto può essere impostato premendo il pulsante colorato e selezionando il colore desiderato. Questo sarà quindi mostrato nelle finestre dell'editor e dell'anteprima. </para>
+        <para
+>Lo schema del filo ha un elenco di selezione per tutti gli schemi di filo disponibili, compreso quello che da voi definito. </para>
+        <para
+>La scheda <guilabel
+>Istruzioni</guilabel
+> può essere utilizzata per inserire istruzioni specifiche per la cucitura del modello. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>La finestra Libreria dei modelli</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Il gestore delle librerie dei modelli ha una vista ad albero gerarchica (in realtà più di una foresta) di categorie a sinistra con una vista a icona della categoria selezionata di motivi a destra. Questa finestra non è modale e può essere lasciata aperta mentre si lavora sul modello. </para>
+        <para
+>Il modo più semplice di utilizzare i modelli della libreria è trascinarli e rilasciarli nello spazio dei modelli. In alternativa, utilizzando il &RMB; su un modello di libreria sarà mostrato un menu di scelta rapida con un'opzione per copiarlo, questo può quindi essere incollato nel modello tutte le volte che è necessario. </para>
+        <para
+>Elementi aggiuntivi del menu contestuale sono: <itemizedlist>
+                <listitem
+><para
+>Elimina: elimina un elemento della libreria, per il quale viene visualizzata una finestra di conferma.</para
+></listitem>
+                <listitem
+><para
+>Proprietà: mostra la finestra delle proprietà per l'elemento.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>La finestra delle proprietà di ciascun elemento mostra le sue dimensioni e lo schema del filo utilizzato, il valore del riferimento e il carattere della tastiera associato. Il riferimento viene utilizzato per posizionare il modello di carattere verticalmente rispetto alla posizione del cursore quando si utilizza lo strumento Alfabeto. I valori positivi lo spostano verso il basso, i valori negativi lo spostano verso l'alto. Il carattere associato è richiesto solo per l'uso con lo strumento Alfabeto. Dopo aver fatto clic nella casella di testo del carattere associato, viene utilizzato la pressione successiva, compresi i modificatori (&Shift;, &Ctrl;, &etc;) è utilizzata come tasto. </para>
+        <para
+>Creare nuove librerie con un clic del &RMB; su una categoria esistente, per creare una sotto-categoria o su un'area vuota dell'elenco delle librerie, per una nuova categoria di livello superiore, e selezionare l'opzione <guimenuitem
+>Nuova categoria</guimenuitem
+>, inserire il nome e fare clic su <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>Creare un nuovo modello di libreria selezionando un'area nell'editor dei modelli, selezionare copia, quindi usare il &RMB; su una categoria esistente e selezionare incolla. Se necessario, è possibile utilizzare l'opzione Proprietà per aggiungere un tasto associato se si desidera utilizzarlo come libreria di caratteri. </para>
+        <para
+>I modelli di libreria possono essere trascinati e rilasciati in altre librerie nell'elenco per consentire di riorganizzarli in base alle proprie esigenze. Si noti che non ci sono controlli per garantire che i codici chiave assegnati ai modelli di libreria siano univoci e che si dovrebbe modificare quelli che ne duplicano uno esistente. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>La finestra Testo</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>La finestra del testo consente di selezionare un carattere e una dimensione, quindi immettere il testo. Facendo clic su <guibutton
+>OK</guibutton
+> si chiude la finestra e si ritorna alla finestra di &kxstitch;. Posizionare il testo equivale a incollare qualsiasi altro elemento. Premere il &LMB; sulla tela all'incirca dove si desidera il testo, questo mostrerà un'anteprima del testo, posizionare il testo esattamente dove lo si desidera, quindi rilasciare il &LMB;. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>La finestra Estendi modello</title>
+        <para
+>Questo è utilizzato per estendere il modello in varie direzioni di un numero di celle. Immettere il numero di celle nelle caselle di selezione e premere <guibutton
+>OK</guibutton
+> per estendere il modello. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>La finestra Stampante</title>
+        <para
+>La finestra ha un elenco di pagine sulla sinistra che mostra una miniatura per ciascuna delle pagine. Il pannello di destra contiene l'editor delle disposizioni in cui è possibile posizionare gli elementi. Ogni elemento è personalizzabile utilizzando il menu di scelta rapida e può essere posizionato e dimensionato in base alle proprie esigenze. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Selezionare un modello di configurazione della stampante- Attualmente è incluso uno simile a KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Aggiungi una pagina: questo aggiungerà una pagina alla fine dell'elenco.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserisci una pagina: inserirà una pagina prima di quella attualmente selezionata l'elenco.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Elimina una pagina: eliminerà la pagina attualmente selezionata nell'elenco.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Seleziona un elemento: utilizzato per selezionare elementi per la modifica o per il ridimensionamento.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserisci un elemento di testo: utilizzato per inserire un elemento di testo nella pagina attuale.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserisci un elemento del motivo: utilizzato per inserire un elemento del motivo nella pagina attuale.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserisci un elemento immagine: utilizzato per inserire un elemento immagine nella pagina attuale.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Inserisci un elemento legenda: utilizzato per inserire una legenda dei fili nella pagina attuale.</para>
+
+        <para
+>Quando si aggiungono elementi, selezionare l'icona dell'elemento richiesto, quindi selezionare l'area della pagina che l'elemento deve occupare facendo clic e trascinando con il &LMB; da un angolo all'altro. Le proprietà dell'elemento possono essere visualizzate e modificate utilizzando il menu contestuale a cui si accede con il &RMB; </para>
+        <para
+>Gli elementi possono essere ridimensionati selezionandoli con lo strumento di selezione <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, questo fornirà un rettangolo di dimensionamento attorno all'elemento. Gli angoli possono essere trascinati per regolare le dimensioni o l'intero elemento può essere spostato facendo clic e trascinando utilizzando il &LMB;. </para>
+        <para
+>Alla pagina è associata una finestra delle proprietà che consente di impostare il margine della pagina, le dimensioni e la visibilità della griglia. Il margine della pagina fornisce una guida per il posizionamento degli oggetti, ma non impedisce agli elementi di essere posizionati al di fuori del margine definito. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Elemento di modello</title>
+            <para
+>L'elemento del modello mostrerà la disposizione dei punti sulla griglia. La finestra delle proprietà può essere utilizzata per configurare la modalità di visualizzazione dei punti. Ciò consente all'elemento di essere visualizzato come immagine del modello o come modello di lavoro che mostra i simboli. </para>
+            <para
+>L'elemento del modello predefinito mostra l'intero modello quando viene creato. Utilizzando la finestra delle proprietà è possibile effettuare una selezione dell'area richiesta nella finestra di anteprima facendo clic e trascinando un'area di selezione. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Elemento di mappa</title>
+                <para
+>L'elemento mappa viene utilizzato quando il motivo si estende su più fogli. Mostra l'area dell'intero modello rappresentato da questo elemento. Può essere abilitato nelle proprietà dell'elemento del modello. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Elemento di testo</title>
+            <para
+>Un elemento di testo può essere utilizzato per aggiungere note di testo al modello o per mostrare titoli o commenti. Il testo è configurabile con caratteri, colore e trasparenza. Inoltre, è possibile visualizzare un bordo. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Gli elementi di testo possono utilizzare anche variabili che saranno convertite in proprietà dal modello. </para>
+            <sect3 id="TextVariables">
+                <title
+>Variabili di testo</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Legenda</title>
+            <para
+>La legenda mostra i fili utilizzati. La finestra delle proprietà consente di selezionare i campi che possono essere visualizzati. Il <guilabel
+>Primo elemento</guilabel
+> e <guilabel
+>Num. elementi</guilabel
+> possono essere utilizzati per legende di grandi dimensioni che possono estendersi su più pagine e consentire ad alcuni simboli di trovarsi su una pagina e altri di trovarsi su un'altra pagina. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Ridimensiona elemento</title>
+            <para
+>Tutti gli elementi possono essere ridimensionati selezionandoli con <inlinemediaobject
+> <imageobject
+> <imagedata fileref="select-element-icon.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> che mostrerà il confine di ridimensionamento . L'intero elemento può essere spostato facendo clic e trascinando all'interno dell'elemento. Per ridimensionare, passare con il mouse sopra le maniglie di ridimensionamento dell'angolo, fai clic e trascinare fino alla dimensione richiesta. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

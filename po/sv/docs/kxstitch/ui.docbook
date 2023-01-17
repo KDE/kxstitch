@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>Användargränssnittet</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>Huvudfönster i &kxstitch;</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Här är en skärmbild av &kxstitch;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>Huvudfönstret i &kxstitch; består av ett redigeringsfönster som visas till höger på bilden ovan med tre paneler. Panelerna tillhandahåller en förhandsgranskning av mönstret, garnpaletten och en historiklista. Om en bild importeras, visas ytterligare ett dockningsfönster med en förhandsgranskning av den ursprungliga bilden som referens. Var och en av dessa paneler kan flyttas omkring till olika kanter av huvudfönstret, kopplas loss från huvudfönstret, eller stängas av och sättas på igen. </para>
+        <para
+>Sektionerna skiljs åt av avdelare, som kan flyttas för att ändra storleken tilldelad till de olika sektionerna. </para>
+        <para
+>Layout av övriga element, menyraden, verktygsraden och statusraden liknar andra &kde;-program som du använder. </para>
+        <para
+>Statusraden längst ner i fönstret visar diverse statusmeddelanden. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Redigeringsfönster</title>
+        <para
+>Det huvudsakliga redigeringsfönstret visar ett rutnätsmönster och skalor längst upp och till vänster. Editorn är en panoreringsbar och zoomningsbar vy av mönstret och låter dig använda de olika redigeringsverktygen för att ändra designen. </para>
+        <para
+>I allmänhet används vänster musknapp på mönstret för att aktivera något av verktygen. Detaljerad information om vart och ett av verktygen och deras användning visas i avsnittet <link linkend="commands"
+>Kommandoreferens</link
+>. </para>
+        <para
+>Rutnätet visar tjockare linjer som delar upp cellerna i grupper. Antal celler per grupp kan ställas in, med normalvärdet 10, liksom linjernas färger. Det är användbart om du skapar mönster på en mörkfärgad duk som kräver ljusare linjefärg för kontrast. </para>
+        <para
+>Ett menyalternativ låter dig lägga till bakgrundsbilder i redigeringsfönstret att använda som en mall för att lägga till stygn. För mer detaljerad information se avsnittet <link linkend="creatingpatterns"
+>Skapa mönster</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Sammanhangsberoende meny</title>
+            <para
+>Genom att använda musens högerknapp på editorn aktiveras en sammanhangsberoende meny som låter dig ändra skalornas format och stygnens visuella utseende. Den låter dig också sätta på eller stänga av bakgrundsbilderna, stygnen, efterstygnen, rutnätet och skalorna. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Förhandsgranskningsfönster</title>
+        <para
+>Fönstret <guilabel
+>Förhandsgranskning</guilabel
+> visar en panoreringsbar översikt av aktuell design med en mindre skala än redigeringsfönstret. <guilabel
+>Förhandsgranskning</guilabel
+> visar en svart rektangel som representerar nuvarande vy i redigeringsfönstret. </para>
+        <para
+>Genom att klicka med vänster musknapp i förhandsgranskningsfönstret, centreras redigeringsfönstret på den punkten. Dessutom zoomas redigeringsfönstret så att det omfattar ett visst område genom att hålla nere vänster musknapp och dra en rektangel omkring området. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Palettfönster</title>
+        <para
+>Fönstret <guilabel
+>Palett</guilabel
+> visar garnfärgerna som för närvarande används i mönstret som en palett av färgade block, och valfritt med symbolerna som hör ihop med varje färg. Flyttas muspekaren över ett färgblock dyker ett verktygstips upp som visar färgnumret och färgnamnet. Att klicka på en färg väljer den färgen för nästa rit- eller målningsfunktion. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Sammanhangsberoende meny</title>
+            <para
+>Genom att använda höger musknapp på fönstret <guilabel
+>Palett</guilabel
+>, aktiveras en sammanhangsberoende meny som låter dig utföra flera funktioner för paletten. Se <link linkend="commands"
+>kommandoreferensen</link
+> för mer detaljerad information om deras användning. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

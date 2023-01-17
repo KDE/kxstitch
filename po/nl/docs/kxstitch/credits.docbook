@@ -1,0 +1,36 @@
+<chapter id="credits">
+    <title
+>Dankbetuigingen en licentie</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Programma copyright 2002-2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Met dank aan: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: Reparaties van bugs, pictogrammen van de toepassing</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: Man-pagina</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: Reparatie van bugs, verbeteringen</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Documentatie copyright 2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+    &meld.fouten;&vertaling.freek;&vertaling.ronald;&nagelezen.freek; &underFDL; &underGPL; </chapter>

@@ -1,0 +1,229 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Estonian  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KDE kasutaja käsiraamat</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>KXStitchi manuaalilehekülje esimene versioon Debiani projektile.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Manuaalilehekülje uuendamine.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>2014-05-25</date>
+<productname
+>KDE töökeskkond</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>&kde; tikkimismustrite loomise ja muutmise rakendus</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt "
+>&kde; üldised võtmed</arg
+> <arg choice="opt"
+>&Qt; üldised võtmed</arg
+> <arg choice="opt "
+><option
+><replaceable
+>fail</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Kirjeldus</title>
+<para
+>KXStitch on rakendus, mis võimaldab luua tikkimismustreid ja mustrilehti. Mustreid võib luua nullist peale kasutaja määratud suurusega alusvõrgul, mida saab vastavalt mustri edenemisele suurendada või vähendada. Teise võimalusena võib importida pilte paljudest graafikavormingutest, mille juures saab vähendada värvide arvu ja piirata teisendamist täispistetega, aga vajadusel korral siiski kasutada ka murdarvulisi pisteid, mis tagab sujuvamad jooned. Samuti võib kasutada pilte taustana. Imporditud pilte saab seejärel muuta olemasolevate tööriistadega, et luua nende põhjal lõplik muster.</para>
+
+<para
+>Mustri loomisel aitavad kaasa paljud tööriistad: täitmata ja täidetud ristkülikud ja ellipsid, täidetud hulknurgad, jooned, tikkpisted. Lisaks saab lõikamise, kopeerimise ja asetamisega valitud alasid kloonida. Samuti saab valitud alasid pöörata 90, 180 või 270 kraadi või peegeldada rõht- või püstsuunas.</para>
+
+<para
+>Kasutada saab samuti mustrite kogu, millesse on võimalik salvestada väiksemaid või ka suuremaid mustriosasid, et neid hiljem teiste mustrite juures tarvitada. Mustrid salvestatakse kogusse hierarhilise nimekirjaja, mis võimaldab neid vähese vaevaga sortida ja nende seas liikudes kiiresti õige üles leida. Samuti saab mustrikogusid kasutada omamoodi alfabeedina, omistades igale neist kindla tähe. Seejärel saab alfabeeditööriistaga aktiivses kogus kindlat tähte otsida ja kui see leitakse, lisatakse tähega seostatud muster määratud asukohta.</para>
+
+<para
+>Kui oled mustri loonud, saad selle mitmel moel välja trükkida. Soovi korral saab trükkida ka juhised ja legendi, millele saab lisada isegi kasutada lõnga koguse ja pistete arvu.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Võtmed</title>
+
+<variablelist>
+<varlistentry>
+<term
+><option
+>--author</option
+></term>
+<listitem>
+<para
+>Näitab infot autori kohta</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Näitab abi võtmete kohta</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-qt</option
+></term>
+<listitem>
+<para
+>Näitab Qt spetsiifilisi võtmeid</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-kde</option
+></term>
+<listitem>
+<para
+>Näitab &kde; spetsiifilisi võtmeid</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-all</option
+></term>
+<listitem>
+<para
+>Näitab kõiki võtmeid</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--license</option
+></term>
+<listitem>
+<para
+>Näitab litsentsiinfot</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+>, <option
+>--version</option
+></term>
+<listitem>
+<para
+>Näitab versiooniinfot ja väljub.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Argumendid</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>fail</replaceable
+></term>
+<listitem>
+<para
+>Avatav tikkimispistete dokument</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vaata ka</title>
+<para
+>Põhjalikumat kasutaja dokumentatsiooni pakub <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (kirjuta see &URL; &konqueror;i või käivita käsuga <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</para>
+
+<para
+>Täiendavat infot leiab ka <ulink url="http://userbase.kde.org/KXStitch"
+>KXStitchi koduleheküljelt</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autorid</title>
+<para
+>KXStitchi kirjutas <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

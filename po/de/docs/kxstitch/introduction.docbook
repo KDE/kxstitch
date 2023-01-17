@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Einführung</title>
+    <para
+>&kxstitch; ist ein Programm, mit dem Sie Kreuzstichmuster und Diagramme erstellen können. Muster können von Grund auf neu auf einem benutzerdefinierten Raster erstellt werden, das später vergrößert oder verkleinert werden kann. Alternativ können Sie auch Bilder aus vielen Grafikformaten importieren. Beim Importieren können Sie die Konvertierung auf volle Stiche beschränken oder optional Teilstiche verwenden. Sie können Bilder auch als Hintergründe verwenden, indem Sie die Größe so anpassen, dass sie in einen ausgewählten Bereich passen. Diese importierten Bilder können dann mit den mitgelieferten Werkzeugen bearbeitet werden, um Ihren endgültiges Entwurf zu erstellen. </para>
+    <para
+>Es gibt viele Werkzeuge, die bei der Gestaltung Ihres Musters helfen, z. B. offene und gefüllte Rechtecke und Ellipsen, gefüllten Polygone und Linien sowie Rückstiche. Zusätzlich können Sie mit Ausschneiden, Kopieren und Einfügen ausgewählte Bereiche duplizieren. Ausgewählte Bereiche können auch um 90, 180 und 270 Grad gegen den Uhrzeigersinn gedreht oder waagerecht und senkrecht gespiegelt werden. </para>
+    <para
+>Es gibt auch eine Musterbibliothek, die verwendet werden kann, um beliebige Teile von Mustern zu speichern, die dann in anderen Mustern wiederverwendet werden können. Die Muster in diesen Bibliotheken werden in einer hierarchischen Liste gespeichert, daher ist es einfach, sie zu sortieren und nach gewünschten Muster zu suchen. Diese Muster-Bibliotheken können auch als Alphabete verwendet werden, indem man jedem Muster ein Zeichen zuordnet. Bei Verwendung des Alphabets wird jeder Tastendruck in der aktuellen Bibliothek gesucht und wenn vorhanden, wird das zugehörige Bibliotheksmuster in das aktuell bearbeitete Muster eingefügt. </para>
+    <para
+>Bitte berichten Sie Fehler oder Wünsche im <ulink url="http://bugs.kde.org"
+>KDE-Fehlerverfolgungssystem</ulink
+> oder auf der <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>&kxstitch;-Mailingliste</ulink
+>. </para>
+</chapter>

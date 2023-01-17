@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>L'interfaccia utente</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>La finestra principale di &kxstitch;</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Ecco una schermata di &kxstitch;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>La finestra principale di &kxstitch; è costituita da una finestra dell'editor mostrata a destra nell'immagine sopra con tre finestre agganciabili. Le finestre dell'area di aggancio forniscono un'anteprima del modello, la tavolozza dei fili e un elenco cronologico. Se un'immagine è importata, una finestra agganciata aggiuntiva mostra un'anteprima dell'immagine originale per riferimento sarà mostrata. Ognuna di queste finestre agganciate può essere spostata ai vari bordi della finestra principale, staccata dalla vista o spenta e di nuovo avanti. </para>
+        <para
+>Le sezioni sono divise da separatori, che possono essere spostati per cambiare la quantità di spazio allocata per ognuna delle sezioni. </para>
+        <para
+>La disposizione degli altri elementi, barra dei menu, barre degli strumenti, è simile alle altre applicazioni di &kde;. </para>
+        <para
+>La barra di stato nella parte inferiore della finestra mostra diversi messaggi di stato. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Finestra dell'editor</title>
+        <para
+>La finestra di modifica principale mostra una griglia e scala in alto e a sinistra. Le scale possono essere formattate in punti, centimetri o pollici. L'editor è una vista scorrevole e ingrandibile del modello e consente di utilizzare i vari strumenti di modifica per modificare il disegno. </para>
+        <para
+>Generalmente il &LMB; viene utilizzato per attivare uno degli strumenti sul modello.I dettagli di ciascuno degli strumenti e del loro uso sono mostrati nella <link linkend="commands"
+>sezione della guida ai comandi</link
+>. </para>
+        <para
+>La griglia mostra linee più spesse che dividono le celle in gruppi. Il numero di celle per gruppo è configurabile, il valore predefinito è 10, così come i colori per le linee. Ciò è utile se si creano modelli su una tela di colore scuro che richiede linee di colore più chiaro per il contrasto. </para>
+        <para
+>Un'opzione di menu consente di aggiungere immagini di sfondo alla finestra dell'editor, da utilizzare come modello per l'aggiunta di punti. Per maggiori dettagli, consultare la sezione <link linkend="creatingpatterns"
+>Creare modelli</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Menu contestuale</title>
+            <para
+>L'utilizzo del &RMB; sull'editor attiverà un menu di scelta rapida che consente di modificare il formato delle scale e l'aspetto visivo dei punti. Inoltre, consente di attivare o disattivare le immagini di sfondo, i punti, le impunture, la griglia e le scale. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Finestra dell'anteprima</title>
+        <para
+>La finestra <guilabel
+>Anteprima</guilabel
+> mostra una panoramica a scorrimento del disegno attuale su una scala inferiore rispetto alla finestra dell'editor. L'<guilabel
+>Anteprima</guilabel
+> mostra un rettangolo nero che rappresenta la vista attuale nella finestra dell'editor. </para>
+        <para
+>Facendo clic sul &LMB; all'interno della finestra di anteprima, la finestra dell'editor sarà centrata su quel punto. Inoltre, premendo il &LMB; e trascinando un rettangolo attorno ad un'area, la finestra dell'editor sarà ingrandita per racchiudere quell'area. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Finestra della tavolozza</title>
+        <para
+>La finestra <guilabel
+>Tavolozza</guilabel
+> mostra i colori del filo attualmente in questa tavolozza di modelli come blocchi colorati e, facoltativamente, con i simboli associati a ciascun colore. Spostando il puntatore del mouse su un blocco di colore si aprirà una descrizione che mostra il numero e il nome di quel colore. Facendo clic su un colore si seleziona quel colore per la successiva funzione di pittura o disegno. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Menu contestuale</title>
+            <para
+>L'utilizzo del &RMB; nella vista <guilabel
+>Tavolozza</guilabel
+> attiverà un menu di scelta rapida che consente di eseguire diverse funzioni sulla tavolozza. Vedere la <link linkend="commands"
+>guida ai comandi</link
+> per maggiori dettagli sul loro utilizzo. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

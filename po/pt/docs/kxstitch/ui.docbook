@@ -1,0 +1,92 @@
+<chapter id="using-kapp">
+    <title
+>A Interface do Utilizador</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>A Janela Principal do &kapp;</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Aqui está uma imagem do &kapp;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>A janela principal do &kapp; consiste numa janela de edição, apresentada à direita na imagem acima, com três janelas acopláveis. Estas janelas dão uma visão geral do padrão, a paleta de novelos e uma lista de histórico. Cada uma dessas janelas acopláveis pode ser movida à vontade para os diversos extremos da janela principal, destacadas da janela ou ainda activadas e desactivadas. </para>
+        <para
+>As secções são repartidas com divisórias, as quais podem ser movidas para alterar a quantidade de espaço destinada a qualquer uma das secções. </para>
+        <para
+>A disposição dos outros elementos, da barra de menu, das barras de ferramentas e da barra de estado, é semelhante às outras aplicações do &kde; que você executa. </para>
+        <para
+>A barra de estado, no fundo da janela, mostra diversas mensagens de estado. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Janela do Editor</title>
+        <para
+>A janela de edição principal mostra um padrão em grelha e réguas de escala em cima e à esquerda. As réguas podem ser formatadas em pontos, centímetros ou polegadas. O editor é uma zona que se pode deslocar ou ampliar sobre o seu padrão, permitindo-lhe usar as diversas ferramentas de edição para modificar o seu desenho. </para>
+        <para
+>De um modo geral, o &LMB; é usado para activar qualquer uma das ferramentas no padrão. Os detalhes de cada uma das ferramentas, bem como o seu uso, são apresentados na <link linkend="commands"
+>secção da referência de comandos</link
+>. </para>
+        <para
+>A grelha mostra linhas mais carregadas que dividem as células em grupos. O número de células por grupo é configurável, sendo o valor por omissão igual a 10, assim como as cores das linhas. Isto é útil se estiver a criar padrões sobre um fundo escuro que necessite de linhas com cores mais claras para criar contraste. </para>
+        <para
+>Uma opção do menu permite-lhe adicionar imagens de fundo à janela do editor, para usar como modelo para a adição de pontos. Para mais detalhes, veja a secção para <link linkend="creatingpatterns"
+>Criar Padrões</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Menu de Contexto</title>
+            <para
+>Se usar o seu &RMB; no editor, irá activar um menu de contexto que lhe permite alterar o formato das escalas e a aparência visual dos pontos. Também lhe permite activar ou desactivar as imagens de fundo, os pontos, os pontos traseiros, a grelha e as escalas. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Janela de Antevisão</title>
+        <para
+>A Janela de <guilabel
+>Antevisão</guilabel
+> mostra uma visão geral sobre o desenho actual, que poderá deslocar livremente, a uma escala inferior à da janela do Editor. A <guilabel
+>Antevisão</guilabel
+> mostra um rectângulo preto que representa a vista actual dentro da janela do Editor. </para>
+        <para
+>Se carregar com o &LMB; dentro da janela de antevisão, a janela do Editor ficará centrada nesse ponto. Da mesma forma, se mantiver pressionado o &LMB; e arrastar um rectângulo em torno de uma dada área, a janela do Editor será ampliada para conter essa área. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Janela da Paleta</title>
+        <para
+>A janela da <guilabel
+>Paleta</guilabel
+> mostra as cores dos novelos usadas de momento nesta paleta de padrões como padrões coloridos; opcionalmente, também poderão aparecer os símbolos associados a cada cor. Se mover o cursor do rato sobre um bloco de cores, irá aparecer uma dica que mostra o número da cor e o nome da mesma. Se carregar sobre uma cor, irá seleccionar essa cor para a próxima função de pintura ou desenho. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Menu de Contexto</title>
+            <para
+>Se usar o seu &RMB; na área da Paleta, irá activar um menu de contexto que lhe permite efectuar diversas funções sobre a paleta. Veja a <link linkend="commands"
+>referência de comandos</link
+> para saber mais detalhes sobre o seu uso. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

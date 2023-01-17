@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Installatie</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Hoe &kxstitch; te verkrijgen</title>
+        <para
+>De broncode van &kxstitch; is te vinden op <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. De homepagina van &kxstitch; is te vinden op <ulink url="http://userbase.kde.org/KXStitch"
+>http://kxstitch.sourceforge.net</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Vereisten</title>
+        <para
+>&kxstitch; is geschreven met &Qt; 5.x en &kf5-full;. </para>
+        <para
+>Voor het importeren van afbeeldingen zijn de bibliotheken van ImageMagick vereist, dit omvat de headers voor ontwikkeling van ImageMagick en Magick++, deze zijn beschikbaar in uw distribution of vanaf <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Compilatie en installatie</title>
+        <para
+>Compilatie van KXStitch vereist cmake en geschikte hulpmiddelen voor het bouwen, make, gcc, etc. Een script voor het bouwen is aanwezig die de noodzakelijke bewerkingen voor compilatie uitvoert en KXStitch installeert waarbij u mogelijk het wachtwoord van de root moet invoeren. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

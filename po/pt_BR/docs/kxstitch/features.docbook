@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Funcionalidades</title>
+    <para
+>A lista de funcionalidades atuais e de outras planejadas é apresentada aqui.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Criação de novos padrões <itemizedlist>
+                <listitem
+><para
+>Tamanho definido pelo usuário</para
+></listitem>
+                <listitem
+><para
+>Seleção da cor do material</para
+></listitem>
+                <listitem
+><para
+>Inserção de imagens de fundo para desenhar</para
+></listitem>
+                <listitem
+><para
+>Importação de vários formatos de imagem</para
+></listitem>
+                <listitem
+><para
+>As opções de importação permitem <itemizedlist>
+                        <listitem
+><para
+>Limitar o número de cores</para
+></listitem>
+                        <listitem
+><para
+>Limitar as cores a uma paleta específica</para
+></listitem>
+                        <listitem
+><para
+>Aplicar uma escala a um tamanho final</para
+></listitem>
+                        <listitem
+><para
+>Suporte para transparência nas imagens</para
+></listitem>
+                        <listitem
+><para
+>Permitir o uso de pontos fracionários</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Edição dos padrões existentes. As ferramentas de edição irão incluir <itemizedlist>
+                <listitem
+><para
+>Retângulos vazios e preenchidos</para
+></listitem>
+                <listitem
+><para
+>Elipses vazias e preenchidas</para
+></listitem>
+                <listitem
+><para
+>Polígonos preenchidos</para
+></listitem>
+                <listitem
+><para
+>Pintura</para
+></listitem>
+                <listitem
+><para
+>Linhas</para
+></listitem>
+                <listitem
+><para
+>Remoção de pontos, nós e pespontos</para
+></listitem>
+                <listitem
+><para
+>Seleção de cores dos pontos existentes</para
+></listitem>
+                <listitem
+><para
+>Troca de duas cores</para
+></listitem>
+                <listitem
+><para
+>Substituição de uma cor por outra</para
+></listitem>
+                <listitem
+><para
+>Texto com tamanhos e fontes definidos pelo usuário</para
+></listitem>
+                <listitem
+><para
+>Recortar, copiar e colar áreas retangulares.</para
+></listitem>
+                <listitem
+><para
+>Operações ilimitadas para 'desfazer' e 'refazer'</para
+></listitem>
+                <listitem
+><para
+>Espelhamento horizontal e vertical.</para
+></listitem>
+                <listitem
+><para
+>Rotação em 90, 180 e 270 graus e no sentido anti-horário.</para
+></listitem>
+                <listitem
+><para
+>Redimensionamento da tela <itemizedlist>
+                        <listitem
+><para
+>Estender a tela para a esquerda, direita, cima ou baixo</para
+></listitem>
+                        <listitem
+><para
+>Recortar a tela para o padrão</para
+></listitem>
+                        <listitem
+><para
+>Recortar a tela para a seleção</para
+></listitem>
+                        <listitem
+><para
+>Inserção de linhas e colunas</para
+></listitem>
+                        <listitem
+><para
+>Centralizar o padrão na tela</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Conversão entre esquemas de novelos</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Usar paletas padrão de novelos, como a DMC, a Anchor, etc.</para
+></listitem>
+        <listitem
+><para
+>Criar paletas de novelos personalizadas</para
+></listitem>
+        <listitem
+><para
+>Criar novas cores para qualquer paleta de novelos</para
+></listitem>
+        <listitem
+><para
+>Salvar / Carregar a paleta atual</para
+></listitem>
+        <listitem
+><para
+>Uso de pontos padrão</para
+></listitem>
+        <listitem
+><para
+>Gerenciador da biblioteca de padrões <itemizedlist>
+                <listitem
+><para
+>Criar novos padrões nas bibliotecas</para
+></listitem>
+                <listitem
+><para
+>Inserir padrões da biblioteca em um desenho</para
+></listitem>
+                <listitem
+><para
+>Arrastar e soltar a partir da biblioteca para o padrão</para
+></listitem>
+                <listitem
+><para
+>Arrastar e soltar de uma biblioteca para outra</para
+></listitem>
+                <listitem
+><para
+>Atribuir teclas pressionadas a padrões para usar com a ferramenta Alfabeto</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Uso livre de pespontos</para
+></listitem>
+        <listitem
+><para
+>Impressão dos padrões completos e das chaves dos novelos <itemizedlist>
+                <listitem
+><para
+>Imagem do padrão</para
+></listitem>
+                <listitem
+><para
+>Instruções</para
+></listitem>
+                <listitem
+><para
+>Resumo de chaves de novelos e dos pontos</para
+></listitem>
+                <listitem
+><para
+>Gráfico de padrões com o mapa da página</para
+></listitem>
+                <listitem
+><para
+>Campos de texto</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Associação de símbolos aos novelos</para
+></listitem>
+        <listitem
+><para
+>Indicar o número de fios para os pontos e pespontos</para
+></listitem>
+        <listitem
+><para
+>Calibração das cores dos novelos</para
+></listitem>
+    </itemizedlist>
+    <para
+>As solicitações de novas funcionalidades podem ser feitas no <ulink url="http://bugs.kde.org"
+>KDE Bugtracking System</ulink
+></para>
+</chapter>

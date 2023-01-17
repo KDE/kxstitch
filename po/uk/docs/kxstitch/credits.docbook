@@ -1,0 +1,41 @@
+<chapter id="credits">
+    <title
+>Подяки і ліцензування</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Авторські права на програму належать Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+>, 2002–2015.</para>
+    <para
+>Учасники розробки: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: виправлення вад, піктограми для програми.</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: сторінка man.</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: виправлення вад, покращення</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Авторські права на документацію належать Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+>, 2015. </para>
+    <para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>

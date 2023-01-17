@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Creare modelli</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Avviare &kxstitch;</title>
+        <para
+>All'avvio di &kxstitch; sarà presentata una tela bianca delle dimensioni predefinite. Questo vale anche quando si seleziona <menuchoice
+><guimenu
+>File</guimenu
+><guimenuitem
+>Nuovo</guimenuitem
+></menuchoice
+>. Le dimensioni predefinite possono essere impostate nella finestra delle proprietà del modello attivando la casella di controllo Imposta come predefinita. </para>
+        <para
+>Se la dimensione predefinita non è adatta al modello pianificato, è possibile utilizzare la finestra <menuchoice
+><guimenu
+>File</guimenu
+><guimenuitem
+>Proprietà file</guimenuitem
+></menuchoice
+> per modificarla. Regolare i valori come richiesto e dopo aver fatto clic su <guibutton
+>OK</guibutton
+>, il modello sarà ridimensionato per adattarlo. </para>
+        <para
+>Prima di creare un modello, è necessario aggiungere alcuni fili alla tavolozza utilizzando il <menuchoice
+><guimenu
+>Tavolozza</guimenu
+><guimenuitem
+>Gestore della tavolozza</guimenuitem
+></menuchoice
+>. Ciò abiliterà gli strumenti nel menu e nella barra degli strumenti <menuchoice
+><guimenu
+>Strumenti</guimenu
+></menuchoice
+>. Per ulteriori informazioni, vedere la <link linkend="PaletteManagerDialog"
+>finestra del Gestore della tavolozza</link
+>. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Importare immagini</title>
+        <para
+>&kxstitch; consente di importare un'immagine. Sarà visualizzata una finestra che fornisce un'anteprima dell'immagine sulla base delle opzioni di importazione predefinite. </para>
+        <para
+>La dimensione iniziale del modello si baserà sulla dimensione predefinita del modello. </para>
+        <para
+>Le opzioni per l'importazione consentono di modificare lo schema del filo utilizzato e di limitare il numero di colori. È inoltre possibile modificare il ridimensionamento per ridurre o ingrandire il modello finale. </para>
+        <para
+>Selezionando la casella di controllo <guilabel
+>Usa frazionari</guilabel
+> si abiliterà l'uso di punti frazionari per fornire maggiori dettagli per ogni dimensione del modello. </para>
+        <para
+>Selezionando la casella <guilabel
+>Ignora colore</guilabel
+> si consentirà la selezione di un colore all'interno dell'immagine che sarà quindi considerato come il colore trasparente e ignorato durante l'importazione. </para>
+        <para
+>Dopo che l'immagine è stata importata, sarà visualizzata una finestra agganciabile aggiuntiva disponibile che fornisce un'anteprima dell'immagine originale senza alcuna transizione di colore. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Immagini di sfondo</title>
+        <para
+>È possibile inserire un'immagine come sfondo nella finestra dell'editor. Ciò è utile se l'importazione dell'immagine non è desiderabile o produce scarsi risultati. </para>
+        <para
+>L'immagine viene normalmente ridimensionata per coprire l'intera griglia del modello. Questo potrebbe non essere adatto, quindi è possibile utilizzare lo strumento di selezione per selezionare un'area che si intende coprire e quindi selezionare <menuchoice
+><guimenu
+>Visualizza</guimenu
+><guimenuitem
+>Adatta l'immagine di sfondo alla selezione</guimenuitem
+></menuchoice
+>. Ciò ridimensionerà l'immagine per adattarla all'area selezionata. È possibile continuare a farlo fino a quando non si è soddisfatti del risultato, anche dopo aver iniziato ad aggiungere punti. </para>
+        <para
+>Non c'è limite al numero di immagini di sfondo che possono essere aggiunte. Nonostante ciò i limiti pratici dei menu determineranno quanti possono essere aggiunti. Le immagini di sfondo sono archiviate all'interno del documento, in modo che siano disponibili quando il modello viene ricaricato. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Librerie di modelli</title>
+        <para
+>Il gestore delle librerie di modelli può essere utilizzato per memorizzare modelli per l'inserimento nel modello di lavoro. Possono essere classificati in una gerarchia di categorie e sottocategorie con più nodi radice nell'elenco delle librerie. Lo strumento Alfabeto fa uso di queste librerie per fornire un alfabeto di caratteri inseribili a cui è possibile assegnare un tasto associato. </para>
+        <para
+>Il gestore delle librerie è una finestra non modale e può essere lasciata aperta mentre si lavora sul modello. È possibile selezionare diverse librerie secondo le necessità e quindi trascinare e rilasciare i modelli di libreria sul modello di lavoro. </para>
+        <para
+>L'aggiunta di nuove intestazioni di categoria può essere fatta con un clic del &RMB; su una voce esistente, per creare una sotto-categoria o su uno spazio vuoto nell'elenco delle librerie, per creare una nuova voce radice e selezionare l'opzione <guimenuitem
+>Nuova categoria</guimenuitem
+>. Immettere il nome della categoria e fare clic su <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>La creazione di un nuovo modello di libreria viene effettuata selezionando un'area del modello di lavoro, copiandola e incollandola in una delle categorie esistenti. </para>
+        <para
+>Ogni modello di libreria ha proprietà, a cui si accede dal suo menu di scelta rapida. Queste proprietà includono dimensioni, schema del filo, valore della linea di base e tasto associato. Il valore di base viene utilizzato dallo strumento Alfabeto per regolare l'altezza di un carattere sopra, valori negativi o sotto il punto di inserimento. Il tasto associato viene nuovamente utilizzato dallo strumento Alfabeto per abbinare il tasto premuto sulla tastiera. </para>
+    </sect1>
+</chapter>

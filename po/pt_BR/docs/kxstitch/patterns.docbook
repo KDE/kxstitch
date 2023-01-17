@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Criando padrões</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Iniciando o &kapp;</title>
+        <para
+>Ao iniciar o &kapp;, será apresentada uma tela em branco com o tamanho padrão. Isso também acontece quando selecionar a opção <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Novo</guimenuitem
+></menuchoice
+>. Os tamanhos padrão podem ser configurados na caixa de diálogo de propriedades do padrão, ativando a opção de marcação como padrão. </para>
+        <para
+>Se o tamanho padrão não for adequado para o seu padrão planejado, você pode usar a caixa de diálogo <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Propriedades</guimenuitem
+></menuchoice
+> para alterá-lo. Ajuste os valores como desejar e, depois de clicar no botão <guibutton
+>OK</guibutton
+>, o padrão será redimensionado para esse novo tamanho. </para>
+        <para
+>Antes de criar um padrão, você precisa adicionar alguns novelos à paleta usando a opção <menuchoice
+><guimenu
+>Paleta</guimenu
+> <guimenuitem
+>Gerenciador da Paletas</guimenuitem
+></menuchoice
+>. Isso irá ativar as ferramentas no menu <menuchoice
+><guimenu
+>Ferramentas</guimenu
+></menuchoice
+> e na barra de ferramentas. Para obter mais informações, consulte a <link linkend="PaletteManagerDialog"
+>Caixa de diálogo do Gerenciador de Paletas</link
+>. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Importando imagens</title>
+        <para
+>O &kapp; permite-lhe importar uma imagem. Uma caixa de diálogo aparecerá, mostrando uma visualização da imagem com base nas opções padrão para importação. </para>
+        <para
+>O tamanho inicial do padrão será baseado no tamanho predefinido dos padrões. </para>
+        <para
+>As opções de importação permitem-lhe alterar o esquema de novelos usado e limitar o número de cores. Você também pode alterar a escala para reduzir ou aumentar o padrão final. </para>
+        <para
+>Se assinalar a opção <guilabel
+>Usar fracionários</guilabel
+>, irá ativar o uso de pontos fracionários para fornecer mais detalhes para qualquer tamanho de padrão. </para>
+        <para
+>Se assinalar a opção <guilabel
+>Ignorar a cor</guilabel
+>, permitirá selecionar uma cor dentro da imagem que, por sua vez, será considerada a cor transparente e ignorada durante a importação. </para>
+        <para
+>Após a importação da imagem, outra janela acoplável adicional ficará disponível, apresentando uma visualização da imagem original, sem quaisquer transições de cor. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Imagens de fundo</title>
+        <para
+>Você poderá inserir uma imagem como fundo para a janela de edição. Isso é útil se a importação da imagem não for desejada ou se o resultado for ruim. </para>
+        <para
+>A imagem é normalmente ajustada para cobrir a grade inteira do padrão. Isso poderá não ser adequado e, para contornar isso, você poderá usar a ferramenta de seleção para escolher uma área que deseja cobrir e depois selecionar a opção <menuchoice
+><guimenu
+>Exibir</guimenu
+> <guimenuitem
+>Ajustar a imagem de fundo à seleção</guimenuitem
+></menuchoice
+>. Isso irá ajustar a escala da imagem para caber na área selecionada. Você poderá repetir a ação até que esteja satisfeito com o resultado, mesmo que tenha começado a adicionar pontos novos. </para>
+        <para
+>Não existe limite para o número de imagens de fundo que podem ser adicionadas. De qualquer forma, os limites práticos dos menus irão determinar quantos podem ser adicionados. As imagens de fundo são armazenadas dentro do documento e ficarão disponíveis quando o padrão for recarregado. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Bibliotecas de Padrões</title>
+        <para
+>O gerenciador da biblioteca de padrões pode ser usado para armazenar padrões e inseri-los no padrão que está em uso. Esses podem ser organizados em uma hierarquia de categorias e subcategorias, com vários nós de topo na lista de bibliotecas. A ferramenta Alfabeto aproveita essas bibliotecas para fornecer um alfabeto de caracteres que podem ser inseridos e também ter uma tecla associada. </para>
+        <para
+>O gerenciador da biblioteca é uma janela não-modal e pode ficar aberta enquanto trabalha no seu padrão. Você poderá selecionar várias bibliotecas se necessário e depois arrastar e soltar os padrões da biblioteca para o padrão em uso. </para>
+        <para
+>A adição de novos cabeçalhos da categoria poderá ser feita com o &RMB; sobre um item existente para criar uma subcategoria ou sobre um espaço vazio na lista da biblioteca para criar um novo item de topo, selecionando a opção <guimenuitem
+>Nova categoria</guimenuitem
+>. Indique o nome da categoria e clique no botão <guibutton
+>OK</guibutton
+>. </para>
+        <para
+>A criação de um novo padrão da biblioteca é feito através da seleção de uma área do seu padrão de trabalho, copiando e colando para uma das categorias existentes. </para>
+        <para
+>Cada padrão da biblioteca tem propriedades que podem ser acessadas através do seu menu de contexto. Essas propriedades incluem o tamanho, o esquema de novelos, o valor de base e a tecla associada. O valor de base é usado pela ferramenta Alfabeto para ajustar a altura de um caractere para cima, com valores negativos ou para baixo do ponto de inserção. A tecla associada é usada novamente pela ferramenta Alfabeto para corresponder à tecla pressionada. </para>
+    </sect1>
+</chapter>

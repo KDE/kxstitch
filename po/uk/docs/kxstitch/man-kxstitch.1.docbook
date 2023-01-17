@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Інструкція користувача KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Перша версія сторінки man KXStitch для проєкту Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Юрій</firstname
+> <surname
+>Чорноіван</surname
+> <contrib
+>Оновлена сторінка man.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29 червня 2016 року</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>програма для створення і редагування візерунків для вишивання хрестиком від &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>файл</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Опис</title>
+<para
+>KXStitch — програма, за допомогою якої ви можете створювати візерунки та діаграми для вишивання хрестиком. Візерунки можна створювати «з нуля» на основі визначених користувачем розмірів сітки, які можна згодом збільшити або зменшити, якщо потрібно. Крім того, ви можете імпортувати зображення у одному з багатьох графічних форматів. Програма зменшить кількість кольорів і перетворить зображення так, щоб його можна було вишити повними стібками або частинними стібками. Ви також можете використати зображення як тло вишивки. Ці імпортовані зображення можна змінювати за допомогою вбудованих до програми інструментів, щоб отримати бажаний для вас вигляд вишивки.</para>
+
+<para
+>У програмі передбачено багато інструментів, які допоможуть вам у створенні вашого візерунка, — від заповнених і незаповнених кольором прямокутників і еліпсів до заповнених багатокутників, прямих та зворотних стібків. Крім того, ви можете вирізати, копіювати та вставляти елементи візерунка. Позначені області можна обертати на 90, 180 та 270 градусів проти годинникової стрілки, віддзеркалювати горизонтально та вертикально.</para>
+
+<para
+>Також передбачено бібліотеку візерунків, якою можна скористатися для зберігання невеличких та великих частин візерунків, якими згодом можна скористатися для створення повноцінних зображень. Візерунки у такій бібліотеці зберігаються у форматі ієрархічного списку, який просто упорядковувати. Ви можете легко знайти потрібний вам запис. Такими бібліотеками візерунків можна також скористатися як абетками, пов’язавши з кожним з візерунків літеру абетки. За допомогою інструмента «Абетка» ви можете шукати потрібний вам елемент простим натисканням клавіші пов’язаної з ним літери. Після натискання цієї клавіші елемент просто буде вставлено до візерунка.</para>
+
+<para
+>Коли створення візерунка завершено, ви можете надрукувати його у одному з декількох форматів. Передбачено можливості друку самого візерунка, настанов щодо його вишивання та умовних позначень ниток разом з даними щодо довжини нитки та кількості стібків, потрібних для створення візерунка.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Аргументи</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>файл</replaceable
+></term>
+<listitem>
+<para
+>Документ візерунка для вишивання хрестиком, який слід відкрити.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Також прочитайте</title>
+<simplelist>
+<member
+>Докладніша документація для користувачів доступна у <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (або введіть цю адресу <acronym
+>URL</acronym
+> у поле адреси &konqueror;, або виконайте команду <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Докладнішу інформацію можна знайти на <ulink url="http://userbase.kde.org/KXStitch/uk"
+>домашній сторінці KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Автори</title>
+<para
+>Автором KXStitch є <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

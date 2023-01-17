@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KXStitch gebruikershandleiding</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Eerste versie van KXStitch man-pagina voor het Debian-project.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Bijwerken van man-pagina.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>Een ontwerpprogramma voor kruissteek-patronen door &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>bestand</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Beschrijving</title>
+<para
+>KXStitch is een programma waarmee u kruissteekpatronen en kaarten kunt creëren. Patronen kunt u vanaf het begin op een door u bepaald formaat raster ontwerpen, dat raster kunt u later vergroten of verkleinen naar gelang het patroon zich ontwikkelt. Als alternatief kunt u ook afbeeldingen importeren in veel verschillende grafische formaten waarbij u het aantal kleuren  kunt beperken en alleen maar hele steken  of ook gedeeltelijke steken wilt gebruiken. U kunt ook een afbeelding als achtergrond gebruiken. Deze geïmporteerde afbeeldingen kunt u vervolgens met de meegeleverde hulpmiddelen wijzigen om uw uiteindelijke ontwerp te krijgen.</para>
+
+<para
+>Er zijn veel hulpmiddelen om u te helpen bij het ontwerp van uw patronen, vanaf open en gevulde rechthoeken en ellipsen, gevulde polygonen en lijnen en kettingsteken. bovendien kan knippen, kopiëren en plakken gebruikt worden om geselecteerde gebieden te dupliceren. Geselecteerde gebieden kunnen ook linksom gedraaid worden met 90, 180 en 270 graden of horizontaal of verticaal gespiegeld.</para>
+
+<para
+>Verder is er ook nog een patroonbibliotheek die u kan gebruiken voor het opslaan van kleine en niet zo kleine stukken patroon om ze opnieuw in andere patronen te gebruiken. In deze bibliotheken zijn de patronen in een hiërarchische lijst opgeslagen zodat het makkelijk is om het gezochte patroon terug te vinden. Een dergelijke patroonbibliotheek is ook bruikbaar als alphabet door aan elk patroon een karakter vast te koppelen. Via het Alphabet-gereedschap kunt na het indrukken van een toets in de huidige bibliotheek zoeken en het bijbehorende patroon in het patroon plakken.</para>
+
+<para
+>Als u klaar bent met ontwerpen, dan kunt u uw ontwerp in bladindelingen uitprinten. U kunt de keuze maken of u titelpagina´s, instructies en garen-overzichten met de hoeveelheid gebruikte strengen en het aantal steken wilt uitprinten.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Argumenten</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>bestand</replaceable
+></term>
+<listitem>
+<para
+>Te openen kruissteekbestand.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Zie ook</title>
+<simplelist>
+<member
+>Meer gedetailleerde gebruikershandleiding is beschikbaar via <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (of voer dit <acronym
+>URL</acronym
+> in bij &konqueror;, of start <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Verdere informatie is ook beschikbaar op de <ulink url="http://userbase.kde.org/KXStitch"
+>KXStitch home page</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Auteurs</title>
+<para
+>KXStitch is geschreven door <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

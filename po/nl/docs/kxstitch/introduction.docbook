@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Inleiding</title>
+    <para
+>&kxstitch; is een programma dat u in staat stelt kruissteekpatronen te maken. Patronen kunnen gemaakt worden vanuit het niets op een door de gebruiker gedefinieerde grootte van het raster, wat vergroot of verkleind kan worden in de voortgang van het proces. Als alternatief kunt u afbeeldingen importeren vanuit vele grafische formaten. Bij het importeren van afbeeldingen kunt u de conversie beperken tot volle steken of als optie gedeeltelijke steken gebruiken. U kunt ook afbeeldingen als achtergrond gebruiken met wijziging van afmetingen om ze te laten passen in een geselecteerd gebied. Deze geïmporteerde afbeelding kan dan gewijzigd worden met de geboden hulpmiddelen om uw uiteindelijke ontwerp te maken. </para>
+    <para
+>Er zijn veel hulpmiddelen om u te helpen bij het ontwerp van uw patronen, vanaf open en gevulde rechthoeken en ellipsen, gevulde polygonen en lijnen en kettingsteken. bovendien kan knippen, kopiëren en plakken gebruikt worden om geselecteerde gebieden te dupliceren. Geselecteerde gebieden kunnen ook linksom gedraaid worden met 90, 180 en 270 graden of horizontaal of verticaal gespiegeld. </para>
+    <para
+>Er is ook een bibliotheek met patronen die gebruikt kan worden om kleine en niet zo kleine delen van patronen op te slaan die hergebruikt kunnen worden in andere patronen. De patronen in deze bibliotheken worden in een hiërarchische lijst opgeslagen die het gemakkelijk maakt om te sorteren en te navigeren om diegenen te vinden die u wilt. Deze patroonbibliotheken kunnen ook als alfabet worden toegekend aan een teken. Door het hulpmiddel Alfabet te gebruiken, wordt bij elk indrukken van een toets gezocht in de huidige bibliotheek en indien aanwezig, zal het gekoppelde bibliotheekpatroon worden ingevoegd in het patroon. </para>
+    <para
+>Gaarne problemen of verzoeken om meer mogelijkheden rapporteren op het <ulink url="http://bugs.kde.org"
+>KDE Bugtracking systeem</ulink
+> of de <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>e-maillijst van &kxstitch;</ulink
+> </para>
+</chapter>

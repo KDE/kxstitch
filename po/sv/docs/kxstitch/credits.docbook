@@ -1,0 +1,40 @@
+<chapter id="credits">
+    <title
+>Tack till och licens</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Program copyright 2002-2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Bidragsgivare: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: Felrättningar, programikoner</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: Manualsida</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: Felrättningar, förbättringar</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Dokumentation copyright 2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+    <para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>

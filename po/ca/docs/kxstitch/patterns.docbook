@@ -1,0 +1,96 @@
+<chapter id="creatingpatterns">
+    <title
+>Crear els patrons</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Començar amb el &kxstitch;</title>
+        <para
+>En iniciar el &kxstitch; es presentarà un llenç en blanc de la mida predeterminada. Aquest també és el cas en seleccionar l'element de menú <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Nou</guimenuitem
+></menuchoice
+>. Les mides predeterminades es poden establir en el diàleg de propietats del patró, habilitant el conjunt com a casella de selecció predeterminada. </para>
+        <para
+>Si la mida predeterminada no és adequada per al vostre patró planificat, podreu utilitzar el diàleg <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Propietats del fitxer</guimenuitem
+></menuchoice
+> per a canviar-la. Ajusteu els valors segons sigui necessari i després de feu clic a <guibutton
+>D'acord</guibutton
+>, el patró canviarà de mida per adaptar-se. </para>
+        <para
+>Abans de crear un patró, haureu d'afegir alguns fils a la paleta utilitzant l'element de menú <menuchoice
+><guimenu
+>Paleta</guimenu
+> <guimenuitem
+>Gestor de la paleta</guimenuitem
+></menuchoice
+>. Això habilitarà les eines al menú <guimenu
+>Eines</guimenu
+> i a la barra d'eines. Per obtenir més informació, vegeu el <link linkend="PaletteManagerDialog"
+>diàleg Gestor de la paleta</link
+>. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Importar les imatges</title>
+        <para
+>El &kxstitch; permet importar una imatge. Es mostrarà un diàleg que previsualitza la imatge en funció de les opcions d'importació predeterminades. </para>
+        <para
+>La mida inicial del patró es basarà en la mida predeterminada del patró. </para>
+        <para
+>Les opcions per importar permeten canviar l'esquema del fil utilitzat i limitar el nombre de colors. També podreu canviar l'escala per a reduir o ampliar el patró final. </para>
+        <para
+>Marcar la casella de selecció <guilabel
+>Usa fraccions</guilabel
+> habilitarà l'ús de puntades fraccionàries per a donar més detalls per a qualsevol mida indicada de patró. </para>
+        <para
+>Marcar la casella de selecció <guilabel
+>Ignora el color</guilabel
+> permetrà seleccionar un color dins de la imatge, el qual després es considerarà com el color transparent i s'ignorarà durant la importació. </para>
+        <para
+>Una vegada s'hagi importat la imatge, hi haurà disponible una finestra acoblada addicional que oferirà una vista prèvia de la imatge original sense cap transició de color. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Imatges de fons</title>
+        <para
+>Podeu inserir una imatge com a fons a la finestra de l'editor. Això és útil si importar la imatge no és desitjable o ens dona mals resultats. </para>
+        <para
+>La imatge normalment s'escala per cobrir tota la quadrícula del patró. Això pot no ser adequat, per tant, podreu utilitzar l'eina de selecció per a seleccionar una àrea que voleu cobrir i després seleccionar l'element de menú <menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Encabeix la imatge de fons a la selecció</guimenuitem
+></menuchoice
+>. Això tornarà a escalar la imatge perquè s'ajusti a l'àrea seleccionada. Podeu continuar fent això fins que estigueu satisfet amb el resultat, fins i tot una vegada hàgiu començat a afegir puntades. </para>
+        <para
+>No hi ha límit per al nombre d'imatges de fons que es poden afegir. Tot i que els límits pràctics dels menús determinaran quantes s'hi podran afegir. Les imatges de fons s'emmagatzemaran dins del document, de manera que estaran disponibles quan es torni a carregar el patró. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Biblioteques de patrons</title>
+        <para
+>El gestor de la biblioteca de patrons es pot utilitzar per emmagatzemar els patrons per a la seva inserció en el patró de treball. Es poden categoritzar en una jerarquia de categories i subcategories amb múltiples nodes arrel a la llista de la biblioteca. L'eina Alfabet utilitza aquestes biblioteques per a proporcionar un alfabet de caràcters inseribles, als quals se'ls pot assignar una clau associada. </para>
+        <para
+>El gestor de la biblioteca és un diàleg no modal i pot deixar-se obert mentre treballeu en el vostre patró. Podreu seleccionar biblioteques diferents si cal, i després arrossegar i deixar anar els patrons de la biblioteca en el patró de treball. </para>
+        <para
+>Afegir capçaleres noves de categoria es pot fer amb el &BDR; sobre una entrada existent, per a crear una subcategoria, o en un espai en blanc sobre la llista de la biblioteca, per a crear una entrada arrel nova i seleccionar l'opció <guimenuitem
+>Categoria nova</guimenuitem
+>. Introduïu el nom de la categoria i feu clic a <guibutton
+>D'acord</guibutton
+>. </para>
+        <para
+>La creació d'un patró nou de biblioteca es realitza seleccionant una àrea del vostre patró de treball, copiant i enganxant en una de les categories existents. </para>
+        <para
+>Cada patró de biblioteca té propietats, a les quals s'accedeix mitjançant el seu menú contextual. Aquestes propietats inclouen mida, esquema del fil, valor de la línia base i clau associada. L'eina Alfabet utilitza el valor de la línia base per ajustar l'alçada d'un caràcter per sobre, valors negatius o per sota del punt d'inserció. L'eina Alfabet utilitzarà de nou la tecla associada perquè coincideixi amb la tecla premuda en el teclat. </para>
+    </sect1>
+</chapter>

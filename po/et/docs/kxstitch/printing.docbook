@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Mustrite trükkimine</title>
+
+    <para
+>Kui oled mustri valmis saanud, soovid kindlasti seda trükkida. &kapp; võimaldab trükkimist mitmeti kohandada alates sellest, mida trükkida, kuni selleni, kui suur väljatrükk lõpuks on. </para>
+    <para
+>&kapp;i käesolev versioon võimaldab trükkimispaigutust igati oma käe järgi seada. Printeri seadistuses saab lehtesid lisada või eemaldada. Valida saab paberi suuruse ja orientatsiooni ning iga leht võib sisaldada tekstielemente, mustrielemente ja legendielemente. </para>
+    <para
+>Täpsemalt kõneleb sellest <link linkend="PrinterDialog"
+>printeri dialoogi</link
+> käsitlev osa.</para>
+</chapter>

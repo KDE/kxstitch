@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>De gebruikersinterface</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>Het hoofdvenster van &kxstitch;</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Dit is een schermafdruk van &kxstitch;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>Het hoofdvenster van &kxstitch; bestaat uit een bewerkingsvenster rechts in de bovenstaande afbeelding met drie vensters voor verankering. Deze vensters bieden een voorbeeld van het patroon, het palet van garens en een lijst met historie. Als een afbeelding is geïmporteerd is er een extra venster die een voorbeeld van de originele afbeelding ter raadpleging toont. Elk van deze vensters kan verplaatst worden naar de verschillende randen van het hoofdvenster, los van de weergave of aan en uitgezet worden. </para>
+        <para
+>De secties zijn onderverdeeld door scheidslijnen, die verplaats kunnen worden om de toegekende ruimte aan de secties te wijzigen. </para>
+        <para
+>De indeling van andere elementen, menubalk, werkbalken en de statusbalk, is gelijk aan andere &kde; toepassingen. </para>
+        <para
+>De statusbalk onderaan het venster toont verschillende berichten. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Het venster Bewerken</title>
+        <para
+>Het hoofdvenster laat een raster en boven en links linialen zien. De linialen zijn in steken, centimeters of inches instelbaar. Het beeld in het bewerkingsvenster is inzoombaar en verschuifbaar en met de verschillende gereedschappen kunt u uw ontwerp bewerken. </para>
+        <para
+>In het algemeen is het &LMB; in gebruik voor alle gereedschappen om het patroon te bewerken. Gedetailleerde beschrijvingen van alle gereedschappen en het gebruik daarvan is te vinden in <link linkend="commands"
+>het overzicht van de opdrachten</link
+>. </para>
+        <para
+>Het raster laat ook dikkere lijnen zien die de vakjes in groepen verdeelt. Het aantal vakjes per groep is instelbaar (standaard is dat 10) zoals ook de lijnkleur instelbaar is. Dit is handig voor als u patronen ontwerpt op een donkergekleurd doek zodat licht gekleurde lijnen voor het contrast nodig zijn. </para>
+        <para
+>Een keuzemenu geeft de mogelijkheid tot het invoegen van achtergrond-afbeeldingen in het bewerkingsvenster, voor het gebruik als sjabloon voor het invoegen van steken. Lees voor meer details de sectie <link linkend="creatingpatterns"
+>Patronen creëren</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Contextmenu</title>
+            <para
+>Door het gebruik van uw &RMB; in de editor opent u een contextmenu waarmee u de instellingen van de linialen en de weergave van de steken mee kan wijzigen. U kunt er ook de weergave van de achtergrondafbeelding, de steken, achtersteken, het raster en de linialen mee in en uitschakelen. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Voorbeeldvenster</title>
+        <para
+>Het venster <guilabel
+>Voorbeeld</guilabel
+> toont een verschuifbaar overzicht van het huidige ontwerp op een kleinere schaal dan het bewerkingsvenster. Het <guilabel
+>Voorbeeld</guilabel
+> toont een zwarte rechthoek die de huidige weergave in het bewerkingsvenster toont. </para>
+        <para
+>Door met de &LMB; in het voorbeeldvenster te klikken, zal het bewerkingsvenster gecentreerd worden op dat punt. Door de &LMB; in te drukken en een rechthoek om een gebied te trekken, zal het bewerkingsvenster ingezoomd worden om dat gebied te bevatten. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Venster met palet</title>
+        <para
+>Het venster <guilabel
+>Palet</guilabel
+> toont de draadkleuren nu in het palet van dit patroon als gekleurde blokken en optioneel met de symbolen die geassocieerd worden met elke kleur. De muisaanwijzer bewegen over een kleurblokje laat een tekstballon verschijnen die het kleurnummer en de naam voor die kleur toont. Klikken op een kleur selecteert die kleur voor de volgende schilder of tekenfunctie. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Contextmenu</title>
+            <para
+>Gebruiken van de &RMB; in het venster <guilabel
+>Palet</guilabel
+> zal een contextmenu activeren waarmee u verschillende functies in het palet kunt uitvoeren. Zie <link linkend="commands"
+>lijst met commando's</link
+> voor meer details over hun gebruik. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

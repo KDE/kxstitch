@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Sissejuhatus</title>
+    <para
+>&kapp; on rakendus, mis võimaldab luua tikkimismustreid ja mustrilehti. Mustreid võib luua nullist peale kasutaja määratud suurusega alusvõrgul, mida saab vastavalt mustri edenemisele suurendada või vähendada. Teise võimalusena võib importida pilte paljudest graafikavormingutest, mille juures saab vähendada värvide arvu ja piirata teisendamist täispistetega, aga vajadusel korral siiski kasutada ka murdarvulisi pisteid, mis tagab sujuvamad jooned. Samuti võib kasutada pilte taustana. Imporditud pilte saab seejärel muuta olemasolevate tööriistadega, et luua nende põhjal lõplik muster. </para>
+    <para
+>Mustri loomisel aitavad kaasa paljud tööriistad: täitmata ja täidetud ristkülikud ja ellipsid, täidetud hulknurgad, jooned, tikkpisted. Lisaks saab lõikamise, kopeerimise ja asetamisega valitud alasid kloonida. Samuti saab valitud alasid pöörata 90, 180 või 270 kraadi või peegeldada rõht- või püstsuunas. </para>
+    <para
+>Kasutada saab samuti mustrite kogu, millesse on võimalik salvestada väiksemaid või ka suuremaid mustriosasid, et neid hiljem teiste mustrite juures tarvitada. Mustrid salvestatakse kogusse hierarhilise nimekirjaja, mis võimaldab neid vähese vaevaga sortida ja nende seas liikudes kiiresti õige üles leida. Samuti saab mustrikogusid kasutada omamoodi alfabeedina, omistades igale neist kindla tähe. Seejärel saab alfabeeditööriistaga aktiivses kogus kindlat tähte otsida ja kui see leitakse, lisatakse tähega seostatud muster määratud asukohta. </para>
+    <para
+>Palun anna kõigist vigadest või soovidest teada <ulink url="http://bugs.kde.org"
+>KDE veateadete jälgimise süsteemis</ulink
+> või <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>&kapp;i postiloendis</ulink
+>. </para>
+</chapter>

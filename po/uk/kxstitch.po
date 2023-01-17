@@ -1,0 +1,3930 @@
+# Translation of kxstitch.po to Ukrainian
+# Copyright (C) 2014-2019 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2017, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kxstitch\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-03-28 13:52+0000\n"
+"PO-Revision-Date: 2019-05-20 16:36+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.03.70\n"
+
+#. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
+#: kxstitch.kcfg:10
+#, kde-format
+msgid "The background color."
+msgstr "Колір тла."
+
+#. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
+#: kxstitch.kcfg:14
+#, kde-format
+msgid "The color of the editors thick lines."
+msgstr "Колір товстих ліній у редакторі."
+
+#. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
+#: kxstitch.kcfg:18
+#, kde-format
+msgid "The color of the editors thin lines."
+msgstr "Колір тонких ліній у редакторі."
+
+#. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
+#: kxstitch.kcfg:22
+#, kde-format
+msgid "The width of the major grid lines."
+msgstr "Товщина основних ліній сітки"
+
+#. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
+#: kxstitch.kcfg:26
+#, kde-format
+msgid "The width of the minor grid lines."
+msgstr "Товщина допоміжних ліній сітки."
+
+#. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
+#: kxstitch.kcfg:30
+#, kde-format
+msgid "The number of cells making up a horizontal group."
+msgstr "Кількість комірок у горизонтальній групі."
+
+#. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
+#: kxstitch.kcfg:34
+#, kde-format
+msgid "The number of cells making up a vertical group."
+msgstr "Кількість комірок у вертикальній групі."
+
+#. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
+#: kxstitch.kcfg:38
+#, kde-format
+msgid "The horizontal cloth count."
+msgstr "Горизонтальна щільність основи."
+
+#. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
+#: kxstitch.kcfg:42
+#, kde-format
+msgid "The vertical cloth count."
+msgstr "Вертикальна щільність основи."
+
+#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
+#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
+#: kxstitch.kcfg:46 kxstitch.kcfg:159
+#, kde-format
+msgid "The cloth count units."
+msgstr "Одиниці для щільності основи."
+
+#. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
+#: kxstitch.kcfg:55
+#, kde-format
+msgid "Square cells"
+msgstr "Квадратні комірки"
+
+#. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
+#: kxstitch.kcfg:59
+#, kde-format
+msgid "The height of the horizontal ruler."
+msgstr "Висота горизонтальної лінійки."
+
+#. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
+#: kxstitch.kcfg:63
+#, kde-format
+msgid "The width of the vertical ruler."
+msgstr "Ширина вертикальної лінійки."
+
+#. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
+#: kxstitch.kcfg:67
+#, kde-format
+msgid "The display units for a scale."
+msgstr "Одиниці показу даних для шкали."
+
+#. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
+#: kxstitch.kcfg:76
+#, kde-format
+msgid "The minimum zoom factor"
+msgstr "Мінімальний масштаб"
+
+#. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
+#: kxstitch.kcfg:80
+#, kde-format
+msgid "The maximum zoom factor"
+msgstr "Максимальний масштаб"
+
+#. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
+#: kxstitch.kcfg:84
+#, kde-format
+msgid "The default zoom factor"
+msgstr "Типовий масштаб"
+
+#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
+#: kxstitch.kcfg:91
+#, kde-format
+msgid "Enable color highlighting mode"
+msgstr "Увімкнути режим підсвічування кольором"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
+#: kxstitch.kcfg:95
+#, kde-format
+msgid "Render the background images"
+msgstr "Показ зображень тла"
+
+#. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
+#: kxstitch.kcfg:99
+#, kde-format
+msgid "Render the grid"
+msgstr "Показ сітки"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
+#: kxstitch.kcfg:103
+#, kde-format
+msgid "Render the stitches"
+msgstr "Показ стібків"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
+#: kxstitch.kcfg:107
+#, kde-format
+msgid "Render the backstitches"
+msgstr "Показ зворотніх стібків"
+
+#. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
+#: kxstitch.kcfg:111
+#, kde-format
+msgid "Render the french knots"
+msgstr "Показ французьких вузлів"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
+#: kxstitch.kcfg:115
+#, kde-format
+msgid "Render stitch hints for colored blocks"
+msgstr "Показувати підказки щодо стібків для кольорових блоків"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
+#: kxstitch.kcfg:119
+#, kde-format
+msgid "How to display stitches."
+msgstr "Спосіб показу стібків."
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
+#: kxstitch.kcfg:130
+#, kde-format
+msgid "How to display backstitches."
+msgstr "Спосіб показу зворотних стібків."
+
+#. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
+#: kxstitch.kcfg:138
+#, kde-format
+msgid "How to display french knots."
+msgstr "Спосіб показу французьких вузлів."
+
+#. i18n: ectx: label, entry (Document_Width), group (document)
+#: kxstitch.kcfg:151
+#, kde-format
+msgid "The default width of a new pattern in the units specified."
+msgstr "Типова ширина нового візерунка у вказаних одиницях."
+
+#. i18n: ectx: label, entry (Document_Height), group (document)
+#: kxstitch.kcfg:155
+#, kde-format
+msgid "The default height of a new pattern in the units specified."
+msgstr "Типова висота нового візерунка у вказаних одиницях"
+
+#. i18n: ectx: label, entry (Document_Min_Width), group (document)
+#: kxstitch.kcfg:168
+#, kde-format
+msgid "The minimum width of a pattern in the units specified."
+msgstr "Мінімальна ширина візерунка у вказаних одиницях."
+
+#. i18n: ectx: label, entry (Document_Min_Height), group (document)
+#: kxstitch.kcfg:172
+#, kde-format
+msgid "The minimum height of a pattern in the units specified."
+msgstr "Мінімальна висота візерунка у вказаних одиницях."
+
+#. i18n: ectx: label, entry (Document_Max_Width), group (document)
+#: kxstitch.kcfg:176
+#, kde-format
+msgid "The maximum width of a pattern in the units specified."
+msgstr "Максимальна ширина візерунка у вказаних одиницях."
+
+#. i18n: ectx: label, entry (Document_Max_Height), group (document)
+#: kxstitch.kcfg:180
+#, kde-format
+msgid "The maximum height of a pattern in the units specified."
+msgstr "Максимальна висота візерунка у вказаних одиницях."
+
+#. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
+#: kxstitch.kcfg:187
+#, kde-format
+msgid "Use a maximum number of colors"
+msgstr "Використовувати максимальну кількість кольорів"
+
+#. i18n: ectx: label, entry (Import_MaximumColors), group (import)
+#: kxstitch.kcfg:191
+#, kde-format
+msgid "Maximum number of colors"
+msgstr "Максимальна кількість кольорів"
+
+#. i18n: ectx: label, entry (Import_UseFractionals), group (import)
+#: kxstitch.kcfg:195
+#, kde-format
+msgid "Use fractional stitches for finer detail"
+msgstr "Використовувати частинні стібки для уточнення деталей"
+
+#. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
+#: kxstitch.kcfg:202
+#, kde-format
+msgid "The default floss scheme to be used for new documents."
+msgstr "Типова схема ниток, яку слід використовувати для нових документів."
+
+#. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
+#: kxstitch.kcfg:206
+#, kde-format
+msgid "The default symbol library to be used for new documents."
+msgstr ""
+"Типова бібліотека позначок, яку слід використовувати для нових документів."
+
+#. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
+#: kxstitch.kcfg:210
+#, kde-format
+msgid "The default number of strands used for stitches."
+msgstr "Типова кількість волокон, використана для стібків."
+
+#. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
+#: kxstitch.kcfg:214
+#, kde-format
+msgid "The default number of strands used for backstitches."
+msgstr "Типова кількість волокон, використана для зворотніх стібків."
+
+#. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
+#: kxstitch.kcfg:218
+#, kde-format
+msgid "Display the symbols in the palette."
+msgstr "Показувати позначки у палітрі."
+
+#. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
+#: kxstitch.kcfg:222
+#, kde-format
+msgid "Display the symbols antialiased"
+msgstr "Показувати позначки зі згладжуванням"
+
+#. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
+#: kxstitch.kcfg:229
+#, kde-format
+msgid "The default size of icons shown in the icon view"
+msgstr "Типовий розмір піктограм на панелі"
+
+#. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
+#: kxstitch.kcfg:236
+#, kde-format
+msgid "Should character selection honor the caps lock key"
+msgstr "Визначає, чи має бути враховано стан Caps Lock під час вибору символів"
+
+#. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
+#: kxstitch.kcfg:240
+#, kde-format
+msgid "The default width of a space in cells"
+msgstr "Типова ширина полотна у комірках"
+
+#. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
+#: kxstitch.kcfg:244
+#, kde-format
+msgid "Should a space cause word wrapping at the right edge of the pattern"
+msgstr "Чи має пробіл бути символом розриву рядка на правому краю візерунка"
+
+#. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
+#: kxstitch.kcfg:248
+#, kde-format
+msgid "The number of cells between lines of text"
+msgstr "Кількість комірок між рядками тексту"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
+#: kxstitch.kcfg:252
+#, kde-format
+msgid "The number of cells to be added when extending the pattern right"
+msgstr "Кількість комірок, які слід додати для розширення візерунка праворуч"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
+#: kxstitch.kcfg:256
+#, kde-format
+msgid "The number of cells to be added when extending the pattern down"
+msgstr "Кількість комірок, які слід додати для розширення візерунка вниз"
+
+#. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
+#: kxstitch.kcfg:263
+#, kde-format
+msgid "Should the shapes tools use fractional stitches"
+msgstr "Чи має бути використано частинні стібки у інструментах форм"
+
+#. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
+#: kxstitch.kcfg:267
+#, kde-format
+msgid "The font family to be used in the TextToolDlg"
+msgstr "Гарнітура шрифту, який буде використано у TextToolDlg"
+
+#. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
+#: kxstitch.kcfg:271
+#, kde-format
+msgid "The text size in pixels"
+msgstr "Розмір тексту у пікселях"
+
+#. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
+#: kxstitch.kcfg:275
+#, kde-format
+msgid "Does mirroring and copying make copies"
+msgstr "Визначає, чи створює віддзеркалення та копіювання копії"
+
+#. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
+#: kxstitch.kcfg:282
+#, kde-format
+msgid "The page left margin"
+msgstr "Ліве поле сторінки"
+
+#. i18n: ectx: label, entry (Page_MarginTop), group (printer)
+#: kxstitch.kcfg:286
+#, kde-format
+msgid "The page top margin"
+msgstr "Верхнє поле сторінки"
+
+#. i18n: ectx: label, entry (Page_MarginRight), group (printer)
+#: kxstitch.kcfg:290
+#, kde-format
+msgid "The page right margin"
+msgstr "Праве поле сторінки"
+
+#. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
+#: kxstitch.kcfg:294
+#, kde-format
+msgid "The page bottom margin"
+msgstr "Нижнє поле сторінки"
+
+#. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
+#: kxstitch.kcfg:298
+#, kde-format
+msgid "Show the layout editor"
+msgstr "Показати вікно редактора компонування"
+
+#. i18n: ectx: label, entry (Page_GridSize), group (printer)
+#: kxstitch.kcfg:302
+#, kde-format
+msgid "The grid size in mm"
+msgstr "Розмір сітки у мм"
+
+#. i18n: ectx: label, entry (Page_Size), group (printer)
+#: kxstitch.kcfg:306
+#, kde-format
+msgid "The default page size"
+msgstr "Типові розміри сторінки"
+
+#. i18n: ectx: label, entry (Page_Orientation), group (printer)
+#: kxstitch.kcfg:310
+#, kde-format
+msgid "The default page orientation"
+msgstr "Типова орієнтація сторінки"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
+#: kxstitch.kcfg:314
+#, kde-format
+msgid "The snap distance for element boundary corner nodes"
+msgstr "Відстань прилипання для кутових вузлів меж елементів"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
+#: kxstitch.kcfg:318
+#, kde-format
+msgid "The snap node size"
+msgstr "Розмір вузла прилипання"
+
+#. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:323
+#, kde-format
+msgid "Show a border around the pattern"
+msgstr "Показувати рамку навколо візерунка"
+
+#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
+#: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
+#, kde-format
+msgid "The color of the border"
+msgstr "Колір рамки"
+
+#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
+#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
+#, kde-format
+msgid "The thickness of the border in 1/10 mm"
+msgstr "Товщина рамки у десятих частинах міліметра"
+
+#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:335 kxstitch.kcfg:478
+#, kde-format
+msgid "The left margin"
+msgstr "Ліве поле"
+
+#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
+#: kxstitch.kcfg:339 kxstitch.kcfg:474
+#, kde-format
+msgid "The top margin"
+msgstr "Верхнє поле"
+
+#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
+#: kxstitch.kcfg:343 kxstitch.kcfg:482
+#, kde-format
+msgid "The right margin"
+msgstr "Праве поле"
+
+#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:347 kxstitch.kcfg:486
+#, kde-format
+msgid "The bottom margin"
+msgstr "Нижнє поле"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
+#: kxstitch.kcfg:351
+#, kde-format
+msgid "Minimum cell size in mm for template generated printer configurations"
+msgstr ""
+"Мінімальний розмір комірки у міліметрах для створених на основі шаблона "
+"налаштувань принтера"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
+#: kxstitch.kcfg:355
+#, kde-format
+msgid "Minimum number of cells that can be on a page of its own"
+msgstr "Мінімальна кількість комірок, які можуть бути на окремій сторінці"
+
+#. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
+#: kxstitch.kcfg:359
+#, kde-format
+msgid ""
+"The color used to represented already selected areas in existing pattern "
+"elements"
+msgstr ""
+"Колір, який слід використовувати для показу вже позначених областей у "
+"наявних елементах візерунка"
+
+#. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:364
+#, kde-format
+msgid "Show a border around the image"
+msgstr "Показувати рамку навколо зображення"
+
+#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:377
+#, kde-format
+msgid "Show a border around the key"
+msgstr "Показувати рамку навколо позначення"
+
+#. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
+#. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
+#: kxstitch.kcfg:389 kxstitch.kcfg:462
+#, kde-format
+msgid "Fill the background"
+msgstr "Заповнити тло"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:393
+#, kde-format
+msgid "The color of the background"
+msgstr "Колір тла"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:397
+#, kde-format
+msgid "Transparency of the background"
+msgstr "Прозорість тла"
+
+#. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:401
+#, kde-format
+msgid "The key element left margin"
+msgstr "Ліве поле елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
+#: kxstitch.kcfg:405
+#, kde-format
+msgid "The key element top margin"
+msgstr "Верхнє поле елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
+#: kxstitch.kcfg:409
+#, kde-format
+msgid "The key element right margin"
+msgstr "Праве поле елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:413
+#, kde-format
+msgid "The key element bottom margin"
+msgstr "Нижнє поле елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
+#: kxstitch.kcfg:417
+#, kde-format
+msgid "Show the key element symbol column"
+msgstr "Показувати стовпчик позначки елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
+#: kxstitch.kcfg:421
+#, kde-format
+msgid "Show the key element symbol column in color"
+msgstr "Показувати стовпчик позначки елемента позначення кольором"
+
+#. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
+#: kxstitch.kcfg:425
+#, kde-format
+msgid "Show the key element floss name column"
+msgstr "Показувати стовпчик назви ниток елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
+#: kxstitch.kcfg:429
+#, kde-format
+msgid "Show the key element floss strands column"
+msgstr "Показувати стовпчик волокон нитки елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
+#: kxstitch.kcfg:433
+#, kde-format
+msgid "Show the key element floss description column"
+msgstr "Показувати стовпчик опису ниток елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
+#: kxstitch.kcfg:437
+#, kde-format
+msgid "Show the key element stitch count column"
+msgstr "Показувати стовпчик кількості стібків елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
+#: kxstitch.kcfg:441
+#, kde-format
+msgid "Show the key element floss length column"
+msgstr "Показувати стовпчик довжини ниток елемента позначення"
+
+#. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
+#: kxstitch.kcfg:445
+#, kde-format
+msgid "Show the key element skeins column"
+msgstr "Показувати стовпчик мотків елемента позначення"
+
+#. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:450
+#, kde-format
+msgid "Show the border"
+msgstr "Показувати рамку"
+
+#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
+#: kxstitch.kcfg:454 ui/TextElement.ui:184
+#, kde-format
+msgid "The border color"
+msgstr "Колір рамки"
+
+#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#: kxstitch.kcfg:458 ui/ImageElement.ui:98 ui/KeyElement.ui:207
+#: ui/TextElement.ui:201
+#, kde-format
+msgid "Thickness of the border in 1/10 mm"
+msgstr "Товщина рамки у 1/10 мм"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:466
+#, kde-format
+msgid "Color of the background"
+msgstr "Колір тла"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:470
+#, kde-format
+msgid "The transparency value"
+msgstr "Значення прозорості"
+
+#. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
+#: kxstitch.kcfg:490
+#, kde-format
+msgid "The text color"
+msgstr "Колір тексту"
+
+#. i18n: ectx: Menu (file)
+#: kxstitchui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (fileRemoveBackgroundImage)
+#: kxstitchui.rc:10 src/Commands.cpp:570
+#, kde-format
+msgid "Remove Background Image"
+msgstr "Вилучити зображення тла"
+
+#. i18n: ectx: Menu (edit)
+#: kxstitchui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "З&міни"
+
+#. i18n: ectx: Menu (selectionMasks)
+#: kxstitchui.rc:15
+#, kde-format
+msgid "Selection Masks"
+msgstr "Маски позначення"
+
+#. i18n: ectx: Menu (mirror)
+#: kxstitchui.rc:23 src/Commands.cpp:1306
+#, kde-format
+msgid "Mirror Selection"
+msgstr "Віддзеркалити позначене"
+
+#. i18n: ectx: Menu (rotate)
+#: kxstitchui.rc:27 src/Commands.cpp:1354
+#, kde-format
+msgid "Rotate Selection"
+msgstr "Обернути позначене"
+
+#. i18n: ectx: Menu (settings)
+#: kxstitchui.rc:33
+#, kde-format
+msgid "&Settings"
+msgstr "П&араметри"
+
+#. i18n: ectx: Menu (formatScalesAs)
+#: kxstitchui.rc:35 kxstitchui.rc:140
+#, kde-format
+msgid "Format Scales As"
+msgstr "Форматування масштабів"
+
+#. i18n: ectx: Menu (renderStitchesAs)
+#: kxstitchui.rc:41 kxstitchui.rc:146
+#, kde-format
+msgid "Render Stitches As"
+msgstr "Показувати стібки як"
+
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#: kxstitchui.rc:49 kxstitchui.rc:154
+#, kde-format
+msgid "Render Backstitches As"
+msgstr "Показувати зворотні стібки як"
+
+#. i18n: ectx: Menu (renderKnotsAs)
+#: kxstitchui.rc:54 kxstitchui.rc:159
+#, kde-format
+msgid "Render Knots As"
+msgstr "Показувати вузли як"
+
+#. i18n: ectx: Menu (view)
+#: kxstitchui.rc:68
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
+#, kde-format
+msgid "Show Background Image"
+msgstr "Показувати зображення тла"
+
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#: kxstitchui.rc:76 kxstitchui.rc:176
+#, kde-format
+msgid "Fit Background Image to Selection"
+msgstr "Підібрати розмір зображення тла за позначеним"
+
+#. i18n: ectx: Menu (stitches)
+#: kxstitchui.rc:80
+#, kde-format
+msgid "&Stitches"
+msgstr "С&тібки"
+
+#. i18n: ectx: Menu (Tools)
+#: kxstitchui.rc:91
+#, kde-format
+msgid "&Tools"
+msgstr "&Інструменти"
+
+#. i18n: ectx: Menu (palette)
+#: kxstitchui.rc:111
+#, kde-format
+msgid "&Palette"
+msgstr "Па&літра"
+
+#. i18n: ectx: Menu (library)
+#: kxstitchui.rc:121
+#, kde-format
+msgid "&Library Manager"
+msgstr "Керування &бібліотеками"
+
+#. i18n: ectx: Menu (pattern)
+#: kxstitchui.rc:124
+#, kde-format
+msgid "&Pattern"
+msgstr "Ві&зерунок"
+
+#. i18n: ectx: ToolBar (StitchToolBar)
+#: kxstitchui.rc:193
+#, kde-format
+msgid "Stitch Toolbar"
+msgstr "Панель інструментів стібка"
+
+#. i18n: ectx: ToolBar (ToolsToolbar)
+#: kxstitchui.rc:204
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Панель інструментів"
+
+#. i18n: ectx: ToolBar (ZoomToolbar)
+#: kxstitchui.rc:227
+#, kde-format
+msgid "Zoom Toolbar"
+msgstr "Панель інструментів масштабування"
+
+#: src/BackgroundImage.cpp:136
+#, kde-format
+msgid "Background image version %1"
+msgstr "Зображення тла версії %1"
+
+#: src/BackgroundImages.cpp:111
+#, kde-format
+msgid "Background images version %1"
+msgstr "Зображення тла версії %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
+#: src/CalibrateFlossDlg.cpp:33 ui/CalibrateFloss.ui:14
+#, kde-format
+msgid "Calibrate Floss"
+msgstr "Калібрувати нитку"
+
+#: src/CalibrateFlossDlg.cpp:113
+#, kde-format
+msgctxt "%1 is floss name, %2 is floss description"
+msgid "%1-%2 (Modified)"
+msgstr "%1-%2 (змінено)"
+
+#: src/CalibrateFlossDlg.cpp:113
+#, kde-format
+msgctxt "%1 is floss name, %2 is floss description"
+msgid "%1-%2"
+msgstr "%1-%2"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
+#: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1141
+#: ui/FileProperties.ui:17
+#, kde-format
+msgid "File Properties"
+msgstr "Властивості файла"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
+#: src/Commands.cpp:58 src/MainWindow.cpp:517 src/MainWindow.cpp:1136
+#: ui/ImportImage.ui:14
+#, kde-format
+msgid "Import Image"
+msgstr "Імпортування зображення"
+
+#: src/Commands.cpp:83
+#, kde-format
+msgid "Paint Stitches"
+msgstr "Малювати стібки"
+
+#: src/Commands.cpp:106
+#, kde-format
+msgid "Paint Knots"
+msgstr "Малювати вузли"
+
+#: src/Commands.cpp:129
+#, kde-format
+msgid "Draw Line"
+msgstr "Малювати пряму"
+
+#: src/Commands.cpp:152
+#, kde-format
+msgid "Erase Stitches"
+msgstr "Витерти стібки"
+
+#: src/Commands.cpp:175 src/MainWindow.cpp:1335
+#, kde-format
+msgid "Draw Rectangle"
+msgstr "Малювати прямокутник"
+
+#: src/Commands.cpp:198 src/MainWindow.cpp:1343
+#, kde-format
+msgid "Fill Rectangle"
+msgstr "Заповнений прямокутник"
+
+#: src/Commands.cpp:222 src/MainWindow.cpp:1351
+#, kde-format
+msgid "Draw Ellipse"
+msgstr "Малювати еліпс"
+
+#: src/Commands.cpp:245 src/MainWindow.cpp:1359
+#, kde-format
+msgid "Fill Ellipse"
+msgstr "Заповнений еліпс"
+
+#: src/Commands.cpp:268 src/MainWindow.cpp:1367
+#, kde-format
+msgid "Fill Polygon"
+msgstr "Заповнений багатокутник"
+
+#: src/Commands.cpp:291
+#, kde-format
+msgid "Add Stitch"
+msgstr "Додати стібок"
+
+#: src/Commands.cpp:331
+#, kde-format
+msgid "Delete Stitches"
+msgstr "Вилучити стібки"
+
+#: src/Commands.cpp:368
+#, kde-format
+msgid "Add Backstitch"
+msgstr "Додати зворотний стібок"
+
+#: src/Commands.cpp:394
+#, kde-format
+msgid "Delete Backstitch"
+msgstr "Вилучити зворотній стібок"
+
+#: src/Commands.cpp:428
+#, kde-format
+msgid "Add Knot"
+msgstr "Додати вузол"
+
+#: src/Commands.cpp:449
+#, kde-format
+msgid "Delete Knots"
+msgstr "Вилучити вузол"
+
+#: src/Commands.cpp:478
+#, kde-format
+msgid "Set Property"
+msgstr "Встановити властивість"
+
+#: src/Commands.cpp:500
+#, kde-format
+msgid "Add Background Image"
+msgstr "Додати зображення тла"
+
+#: src/Commands.cpp:525
+#, kde-format
+msgid "Fit Background to Selection"
+msgstr "Підібрати розміри тла за позначеним"
+
+#. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
+#: src/Commands.cpp:684 ui/PaletteManager.ui:189
+#, kde-format
+msgid "Clear Unused Flosses"
+msgstr "Вилучити невикористані нитки"
+
+#: src/Commands.cpp:705
+#, kde-format
+msgid "Resize Document"
+msgstr "Змінити розміри документа"
+
+#: src/Commands.cpp:735
+#, kde-format
+msgid "Crop to Pattern"
+msgstr "Обрізати до візерунка"
+
+#: src/Commands.cpp:765
+#, kde-format
+msgid "Crop to Selection"
+msgstr "Обрізати за позначеним"
+
+#: src/Commands.cpp:806 src/MainWindow.cpp:1481
+#, kde-format
+msgid "Insert Columns"
+msgstr "Вставити стовпчики"
+
+#: src/Commands.cpp:852 src/MainWindow.cpp:1475
+#, kde-format
+msgid "Insert Rows"
+msgstr "Вставити рядки"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
+#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
+#, kde-format
+msgid "Extend Pattern"
+msgstr "Розширити візерунок"
+
+#: src/Commands.cpp:943 src/MainWindow.cpp:1457
+#, kde-format
+msgid "Center Pattern"
+msgstr "Центрувати візерунок"
+
+#: src/Commands.cpp:978
+#, kde-format
+msgid "Update Palette"
+msgstr "Оновити палітру"
+
+#: src/Commands.cpp:1004
+#, kde-format
+msgid "Change Floss Scheme"
+msgstr "Змінити схему ниток"
+
+#: src/Commands.cpp:1074
+#, kde-format
+msgid "Replace Color"
+msgstr "Замінити колір"
+
+#: src/Commands.cpp:1177 src/MainWindow.cpp:1439
+#, kde-format
+msgid "Swap Colors"
+msgstr "Поміняти кольори місцями"
+
+#: src/Commands.cpp:1201
+#, kde-format
+msgid "Update Printer Configuration"
+msgstr "Оновити налаштування принтера"
+
+#: src/Commands.cpp:1223
+#, kde-format
+msgid "Cut"
+msgstr "Вирізати"
+
+#: src/Commands.cpp:1402 src/Editor.cpp:1999 src/MainWindow.cpp:1383
+#, kde-format
+msgid "Alphabet"
+msgstr "Абетка"
+
+#: src/Commands.cpp:1455
+#, kde-format
+msgid "Configure KXStitch"
+msgstr "Налаштувати KXStitch"
+
+#: src/ConfigurationDialogs.cpp:38
+#, kde-format
+msgid "Default (Centimeters)"
+msgstr "Типова (у сантиметрах)"
+
+#: src/ConfigurationDialogs.cpp:38
+#, kde-format
+msgid "Default (Inches)"
+msgstr "Типова (у дюймах)"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#: src/ConfigurationDialogs.cpp:39 ui/PatternConfigPage.ui:164
+#, kde-format
+msgid "Default"
+msgstr "Типова"
+
+#: src/ConfigurationDialogs.cpp:237 src/ConfigurationDialogs.cpp:240
+#: src/FilePropertiesDlg.cpp:333 src/FilePropertiesDlg.cpp:334
+#: src/ImportImageDlg.cpp:538 src/ImportImageDlg.cpp:539
+#, kde-format
+msgctxt "Per inch measurements"
+msgid "/in"
+msgstr "/д."
+
+#: src/ConfigurationDialogs.cpp:246 src/ConfigurationDialogs.cpp:249
+#: src/FilePropertiesDlg.cpp:326 src/FilePropertiesDlg.cpp:327
+#: src/ImportImageDlg.cpp:531 src/ImportImageDlg.cpp:532
+#, kde-format
+msgctxt "Per centimeter measurements"
+msgid "/cm"
+msgstr "/см"
+
+#: src/Document.cpp:125 src/MainWindow.cpp:292 src/MainWindow.cpp:364
+#: src/MainWindow.cpp:516 src/SymbolLibrary.cpp:101
+#, kde-format
+msgid "Untitled"
+msgstr "Без назви"
+
+#: src/Document.cpp:262 src/Document.cpp:296
+#, kde-format
+msgid "KXStitch version %1"
+msgstr "KXStitch версії %1"
+
+#: src/Document.cpp:497 src/Document.cpp:776 src/Document.cpp:1074
+#, kde-format
+msgid "The floss scheme DMC was not found"
+msgstr "DMC схеми ниток не знайдено"
+
+#: src/Document.cpp:540 src/Document.cpp:821 src/Document.cpp:1121
+#, kde-format
+msgid "Invalid data read."
+msgstr "Прочитано некоректні дані."
+
+#: src/Document.cpp:626 src/Document.cpp:907 src/Document.cpp:1207
+#: src/Document.cpp:1224 src/Document.cpp:1399 src/Document.cpp:1565
+#: src/Document.cpp:1748 src/Document.cpp:1953 src/Document.cpp:2163
+#: src/Document.cpp:2366 src/SymbolLibrary.cpp:320
+#, kde-format
+msgid "Stream error"
+msgstr "Помилка у потоці даних"
+
+#: src/Document.cpp:1333 src/Document.cpp:1500 src/Document.cpp:1671
+#: src/Document.cpp:1877 src/Document.cpp:2083 src/Document.cpp:2286
+#, kde-format
+msgid "The floss scheme %1 was not found"
+msgstr "Схеми ниток %1 не знайдено"
+
+#: src/Document.cpp:1355 src/Document.cpp:1521 src/Document.cpp:1692
+#: src/Document.cpp:1898 src/Document.cpp:2108 src/Document.cpp:2311
+#, kde-format
+msgid "The floss name %1 was not found"
+msgstr "Нитки з назвою %1 не знайдено"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1812 src/Document.cpp:2018 src/Element.cpp:520
+#: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1500
+#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
+#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
+#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:1032
+#, kde-format
+msgid "Stitches"
+msgstr "Cтібки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1816 src/Document.cpp:2022 ui/EditorConfigPage.ui:82
+#: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
+#, kde-format
+msgid "CM"
+msgstr "см"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1820 src/Document.cpp:2026 src/ImportImageDlg.cpp:241
+#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
+#: ui/PatternElement.ui:205
+#, kde-format
+msgid "Inches"
+msgstr "дюйми"
+
+#: src/DocumentFloss.cpp:190
+#, kde-format
+msgid "Document floss version %1"
+msgstr "Версія ниток документа %1"
+
+#: src/DocumentPalette.cpp:407
+#, kde-format
+msgid "Palette version %1"
+msgstr "Версія палітри %1"
+
+#: src/DocumentPalette.cpp:412
+#, kde-format
+msgid "Failed reading palette"
+msgstr "Не вдалося прочитати палітру"
+
+#: src/DocumentPalette.cpp:434
+#, kde-format
+msgid ""
+"There are insufficient symbols available in the symbol library for this "
+"pattern. An extra %1 are required."
+msgstr ""
+"У бібліотеці позначок недостатньо записів для цього візерунка. Потрібно ще "
+"%1 записів."
+
+#: src/DocumentPalette.cpp:435
+#, kde-format
+msgid "Canceled: Insufficient symbols available"
+msgstr "Скасовано: недостатньо доступних позначок"
+
+#: src/DocumentPalette.cpp:452
+#, kde-format
+msgid ""
+"The following floss color has had its symbol\n"
+"replaced because it did not exist in the symbol library.\n"
+"\n"
+msgid_plural ""
+"The following floss colors have had their symbols\n"
+"replaced because they did not exist in the symbol library.\n"
+"\n"
+msgstr[0] ""
+"Для вказаних нижче кольорів ниток замінено позначки,\n"
+"оскільки у бібліотеці позначок немає відповідних позначок.\n"
+"\n"
+msgstr[1] ""
+"Для вказаних нижче кольорів ниток замінено позначки,\n"
+"оскільки у бібліотеці позначок немає відповідних позначок.\n"
+"\n"
+msgstr[2] ""
+"Для вказаних нижче кольорів ниток замінено позначки,\n"
+"оскільки у бібліотеці позначок немає відповідних позначок.\n"
+"\n"
+msgstr[3] ""
+"Для вказаного нижче кольору ниток замінено позначку,\n"
+"оскільки у бібліотеці позначок немає відповідної позначки.\n"
+"\n"
+
+#: src/DocumentPalette.cpp:461
+#, kde-format
+msgid ""
+"The following floss color has had an empty symbol assigned.\n"
+"\n"
+msgid_plural ""
+"The following floss colors have had an empty symbol assigned.\n"
+"\n"
+msgstr[0] ""
+"Зі вказаними нижче кольорами ниток пов’язано порожні позначки.\n"
+"\n"
+msgstr[1] ""
+"Зі вказаними нижче кольорами ниток пов’язано порожні позначки.\n"
+"\n"
+msgstr[2] ""
+"Зі вказаними нижче кольорами ниток пов’язано порожні позначки.\n"
+"\n"
+msgstr[3] ""
+"Зі вказаним нижче кольором ниток пов’язано порожню позначку.\n"
+"\n"
+
+#: src/DocumentPalette.cpp:470
+#, kde-format
+msgid ""
+"\n"
+"You may want to check this is suitable."
+msgid_plural ""
+"\n"
+"You may want to check these are suitable."
+msgstr[0] ""
+"\n"
+"Перевірте, чи це є прийнятним."
+msgstr[1] ""
+"\n"
+"Перевірте, чи це є прийнятним."
+msgstr[2] ""
+"\n"
+"Перевірте, чи це є прийнятним."
+msgstr[3] ""
+"\n"
+"Перевірте, чи це є прийнятним."
+
+#: src/Editor.cpp:790
+#, kde-format
+msgid "Drag"
+msgstr "Перетягування"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
+#: src/Editor.cpp:845 src/Editor.cpp:1975 src/MainWindow.cpp:1375
+#: ui/PrinterConfigPage.ui:534
+#, kde-format
+msgid "Text"
+msgstr "Текст"
+
+#: src/Editor.cpp:930
+#, kde-format
+msgid "Add Character"
+msgstr "Додати символ"
+
+#: src/Editor.cpp:971 src/Editor.cpp:2148 src/LibraryManagerDlg.cpp:121
+#: src/LibraryManagerDlg.cpp:141
+#, kde-format
+msgid "Paste"
+msgstr "Вставити"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/Element.cpp:516 src/Element.cpp:539 ui/KeyElement.ui:377
+#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#, kde-format
+msgid "Symbol"
+msgstr "Позначка"
+
+#: src/Element.cpp:517 src/Element.cpp:543
+#, kde-format
+msgctxt "The name of the floss"
+msgid "Name"
+msgstr "Назва"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
+#: src/Element.cpp:518 src/Element.cpp:547 ui/KeyElement.ui:403
+#: ui/PrinterConfigPage.ui:1022
+#, kde-format
+msgid "Strands"
+msgstr "Волокна"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/Element.cpp:519 src/Element.cpp:551 ui/NewFloss.ui:44
+#, kde-format
+msgid "Description"
+msgstr "Опис"
+
+#: src/Element.cpp:521 src/Element.cpp:559
+#, kde-format
+msgid "Length(m)"
+msgstr "Довжина (у м)"
+
+#: src/Element.cpp:522 src/Element.cpp:563
+#, kde-format
+msgid "Skeins (8m)"
+msgstr "Мотки (8 м)"
+
+#: src/Element.cpp:535
+#, kde-format
+msgctxt "%1 is a scheme name"
+msgid "%1 Flosses"
+msgstr "Нитки %1"
+
+#: src/Exceptions.cpp:66
+#, kde-format
+msgid "Tried to read past the end of the data"
+msgstr "Спроба читання даних поза межами доступного діапазону"
+
+#: src/Exceptions.cpp:68
+#, kde-format
+msgid "Tried to read corrupted data"
+msgstr "Спроба читання пошкоджених даних"
+
+#: src/Exceptions.cpp:70 src/Exceptions.cpp:112
+#, kde-format
+msgid "Undefined status message status %1"
+msgstr "Повідомлення щодо невизначеного стану %1"
+
+#: src/Exceptions.cpp:107
+#, kde-format
+msgid "Failed to write to the device"
+msgstr "Не вдалося виконати запис на пристрій"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
+#: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
+#, kde-format
+msgid "Image Element Properties"
+msgstr "Властивості елемента зображення"
+
+#: src/ImportImageDlg.cpp:101
+#, kde-format
+msgid "Import Image - Image Size %1 x %2 pixels"
+msgstr "Імпортування зображення — розміри %1 ⨯ %2 пікселів"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
+#: ui/PatternConfigPage.ui:96
+#, kde-format
+msgid "Centimeters"
+msgstr "сантиметри"
+
+#: src/ImportImageDlg.cpp:259 src/ImportImageDlg.cpp:261
+#, kde-format
+msgctxt "%1 width, %2 height and %3 units"
+msgid "%1 x %2 %3"
+msgstr "%1 ⨯ %2 %3"
+
+#: src/ImportImageDlg.cpp:391
+#, kde-format
+msgid "Rendering preview"
+msgstr "Створюємо зображення попереднього перегляду"
+
+#: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:597
+#, kde-format
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/ImportImageDlg.cpp:611
+#, kde-format
+msgid "Colors limited to %1 due to the number of symbols available"
+msgstr "Кількість кольорів обмежено до %1 через кількість доступних позначок"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
+#: src/KeyElementDlg.cpp:26 ui/KeyElement.ui:14
+#, kde-format
+msgid "Key Element Properties"
+msgstr "Властивості елемента позначення"
+
+#: src/LibraryFile.cpp:122
+#, kde-format
+msgid "Loading Library %1"
+msgstr "Завантажуємо бібліотеку %1"
+
+#: src/LibraryFile.cpp:159
+#, kde-format
+msgid ""
+"Failed to read a pattern from the library %1.\n"
+"%2"
+msgstr ""
+"Не вдалося прочитати візерунок з бібліотеки %1.\n"
+"%2"
+
+#: src/LibraryFile.cpp:159
+#, kde-format
+msgid "Failed to read library."
+msgstr "Не вдалося прочитати бібліотеку."
+
+#: src/LibraryFile.cpp:193
+#, kde-format
+msgid ""
+"The file %1\n"
+"could not be opened for reading.\n"
+"%2"
+msgstr ""
+"Не вдалося відкрити файл %1\n"
+"для читання даних.\n"
+"%2"
+
+#: src/LibraryFile.cpp:193 src/LibraryFile.cpp:218
+#, kde-format
+msgid "Error opening file"
+msgstr "Помилка під час відкриття файла"
+
+#: src/LibraryFile.cpp:218
+#, kde-format
+msgid ""
+"The file %1\n"
+"could not be opened for writing.\n"
+"%2"
+msgstr ""
+"Не вдалося відкрити файл %1\n"
+"для запису даних.\n"
+"%2"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
+#: src/LibraryFilePathsDlg.cpp:23 ui/LibraryFilePaths.ui:14
+#, kde-format
+msgid "Library File Paths"
+msgstr "Шляхи до файлів бібліотек"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
+#: src/LibraryManagerDlg.cpp:39 ui/LibraryManager.ui:14
+#, kde-format
+msgid "Library Manager"
+msgstr "Керування бібліотеками"
+
+#: src/LibraryManagerDlg.cpp:65
+#, kde-format
+msgid ""
+"The Library Manager can be used to store\n"
+"reusable patterns for insertion into\n"
+"new patterns.\n"
+"\n"
+"There are no library categories defined.\n"
+"Click the Help button for information on creating\n"
+"and populating libraries."
+msgstr ""
+"Засобом керування бібліотекою можна\n"
+"скористатися для збереження універсальних частин\n"
+"візерунків.\n"
+"\n"
+"Зараз не визначено жодної категорії бібліотек.\n"
+"Натисніть кнопку «Довідка», щоб дізнатися більше\n"
+"про створення та заповнення бібліотеки."
+
+#: src/LibraryManagerDlg.cpp:68
+#, kde-format
+msgid "Select a library to show the associated patterns."
+msgstr "Виберіть бібліотеку для показу пов’язаних візерунків."
+
+#: src/LibraryManagerDlg.cpp:70
+#, kde-format
+msgid ""
+"There are no patterns defined\n"
+"for this library.\n"
+"\n"
+"Click the Help button for information\n"
+"on creating and populating libraries."
+msgstr ""
+"Для цієї бібліотеки не визначено\n"
+"жодних візерунків.\n"
+"\n"
+"Натисніть кнопку «Довідка», щоб дізнатися\n"
+"більше про створення та заповнення бібліотек."
+
+#: src/LibraryManagerDlg.cpp:114
+#, kde-format
+msgid "New Category"
+msgstr "Нова категорія"
+
+#: src/LibraryManagerDlg.cpp:117
+#, kde-format
+msgid "Add to Export List"
+msgstr "Додати до списку експортування"
+
+#: src/LibraryManagerDlg.cpp:118 src/LibraryManagerDlg.cpp:134
+#, kde-format
+msgid "Properties..."
+msgstr "Властивості…"
+
+#. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
+#. i18n("Copy"), this, SLOT(copyToClipboard()));
+#: src/LibraryManagerDlg.cpp:137
+#, kde-format
+msgid "Delete"
+msgstr "Вилучити"
+
+#: src/LibraryManagerDlg.cpp:185
+#, kde-format
+msgid "Create Category"
+msgstr "Створення категорії"
+
+#: src/LibraryManagerDlg.cpp:185
+#, kde-format
+msgid "Category Name"
+msgstr "Назва категорії"
+
+#: src/LibraryManagerDlg.cpp:204
+#, kde-format
+msgid "This category already exists."
+msgstr "Категорія з такою назвою вже існує."
+
+#: src/LibraryManagerDlg.cpp:204
+#, kde-format
+msgid "Category Exists"
+msgstr "Категорія вже існує"
+
+#: src/LibraryManagerDlg.cpp:299
+#, kde-format
+msgid "Delete this pattern."
+msgstr "Вилучити цей візерунок."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
+#: src/LibraryPatternPropertiesDlg.cpp:25 ui/LibraryPatternProperties.ui:14
+#, kde-format
+msgid "Library Pattern Properties"
+msgstr "Властивості бібліотеки візерунків"
+
+#: src/LibraryTreeWidget.cpp:76
+#, kde-format
+msgid "existing library"
+msgstr "наявна бібліотека"
+
+#: src/Main.cpp:92
+#, kde-format
+msgid "kxstitch"
+msgstr "kxstitch"
+
+#: src/Main.cpp:94
+#, kde-format
+msgid "A cross stitch pattern creator."
+msgstr "Програма для створення візерунків для вишивання хрестиком."
+
+#: src/Main.cpp:96
+#, kde-format
+msgid "(c) 2010-2019 Stephen Allewell"
+msgstr "© Stephen Allewell, 2010–2019"
+
+#: src/Main.cpp:102
+#, kde-format
+msgid "Project Lead"
+msgstr "Лідер проєкту"
+
+#: src/Main.cpp:103
+#, kde-format
+msgid "Bug fixes, application icons"
+msgstr "Виправлення вад, піктограми для програм"
+
+#: src/Main.cpp:104
+#, kde-format
+msgid "Man page"
+msgstr "Сторінка man"
+
+#: src/Main.cpp:105
+#, kde-format
+msgid "Bug fixes, improvements"
+msgstr "Виправлення вад і покращення"
+
+#: src/Main.cpp:106
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#: src/Main.cpp:106
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: src/Main.cpp:122
+#, kde-format
+msgid "Document to open."
+msgstr "Документ, який слід відкрити."
+
+#: src/MainWindow.cpp:240
+#, kde-format
+msgid ""
+"Save changes to document?\n"
+"Selecting No discards changes."
+msgstr ""
+"Зберегти зміни до документа?\n"
+"Якщо ви виберете «Ні», зміни буде втрачено."
+
+#: src/MainWindow.cpp:249
+#, kde-format
+msgid "Unable to save the file"
+msgstr "Не вдалося зберегти файл"
+
+#: src/MainWindow.cpp:285
+#, kde-format
+msgid "Open file"
+msgstr "Відкриття файла"
+
+#: src/MainWindow.cpp:285
+#, kde-format
+msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
+msgstr "візерунки KXStitch (*.kxs);;візерунки PC Stitch (*.pat);;усі файли (*)"
+
+#: src/MainWindow.cpp:325
+#, kde-format
+msgid "The file does not appear to be a recognized cross stitch file."
+msgstr ""
+"Здається, файл не належить до жодного з типів розпізнаваних файлів "
+"візерунків для вишивання хрестиком."
+
+#: src/MainWindow.cpp:328
+#, kde-format
+msgid ""
+"This version of the file is not supported.\n"
+"%1"
+msgstr ""
+"Підтримки файлів цієї версії не передбачено.\n"
+"%1"
+
+#: src/MainWindow.cpp:330
+#, kde-format
+msgid ""
+"Failed to read the file.\n"
+"%1."
+msgstr ""
+"Не вдалося прочитати файл.\n"
+"%1."
+
+#: src/MainWindow.cpp:382
+#, kde-format
+msgid ""
+"Failed to save the file.\n"
+"%1"
+msgstr ""
+"Не вдалося зберегти файл.\n"
+"%1"
+
+#: src/MainWindow.cpp:386
+#, kde-format
+msgid ""
+"Failed to open the file.\n"
+"%1"
+msgstr ""
+"Не вдалося відкрити файл.\n"
+"%1"
+
+#: src/MainWindow.cpp:395
+#, kde-format
+msgid "Save As..."
+msgstr "Зберегти як…"
+
+#: src/MainWindow.cpp:395
+#, kde-format
+msgid "Cross Stitch Patterns (*.kxs)"
+msgstr "візерунки для вишивання хрестиком (*.kxs)"
+
+#: src/MainWindow.cpp:401
+#, kde-format
+msgid ""
+"This file already exists\n"
+"Do you want to overwrite it?"
+msgstr ""
+"Файл з такою назвою вже існує.\n"
+"Хочете його перезаписати?"
+
+#: src/MainWindow.cpp:418
+#, kde-format
+msgid "Revert changes to document?"
+msgstr "Скасувати внесені до документа зміни?"
+
+#: src/MainWindow.cpp:460
+#, kde-format
+msgid "There is nothing to print"
+msgstr "Нічого друкувати"
+
+#: src/MainWindow.cpp:517 src/MainWindow.cpp:746
+#, kde-format
+msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
+msgstr ""
+"зображення (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
+
+#: src/MainWindow.cpp:597
+#, kde-format
+msgid "Converting to stitches"
+msgstr "Перетворення на стібки"
+
+#: src/MainWindow.cpp:746
+#, kde-format
+msgid "Background Image"
+msgstr "Зображення тла"
+
+#: src/MainWindow.cpp:800
+#, kde-format
+msgid "Undo %1"
+msgstr "Скасувати дію %1"
+
+#: src/MainWindow.cpp:806
+#, kde-format
+msgid "Redo %1"
+msgstr "Повторити дію %1"
+
+#: src/MainWindow.cpp:959
+#, kde-format
+msgctxt "The Editor config page"
+msgid "Editor"
+msgstr "Редактор"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/MainWindow.cpp:960 ui/FileProperties.ui:27
+#, kde-format
+msgid "Pattern"
+msgstr "Візерунок"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
+#: src/MainWindow.cpp:962 src/MainWindow.cpp:1718 ui/FileProperties.ui:33
+#: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
+#, kde-format
+msgid "Palette"
+msgstr "Палітра"
+
+#: src/MainWindow.cpp:963
+#, kde-format
+msgid "Import"
+msgstr "Імпорт"
+
+#: src/MainWindow.cpp:964
+#, kde-format
+msgid "Library"
+msgstr "Бібліотека"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
+#: src/MainWindow.cpp:965 ui/PrinterConfigPage.ui:14
+#, kde-format
+msgid "Printer Configuration"
+msgstr "Налаштування принтера"
+
+#: src/MainWindow.cpp:1129
+#, kde-format
+msgid "Print Setup..."
+msgstr "Налаштування друку..."
+
+#: src/MainWindow.cpp:1146
+#, kde-format
+msgid "Add Background Image..."
+msgstr "Додати зображення тла…"
+
+#: src/MainWindow.cpp:1164
+#, kde-format
+msgid "Mirror/Rotate makes copies"
+msgstr "Віддзеркалення і обертання створюють копії"
+
+#: src/MainWindow.cpp:1170
+#, kde-format
+msgid "Horizontally"
+msgstr "Горизонтально"
+
+#: src/MainWindow.cpp:1177
+#, kde-format
+msgid "Vertically"
+msgstr "Вертикально"
+
+#: src/MainWindow.cpp:1184
+#, kde-format
+msgid "90 Degrees"
+msgstr "На 90°"
+
+#: src/MainWindow.cpp:1191
+#, kde-format
+msgid "180 Degrees"
+msgstr "На 180°"
+
+#: src/MainWindow.cpp:1198
+#, kde-format
+msgid "270 Degrees"
+msgstr "На 270°"
+
+#: src/MainWindow.cpp:1206
+#, kde-format
+msgid "Stitch Mask"
+msgstr "Маска стібків"
+
+#: src/MainWindow.cpp:1212
+#, kde-format
+msgid "Color Mask"
+msgstr "Маска кольорів"
+
+#: src/MainWindow.cpp:1218
+#, kde-format
+msgid "Exclude Backstitches"
+msgstr "Виключення зворотних стібків"
+
+#: src/MainWindow.cpp:1224
+#, kde-format
+msgid "Exclude Knots"
+msgstr "Виключення вузлів"
+
+#: src/MainWindow.cpp:1250
+#, kde-format
+msgid "Quarter Stitch"
+msgstr "Чвертьстібок"
+
+#: src/MainWindow.cpp:1258
+#, kde-format
+msgid "Half Stitch"
+msgstr "Напівстібок"
+
+#: src/MainWindow.cpp:1266
+#, kde-format
+msgid "3 Quarter Stitch"
+msgstr "Стібок на три чверті"
+
+#: src/MainWindow.cpp:1274
+#, kde-format
+msgid "Full Stitch"
+msgstr "Повний стібок"
+
+#: src/MainWindow.cpp:1282
+#, kde-format
+msgid "Small Half Stitch"
+msgstr "Малий половинний стібок"
+
+#: src/MainWindow.cpp:1290
+#, kde-format
+msgid "Small Full Stitch"
+msgstr "Малий повний стібок"
+
+#: src/MainWindow.cpp:1298
+#, kde-format
+msgid "French Knot"
+msgstr "Французький вузол"
+
+#: src/MainWindow.cpp:1311
+#, kde-format
+msgid "Paint"
+msgstr "Малювання"
+
+#: src/MainWindow.cpp:1319
+#, kde-format
+msgid "Draw"
+msgstr "Креслення"
+
+#: src/MainWindow.cpp:1327
+#, kde-format
+msgid "Erase"
+msgstr "Витирання"
+
+#: src/MainWindow.cpp:1391
+#, kde-format
+msgctxt "Select an area of the pattern"
+msgid "Select"
+msgstr "Позначення"
+
+#: src/MainWindow.cpp:1399
+#, kde-format
+msgid "Backstitch"
+msgstr "Зворотній стібок"
+
+#: src/MainWindow.cpp:1407
+#, kde-format
+msgid "Color Picker"
+msgstr "Піпетка"
+
+#: src/MainWindow.cpp:1417
+#, kde-format
+msgid "Palette Manager..."
+msgstr "Керування палітрою…"
+
+#: src/MainWindow.cpp:1423
+#, kde-format
+msgid "Show Symbols"
+msgstr "Показувати позначки"
+
+#: src/MainWindow.cpp:1429
+#, kde-format
+msgid "Clear Unused"
+msgstr "Вилучити невикористані"
+
+#: src/MainWindow.cpp:1434
+#, kde-format
+msgid "Calibrate Scheme..."
+msgstr "Калібрувати схему…"
+
+#: src/MainWindow.cpp:1444
+#, kde-format
+msgid "Replace Colors"
+msgstr "Замінити кольори"
+
+#: src/MainWindow.cpp:1451
+#, kde-format
+msgid "Extend Pattern..."
+msgstr "Розширити візерунок…"
+
+#: src/MainWindow.cpp:1463
+#, kde-format
+msgid "Crop Canvas to Pattern"
+msgstr "Обрізати полотно до візерунка"
+
+#: src/MainWindow.cpp:1468
+#, kde-format
+msgid "Crop Canvas to Selection"
+msgstr "Обрізати полотно до позначеного"
+
+#: src/MainWindow.cpp:1489
+#, kde-format
+msgid "Library Manager..."
+msgstr "Керування бібліотеками…"
+
+#: src/MainWindow.cpp:1525
+#, kde-format
+msgid "Regular Stitches"
+msgstr "Звичайні стібки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1533 src/MainWindow.cpp:1573 src/MainWindow.cpp:1606
+#: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
+#: ui/PatternElement.ui:168
+#, kde-format
+msgid "Black & White Symbols"
+msgstr "Чорно-білі позначки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1599 ui/EditorConfigPage.ui:314
+#: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
+#, kde-format
+msgid "Color Symbols"
+msgstr "Кольорові позначки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1547 src/MainWindow.cpp:1584 ui/EditorConfigPage.ui:319
+#: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
+#, kde-format
+msgid "Color Blocks"
+msgstr "Кольорові блоки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#: src/MainWindow.cpp:1554 src/MainWindow.cpp:1592 ui/PatternElement.ui:101
+#, kde-format
+msgid "Color Blocks & Symbols"
+msgstr "Кольорові блоки і позначки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#: src/MainWindow.cpp:1565 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#, kde-format
+msgid "Color Lines"
+msgstr "Кольорові лінії"
+
+#: src/MainWindow.cpp:1614
+#, kde-format
+msgid "Color Highlight"
+msgstr "Кольорове підсвічування"
+
+#: src/MainWindow.cpp:1620
+#, kde-format
+msgid "Show Stitches"
+msgstr "Показувати стібки"
+
+#: src/MainWindow.cpp:1626
+#, kde-format
+msgid "Show Backstitches"
+msgstr "Показувати зворотні стібки"
+
+#: src/MainWindow.cpp:1632
+#, kde-format
+msgid "Show French Knots"
+msgstr "Показувати французькі вузли"
+
+#: src/MainWindow.cpp:1638
+#, kde-format
+msgid "Show Grid"
+msgstr "Показувати сітку"
+
+#: src/MainWindow.cpp:1644
+#, kde-format
+msgid "Show Background Images"
+msgstr "Показувати зображення тла"
+
+#: src/MainWindow.cpp:1705
+#, kde-format
+msgid "Preview"
+msgstr "Перегляд"
+
+#: src/MainWindow.cpp:1727
+#, kde-format
+msgid "History"
+msgstr "Журнал"
+
+#: src/MainWindow.cpp:1735
+#, kde-format
+msgid "Imported Image"
+msgstr "Імпортоване зображення"
+
+#. i18n: ectx: property (text), widget (QPushButton, NewFloss)
+#: src/NewFlossDlg.cpp:29 ui/PaletteManager.ui:182
+#, kde-format
+msgid "New Floss"
+msgstr "Нова нитка"
+
+#: src/NewFlossDlg.cpp:84 src/PrintSetupDlg.cpp:477
+#, kde-format
+msgid "Overwrite"
+msgstr "Перезапис"
+
+#: src/NewFlossDlg.cpp:84
+#, kde-format
+msgid ""
+"The floss name %1 is already used.\n"
+"Overwrite with the description and color selected."
+msgstr ""
+"Нитку з назвою %1 вже використано.\n"
+"Вибрано перезапис з описом та кольором."
+
+#: src/Page.cpp:294
+#, kde-format
+msgid "Page version %1"
+msgstr "Версія сторінки %1"
+
+#: src/Page.cpp:335
+#, kde-format
+msgid "Invalid element type"
+msgstr "Некоректний тип елемента"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
+#: src/PagePropertiesDlg.cpp:27 ui/PageProperties.ui:14
+#, kde-format
+msgid "Page Properties"
+msgstr "Властивості сторінки"
+
+#: src/Palette.cpp:255
+#, kde-format
+msgctxt ""
+"%1 is the number of stitches of a particular floss, %2 is the floss name and "
+"%3 the floss description"
+msgid ""
+"%2 %3\n"
+"%1 Stitch"
+msgid_plural ""
+"%2 %3\n"
+"%1 Stitches"
+msgstr[0] ""
+"%2 %3\n"
+"%1 стібок"
+msgstr[1] ""
+"%2 %3\n"
+"%1 стібки"
+msgstr[2] ""
+"%2 %3\n"
+"%1 стібків"
+msgstr[3] ""
+"%2 %3\n"
+"один стібок"
+
+#: src/Palette.cpp:262
+#, kde-format
+msgid ""
+"There are no flosses in the palette.\n"
+"Add them with the Palette Manager\n"
+"which will then enable the drawing tools."
+msgstr ""
+"У палітрі немає ниток.\n"
+"Щоб увімкнути інструменти малювання, додайте\n"
+"нитки за допомогою засобу керування палітрою."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
+#: src/PaletteManagerDlg.cpp:82 ui/PaletteManager.ui:14
+#, kde-format
+msgid "Palette Manager"
+msgstr "Керування палітрою"
+
+#: src/PaletteManagerDlg.cpp:187
+#, kde-format
+msgid "There are no more symbols available."
+msgstr "Більше позначок немає."
+
+#: src/PaletteManagerDlg.cpp:233
+#, kde-format
+msgid ""
+"The selected symbol library does not have enough symbols for the flosses in "
+"the palette."
+msgstr ""
+"У вибраній бібліотеці позначок недостатньо позначок для ниток у палітрі."
+
+#: src/Pattern.cpp:296
+#, kde-format
+msgid "Pattern version %1"
+msgstr "Версія візерунка %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
+#: src/PatternElementDlg.cpp:30 ui/PatternElement.ui:14
+#, kde-format
+msgid "Pattern Element Properties"
+msgstr "Властивості елементів візерунка"
+
+#: src/PrinterConfiguration.cpp:133
+#, kde-format
+msgid "Printer configuration %1"
+msgstr "Налаштування принтера %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
+#: src/PrintSetupDlg.cpp:54 ui/PrintSetup.ui:20
+#, kde-format
+msgid "Print Setup"
+msgstr "Налаштування друку"
+
+#: src/PrintSetupDlg.cpp:322
+#, kde-format
+msgid "Properties"
+msgstr "Властивості"
+
+#: src/PrintSetupDlg.cpp:326
+#, kde-format
+msgid "Delete Element"
+msgstr "Вилучити елемент"
+
+#: src/PrintSetupDlg.cpp:465
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "Сторінка %1 з %2"
+
+#: src/PrintSetupDlg.cpp:477
+#, kde-format
+msgid "Overwrite the current configuration?"
+msgstr "Перезаписати поточні налаштування?"
+
+#: src/PrintSetupDlg.cpp:519
+#, kde-format
+msgctxt ""
+"Do not translate elements in ${...} which are substituted by properties"
+msgid ""
+"Created by ${author}\n"
+"(C) ${copyright}\n"
+"\n"
+"Pattern Size: ${width.stitches} x ${height.stitches}\n"
+"Flosses from the ${scheme} range."
+msgstr ""
+"Створено ${author}\n"
+"© ${copyright}\n"
+"\n"
+"Розміри візерунка: ${width.stitches} ⨯ ${height.stitches}\n"
+"Нитки з діапазону ${scheme}."
+
+#: src/PrintSetupDlg.cpp:525 src/PrintSetupDlg.cpp:579
+#: src/PrintSetupDlg.cpp:601
+#, kde-format
+msgctxt ""
+"Do not translate elements in ${...} which are substituted by properties"
+msgid "Page ${page}"
+msgstr "Сторінка ${page}"
+
+#: src/SchemeManager.cpp:144
+#, kde-format
+msgid ""
+"Error reading scheme %1\n"
+"%2."
+msgstr ""
+"Помилка під час спроби читання схеми %1\n"
+"%2."
+
+#: src/SchemeManager.cpp:144
+#, kde-format
+msgid "Error reading floss scheme."
+msgstr "Помилка під час спроби читання схеми ниток."
+
+#: src/SchemeManager.cpp:174 src/SchemeManager.cpp:183
+#, kde-format
+msgid ""
+"Unable to locate a writable directory\n"
+"to store the scheme."
+msgstr ""
+"Не вдалося знайти придатний до запису каталог\n"
+"для зберігання схеми."
+
+#: src/SchemeParser.cpp:46
+#, kde-format
+msgid "No error"
+msgstr "Немає помилок"
+
+#: src/SchemeParser.cpp:47
+#, kde-format
+msgid "Floss not completely defined"
+msgstr "Нитку визначено не повністю"
+
+#: src/SchemeParser.cpp:48
+#, kde-format
+msgid "Unmatched element tags"
+msgstr "Теґи елементів без лівих чи правих відповідників"
+
+#: src/SchemeParser.cpp:49
+#, kde-format
+msgid "Unknown element tag"
+msgstr "Невідомий теґ елемента"
+
+#: src/SchemeParser.cpp:50
+#, kde-format
+msgid "Color value is invalid"
+msgstr "Значення кольору є некоректним"
+
+#: src/SchemeParser.cpp:51
+#, kde-format
+msgid "Unknown error code"
+msgstr "Помилка з невідомим кодом"
+
+#: src/Stitch.cpp:72
+#, kde-format
+msgid "Stitch version %1"
+msgstr "Версія стібка %1"
+
+#: src/Stitch.cpp:341
+#, kde-format
+msgid "Stitch queue version %1"
+msgstr "Версія черги стібків %1"
+
+#: src/Stitch.cpp:428
+#, kde-format
+msgid "Backstitch version %1"
+msgstr "Версія зворотнього стібка %1"
+
+#: src/Stitch.cpp:494
+#, kde-format
+msgid "Knot version %1"
+msgstr "Версія вузла %1"
+
+#: src/StitchData.cpp:1175
+#, kde-format
+msgid "Stitch data version %1"
+msgstr "Версія даних стібка %1"
+
+#: src/StitchData.cpp:1180
+#, kde-format
+msgid "Failed reading stitch data"
+msgstr "Не вдалося прочитати дані стібків"
+
+#: src/Symbol.cpp:318
+#, kde-format
+msgid "Symbol version %1"
+msgstr "Версія позначки %1"
+
+#: src/SymbolLibrary.cpp:342
+#, kde-format
+msgid "Symbol file version %1"
+msgstr "Версія файла позначок %1"
+
+#: src/SymbolListWidget.cpp:135
+#, kde-format
+msgctxt "A symbol that has been used"
+msgid "Used"
+msgstr "Використано"
+
+#: src/SymbolManager.cpp:162
+#, kde-format
+msgid "This does not appear to be a valid symbol file"
+msgstr "Здається, цей файл не є коректним файлом позначок"
+
+#: src/SymbolManager.cpp:177
+#, kde-format
+msgid "Failed to open the file %1"
+msgstr "Не вдалося відкрити файл %1."
+
+#: src/SymbolSelectorDlg.cpp:50
+#, kde-format
+msgid "Symbol Selector"
+msgstr "Вибір позначки"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
+#: src/TextElementDlg.cpp:31 ui/TextElement.ui:14
+#, kde-format
+msgid "Text Element Properties"
+msgstr "Властивості текстового елемента"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
+#: src/TextToolDlg.cpp:28 ui/TextTool.ui:17
+#, kde-format
+msgid "Text Tool"
+msgstr "Інструмент тексту"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/CalibrateFloss.ui:20 ui/NewFloss.ui:20
+#, kde-format
+msgid "Scheme"
+msgstr "Схема"
+
+#. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
+#: ui/CalibrateFloss.ui:60
+#, kde-format
+msgid "Currently selected color"
+msgstr "Поточний вибраний колір"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/CalibrateFloss.ui:102
+#, kde-format
+msgctxt "Green value of color"
+msgid "Green"
+msgstr "Зелений"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel3)
+#: ui/CalibrateFloss.ui:112
+#, kde-format
+msgctxt "Red value of color"
+msgid "Red"
+msgstr "Червоний"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel5)
+#: ui/CalibrateFloss.ui:132
+#, kde-format
+msgctxt "Blue value of color"
+msgid "Blue"
+msgstr "Синій"
+
+#. i18n: ectx: property (text), widget (QPushButton, ResetColor)
+#: ui/CalibrateFloss.ui:158
+#, kde-format
+msgid "Reset Color"
+msgstr "Скинути колір"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
+#: ui/EditorConfigPage.ui:14
+#, kde-format
+msgid "Editor Configuration"
+msgstr "Налаштування редактора"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorGridTab)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/EditorConfigPage.ui:24 ui/PageProperties.ui:170
+#, kde-format
+msgid "Grid"
+msgstr "Сітка"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/EditorConfigPage.ui:30
+#, kde-format
+msgid "Horizontal scale height"
+msgstr "Висота горизонтальної шкали"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/EditorConfigPage.ui:47
+#, kde-format
+msgid "Vertical scale width"
+msgstr "Ширина вертикальної шкали"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/EditorConfigPage.ui:64
+#, kde-format
+msgid "Format scales as"
+msgstr "Форматування масштабів"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/EditorConfigPage.ui:90
+#, kde-format
+msgid "Thick line width"
+msgstr "Товщина товстої лінії"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/EditorConfigPage.ui:104
+#, kde-format
+msgid "Thick line color"
+msgstr "Колір товстої лінії"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/EditorConfigPage.ui:114
+#, kde-format
+msgid "Thin line width"
+msgstr "Товщина тонкої лінії"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/EditorConfigPage.ui:128
+#, kde-format
+msgid "Thin line color"
+msgstr "Колір тонкої лінії"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/EditorConfigPage.ui:138
+#, kde-format
+msgid "Horizontal cell group"
+msgstr "Горизонтальна група комірок"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/EditorConfigPage.ui:158
+#, kde-format
+msgid "Vertical cell group"
+msgstr "Вертикальна група комірок"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/EditorConfigPage.ui:178
+#, kde-format
+msgid "Minimum zoom factor"
+msgstr "Мінімальний масштаб"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: ui/EditorConfigPage.ui:198
+#, kde-format
+msgid "Maximum zoom factor"
+msgstr "Максимальний масштаб"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: ui/EditorConfigPage.ui:218
+#, kde-format
+msgid "Default zoom factor"
+msgstr "Типовий масштаб"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
+#: ui/EditorConfigPage.ui:239
+#, kde-format
+msgid "Renderer"
+msgstr "Засіб показу"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
+#: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
+#, kde-format
+msgid "Show grid"
+msgstr "Показувати сітку"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
+#: ui/EditorConfigPage.ui:252
+#, kde-format
+msgid "Show background images"
+msgstr "Показувати зображення тла"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
+#: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
+#, kde-format
+msgid "Show stitches"
+msgstr "Показувати стібки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
+#: ui/EditorConfigPage.ui:266
+#, kde-format
+msgid "Show stitch hints"
+msgstr "Показувати підказки щодо стібків"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
+#: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
+#, kde-format
+msgid "Show backstitches"
+msgstr "Показувати зворотні стібки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
+#: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
+#, kde-format
+msgid "Show knots"
+msgstr "Показувати вузли"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
+#: ui/EditorConfigPage.ui:287
+#, kde-format
+msgid "Color highlight"
+msgstr "Кольорове підсвічування"
+
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: ui/EditorConfigPage.ui:296
+#, kde-format
+msgid "Render stitches as"
+msgstr "Показувати стібки як"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:309 ui/EditorConfigPage.ui:376
+#, kde-format
+msgid "Black and White Symbols"
+msgstr "Чорно-білі позначки"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:324 ui/EditorConfigPage.ui:366
+#, kde-format
+msgid "Color Blocks and Symbols"
+msgstr "Кольорові блоки і позначки"
+
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/EditorConfigPage.ui:332
+#, kde-format
+msgid "Render backstitches as"
+msgstr "Показувати зворотні стібки як"
+
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/EditorConfigPage.ui:353
+#, kde-format
+msgid "Render knots as"
+msgstr "Показувати вузли як"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
+#: ui/EditorConfigPage.ui:387
+#, kde-format
+msgid "Tools"
+msgstr "Інструменти"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
+#: ui/EditorConfigPage.ui:396
+#, kde-format
+msgid "Tool Fractionals"
+msgstr "Інструмент частинних стібків"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
+#: ui/EditorConfigPage.ui:403
+#, kde-format
+msgid "Mirror / Rotate makes copies"
+msgstr "Віддзеркалення і обертання створюють копії"
+
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/EditorConfigPage.ui:412
+#, kde-format
+msgid "Text tool font"
+msgstr "Шрифт інструмента тексту"
+
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/EditorConfigPage.ui:422
+#, kde-format
+msgid "Font size"
+msgstr "Розмір шрифту"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/FileProperties.ui:41 ui/ImportImage.ui:48
+#: ui/LibraryPatternProperties.ui:41 ui/PaletteConfigPage.ui:26
+#, kde-format
+msgid "Floss scheme"
+msgstr "Схема ниток"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
+#: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
+#, kde-format
+msgid "Pattern Size"
+msgstr "Розмір візерунка"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:74 ui/PatternConfigPage.ui:32
+#: ui/PatternConfigPage.ui:127
+#, kde-format
+msgid "Units"
+msgstr "Одиниці"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:100 ui/LibraryPatternProperties.ui:55
+#: ui/PatternConfigPage.ui:39
+#, kde-format
+msgid "Width"
+msgstr "Ширина"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/FileProperties.ui:123 ui/LibraryPatternProperties.ui:69
+#: ui/PatternConfigPage.ui:62
+#, kde-format
+msgid "Height"
+msgstr "Висота"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
+#, kde-format
+msgid "Cloth Count"
+msgstr "Щільність основи"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
+#, kde-format
+msgctxt "Horizontal cloth count value"
+msgid "Horizontal"
+msgstr "Горизонтальна"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
+#, kde-format
+msgctxt "Vertical cloth count value"
+msgid "Vertical"
+msgstr "Вертикальна"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/FileProperties.ui:279
+#, kde-format
+msgctxt "The document title"
+msgid "Title"
+msgstr "Заголовок"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/FileProperties.ui:292
+#, kde-format
+msgid "Author"
+msgstr "Автор"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/FileProperties.ui:305
+#, kde-format
+msgid "Copyright"
+msgstr "Авторські права"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/FileProperties.ui:318
+#, kde-format
+msgid "Fabric"
+msgstr "Тканина"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/FileProperties.ui:338
+#, kde-format
+msgid "Instructions"
+msgstr "Настанови"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#: ui/ImageElement.ui:32 ui/PatternElement.ui:32
+#, kde-format
+msgid ""
+"<html><head/><body>Click and drag to select the area of the pattern to be "
+"displayed.<br />Grayed out areas have already been selected on this or other "
+"pages.</body></html>"
+msgstr ""
+"<html><head/><body>Затисніть ліву кнопку миші і перетягніть вказівник, щоб "
+"позначити на візерунку область, яку буде показано.<br />Сірим позначено "
+"області, які вже було позначено на цій або інших сторінках.</body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:616
+#: ui/PrinterConfigPage.ui:786 ui/TextElement.ui:158
+#, kde-format
+msgid "Border"
+msgstr "Рамка"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:622
+#: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
+#, kde-format
+msgid "Show border"
+msgstr "Показувати рамку"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImageElement.ui:74 ui/KeyElement.ui:183 ui/KeyElement.ui:255
+#: ui/TextElement.ui:174 ui/TextElement.ui:245
+#, kde-format
+msgctxt "Label for color value"
+msgid "Color"
+msgstr "Колір"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImageElement.ui:88 ui/KeyElement.ui:197 ui/TextElement.ui:191
+#, kde-format
+msgid "Line thickness"
+msgstr "Товщина ліній"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
+#: ui/ImageElement.ui:101 ui/KeyElement.ui:55 ui/KeyElement.ui:84
+#: ui/KeyElement.ui:113 ui/KeyElement.ui:142 ui/KeyElement.ui:213
+#: ui/PageProperties.ui:45 ui/PageProperties.ui:77 ui/PageProperties.ui:109
+#: ui/PageProperties.ui:141 ui/PageProperties.ui:205
+#: ui/PrinterConfigPage.ui:252 ui/PrinterConfigPage.ui:272
+#: ui/PrinterConfigPage.ui:292 ui/PrinterConfigPage.ui:312
+#: ui/PrinterConfigPage.ui:365 ui/PrinterConfigPage.ui:385
+#: ui/PrinterConfigPage.ui:405 ui/PrinterConfigPage.ui:425
+#: ui/PrinterConfigPage.ui:661 ui/PrinterConfigPage.ui:694
+#: ui/PrinterConfigPage.ui:714 ui/PrinterConfigPage.ui:734
+#: ui/PrinterConfigPage.ui:754 ui/PrinterConfigPage.ui:831
+#: ui/PrinterConfigPage.ui:917 ui/PrinterConfigPage.ui:937
+#: ui/PrinterConfigPage.ui:957 ui/PrinterConfigPage.ui:977 ui/TextElement.ui:45
+#: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
+#: ui/TextElement.ui:204
+#, kde-format
+msgid "mm"
+msgstr "мм"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
+#: ui/ImportConfigPage.ui:14
+#, kde-format
+msgid "Import Configuration"
+msgstr "Імпортування налаштувань"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
+#: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
+#, kde-format
+msgid "Maximum colors"
+msgstr "Максимальна кількість кольорів"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
+#: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
+#, kde-format
+msgid "Use fractionals"
+msgstr "Використовувати частинні стібки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
+#: ui/ImportImage.ui:118
+#, kde-format
+msgid "Ignore color"
+msgstr "Ігнорувати колір"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
+#: ui/ImportImage.ui:165
+#, kde-format
+msgid "Set as default"
+msgstr "Зробити типовим"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/ImportImage.ui:185 ui/TextTool.ui:38
+#, kde-format
+msgid "Size"
+msgstr "Розмір"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/ImportImage.ui:191
+#, kde-format
+msgid "Horizontal cloth count"
+msgstr "Горизонтальна щільність основи"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImportImage.ui:254
+#, kde-format
+msgid "Vertical cloth count"
+msgstr "Вертикальна щільність основи"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/ImportImage.ui:283
+#, kde-format
+msgid "Pattern scale"
+msgstr "Масштаб візерунка"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
+#: ui/ImportImage.ui:302
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImportImage.ui:315
+#, kde-format
+msgid "Pattern size"
+msgstr "Розміри візерунка"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
+#: ui/ImportImage.ui:339
+#, kde-format
+msgid "Crop image"
+msgstr "Обрізати зображення"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
+#. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
+#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:780
+#, kde-format
+msgid "Key Element"
+msgstr "Елемент позначення"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:231
+#: ui/PrinterConfigPage.ui:344 ui/PrinterConfigPage.ui:673
+#: ui/PrinterConfigPage.ui:896 ui/TextElement.ui:20
+#, kde-format
+msgid "Margins"
+msgstr "Поля"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/KeyElement.ui:49 ui/PageProperties.ui:39
+#, kde-format
+msgid "Top margin in mm"
+msgstr "Верхнє поле у мм"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/KeyElement.ui:78 ui/PageProperties.ui:71
+#, kde-format
+msgid "Left margin in mm"
+msgstr "Ліве поле у мм"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/KeyElement.ui:107 ui/PageProperties.ui:103
+#, kde-format
+msgid "Right margin in mm"
+msgstr "Праве поле у мм"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/KeyElement.ui:136 ui/PageProperties.ui:135
+#, kde-format
+msgid "Bottom margin in mm"
+msgstr "Нижнє поле у мм"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/KeyElement.ui:240 ui/TextElement.ui:229
+#, kde-format
+msgctxt "Groupbox title for background properties"
+msgid "Background"
+msgstr "Тло"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
+#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:606 ui/PrinterConfigPage.ui:849
+#: ui/TextElement.ui:238
+#, kde-format
+msgid "Fill background"
+msgstr "Заповнити тло"
+
+#. i18n: ectx: property (text), widget (QLabel, label_22)
+#. i18n: ectx: property (text), widget (QLabel, label_26)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:586 ui/PrinterConfigPage.ui:873
+#: ui/TextElement.ui:262
+#, kde-format
+msgid "Transparency"
+msgstr "Прозорість"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ElementContentTab)
+#: ui/KeyElement.ui:295
+#, kde-format
+msgid "Element Content"
+msgstr "Вміст елемента"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/KeyElement.ui:301 ui/TextTool.ui:25
+#, kde-format
+msgid "Font"
+msgstr "Шрифт"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#: ui/KeyElement.ui:313
+#, kde-format
+msgid "Key Elements"
+msgstr "Елементи позначення"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/KeyElement.ui:321
+#, kde-format
+msgid "First element"
+msgstr "Перший елемент"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
+#: ui/KeyElement.ui:328
+#, kde-format
+msgid "The first line of the key to display"
+msgstr "Перший рядок позначення, який слід показувати"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/KeyElement.ui:341
+#, kde-format
+msgid "No. elements"
+msgstr "Кількість елементів"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
+#: ui/KeyElement.ui:348
+#, kde-format
+msgid "The number of key elements to display (0 for all)"
+msgstr "Кількість елементів позначення для показу (від 0 до усіх)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/KeyElement.ui:369
+#, kde-format
+msgid "Columns"
+msgstr "Стовпчики"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumnColor)
+#: ui/KeyElement.ui:387
+#, kde-format
+msgid "Color"
+msgstr "Колір"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:1005
+#, kde-format
+msgid "Floss name"
+msgstr "Назва нитки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
+#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:1015
+#, kde-format
+msgid "Floss description"
+msgstr "Опис нитки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
+#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:1039
+#, kde-format
+msgid "Length"
+msgstr "Довжина"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
+#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:1046
+#, kde-format
+msgid "Skeins"
+msgstr "Мотки"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
+#: ui/LibraryConfigPage.ui:14
+#, kde-format
+msgid "Library Configuration"
+msgstr "Налаштування бібліотек"
+
+#. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/LibraryConfigPage.ui:24 ui/LibraryManager.ui:37
+#, kde-format
+msgid "Libraries"
+msgstr "Бібліотеки"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/LibraryConfigPage.ui:30
+#, kde-format
+msgid "Icon default size"
+msgstr "Типовий розмір піктограми"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/LibraryConfigPage.ui:41
+#, kde-format
+msgid "Alphabets"
+msgstr "Абетки"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
+#: ui/LibraryConfigPage.ui:47
+#, kde-format
+msgid "Use caps lock"
+msgstr "Використовувати Caps Lock"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
+#: ui/LibraryConfigPage.ui:54
+#, kde-format
+msgid "Word wrap"
+msgstr "Перенесення слів"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/LibraryConfigPage.ui:63
+#, kde-format
+msgid "Default space width"
+msgstr "Типова ширина простору"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/LibraryConfigPage.ui:73
+#, kde-format
+msgid "Line spacing"
+msgstr "Інтервал між рядками"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/LibraryConfigPage.ui:83
+#, kde-format
+msgid "Extend pattern width"
+msgstr "Збільшити ширину візерунка"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryConfigPage.ui:93
+#, kde-format
+msgid "Extend pattern height"
+msgstr "Збільшити висоту візерунка"
+
+#. i18n: ectx: property (text), widget (QLabel, CatagoryName)
+#: ui/LibraryFilePaths.ui:23
+#, kde-format
+msgid "Paths"
+msgstr "Шляхи"
+
+#. i18n: ectx: property (toolTip), widget (QSlider, IconSizeSlider)
+#: ui/LibraryManager.ui:91
+#, kde-format
+msgid "Icon size"
+msgstr "Розмір піктограм"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryPatternProperties.ui:83
+#, kde-format
+msgid "Baseline"
+msgstr "Базова лінія"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/LibraryPatternProperties.ui:100
+#, kde-format
+msgid "Associated character"
+msgstr "Пов’язані клавіші"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
+#: ui/NewFloss.ui:14
+#, kde-format
+msgid "Create New Floss"
+msgstr "Створення запису нової нитки"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/NewFloss.ui:57
+#, kde-format
+msgctxt "Color chooser"
+msgid "Color"
+msgstr "Колір"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PageProperties.ui:192
+#, kde-format
+msgctxt "The horizontal axis"
+msgid "Size"
+msgstr "Розмір"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
+#: ui/PageProperties.ui:202
+#, kde-format
+msgid "Grid X spacing in mm"
+msgstr "Інтервал сітки за X у мм"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteConfigPage)
+#: ui/PaletteConfigPage.ui:14
+#, kde-format
+msgid "Palette Configuration"
+msgstr "Налаштування палітри"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
+#: ui/PaletteConfigPage.ui:43
+#, kde-format
+msgid "Show symbols"
+msgstr "Показувати позначки"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteConfigPage.ui:50
+#, kde-format
+msgid "Symbol library"
+msgstr "Бібліотека позначок"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteConfigPage.ui:60
+#, kde-format
+msgid "Default stitch strands"
+msgstr "Типова кількість волокон стібка"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteConfigPage.ui:67
+#, kde-format
+msgid "Default backstitch strands"
+msgstr "Типова кількість волокон зворотного стібка"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteManager.ui:22
+#, kde-format
+msgid "Current palette"
+msgstr "Поточна палітра"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteManager.ui:80
+#, kde-format
+msgid "Current scheme"
+msgstr "Поточна схема"
+
+#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
+#: ui/PaletteManager.ui:87
+#, kde-format
+msgid "TextLabel"
+msgstr "Текстова  мітка"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/PaletteManager.ui:99
+#, kde-format
+msgid "Symbol Library"
+msgstr "Бібліотека позначок"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteManager.ui:109
+#, kde-format
+msgid "Stitch strands"
+msgstr "Волокна стібка"
+
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: ui/PaletteManager.ui:196
+#, kde-format
+msgid "Calibrate Flosses"
+msgstr "Калібрувати нитки"
+
+#. i18n: ectx: property (text), widget (QPushButton, PickColor)
+#: ui/PaletteManager.ui:203
+#, kde-format
+msgid "Pick Color"
+msgstr "Вибрати колір"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PaletteManager.ui:212
+#, kde-format
+msgid "Backstitch strands"
+msgstr "Волокна зворотного стібка"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:264
+#, kde-format
+msgctxt "A solid line"
+msgid "Solid"
+msgstr "Суцільна"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:269
+#, kde-format
+msgctxt "A dashed line"
+msgid "Dashed"
+msgstr "Штрихова"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:274
+#, kde-format
+msgctxt "A dotted line"
+msgid "Dotted"
+msgstr "Пунктирна"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:279
+#, kde-format
+msgid "Dash Dotted"
+msgstr "Штрих-пунктирна"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:284
+#, kde-format
+msgid "Dash Dash Dotted"
+msgstr "Штрих-штрих-пунктирна"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
+#: ui/PatternConfigPage.ui:14
+#, kde-format
+msgid "Pattern Configuration"
+msgstr "Налаштування візерунка"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PatternElement.ui:70 ui/PatternElement.ui:116 ui/PatternElement.ui:147
+#: ui/PatternElement.ui:189
+#, kde-format
+msgid "As"
+msgstr "Як"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:179
+#, kde-format
+msgid "Not currently implemented"
+msgstr "Не реалізовано у поточній версії"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:182
+#, kde-format
+msgid "Show scales"
+msgstr "Показувати шкали"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
+#: ui/PatternElement.ui:225
+#, kde-format
+msgid "Show map"
+msgstr "Показувати карту"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/PrinterConfigPage.ui:24 ui/PrintSetup.ui:49
+#, kde-format
+msgid "Pages"
+msgstr "Сторінки"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PrinterConfigPage.ui:32
+#, kde-format
+msgid "Default paper size"
+msgstr "Типовий розмір сторінки"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, PaperSize)
+#. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
+#, kde-format
+msgid "Select a paper size"
+msgstr "Виберіть розмір паперу"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:49 ui/PrintSetup.ui:214
+#, kde-format
+msgctxt "Paper size"
+msgid "A0"
+msgstr "A0"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:54 ui/PrintSetup.ui:219
+#, kde-format
+msgctxt "Paper size"
+msgid "A1"
+msgstr "A1"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:59 ui/PrintSetup.ui:224
+#, kde-format
+msgctxt "Paper size"
+msgid "A2"
+msgstr "A2"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:64 ui/PrintSetup.ui:229
+#, kde-format
+msgctxt "Paper size"
+msgid "A3"
+msgstr "A3"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:234
+#, kde-format
+msgctxt "Paper size"
+msgid "A4"
+msgstr "A4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:74 ui/PrintSetup.ui:239
+#, kde-format
+msgctxt "Paper size"
+msgid "A5"
+msgstr "A5"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:79 ui/PrintSetup.ui:244
+#, kde-format
+msgctxt "Paper size"
+msgid "A6"
+msgstr "A6"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:84 ui/PrintSetup.ui:249
+#, kde-format
+msgctxt "Paper size"
+msgid "A7"
+msgstr "A7"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:89 ui/PrintSetup.ui:254
+#, kde-format
+msgctxt "Paper size"
+msgid "A8"
+msgstr "A8"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:94 ui/PrintSetup.ui:259
+#, kde-format
+msgctxt "Paper size"
+msgid "A9"
+msgstr "A9"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:99 ui/PrintSetup.ui:264
+#, kde-format
+msgctxt "Paper size"
+msgid "B0"
+msgstr "B0"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:104 ui/PrintSetup.ui:269
+#, kde-format
+msgctxt "Paper size"
+msgid "B1"
+msgstr "B1"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:109 ui/PrintSetup.ui:274
+#, kde-format
+msgctxt "Paper size"
+msgid "B2"
+msgstr "B2"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:114 ui/PrintSetup.ui:279
+#, kde-format
+msgctxt "Paper size"
+msgid "B3"
+msgstr "B3"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:119 ui/PrintSetup.ui:284
+#, kde-format
+msgctxt "Paper size"
+msgid "B4"
+msgstr "B4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:124 ui/PrintSetup.ui:289
+#, kde-format
+msgctxt "Paper size"
+msgid "B5"
+msgstr "B5"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:129 ui/PrintSetup.ui:294
+#, kde-format
+msgctxt "Paper size"
+msgid "B6"
+msgstr "B6"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:134 ui/PrintSetup.ui:299
+#, kde-format
+msgctxt "Paper size"
+msgid "B7"
+msgstr "B7"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:139 ui/PrintSetup.ui:304
+#, kde-format
+msgctxt "Paper size"
+msgid "B8"
+msgstr "B8"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:144 ui/PrintSetup.ui:309
+#, kde-format
+msgctxt "Paper size"
+msgid "B9"
+msgstr "B9"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:149 ui/PrintSetup.ui:314
+#, kde-format
+msgctxt "Paper size"
+msgid "B10"
+msgstr "B10"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:154 ui/PrintSetup.ui:319
+#, kde-format
+msgctxt "Paper size"
+msgid "C5E"
+msgstr "C5E"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:159 ui/PrintSetup.ui:324
+#, kde-format
+msgctxt "Paper size"
+msgid "Comm10E"
+msgstr "Comm10E"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:164 ui/PrintSetup.ui:329
+#, kde-format
+msgctxt "Paper size"
+msgid "DLE"
+msgstr "DLE"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:169 ui/PrintSetup.ui:334
+#, kde-format
+msgctxt "Paper size"
+msgid "Executive"
+msgstr "Екзек’ютів"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:174 ui/PrintSetup.ui:339
+#, kde-format
+msgctxt "Paper size"
+msgid "Folio"
+msgstr "Фоліо"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:179 ui/PrintSetup.ui:344
+#, kde-format
+msgctxt "Paper size"
+msgid "Ledger"
+msgstr "Ledger"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:184 ui/PrintSetup.ui:349
+#, kde-format
+msgctxt "Paper size"
+msgid "Legal"
+msgstr "Леґал"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:189 ui/PrintSetup.ui:354
+#, kde-format
+msgctxt "Paper size"
+msgid "Letter"
+msgstr "Лист"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:194 ui/PrintSetup.ui:359
+#, kde-format
+msgctxt "Paper size"
+msgid "Tabloid"
+msgstr "Таблоїд"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
+#: ui/PrinterConfigPage.ui:206 ui/PrintSetup.ui:377
+#, kde-format
+msgid "Portrait"
+msgstr "Книжкова"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
+#: ui/PrinterConfigPage.ui:219 ui/PrintSetup.ui:382
+#, kde-format
+msgid "Landscape"
+msgstr "Альбомна"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/PrinterConfigPage.ui:239 ui/PrinterConfigPage.ui:352
+#: ui/PrinterConfigPage.ui:681 ui/PrinterConfigPage.ui:904
+#, kde-format
+msgctxt "Left margin"
+msgid "Left"
+msgstr "Ліворуч"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/PrinterConfigPage.ui:259 ui/PrinterConfigPage.ui:372
+#: ui/PrinterConfigPage.ui:701 ui/PrinterConfigPage.ui:924
+#, kde-format
+msgctxt "Right margin"
+msgid "Right"
+msgstr "Праворуч"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/PrinterConfigPage.ui:279 ui/PrinterConfigPage.ui:392
+#: ui/PrinterConfigPage.ui:721 ui/PrinterConfigPage.ui:944
+#, kde-format
+msgctxt "Top margin"
+msgid "Top"
+msgstr "Вгорі"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/PrinterConfigPage.ui:299 ui/PrinterConfigPage.ui:412
+#: ui/PrinterConfigPage.ui:741 ui/PrinterConfigPage.ui:964
+#, kde-format
+msgctxt "Bottom margin"
+msgid "Bottom"
+msgstr "Внизу"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/PrinterConfigPage.ui:338
+#, kde-format
+msgid "Pattern Element"
+msgstr "Елемент візерунка"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
+#: ui/PrinterConfigPage.ui:437
+#, kde-format
+msgid "Cells"
+msgstr "Комірки"
+
+#. i18n: ectx: property (text), widget (QLabel, label_27)
+#: ui/PrinterConfigPage.ui:445
+#, kde-format
+msgid "Minimum cell size (mm)"
+msgstr "Мінімальний розмір комірки (у мм)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_28)
+#: ui/PrinterConfigPage.ui:458
+#, kde-format
+msgid "Minimum overflow"
+msgstr "Переповнення мінімального значення"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
+#: ui/PrinterConfigPage.ui:476
+#, kde-format
+msgid "Selections"
+msgstr "Позначення"
+
+#. i18n: ectx: property (text), widget (QLabel, label_29)
+#: ui/PrinterConfigPage.ui:482
+#, kde-format
+msgid "Selected area color"
+msgstr "Колір позначеної області"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: ui/PrinterConfigPage.ui:528
+#, kde-format
+msgid "Text Element"
+msgstr "Текстовий елемент"
+
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
+#: ui/PrinterConfigPage.ui:540 ui/TextElement.ui:463
+#, kde-format
+msgid "Text color"
+msgstr "Колір тексту"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
+#: ui/PrinterConfigPage.ui:560 ui/PrinterConfigPage.ui:843
+#, kde-format
+msgctxt "Fill the background"
+msgid "Background"
+msgstr "Тло"
+
+#. i18n: ectx: property (text), widget (QLabel, label_20)
+#. i18n: ectx: property (text), widget (QLabel, label_25)
+#: ui/PrinterConfigPage.ui:569 ui/PrinterConfigPage.ui:856
+#, kde-format
+msgctxt "Background color"
+msgid "Color"
+msgstr "Колір"
+
+#. i18n: ectx: property (text), widget (QLabel, label_18)
+#. i18n: ectx: property (text), widget (QLabel, label_23)
+#: ui/PrinterConfigPage.ui:631 ui/PrinterConfigPage.ui:801
+#, kde-format
+msgctxt "Border color"
+msgid "Color"
+msgstr "Колір"
+
+#. i18n: ectx: property (text), widget (QLabel, label_19)
+#. i18n: ectx: property (text), widget (QLabel, label_24)
+#: ui/PrinterConfigPage.ui:648 ui/PrinterConfigPage.ui:818
+#, kde-format
+msgid "Thickness"
+msgstr "Товщина"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
+#: ui/PrinterConfigPage.ui:989
+#, kde-format
+msgid "Elements"
+msgstr "Елементи"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
+#: ui/PrinterConfigPage.ui:995
+#, kde-format
+msgid "Symbols"
+msgstr "Позначки"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
+#: ui/PrintSetup.ui:68
+#, kde-format
+msgid "Create a default layout"
+msgstr "Створити типове компонування"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
+#: ui/PrintSetup.ui:107
+#, kde-format
+msgid "Append a page"
+msgstr "Додати сторінку"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
+#: ui/PrintSetup.ui:149
+#, kde-format
+msgid "Insert a page before the selected page"
+msgstr "Вставити сторінку перед позначеною сторінкою"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
+#: ui/PrintSetup.ui:188
+#, kde-format
+msgid "Delete the selected page"
+msgstr "Вилучити позначену сторінку"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
+#: ui/PrintSetup.ui:373
+#, kde-format
+msgid "Select the paper orientation"
+msgstr "Виберіть орієнтацію паперу"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
+#: ui/PrintSetup.ui:396
+#, kde-format
+msgid "Zoom factor"
+msgstr "Масштаб"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
+#: ui/PrintSetup.ui:456
+#, kde-format
+msgid "Select an element"
+msgstr "Вибрати елемент"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
+#: ui/PrintSetup.ui:478
+#, kde-format
+msgid "Insert a text element"
+msgstr "Вставити текстовий елемент"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
+#: ui/PrintSetup.ui:503
+#, kde-format
+msgid "Insert a pattern element"
+msgstr "Вставити елемент візерунка"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
+#: ui/PrintSetup.ui:525
+#, kde-format
+msgid "Insert a picture element"
+msgstr "Вставити елемент малюнка"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
+#: ui/PrintSetup.ui:535
+#, kde-format
+msgid "Insert a key element"
+msgstr "Вставити елемент позначення"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
+#: ui/PrintSetup.ui:606
+#, kde-format
+msgid "Page list"
+msgstr "Список сторінок"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
+#: ui/PrintSetup.ui:634
+#, kde-format
+msgid "Page preview"
+msgstr "Попередній перегляд сторінки"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
+#: ui/SymbolSelector.ui:14
+#, kde-format
+msgid "Symbol Selection"
+msgstr "Вибір позначки"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/TextElement.ui:39
+#, kde-format
+msgid "Top margin in mm, internal to the border."
+msgstr "Верхнє поле у мм, внутрішнє щодо рамки."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/TextElement.ui:68
+#, kde-format
+msgid "Left margin in mm, internal to the border."
+msgstr "Ліве поле у мм, внутрішнє щодо рамки."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/TextElement.ui:97
+#, kde-format
+msgid "Right margin in mm, internal to the border."
+msgstr "Праве поле у мм, внутрішнє щодо рамки."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/TextElement.ui:126
+#, kde-format
+msgid "Bottom margin in mm, internal to the border."
+msgstr "Нижнє поле у мм, внутрішнє щодо рамки."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
+#: ui/TextElement.ui:164
+#, kde-format
+msgid "Show border around the text box"
+msgstr "Показувати рамку навколо панелі з текстом"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
+#: ui/TextElement.ui:235
+#, kde-format
+msgid "Fill the background with a color"
+msgstr "Заповнити тло кольором"
+
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
+#: ui/TextElement.ui:255
+#, kde-format
+msgid "Background color"
+msgstr "Колір тла"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
+#: ui/TextElement.ui:272
+#, kde-format
+msgid "Transparency of the text box"
+msgstr "Прозорість панелі з текстом"
+
+#. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
+#: ui/TextElement.ui:288
+#, kde-format
+msgid "Text font family"
+msgstr "Гарнітура шрифту тексту"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
+#: ui/TextElement.ui:301
+#, kde-format
+msgid "Text point size"
+msgstr "Розмір тексту у пунктах"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
+#: ui/TextElement.ui:330
+#, kde-format
+msgid "Bold text"
+msgstr "Написати текст напівжирним"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
+#: ui/TextElement.ui:349
+#, kde-format
+msgid "Italics text"
+msgstr "Написати текст курсивом"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
+#: ui/TextElement.ui:368
+#, kde-format
+msgid "Underline text"
+msgstr "Підкреслити текст"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
+#: ui/TextElement.ui:387
+#, kde-format
+msgid "Align left"
+msgstr "Вирівняти ліворуч"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
+#: ui/TextElement.ui:406
+#, kde-format
+msgid "Align centrally"
+msgstr "Вирівняти за центром"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
+#: ui/TextElement.ui:425
+#, kde-format
+msgid "Align right"
+msgstr "Вирівняти праворуч"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
+#: ui/TextElement.ui:444
+#, kde-format
+msgid "Align justified"
+msgstr "Вирівняти за шириною"
+
+#~ msgid "KXStitch"
+#~ msgstr "KXStitch"
+
+#~ msgid "Stephen Allewell"
+#~ msgstr "Stephen Allewell"
+
+#~ msgid "Pierre Brua"
+#~ msgstr "Pierre Brua"
+
+#~ msgid "Eric Pareja"
+#~ msgstr "Eric Pareja"
+
+#~ msgid "Adam Gundy"
+#~ msgstr "Adam Gundy"
+
+#~ msgid "There was a checksum error in %1."
+#~ msgstr "Помилка у контрольній сумі %1."
+
+#~ msgid "Checksum Error"
+#~ msgstr "Помилка у контрольній сумі"
+
+#~ msgid "Copy"
+#~ msgstr "Копіювати"
+
+#~ msgid "Color Hilight"
+#~ msgstr "Кольорове підсвічування"
+
+#~ msgid "..."
+#~ msgstr "…"
+
+#~ msgid "No colors in palette"
+#~ msgstr "У палітрі немає кольорів"
+
+#, fuzzy
+#~ msgid "Green"
+#~ msgstr "Зелений"
+
+#, fuzzy
+#~ msgid "Red"
+#~ msgstr "Червоний"
+
+#, fuzzy
+#~ msgid "Blue"
+#~ msgstr "Синій"
+
+#, fuzzy
+#~ msgid "Horizontal"
+#~ msgstr "Горизонтальна"
+
+#, fuzzy
+#~ msgid "Vertical"
+#~ msgstr "Вертикальна"
+
+#, fuzzy
+#~ msgid "Title"
+#~ msgstr "Заголовок"
+
+#, fuzzy
+#~ msgid "Background"
+#~ msgstr "Тло"
+
+#, fuzzy
+#~ msgid "Solid"
+#~ msgstr "Суцільна"
+
+#, fuzzy
+#~ msgid "Dashed"
+#~ msgstr "Штрихова"
+
+#, fuzzy
+#~ msgid "Dotted"
+#~ msgstr "Пунктирна"
+
+#, fuzzy
+#~ msgid "A0"
+#~ msgstr "A0"
+
+#, fuzzy
+#~ msgid "A1"
+#~ msgstr "A1"
+
+#, fuzzy
+#~ msgid "A2"
+#~ msgstr "A2"
+
+#, fuzzy
+#~ msgid "A3"
+#~ msgstr "A3"
+
+#, fuzzy
+#~ msgid "A4"
+#~ msgstr "A4"
+
+#, fuzzy
+#~ msgid "A5"
+#~ msgstr "A5"
+
+#, fuzzy
+#~ msgid "A6"
+#~ msgstr "A6"
+
+#, fuzzy
+#~ msgid "A7"
+#~ msgstr "A7"
+
+#, fuzzy
+#~ msgid "A8"
+#~ msgstr "A8"
+
+#, fuzzy
+#~ msgid "A9"
+#~ msgstr "A9"
+
+#, fuzzy
+#~ msgid "B0"
+#~ msgstr "B0"
+
+#, fuzzy
+#~ msgid "B1"
+#~ msgstr "B1"
+
+#, fuzzy
+#~ msgid "B2"
+#~ msgstr "B2"
+
+#, fuzzy
+#~ msgid "B3"
+#~ msgstr "B3"
+
+#, fuzzy
+#~ msgid "B4"
+#~ msgstr "B4"
+
+#, fuzzy
+#~ msgid "B5"
+#~ msgstr "B5"
+
+#, fuzzy
+#~ msgid "B6"
+#~ msgstr "B6"
+
+#, fuzzy
+#~ msgid "B7"
+#~ msgstr "B7"
+
+#, fuzzy
+#~ msgid "B8"
+#~ msgstr "B8"
+
+#, fuzzy
+#~ msgid "B9"
+#~ msgstr "B9"
+
+#, fuzzy
+#~ msgid "B10"
+#~ msgstr "B10"
+
+#, fuzzy
+#~ msgid "C5E"
+#~ msgstr "C5E"
+
+#, fuzzy
+#~ msgid "Comm10E"
+#~ msgstr "Comm10E"
+
+#, fuzzy
+#~ msgid "DLE"
+#~ msgstr "DLE"
+
+#, fuzzy
+#~ msgid "Executive"
+#~ msgstr "Екзек’ютів"
+
+#, fuzzy
+#~ msgid "Folio"
+#~ msgstr "Фоліо"
+
+#, fuzzy
+#~ msgid "Ledger"
+#~ msgstr "Ledger"
+
+#, fuzzy
+#~ msgid "Legal"
+#~ msgstr "Леґал"
+
+#, fuzzy
+#~ msgid "Letter"
+#~ msgstr "Лист"
+
+#, fuzzy
+#~ msgid "Tabloid"
+#~ msgstr "Таблоїд"
+
+#, fuzzy
+#~ msgid "Left"
+#~ msgstr "Ліворуч"
+
+#, fuzzy
+#~ msgid "Right"
+#~ msgstr "Праворуч"
+
+#, fuzzy
+#~ msgid "Top"
+#~ msgstr "Вгорі"
+
+#, fuzzy
+#~ msgid "Bottom"
+#~ msgstr "Внизу"

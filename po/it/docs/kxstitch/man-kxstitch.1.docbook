@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Italian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuale utente di KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Prima versione della pagina di manuale di KXStitch per il progetto Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Pagina di manuale aggiornata.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29/6/2016</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>Creatore ed editor di modelli di punto croce di &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>file</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrizione</title>
+<para
+>KXStitch è un programma che ti permette di creare modelli e grafici a punto croce Puoi creare i modelli da zero, su una griglia di cui puoi definire la grandezza: puoi ingrandirla o ridurla man mano che sviluppi il modello. In alternativa, è possibile importare immagini da molti formati; questo ti permette di ridurre il numero dei colori, e di restringere la conversione a punto pieno oppure anche a mezzo punto. Puoi anche usare delle immagini come sfondo, disegnandoci sopra. Queste immagini possono poi essere modificate con gli strumenti del programma per produrre il disegno finale.</para>
+
+<para
+>Ci sono molti strumenti destinati ad aiutare la progettazione del proprio modello, da rettangoli ed ellissi aperti e pieni, poligoni e linee pieni e impunture. Inoltre, è possibile utilizzare taglia, copia e incolla per duplicare le aree selezionate. Le aree selezionate possono anche essere ruotate di 90, 180 e 270 gradi in senso antiorario o specchiate in orizzontale o in verticale.</para>
+
+<para
+>Esiste anche una libreria di modelli che può essere utilizzata per memorizzare porzioni piccole e non così piccole di modelli che possono essere riutilizzate in altri modelli. I modelli in queste librerie sono memorizzati in un elenco gerarchico che semplifica l'ordinamento e la navigazione per trovare quelli desiderati. Queste librerie di modelli possono anche essere utilizzate come alfabeti assegnando un carattere a ciascuna. Utilizzando lo strumento Alfabeto, ogni tasto premuto viene cercato nella libreria attuale e, se presente, il modello di libreria associato sarà inserito nel modello.</para>
+
+<para
+>Quando sei pronto, puoi stampare il tuo design in diversi formati. Ci sono opzioni per stampare le copertine, le istruzioni e una farfalla del filo, compresa la quantità di filo utilizzato e il numero di punti.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Argomenti</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>file</replaceable
+></term>
+<listitem>
+<para
+>Documento di punto croce da aprire.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vedi anche</title>
+<simplelist>
+<member
+>Documentazione utente più dettagliata è disponibile tramite <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (digitando questo <acronym
+>URL</acronym
+> in &konqueror;, o eseguendo <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Ulteriori informazioni sono disponibili nella <ulink url="http://userbase.kde.org/KXStitch"
+>pagina principale di KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Autori</title>
+<para
+>KXStitch è stato scritto da <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

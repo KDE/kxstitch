@@ -1,0 +1,40 @@
+<chapter id="credits">
+    <title
+>Riconoscimenti e licenza</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Copyright del programma 2002-2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Collaboratori: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: correzione di bug, icone dell'applicazione</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: pagina di manuale</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: correzione di bug, miglioramenti</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Copyright della documentazione 2015 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+    <para
+>Traduzione italiana di Vincenzo Reale <email
+>smart2128vr@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>

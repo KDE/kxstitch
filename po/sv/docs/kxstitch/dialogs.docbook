@@ -1,0 +1,494 @@
+<chapter id="Dialogs">
+    <title
+>Dialogrutor</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>Paletthanterarens dialogruta</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Paletthanteraren låter dig lägga till, ta bort eller byta garner i den aktuella paletten och den valda typen. Du kan ta bort alla garner som inte används från den aktuella paletten och det är möjligt att lägga till nya garner i typen. Dessutom kan du öppna dialogrutan <link linkend="CalibrateDialog"
+>Garnkalibrering</link
+> härifrån. </para>
+        <para
+>Du kan tilldela antal bomullstrådar som används för varje garn, både för stygn och efterstygn. Informationen används för att beräkna mängden garn som behövs i den slutliga designen. </para>
+        <para
+>Dialogrutan inkluderar knappen <guilabel
+>Välj färg</guilabel
+> som tillåter att en färg väljes var som helst på skärmen. Det kan vara från en bakgrundsbild, exempelvis för att göra det möjligt att enkelt välja matchande färger. Markören ändras till ett kors med en färgruta som anger färgen på bildpunkten under korset. Efter att ha klickat på en bildpunkt väljes ett garn i garnlistan som stämmer nära överens med den valda färgen. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Symbolväljare</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>En symbol kan tilldelas för vart och ett av garnerna. Dialogrutan för symbolval visar alla tillgängliga symboler. Använda symboler visas med grått och ett verktygstips visar <quote
+>Använd</quote
+> när musen hålls över symbolen. Symbolbiblioteket som används för paletten kan också ändras genom att välja ett i kombinationsrutan. Alla garnerna tilldelas då en symbol från det nya biblioteket. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>Dialogrutan Ny färg</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Dialogrutan visar namnet på typen som den nya färgen läggs till i. Färgen kräver ett namn och en beskrivning, som kan vara vad du vill, även om färgnamn vanligtvis definieras av garntillverkaren. </para>
+        <para
+>Genom att klicka på knappen <guilabel
+>Färg</guilabel
+> visas <ulink url="help:/fundamentals/colors.html"
+>&kde;:s vanliga färgvalsdialogruta</ulink
+>. Den ursprungliga färgen kan väljas och därefter kan parametrarna justeras för att ge rätt färg. </para>
+        <para
+>När den väl är tillagd är den nya färgen tillgänglig för att inkludera i mönstrets palett via dialogrutan <guilabel
+>Paletthanterare</guilabel
+>. Den kan också justeras genom att använda dialogrutan <link linkend="CalibrateDialog"
+>Garnkalibrering</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>Dialogrutan Garnkalibrering</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Dialogrutan har två delar. </para>
+        <para
+>Till vänster, en vallista av typerna som för närvarande är tillgängliga tillsammans med en lista över färger som ingår i typen. Färgbeskrivningarna har <guilabel
+>(kalibrerad)</guilabel
+> tillagt om färgen har ändrats av det nuvarande anropet av den här dialogrutan. </para>
+        <para
+>Till höger visas namnet och beskrivningen för färgen som för närvarande är vald, de har tillägget <guilabel
+>(ändrad)</guilabel
+> om färgen har ändrats, en förhandsgranskning av färgen och aktuellt RGB-värde för färgen. </para>
+        <para
+>Knappen <guibutton
+>Återställ färg</guibutton
+> visas också. Den återställer färgen som för närvarande är markerad till värdet den hade när dialogrutan först öppnades. </para>
+        <para
+>Genom att klicka på knappen <guibutton
+>Ok</guibutton
+> lagras alla de ändrade färgerna. </para>
+        <para
+>Genom att klicka på knappen <guibutton
+>Avbryt</guibutton
+> återställs alla de ändrade färgerna tillbaka till sina ursprungliga värden. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>Inställningsdialogrutan</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Den här dialogrutan låter dig ställa in ett antal olika element i KXStitch. </para>
+        <para
+>De flesta alternativ är självförklarande. Kryssrutor aktiverar eller inaktiverar diverse funktioner eller element. Vallistorna gör det möjligt att välja formatet som önskas för dessa element. </para>
+        <para
+>Du kan återgå till standarduppsättningen av parametrarna genom att använda knappen <guibutton
+>Förval</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>Dialogrutan Importera bild</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Till vänster i dialogrutan finns en förhandsgranskning av den importerade bilden, baserat på parametrarna till höger. </para>
+        <para
+>Garntyp för det färdiga mönstret kan väljas. Normalt är den samma som förvalda värden i dialogrutan <guilabel
+>Egenskaper för nytt mönster</guilabel
+>. Det maximala antalet färger som ska användas för mönstret kan aktiveras och ändras efter behov, normalt har det importerade mönstret lika många färger som är definierade i originalbilden som konverteras till garnfärger. Genom att markera rutan <guilabel
+>Ignorera färg</guilabel
+> kan du klicka på pipettverktyget för att välja en färg i bilden som ska ignoreras vid import. Det är användbart för att ta bort bakgrunder som inte behöver konverteras till stygn. Den ignorerade färgen visas som ett schackmönster i förhandsgranskningen. </para>
+        <para
+>Trådräkningsvärdet till dialogrutan <guilabel
+>Egenskaper för nytt mönster</guilabel
+> och skalan ställs in så att den slutgiltiga storleken är så nära mönsterstorleken i <guilabel
+>Egenskaper för nytt mönster</guilabel
+> som möjligt. Dessa värden kan ändras efter behov. </para>
+        <para
+>Kryssrutan <guilabel
+>Beskär bild</guilabel
+> aktiverar beskärning av förhandsgranskningsbilden. Klicka och dra över förhandsgranskningsbilden för att välja område som önskas. Hjälplinjer visas innan startpunkten väljes för att tillåta noggrannare placering. När ett område väl har markerats, återges förhandsgranskningen för att visa det beskurna området. Ytterligare beskärning kan göras om det behövs. Att klicka på återställningsknappen eller stänga av beskärning, återställer förhandsgranskningen till den ursprungliga bilden. </para>
+        <para
+>Kryssrutan <guilabel
+>Använd bråkdelar</guilabel
+> aktiverar användning av delstygn i det importerade mönstret. Det dubblar den faktiska upplösningen utan att påverka mönstrets totala storlek. </para>
+        <para
+>Genom att klicka på <guibutton
+>Ok</guibutton
+> konverteras bilden till ett mönster. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>Dialogrutan Filegenskaper</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Mönsterstorleken kan definieras med enheterna stygn, centimeter eller tum. Bredd och höjdvärden uppdateras automatiskt till motsvarande storlek med den nya enheten om enhet ändras. </para>
+        <para
+>Trådräkningen definieras i enheter per centimeter eller tum, och beror på storleksenheten. Dvs. om cm är valt som enhet, anges trådräkningen i enheter per centimeter, och på samma sätt för tum. Om <guilabel
+>Enhet</guilabel
+> ändras till <guimenuitem
+>Stygn</guimenuitem
+> förblir trådräkningens enhet det senaste cm eller tum-värdet. </para>
+        <para
+>Fälten titel, upphovsman, copyright och tyg är fri text, så det går att skriva in vad som helst här. Tygfärgen kan ställas in genom att klicka på färgknappen och välja önskad färg. Den visas därefter i editorn och förhandsgranskningsfönstren. </para>
+        <para
+>Garntypen har en vallista för alla tillgängliga garntyperna, inklusive de som du eventuellt har definierat själv. </para>
+        <para
+>Fliken <guilabel
+>Instruktioner</guilabel
+> kan användas för att skriva in eventuella specifika instruktioner för att sy mönstret. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>Dialogrutan Mönsterbibliotek</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Mönsterbibliotekshanteraren har en hierarkisk trädvy (eller egentligen en hel skog) av kategorier till vänster med en ikonvy av den markerade mönsterkategorin till höger. Dialogrutan kan lämnas öppen under tiden man arbetar med mönstret. </para>
+        <para
+>Det enklaste sättet att använda biblioteksmönster är att dra och släppa dem på mönsterrymden. Som ett alternativ kan höger musknapp användas på ett biblioteksmönster för att visa en sammanhangsberoende meny med ett alternativ för att kopiera det. Det kan därefter klistras in på mönstret så många gånger som krävs. </para>
+        <para
+>Ytterligare alternativ i den sammanhangsberoende meny är: <itemizedlist>
+                <listitem
+><para
+>Ta bort: Ta bort ett biblioteksobjekt, vilket visar en bekräftelsedialogruta.</para
+></listitem>
+                <listitem
+><para
+>Egenskaper: Visa egenskapsdialogrutan för objektet.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Egenskapsdialogrutan för varje objekt visar dess storlek, använd garntyp, baslinjevärdet och tillhörande tecken på tangentbordet. Baslinjen används för att placera teckenmönstret vertikalt i förhållande till markörens position när alfabetsverktyget används. Positiva värden flyttar det nedåt, negativa värden flyttar det uppåt. Det tillhörande tecknet krävs bara för användning med alfabetsverktyget. Efter att ha klickat i textrutan för tillhörande tecken, används nästa tangentnedtryckning som tangenten, inklusive väljare (&Shift;, &Ctrl;, etc.). </para>
+        <para
+>Skapa nya bibliotek genom att klicka med höger musknapp, antingen på en befintlig kategori för att skapa en delkategori, eller på ett tomt utrymme i bibliotekslistan för en ny toppnivåkategori, eller genom att välja alternativet <guimenuitem
+>Ny kategori</guimenuitem
+>, skriva in namnet och klicka på <guibutton
+>Ok</guibutton
+>. </para>
+        <para
+>Skapa ett nytt biblioteksmönster genom att markera ett område i mönstereditorn, välja kopiera, och därefter använda höger musknapp på en befintlig kategori och välja klistra in. Om nödvändigt kan du använda alternativet Egenskaper för att lägga till en motsvarande tangent om du vill använda det som ett teckenbibliotek. </para>
+        <para
+>Biblioteksmönster kan dras och släppas på andra bibliotek i listan för att låta dig arrangera om dem efter behov. Observera att det inte finns några kontroller för att försäkra att tangentkoderna tilldelade till biblioteksmönster är unika, och eventuella dubbletter av befintliga koder måste ändras. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>Textdialogrutan</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Textdialogrutan låter dig välja ett teckensnitt och storlek, och därefter skriva in texten. Genom att klicka på <guibutton
+>Ok</guibutton
+> stängs dialogrutan och gör att du kommer tillbaka till fönstret i &kxstitch;. Placering av texten görs på samma sätt som när vilket annat element som helst klistras in. Tryck ner vänster musknapp på duken ungefär där du vill ha texten. Det visar en förhandsgranskning av texten. Placera texten exakt där du vill ha den, och släpp därefter upp vänster musknapp. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Dialogrutan Utöka mönster</title>
+        <para
+>Denna används för att utöka mönstret i olika riktningar med ett antal celler. Skriv in antalet celler i nummerrutorna och klicka på <guibutton
+>Ok</guibutton
+> för att utöka mönstret. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>Skrivardialogrutan</title>
+        <para
+>Dialogrutan har en sidlista till vänster som visar en miniatyrbild för varje sida. Den högra rutan innehåller layouteditorn där elementen kan placeras. Varje element är anpassningsbart genom att använda den sammanhangsberoende menyn och de kan placeras och deras storlek ändras efter behov. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Välj en mall för skrivarinställningen. För närvarande inkluderas en som liknar KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Lägg till en sida sist: Detta lägger till en sida i slutet av listan.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Infoga en sida: Detta infogar en sida innan den som för närvarande är markerad i listan.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Ta bort en sida: Detta tar bort sidan som för närvarande är markerad i listan.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Markera ett element: Använd för att välja element för redigering eller storleksändring.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Infoga ett textelement: Använt för att infoga ett textelement på den aktuella sidan.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Infoga ett mönsterelement: Används för att infoga ett mönsterelement på aktuell sida.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Infoga ett bildelement: Använt för att infoga ett bildelement på den aktuella sidan.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Infoga ett nyckelelement: Använt för att infoga ett nyckelelement på den aktuella sidan.</para>
+
+        <para
+>När element läggs till, markera elementikonen som önskas, markera därefter området på sidan som elementet ska uppta genom att klicka och dra med vänster musknapp från ett hörn till ett annat. Elementets egenskaper kan visas och ändras genom att använda den sammanhangsberoende menyn som kan kommas åt med höger musknapp. </para>
+        <para
+>Elementens storlek kan ändras genom att markera dem med markeringsverktyget <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>. Det tillhandahåller en rektangel för storleksändring omkring elementet. Hörnen kan dras omkring för att justera storleken, eller så kan hela elementet flyttas genom att klicka och dra med vänster musknapp. </para>
+        <para
+>Sidan har en tillhörande egenskapsdialogruta som gör det möjligt att ställa in sidmarginal samt rutnätets storlek och synlighet. Sidmarginalen ger hjälp att placera objekt, men förhindrar inte att objekt placeras utanför de definierade marginalerna. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Mönsterelement</title>
+            <para
+>Mönsterelementet visar hur stygn är arrangerade på rutnätet. Egenskapsdialogrutan kan användas för att ställa in hur stygnen visas. Det låter elementet visas som en bild av mönstret eller som ett arbetsmönster där symbolerna visas. </para>
+            <para
+>Mönsterelementet visar normal hela mönstret när det skapas. Genom att använda egenskapsdialogrutan kan det önskade området markeras i förhandsgranskningsfönstret genom att klicka och dra ett markeringsområde. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Avbildningselement</title>
+                <para
+>Avbildningselementet används när mönstret omfattar flera ark. Det visar området av hela mönstret som det här elementet representerar. Det kan aktiveras i egenskaperna för mönsterelementet. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Textelement</title>
+            <para
+>Ett textelement kan användas för att lägga till textanmärkningar i mönstret eller visa titlar eller kommentarer. Texten är inställningsbar med teckensnitt, färg och genomskinlighet. Dessutom kan en kant visas. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Textelement kan också utnyttja variabler, som konverteras till egenskaper från mönstret. </para>
+            <sect3 id="TextVariables">
+                <title
+>Textvariabler</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Förklaringselement</title>
+            <para
+>Förklaringselementet visar använda brodergarner. Egenskapsdialogrutan gör det möjligt att välja fälten som kan visas. <guilabel
+>Första element</guilabel
+> och <guilabel
+>Antal element</guilabel
+> kan användas för större förklaringar som kan omfatta flera sidor, och låter vissa symboler vara på en sida och andra på en annan sida. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Ändra storlek på element</title>
+            <para
+>Storleken på alla element kan ändras genom att markera dem med <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> vilket visar kanten för storleksändring. Hela elementet kan flyttas genom att klicka och dra inne i elementet. Håll musen över hörnens grepp för storleksändring för att ändra storlek, klicka och dra till önskad storlek. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Skapa mönster</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Starta &kxstitch;</title>
+        <para
+>När &kxstitch; startas visas en tom duk med förvald storlek. Det är också fallet när <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+></menuchoice
+> väljes. Den förvalda storleken kan ställas in i dialogrutan Mönsteregenskaper genom att aktivera kryssrutan Använd som förval. </para>
+        <para
+>Om den förvalda storleken inte är lämplig för det planerade mönstret, kan du använda dialogrutan <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Filegenskaper</guimenuitem
+></menuchoice
+> för att ändra den. Justera värdena efter behov så ändras mönstrets storlek i enlighet med dem när <guibutton
+>Ok</guibutton
+> klickas. </para>
+        <para
+>Innan ett mönster skapas måste du lägga till några garner i paletten genom att använda <menuchoice
+><guimenu
+>Palett</guimenu
+> <guimenuitem
+>Paletthanterare</guimenuitem
+></menuchoice
+>. Det aktiverar verktygen i menyn <menuchoice
+><guimenu
+>Verktyg</guimenu
+></menuchoice
+> och i verktygsraden. Se <link linkend="PaletteManagerDialog"
+>Paletthanterarens dialogruta</link
+> för ytterligare information. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Importera bilder</title>
+        <para
+>&kxstitch; låter dig importera en bild. En dialogruta visas som förhandsgranskar bilden baserat på standardalternativen vid import. </para>
+        <para
+>Mönstrets ursprungliga storlek baseras på standardstorleken för mönster. </para>
+        <para
+>Alternativ för att importera låter dig ändra garntyp som används och begränsa antal färger. Du kan också ändra skalning för att minska eller öka det slutliga mönstrets storlek. </para>
+        <para
+>Genom att markera kryssrutan <guilabel
+>Använd bråkdelar</guilabel
+> aktiveras användning av delstygn för att visa mer detaljer för en given mönsterstorlek. </para>
+        <para
+>Genom att markera kryssrutan <guilabel
+>Ignorera färg</guilabel
+> blir det möjligt att välja en färg på bilden, vilken sedan anses vara den genomskinliga färgen och ignoreras under import. </para>
+        <para
+>Efter att bilden har importerats, blir ytterligare ett dockningsfönster tillgängligt med en förhandsgranskning av den ursprungliga bilden utan några färgövergångar. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Bakgrundsbilder</title>
+        <para
+>En bild kan infogas som bakgrund i redigeringsfönstret. Det är användbart om import av bilden inte önskas eller ger ett dåligt resultat. </para>
+        <para
+>Bilden skalas normalt för att täcka hela mönstrets rutnät. Det kanske inte är lämpligt, och därför kan markeringsverktyget användas för att välja ett område som ska täckas, och därefter kan <menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Anpassa bakgrundsbild till markering</guimenuitem
+></menuchoice
+> väljas. Det skalar om bilden så att den passar inom det valda området. Du kan fortsätta göra detta tills du är nöjd med resultatet, också efter du har börjat lägga till stygn. </para>
+        <para
+>Det finns ingen gräns för antal bakgrundsbilder som kan läggas till, även om den praktiska begränsningen av menyerna bestämmer hur många som kan läggas till. Bakgrundsbilderna lagras inne i dokumentet, och de är därmed tillgängliga när mönstret läses in igen. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Mönsterbibliotek</title>
+        <para
+>Hanteraren av mönsterbibliotek kan användas för att lagra mönster för att infoga i mönstret under arbete. De kan kategoriseras i en hierarki av kategorier och delkategorier med flera rotnoder i bibliotekslistan. Alfabetsverktyget drar nytta av biblioteken för att tillhandahålla ett alfabet av infogningsbara tecken som kan tilldelas en tillhörande tangent. </para>
+        <para
+>Bibliotekshanteraren är en dialogrutan som kan lämnas öppen medan du arbetar på mönstret. Olika bibliotek kan väljas efter behov och därefter kan biblioteksmönster dras och släppas på mönstret under arbete. </para>
+        <para
+>Lägga till nya kategorirubriker kan antingen göras med ett högerklick på en befintlig post för att skapa en delkategori, eller på ett tomt utrymme i bibliotekslistan för att skapa en ny rotpost, eller genom att välja alternativet <guimenuitem
+>Ny kategori</guimenuitem
+>. Skriv in namnet på kategorin och klicka på <guibutton
+>Ok</guibutton
+>. </para>
+        <para
+>Ett nytt biblioteksmönster skapas genom att markera ett område i arbetsmönstret, samt kopiera och klistra in i en av de befintliga kategorierna. </para>
+        <para
+>Varje biblioteksmönster har egenskaper, som kan kommas åt med dess sammanhangsberoende meny. Egenskaperna omfattar storlek, garntyp, baslinjevärde och tillhörande tangent. Baslinjevärdet används av alfabetsverktyget för att justera ett teckens höjd ovanför, vid negativa värden, eller under infogningspunkten. Den tillhörande tangenten används även den av alfabetsverktyget för att matcha med tangenten som trycks ner på tangentbordet. </para>
+    </sect1>
+</chapter>

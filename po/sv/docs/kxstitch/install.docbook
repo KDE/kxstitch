@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Installation</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Hur man skaffar &kxstitch;</title>
+        <para
+>Källkoden för &kxstitch; finns på <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. Hemsidan för &kxstitch; finns på <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Krav</title>
+        <para
+>&kxstitch; är skrivet med &Qt; 5.x och KF5. </para>
+        <para
+>För bildimportfunktionerna krävs biblioteken för ImageMagick, vilket omfattar utvecklingsfilerna för ImageMagick och Magick++. De är tillgängliga från distributionen eller från <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Kompilering och installation</title>
+        <para
+>Kompilering av KXStitch kräver cmake och lämpliga byggverktyg, make, gcc, etc. Ett byggskript tillhandahålls som ska utföra de nödvändiga kompileringsåtgärderna och installera KXStitch, vilket kan göra att du måste skriva in administratörslösenordet. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

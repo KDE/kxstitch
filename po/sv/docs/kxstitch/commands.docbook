@@ -1,0 +1,1397 @@
+<chapter id="commands">
+    <title
+>Kommandoreferens</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Menyer i &kxstitch;</title>
+        <sect2>
+            <title
+>Menyn Arkiv</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ny</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Skapar ett nytt mönster, med användning av standardvärden inställda i dialogrutan för mönsteregenskaper.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Öppna</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Öppnar ett befintligt mönster</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Öppna senaste</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Öppna senaste använda mönster</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Spara</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sparar mönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Spara som</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sparar mönstret med ett nytt namn</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Återställ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Återställer mönstret till senast sparade tillstånd</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Skriv ut</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Skriv ut mönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Utskriftsinställning</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ställ in utskriftslayouten</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Importera bild</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Importera en bildfil och konvertera den till stygn</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Filegenskaper</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa och redigera dokumentegenskaper</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lägg till bakgrundsbild</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Infoga en bild som bakgrund för kalkering.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ta bort bakgrundsbild</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Välj en bakgrundsbild att ta bort. Undermenyn för det fylls i från tidigare infogade bakgrundsbilder.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Stäng</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Stäng mönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Avsluta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Avslutar</action
+> &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Redigera</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ångra</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ångra senaste ändring. Listan med ändringar visas i historikfönstret.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Gör om</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gör om den senast ångrade ändringen. Listan med ändringar visas i historikfönstret.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Klipp ut</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Klipp ut det markerade området till klippbordet</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Kopiera</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kopiera det markerade området till klippbordet</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Klistra in</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Klistra in det markerade området</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Markeringsmasker</guisubmenu
+> <guimenuitem
+>Stygnmask</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Begränsar markeringar till stygntypen som för närvarande är vald</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Markeringsmasker</guisubmenu
+> <guimenuitem
+>Färgmask</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Begränsar markeringar till färgen som för närvarande är vald</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Markeringsmasker</guisubmenu
+><guimenuitem
+>Undanta efterstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Undanta efterstygn från markeringen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Markeringsmasker</guisubmenu
+><guimenuitem
+>Undanta knutsöm</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Undanta knutsöm från markeringen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Spegla och rotera skapar kopior</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Om aktiverad, skapar speglings- och rotationsfunktionerna en kopia av markeringen, annars flyttas det markerade området.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Spegla markering</guisubmenu
+> <guimenuitem
+>Horisontellt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Speglar det markerade området vertikalt, dvs. vänder från vänsterkant till högerkant</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Spegla markering</guisubmenu
+> <guimenuitem
+>Vertikalt</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Speglar det markerade området vertikalt, dvs. vänder från överkant till underkant</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Rotera markering</guisubmenu
+><guimenuitem
+>90 grader</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rotera det markerade området moturs 90 grader</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Rotera markering</guisubmenu
+><guimenuitem
+>180 grader</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rotera det markerade området moturs 180 grader</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Rotera markering</guisubmenu
+><guimenuitem
+>270 grader</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rotera det markerade området moturs 270 grader</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Klipp ut, kopiera och klistra in</title>
+                <para
+>Att klippa ut och kopiera områden av mönstret kan använda sig av stygn- och färgmasker och undanta efterstygn och knutsöm för att begränsa markeringen. </para>
+                <para
+>Åtgärden för att klistra in i &kxstitch; låter dig trycka ner och hålla vänster musknapp ungefär på platsen där data att klistra in ska hamna, vilket ger en avbild av data att klistra in för göra det möjligt att placera det noggrant innan musknappen släpps upp för att ange den slutgiltiga platsen. Tekniken används också för speglings- och rotationsfunktionerna. Piltangenterna kan också användas för att flytta omkring det inklistrade mönstret och returtangenten för att ange den slutgiltiga platsen. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Visa</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Verklig storlek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma vyn så att skärmstorleken ungefär motsvarar den fysiska storleken</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll sidan</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma vyn så att hela mönstret får plats inom det synliga området</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll sidans bredd</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma vyn så att mönstrets bredd får plats inom det synliga området</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll sidans höjd</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma vyn så att mönstrets höjd får plats inom det synliga området</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Zooma in</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma in i editorns vy</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Zooma ut</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zooma ut i editorns vy</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Förhandsgranska</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj förhandsgranskningsfönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Palett</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj palettfönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Historik</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj historikfönstret</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Importerad bild</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj förhandsgranskningsfönster för importerad bild</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa bakgrundsbild</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj en bakgrundsbild. Listan skapas dynamiskt baserat på de infogade bakgrundsbilderna.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Anpassa bakgrundsbild till markering</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Anpassa den markerade bakgrundsbilden till aktuellt markerat område</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Stygn</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kvartsstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kvartsstygn, positionen bestäms av den markerade kvadranten av cellen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Halvstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Halvstygn, riktningen bestäms av den markerade kvadranten av cellen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Trekvartsstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Trekvartsstygn, orienteringen bestäms av den markerade kvadranten av cellen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Helstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Helstygn</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Litet halvstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ett litet halvstygn, positionen bestäms av den markerade kvadranten av cellen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Litet helstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ett litet helstygn, positionen bestäms av den markerade kvadranten av cellen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fransk knutsöm</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Franskt knutstygn</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Verktyg</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Måla</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Måla stygn på duken. Tryck ner vänster musknapp och dra omkring i fönstret. Stygn läggs till i varje cell som passeras. Släpp musknappen för att sluta måla. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rita</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en linje med stygn på duken. Tryck ner vänster musknapp vid linjens början, dra till linjens önskade slutpunkt och släpp upp musknappen. Stygn läggs till i varje cell som linjen passerar igenom. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Radera</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Radera stygn: Håll nere vänster musknapp och dra över stygnen som ska raderas. Alla stygn i cellerna som passeras över tas bort. Släpp upp musknappen för att sluta radera. Håll nere &Ctrl;-tangenten och vänsterklicka på efterstygnets start- eller slutpunkt för att radera efterstygn. Om det finns fler än ett efterstygn på den digitaliserade punkten raderar den här metoden det första som hittas. För att ta bort ett specifikt efterstygn, klicka och dra från ena ändan till den andra. Håll nere &Shift;-tangenten och vänsterklicka på knutstygnet för att ta bort fransk knutsöm. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rita rektangel</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en rektangel: Tryck ner vänster musknapp i ett hörn av rektangeln och dra till motsatta hörnet. Släpp upp musknappen så läggs en ofylld rektangel av stygn till på duken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll rektangel</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en fylld rektangel: Tryck ner vänster musknapp i ett hörn av rektangeln och dra till motsatta hörnet. Släpp upp musknappen så läggs en fylld rektangel av stygn till på duken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rita ellips</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en ellips: Tryck ner vänster musknapp i ett hörn av ellipsen och dra till motsatta hörnet. Släpp upp musknappen så läggs en ofylld ellips av stygn till på duken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll ellips</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en fylld ellips: Tryck ner vänster musknapp i ett hörn av ellipsen och dra till motsatta hörnet. Släpp upp musknappen så läggs en fylld ellips av stygn till på duken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Fyll polygon</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rita en fylld polygon: Klicka på varje cell som markerar polygonens hörn, klicka och dra för att skapa mer komplexa kurvor. Vart och ett av hörnen markeras av en cirkel med en svart linje som sammanbinder dem. Klicka på startcellen igen för att sluta polygonen. Du kan använda bakstegstangenten för att ta bort den senaste punkten eller Esc-tangenten för att ta bort alla hörn och avbryta åtgärden. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Text</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Infoga text som stygn. Detta öppnar textdialogrutan. Välj teckensnitt som önskas och storleken, skriv in texten och klicka på <guibutton
+>Ok</guibutton
+>. Tryck ner vänster musknapp ungefär där du vill ha texten, flytta musen för att placera texten noggrant och släpp därefter musknappen. Detta är likadant som för inklistringsfunktionen. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Infoga mönster från biblioteket som för närvarande är valt, som motsvarar tangentnedtryckningarna. Det gör det möjligt att skapa mönsteralfabeten som kan tilldelas en tangent. Efter att ha valt verktyget och klickat på en plats på mönstret för infogningspunkten, eftersöks varje tangent som trycks ner i det aktuella biblioteket för att hitta ett motsvarande mönster. Om det hittas, infogas det på mönstrets plats och infogningspunkten flyttas därefter fram med bredden på det infogade tecknets mönster. Mönsterutrymmet utökas åt höger för att kunna mata in ytterligare tecken. Genom att tycka på returtangenten startas en ny rad under platsen för ursprungliga infogningspunkten, och mönsterutrymmet utökas neråt för att hantera den nya raden om otillräckligt utrymme är tillgängligt. <keycap
+>Baksteg</keycap
+> raderar det senaste tecknet som matades in och <keycap
+>Mellanslag</keycap
+> flyttar fram infogningspunkten antingen med bredden på ett mellanslag i biblioteket eller med ett fördefinierat värde om inget mellanslag finns. Texten radbryts till nästa linje om mönstrets kant nås och slutet på ett ord detekteras. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Markera</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Markera ett rektangulärt område: Tryck ner vänster musknapp i ett hörn av rektangeln, dra till motsatta hörnet, och släpp upp musknappen. En markeringsrektangel visas för att ange området. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Färghämtare</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Gör det möjligt att välja en färg från befintliga stygn. Hålls musen över stygnen visas ett verktygstips som anger färgen under markören. Att klicka med vänster musknapp väljer den. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Efterstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Lägg till efterstygn på duken: Tryck ner vänster musknapp vid efterstygnets början, det låses till den närmaste av 9 punkter i cellen, dra till efterstygnets slutpunkt och släpp upp musknappen. Återigen låses det till den närmaste av 9 punkter i cellen. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Palett</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paletthantering</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Lägg till och ta bort färger i den nuvarande paletten. Tilldela symboler och antal trådar för stygnen och efterstygnen. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa symboler</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa symbolerna som hör ihop med varje färg</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rensa oanvända</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tar bort de oanvända färgerna från paletten.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Byt färger</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nästa färg som väljes byts med färgen som för närvarande är markerad. Om pipettverktyget väljes kan du välja färgen att byta med direkt från mönstret. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ersätt färger</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nästa färg som väljes ersätter med färgen som för närvarande är markerad. Liksom vid byte av färg kan pipettverktyget användas för att välja färgen direkt från mönstret. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Bibliotek</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Bibliotekshanterare</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Öppna mönsterbibliotekshanteraren, vilket är en dialogruta som förblir öppen för att möjliggöra att skapa och använda bibliotek av mönster eller alfabeten. Dra och släpp är tillgängligt för att tillåta att mönster dras och släpps från biblioteket till mönstret. Automatisk konvertering av garner för att passa aktuellt mönster och skalning av bilden till det aktuella mönstrets skala för noggrann placering utförs. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Mönster</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Utöka mönster</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Utöka mönstret uppåt, åt vänster, åt höger och nedåt</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Centrera mönster</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centrera mönstret på duken</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Beskär duk till mönster</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Beskär duken till mönstrets storlek</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Beskär duk till markering</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Beskär duken till den aktuella markeringens storlek</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Infoga rader</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Infoga ett antal rader som representeras av ett markerat område</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Infoga kolumner</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Infoga ett antal kolumner som representeras av ett markerat område</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Inställningar</title>
+            <para
+>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/menus.html#menus-settings"
+> Settings Menu</ulink
+> chapter of the &kde; Fundamentals &kxstitch; has these application specific menu entries: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Formatera skalor som</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ändra skalans visningsformat till stygn, cm eller tum.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Återge stygn som</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ändra sättet som stygn visas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Återge efterstygn som</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ändra sättet som efterstygn visas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Återge knutsöm som</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ändra sättet som knutsöm visas.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Färgläggning</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Aktivera eller inaktivera färgläggningsläge</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa stygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj stygnen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa efterstygn</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj efterstygnen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa fransk knutsöm</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj den franska knutsömmen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa rutnät</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj rutnät</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Visa bakgrundsbilder</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Visa eller dölj alla bakgrundsbilder</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Anpassa &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Öppna <link linkend="ConfigurationDialog"
+>inställningsdialogrutan</link
+> &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Menyn Hjälp</title>
+            <para
+>Additionally &kxstitch; has the common &kde; Help menu items, for more information read the section about the <ulink url="help:/fundamentals/menus.html#menus-help"
+>Help Menu</ulink
+> of the &kde; Fundamentals. </para>
+        </sect2>
+    </sect1>
+</chapter>

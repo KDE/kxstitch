@@ -1,0 +1,36 @@
+<chapter id="credits">
+    <title
+>Autorid ja litsents</title>
+    <para
+>&kapp;</para>
+    <para
+>Rakenduse autoriõigus 2002-2014: Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Kaasautorid: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: veaparandused, rakenduse ikoonid</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: manuaalilehekülg</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: vea- ja muud parandused</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Dokumentatsiooni autoriõigus 2014: Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+&underFDL; &underGPL; </chapter>

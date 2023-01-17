@@ -1,0 +1,1401 @@
+<chapter id="commands">
+    <title
+>Довідка щодо команд</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Меню &kxstitch;</title>
+        <sect2>
+            <title
+>Меню «Файл»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Створити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Створити візерунок на основі типових значень, встановлених за допомогою діалогового вікна властивостей візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+> </keycombo
+> </shortcut
+><guimenuitem
+>Відкрити...</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Відкрити наявний візерунок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Відкрити недавні</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Відкрити нещодавно редагований візерунок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+> </keycombo
+> </shortcut
+><guimenuitem
+>Зберегти</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Зберегти візерунок</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Зберегти як</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Зберегти візерунок під новою назвою.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Повернути</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Повернути візерунок до останнього збереженого стану.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+> </keycombo
+> </shortcut
+><guimenuitem
+>Друкувати...</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Надрукувати візерунок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Налаштування друку</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Налаштувати компонування сторінки для друку.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Імпортування зображення</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Імпортувати файл зображення та перетворити його на візерунок зі стібків.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Властивості файла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або редагувати властивості документа.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Додати зображення тла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити зображення як тло для створення на його основі візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вилучити зображення тла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вибрати зображення тла для вилучення. Пунктами у цьому підменю будуть записи раніше вставлених зображень.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Закрити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Закрити візерунок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+> </keycombo
+> </shortcut
+><guimenuitem
+>Вийти</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Завершити роботу</action
+> &kxstitch;.</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Зміни»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+><guimenuitem
+>Вернути</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Скасувати останню внесену зміну. Список змін буде показано на панелі журналу.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Повторити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Повторити останню скасовану зміну. Список змін буде показано на панелі журналу.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Вирізати</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вирізати позначену область до буфера обміну даними.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Копіювати</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Копіювати позначену область до буфера обміну даними.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Вставити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити скопійовану область.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Маски позначення</guisubmenu
+><guimenuitem
+>Маска стібків</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обмежити позначення до поточного вибраного типу стібків.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски позначення</guisubmenu
+><guimenuitem
+>Маска кольорів</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обмежити позначення до поточного вибраного кольору.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски позначення</guisubmenu
+><guimenuitem
+>Виключення зворотних стібків</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Виключити зворотні стібки з позначення.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски позначення</guisubmenu
+><guimenuitem
+>Виключення вузлів</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Виключити вузли з позначення.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Віддзеркалення і обертання створюють копії</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Якщо позначено, дії з віддзеркалення і обертання створюватимуть копію позначення. Якщо пункт позначено не буде, програма пересуватиме і обертатиме позначену область.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Віддзеркалити позначене</guisubmenu
+><guimenuitem
+>Горизонтально</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Віддзеркалити позначену область горизонтально, тобто перевернути її зліва праворуч.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Віддзеркалити позначене</guisubmenu
+><guimenuitem
+>Вертикально</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Віддзеркалити позначену область вертикально, тобто перевернути її згори вниз.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Обернути позначене</guisubmenu
+><guimenuitem
+>На 90°</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обернути позначену область проти годинникової стрілки на 90°.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Обернути позначене</guisubmenu
+><guimenuitem
+>На 180°</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обернути позначену область проти годинникової стрілки на 180°.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Обернути позначене</guisubmenu
+><guimenuitem
+>На 270°</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обернути позначену область проти годинникової стрілки на 270°.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Вирізання, копіювання і вставляння</title>
+                <para
+>Під час вирізання та копіювання областей візерунка можна використовувати маски стібків та кольорів, а також виключення зворотних стібків та французьких вузлів для вибору потрібного елемента візерунка. </para>
+                <para
+>Під час дії зі вставляння у &kxstitch; ви можете натиснути і утримувати натисненою ліву кнопку миші у приблизній позиції, куди має бути вставлено скопійовані дані, програма покаже зображення вставленої області. Ви зможете визначити для неї точну позицію, перш ніж відпускати кнопку миші для завершення дії. Цією методикою можна також скористатися для віддзеркалення та обертання. За допомогою клавіш зі стрілочками можна пересувати вставлений фрагмент. Натискання клавіші &Enter; зафіксує його остаточну позицію. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Перегляд»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Фактичний розмір</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Встановити на екрані такий масштаб, який приблизно відповідатиме фізичним розмірам надрукованого візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Влаштувати в сторінку</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Встановити такий масштаб перегляду, за якого у видимій області вміщатиметься увесь візерунок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Влаштувати в ширину сторінки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Встановити такий масштаб перегляду, за якого у видимій області вміщатиметься уся ширина візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Влаштувати в висоту сторінки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Встановити такий масштаб перегляду, за якого у видимій області вміщатиметься уся висота візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Збільшити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Збільшити масштаб на панелі редагування.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Зменшити</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Зменшити масштаб на панелі редагування.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Перегляд</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати панель попереднього перегляду.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Палітра</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або сховати панель палітри.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Журнал</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або сховати панель журналу</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Імпортоване зображення</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати панель попереднього перегляду імпортованого зображення.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати зображення тла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати зображення тла. Список цього підменю формуватиметься динамічно, відповідно до списку вставлених зображень тла.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Підібрати розмір зображення тла за позначеним</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Підібрати розміри вибраного зображення тла до поточної позначеної області.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Стібки»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Чвертьстібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Чвертьстібок, розташування визначатиметься квадрантом позначеної комірки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Напівстібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Напівстібок, напрямок визначатиметься квадрантом позначеної комірки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Стібок на три чверті</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Стібок на три чверті, орієнтація визначатиметься квадрантом позначеної комірки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Повний стібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Повний стібок.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малий половинний стібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Малий напівстібок, розташування визначатиметься квадрантом позначеної комірки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малий повний стібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Малий повний стібок, розташування визначатиметься квадрантом позначеної комірки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Французький вузол</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Французький вузол.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Інструменти»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малювання</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Малювати стібки на полотні. Натисніть ліву кнопку миші і перетягніть вказівник на панелі редагування. У кожній з комірок, крізь які пройде вказівник, буде додано стібок. Відпустіть кнопку, щоб припинити малювання. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Креслення</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати пряму лінію зі стібків на полотні. Наведіть вказівник миші на початкову точку лінії, натисніть і утримуйте ліву кнопку миші. Перетягніть вказівник миші у кінцеву точку лінії і відпустіть кнопку миші. На полотно буде додано стібки у всіх комірках, крізь які проходитиме вказаний вами відрізок прямої. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Витирання</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Витерти стібки. Натисніть і утримуйте натисненою ліву кнопку миші і проведіть вказівник так, щоб він пройшовся усіма стібками, які слід вилучити. Усі стібки, крізь комірки яких пройти вказівник, буде вилучено. Щоб припинити витирання, слід відпустити кнопку миші. Щоб витерти зворотні стібки, утримуйте натисненою клавішу &Ctrl; і клацніть лівою кнопкою миші у початковій та кінцевій точках зворотного стібка. Якщо у певній точці є декілька зворотних стібків, буде витерто перший же знайдений стібок. Щоб вилучити якийсь певний стібок, натисніть ліву кнопку миші і проведіть вказівником з одного його кінця до іншого. Щоб вилучити французький вузол, утримуйте натисненою клавішу &Shift;, наведіть вказівник на вузол і клацніть лівою кнопкою. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малювати прямокутник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати прямокутник. Наведіть вказівник миші на точку, де має бути розташовано одну з вершин прямокутника, натисніть і утримуйте натисненою ліву кнопку миші. Перетягніть вказівник у протилежну вершину, відпустіть кнопку миші. На полотно буде додано незаповнений кольором прямокутник зі стібків. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заповнений прямокутник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати заповнений прямокутник. Наведіть вказівник миші на точку, де має бути розташовано одну з вершин прямокутника, натисніть і утримуйте натисненою ліву кнопку миші. Перетягніть вказівник у протилежну вершину, відпустіть кнопку миші. На полотно буде додано заповнений кольором прямокутник зі стібків. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малювати еліпс</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати еліпс. Наведіть вказівник миші на точку, де має бути розташовано одну з вершин прямокутника, описаного навколо еліпса, натисніть і утримуйте натисненою ліву кнопку миші. Перетягніть вказівник у протилежну вершину цього прямокутника, відпустіть кнопку миші. На полотно буде додано незаповнений кольором еліпс зі стібків. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заповнений еліпс</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати заповнений еліпс. Наведіть вказівник миші на точку, де має бути розташовано одну з вершин прямокутника, описаного навколо еліпса, натисніть і утримуйте натисненою ліву кнопку миші. Перетягніть вказівник у протилежну вершину цього прямокутника, відпустіть кнопку миші. На полотно буде додано заповнений кольором еліпс зі стібків. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заповнений багатокутник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Намалювати заповнений кольором багатокутник. Клацніть лівою кнопкою миші у кожній з комірок, які є вершинами багатокутника. Для створення складніших кривих натисніть і утримуйте ліву кнопку миші і перетягніть вказівник миші. Кожну з вершин буде позначено кружечком. Вершини буде з’єднано чорною лінією. Замкнути контур багатокутника можна клацанням лівою кнопкою миші у початковій його вершині. Для вилучення останньої вершити натисніть клавішу <keycap
+>Backspace</keycap
+>. Щоб вилучити усі вершини і скасувати створення багатокутника, натисніть клавішу &Esc;. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Текст</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити фрагмент тексту, написаний стібками. Програма відкриє діалогове вікно введення тексту. Виберіть гарнітуру та розмір, введіть текст і натисніть кнопку <guibutton
+>Гаразд</guibutton
+>. Наведіть вказівник миші на приблизне місце на полотні, де має розпочинатися текст, натисніть і утримуйте ліву кнопку миші, пересуньте вказівник миші так, щоб розташувати текст точно і відпустіть кнопку миші. Ця дія подібна до дії зі вставляння. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Абетка</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити візерунки з поточної вибраної бібліотеки, які відповідають натисненим клавішам. За допомогою цього засобу ви зможете створювати абетки візерунків, з кожною «літерою» яких буде пов’язано певні клавіші. Якщо ви виберете цей інструмент і клацнете лівою кнопкою миші у точці вставлення візерунка, програма почне шукати відповідні візерунки для усіх натиснених після цього клавіш. Якщо відповідний візерунок буде виявлено, програма вставить його на панель редагування, позицію вставлення буде зсунуто на ширину вставленого фрагмента візерунка. Розміри полотна буде збільшено так, щоб праворуч можна було вставити новий фрагмент. Натискання клавіші &Enter; розпочне новий рядок візерунків під позицією початкової точки вставлення. Якщо на полотні буде недостатньо місця, розміри полотна буде збільшено вниз так, щоб на ньому міг вміститися новий рядок візерунків. Натискання клавіші <keycap
+>Backspace</keycap
+> призведе до вилучення нового фрагмента візерунка, а натискання клавіші <keycap
+>Пробіл</keycap
+> пересуне точку вставлення на ширину пробільного фрагмента у бібліотеці або на попередньо визначену ширину, якщо пробільного фрагмента не існує. Послідовність рядка візерунків буде розірвано на межі полотна за пробільним символом. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Позначення</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Позначити прямокутну область. Наведіть вказівник миші на точку, де має бути розташовано одну з вершин прямокутника, натисніть і утримуйте натисненою ліву кнопку миші. Перетягніть вказівник у протилежну вершину, відпустіть кнопку миші. На полотні буде позначено прямокутну область. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Піпетка</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Надає змогу вибрати колір за наявними стібками. Після наведення вказівника на стібок і утримування його нерухомим певний час має з’явитися панель з підказкою щодо кольору під вказівником. Клацанням лівою кнопкою миші можна вибрати цей колір. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Зворотній стібок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Додати на полотно зворотній стібок. Наведіть вказівник миші на початкову точку зворотного стібка, натисніть і утримуйте ліву кнопку миші. Початкова точка прилипне до найближчої з 9 точок стібка у комірці. Перетягніть вказівник до кінцевої точки зворотного стібка і відпустіть кнопку миші. Знову ж таки, ця точка прилипне до найближчої з дев’яти точок комірки. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Палітра»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Керування палітрою</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Додати або вилучити кольори з поточної палітри. Визначити позначки та кількість волокон для створення стібків і зворотних стібків. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати позначки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показувати позначки, пов’язані з кожним з кольорів.</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вилучити невикористані</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вилучити невикористані кольори з палітри.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Поміняти кольори місцями</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Наступний вибраний колір буде обміняно місцями з поточним вибраним кольором. Якщо вами буде вибрано інструмент «піпетка» ви зможете вибрати колір для заміни безпосередньо з візерунка. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Замінити кольори</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Наступний вибраний колір замінить собою поточний вибраний колір. Так само, як і для інструмента обміну кольорами, ви можете скористатися інструментом «піпетка» для вибору кольору безпосередньо з візерунка. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Бібліотека»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Керування бібліотеками</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Відкрити вікно керування бібліотекою візерунків, немодальне діалогове вікно, за допомогою якого можна створювати та використовувати бібліотеки візерунків або абетки. Візерунки з вікна бібліотеки можна просто перетягувати і скидати на полотно. Передбачено автоматичне перетворення ниток, яке забезпечує відповідність кольорам поточного основного візерунка, та масштабування зображення відповідно до поточного масштабу візерунка для точного позиціювання. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Візерунок»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Розширити візерунок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Розширити полотно вгору, ліворуч, праворуч або вниз.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Центрувати візерунок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Розташувати візерунок по центру полотна.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Обрізати полотно до візерунка</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обрізати полотно до розмірів візерунка.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Обрізати полотно до позначеного</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обрізати полотно до розмірів поточної позначеної області.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вставити рядки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити вказану кількість рядків у форматі позначеної області.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вставити стовпчики</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставити вказану кількість стовпчиків у форматі позначеної області.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Параметри»</title>
+            <para
+>Окрім типових для &kde; пунктів меню «Параметри», описаних у <ulink url="help:/fundamentals/ui.html#menus-settings"
+>розділі щодо цього меню</ulink
+> підручника з основ роботи у &kde;, у &kxstitch; передбачено такі додаткові пункти: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Форматування масштабів</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Змінити формат показу одиниць на лінійках. Можливі варіанти: стібки, сантиметри або дюйми.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати стібки як</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Змінити спосіб показу стібків.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати зворотні стібки як</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Змінити спосіб показу зворотних стібків.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати вузли як</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Змінити спосіб показу вузлів.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Кольорове підсвічування</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Увімкнути або вимкнути режим підсвічування кольором.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати стібки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати стібки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати зворотні стібки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати зворотні стібки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати французькі вузли</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати французькі вузли.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати сітку</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або сховати сітку</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показувати зображення тла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показати або приховати зображення тла.</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Налаштувати &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Відкрити <link linkend="ConfigurationDialog"
+>діалогове вікно налаштовування &kxstitch;</link
+>.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Довідка»</title>
+            <para
+>Крім того, у &kxstitch; передбачено типові для &kde; пункти меню <guimenu
+>Довідка</guimenu
+>. Докладніший опис цих пунктів можна знайти у <ulink url="help:/fundamentals/ui.html#menus-help"
+>розділі щодо меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+        </sect2>
+    </sect1>
+</chapter>

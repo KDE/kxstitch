@@ -1,0 +1,36 @@
+<chapter id="credits">
+    <title
+>Danksagungen und Lizenz</title>
+    <para
+>&kapp;</para>
+    <para
+>Programm Copyright 2002-2014 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+></para>
+    <para
+>Mitwirkende: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: Fehlerkorrekturen, Programm-Symbole</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: Handbuchseite</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: Fehlerkorrekturen, Verbesserungen</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Dokumentation Copyright 2014 Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+> </para>
+&underFDL; &underGPL; </chapter>

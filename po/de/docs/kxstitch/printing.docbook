@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Muster drucken</title>
+
+    <para
+>Wenn Sie Ihren Entwurf fertiggestellt haben, möchten Sie ihn wahrscheinlich ausdrucken. In &kxstitch; können Sie den Ausdruck einrichten, von der Auswahl der zu druckenden Teile bis zur Größe des Ausdrucks. </para>
+    <para
+>Mit dieser Version von &kxstitch; eine vollständig benutzerdefinierte Druckausgabe möglich. Im neuen Drucker-Einrichtungsdialog könne  Sie Seiten hinzufügen, einfügen oder entfernen. Sie können die Papiergröße und Ausrichtung wählen und jede Seite kann Texte, Muster oder Schlüssel-Elemente enthalten. </para>
+    <para
+>Weitere Details finden Sie im Abschnitt über den <link linkend="PrinterDialog"
+>Druckdialog</link
+>.</para>
+</chapter>

@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Característiques</title>
+    <para
+>La llista de característiques actual i altres característiques planificades es mostren aquí.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Creació de patrons nous <itemizedlist>
+                <listitem
+><para
+>Mida definida per l'usuari</para
+></listitem>
+                <listitem
+><para
+>Selecció del color del material</para
+></listitem>
+                <listitem
+><para
+>Inserció d'imatges de fons per al seguiment</para
+></listitem>
+                <listitem
+><para
+>Importació de diversos formats d'imatge</para
+></listitem>
+                <listitem
+><para
+>Es permeten opcions d'importació <itemizedlist>
+                        <listitem
+><para
+>Limitació del nombre de colors</para
+></listitem>
+                        <listitem
+><para
+>Limitació dels colors a una paleta específica</para
+></listitem>
+                        <listitem
+><para
+>Escalat a una mida final</para
+></listitem>
+                        <listitem
+><para
+>Admet la transparència a les imatges</para
+></listitem>
+                        <listitem
+><para
+>Permet l'ús de puntades fraccionades</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Edició de patrons existents, les eines d'edició inclouran <itemizedlist>
+                <listitem
+><para
+>Rectangles oberts i emplenats</para
+></listitem>
+                <listitem
+><para
+>El·lipses obertes i emplenades</para
+></listitem>
+                <listitem
+><para
+>Polígons emplenats</para
+></listitem>
+                <listitem
+><para
+>Pintat</para
+></listitem>
+                <listitem
+><para
+>Línies</para
+></listitem>
+                <listitem
+><para
+>Esborrat de les puntades, nusos i repunts</para
+></listitem>
+                <listitem
+><para
+>Selecció del color des de les puntades existents</para
+></listitem>
+                <listitem
+><para
+>Intercanvi de dos colors</para
+></listitem>
+                <listitem
+><para
+>Substitució d'un color amb un altre</para
+></listitem>
+                <listitem
+><para
+>Text amb tipus de lletra i mides definides per l'usuari</para
+></listitem>
+                <listitem
+><para
+>Retalla, copia i enganxa àrees rectangulars</para
+></listitem>
+                <listitem
+><para
+>Desfer i refer il·limitat</para
+></listitem>
+                <listitem
+><para
+>Emmirallar horitzontalment i verticalment</para
+></listitem>
+                <listitem
+><para
+>Gir en 90, 180 i 270 graus en sentit antihorari</para
+></listitem>
+                <listitem
+><para
+>Canviar la mida del llenç <itemizedlist>
+                        <listitem
+><para
+>Ampliar el llenç a esquerra, dalt, dreta i a baix</para
+></listitem>
+                        <listitem
+><para
+>Escapçar el llenç al patró</para
+></listitem>
+                        <listitem
+><para
+>Escapçar el llenç a la selecció</para
+></listitem>
+                        <listitem
+><para
+>Inserir files i columnes</para
+></listitem>
+                        <listitem
+><para
+>Centrar el patró sobre el llenç</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Conversió entre els esquemes de fils</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Ús de cabdells de fil estàndard, DMC, àncora, etc.</para
+></listitem>
+        <listitem
+><para
+>Creació de cabdells de fil personalitzats</para
+></listitem>
+        <listitem
+><para
+>Creació de colors nous per a qualsevol cabdell de fil</para
+></listitem>
+        <listitem
+><para
+>Desar / Carregar la paleta actual</para
+></listitem>
+        <listitem
+><para
+>Ús de puntades estàndard</para
+></listitem>
+        <listitem
+><para
+>Gestor de la biblioteca de patrons <itemizedlist>
+                <listitem
+><para
+>Creació d'una biblioteca de patrons nova</para
+></listitem>
+                <listitem
+><para
+>Inserir una biblioteca de patrons en un disseny</para
+></listitem>
+                <listitem
+><para
+>Arrossegar i deixar anar des de la biblioteca al patró</para
+></listitem>
+                <listitem
+><para
+>Arrossegar i deixar anar des d'una biblioteca a una altra</para
+></listitem>
+                <listitem
+><para
+>Assignar pulsacions de tecla als patrons per a utilitzar amb l'eina Alfabet</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Ús lliure de repunts</para
+></listitem>
+        <listitem
+><para
+>Impressió de patrons completats i claus de fil <itemizedlist>
+                <listitem
+><para
+>Imatge del patró</para
+></listitem>
+                <listitem
+><para
+>Instruccions</para
+></listitem>
+                <listitem
+><para
+>Clau del fil i resum de la puntada</para
+></listitem>
+                <listitem
+><para
+>Gràfic de patrons amb un mapa de pàgina</para
+></listitem>
+                <listitem
+><para
+>Quadres de text</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Mapatge de símbols als fils</para
+></listitem>
+        <listitem
+><para
+>Especificar el nombre de fils per a les puntades i repunts</para
+></listitem>
+        <listitem
+><para
+>Calibratge dels colors del fil</para
+></listitem>
+    </itemizedlist>
+    <para
+>Es poden realitzar sol·licituds de noves característiques al <ulink url="https://bugs.kde.org"
+>Sistema de seguiment d'errors del &kde;</ulink
+>.</para>
+</chapter>

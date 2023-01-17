@@ -1,0 +1,98 @@
+<?xml version = '1.0'?>
+    <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+    <!ENTITY kxstitch '<application
+>KXStitch</application
+>'>
+    <!ENTITY kapp "&kxstitch;">
+    <!ENTITY % addindex "IGNORE">
+    <!ENTITY % Brazilian-Portuguese "INCLUDE">
+    <!ENTITY introduction SYSTEM "introduction.docbook">
+    <!ENTITY features SYSTEM "features.docbook">
+    <!ENTITY ui SYSTEM "ui.docbook">
+    <!ENTITY commands SYSTEM "commands.docbook">
+    <!ENTITY patterns SYSTEM "patterns.docbook">
+    <!ENTITY printing SYSTEM "printing.docbook">
+    <!ENTITY dialogs SYSTEM "dialogs.docbook">
+    <!ENTITY faq SYSTEM "faq.docbook">
+    <!ENTITY credits SYSTEM "credits.docbook">
+    <!ENTITY install SYSTEM "install.docbook">
+    ]>
+
+<book lang="&language;">
+    <bookinfo>
+        <title
+>Manual do &kapp;</title>
+        <authorgroup>
+            <author
+><firstname
+>Stephen</firstname
+> <othername
+>P.</othername
+> <surname
+>Allewell</surname
+> <affiliation
+><address
+><email
+>steve.allewell@gmail.com</email
+></address
+></affiliation>
+            </author>
+            <othercredit role="translator"
+><firstname
+>André Marcelo</firstname
+><surname
+>Alvarenga</surname
+><affiliation
+><address
+><email
+>alvarenga@kde.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+        </authorgroup>
+        <copyright>
+            <year
+>2015</year>
+            <holder
+>Stephen P. Allewell</holder>
+        </copyright>
+        <legalnotice
+>&FDLNotice;</legalnotice>
+        <date
+>15/07/2015</date>
+        <releaseinfo
+>V.1.99.0</releaseinfo>
+        <abstract>
+            <para
+>&kapp; é um aplicativo projetado para permitir que as pessoas criem padrões em ponto cruz e possam imprimi-los. Esses padrões podem ser criados do zero em uma grade com um tamanho definido pelo usuário ou importados a partir de um arquivo de imagem em diversos formatos. </para>
+        </abstract>
+        <keywordset>
+            <keyword
+>KDE</keyword>
+            <keyword
+>Pontos</keyword>
+            <keyword
+>Padrão</keyword>
+            <keyword
+>Cruz</keyword>
+            <keyword
+>Ponto</keyword>
+        </keywordset>
+    </bookinfo>
+
+    &introduction;
+    &features;
+    &ui;
+    &commands;
+    &patterns;
+    &printing;
+    &dialogs;
+    &faq;
+    &credits;
+    &install;
+
+    &documentation.index;
+</book>

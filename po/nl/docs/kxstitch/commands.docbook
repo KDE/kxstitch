@@ -1,0 +1,1395 @@
+<chapter id="commands">
+    <title
+>Overzicht van de opdrachten</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Menu's van &kxstitch;</title>
+        <sect2>
+            <title
+>Het menu Bestand</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Nieuw</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt een nieuw patroon aan met ge3bruik van standaard waarden ingesteld in het dialoogvenster Eigenschappen.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Openen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Opent een bestaand patroon</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Recent openen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Een recent gebruikt patroon openen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Opslaan</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Slaat het patroon op</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Opslaan als</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Slaat het patroon op onder een nieuwe naam</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Terugdraaien</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Draait het patroon terug naar de laatste opgeslagen staat</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Afdrukken</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Drukt het patroon af</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Printerinstellingen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Stelt de opmaak van de afdruk in</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Afbeelding importeren</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Importeert een afbeeldingsbestand en converteert het naar steken</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Bestandseigenschappen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon / bewerk de eigenschappen van het document</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Achtergrondafbeelding toevoegen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Voegt een afbeelding in als achtergrond als voorbeeld.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Achtergrondafbeelding verwijderen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selecteer een te verwijderen achtergrondafbeelding. Het submenu hiervoor is bevolkt met eerder ingevoegde achtergrondafbeeldingen.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Sluiten</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Sluit het patroon af</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Afsluiten</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Beëindig</action
+> &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Bewerken</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Ongedaan maken</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maak de laatste wijziging ongedaan. De lijst met wijzigen wordt getoond in het venster Geschiedenis.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Opnieuw</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Doe de laatste ongedaan gemaakte wijziging opnieuw. De lijst met wijzigen wordt getoond in het venster Geschiedenis.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Knippen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Knip het geselecteerde gebied en kopieer deze naar het klembord</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Kopiëren</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kopieer het geselecteerde gebied naar het klembord</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Plakken</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Plak het geselecteerde gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Selectiemasker</guisubmenu
+><guimenuitem
+>Masker voor steken</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Beperk selecties tot het nu geselecteerde type steek</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectiemasker</guisubmenu
+><guimenuitem
+>Kleurmasker</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Beperk selecties tot de nu geselecteerde kleur</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectiemasker</guisubmenu
+><guimenuitem
+>Achter-steken uitsluiten</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Steken van achteraf uitsluiten uit de selectie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectiemasker</guisubmenu
+><guimenuitem
+>Knopen uitsluiten</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Knopen uitsluiten uit de selectie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Spiegelen/roteren maakt kopieën</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Indien ingeschakeld, dan maakt de spiegelen/roteren-functie een kopie van de selectie, in het andere geval wordt het geselecteerde gebied verplaatst.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectie spiegelen</guisubmenu
+><guimenuitem
+>Horizontaal</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spiegel het geselecteerde gebied horizontaal, &ie; draai het om van links naar recht</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectie spiegelen</guisubmenu
+><guimenuitem
+>Verticaal</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spiegel het geselecteerde gebied verticaal, &ie; draai het om van boven naar onder</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectie draaien</guisubmenu
+><guimenuitem
+>90 graden</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Roteer het geselecteerde gebied 90 graden rechtsom</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectie draaien</guisubmenu
+><guimenuitem
+>180 graden</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Roteer het geselecteerde gebied 180 graden rechtsom</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Selectie draaien</guisubmenu
+><guimenuitem
+>270 graden</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Roteer het geselecteerde gebied 270 graden linksom</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Knippen, kopiëren en plakken</title>
+                <para
+>Bij het knippen en kopiëren van gebieden kunt u om de selectie te beperken gebruik maken van steken maskers, kleuren maskers en het uitsluiten van achtersteken en knopen . </para>
+                <para
+>Bij het plakken in &kxstitch; kunt u de &LMB; ongeveer op de locatie waar u wilt plakken indrukken en ingedrukt houden zodat u een afbeelding van de te plakken data krijgt waarmee u deze vervolgens nauwkeurig kunt plaatsen om daarna pas de knop los te laten. Deze methode gebruikt u ook bij het spiegelen en roteren. U kunt ook de cursor-toetsen gebruiken voor het verplaatsen van het geplakte patroon om tenslotte de locatie vast te zetten met de &Enter;-toets. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Beeld</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Werkelijke grootte</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zoom de weergave zodat de schermgrootte de fysieke afmeting benadert</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Passend in pagina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zoom de weergave zodat het gehele patroon past in het zichtbare gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Passend in paginabreedte</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zoom de weergave zodat het patroonbreedte past in het zichtbare gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Passend in paginahoogte</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zoom de weergave zodat het patroonhoogte past in het zichtbare gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Inzoomen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Inzoomen in de bewerkingsweergave</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Uitzoomen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Uitzoomen in de bewerkingsweergave</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Voorbeeld</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon of verberg het venster met het voorbeeld</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Palet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon of verberg het venster met het palet</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Geschiedenis</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon of verberg het venster met de geschiedenis</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Geïmporteerde afbeelding</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon of verberg het venster met het voorbeeld van de geïmporteerde afbeelding</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Achtergrondafbeelding tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toon of verberg een achtergrondafbeelding. De lijst wordt dynamisch gegenereerd gebaseerd op de ingevoegde achtergrondafbeeldingen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Achtergrondafbeelding aanpassen aan selectie</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Achtergrondafbeelding aanpassen aan het huidige geselecteerde gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Steken</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kwartsteek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kwartsteek, het kwadrant van de geselecteerde cel bepaalt de positie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Halve steek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Halve steek, het kwadrant van de geselecteerde cel bepaalt de positie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Driekwartsteek</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Driekwartsteek, het kwadrant van de geselecteerde cel bepaalt de positie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Hele steek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Hele steek</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kleine halve steek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kleine halve steek, het kwadrant van de geselecteerde cel bepaalt de positie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kleine hele steek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kleine hele steek, het kwadrant van de geselecteerde cel bepaalt de positie</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Franse knoop</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Franse knoop steek</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Hulpmiddelen</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Schilderen</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Schildert steken op het doek - Druk de &LMB; in en versleep het rond over het venster. Aan elke cel waar het overheen komt worden steken toegevoegd. De muis loslaten zal het schilderen doen stoppen. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tekenen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Trekt een lijn van steken op het doek - Druk op het beginpunt van de lijn de &LMB; in, sleep het naar het gewenste eindpunt van lijn en laat de muisknop los. Aan elke cel die de lijn passeert worden steken toegevoegd. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Wissen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Verwijdert steken - Druk de &LMB; in en versleep het over de steken die u wilt verwijderen. Alle steken in de cellen die we passeren worden verwijdert. Om het verwijderen te stoppen laat u de muisknop los. Houdt de &Ctrl;-knop ingedrukt en klik dan met de &LMB; op een begin of eindpunt van een achtersteek om deze te verwijderen, als er meer dan een achtersteek op een digitale punt is dan wordt de eerst gevonden steek verwijdert. Om een specifiek achtersteek te verwijderen selecteert en versleept u van een eind tot het andere eind van de steek. Houd de &Shift;-toets ingedrukt en klik vervolgens met de &LMB; om een franse knoop te verwijderen. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rechthoek tekenen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teken een rechthoek - Druk de &LMB; muis knop in en beweeg van de ene hoek naar de tegenoverliggende hoek. Laat de muisknop los en een lege rechthoek van steken is toegevoegd aan het doek. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rechthoek vullen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teken een gevulde rechthoek - Druk de &LMB; in en beweeg van de ene hoek naar de tegenoverliggende hoek. Laat de muisknop los en een gevulde rechthoek van steken is toegevoegd aan het doek. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ellips tekenen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teken een ellips - Druk de &LMB; in en beweeg van de ene hoek naar de tegenoverliggende hoek. Laat de muisknop los en een lege ellips van steken is toegevoegd aan het doek. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ellips vullen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teken een gevulde ellips - Druk de &LMB; in en beweeg van de ene hoek naar de tegenoverliggende hoek. Laat de muisknop los en een gevulde ellips van steken is toegevoegd aan het doek. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Veelhoek vullen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Teken een gevulde veelhoek - Klik op elk vakje waar een hoek van de veelhoek moet komen, klik en sleep om meer complexe lijnen te maken. Een cirkel markeert elke hoek verbonden door een zwarte lijn. Klik opnieuw op het startveld om de veelhoek te sluiten. Gebruik de &Backspace;-toets om het laatste punt te verwijderen, of de &Esc;-toets om alle hoeken te verwijderen en de bewerking te annuleren. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Tekst</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Tekst maken in steken - Dit start het tekstscherm. Kies het gewenste font en de gewenste teksthoogte, vul de gewenste tekst in en klik daarna op <guibutton
+>OK</guibutton
+>. druk de &LMB; in ongeveer op de plek waar de tekst geplaatst moet worden. Beweeg nu de cursor naar de plaats waar de tekst precies moet komen en laat de muisknop los. Dit is hetzelfde zoals bij het plakken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alfabet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Voegt patronen toe uit de huidige bibliotheek die overeenkomt met de ingedrukte toetsen.Hiermee kan het alphabet als patroon worden opgeslagen, deze letters kunnen aan toetsen van het toetsenbord zijn verbonden. Dit wordt als volgt gebruikt: na het kiezen van dit onderdeel kan u op het gewenste positie waar u de tekst wilt hebben klikken, zal er na het indrukken van een toets gezocht worden in de huidige bibliotheek naar de bijpassende patroon. Als deze gevonden is, zal deze op de gekozen plek ingevoegd worden.Het invoegpunt zal daarna verplaatst worden afhankelijk van de breedte van het ingevoegde patroon van de letter. Het werkvlak van het patroon wordt naar rechts uitgebreid voor de volgende letters.Door op &Enter; te drukken komt er een nieuwe regel onder het startpunt.Het werkvlak van het patroon wordt naar beneden uitgebreid voor de nieuwe regel als er niet genoeg ruimte beschikbaar is. De &Backspace;-toets zal de laatst ingevoerde karakter verwijderen en de <keycap
+>Spatie</keycap
+>-toets zal het invoegpunt of met de breedte van een spatie in de bibliotheekof een vooringestelde ruimte als er nog geen spatie karakter bestaat. De tekst zal overgaan naar een nieuwe regel als de rand van het doek is bereikt. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Selecteren</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Selecteer een rechthoekig gebied - Druk de &LMB; in op een hoekpunt van het te selecteren rechthoekige gebied en beweeg daarna de muis naar de tegenoverliggende hoek en laat de knop los. Een bewegende stippellijn laat het geselecteerde gebied zien. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kleurenkiezer</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Hiermee kunt u van bestaande steken de kleur kopiëren. Als u boven steken zweeft dan zal een tekstballon de kleur van de steek onder de cursor laten zien. U kunt het selecteren door met de &LMB; te klikken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rijgsteek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Voegt achtersteken toe aan het doek - Druk de &LMB; in op de plek waar de achtersteek moet beginnen, het zal vastklikken op de dichtstbijzijnde van de 9 punten in de cel, beweeg de muis naar de plek waar het eindpunt van de achtersteek moet zijn en laat de muis los, opnieuw zal het vastklikken op de dichtstbijzijnde van de 9 punten in de cel. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het palet menu</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paletbeheerder</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Hier kunt u kleuren toevoegen en ze weer verwijderen aan het huidige palet. Het toewijzen van symbolen en het aantal garens voor de steken en de achtersteken. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Symbolen tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Toont de symbolen verbonden met elke kleur</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Ongebruikte verwijderen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Verwijdert de ongebruikte kleuren van het huidige palet.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kleuren wisselen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>De volgende geselecteerde kleur, zal gewisseld worden met de huidige geselecteerde kleur. Als U de druppelaar selecteert, kunt U de kleur die gewisseld moet worden direct van het patroon kiezen. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kleuren vervangen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>De volgende kleur die U selecteert zal de huidige gekozen kleur vervangen. Net zoals met kleuren wisselen, kunt u de druppelaar gebruiken om een kleur te nemen van het patroon. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het bibliotheek menu</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Bibliotheek-beheerder</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Opent de patroon bibliotheek-beheerder, (die permanent geopend kan blijven) zodat u bibliotheken met patronen of alphabets kan maken en gebruiken.De patronen kunt u vanuit de bibliotheek naar het werkvlak verslepen. De garens worden automatisch omgezet zodat ze in het huidige patroon passen, ook wordt het verschaald naar het huidige patroon voor de juiste plaatsing. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het patronen menu</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Patroon uitbreiden</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vergroot het patroon naar keuze uit naar boven, links, rechts en beneden.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Patroon centreren</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centreert het patroon in het werkvlak</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Werkvlak aanpassen aan patroon</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt het doek kleiner totdat de randen het patroon raken.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Werkvlak aanpassen aan selectie</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt het doek net zo klein als de huidige selectie.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rijen invoegen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Voegt het aantal rijen in dat overeenkomt met het geselecteerde gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Kolommen invoegen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Voegt het aantal kolommen in dat overeenkomt met het geselecteerde gebied</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Instellingen</title>
+            <para
+>Naast het standaard &kde;-instellingenmenu zoals beschreven in het hoofdstuk <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Instellingenmenu</ulink
+> van de documentatie in &kde; Fundamentals van &kxstitch; heeft deze toepassing specifieke menu-onderdelen: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Schalen formatteren als</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Stelt de linialen in op Steken, CM of Inches.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Steken weergeven als</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Wijzigt hoe de steken worden getoond.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rijgsteken weergeven als</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Wijzigt hoe de achtersteken worden getoond.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Knopen weergeven als</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Wijzigt hoe de knopen worden getoond.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Geaccentueerde kleur</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>De modus voor kleuraccentuering inschakelen</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Steken tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt steken zichtbaar of onzichtbaar</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Rijgsteken tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt achtersteken zichtbaar of onzichtbaar</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Franse knopen tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt franse knopen zichtbaar of onzichtbaar</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Raster tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Rooster zichtbaar of onzichtbaar</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Achtergrondafbeeldingen tonen</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Maakt achtergrond afbeelding zichtbaar of onzichtbaar</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>&kxstitch; instellen</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Opent het <link linkend="ConfigurationDialog"
+>configuratie-dialoogvenster</link
+> van &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Het menu Help</title>
+            <para
+>Bovendien heeft &kxstitch; een aantal van de algemene &kde; items in het menu Help, voor meer informatie lees de sectie hierover in het <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menu Help</ulink
+> van de basisinformatie van &kde;. </para>
+        </sect2>
+    </sect1>
+</chapter>

@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Можливості</title>
+    <para
+>Тут наведено список можливостей поточної версії та можливостей, які планується реалізувати у наступних версіях.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Створення візерунків <itemizedlist>
+                <listitem
+><para
+>Можливість визначення розмірів користувачем</para
+></listitem>
+                <listitem
+><para
+>Вибір кольору матеріалу основи</para
+></listitem>
+                <listitem
+><para
+>Вставлення зображень тла для стеження за зображенням</para
+></listitem>
+                <listitem
+><para
+>Імпортування даних зображень у різноманітних форматах</para
+></listitem>
+                <listitem
+><para
+>Вибір параметрів імпортування <itemizedlist>
+                        <listitem
+><para
+>Обмеження кількості кольорів</para
+></listitem>
+                        <listitem
+><para
+>Обмеження кількості кольорів за певною палітрою</para
+></listitem>
+                        <listitem
+><para
+>Масштабування до остаточних розмірів</para
+></listitem>
+                        <listitem
+><para
+>Підтримка прозорості на зображеннях</para
+></listitem>
+                        <listitem
+><para
+>Можливість використання частинних стібків</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Редагування наявних візерунків. Серед інструментів редагування <itemizedlist>
+                <listitem
+><para
+>Незаповнені та заповнені прямокутники</para
+></listitem>
+                <listitem
+><para
+>Незаповнені та заповнені еліпси</para
+></listitem>
+                <listitem
+><para
+>Заповнені багатокутники</para
+></listitem>
+                <listitem
+><para
+>Малювання</para
+></listitem>
+                <listitem
+><para
+>Лінії</para
+></listitem>
+                <listitem
+><para
+>Вилучення стібків, вузлів та зворотних стібків</para
+></listitem>
+                <listitem
+><para
+>Вибір кольору на основі наявних стібків</para
+></listitem>
+                <listitem
+><para
+>Переставляння кольорів</para
+></listitem>
+                <listitem
+><para
+>Заміна одного кольору іншим</para
+></listitem>
+                <listitem
+><para
+>Текстові елементи з визначеною користувачем гарнітурою та розміром шрифту</para
+></listitem>
+                <listitem
+><para
+>Вирізання, копіювання та вставлення прямокутних ділянок</para
+></listitem>
+                <listitem
+><para
+>Необмежений буфер скасовування та повторення дій</para
+></listitem>
+                <listitem
+><para
+>Віддзеркалення, горизонтальне та вертикальне</para
+></listitem>
+                <listitem
+><para
+>Обертання на 90, 180 та 270 градусів проти годинникової стрілки</para
+></listitem>
+                <listitem
+><para
+>Зміна розмірів полотна <itemizedlist>
+                        <listitem
+><para
+>Розширення полотна ліворуч, вгору, праворуч та вниз</para
+></listitem>
+                        <listitem
+><para
+>Обрізання полотна до візерунка</para
+></listitem>
+                        <listitem
+><para
+>Обрізання полотна до позначеного фрагмента</para
+></listitem>
+                        <listitem
+><para
+>Вставлення рядків та стовпчиків</para
+></listitem>
+                        <listitem
+><para
+>Центрування візерунка на полотні</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Перетворення між різними схемами ниток</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Використання стандартних палітр ниток, DMC, Anchor тощо</para
+></listitem>
+        <listitem
+><para
+>Створення нетипових палітр ниток</para
+></listitem>
+        <listitem
+><para
+>Створення нових кольорів для будь-якої палітри ниток</para
+></listitem>
+        <listitem
+><para
+>Збереження та завантаження поточної палітри</para
+></listitem>
+        <listitem
+><para
+>Використання стандартних стібків</para
+></listitem>
+        <listitem
+><para
+>Засіб керування бібліотекою візерунків <itemizedlist>
+                <listitem
+><para
+>Створення візерунків у бібліотеці</para
+></listitem>
+                <listitem
+><para
+>Вставлення візерунків з бібліотеки до нових творів</para
+></listitem>
+                <listitem
+><para
+>Перетягування зі скиданням з бібліотеки до візерунка</para
+></listitem>
+                <listitem
+><para
+>Перетягування зі скиданням з однієї бібліотеки до іншої бібліотеки</para
+></listitem>
+                <listitem
+><para
+>Прив’язування натискань клавіш з візерунками для спрощення використання разом з інструментом абетки</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Довільне використання зворотних стібків</para
+></listitem>
+        <listitem
+><para
+>Друк завершених візерунків та таблиць умовних позначень ниток <itemizedlist>
+                <listitem
+><para
+>Створення візерунків на основі зображень</para
+></listitem>
+                <listitem
+><para
+>Настанови</para
+></listitem>
+                <listitem
+><para
+>Умовні позначення ниток та резюме щодо стібків</para
+></listitem>
+                <listitem
+><para
+>Діаграма візерунка з картою сторінок</para
+></listitem>
+                <listitem
+><para
+>Текстові блоки</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Прив’язка позначок до кольору ниток</para
+></listitem>
+        <listitem
+><para
+>Визначення кількості елементів для стібків та зворотних стібків</para
+></listitem>
+        <listitem
+><para
+>Калібрування кольорів ниток</para
+></listitem>
+    </itemizedlist>
+    <para
+>Запити щодо реалізації нових можливостей слід створювати за допомогою <ulink url="http://bugs.kde.org"
+>системи стеження за вадами у KDE</ulink
+>.</para>
+</chapter>

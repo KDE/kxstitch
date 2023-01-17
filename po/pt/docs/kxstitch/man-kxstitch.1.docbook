@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Portuguese "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual do Utilizador KDE</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Primeira versão da página de manual do KXStitch para o projecto Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Actualização da página de manual.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>2014-05-25</date>
+<productname
+>Ambiente de Trabalho K</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>criador e editor de padrões em ponto de cruz para o &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt "
+>Opções Genéricas do &kde;</arg
+> <arg choice="opt"
+>Opções Genéricas do &Qt;</arg
+> <arg choice="opt "
+><option
+><replaceable
+>ficheiro</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrição</title>
+<para
+>O KXStitch é um programa que lhe permite criar padrões e gráficos em ponto de cruz. Os padrões poderão ser criados do zero com um dado tamanho da grelha, o qual poderá poderá ser alargado ou reduzido à medida que o seu padrão evolui. Em alternativa, poderá importar imagens a partir de diversos formatos gráficos, o que lhe permitirá reduzir o número de cores e restringir a conversão para pontos completos ou, opcionalmente, para pontos fraccionários. Também poderá usar uma imagem como fundo. Estas imagens importadas poderão então ser modificadas com as ferramentas indicadas para produzir o seu desenho final.</para>
+
+<para
+>Existem muitas ferramentas para ajudar a desenhar o seu padrão, desde rectângulos ou elipses abertos e preenchidos a polígonos preenchidos, linhas e pontos traseiros. Para além disso, as operações para cortar, copiar e colar podem ser usadas para duplicar as áreas seleccionadas. As mesmas áreas seleccionadas também podem ser rodadas em 90, 180 e 270 graus, no sentido anti-horário ou espelhados na vertical ou na horizontal.</para>
+
+<para
+>Existe também uma biblioteca de padrões que pode ser usada para guardar porções de padrões, pequenas ou não, que poderão então ser reutilizadas noutros padrões. Os padrões nessas bibliotecas são guardados numa lista hierárquica que torna simples a ordenação e navegação pelas mesmas, de forma a descobrir as que deseja. Estas bibliotecas de padrões também podem ser usadas como alfabetos, caso atribua um dado carácter a cada uma. Ao usar a ferramenta do Alfabeto, sempre que carregar numa tecla, a mesma será pesquisada na biblioteca actual e, se estiver presente, o padrão associado da biblioteca será inserido no padrão.</para>
+
+<para
+>Quando estiver pronto, poderá imprimir o seu desenho em vários formatos. Existem opções para imprimir as folhas de capa, as instruções e uma lista de novelos, incluindo a quantidade de fio usado e o número de pontos.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Opções</title>
+
+<variablelist>
+<varlistentry>
+<term
+><option
+>--author</option
+></term>
+<listitem>
+<para
+>Mostra informações sobre o autor.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Mostra a ajuda acerca das opções.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-qt</option
+></term>
+<listitem>
+<para
+>Mostra as opções específicas do Qt.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-kde</option
+></term>
+<listitem>
+<para
+>Mostra opções específicas do &kde;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--help-all</option
+></term>
+<listitem>
+<para
+>Mostrar todas as opções</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--license</option
+></term>
+<listitem>
+<para
+>Mostra informações sobre a licença</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+>, <option
+>--version</option
+></term>
+<listitem>
+<para
+>Mostrar a versão e sair.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Argumentos</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>ficheiro</replaceable
+></term>
+<listitem>
+<para
+>O documento de ponto de cruz a abrir.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Veja Também</title>
+<para
+>Encontra-se disponível alguma documentação de utilizador mais detalhada em <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (tanto pode introduzir este <acronym
+>URL</acronym
+> no &konqueror;, como executar o <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</para>
+
+<para
+>Existe ainda mais alguma informação disponível na <ulink url="http://userbase.kde.org./KXStitch"
+>página Web do KXStitch</ulink
+>.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Autores</title>
+<para
+>O KXStitch foi criado por <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>
