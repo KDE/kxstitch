@@ -4,9 +4,9 @@
 
     <sect1 id="starting-kxstitch">
         <title
->Iniciando o &kapp;</title>
+>Iniciando o &kxstitch;</title>
         <para
->Ao iniciar o &kapp;, será apresentada uma tela em branco com o tamanho padrão. Isso também acontece quando selecionar a opção <menuchoice
+>Ao iniciar o &kxstitch;, será apresentada uma tela em branco com o tamanho padrão. Isso também acontece quando selecionar a opção <menuchoice
 ><guimenu
 >Arquivo</guimenu
 ><guimenuitem
@@ -43,7 +43,7 @@
         <title
 >Importando imagens</title>
         <para
->O &kapp; permite-lhe importar uma imagem. Uma caixa de diálogo aparecerá, mostrando uma visualização da imagem com base nas opções padrão para importação. </para>
+>O &kxstitch; permite-lhe importar uma imagem. Uma caixa de diálogo aparecerá, mostrando uma visualização da imagem com base nas opções padrão para importação. </para>
         <para
 >O tamanho inicial do padrão será baseado no tamanho predefinido dos padrões. </para>
         <para

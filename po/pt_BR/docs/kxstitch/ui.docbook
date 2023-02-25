@@ -1,14 +1,14 @@
 <chapter id="using-kapp">
     <title
->Interface do Usuário</title>
+>Interface do usuário</title>
 
     <sect1 id="face-screenshot">
         <title
->Janela principal do &kapp;</title>
+>Janela principal do &kxstitch;</title>
         <para>
             <screenshot>
                 <screeninfo
->Aqui está uma imagem do &kapp;</screeninfo>
+>Aqui está uma imagem do &kxstitch;</screeninfo>
                 <mediaobject
 ><imageobject
 ><imagedata fileref="user-interface.png" format="PNG"/></imageobject
@@ -16,11 +16,11 @@
             </screenshot>
         </para>
         <para
->A janela principal do &kapp; consiste em uma janela de edição, apresentada à direita na imagem acima, com três janelas acopláveis. Estas janelas acopláveis apresentam uma visão geral do padrão, a paleta de novelos e uma lista de histórico. Se uma imagem for importada, uma janela acoplável adicional mostrará uma previsão da imagem original como referência. Cada uma dessas janelas acopláveis pode ser movida à vontade para os qualquer uma das bordas da janela principal, destacadas da janela ou ainda ativadas e desativadas. </para>
+>A janela principal do &kxstitch; consiste em uma janela de edição, apresentada à direita na imagem acima, com três janelas acopláveis. Estas janelas acopláveis apresentam uma visão geral do padrão, a paleta de novelos e uma lista de histórico. Se uma imagem for importada, uma janela acoplável adicional mostrará uma previsão da imagem original como referência. Cada uma dessas janelas acopláveis pode ser movida à vontade para os qualquer uma das bordas da janela principal, destacadas da janela ou ainda ativadas e desativadas. </para>
         <para
 >As seções são separadas por divisores, que podem ser movidos para alterar a quantidade de espaço destinado a qualquer uma das seções. </para>
         <para
->O leiaute dos outros elementos, da barra de menu, das barras de ferramentas e da barra de status, é semelhante aos outros aplicativos do &kde; que você executa. </para>
+>O layout dos outros elementos, da barra de menu, das barras de ferramentas e da barra de status, é semelhante aos outros aplicativos do &kde; que você executa. </para>
         <para
 >A barra de status, posicionada na parte inferior da janela, mostra diversas mensagens de status. </para>
     </sect1>

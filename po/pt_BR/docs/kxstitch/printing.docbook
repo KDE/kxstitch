@@ -3,9 +3,9 @@
 >Padrões de impressão</title>
 
     <para
->Assim que terminar o seu desenho, sem dúvida você vai querer imprimi-lo. O &kapp; permite-lhe personalizar a impressão, desde o que é impresso até o tamanho da impressão final. </para>
+>Assim que terminar o seu desenho, sem dúvida você vai querer imprimi-lo. O &kxstitch; permite-lhe personalizar a impressão, desde o que é impresso até o tamanho da impressão final. </para>
     <para
->Esta versão do &kapp; permite um leiaute de impressão completamente personalizado. A nova configuração de impressoras permite adicionar, inserir ou remover páginas. O tamanho e a orientação do papel podem ser selecionados e cada página poderá conter elementos de texto, elementos de padrões ou elementos-chave. </para>
+>Esta versão do &kxstitch; permite um layout de impressão completamente personalizado. A nova configuração de impressoras permite adicionar, inserir ou remover páginas. O tamanho e a orientação do papel podem ser selecionados e cada página poderá conter elementos de texto, elementos de padrões ou elementos-chave. </para>
     <para
 >Para mais detalhes, consulte a <link linkend="PrinterDialog"
 >janela de impressão</link

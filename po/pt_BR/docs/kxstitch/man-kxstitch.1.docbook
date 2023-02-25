@@ -6,7 +6,7 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title
->Manual do Usuário do KDE</title>
+>Manual do usuário do KXStitch</title>
 <author
 ><firstname
 >Eric</firstname
@@ -28,9 +28,9 @@
 >yurchor@ukr.net</email
 ></author>
 <date
->25/05/2014</date>
-<productname
->KDE</productname>
+>29/06/2017</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
 </refentryinfo>
 
 <refmeta>
@@ -48,18 +48,14 @@
 >kxstitch</command
 ></refname>
 <refpurpose
->criador e editor de padrões em ponto cruz para o &kde;</refpurpose>
+>criador e editor de padrões em ponto cruz do &kde;</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis
 ><command
 >kxstitch</command
-> <arg choice="opt "
->Opções genéricas do &kde;</arg
 > <arg choice="opt"
->Opções genéricas do &Qt;</arg
-> <arg choice="opt "
 ><option
 ><replaceable
 >arquivo</replaceable
@@ -86,93 +82,6 @@
 
 <refsect1>
 <title
->Opções</title>
-
-<variablelist>
-<varlistentry>
-<term
-><option
->--author</option
-></term>
-<listitem>
-<para
->Mostra informações sobre o autor</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->--help</option
-></term>
-<listitem>
-<para
->Mostra a ajuda sobre as opções</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->--help-qt</option
-></term>
-<listitem>
-<para
->Mostra as opções específicas do Qt</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->--help-kde</option
-></term>
-<listitem>
-<para
->Mostra as opções específicas do &kde;</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->--help-all</option
-></term>
-<listitem>
-<para
->Mostra todas as opções</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->--license</option
-></term>
-<listitem>
-<para
->Mostra informações sobre a licença</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><option
->-v</option
->, <option
->--version</option
-></term>
-<listitem>
-<para
->Mostra a versão e encerra.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-
-</refsect1>
-
-<refsect1>
-<title
 >Argumentos</title>
 
 <variablelist>
@@ -194,7 +103,8 @@
 <refsect1>
 <title
 >Veja também</title>
-<para
+<simplelist>
+<member
 >A documentação mais detalhada para o usuário está disponível em <ulink url="help:/kxstitch"
 >help:/kxstitch</ulink
 > (tanto poderá inserir esta <acronym
@@ -205,12 +115,16 @@
 > <parameter
 >help:/kxstitch</parameter
 ></userinput
->).</para>
-
-<para
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
 >Existem ainda mais informações disponíveis no <ulink url="http://userbase.kde.org/KXStitch"
 >site do KXStitch</ulink
->.</para>
+>.</member>
+</simplelist>
 </refsect1>
 
 <refsect1>
