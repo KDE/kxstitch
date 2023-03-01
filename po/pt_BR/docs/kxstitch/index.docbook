@@ -3,7 +3,6 @@
     <!ENTITY kxstitch '<application
 >KXStitch</application
 >'>
-    <!ENTITY kapp "&kxstitch;">
     <!ENTITY % addindex "IGNORE">
     <!ENTITY % Brazilian-Portuguese "INCLUDE">
     <!ENTITY introduction SYSTEM "introduction.docbook">
@@ -13,7 +12,6 @@
     <!ENTITY patterns SYSTEM "patterns.docbook">
     <!ENTITY printing SYSTEM "printing.docbook">
     <!ENTITY dialogs SYSTEM "dialogs.docbook">
-    <!ENTITY faq SYSTEM "faq.docbook">
     <!ENTITY credits SYSTEM "credits.docbook">
     <!ENTITY install SYSTEM "install.docbook">
     ]>
@@ -21,7 +19,7 @@
 <book lang="&language;">
     <bookinfo>
         <title
->Manual do &kapp;</title>
+>Manual do &kxstitch;</title>
         <authorgroup>
             <author
 ><firstname
@@ -55,19 +53,19 @@
         </authorgroup>
         <copyright>
             <year
->2015</year>
+>2016</year>
             <holder
 >Stephen P. Allewell</holder>
         </copyright>
         <legalnotice
 >&FDLNotice;</legalnotice>
         <date
->15/07/2015</date>
+>19/05/2019</date>
         <releaseinfo
->V.1.99.0</releaseinfo>
+>&kxstitch; 2.2.0</releaseinfo>
         <abstract>
             <para
->&kapp; é um aplicativo projetado para permitir que as pessoas criem padrões em ponto cruz e possam imprimi-los. Esses padrões podem ser criados do zero em uma grade com um tamanho definido pelo usuário ou importados a partir de um arquivo de imagem em diversos formatos. </para>
+>O &kxstitch; é um aplicativo projetado para permitir que as pessoas criem padrões em ponto cruz e possam imprimi-los. Esses padrões podem ser criados do zero em uma grade com um tamanho definido pelo usuário ou importados a partir de um arquivo de imagem em diversos formatos. </para>
         </abstract>
         <keywordset>
             <keyword
@@ -90,7 +88,6 @@
     &patterns;
     &printing;
     &dialogs;
-    &faq;
     &credits;
     &install;
 

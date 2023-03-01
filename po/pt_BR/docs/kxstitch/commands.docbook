@@ -4,7 +4,7 @@
 
     <sect1 id="kxstitch-menus">
         <title
->Menus do &kapp;</title>
+>Menus do &kxstitch;</title>
         <sect2>
             <title
 >Menu Arquivo</title>
@@ -148,7 +148,7 @@
                         <listitem
 ><simpara
 ><action
->Configura o leiaute de impressão</action
+>Configura o layout de impressão</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -245,7 +245,7 @@
 ><simpara
 ><action
 >Sai</action
-> do &kapp;</simpara
+> do &kxstitch;</simpara
 ></listitem>
                     </varlistentry>
                 </variablelist>
@@ -523,7 +523,7 @@
                 <para
 >O recorte e a cópia de áreas do padrão poderão utilizar as máscaras de pontos e de cores e da exclusão dos pespontos e nós, para limitar a seleção. </para>
                 <para
->A operação de colagem no &kapp; permite-lhe pressionar e manter pressionado o &LMB; na posição aproximada onde deseja colar os dados, permitindo-lhe visualizar uma imagem desses dados e ajudando a colocar o elemento na posição final, antes mesmo de soltar o botão do mouse. Essa técnica também é usada para as funções de espelho e rotação. As teclas de cursores também podem ser usadas para mover o padrão colado e a tecla &Enter; para fixar a posição. </para>
+>A operação de colagem no &kxstitch; permite-lhe pressionar e manter pressionado o &LMB; na posição aproximada onde deseja colar os dados, permitindo-lhe visualizar uma imagem desses dados e ajudando a colocar o elemento na posição final, antes mesmo de soltar o botão do mouse. Essa técnica também é usada para as funções de espelho e rotação. As teclas de cursores também podem ser usadas para mover o padrão colado e a tecla &Enter; para fixar a posição. </para>
             </sect3>
         </sect2>
 
@@ -1217,9 +1217,9 @@
             <title
 >Menu Configurações</title>
             <para
->Além dos itens do menu Configurações normais do &kde;, descritos no capítulo do <ulink url="help:/fundamentals/ui.html#menus-settings"
->Menu Configurações</ulink
-> dos Fundamentos do &kde;, o &kapp; tem estes itens de menu específicos do aplicativo: </para>
+>Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/menus.html#menus-settings"
+> Settings Menu</ulink
+> chapter of the &kde; Fundamentals &kxstitch; has these application specific menu entries: </para>
             <para>
                 <variablelist>
                     <varlistentry>
@@ -1366,7 +1366,7 @@
                         <term
 ><menuchoice
 ><guimenuitem
->Configurar o &kapp;</guimenuitem
+>Configurar o &kxstitch;</guimenuitem
 ></menuchoice
 ></term>
 			<listitem
@@ -1374,7 +1374,7 @@
 ><action
 >Abre a <link linkend="ConfigurationDialog"
 >caixa de diálogo de configuração</link
-> do &kapp;.</action
+> do &kxstitch;.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -1387,9 +1387,9 @@
             <title
 >Menu Ajuda</title>
             <para
->O &kapp; tem os itens do menu Ajuda comuns do &kde;. Para mais informações, leia a seção do <ulink url="help:/fundamentals/ui.html#menus-help"
->Menu Ajuda</ulink
-> dos Fundamentos do &kde;. </para>
+>Additionally &kxstitch; has the common &kde; Help menu items, for more information read the section about the <ulink url="help:/fundamentals/menus.html#menus-help"
+>Help Menu</ulink
+> of the &kde; Fundamentals. </para>
         </sect2>
     </sect1>
 </chapter>

@@ -19,6 +19,18 @@
 > a partir daqui. </para>
         <para
 >Você pode reservar o número de fios de algodão usados para cada novelo, tanto nos pontos normais como nos pontos traseiros. Essa informação será usada para calcular a quantidade de fio que é necessária para o desenho final. </para>
+        <para
+>A janela inclui um botão <guilabel
+>Escolher cor</guilabel
+> que permite selecionar uma cor de qualquer lugar da tela. Pode ser da imagem de fundo por exemplo para permitir uma seleção fácil de cores correspondentes. O cursor irá alterar para uma cruz com uma amostra de cor indicando a cor do pixel abaixo da cruz. Após clicar no pixel, um novelo que corresponde de perto a cor selecionada será selecionado na lista de novelos. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
         <sect2 id="SymbolSelectorDialog">
             <title
 >Seletor de Símbolos</title>
@@ -147,6 +159,10 @@
 > quanto possível. Esses valores podem ser alterados de acordo com a necessidade. </para>
         <para
 >A opção <guilabel
+>Cortar imagem</guilabel
+> habilita o corte da imagem da visualização. Clique e arraste através da imagem da visualização para selecionar a área requerida. As linhas de guia são mostradas antes de selecionar o ponto de início para permitir uma colocação mais precisa. Uma vez que a área estiver selecionada a visualização será renderizada para mostrar a área cortada. Mais cortes podem ser feitos se necessário. Ao clicar no botão de reset ou desligar, o corte reverterá a imagem da visualização para a imagem original. </para>
+        <para
+>A opção <guilabel
 >Usar fracionários</guilabel
 > irá permitir o uso de pontos fracionários no padrão importado. Isto efetivamente duplica a resolução da importação sem afetar o tamanho global do padrão. </para>
         <para
@@ -247,7 +263,7 @@
         <para
 >A janela de texto permite-lhe selecionar uma fonte e o tamanho, e depois inserir o texto. Clicando em <guibutton
 >OK</guibutton
->, a janela será fechada e retornará à janela do &kapp;. Se posicionar o texto, será equivalente a colar qualquer outro elemento. Pressione com o &LMB; sobre a tela onde deseja o texto (isso mostrará uma previsão), posicione o texto exatamente onde o deseja e então solte o &LMB;. </para>
+>, a janela será fechada e retornará à janela do &kxstitch;. Se posicionar o texto, será equivalente a colar qualquer outro elemento. Pressione com o &LMB; sobre a tela onde deseja o texto (isso mostrará uma previsão), posicione o texto exatamente onde o deseja e então solte o &LMB;. </para>
         <screenshot
 ><mediaobject
 ><imageobject
@@ -275,7 +291,7 @@
         <title
 >Janela da Impressora</title>
         <para
->A janela tem uma lista de páginas à esquerda que mostra uma miniatura para cada uma das páginas. O painel da direita contém o editor de leiaute, onde os elementos podem ser colocados. Cada elemento pode ser personalizado com o menu de contexto e pode ser posicionado e dimensionado de acordo com suas necessidades. </para>
+>A janela tem uma lista de páginas à esquerda que mostra uma miniatura para cada uma das páginas. O painel da direita contém o editor de layout, onde os elementos podem ser colocados. Cada elemento pode ser personalizado com o menu de contexto e pode ser posicionado e dimensionado de acordo com suas necessidades. </para>
 
         <screenshot
 ><mediaobject

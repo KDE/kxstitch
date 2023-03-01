@@ -1,8 +1,8 @@
 <chapter id="credits">
     <title
->Créditos e Licença</title>
+>Créditos e licença</title>
     <para
->&kapp;</para>
+>&kxstitch;</para>
     <para
 >Direitos autorais do programa 2002-2015 Stephen P. Allewell <email
 >steve.allewell@gmail.com</email
@@ -37,5 +37,4 @@
 >Tradução de André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
