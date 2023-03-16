@@ -1217,9 +1217,9 @@
             <title
 >Menu Configurações</title>
             <para
->Apart from the common &kde; Settings menu entries described in the <ulink url="help:/fundamentals/menus.html#menus-settings"
-> Settings Menu</ulink
-> chapter of the &kde; Fundamentals &kxstitch; has these application specific menu entries: </para>
+>Além dos itens do menu Configurações normais do &kde;, descritos no capítulo do <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menu Configurações</ulink
+> dos Fundamentos do &kde;, o &kxstitch; tem estes itens de menu específicos do aplicativo: </para>
             <para>
                 <variablelist>
                     <varlistentry>
@@ -1387,9 +1387,9 @@
             <title
 >Menu Ajuda</title>
             <para
->Additionally &kxstitch; has the common &kde; Help menu items, for more information read the section about the <ulink url="help:/fundamentals/menus.html#menus-help"
->Help Menu</ulink
-> of the &kde; Fundamentals. </para>
+>O &kxstitch; tem os itens do menu Ajuda comuns do &kde;. Para mais informações, leia a seção do <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menu Ajuda</ulink
+> dos Fundamentos do &kde;. </para>
         </sect2>
     </sect1>
 </chapter>
