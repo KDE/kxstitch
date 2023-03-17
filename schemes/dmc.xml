@@ -1,51 +1,86 @@
 <!DOCTYPE flossScheme SYSTEM "flossScheme.dtd">
 <flossScheme>
 <title>DMC</title>
-<floss><name>Blanc</name><description>White</description><color><red>252</red><green>251</green><blue>248</blue></color></floss>
 <floss><name>B5200</name><description>Snow White</description><color><red>255</red><green>255</green><blue>255</blue></color></floss>
+<floss><name>Blanc</name><description>White</description><color><red>252</red><green>251</green><blue>248</blue></color></floss>
 <floss><name>Ecru</name><description>Ecru</description><color><red>240</red><green>234</green><blue>218</blue></color></floss>
-<floss><name>150</name><description>Dusty Rose Ult Vy Dk</description><color><red>171</red><green>2</green><blue>73</blue></color></floss>
-<floss><name>151</name><description>Dusty Rose Vry Lt</description><color><red>240</red><green>206</green><blue>212</blue></color></floss>
-<floss><name>152</name><description>Shell Pink Med Light</description><color><red>226</red><green>160</green><blue>153</blue></color></floss>
+<floss><name>01</name><description>White Tin</description><color><red>227</red><green>227</green><blue>230</blue></color></floss>
+<floss><name>02</name><description>Tin</description><color><red>215</red><green>215</green><blue>216</blue></color></floss>
+<floss><name>03</name><description>Tin Medium</description><color><red>184</red><green>184</green><blue>187</blue></color></floss>
+<floss><name>04</name><description>Tin Dark</description><color><red>174</red><green>174</green><blue>177</blue></color></floss>
+<floss><name>05</name><description>Driftwood Light</description><color><red>227</red><green>204</green><blue>190</blue></color></floss>
+<floss><name>06</name><description>Driftwood Medium Light</description><color><red>220</red><green>198</green><blue>184</blue></color></floss>
+<floss><name>07</name><description>Driftwood</description><color><red>143</red><green>123</green><blue>110</blue></color></floss>
+<floss><name>08</name><description>Driftwood Dark</description><color><red>106</red><green>80</green><blue>70</blue></color></floss>
+<floss><name>09</name><description>Cocoa Very Dark</description><color><red>85</red><green>32</green><blue>14</blue></color></floss>
+<floss><name>10</name><description>Tender Green Very Light</description><color><red>237</red><green>254</green><blue>217</blue></color></floss>
+<floss><name>11</name><description>Tender Green Light</description><color><red>226</red><green>237</green><blue>181</blue></color></floss>
+<floss><name>12</name><description>Tender Green</description><color><red>205</red><green>217</green><blue>154</blue></color></floss>
+<floss><name>13</name><description>Nile Green Medium Light</description><color><red>191</red><green>246</green><blue>224</blue></color></floss>
+<floss><name>14</name><description>Apple Green Pale</description><color><red>208</red><green>251</green><blue>178</blue></color></floss>
+<floss><name>15</name><description>Apple Green</description><color><red>209</red><green>237</green><blue>164</blue></color></floss>
+<floss><name>16</name><description>Chartreuse Light</description><color><red>201</red><green>194</green><blue>88</blue></color></floss>
+<floss><name>17</name><description>Yellow Plum Light</description><color><red>229</red><green>226</green><blue>114</blue></color></floss>
+<floss><name>18</name><description>Yellow Plum</description><color><red>217</red><green>213</green><blue>109</blue></color></floss>
+<floss><name>19</name><description>Autumn Gold Medium Light</description><color><red>247</red><green>201</green><blue>95</blue></color></floss>
+<floss><name>20</name><description>Shrimp</description><color><red>247</red><green>175</green><blue>147</blue></color></floss>
+<floss><name>21</name><description>Alizarin Light</description><color><red>215</red><green>153</green><blue>130</blue></color></floss>
+<floss><name>22</name><description>Alizarin</description><color><red>188</red><green>96</green><blue>78</blue></color></floss>
+<floss><name>23</name><description>Apple Blossom</description><color><red>237</red><green>226</green><blue>237</blue></color></floss>
+<floss><name>24</name><description>White Lavender</description><color><red>224</red><green>215</green><blue>238</blue></color></floss>
+<floss><name>25</name><description>Lavender Ultra Light</description><color><red>218</red><green>210</green><blue>233</blue></color></floss>
+<floss><name>26</name><description>Lavender Pale</description><color><red>215</red><green>202</green><blue>230</blue></color></floss>
+<floss><name>27</name><description>White Violet</description><color><red>240</red><green>238</green><blue>249</blue></color></floss>
+<floss><name>28</name><description>Eggplant Medium Light</description><color><red>144</red><green>134</green><blue>169</blue></color></floss>
+<floss><name>29</name><description>Eggplant</description><color><red>103</red><green>64</green><blue>118</blue></color></floss>
+<floss><name>30</name><description>Blueberry Medium Light</description><color><red>125</red><green>119</green><blue>165</blue></color></floss>
+<floss><name>31</name><description>Blueberry</description><color><red>80</red><green>81</green><blue>141</blue></color></floss>
+<floss><name>32</name><description>Blueberry Dark</description><color><red>77</red><green>46</green><blue>138</blue></color></floss>
+<floss><name>33</name><description>Fuschia</description><color><red>156</red><green>89</green><blue>158</blue></color></floss>
+<floss><name>34</name><description>Fuschia Dark</description><color><red>125</red><green>48</green><blue>100</blue></color></floss>
+<floss><name>35</name><description>Fuschia Very Dark</description><color><red>70</red><green>5</green><blue>45</blue></color></floss>
+<floss><name>150</name><description>Dusty Rose Ultra Very Dark</description><color><red>171</red><green>2</green><blue>73</blue></color></floss>
+<floss><name>151</name><description>Dusty Rose Very Light</description><color><red>240</red><green>206</green><blue>212</blue></color></floss>
+<floss><name>152</name><description>Shell Pink Medium Light</description><color><red>226</red><green>160</green><blue>153</blue></color></floss>
 <floss><name>153</name><description>Violet Very Light</description><color><red>230</red><green>204</green><blue>217</blue></color></floss>
 <floss><name>154</name><description>Grape Very Dark</description><color><red>87</red><green>36</green><blue>51</blue></color></floss>
-<floss><name>155</name><description>Blue Violet Med Dark</description><color><red>152</red><green>145</green><blue>182</blue></color></floss>
-<floss><name>156</name><description>Blue Violet Med Lt</description><color><red>163</red><green>174</green><blue>209</blue></color></floss>
-<floss><name>157</name><description>Cornflower Blue Vy Lt</description><color><red>187</red><green>195</green><blue>217</blue></color></floss>
-<floss><name>158</name><description>Cornflower Blu M V D</description><color><red>76</red><green>82</green><blue>110</blue></color></floss>
+<floss><name>155</name><description>Blue Violet Medium Dark</description><color><red>152</red><green>145</green><blue>182</blue></color></floss>
+<floss><name>156</name><description>Blue Violet Medium Light</description><color><red>163</red><green>174</green><blue>209</blue></color></floss>
+<floss><name>157</name><description>Cornflower Blue Very Light</description><color><red>187</red><green>195</green><blue>217</blue></color></floss>
+<floss><name>158</name><description>Cornflower Blue Medium Very Dark</description><color><red>76</red><green>82</green><blue>110</blue></color></floss>
 <floss><name>159</name><description>Blue Gray Light</description><color><red>199</red><green>202</green><blue>215</blue></color></floss>
 <floss><name>160</name><description>Blue Gray Medium</description><color><red>153</red><green>159</green><blue>183</blue></color></floss>
 <floss><name>161</name><description>Blue Gray</description><color><red>120</red><green>128</green><blue>164</blue></color></floss>
 <floss><name>162</name><description>Blue Ultra Very Light</description><color><red>219</red><green>236</green><blue>245</blue></color></floss>
-<floss><name>163</name><description>Celadon Green Md</description><color><red>77</red><green>131</green><blue>97</blue></color></floss>
-<floss><name>164</name><description>Forest Green Lt</description><color><red>200</red><green>216</green><blue>184</blue></color></floss>
-<floss><name>165</name><description>Moss Green Vy Lt</description><color><red>239</red><green>244</green><blue>164</blue></color></floss>
-<floss><name>166</name><description>Moss Green Md Lt</description><color><red>192</red><green>200</green><blue>64</blue></color></floss>
-<floss><name>167</name><description>Yellow Beige V Dk</description><color><red>167</red><green>124</green><blue>73</blue></color></floss>
+<floss><name>163</name><description>Celadon Green Medium</description><color><red>77</red><green>131</green><blue>97</blue></color></floss>
+<floss><name>164</name><description>Forest Green Light</description><color><red>200</red><green>216</green><blue>184</blue></color></floss>
+<floss><name>165</name><description>Moss Green Very Light</description><color><red>239</red><green>244</green><blue>164</blue></color></floss>
+<floss><name>166</name><description>Moss Green Medium Light</description><color><red>192</red><green>200</green><blue>64</blue></color></floss>
+<floss><name>167</name><description>Yellow Beige Very Dark</description><color><red>167</red><green>124</green><blue>73</blue></color></floss>
 <floss><name>168</name><description>Pewter Very Light</description><color><red>209</red><green>209</green><blue>209</blue></color></floss>
 <floss><name>169</name><description>Pewter Light</description><color><red>132</red><green>132</green><blue>132</blue></color></floss>
 <floss><name>208</name><description>Lavender Very Dark</description><color><red>131</red><green>91</green><blue>139</blue></color></floss>
 <floss><name>209</name><description>Lavender Dark</description><color><red>163</red><green>123</green><blue>167</blue></color></floss>
 <floss><name>210</name><description>Lavender Medium</description><color><red>195</red><green>159</green><blue>195</blue></color></floss>
 <floss><name>211</name><description>Lavender Light</description><color><red>227</red><green>203</green><blue>227</blue></color></floss>
-<floss><name>221</name><description>Shell Pink Vy Dk</description><color><red>136</red><green>62</green><blue>67</blue></color></floss>
+<floss><name>221</name><description>Shell Pink Very Dark</description><color><red>136</red><green>62</green><blue>67</blue></color></floss>
 <floss><name>223</name><description>Shell Pink Light</description><color><red>204</red><green>132</green><blue>124</blue></color></floss>
 <floss><name>224</name><description>Shell Pink Very Light</description><color><red>235</red><green>183</green><blue>175</blue></color></floss>
-<floss><name>225</name><description>Shell Pink Ult Vy Lt</description><color><red>255</red><green>223</green><blue>213</blue></color></floss>
-<floss><name>300</name><description>Mahogany Vy Dk</description><color><red>111</red><green>47</green><blue>0</blue></color></floss>
-<floss><name>301</name><description>Mahogany Med</description><color><red>179</red><green>95</green><blue>43</blue></color></floss>
+<floss><name>225</name><description>Shell Pink Ultra Very Light</description><color><red>255</red><green>223</green><blue>213</blue></color></floss>
+<floss><name>300</name><description>Mahogany Very Dark</description><color><red>111</red><green>47</green><blue>0</blue></color></floss>
+<floss><name>301</name><description>Mahogany Medium</description><color><red>179</red><green>95</green><blue>43</blue></color></floss>
 <floss><name>304</name><description>Red Medium</description><color><red>183</red><green>31</green><blue>51</blue></color></floss>
 <floss><name>307</name><description>Lemon</description><color><red>253</red><green>237</green><blue>84</blue></color></floss>
-<floss><name>309</name><description>Rose Dark</description><color><red>186</red><green>74</green><blue>74</blue></color></floss>
+<floss><name>309</name><description>Rose Ultra Very Dark</description><color><red>186</red><green>74</green><blue>74</blue></color></floss>
 <floss><name>310</name><description>Black</description><color><red>0</red><green>0</green><blue>0</blue></color></floss>
-<floss><name>311</name><description>Wedgewood Ult VyDk</description><color><red>28</red><green>80</green><blue>102</blue></color></floss>
+<floss><name>311</name><description>Navy Blue Medium</description><color><red>28</red><green>80</green><blue>102</blue></color></floss>
 <floss><name>312</name><description>Baby Blue Very Dark</description><color><red>53</red><green>102</green><blue>139</blue></color></floss>
-<floss><name>315</name><description>Antique Mauve Md Dk</description><color><red>129</red><green>73</green><blue>82</blue></color></floss>
-<floss><name>316</name><description>Antique Mauve Med</description><color><red>183</red><green>115</green><blue>127</blue></color></floss>
+<floss><name>315</name><description>Antique Mauve Medium Dark</description><color><red>129</red><green>73</green><blue>82</blue></color></floss>
+<floss><name>316</name><description>Antique Mauve Medium</description><color><red>183</red><green>115</green><blue>127</blue></color></floss>
 <floss><name>317</name><description>Pewter Gray</description><color><red>108</red><green>108</green><blue>108</blue></color></floss>
-<floss><name>318</name><description>Steel Gray Lt</description><color><red>171</red><green>171</green><blue>171</blue></color></floss>
-<floss><name>319</name><description>Pistachio Grn Vy Dk</description><color><red>32</red><green>95</green><blue>46</blue></color></floss>
-<floss><name>320</name><description>Pistachio Green Med</description><color><red>105</red><green>136</green><blue>90</blue></color></floss>
+<floss><name>318</name><description>Steel Gray Light</description><color><red>171</red><green>171</green><blue>171</blue></color></floss>
+<floss><name>319</name><description>Pistachio Grn Very Dark</description><color><red>32</red><green>95</green><blue>46</blue></color></floss>
+<floss><name>320</name><description>Pistachio Green Medium</description><color><red>105</red><green>136</green><blue>90</blue></color></floss>
 <floss><name>321</name><description>Red</description><color><red>199</red><green>43</green><blue>59</blue></color></floss>
 <floss><name>322</name><description>Baby Blue Dark</description><color><red>90</red><green>143</green><blue>184</blue></color></floss>
 <floss><name>326</name><description>Rose Very Dark</description><color><red>179</red><green>59</green><blue>75</blue></color></floss>
@@ -63,22 +98,22 @@
 <floss><name>352</name><description>Coral Light</description><color><red>253</red><green>156</green><blue>151</blue></color></floss>
 <floss><name>353</name><description>Peach</description><color><red>254</red><green>215</green><blue>204</blue></color></floss>
 <floss><name>355</name><description>Terra Cotta Dark</description><color><red>152</red><green>68</green><blue>54</blue></color></floss>
-<floss><name>356</name><description>Terra Cotta Med</description><color><red>197</red><green>106</green><blue>91</blue></color></floss>
-<floss><name>367</name><description>Pistachio Green Dk</description><color><red>97</red><green>122</green><blue>82</blue></color></floss>
-<floss><name>368</name><description>Pistachio Green Lt</description><color><red>166</red><green>194</green><blue>152</blue></color></floss>
-<floss><name>369</name><description>Pistachio Green Vy Lt</description><color><red>215</red><green>237</green><blue>204</blue></color></floss>
+<floss><name>356</name><description>Terra Cotta Medium</description><color><red>197</red><green>106</green><blue>91</blue></color></floss>
+<floss><name>367</name><description>Pistachio Green Dark</description><color><red>97</red><green>122</green><blue>82</blue></color></floss>
+<floss><name>368</name><description>Pistachio Green Light</description><color><red>166</red><green>194</green><blue>152</blue></color></floss>
+<floss><name>369</name><description>Pistachio Green Very Light</description><color><red>215</red><green>237</green><blue>204</blue></color></floss>
 <floss><name>370</name><description>Mustard Medium</description><color><red>184</red><green>157</green><blue>100</blue></color></floss>
 <floss><name>371</name><description>Mustard</description><color><red>191</red><green>166</green><blue>113</blue></color></floss>
-<floss><name>372</name><description>Mustard Lt</description><color><red>204</red><green>183</green><blue>132</blue></color></floss>
+<floss><name>372</name><description>Mustard Light</description><color><red>204</red><green>183</green><blue>132</blue></color></floss>
 <floss><name>400</name><description>Mahogany Dark</description><color><red>143</red><green>67</green><blue>15</blue></color></floss>
-<floss><name>402</name><description>Mahogany Vy Lt</description><color><red>247</red><green>167</green><blue>119</blue></color></floss>
-<floss><name>407</name><description>Desert Sand Med</description><color><red>187</red><green>129</green><blue>97</blue></color></floss>
+<floss><name>402</name><description>Mahogany Very Light</description><color><red>247</red><green>167</green><blue>119</blue></color></floss>
+<floss><name>407</name><description>Desert Sand Dark</description><color><red>187</red><green>129</green><blue>97</blue></color></floss>
 <floss><name>413</name><description>Pewter Gray Dark</description><color><red>86</red><green>86</green><blue>86</blue></color></floss>
-<floss><name>414</name><description>Steel Gray Dk</description><color><red>140</red><green>140</green><blue>140</blue></color></floss>
+<floss><name>414</name><description>Steel Gray Dark</description><color><red>140</red><green>140</green><blue>140</blue></color></floss>
 <floss><name>415</name><description>Pearl Gray</description><color><red>211</red><green>211</green><blue>214</blue></color></floss>
-<floss><name>420</name><description>Hazelnut Brown Dk</description><color><red>160</red><green>112</green><blue>66</blue></color></floss>
-<floss><name>422</name><description>Hazelnut Brown Lt</description><color><red>198</red><green>159</green><blue>123</blue></color></floss>
-<floss><name>433</name><description>Brown Med</description><color><red>122</red><green>69</green><blue>31</blue></color></floss>
+<floss><name>420</name><description>Hazelnut Brown Dark</description><color><red>160</red><green>112</green><blue>66</blue></color></floss>
+<floss><name>422</name><description>Hazelnut Brown Light</description><color><red>198</red><green>159</green><blue>123</blue></color></floss>
+<floss><name>433</name><description>Brown Medium</description><color><red>122</red><green>69</green><blue>31</blue></color></floss>
 <floss><name>434</name><description>Brown Light</description><color><red>152</red><green>94</green><blue>51</blue></color></floss>
 <floss><name>435</name><description>Brown Very Light</description><color><red>184</red><green>119</green><blue>72</blue></color></floss>
 <floss><name>436</name><description>Tan</description><color><red>203</red><green>144</green><blue>81</blue></color></floss>
@@ -86,37 +121,37 @@
 <floss><name>444</name><description>Lemon Dark</description><color><red>255</red><green>214</green><blue>0</blue></color></floss>
 <floss><name>445</name><description>Lemon Light</description><color><red>255</red><green>251</green><blue>139</blue></color></floss>
 <floss><name>451</name><description>Shell Gray Dark</description><color><red>145</red><green>123</green><blue>115</blue></color></floss>
-<floss><name>452</name><description>Shell Gray Med</description><color><red>192</red><green>179</green><blue>174</blue></color></floss>
+<floss><name>452</name><description>Shell Gray Medium</description><color><red>192</red><green>179</green><blue>174</blue></color></floss>
 <floss><name>453</name><description>Shell Gray Light</description><color><red>215</red><green>206</green><blue>203</blue></color></floss>
 <floss><name>469</name><description>Avocado Green</description><color><red>114</red><green>132</green><blue>60</blue></color></floss>
-<floss><name>470</name><description>Avocado Grn Lt</description><color><red>148</red><green>171</green><blue>79</blue></color></floss>
-<floss><name>471</name><description>Avocado Grn V Lt</description><color><red>174</red><green>191</green><blue>121</blue></color></floss>
-<floss><name>472</name><description>Avocado Grn U Lt</description><color><red>216</red><green>228</green><blue>152</blue></color></floss>
+<floss><name>470</name><description>Avocado Grn Light</description><color><red>148</red><green>171</green><blue>79</blue></color></floss>
+<floss><name>471</name><description>Avocado Grn Very Light</description><color><red>174</red><green>191</green><blue>121</blue></color></floss>
+<floss><name>472</name><description>Avocado Green Ultra Light</description><color><red>216</red><green>228</green><blue>152</blue></color></floss>
 <floss><name>498</name><description>Red Dark</description><color><red>167</red><green>19</green><blue>43</blue></color></floss>
-<floss><name>500</name><description>Blue Green Vy Dk</description><color><red>4</red><green>77</green><blue>51</blue></color></floss>
+<floss><name>500</name><description>Blue Green Very Dark</description><color><red>4</red><green>77</green><blue>51</blue></color></floss>
 <floss><name>501</name><description>Blue Green Dark</description><color><red>57</red><green>111</green><blue>82</blue></color></floss>
 <floss><name>502</name><description>Blue Green</description><color><red>91</red><green>144</green><blue>113</blue></color></floss>
-<floss><name>503</name><description>Blue Green Med</description><color><red>123</red><green>172</green><blue>148</blue></color></floss>
-<floss><name>504</name><description>Blue Green Vy Lt</description><color><red>196</red><green>222</green><blue>204</blue></color></floss>
+<floss><name>503</name><description>Blue Green Medium</description><color><red>123</red><green>172</green><blue>148</blue></color></floss>
+<floss><name>504</name><description>Blue Green Very Light</description><color><red>196</red><green>222</green><blue>204</blue></color></floss>
 <floss><name>505</name><description>Jade Green</description><color><red>51</red><green>131</green><blue>98</blue></color></floss>
 <floss><name>517</name><description>Wedgewood Dark</description><color><red>59</red><green>118</green><blue>143</blue></color></floss>
 <floss><name>518</name><description>Wedgewood Light</description><color><red>79</red><green>147</green><blue>167</blue></color></floss>
 <floss><name>519</name><description>Sky Blue</description><color><red>126</red><green>177</green><blue>200</blue></color></floss>
 <floss><name>520</name><description>Fern Green Dark</description><color><red>102</red><green>109</green><blue>79</blue></color></floss>
 <floss><name>522</name><description>Fern Green</description><color><red>150</red><green>158</green><blue>126</blue></color></floss>
-<floss><name>523</name><description>Fern Green Lt</description><color><red>171</red><green>177</green><blue>151</blue></color></floss>
-<floss><name>524</name><description>Fern Green Vy Lt</description><color><red>196</red><green>205</green><blue>172</blue></color></floss>
-<floss><name>535</name><description>Ash Gray Vy Lt</description><color><red>99</red><green>100</green><blue>88</blue></color></floss>
-<floss><name>543</name><description>Beige Brown Ult Vy Lt</description><color><red>242</red><green>227</green><blue>206</blue></color></floss>
+<floss><name>523</name><description>Fern Green Light</description><color><red>171</red><green>177</green><blue>151</blue></color></floss>
+<floss><name>524</name><description>Fern Green Very Light</description><color><red>196</red><green>205</green><blue>172</blue></color></floss>
+<floss><name>535</name><description>Ash Gray Very Light</description><color><red>99</red><green>100</green><blue>88</blue></color></floss>
+<floss><name>543</name><description>Beige Ultra Very Light</description><color><red>242</red><green>227</green><blue>206</blue></color></floss>
 <floss><name>550</name><description>Violet Very Dark</description><color><red>92</red><green>24</green><blue>78</blue></color></floss>
-<floss><name>552</name><description>Violet  Medium</description><color><red>128</red><green>58</green><blue>107</blue></color></floss>
+<floss><name>552</name><description>Violet Medium</description><color><red>128</red><green>58</green><blue>107</blue></color></floss>
 <floss><name>553</name><description>Violet</description><color><red>163</red><green>99</green><blue>139</blue></color></floss>
 <floss><name>554</name><description>Violet Light</description><color><red>219</red><green>179</green><blue>203</blue></color></floss>
-<floss><name>561</name><description>Celadon Green VD</description><color><red>44</red><green>106</green><blue>69</blue></color></floss>
+<floss><name>561</name><description>Jade Very Dark</description><color><red>44</red><green>106</green><blue>69</blue></color></floss>
 <floss><name>562</name><description>Jade Medium</description><color><red>83</red><green>151</green><blue>106</blue></color></floss>
 <floss><name>563</name><description>Jade Light</description><color><red>143</red><green>192</green><blue>152</blue></color></floss>
 <floss><name>564</name><description>Jade Very Light</description><color><red>167</red><green>205</green><blue>175</blue></color></floss>
-<floss><name>580</name><description>Moss Green Dk</description><color><red>136</red><green>141</green><blue>51</blue></color></floss>
+<floss><name>580</name><description>Moss Green Dark</description><color><red>136</red><green>141</green><blue>51</blue></color></floss>
 <floss><name>581</name><description>Moss Green</description><color><red>167</red><green>174</green><blue>56</blue></color></floss>
 <floss><name>597</name><description>Turquoise</description><color><red>91</red><green>163</green><blue>179</blue></color></floss>
 <floss><name>598</name><description>Turquoise Light</description><color><red>144</red><green>195</green><blue>204</blue></color></floss>
@@ -126,23 +161,23 @@
 <floss><name>603</name><description>Cranberry</description><color><red>255</red><green>164</green><blue>190</blue></color></floss>
 <floss><name>604</name><description>Cranberry Light</description><color><red>255</red><green>176</green><blue>190</blue></color></floss>
 <floss><name>605</name><description>Cranberry Very Light</description><color><red>255</red><green>192</green><blue>205</blue></color></floss>
-<floss><name>606</name><description>Orange‑Red Bright</description><color><red>250</red><green>50</green><blue>3</blue></color></floss>
-<floss><name>608</name><description>Burnt Orange Bright</description><color><red>253</red><green>93</green><blue>53</blue></color></floss>
-<floss><name>610</name><description>Drab Brown Dk</description><color><red>121</red><green>96</green><blue>71</blue></color></floss>
+<floss><name>606</name><description>Orange Red Bright</description><color><red>250</red><green>50</green><blue>3</blue></color></floss>
+<floss><name>608</name><description>Orange Bright</description><color><red>253</red><green>93</green><blue>53</blue></color></floss>
+<floss><name>610</name><description>Drab Brown Dark</description><color><red>121</red><green>96</green><blue>71</blue></color></floss>
 <floss><name>611</name><description>Drab Brown</description><color><red>150</red><green>118</green><blue>86</blue></color></floss>
-<floss><name>612</name><description>Drab Brown Lt</description><color><red>188</red><green>154</green><blue>120</blue></color></floss>
-<floss><name>613</name><description>Drab Brown V Lt</description><color><red>220</red><green>196</green><blue>170</blue></color></floss>
-<floss><name>632</name><description>Desert Sand Ult Vy Dk</description><color><red>135</red><green>85</green><blue>57</blue></color></floss>
-<floss><name>640</name><description>Beige Gray Vy Dk</description><color><red>133</red><green>123</green><blue>97</blue></color></floss>
+<floss><name>612</name><description>Drab Brown Light</description><color><red>188</red><green>154</green><blue>120</blue></color></floss>
+<floss><name>613</name><description>Drab Brown Very Light</description><color><red>220</red><green>196</green><blue>170</blue></color></floss>
+<floss><name>632</name><description>Desert Sand Ultra Very Dark</description><color><red>135</red><green>85</green><blue>57</blue></color></floss>
+<floss><name>640</name><description>Beige Gray Very Dark</description><color><red>133</red><green>123</green><blue>97</blue></color></floss>
 <floss><name>642</name><description>Beige Gray Dark</description><color><red>164</red><green>152</green><blue>120</blue></color></floss>
-<floss><name>644</name><description>Beige Gray Med</description><color><red>221</red><green>216</green><blue>203</blue></color></floss>
-<floss><name>645</name><description>Beaver Gray Vy Dk</description><color><red>110</red><green>101</green><blue>92</blue></color></floss>
-<floss><name>646</name><description>Beaver Gray Dk</description><color><red>135</red><green>125</green><blue>115</blue></color></floss>
-<floss><name>647</name><description>Beaver Gray Med</description><color><red>176</red><green>166</green><blue>156</blue></color></floss>
-<floss><name>648</name><description>Beaver Gray Lt</description><color><red>188</red><green>180</green><blue>172</blue></color></floss>
+<floss><name>644</name><description>Beige Gray Medium</description><color><red>221</red><green>216</green><blue>203</blue></color></floss>
+<floss><name>645</name><description>Beaver Gray Very Dark</description><color><red>110</red><green>101</green><blue>92</blue></color></floss>
+<floss><name>646</name><description>Beaver Gray Dark</description><color><red>135</red><green>125</green><blue>115</blue></color></floss>
+<floss><name>647</name><description>Beaver Gray Medium</description><color><red>176</red><green>166</green><blue>156</blue></color></floss>
+<floss><name>648</name><description>Beaver Gray Light</description><color><red>188</red><green>180</green><blue>172</blue></color></floss>
 <floss><name>666</name><description>Bright Red</description><color><red>227</red><green>29</green><blue>66</blue></color></floss>
-<floss><name>676</name><description>Old Gold Lt</description><color><red>229</red><green>206</green><blue>151</blue></color></floss>
-<floss><name>677</name><description>Old Gold Vy Lt</description><color><red>245</red><green>236</green><blue>203</blue></color></floss>
+<floss><name>676</name><description>Old Gold Light</description><color><red>229</red><green>206</green><blue>151</blue></color></floss>
+<floss><name>677</name><description>Old Gold Very Light</description><color><red>245</red><green>236</green><blue>203</blue></color></floss>
 <floss><name>680</name><description>Old Gold Dark</description><color><red>188</red><green>141</green><blue>14</blue></color></floss>
 <floss><name>699</name><description>Green</description><color><red>5</red><green>101</green><blue>23</blue></color></floss>
 <floss><name>700</name><description>Green Bright</description><color><red>7</red><green>115</green><blue>27</blue></color></floss>
@@ -153,55 +188,55 @@
 <floss><name>712</name><description>Cream</description><color><red>255</red><green>251</green><blue>239</blue></color></floss>
 <floss><name>718</name><description>Plum</description><color><red>156</red><green>36</green><blue>98</blue></color></floss>
 <floss><name>720</name><description>Orange Spice Dark</description><color><red>229</red><green>92</green><blue>31</blue></color></floss>
-<floss><name>721</name><description>Orange Spice Med</description><color><red>242</red><green>120</green><blue>66</blue></color></floss>
+<floss><name>721</name><description>Orange Spice Medium</description><color><red>242</red><green>120</green><blue>66</blue></color></floss>
 <floss><name>722</name><description>Orange Spice Light</description><color><red>247</red><green>151</green><blue>111</blue></color></floss>
-<floss><name>725</name><description>Topaz Med Lt</description><color><red>255</red><green>200</green><blue>64</blue></color></floss>
+<floss><name>725</name><description>Topaz Medium Light</description><color><red>255</red><green>200</green><blue>64</blue></color></floss>
 <floss><name>726</name><description>Topaz Light</description><color><red>253</red><green>215</green><blue>85</blue></color></floss>
-<floss><name>727</name><description>Topaz Vy Lt</description><color><red>255</red><green>241</green><blue>175</blue></color></floss>
+<floss><name>727</name><description>Topaz Very Light</description><color><red>255</red><green>241</green><blue>175</blue></color></floss>
 <floss><name>728</name><description>Topaz</description><color><red>228</red><green>180</green><blue>104</blue></color></floss>
 <floss><name>729</name><description>Old Gold Medium</description><color><red>208</red><green>165</green><blue>62</blue></color></floss>
-<floss><name>730</name><description>Olive Green V Dk</description><color><red>130</red><green>123</green><blue>48</blue></color></floss>
-<floss><name>731</name><description>Olive Green Dk</description><color><red>147</red><green>139</green><blue>55</blue></color></floss>
+<floss><name>730</name><description>Olive Green Very Dark</description><color><red>130</red><green>123</green><blue>48</blue></color></floss>
+<floss><name>731</name><description>Olive Green Dark</description><color><red>147</red><green>139</green><blue>55</blue></color></floss>
 <floss><name>732</name><description>Olive Green</description><color><red>148</red><green>140</green><blue>54</blue></color></floss>
-<floss><name>733</name><description>Olive Green Md</description><color><red>188</red><green>179</green><blue>76</blue></color></floss>
-<floss><name>734</name><description>Olive Green Lt</description><color><red>199</red><green>192</green><blue>119</blue></color></floss>
+<floss><name>733</name><description>Olive Green Medium</description><color><red>188</red><green>179</green><blue>76</blue></color></floss>
+<floss><name>734</name><description>Olive Green Light</description><color><red>199</red><green>192</green><blue>119</blue></color></floss>
 <floss><name>738</name><description>Tan Very Light</description><color><red>236</red><green>204</green><blue>158</blue></color></floss>
-<floss><name>739</name><description>Tan Ult Vy Lt</description><color><red>248</red><green>228</green><blue>200</blue></color></floss>
+<floss><name>739</name><description>Tan Ultra Very Light</description><color><red>248</red><green>228</green><blue>200</blue></color></floss>
 <floss><name>740</name><description>Tangerine</description><color><red>255</red><green>139</green><blue>0</blue></color></floss>
-<floss><name>741</name><description>Tangerine Med</description><color><red>255</red><green>163</green><blue>43</blue></color></floss>
+<floss><name>741</name><description>Tangerine Medium</description><color><red>255</red><green>163</green><blue>43</blue></color></floss>
 <floss><name>742</name><description>Tangerine Light</description><color><red>255</red><green>191</green><blue>87</blue></color></floss>
-<floss><name>743</name><description>Yellow Med</description><color><red>254</red><green>211</green><blue>118</blue></color></floss>
+<floss><name>743</name><description>Yellow Medium</description><color><red>254</red><green>211</green><blue>118</blue></color></floss>
 <floss><name>744</name><description>Yellow Pale</description><color><red>255</red><green>231</green><blue>147</blue></color></floss>
 <floss><name>745</name><description>Yellow Pale Light</description><color><red>255</red><green>233</green><blue>173</blue></color></floss>
 <floss><name>746</name><description>Off White</description><color><red>252</red><green>252</green><blue>238</blue></color></floss>
-<floss><name>747</name><description>Peacock Blue Vy Lt</description><color><red>229</red><green>252</green><blue>253</blue></color></floss>
+<floss><name>747</name><description>Sky Blue Very Light</description><color><red>229</red><green>252</green><blue>253</blue></color></floss>
 <floss><name>754</name><description>Peach Light</description><color><red>247</red><green>203</green><blue>191</blue></color></floss>
-<floss><name>758</name><description>Terra Cotta Vy Lt</description><color><red>238</red><green>170</green><blue>155</blue></color></floss>
+<floss><name>758</name><description>Terra Cotta Very Light</description><color><red>238</red><green>170</green><blue>155</blue></color></floss>
 <floss><name>760</name><description>Salmon</description><color><red>245</red><green>173</green><blue>173</blue></color></floss>
 <floss><name>761</name><description>Salmon Light</description><color><red>255</red><green>201</green><blue>201</blue></color></floss>
-<floss><name>762</name><description>Pearl Gray Vy Lt</description><color><red>236</red><green>236</green><blue>236</blue></color></floss>
-<floss><name>772</name><description>Yellow Green Vy Lt</description><color><red>228</red><green>236</green><blue>212</blue></color></floss>
+<floss><name>762</name><description>Pearl Gray Very Light</description><color><red>236</red><green>236</green><blue>236</blue></color></floss>
+<floss><name>772</name><description>Yellow Green Very Light</description><color><red>228</red><green>236</green><blue>212</blue></color></floss>
 <floss><name>775</name><description>Baby Blue Very Light</description><color><red>217</red><green>235</green><blue>241</blue></color></floss>
 <floss><name>776</name><description>Pink Medium</description><color><red>252</red><green>176</green><blue>185</blue></color></floss>
 <floss><name>777</name><description>Raspberry Very Dark</description><color><red>145</red><green>53</green><blue>70</blue></color></floss>
-<floss><name>778</name><description>Antique Mauve Vy Lt</description><color><red>223</red><green>179</green><blue>187</blue></color></floss>
+<floss><name>778</name><description>Antique Mauve Very Light</description><color><red>223</red><green>179</green><blue>187</blue></color></floss>
 <floss><name>779</name><description>Cocoa Dark</description><color><red>98</red><green>75</green><blue>69</blue></color></floss>
-<floss><name>780</name><description>Topaz Ultra Vy Dk</description><color><red>148</red><green>99</green><blue>26</blue></color></floss>
+<floss><name>780</name><description>Topaz Ultra Very Dark</description><color><red>148</red><green>99</green><blue>26</blue></color></floss>
 <floss><name>781</name><description>Topaz Very Dark</description><color><red>162</red><green>109</green><blue>32</blue></color></floss>
 <floss><name>782</name><description>Topaz Dark</description><color><red>174</red><green>119</green><blue>32</blue></color></floss>
 <floss><name>783</name><description>Topaz Medium</description><color><red>206</red><green>145</green><blue>36</blue></color></floss>
-<floss><name>791</name><description>Cornflower Blue V D</description><color><red>70</red><green>69</green><blue>99</blue></color></floss>
+<floss><name>791</name><description>Cornflower Blue Very Dark</description><color><red>70</red><green>69</green><blue>99</blue></color></floss>
 <floss><name>792</name><description>Cornflower Blue Dark</description><color><red>85</red><green>91</green><blue>123</blue></color></floss>
-<floss><name>793</name><description>Cornflower Blue Med</description><color><red>112</red><green>125</green><blue>162</blue></color></floss>
+<floss><name>793</name><description>Cornflower Blue Medium</description><color><red>112</red><green>125</green><blue>162</blue></color></floss>
 <floss><name>794</name><description>Cornflower Blue Light</description><color><red>143</red><green>156</green><blue>193</blue></color></floss>
 <floss><name>796</name><description>Royal Blue Dark</description><color><red>17</red><green>65</green><blue>109</blue></color></floss>
 <floss><name>797</name><description>Royal Blue</description><color><red>19</red><green>71</green><blue>125</blue></color></floss>
 <floss><name>798</name><description>Delft Blue Dark</description><color><red>70</red><green>106</green><blue>142</blue></color></floss>
 <floss><name>799</name><description>Delft Blue Medium</description><color><red>116</red><green>142</green><blue>182</blue></color></floss>
 <floss><name>800</name><description>Delft Blue Pale</description><color><red>192</red><green>204</green><blue>222</blue></color></floss>
-<floss><name>801</name><description>Coffee Brown Dk</description><color><red>101</red><green>57</green><blue>25</blue></color></floss>
-<floss><name>803</name><description>Baby Blue Ult Vy Dk</description><color><red>44</red><green>89</green><blue>124</blue></color></floss>
-<floss><name>806</name><description>Peacock Blue Dark</description><color><red>61</red><green>149</green><blue>165</blue></color></floss>
+<floss><name>801</name><description>Coffee Brown Dark</description><color><red>101</red><green>57</green><blue>25</blue></color></floss>
+<floss><name>803</name><description>Baby Blue Ultra Very Dark</description><color><red>44</red><green>89</green><blue>124</blue></color></floss>
+<floss><name>806</name><description>Wedgwood Medium Dark</description><color><red>61</red><green>149</green><blue>165</blue></color></floss>
 <floss><name>807</name><description>Peacock Blue</description><color><red>100</red><green>171</green><blue>186</blue></color></floss>
 <floss><name>809</name><description>Delft Blue</description><color><red>148</red><green>168</green><blue>198</blue></color></floss>
 <floss><name>813</name><description>Blue Light</description><color><red>161</red><green>194</green><blue>215</blue></color></floss>
@@ -218,62 +253,62 @@
 <floss><name>825</name><description>Blue Dark</description><color><red>71</red><green>129</green><blue>165</blue></color></floss>
 <floss><name>826</name><description>Blue Medium</description><color><red>107</red><green>158</green><blue>191</blue></color></floss>
 <floss><name>827</name><description>Blue Very Light</description><color><red>189</red><green>221</green><blue>237</blue></color></floss>
-<floss><name>828</name><description>Sky Blue Vy Lt</description><color><red>197</red><green>232</green><blue>237</blue></color></floss>
-<floss><name>829</name><description>Golden Olive Vy Dk</description><color><red>126</red><green>107</green><blue>66</blue></color></floss>
-<floss><name>830</name><description>Golden Olive Dk</description><color><red>141</red><green>120</green><blue>75</blue></color></floss>
-<floss><name>831</name><description>Golden Olive Md</description><color><red>170</red><green>143</green><blue>86</blue></color></floss>
+<floss><name>828</name><description>Sky Blue Very Light</description><color><red>197</red><green>232</green><blue>237</blue></color></floss>
+<floss><name>829</name><description>Golden Olive Very Dark</description><color><red>126</red><green>107</green><blue>66</blue></color></floss>
+<floss><name>830</name><description>Golden Olive Dark</description><color><red>141</red><green>120</green><blue>75</blue></color></floss>
+<floss><name>831</name><description>Golden Olive Medium</description><color><red>170</red><green>143</green><blue>86</blue></color></floss>
 <floss><name>832</name><description>Golden Olive</description><color><red>189</red><green>155</green><blue>81</blue></color></floss>
-<floss><name>833</name><description>Golden Olive Lt</description><color><red>200</red><green>171</green><blue>108</blue></color></floss>
-<floss><name>834</name><description>Golden Olive Vy Lt</description><color><red>219</red><green>190</green><blue>127</blue></color></floss>
-<floss><name>838</name><description>Beige Brown Vy Dk</description><color><red>89</red><green>73</green><blue>55</blue></color></floss>
-<floss><name>839</name><description>Beige Brown Dk</description><color><red>103</red><green>85</green><blue>65</blue></color></floss>
-<floss><name>840</name><description>Beige Brown Med</description><color><red>154</red><green>124</green><blue>92</blue></color></floss>
-<floss><name>841</name><description>Beige Brown Lt</description><color><red>182</red><green>155</green><blue>126</blue></color></floss>
-<floss><name>842</name><description>Beige Brown Vy Lt</description><color><red>209</red><green>186</green><blue>161</blue></color></floss>
-<floss><name>844</name><description>Beaver Gray Ult Dk</description><color><red>72</red><green>72</green><blue>72</blue></color></floss>
-<floss><name>869</name><description>Hazelnut Brown V Dk</description><color><red>131</red><green>94</green><blue>57</blue></color></floss>
-<floss><name>890</name><description>Pistachio Grn Ult V D</description><color><red>23</red><green>73</green><blue>35</blue></color></floss>
+<floss><name>833</name><description>Golden Olive Light</description><color><red>200</red><green>171</green><blue>108</blue></color></floss>
+<floss><name>834</name><description>Golden Olive Very Light</description><color><red>219</red><green>190</green><blue>127</blue></color></floss>
+<floss><name>838</name><description>Beige Brown Very Dark</description><color><red>89</red><green>73</green><blue>55</blue></color></floss>
+<floss><name>839</name><description>Beige Brown Dark</description><color><red>103</red><green>85</green><blue>65</blue></color></floss>
+<floss><name>840</name><description>Beige Brown Medium</description><color><red>154</red><green>124</green><blue>92</blue></color></floss>
+<floss><name>841</name><description>Beige Brown Light</description><color><red>182</red><green>155</green><blue>126</blue></color></floss>
+<floss><name>842</name><description>Beige Brown Very Light</description><color><red>209</red><green>186</green><blue>161</blue></color></floss>
+<floss><name>844</name><description>Beaver Gray Ultra Dark</description><color><red>72</red><green>72</green><blue>72</blue></color></floss>
+<floss><name>869</name><description>Hazelnut Brown Very Dark</description><color><red>131</red><green>94</green><blue>57</blue></color></floss>
+<floss><name>890</name><description>Pistachio Green Ultra Dark</description><color><red>23</red><green>73</green><blue>35</blue></color></floss>
 <floss><name>891</name><description>Carnation Dark</description><color><red>255</red><green>87</green><blue>115</blue></color></floss>
 <floss><name>892</name><description>Carnation Medium</description><color><red>255</red><green>121</green><blue>140</blue></color></floss>
 <floss><name>893</name><description>Carnation Light</description><color><red>252</red><green>144</green><blue>162</blue></color></floss>
 <floss><name>894</name><description>Carnation Very Light</description><color><red>255</red><green>178</green><blue>187</blue></color></floss>
-<floss><name>895</name><description>Hunter Green Vy Dk</description><color><red>27</red><green>83</green><blue>0</blue></color></floss>
-<floss><name>898</name><description>Coffee Brown Vy Dk</description><color><red>73</red><green>42</green><blue>19</blue></color></floss>
+<floss><name>895</name><description>Hunter Green Very Dark</description><color><red>27</red><green>83</green><blue>0</blue></color></floss>
+<floss><name>898</name><description>Coffee Brown Very Dark</description><color><red>73</red><green>42</green><blue>19</blue></color></floss>
 <floss><name>899</name><description>Rose Medium</description><color><red>242</red><green>118</green><blue>136</blue></color></floss>
 <floss><name>900</name><description>Burnt Orange Dark</description><color><red>209</red><green>88</green><blue>7</blue></color></floss>
 <floss><name>902</name><description>Garnet Very Dark</description><color><red>130</red><green>38</green><blue>55</blue></color></floss>
-<floss><name>904</name><description>Parrot Green V Dk</description><color><red>85</red><green>120</green><blue>34</blue></color></floss>
-<floss><name>905</name><description>Parrot Green Dk</description><color><red>98</red><green>138</green><blue>40</blue></color></floss>
-<floss><name>906</name><description>Parrot Green Md</description><color><red>127</red><green>179</green><blue>53</blue></color></floss>
-<floss><name>907</name><description>Parrot Green Lt</description><color><red>199</red><green>230</green><blue>102</blue></color></floss>
-<floss><name>909</name><description>Emerald Green Vy Dk</description><color><red>21</red><green>111</green><blue>73</blue></color></floss>
+<floss><name>904</name><description>Parrot Green Very Dark</description><color><red>85</red><green>120</green><blue>34</blue></color></floss>
+<floss><name>905</name><description>Parrot Green Dark</description><color><red>98</red><green>138</green><blue>40</blue></color></floss>
+<floss><name>906</name><description>Parrot Green Medium</description><color><red>127</red><green>179</green><blue>53</blue></color></floss>
+<floss><name>907</name><description>Parrot Green Light</description><color><red>199</red><green>230</green><blue>102</blue></color></floss>
+<floss><name>909</name><description>Emerald Green Very Dark</description><color><red>21</red><green>111</green><blue>73</blue></color></floss>
 <floss><name>910</name><description>Emerald Green Dark</description><color><red>24</red><green>126</green><blue>86</blue></color></floss>
-<floss><name>911</name><description>Emerald Green Med</description><color><red>24</red><green>144</green><blue>101</blue></color></floss>
-<floss><name>912</name><description>Emerald Green Lt</description><color><red>27</red><green>157</green><blue>107</blue></color></floss>
-<floss><name>913</name><description>Nile Green Med</description><color><red>109</red><green>171</green><blue>119</blue></color></floss>
+<floss><name>911</name><description>Emerald Green Medium</description><color><red>24</red><green>144</green><blue>101</blue></color></floss>
+<floss><name>912</name><description>Emerald Green Light</description><color><red>27</red><green>157</green><blue>107</blue></color></floss>
+<floss><name>913</name><description>Nile Green Medium</description><color><red>109</red><green>171</green><blue>119</blue></color></floss>
 <floss><name>915</name><description>Plum Dark</description><color><red>130</red><green>0</green><blue>67</blue></color></floss>
 <floss><name>917</name><description>Plum Medium</description><color><red>155</red><green>19</green><blue>89</blue></color></floss>
-<floss><name>918</name><description>Red‑Copper Dark</description><color><red>130</red><green>52</green><blue>10</blue></color></floss>
-<floss><name>919</name><description>Red‑Copper</description><color><red>166</red><green>69</green><blue>16</blue></color></floss>
-<floss><name>920</name><description>Copper Med</description><color><red>172</red><green>84</green><blue>20</blue></color></floss>
+<floss><name>918</name><description>Red Copper Dark</description><color><red>130</red><green>52</green><blue>10</blue></color></floss>
+<floss><name>919</name><description>Red Copper</description><color><red>166</red><green>69</green><blue>16</blue></color></floss>
+<floss><name>920</name><description>Copper Medium</description><color><red>172</red><green>84</green><blue>20</blue></color></floss>
 <floss><name>921</name><description>Copper</description><color><red>198</red><green>98</green><blue>24</blue></color></floss>
 <floss><name>922</name><description>Copper Light</description><color><red>226</red><green>115</green><blue>35</blue></color></floss>
 <floss><name>924</name><description>Gray Green Vy Dark</description><color><red>86</red><green>106</green><blue>106</blue></color></floss>
-<floss><name>926</name><description>Gray Green Med</description><color><red>152</red><green>174</green><blue>174</blue></color></floss>
+<floss><name>926</name><description>Gray Green Medium</description><color><red>152</red><green>174</green><blue>174</blue></color></floss>
 <floss><name>927</name><description>Gray Green Light</description><color><red>189</red><green>203</green><blue>203</blue></color></floss>
-<floss><name>928</name><description>Gray Green Vy Lt</description><color><red>221</red><green>227</green><blue>227</blue></color></floss>
+<floss><name>928</name><description>Gray Green Very Light</description><color><red>221</red><green>227</green><blue>227</blue></color></floss>
 <floss><name>930</name><description>Antique Blue Dark</description><color><red>69</red><green>92</green><blue>113</blue></color></floss>
 <floss><name>931</name><description>Antique Blue Medium</description><color><red>106</red><green>133</green><blue>158</blue></color></floss>
 <floss><name>932</name><description>Antique Blue Light</description><color><red>162</red><green>181</green><blue>198</blue></color></floss>
 <floss><name>934</name><description>Avocado Grn Black</description><color><red>49</red><green>57</green><blue>25</blue></color></floss>
-<floss><name>935</name><description>Avocado Green Dk</description><color><red>66</red><green>77</green><blue>33</blue></color></floss>
-<floss><name>936</name><description>Avocado Grn V Dk</description><color><red>76</red><green>88</green><blue>38</blue></color></floss>
-<floss><name>937</name><description>Avocado Green Md</description><color><red>98</red><green>113</green><blue>51</blue></color></floss>
-<floss><name>938</name><description>Coffee Brown Ult Dk</description><color><red>54</red><green>31</green><blue>14</blue></color></floss>
+<floss><name>935</name><description>Avocado Green Dark</description><color><red>66</red><green>77</green><blue>33</blue></color></floss>
+<floss><name>936</name><description>Avocado Green Very Dark</description><color><red>76</red><green>88</green><blue>38</blue></color></floss>
+<floss><name>937</name><description>Avocado Green Medium</description><color><red>98</red><green>113</green><blue>51</blue></color></floss>
+<floss><name>938</name><description>Coffee Brown Ultra Dark</description><color><red>54</red><green>31</green><blue>14</blue></color></floss>
 <floss><name>939</name><description>Navy Blue Very Dark</description><color><red>27</red><green>40</green><blue>83</blue></color></floss>
-<floss><name>943</name><description>Green Bright Md</description><color><red>61</red><green>147</green><blue>132</blue></color></floss>
+<floss><name>943</name><description>Aquamarine Medium</description><color><red>61</red><green>147</green><blue>132</blue></color></floss>
 <floss><name>945</name><description>Tawny</description><color><red>251</red><green>213</green><blue>187</blue></color></floss>
-<floss><name>946</name><description>Burnt Orange Med</description><color><red>235</red><green>99</green><blue>7</blue></color></floss>
+<floss><name>946</name><description>Burnt Orange Medium</description><color><red>235</red><green>99</green><blue>7</blue></color></floss>
 <floss><name>947</name><description>Burnt Orange</description><color><red>255</red><green>123</green><blue>77</blue></color></floss>
 <floss><name>948</name><description>Peach Very Light</description><color><red>254</red><green>231</green><blue>218</blue></color></floss>
 <floss><name>950</name><description>Desert Sand Light</description><color><red>238</red><green>211</green><blue>196</blue></color></floss>
@@ -283,63 +318,63 @@
 <floss><name>956</name><description>Geranium</description><color><red>255</red><green>145</green><blue>145</blue></color></floss>
 <floss><name>957</name><description>Geranium Pale</description><color><red>253</red><green>181</green><blue>181</blue></color></floss>
 <floss><name>958</name><description>Sea Green Dark</description><color><red>62</red><green>182</green><blue>161</blue></color></floss>
-<floss><name>959</name><description>Sea Green Med</description><color><red>89</red><green>199</green><blue>180</blue></color></floss>
+<floss><name>959</name><description>Sea Green Medium</description><color><red>89</red><green>199</green><blue>180</blue></color></floss>
 <floss><name>961</name><description>Dusty Rose Dark</description><color><red>207</red><green>115</green><blue>115</blue></color></floss>
 <floss><name>962</name><description>Dusty Rose Medium</description><color><red>230</red><green>138</green><blue>138</blue></color></floss>
-<floss><name>963</name><description>Dusty Rose Ult Vy Lt</description><color><red>255</red><green>215</green><blue>215</blue></color></floss>
+<floss><name>963</name><description>Dusty Rose Ultra Very Light</description><color><red>255</red><green>215</green><blue>215</blue></color></floss>
 <floss><name>964</name><description>Sea Green Light</description><color><red>169</red><green>226</green><blue>216</blue></color></floss>
-<floss><name>966</name><description>Jade Ultra Vy Lt</description><color><red>185</red><green>215</green><blue>192</blue></color></floss>
+<floss><name>966</name><description>Baby Green Medium</description><color><red>185</red><green>215</green><blue>192</blue></color></floss>
 <floss><name>967</name><description>Apricot Very Light</description><color><red>255</red><green>222</green><blue>213</blue></color></floss>
 <floss><name>970</name><description>Pumpkin Light</description><color><red>247</red><green>139</green><blue>19</blue></color></floss>
 <floss><name>971</name><description>Pumpkin</description><color><red>246</red><green>127</green><blue>0</blue></color></floss>
 <floss><name>972</name><description>Canary Deep</description><color><red>255</red><green>181</green><blue>21</blue></color></floss>
 <floss><name>973</name><description>Canary Bright</description><color><red>255</red><green>227</green><blue>0</blue></color></floss>
-<floss><name>975</name><description>Golden Brown Dk</description><color><red>145</red><green>79</green><blue>18</blue></color></floss>
-<floss><name>976</name><description>Golden Brown Med</description><color><red>194</red><green>129</green><blue>66</blue></color></floss>
+<floss><name>975</name><description>Golden Brown Dark</description><color><red>145</red><green>79</green><blue>18</blue></color></floss>
+<floss><name>976</name><description>Golden Brown Medium</description><color><red>194</red><green>129</green><blue>66</blue></color></floss>
 <floss><name>977</name><description>Golden Brown Light</description><color><red>220</red><green>156</green><blue>86</blue></color></floss>
-<floss><name>986</name><description>Forest Green Vy Dk</description><color><red>64</red><green>82</green><blue>48</blue></color></floss>
-<floss><name>987</name><description>Forest Green Dk</description><color><red>88</red><green>113</green><blue>65</blue></color></floss>
-<floss><name>988</name><description>Forest Green Med</description><color><red>115</red><green>139</green><blue>91</blue></color></floss>
-<floss><name>989</name><description>Forest Green </description><color><red>141</red><green>166</green><blue>117</blue></color></floss>
-<floss><name>991</name><description>Aquamarine Dk</description><color><red>71</red><green>123</green><blue>110</blue></color></floss>
-<floss><name>992</name><description>Aquamarine Lt</description><color><red>111</red><green>174</green><blue>159</blue></color></floss>
-<floss><name>993</name><description>Aquamarine Vy Lt</description><color><red>144</red><green>192</green><blue>180</blue></color></floss>
+<floss><name>986</name><description>Forest Green Very Dark</description><color><red>64</red><green>82</green><blue>48</blue></color></floss>
+<floss><name>987</name><description>Forest Green Dark</description><color><red>88</red><green>113</green><blue>65</blue></color></floss>
+<floss><name>988</name><description>Forest Green Medium</description><color><red>115</red><green>139</green><blue>91</blue></color></floss>
+<floss><name>989</name><description>Forest Green</description><color><red>141</red><green>166</green><blue>117</blue></color></floss>
+<floss><name>991</name><description>Aquamarine Dark</description><color><red>71</red><green>123</green><blue>110</blue></color></floss>
+<floss><name>992</name><description>Aquamarine Light</description><color><red>111</red><green>174</green><blue>159</blue></color></floss>
+<floss><name>993</name><description>Aquamarine Very Light</description><color><red>144</red><green>192</green><blue>180</blue></color></floss>
 <floss><name>995</name><description>Electric Blue Dark</description><color><red>38</red><green>150</green><blue>182</blue></color></floss>
 <floss><name>996</name><description>Electric Blue Medium</description><color><red>48</red><green>194</green><blue>236</blue></color></floss>
-<floss><name>3011</name><description>Khaki Green Dk</description><color><red>137</red><green>138</green><blue>88</blue></color></floss>
-<floss><name>3012</name><description>Khaki Green Md</description><color><red>166</red><green>167</green><blue>93</blue></color></floss>
-<floss><name>3013</name><description>Khaki Green Lt</description><color><red>185</red><green>185</green><blue>130</blue></color></floss>
-<floss><name>3021</name><description>Brown Gray Vy Dk</description><color><red>79</red><green>75</green><blue>65</blue></color></floss>
-<floss><name>3022</name><description>Brown Gray Med</description><color><red>142</red><green>144</green><blue>120</blue></color></floss>
+<floss><name>3011</name><description>Khaki Green Dark</description><color><red>137</red><green>138</green><blue>88</blue></color></floss>
+<floss><name>3012</name><description>Khaki Green Medium</description><color><red>166</red><green>167</green><blue>93</blue></color></floss>
+<floss><name>3013</name><description>Khaki Green Light</description><color><red>185</red><green>185</green><blue>130</blue></color></floss>
+<floss><name>3021</name><description>Brown Gray Very Dark</description><color><red>79</red><green>75</green><blue>65</blue></color></floss>
+<floss><name>3022</name><description>Brown Gray Medium</description><color><red>142</red><green>144</green><blue>120</blue></color></floss>
 <floss><name>3023</name><description>Brown Gray Light</description><color><red>177</red><green>170</green><blue>151</blue></color></floss>
-<floss><name>3024</name><description>Brown Gray Vy Lt</description><color><red>235</red><green>234</green><blue>231</blue></color></floss>
-<floss><name>3031</name><description>Mocha Brown Vy Dk</description><color><red>75</red><green>60</green><blue>42</blue></color></floss>
-<floss><name>3032</name><description>Mocha Brown Med</description><color><red>179</red><green>159</green><blue>139</blue></color></floss>
-<floss><name>3033</name><description>Mocha Brown Vy Lt</description><color><red>227</red><green>216</green><blue>204</blue></color></floss>
+<floss><name>3024</name><description>Brown Gray Very Light</description><color><red>235</red><green>234</green><blue>231</blue></color></floss>
+<floss><name>3031</name><description>Mocha Brown Very Dark</description><color><red>75</red><green>60</green><blue>42</blue></color></floss>
+<floss><name>3032</name><description>Mocha Brown Medium</description><color><red>179</red><green>159</green><blue>139</blue></color></floss>
+<floss><name>3033</name><description>Mocha Brown Very Light</description><color><red>227</red><green>216</green><blue>204</blue></color></floss>
 <floss><name>3041</name><description>Antique Violet Medium</description><color><red>149</red><green>111</green><blue>124</blue></color></floss>
 <floss><name>3042</name><description>Antique Violet Light</description><color><red>183</red><green>157</green><blue>167</blue></color></floss>
-<floss><name>3045</name><description>Yellow Beige Dk</description><color><red>188</red><green>150</green><blue>106</blue></color></floss>
-<floss><name>3046</name><description>Yellow Beige Md</description><color><red>216</red><green>188</green><blue>154</blue></color></floss>
-<floss><name>3047</name><description>Yellow Beige Lt</description><color><red>231</red><green>214</green><blue>193</blue></color></floss>
-<floss><name>3051</name><description>Green Gray Dk</description><color><red>95</red><green>102</green><blue>72</blue></color></floss>
-<floss><name>3052</name><description>Green Gray Md</description><color><red>136</red><green>146</green><blue>104</blue></color></floss>
+<floss><name>3045</name><description>Yellow Beige Dark</description><color><red>188</red><green>150</green><blue>106</blue></color></floss>
+<floss><name>3046</name><description>Yellow Beige Medium</description><color><red>216</red><green>188</green><blue>154</blue></color></floss>
+<floss><name>3047</name><description>Yellow Beige Light</description><color><red>231</red><green>214</green><blue>193</blue></color></floss>
+<floss><name>3051</name><description>Green Gray Dark</description><color><red>95</red><green>102</green><blue>72</blue></color></floss>
+<floss><name>3052</name><description>Green Gray Medium</description><color><red>136</red><green>146</green><blue>104</blue></color></floss>
 <floss><name>3053</name><description>Green Gray</description><color><red>156</red><green>164</green><blue>130</blue></color></floss>
 <floss><name>3064</name><description>Desert Sand</description><color><red>196</red><green>142</green><blue>112</blue></color></floss>
-<floss><name>3072</name><description>Beaver Gray Vy Lt</description><color><red>230</red><green>232</green><blue>232</blue></color></floss>
-<floss><name>3078</name><description>Golden Yellow Vy Lt</description><color><red>253</red><green>249</green><blue>205</blue></color></floss>
+<floss><name>3072</name><description>Beaver Gray Very Light</description><color><red>230</red><green>232</green><blue>232</blue></color></floss>
+<floss><name>3078</name><description>Golden Yellow Very Light</description><color><red>253</red><green>249</green><blue>205</blue></color></floss>
 <floss><name>3325</name><description>Baby Blue Light</description><color><red>184</red><green>210</green><blue>230</blue></color></floss>
 <floss><name>3326</name><description>Rose Light</description><color><red>251</red><green>173</green><blue>180</blue></color></floss>
 <floss><name>3328</name><description>Salmon Dark</description><color><red>227</red><green>109</green><blue>109</blue></color></floss>
-<floss><name>3340</name><description>Apricot Med</description><color><red>255</red><green>131</green><blue>111</blue></color></floss>
+<floss><name>3340</name><description>Apricot Medium</description><color><red>255</red><green>131</green><blue>111</blue></color></floss>
 <floss><name>3341</name><description>Apricot</description><color><red>252</red><green>171</green><blue>152</blue></color></floss>
-<floss><name>3345</name><description>Hunter Green Dk</description><color><red>27</red><green>89</green><blue>21</blue></color></floss>
+<floss><name>3345</name><description>Hunter Green Dark</description><color><red>27</red><green>89</green><blue>21</blue></color></floss>
 <floss><name>3346</name><description>Hunter Green</description><color><red>64</red><green>106</green><blue>58</blue></color></floss>
-<floss><name>3347</name><description>Yellow Green Med</description><color><red>113</red><green>147</green><blue>92</blue></color></floss>
-<floss><name>3348</name><description>Yellow Green Lt</description><color><red>204</red><green>217</green><blue>177</blue></color></floss>
+<floss><name>3347</name><description>Yellow Green Medium</description><color><red>113</red><green>147</green><blue>92</blue></color></floss>
+<floss><name>3348</name><description>Yellow Green Light</description><color><red>204</red><green>217</green><blue>177</blue></color></floss>
 <floss><name>3350</name><description>Dusty Rose Ultra Dark</description><color><red>188</red><green>67</green><blue>101</blue></color></floss>
 <floss><name>3354</name><description>Dusty Rose Light</description><color><red>228</red><green>166</green><blue>172</blue></color></floss>
-<floss><name>3362</name><description>Pine Green Dk</description><color><red>94</red><green>107</green><blue>71</blue></color></floss>
-<floss><name>3363</name><description>Pine Green Md</description><color><red>114</red><green>130</green><blue>86</blue></color></floss>
+<floss><name>3362</name><description>Pine Green Dark</description><color><red>94</red><green>107</green><blue>71</blue></color></floss>
+<floss><name>3363</name><description>Pine Green Medium</description><color><red>114</red><green>130</green><blue>86</blue></color></floss>
 <floss><name>3364</name><description>Pine Green</description><color><red>131</red><green>151</green><blue>95</blue></color></floss>
 <floss><name>3371</name><description>Black Brown</description><color><red>30</red><green>17</green><blue>8</blue></color></floss>
 <floss><name>3607</name><description>Plum Light</description><color><red>197</red><green>73</green><blue>137</blue></color></floss>
@@ -354,60 +389,60 @@
 <floss><name>3708</name><description>Melon Light</description><color><red>255</red><green>203</green><blue>213</blue></color></floss>
 <floss><name>3712</name><description>Salmon Medium</description><color><red>241</red><green>135</green><blue>135</blue></color></floss>
 <floss><name>3713</name><description>Salmon Very Light</description><color><red>255</red><green>226</green><blue>226</blue></color></floss>
-<floss><name>3716</name><description>Dusty Rose Med Vy Lt</description><color><red>255</red><green>189</green><blue>189</blue></color></floss>
+<floss><name>3716</name><description>Rose Very Light</description><color><red>255</red><green>189</green><blue>189</blue></color></floss>
 <floss><name>3721</name><description>Shell Pink Dark</description><color><red>161</red><green>75</green><blue>81</blue></color></floss>
-<floss><name>3722</name><description>Shell Pink Med</description><color><red>188</red><green>108</green><blue>100</blue></color></floss>
+<floss><name>3722</name><description>Shell Pink Medium</description><color><red>188</red><green>108</green><blue>100</blue></color></floss>
 <floss><name>3726</name><description>Antique Mauve Dark</description><color><red>155</red><green>91</green><blue>102</blue></color></floss>
 <floss><name>3727</name><description>Antique Mauve Light</description><color><red>219</red><green>169</green><blue>178</blue></color></floss>
 <floss><name>3731</name><description>Dusty Rose Very Dark</description><color><red>218</red><green>103</green><blue>131</blue></color></floss>
 <floss><name>3733</name><description>Dusty Rose</description><color><red>232</red><green>135</green><blue>155</blue></color></floss>
 <floss><name>3740</name><description>Antique Violet Dark</description><color><red>120</red><green>87</green><blue>98</blue></color></floss>
-<floss><name>3743</name><description>Antique Violet Vy Lt</description><color><red>215</red><green>203</green><blue>211</blue></color></floss>
+<floss><name>3743</name><description>Antique Violet Very Light</description><color><red>215</red><green>203</green><blue>211</blue></color></floss>
 <floss><name>3746</name><description>Blue Violet Dark</description><color><red>119</red><green>107</green><blue>152</blue></color></floss>
-<floss><name>3747</name><description>Blue Violet Vy Lt</description><color><red>211</red><green>215</green><blue>237</blue></color></floss>
-<floss><name>3750</name><description>Antique Blue Very Dk</description><color><red>56</red><green>76</green><blue>94</blue></color></floss>
-<floss><name>3752</name><description>Antique Blue Very Lt</description><color><red>199</red><green>209</green><blue>219</blue></color></floss>
-<floss><name>3753</name><description>Antique Blue Ult Vy Lt</description><color><red>219</red><green>226</green><blue>233</blue></color></floss>
+<floss><name>3747</name><description>Blue Violet Very Light</description><color><red>211</red><green>215</green><blue>237</blue></color></floss>
+<floss><name>3750</name><description>Antique Blue Very Dark</description><color><red>56</red><green>76</green><blue>94</blue></color></floss>
+<floss><name>3752</name><description>Antique Blue Very Light</description><color><red>199</red><green>209</green><blue>219</blue></color></floss>
+<floss><name>3753</name><description>Antique Blue Ultra Very Light</description><color><red>219</red><green>226</green><blue>233</blue></color></floss>
 <floss><name>3755</name><description>Baby Blue</description><color><red>147</red><green>180</green><blue>206</blue></color></floss>
-<floss><name>3756</name><description>Baby Blue Ult Vy Lt</description><color><red>238</red><green>252</green><blue>252</blue></color></floss>
-<floss><name>3760</name><description>Wedgewood Med</description><color><red>62</red><green>133</green><blue>162</blue></color></floss>
+<floss><name>3756</name><description>Baby Blue Ultra Very Light</description><color><red>238</red><green>252</green><blue>252</blue></color></floss>
+<floss><name>3760</name><description>Wedgewood Medium</description><color><red>62</red><green>133</green><blue>162</blue></color></floss>
 <floss><name>3761</name><description>Sky Blue Light</description><color><red>172</red><green>216</green><blue>226</blue></color></floss>
-<floss><name>3765</name><description>Peacock Blue Vy Dk</description><color><red>52</red><green>127</green><blue>140</blue></color></floss>
+<floss><name>3765</name><description>Peacock Blue Very Dark</description><color><red>52</red><green>127</green><blue>140</blue></color></floss>
 <floss><name>3766</name><description>Peacock Blue Light</description><color><red>153</red><green>207</green><blue>217</blue></color></floss>
 <floss><name>3768</name><description>Gray Green Dark</description><color><red>101</red><green>127</green><blue>127</blue></color></floss>
 <floss><name>3770</name><description>Tawny Vy Light</description><color><red>255</red><green>238</green><blue>227</blue></color></floss>
-<floss><name>3771</name><description>Terra Cotta Ult Vy Lt</description><color><red>244</red><green>187</green><blue>169</blue></color></floss>
-<floss><name>3772</name><description>Desert Sand Vy Dk</description><color><red>160</red><green>108</green><blue>80</blue></color></floss>
-<floss><name>3773</name><description>Desert Sand Dark</description><color><red>182</red><green>117</green><blue>82</blue></color></floss>
-<floss><name>3774</name><description>Desert Sand Vy Lt</description><color><red>243</red><green>225</green><blue>215</blue></color></floss>
+<floss><name>3771</name><description>Terra Cotta Ultra Very Light</description><color><red>244</red><green>187</green><blue>169</blue></color></floss>
+<floss><name>3772</name><description>Desert Sand Very Dark</description><color><red>160</red><green>108</green><blue>80</blue></color></floss>
+<floss><name>3773</name><description>Desert Sand Medium</description><color><red>182</red><green>117</green><blue>82</blue></color></floss>
+<floss><name>3774</name><description>Desert Sand Very Light</description><color><red>243</red><green>225</green><blue>215</blue></color></floss>
 <floss><name>3776</name><description>Mahogany Light</description><color><red>207</red><green>121</green><blue>57</blue></color></floss>
-<floss><name>3777</name><description>Terra Cotta Vy Dk</description><color><red>134</red><green>48</green><blue>34</blue></color></floss>
+<floss><name>3777</name><description>Terra Cotta Very Dark</description><color><red>134</red><green>48</green><blue>34</blue></color></floss>
 <floss><name>3778</name><description>Terra Cotta Light</description><color><red>217</red><green>137</green><blue>120</blue></color></floss>
-<floss><name>3779</name><description>Rosewood Ult Vy Lt</description><color><red>248</red><green>202</green><blue>200</blue></color></floss>
-<floss><name>3781</name><description>Mocha Brown Dk</description><color><red>107</red><green>87</green><blue>67</blue></color></floss>
-<floss><name>3782</name><description>Mocha Brown Lt</description><color><red>210</red><green>188</green><blue>166</blue></color></floss>
+<floss><name>3779</name><description>Rosewood Very Light</description><color><red>248</red><green>202</green><blue>200</blue></color></floss>
+<floss><name>3781</name><description>Mocha Brown Dark</description><color><red>107</red><green>87</green><blue>67</blue></color></floss>
+<floss><name>3782</name><description>Mocha Brown Light</description><color><red>210</red><green>188</green><blue>166</blue></color></floss>
 <floss><name>3787</name><description>Brown Gray Dark</description><color><red>98</red><green>93</green><blue>80</blue></color></floss>
-<floss><name>3790</name><description>Beige Gray Ult Dk</description><color><red>127</red><green>106</green><blue>85</blue></color></floss>
-<floss><name>3799</name><description>Pewter Gray Vy Dk</description><color><red>66</red><green>66</green><blue>66</blue></color></floss>
+<floss><name>3790</name><description>Beige Gray Ultra Dark</description><color><red>127</red><green>106</green><blue>85</blue></color></floss>
+<floss><name>3799</name><description>Pewter Gray Very Dark</description><color><red>66</red><green>66</green><blue>66</blue></color></floss>
 <floss><name>3801</name><description>Melon Very Dark</description><color><red>231</red><green>73</green><blue>103</blue></color></floss>
-<floss><name>3802</name><description>Antique Mauve Vy Dk</description><color><red>113</red><green>65</green><blue>73</blue></color></floss>
+<floss><name>3802</name><description>Antique Mauve Very Dark</description><color><red>113</red><green>65</green><blue>73</blue></color></floss>
 <floss><name>3803</name><description>Mauve Dark</description><color><red>171</red><green>51</green><blue>87</blue></color></floss>
 <floss><name>3804</name><description>Cyclamen Pink Dark</description><color><red>224</red><green>40</green><blue>118</blue></color></floss>
 <floss><name>3805</name><description>Cyclamen Pink</description><color><red>243</red><green>71</green><blue>139</blue></color></floss>
 <floss><name>3806</name><description>Cyclamen Pink Light</description><color><red>255</red><green>140</green><blue>174</blue></color></floss>
 <floss><name>3807</name><description>Cornflower Blue</description><color><red>96</red><green>103</green><blue>140</blue></color></floss>
-<floss><name>3808</name><description>Turquoise Ult Vy Dk</description><color><red>54</red><green>105</green><blue>112</blue></color></floss>
+<floss><name>3808</name><description>Turquoise Ultra Very Dark</description><color><red>54</red><green>105</green><blue>112</blue></color></floss>
 <floss><name>3809</name><description>Turquoise Vy Dark</description><color><red>63</red><green>124</green><blue>133</blue></color></floss>
 <floss><name>3810</name><description>Turquoise Dark</description><color><red>72</red><green>142</green><blue>154</blue></color></floss>
 <floss><name>3811</name><description>Turquoise Very Light</description><color><red>188</red><green>227</green><blue>230</blue></color></floss>
-<floss><name>3812</name><description>Sea Green Vy Dk</description><color><red>47</red><green>140</green><blue>132</blue></color></floss>
-<floss><name>3813</name><description>Blue Green Lt</description><color><red>178</red><green>212</green><blue>189</blue></color></floss>
+<floss><name>3812</name><description>Sea Green Very Dark</description><color><red>47</red><green>140</green><blue>132</blue></color></floss>
+<floss><name>3813</name><description>Blue Green Light</description><color><red>178</red><green>212</green><blue>189</blue></color></floss>
 <floss><name>3814</name><description>Aquamarine</description><color><red>80</red><green>139</green><blue>125</blue></color></floss>
-<floss><name>3815</name><description>Celadon Green Dk</description><color><red>71</red><green>119</green><blue>89</blue></color></floss>
+<floss><name>3815</name><description>Celadon Green Dark</description><color><red>71</red><green>119</green><blue>89</blue></color></floss>
 <floss><name>3816</name><description>Celadon Green</description><color><red>101</red><green>165</green><blue>125</blue></color></floss>
-<floss><name>3817</name><description>Celadon Green Lt</description><color><red>153</red><green>195</green><blue>170</blue></color></floss>
-<floss><name>3818</name><description>Emerald Grn Ult V Dk</description><color><red>17</red><green>90</green><blue>59</blue></color></floss>
-<floss><name>3819</name><description>Moss Green Lt</description><color><red>224</red><green>232</green><blue>104</blue></color></floss>
+<floss><name>3817</name><description>Celadon Green Light</description><color><red>153</red><green>195</green><blue>170</blue></color></floss>
+<floss><name>3818</name><description>Emerald Green Ultra Very Dark</description><color><red>17</red><green>90</green><blue>59</blue></color></floss>
+<floss><name>3819</name><description>Moss Green Light</description><color><red>224</red><green>232</green><blue>104</blue></color></floss>
 <floss><name>3820</name><description>Straw Dark</description><color><red>223</red><green>182</green><blue>95</blue></color></floss>
 <floss><name>3821</name><description>Straw</description><color><red>243</red><green>206</green><blue>117</blue></color></floss>
 <floss><name>3822</name><description>Straw Light</description><color><red>246</red><green>220</green><blue>152</blue></color></floss>
@@ -427,32 +462,33 @@
 <floss><name>3836</name><description>Grape Light</description><color><red>186</red><green>145</green><blue>170</blue></color></floss>
 <floss><name>3837</name><description>Lavender Ultra Dark</description><color><red>108</red><green>58</green><blue>110</blue></color></floss>
 <floss><name>3838</name><description>Lavender Blue Dark</description><color><red>92</red><green>114</green><blue>148</blue></color></floss>
-<floss><name>3839</name><description>Lavender Blue Med</description><color><red>123</red><green>142</green><blue>171</blue></color></floss>
+<floss><name>3839</name><description>Lavender Blue Medium</description><color><red>123</red><green>142</green><blue>171</blue></color></floss>
 <floss><name>3840</name><description>Lavender Blue Light</description><color><red>176</red><green>192</green><blue>218</blue></color></floss>
 <floss><name>3841</name><description>Baby Blue Pale</description><color><red>205</red><green>223</green><blue>237</blue></color></floss>
-<floss><name>3842</name><description>Wedgewood Vry Dk</description><color><red>50</red><green>102</green><blue>124</blue></color></floss>
+<floss><name>3842</name><description>Wedgewood Very Dark</description><color><red>50</red><green>102</green><blue>124</blue></color></floss>
 <floss><name>3843</name><description>Electric Blue</description><color><red>20</red><green>170</green><blue>208</blue></color></floss>
 <floss><name>3844</name><description>Turquoise Bright Dark</description><color><red>18</red><green>174</green><blue>186</blue></color></floss>
-<floss><name>3845</name><description>Turquoise Bright Med</description><color><red>4</red><green>196</green><blue>202</blue></color></floss>
+<floss><name>3845</name><description>Turquoise Bright Medium</description><color><red>4</red><green>196</green><blue>202</blue></color></floss>
 <floss><name>3846</name><description>Turquoise Bright Light</description><color><red>6</red><green>227</green><blue>230</blue></color></floss>
 <floss><name>3847</name><description>Teal Green Dark</description><color><red>52</red><green>125</green><blue>117</blue></color></floss>
-<floss><name>3848</name><description>Teal Green Med</description><color><red>85</red><green>147</green><blue>146</blue></color></floss>
+<floss><name>3848</name><description>Teal Green Medium</description><color><red>85</red><green>147</green><blue>146</blue></color></floss>
 <floss><name>3849</name><description>Teal Green Light</description><color><red>82</red><green>179</green><blue>164</blue></color></floss>
-<floss><name>3850</name><description>Green Bright Dk</description><color><red>55</red><green>132</green><blue>119</blue></color></floss>
-<floss><name>3851</name><description>Green Bright Lt</description><color><red>73</red><green>179</green><blue>161</blue></color></floss>
+<floss><name>3850</name><description>Green Bright Dark</description><color><red>55</red><green>132</green><blue>119</blue></color></floss>
+<floss><name>3851</name><description>Green Bright Light</description><color><red>73</red><green>179</green><blue>161</blue></color></floss>
 <floss><name>3852</name><description>Straw Very Dark</description><color><red>205</red><green>157</green><blue>55</blue></color></floss>
-<floss><name>3853</name><description>Autumn Gold Dk</description><color><red>242</red><green>151</green><blue>70</blue></color></floss>
-<floss><name>3854</name><description>Autumn Gold Med</description><color><red>242</red><green>175</green><blue>104</blue></color></floss>
-<floss><name>3855</name><description>Autumn Gold Lt</description><color><red>250</red><green>211</green><blue>150</blue></color></floss>
-<floss><name>3856</name><description>Mahogany Ult Vy Lt</description><color><red>255</red><green>211</green><blue>181</blue></color></floss>
+<floss><name>3853</name><description>Autumn Gold Dark</description><color><red>242</red><green>151</green><blue>70</blue></color></floss>
+<floss><name>3854</name><description>Autumn Gold Medium</description><color><red>242</red><green>175</green><blue>104</blue></color></floss>
+<floss><name>3855</name><description>Autumn Gold Light</description><color><red>250</red><green>211</green><blue>150</blue></color></floss>
+<floss><name>3856</name><description>Mahogany Ultra Very Light</description><color><red>255</red><green>211</green><blue>181</blue></color></floss>
 <floss><name>3857</name><description>Rosewood Dark</description><color><red>104</red><green>37</green><blue>26</blue></color></floss>
-<floss><name>3858</name><description>Rosewood Med</description><color><red>150</red><green>74</green><blue>63</blue></color></floss>
+<floss><name>3858</name><description>Rosewood Medium</description><color><red>150</red><green>74</green><blue>63</blue></color></floss>
 <floss><name>3859</name><description>Rosewood Light</description><color><red>186</red><green>139</green><blue>124</blue></color></floss>
 <floss><name>3860</name><description>Cocoa</description><color><red>125</red><green>93</green><blue>87</blue></color></floss>
 <floss><name>3861</name><description>Cocoa Light</description><color><red>166</red><green>136</green><blue>129</blue></color></floss>
 <floss><name>3862</name><description>Mocha Beige Dark</description><color><red>138</red><green>110</green><blue>78</blue></color></floss>
-<floss><name>3863</name><description>Mocha Beige Med</description><color><red>164</red><green>131</green><blue>92</blue></color></floss>
+<floss><name>3863</name><description>Mocha Beige Medium</description><color><red>164</red><green>131</green><blue>92</blue></color></floss>
 <floss><name>3864</name><description>Mocha Beige Light</description><color><red>203</red><green>182</green><blue>156</blue></color></floss>
 <floss><name>3865</name><description>Winter White</description><color><red>249</red><green>247</green><blue>241</blue></color></floss>
-<floss><name>3866</name><description>Mocha Brn Ult Vy Lt</description><color><red>250</red><green>246</green><blue>240</blue></color></floss>
+<floss><name>3866</name><description>Mocha Brown Ultra Very Light</description><color><red>250</red><green>246</green><blue>240</blue></color></floss>
+
 </flossScheme>
