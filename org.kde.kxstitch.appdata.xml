@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>org.kde.kxstitch</id>
   <metadata_license>GFDL-1.2-only</metadata_license>
   <name>KXStitch</name>
@@ -336,6 +336,7 @@
       <li xml:lang="zh-CN">打印图案和线键</li>
     </ul>
   </description>
+  <launchable type="desktop-id">org.kde.kxstitch.desktop</launchable>
   <releases>
     <release date="2019-06-07" version="2.2.0"/>
   </releases>
