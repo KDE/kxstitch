@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2019-10-27 07:48+0100\n"
+"PO-Revision-Date: 2023-04-28 18:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -233,7 +233,7 @@ msgstr "Número máximo de cores."
 #: kxstitch.kcfg:195
 #, kde-format
 msgid "Use fractional stitches for finer detail"
-msgstr "Usar puntadas fraccionais para maior detalle."
+msgstr "Usar puntadas fraccionarias para maior detalle."
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:202
@@ -309,19 +309,19 @@ msgstr "O número de celas entre liñas de texto."
 #: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
-msgstr "O número de celas para engadir ao extender o motivo á dereita."
+msgstr "O número de celas para engadir ao estender o motivo á dereita."
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
-msgstr "O número de celas para engadir ao extender o motivo cara abaixo."
+msgstr "O número de celas para engadir ao estender o motivo cara abaixo."
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
 #: kxstitch.kcfg:263
 #, kde-format
 msgid "Should the shapes tools use fractional stitches"
-msgstr "Se as ferramentas de formas deberían usar puntadas fraccionais."
+msgstr "Se as ferramentas de formas deberían usar puntadas fraccionarias."
 
 #. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
 #: kxstitch.kcfg:267
@@ -918,7 +918,7 @@ msgstr "Inserir filas"
 #: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
-msgstr "Extender o motivo"
+msgstr "Estender o motivo"
 
 #: src/Commands.cpp:943 src/MainWindow.cpp:1481
 #, kde-format
@@ -1117,7 +1117,7 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
-"Substituiuse o símbolo da seguinte cor de fío\n"
+"Substituíuse o símbolo da seguinte cor de fío\n"
 "porque non existía na biblioteca de símbolos.\n"
 "\n"
 msgstr[1] ""
@@ -1247,7 +1247,7 @@ msgstr "Non foi posíbel escribir no dispositivo."
 #: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
 #, kde-format
 msgid "Image Element Properties"
-msgstr "Propierdades dos elementos da imaxe"
+msgstr "Propiedades dos elementos da imaxe"
 
 #: src/ImportImageDlg.cpp:101
 #, kde-format
@@ -1358,7 +1358,7 @@ msgid ""
 "and populating libraries."
 msgstr ""
 "O xestor de bibliotecas pode usarse para\n"
-"almacenar motivos reusábeis para a inserción\n"
+"almacenar motivos reutilizábeis para a inserción\n"
 "en novos motivos.\n"
 "\n"
 "Non hai categorías de biblioteca definidas.\n"
@@ -1497,10 +1497,9 @@ msgid "Document to open."
 msgstr "Documento para abrir."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Quere reverter os cambios do documento?"
+msgstr "Gardar os cambios no documento?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1579,7 +1578,7 @@ msgstr "Quere reverter os cambios do documento?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1705,7 +1704,7 @@ msgstr "Excluír as puntadas atrás"
 #: src/MainWindow.cpp:1248
 #, kde-format
 msgid "Exclude Knots"
-msgstr "Exluír os nos"
+msgstr "Excluír os nos"
 
 #: src/MainWindow.cpp:1274
 #, kde-format
@@ -1801,7 +1800,7 @@ msgstr "Substituír as cores"
 #: src/MainWindow.cpp:1475
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Extender o motivo…"
+msgstr "Estender o motivo…"
 
 #: src/MainWindow.cpp:1487
 #, kde-format
@@ -1933,11 +1932,10 @@ msgstr ""
 "Substitúao coa descrición e cor seleccionados."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Substituír"
+msgstr "Non sobrescribir"
 
 #: src/Page.cpp:254
 #, kde-format
@@ -2416,7 +2414,7 @@ msgstr "Ferramentas"
 #: ui/EditorConfigPage.ui:396
 #, kde-format
 msgid "Tool Fractionals"
-msgstr "Fraccionais nas ferramentas."
+msgstr "Fraccionarios nas ferramentas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
 #: ui/EditorConfigPage.ui:403
@@ -2636,7 +2634,7 @@ msgstr "Cores máximas"
 #: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
 #, kde-format
 msgid "Use fractionals"
-msgstr "Usar fraccionais."
+msgstr "Usar fraccionarios."
 
 #. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
 #: ui/ImportImage.ui:118
