@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -1101,7 +1101,6 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/DocumentPalette.cpp:461
 #, kde-format
@@ -1112,7 +1111,6 @@ msgid_plural ""
 "The following floss colors have had an empty symbol assigned.\n"
 "\n"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/DocumentPalette.cpp:470
 #, kde-format
@@ -1123,7 +1121,6 @@ msgid_plural ""
 "\n"
 "You may want to check these are suitable."
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/Editor.cpp:790
 #, kde-format
@@ -1900,7 +1897,6 @@ msgid_plural ""
 "%2 %3\n"
 "%1 Stitches"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/Palette.cpp:262
 #, kde-format
