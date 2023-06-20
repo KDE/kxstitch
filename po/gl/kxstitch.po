@@ -101,7 +101,7 @@ msgstr "A anchura da regra vertical."
 #: kxstitch.kcfg:67
 #, kde-format
 msgid "The display units for a scale."
-msgstr "As unidades que se mostran para unha escala."
+msgstr "As unidades que se amosan para unha escala."
 
 #. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
 #: kxstitch.kcfg:76
@@ -167,19 +167,19 @@ msgstr "Renderizar os consellos sobre puntadas para os bloques colorados."
 #: kxstitch.kcfg:119
 #, kde-format
 msgid "How to display stitches."
-msgstr "Como mostrar as puntadas."
+msgstr "Como amosar as puntadas."
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
 #: kxstitch.kcfg:130
 #, kde-format
 msgid "How to display backstitches."
-msgstr "Como mostrar as puntadas atrás."
+msgstr "Como amosar as puntadas atrás."
 
 #. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
 #: kxstitch.kcfg:138
 #, kde-format
 msgid "How to display french knots."
-msgstr "Como mostrar as puntadas anoadas."
+msgstr "Como amosar as puntadas anoadas."
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:151
@@ -264,19 +264,19 @@ msgstr "O número predeterminado de febras que se usan para as puntadas atrás."
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr "Mostrar os símbolos da paleta."
+msgstr "Amosar os símbolos da paleta."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr "Mostrar os símbolos coas curvas suavizadas."
+msgstr "Amosar os símbolos coas curvas suavizadas."
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:229
 #, kde-format
 msgid "The default size of icons shown in the icon view"
-msgstr "O tamaño predeterminado das iconas que se mostran na vista de iconas."
+msgstr "O tamaño predeterminado das iconas que se amosan na vista de iconas."
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
 #: kxstitch.kcfg:236
@@ -370,7 +370,7 @@ msgstr "A marxe inferior da páxina."
 #: kxstitch.kcfg:298
 #, kde-format
 msgid "Show the layout editor"
-msgstr "Mostrar o editor da disposición."
+msgstr "Amosar o editor da disposición."
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
 #: kxstitch.kcfg:302
@@ -407,7 +407,7 @@ msgstr "O tamaño dos nodos de axuste automático."
 #: kxstitch.kcfg:323
 #, kde-format
 msgid "Show a border around the pattern"
-msgstr "Mostrar un bordo arredor do motivo."
+msgstr "Amosar un bordo arredor do motivo."
 
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
@@ -481,13 +481,13 @@ msgstr ""
 #: kxstitch.kcfg:364
 #, kde-format
 msgid "Show a border around the image"
-msgstr "Mostrar un bordo arredor da imaxe."
+msgstr "Amosar un bordo arredor da imaxe."
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr "Mostrar un bordo arredor da clave."
+msgstr "Amosar un bordo arredor da clave."
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
@@ -536,55 +536,55 @@ msgstr "A marxe inferior do elemento clave."
 #: kxstitch.kcfg:417
 #, kde-format
 msgid "Show the key element symbol column"
-msgstr "Mostrar a columna do símbolo do elemento clave."
+msgstr "Amosar a columna do símbolo do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
 #: kxstitch.kcfg:421
 #, kde-format
 msgid "Show the key element symbol column in color"
-msgstr "Mostrar a columna do símbolo do elemento clave cunha cor."
+msgstr "Amosar a columna do símbolo do elemento clave cunha cor."
 
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
 #: kxstitch.kcfg:425
 #, kde-format
 msgid "Show the key element floss name column"
-msgstr "Mostrar a columna do nome do fío do elemento clave."
+msgstr "Amosar a columna do nome do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
 #: kxstitch.kcfg:429
 #, kde-format
 msgid "Show the key element floss strands column"
-msgstr "Mostrar a columna das febras de fío do elemento clave."
+msgstr "Amosar a columna das febras de fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
 #: kxstitch.kcfg:433
 #, kde-format
 msgid "Show the key element floss description column"
-msgstr "Mostrar a columna da descrición do fío do elemento clave."
+msgstr "Amosar a columna da descrición do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
 #: kxstitch.kcfg:437
 #, kde-format
 msgid "Show the key element stitch count column"
-msgstr "Mostrar a columna do número de puntadas do elemento clave."
+msgstr "Amosar a columna do número de puntadas do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
 #: kxstitch.kcfg:441
 #, kde-format
 msgid "Show the key element floss length column"
-msgstr "Mostrar a columna da lonxitude do fío do elemento clave."
+msgstr "Amosar a columna da lonxitude do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
 #: kxstitch.kcfg:445
 #, kde-format
 msgid "Show the key element skeins column"
-msgstr "Mostrar a columna de madeixas do elemento clave."
+msgstr "Amosar a columna de madeixas do elemento clave."
 
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:450
 #, kde-format
 msgid "Show the border"
-msgstr "Mostrar o bordo."
+msgstr "Amosar o bordo."
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
@@ -695,7 +695,7 @@ msgstr "&Vista"
 #: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
 #, kde-format
 msgid "Show Background Image"
-msgstr "Mostrar a imaxe de fondo."
+msgstr "Amosar a imaxe de fondo."
 
 #. i18n: ectx: Menu (viewFitBackgroundImage)
 #: kxstitchui.rc:76 kxstitchui.rc:176
@@ -1368,7 +1368,7 @@ msgstr ""
 #: src/LibraryManagerDlg.cpp:69
 #, kde-format
 msgid "Select a library to show the associated patterns."
-msgstr "Seleccione unha biblioteca para mostrar os motivos asociados."
+msgstr "Seleccione unha biblioteca para amosar os motivos asociados."
 
 #: src/LibraryManagerDlg.cpp:71
 #, kde-format
@@ -1780,7 +1780,7 @@ msgstr "Xestor de paletas…"
 #: src/MainWindow.cpp:1447
 #, kde-format
 msgid "Show Symbols"
-msgstr "Mostrar os símbolos"
+msgstr "Amosar os símbolos"
 
 #: src/MainWindow.cpp:1453
 #, kde-format
@@ -1874,27 +1874,27 @@ msgstr "Realce de cores"
 #: src/MainWindow.cpp:1644
 #, kde-format
 msgid "Show Stitches"
-msgstr "Mostrar as puntadas"
+msgstr "Amosar as puntadas"
 
 #: src/MainWindow.cpp:1650
 #, kde-format
 msgid "Show Backstitches"
-msgstr "Mostrar as puntadas atrás"
+msgstr "Amosar as puntadas atrás"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
 msgid "Show French Knots"
-msgstr "Mostrar as puntadas anoadas"
+msgstr "Amosar as puntadas anoadas"
 
 #: src/MainWindow.cpp:1662
 #, kde-format
 msgid "Show Grid"
-msgstr "Mostrar a grade"
+msgstr "Amosar a grade"
 
 #: src/MainWindow.cpp:1668
 #, kde-format
 msgid "Show Background Images"
-msgstr "Mostrar as imaxes de fondo"
+msgstr "Amosar as imaxes de fondo"
 
 #: src/MainWindow.cpp:1729
 #, kde-format
@@ -2331,40 +2331,40 @@ msgstr "Renderizador"
 #: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
 #, kde-format
 msgid "Show grid"
-msgstr "Mostrar a grade."
+msgstr "Amosar a grade."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
 #: ui/EditorConfigPage.ui:252
 #, kde-format
 msgid "Show background images"
-msgstr "Mostrar as imaxes de fondo."
+msgstr "Amosar as imaxes de fondo."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
 #: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
 #, kde-format
 msgid "Show stitches"
-msgstr "Mostrar as puntadas"
+msgstr "Amosar as puntadas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
 #: ui/EditorConfigPage.ui:266
 #, kde-format
 msgid "Show stitch hints"
-msgstr "Mostrar os consellos sobre as puntadas."
+msgstr "Amosar os consellos sobre as puntadas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
 #: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
 #, kde-format
 msgid "Show backstitches"
-msgstr "Mostrar as puntadas atrás"
+msgstr "Amosar as puntadas atrás"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
 #: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
 #, kde-format
 msgid "Show knots"
-msgstr "Mostrar os nos"
+msgstr "Amosar os nos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
 #: ui/EditorConfigPage.ui:287
@@ -2533,7 +2533,7 @@ msgid ""
 "pages.</body></html>"
 msgstr ""
 "<html><head/><body>Prema e arrastre para seleccionar unha zona do motivo "
-"para mostrala.<br /> As zonas en gris xa están seleccionadas nesta páxina ou "
+"para amosala.<br /> As zonas en gris xa están seleccionadas nesta páxina ou "
 "noutra.</body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
@@ -2553,7 +2553,7 @@ msgstr "Bordo"
 #: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
 #, kde-format
 msgid "Show border"
-msgstr "Mostrar o bordo."
+msgstr "Amosar o bordo."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2789,7 +2789,7 @@ msgstr "Primeiro elemento"
 #: ui/KeyElement.ui:328
 #, kde-format
 msgid "The first line of the key to display"
-msgstr "A primeira liña da clave para mostrar."
+msgstr "A primeira liña da clave para amosar."
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/KeyElement.ui:341
@@ -2801,7 +2801,7 @@ msgstr "Número de elementos"
 #: ui/KeyElement.ui:348
 #, kde-format
 msgid "The number of key elements to display (0 for all)"
-msgstr "O número de elementos clave para mostrar (0 para mostralos todos)."
+msgstr "O número de elementos clave para amosar (0 para amosalos todos)."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/KeyElement.ui:369
@@ -2965,7 +2965,7 @@ msgstr "Configuración da paleta"
 #: ui/PaletteConfigPage.ui:43
 #, kde-format
 msgid "Show symbols"
-msgstr "Mostrar os símbolos."
+msgstr "Amosar os símbolos."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PaletteConfigPage.ui:50
@@ -3092,13 +3092,13 @@ msgstr "Non funciona actualmente."
 #: ui/PatternElement.ui:182
 #, kde-format
 msgid "Show scales"
-msgstr "Mostrar as escalas."
+msgstr "Amosar as escalas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
 #: ui/PatternElement.ui:225
 #, kde-format
 msgid "Show map"
-msgstr "Mostrar o mapa."
+msgstr "Amosar o mapa."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
@@ -3622,7 +3622,7 @@ msgstr "Marxe inferior en milímetros, interna do bordo."
 #: ui/TextElement.ui:164
 #, kde-format
 msgid "Show border around the text box"
-msgstr "Mostrar un bordo arredor da caixa de texto."
+msgstr "Amosar un bordo arredor da caixa de texto."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
 #: ui/TextElement.ui:235
