@@ -195,3 +195,5 @@ void Scale::paintEvent(QPaintEvent*)
 
     painter.end();
 }
+
+#include "moc_Scale.cpp"

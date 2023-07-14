@@ -493,3 +493,5 @@ bool PaletteManagerDlg::symbolsAvailable() const
 {
     return (SymbolManager::library(m_dialogPalette.symbolLibrary())->indexes().count() > m_dialogPalette.flosses().count());
 }
+
+#include "moc_PaletteManagerDlg.cpp"

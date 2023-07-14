@@ -380,3 +380,5 @@ void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, c
         }
     }
 }
+
+#include "moc_LibraryManagerDlg.cpp"

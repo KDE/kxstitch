@@ -154,3 +154,5 @@ void ScaledPixmapLabel::leaveEvent(QEvent *event)
     update();
     QLabel::leaveEvent(event);
 }
+
+#include "moc_ScaledPixmapLabel.cpp"

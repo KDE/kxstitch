@@ -319,3 +319,5 @@ QRect PageLayoutEditor::unscale(const QRect &r) const
 {
     return QRect(unscale(r.topLeft()), unscale(r.bottomRight()));
 }
+
+#include "moc_PageLayoutEditor.cpp"

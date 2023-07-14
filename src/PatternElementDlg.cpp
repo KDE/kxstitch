@@ -139,3 +139,5 @@ void PatternElementDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PatternElement"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_PatternElementDlg.cpp"

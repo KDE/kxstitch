@@ -619,3 +619,5 @@ void PrintSetupDlg::on_Templates_clicked()
         }
     }
 }
+
+#include "moc_PrintSetupDlg.cpp"

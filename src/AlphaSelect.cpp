@@ -38,3 +38,5 @@ void AlphaSelect::mouseReleaseEvent(QMouseEvent *event)
         emit clicked(event->pos());
     }
 }
+
+#include "moc_AlphaSelect.cpp"

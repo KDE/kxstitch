@@ -248,3 +248,5 @@ void SchemeManager::refresh()
         }
     }
 }
+
+#include "moc_SchemeManager.cpp"

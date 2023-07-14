@@ -403,3 +403,5 @@ void Palette::mousePressEvent(QMouseEvent *event)
         }
     }
 }
+
+#include "moc_Palette.cpp"

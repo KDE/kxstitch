@@ -420,3 +420,5 @@ QString KeycodeLineEdit::keyString(int qtKey, Qt::KeyboardModifiers modifiers)
 
     return string += findQtText(qtKey);
 }
+
+#include "moc_KeycodeLineEdit.cpp"

@@ -89,3 +89,5 @@ void PagePropertiesDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PrinterDialog"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_PagePropertiesDlg.cpp"

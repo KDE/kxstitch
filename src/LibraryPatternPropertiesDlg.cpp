@@ -86,3 +86,5 @@ void LibraryPatternPropertiesDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PatternLibraryDialog"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_LibraryPatternPropertiesDlg.cpp"

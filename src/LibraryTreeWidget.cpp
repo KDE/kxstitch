@@ -136,3 +136,5 @@ void LibraryTreeWidget::openBranch()
         m_dropItem->setExpanded(true);
     }
 }
+
+#include "moc_LibraryTreeWidget.cpp"

@@ -155,3 +155,5 @@ void SymbolSelectorDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("SymbolSelectorDialog"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_SymbolSelectorDlg.cpp"

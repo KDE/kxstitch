@@ -272,3 +272,5 @@ void TextElementDlg::alignmentChanged(Qt::Alignment align)
         ui.AlignJustify->setChecked(true);
     }
 }
+
+#include "moc_TextElementDlg.cpp"

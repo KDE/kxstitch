@@ -229,3 +229,5 @@ void CalibrateFlossDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("CalibrateDialog"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_CalibrateFlossDlg.cpp"

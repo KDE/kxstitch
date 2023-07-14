@@ -162,3 +162,5 @@ QPoint Preview::contentToCell(const QPoint &content) const
 {
     return QPoint(content.x() / m_cellWidth, content.y() / m_cellHeight);
 }
+
+#include "moc_Preview.cpp"

@@ -103,3 +103,5 @@ void KeyElementDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("KeyElement"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_KeyElementDlg.cpp"

@@ -155,3 +155,5 @@ QRect SelectArea::cellToRect(const QPoint &cell) const
     int y = cell.y() * 8;
     return QRect(x, y, 8, 8);
 }
+
+#include "moc_SelectArea.cpp"

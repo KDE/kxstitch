@@ -1765,3 +1765,5 @@ void MainWindow::setupDockWindows()
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     actionCollection()->addAction(QStringLiteral("showImportedDockWidget"), dock->toggleViewAction());
 }
+
+#include "moc_MainWindow.cpp"

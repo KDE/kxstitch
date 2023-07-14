@@ -128,3 +128,4 @@ void TextToolDlg::on_DialogButtonBox_helpRequested()
     KHelpClient::invokeHelp(QStringLiteral("TextDialog"), QStringLiteral("kxstitch"));
 }
 
+#include "moc_TextToolDlg.cpp"

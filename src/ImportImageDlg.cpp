@@ -610,3 +610,5 @@ void ImportImageDlg::resetImportParameters()
     ui.MaximumColors->setMaximum(SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
     ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
 }
+
+#include "moc_ImportImageDlg.cpp"

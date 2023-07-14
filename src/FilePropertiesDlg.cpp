@@ -348,3 +348,5 @@ void FilePropertiesDlg::updatePatternSizes()
     ui.HorizontalClothCount->blockSignals(false);
     ui.VerticalClothCount->blockSignals(false);
 }
+
+#include "moc_FilePropertiesDlg.cpp"

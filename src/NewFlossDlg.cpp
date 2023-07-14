@@ -114,3 +114,5 @@ void NewFlossDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("NewFlossDialog"), QStringLiteral("kxstitch"));
 }
+
+#include "moc_NewFlossDlg.cpp"

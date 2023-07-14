@@ -2303,3 +2303,5 @@ QRect Editor::visibleCells()
 
     return cells;
 }
+
+#include "moc_Editor.cpp"
