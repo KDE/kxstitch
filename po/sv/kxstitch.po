@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016, 2018, 2019.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016, 2018, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2019-06-10 17:47+0100\n"
+"PO-Revision-Date: 2023-07-31 10:27+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 20.08.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1488,10 +1488,9 @@ msgid "Document to open."
 msgstr "Dokument att öppna."
 
 #: src/MainWindow.cpp:248
-#, fuzzy, kde-format
-#| msgid "Revert changes to document?"
+#, kde-format
 msgid "Save changes to document?"
-msgstr "Ångra ändringar av dokumentet?"
+msgstr "Spara ändringar i dokument?"
 
 #: src/MainWindow.cpp:265
 #, kde-format
@@ -1568,7 +1567,7 @@ msgstr "Ångra ändringar av dokumentet?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "Återställ"
 
 #: src/MainWindow.cpp:484
 #, kde-format
@@ -1922,11 +1921,10 @@ msgstr ""
 "Skriv över med vald beskrivning och färg."
 
 #: src/NewFlossDlg.cpp:92
-#, fuzzy, kde-format
-#| msgid "Overwrite"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr "Skriv över"
+msgstr "Skriv inte över"
 
 #: src/Page.cpp:254
 #, kde-format

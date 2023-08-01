@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2023-07-04 00:54+0300\n"
+"PO-Revision-Date: 2023-08-01 00:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -1180,7 +1180,7 @@ msgstr "Sembol"
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
-msgstr "İsim"
+msgstr "Ad"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
