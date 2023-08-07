@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2023-04-28 18:29+0200\n"
+"PO-Revision-Date: 2023-08-06 05:44+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1199,7 +1199,7 @@ msgstr "Nome"
 #: ui/PrinterConfigPage.ui:1022
 #, kde-format
 msgid "Strands"
-msgstr "Febras"
+msgstr "Febras."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/Element.cpp:519 src/Element.cpp:551 ui/NewFloss.ui:44
@@ -2344,7 +2344,7 @@ msgstr "Amosar as imaxes de fondo."
 #: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
 #, kde-format
 msgid "Show stitches"
-msgstr "Amosar as puntadas"
+msgstr "Amosar as puntadas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
 #: ui/EditorConfigPage.ui:266
@@ -2357,20 +2357,20 @@ msgstr "Amosar os consellos sobre as puntadas."
 #: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
 #, kde-format
 msgid "Show backstitches"
-msgstr "Amosar as puntadas atrás"
+msgstr "Amosar as puntadas atrás."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
 #: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
 #, kde-format
 msgid "Show knots"
-msgstr "Amosar os nos"
+msgstr "Amosar os nos."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
 #: ui/EditorConfigPage.ui:287
 #, kde-format
 msgid "Color highlight"
-msgstr "Realce de cores"
+msgstr "Realce de cores."
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: ui/EditorConfigPage.ui:296
@@ -2627,7 +2627,7 @@ msgstr "Importar a configuración"
 #: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
 #, kde-format
 msgid "Maximum colors"
-msgstr "Cores máximas"
+msgstr "Cores máximas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
@@ -2646,7 +2646,7 @@ msgstr "Ignorar a cor."
 #: ui/ImportImage.ui:165
 #, kde-format
 msgid "Set as default"
-msgstr "Pór como predeterminado"
+msgstr "Pór como predeterminado."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
@@ -2689,7 +2689,7 @@ msgstr "Tamaño do motivo"
 #: ui/ImportImage.ui:339
 #, kde-format
 msgid "Crop image"
-msgstr "Recortar a imaxe"
+msgstr "Recortar a imaxe."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
@@ -2748,7 +2748,7 @@ msgstr "Fondo"
 #: ui/TextElement.ui:238
 #, kde-format
 msgid "Fill background"
-msgstr "Encher o fondo"
+msgstr "Encher o fondo."
 
 #. i18n: ectx: property (text), widget (QLabel, label_22)
 #. i18n: ectx: property (text), widget (QLabel, label_26)
@@ -2813,7 +2813,7 @@ msgstr "Columnas"
 #: ui/KeyElement.ui:387
 #, kde-format
 msgid "Color"
-msgstr "Cor"
+msgstr "Cor."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
@@ -2821,28 +2821,28 @@ msgstr "Cor"
 #: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:1005
 #, kde-format
 msgid "Floss name"
-msgstr "Nome do fío"
+msgstr "Nome do fío."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
 #: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:1015
 #, kde-format
 msgid "Floss description"
-msgstr "Descrición do fío"
+msgstr "Descrición do fío."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
 #: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:1039
 #, kde-format
 msgid "Length"
-msgstr "Lonxitude"
+msgstr "Lonxitude."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
 #: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:1046
 #, kde-format
 msgid "Skeins"
-msgstr "Madeixas"
+msgstr "Madeixas."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
 #: ui/LibraryConfigPage.ui:14
@@ -2915,7 +2915,7 @@ msgstr "Rutas"
 #: ui/LibraryManager.ui:91
 #, kde-format
 msgid "Icon size"
-msgstr "Tamaño das iconas"
+msgstr "Tamaño das iconas."
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/LibraryPatternProperties.ui:83
@@ -3465,7 +3465,7 @@ msgstr "Elemento de texto"
 #: ui/PrinterConfigPage.ui:540 ui/TextElement.ui:463
 #, kde-format
 msgid "Text color"
-msgstr "Cor do texto"
+msgstr "Cor do texto."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
@@ -3508,19 +3508,19 @@ msgstr "Elementos"
 #: ui/PrinterConfigPage.ui:995
 #, kde-format
 msgid "Symbols"
-msgstr "Símbolos"
+msgstr "Símbolos."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
 #: ui/PrintSetup.ui:68
 #, kde-format
 msgid "Create a default layout"
-msgstr "Crear unha disposición predeterminada"
+msgstr "Crear unha disposición predeterminada."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
 #: ui/PrintSetup.ui:107
 #, kde-format
 msgid "Append a page"
-msgstr "Engadir unha páxina"
+msgstr "Engadir unha páxina."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
 #: ui/PrintSetup.ui:149
@@ -3532,7 +3532,7 @@ msgstr "Inserir unha páxina antes da páxina seleccionada."
 #: ui/PrintSetup.ui:188
 #, kde-format
 msgid "Delete the selected page"
-msgstr "Eliminar a páxina seleccionada"
+msgstr "Eliminar a páxina seleccionada."
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
 #: ui/PrintSetup.ui:373
@@ -3544,7 +3544,7 @@ msgstr "Seleccionar a orientación do papel."
 #: ui/PrintSetup.ui:396
 #, kde-format
 msgid "Zoom factor"
-msgstr "Factor de aumento"
+msgstr "Factor de aumento."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
 #: ui/PrintSetup.ui:456
@@ -3574,7 +3574,7 @@ msgstr "Inserir un elemento de imaxe."
 #: ui/PrintSetup.ui:535
 #, kde-format
 msgid "Insert a key element"
-msgstr "Inserir un elemento clave"
+msgstr "Inserir un elemento clave."
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
 #: ui/PrintSetup.ui:606
@@ -3586,7 +3586,7 @@ msgstr "Lista de páxinas."
 #: ui/PrintSetup.ui:634
 #, kde-format
 msgid "Page preview"
-msgstr "Vista previa da páxina"
+msgstr "Vista previa da páxina."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
 #: ui/SymbolSelector.ui:14
@@ -3634,7 +3634,7 @@ msgstr "Encher o fondo cunha cor."
 #: ui/TextElement.ui:255
 #, kde-format
 msgid "Background color"
-msgstr "Cor de fondo"
+msgstr "Cor de fondo."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
 #: ui/TextElement.ui:272
@@ -3658,7 +3658,7 @@ msgstr "Tamaño do texto en puntos."
 #: ui/TextElement.ui:330
 #, kde-format
 msgid "Bold text"
-msgstr "Letra grosa"
+msgstr "Letra grosa."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
 #: ui/TextElement.ui:349
@@ -3676,7 +3676,7 @@ msgstr "Subliñar o texto."
 #: ui/TextElement.ui:387
 #, kde-format
 msgid "Align left"
-msgstr "Aliñar á esquerda"
+msgstr "Aliñar á esquerda."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
 #: ui/TextElement.ui:406
@@ -3688,7 +3688,7 @@ msgstr "Aliñar ao centro."
 #: ui/TextElement.ui:425
 #, kde-format
 msgid "Align right"
-msgstr "Aliñar á dereita"
+msgstr "Aliñar á dereita."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
 #: ui/TextElement.ui:444
