@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project (kxstitch)
+project (kxstitch VERSION "2.2.0")
 
 find_package (ECM REQUIRED NO_MODULE)
 set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -10,6 +10,7 @@ set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include (KDEInstallDirs)
 include (KDECMakeSettings)
 include (KDECompilerSettings NO_POLICY_SCOPE)
+include (ECMSetupVersion)
 include (ECMInstallIcons)
 include (FeatureSummary)
 
@@ -51,6 +52,11 @@ include_directories (BEFORE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_D
 # only in older cmake versions, while the latter only in newer ones
 include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
 include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIRS} ${ImageMagick_MagickCore_INCLUDE_DIRS})
+
+ecm_setup_version(${kxstitch_VERSION}
+    VARIABLE_PREFIX KXSTITCH
+    VERSION_HEADER Version.h
+)
 
 set (kxstitch_SRCS
     src/BackgroundImage.cpp
