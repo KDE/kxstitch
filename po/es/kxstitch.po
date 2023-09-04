@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Joan Teixido Parramona <joan4@users.sourceforge.net>, 2012, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2018, 2019, 2022.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Sofia Priego <spriego@darksylvania.net>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:44+0000\n"
-"PO-Revision-Date: 2022-10-19 16:58+0200\n"
+"PO-Revision-Date: 2023-09-03 22:05+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 23.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -1118,12 +1118,12 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
-"El símbolo del siguiente color de hilo ha sido\n"
-"reemplazado porque no existe en la biblioteca de símbolos.\n"
+"Se ha sustituido el símbolo del siguiente color de hilo\n"
+"porque no existe en la biblioteca de símbolos.\n"
 "\n"
 msgstr[1] ""
-"Los símbolos de los siguientes colores de hilos han sido\n"
-"reemplazados porque no existen en la biblioteca de símbolos.\n"
+"Se han sustituido los símbolos de los siguientes colores de hilos\n"
+"porque no existen en la biblioteca de símbolos.\n"
 "\n"
 
 #: src/DocumentPalette.cpp:461
