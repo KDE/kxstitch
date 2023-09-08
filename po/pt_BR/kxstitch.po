@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-09-08 00:43+0000\n"
 "PO-Revision-Date: 2022-10-19 15:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1442,54 +1442,54 @@ msgstr "Propriedades do padrão da biblioteca"
 msgid "existing library"
 msgstr "biblioteca existente"
 
-#: src/Main.cpp:95
+#: src/Main.cpp:96
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:97
+#: src/Main.cpp:98
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Um criador de padrões em ponto cruz."
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "(c) 2010-2019 de Stephen Allewell"
 
-#: src/Main.cpp:105
+#: src/Main.cpp:106
 #, kde-format
 msgid "Project Lead"
 msgstr "Líder do projeto"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:107
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Correções e ícones do aplicativo"
 
-#: src/Main.cpp:107
+#: src/Main.cpp:108
 #, kde-format
 msgid "Man page"
 msgstr "Página de manual"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:109
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Correções e melhorias"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "André Marcelo Alvarenga"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: src/Main.cpp:123
+#: src/Main.cpp:124
 #, kde-format
 msgid "Document to open."
 msgstr "Documento a abrir."

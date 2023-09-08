@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-09-08 00:43+0000\n"
 "PO-Revision-Date: 2015-01-21 20:35+0100\n"
 "Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -1468,56 +1468,56 @@ msgstr "Osobine bibliotečnog uzorka"
 msgid "existing library"
 msgstr "Učitavanje biblioteke"
 
-#: src/Main.cpp:95
+#: src/Main.cpp:96
 #, fuzzy, kde-format
 #| msgid "Backstitch"
 msgid "kxstitch"
 msgstr "Pozadinski šav"
 
-#: src/Main.cpp:97
+#: src/Main.cpp:98
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Kreator uzoraka križića."
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, fuzzy, kde-format
 #| msgid "(c) 2010-2014 Stephen Allewell"
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "(c) 2010-2014 Stephen Allewell"
 
-#: src/Main.cpp:105
+#: src/Main.cpp:106
 #, kde-format
 msgid "Project Lead"
 msgstr "Vođa projekta"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:107
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Greške popravljenje, ikone aplikacije"
 
-#: src/Main.cpp:107
+#: src/Main.cpp:108
 #, kde-format
 msgid "Man page"
 msgstr "Stranica uputstva"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:109
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Popravka bagova, poboljšanja"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Mirza Bulbulusic,Samir Ribić"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mbulbulusic@gmail.com,samir.ribic@etf.unsa.ba"
 
-#: src/Main.cpp:123
+#: src/Main.cpp:124
 #, fuzzy, kde-format
 #| msgid "Document to open"
 msgid "Document to open."

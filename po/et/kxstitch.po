@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-09-08 00:43+0000\n"
 "PO-Revision-Date: 2020-01-01 22:31+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1435,54 +1435,54 @@ msgstr "Kogu mustri omadused"
 msgid "existing library"
 msgstr "olemasolev kogu"
 
-#: src/Main.cpp:95
+#: src/Main.cpp:96
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:97
+#: src/Main.cpp:98
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Tikkimismustrite loomise rakendus."
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "(c) 2010-2019: Stephen Allewell"
 
-#: src/Main.cpp:105
+#: src/Main.cpp:106
 #, kde-format
 msgid "Project Lead"
 msgstr "Projekti juht"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:107
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Veaparandused, rakenduse ikoonid"
 
-#: src/Main.cpp:107
+#: src/Main.cpp:108
 #, kde-format
 msgid "Man page"
 msgstr "Manuaalilehekülg"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:109
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Vea- ja muud parandused"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Marek Laane"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "qiilaq69@gmail.com"
 
-#: src/Main.cpp:123
+#: src/Main.cpp:124
 #, kde-format
 msgid "Document to open."
 msgstr "Avatav dokument."

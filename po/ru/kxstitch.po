@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-09-08 00:43+0000\n"
 "PO-Revision-Date: 2022-09-28 09:57+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1464,54 +1464,54 @@ msgstr "Свойства библиотеки схемы"
 msgid "existing library"
 msgstr "существующая библиотека"
 
-#: src/Main.cpp:95
+#: src/Main.cpp:96
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:97
+#: src/Main.cpp:98
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Создание схем для вышивки крестом."
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "© Stephen Allewell, 2010-2019"
 
-#: src/Main.cpp:105
+#: src/Main.cpp:106
 #, kde-format
 msgid "Project Lead"
 msgstr "Ведение проекта"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:107
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Исправление ошибок, значки приложения"
 
-#: src/Main.cpp:107
+#: src/Main.cpp:108
 #, kde-format
 msgid "Man page"
 msgstr "Man-страница"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:109
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Исправление ошибок и улучшения"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Олеся Герасименко"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translation-team@basealt.ru"
 
-#: src/Main.cpp:123
+#: src/Main.cpp:124
 #, kde-format
 msgid "Document to open."
 msgstr "Открываемый документ."

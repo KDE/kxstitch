@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-09-08 00:43+0000\n"
 "PO-Revision-Date: 2022-10-20 06:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1398,54 +1398,54 @@ msgstr ""
 msgid "existing library"
 msgstr "არსებული ბიბლიოთეკა"
 
-#: src/Main.cpp:95
+#: src/Main.cpp:96
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:97
+#: src/Main.cpp:98
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr ""
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr ""
 
-#: src/Main.cpp:105
+#: src/Main.cpp:106
 #, kde-format
 msgid "Project Lead"
 msgstr "პროექტის წამყვანი"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:107
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr ""
 
-#: src/Main.cpp:107
+#: src/Main.cpp:108
 #, kde-format
 msgid "Man page"
 msgstr "მთავარი გვერდი"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:109
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr ""
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:110
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: src/Main.cpp:123
+#: src/Main.cpp:124
 #, kde-format
 msgid "Document to open."
 msgstr "გასახსნელი დოკუმენტი."
