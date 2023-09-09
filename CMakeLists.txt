@@ -122,6 +122,8 @@ set (kxstitch_SRCS
     src/SymbolSelectorDlg.cpp
     src/TextElementDlg.cpp
     src/TextToolDlg.cpp
+
+    kxstitch.qrc
 )
 
 file(GLOB kxstitch_UI ${CMAKE_CURRENT_SOURCE_DIR}/ui/*.ui)
@@ -207,7 +209,6 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 
 install (TARGETS kxstitch DESTINATION ${KDE_INSTALL_BINDIR})
-install (FILES kxstitchui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kxstitch)
 install (FILES kxstitch.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 install (FILES org.kde.kxstitch.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install (FILES org.kde.kxstitch.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
