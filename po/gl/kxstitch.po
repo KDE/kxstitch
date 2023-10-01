@@ -2090,7 +2090,7 @@ msgid ""
 "Unable to locate a writable directory\n"
 "to store the scheme."
 msgstr ""
-"Non se pode atopar un directorio que\n"
+"Non é posíbel atopar un directorio que\n"
 "permita escritura para almacenar o esquema."
 
 #: src/SchemeParser.cpp:46
