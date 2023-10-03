@@ -193,10 +193,8 @@ message (STATUS "Set magic_config_quantum: " ${magick_config_quantum})
 message (STATUS "Set magic_config_hdri: " ${magick_config_hdri})
 
 add_definitions(
-    -DQT_NO_COMPAT
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_CAST_TO_ASCII
-    -DKDE_NO_COMPAT
     -DQT_NO_URL_CAST_FROM_STRING
     ${magick_config_hdri}
     ${magick_config_quantum}
