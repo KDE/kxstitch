@@ -2024,7 +2024,7 @@ msgstr "Configureu la impressora %1"
 #: src/PrintSetupDlg.cpp:54 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
-msgstr "Configuració de la impressió"
+msgstr "Configureu la impressió"
 
 #: src/PrintSetupDlg.cpp:322
 #, kde-format
