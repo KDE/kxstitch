@@ -38,7 +38,7 @@ const QString &Layer::name() const
 
 void Layer::setNumber(int number)
 {
-    number = number;
+    m_number = number;
 }
 
 
