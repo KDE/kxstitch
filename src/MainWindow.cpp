@@ -60,7 +60,6 @@
 #include "PaperSizes.h"
 #include "Preview.h"
 #include "PrintSetupDlg.h"
-#include "QVariantPtr.h"
 #include "Scale.h"
 #include "ScaledPixmapLabel.h"
 #include "SchemeManager.h"
