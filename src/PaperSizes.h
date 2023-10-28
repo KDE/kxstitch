@@ -19,8 +19,6 @@
 class PageSizes
 {
 public:
-    static QPageSize::PageSizeId size(const QString &);
-    static QString name(QPageSize::PageSizeId);
     static int width(QPageSize::PageSizeId, QPageLayout::Orientation);
     static int height(QPageSize::PageSizeId, QPageLayout::Orientation);
 };

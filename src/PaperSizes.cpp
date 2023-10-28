@@ -52,38 +52,6 @@ const struct PageSize {
 };
 
 
-QPageSize::PageSizeId PageSizes::size(const QString &name)
-{
-    int i = 0;
-
-    while (PageSizeList[i].size != QPageSize::Custom) {
-        if (PageSizeList[i].name == name) {
-            break;
-        }
-
-        ++i;
-    }
-
-    return PageSizeList[i].size; // will return QPageSize::Custom if name isn't found
-}
-
-
-QString PageSizes::name(QPageSize::PageSizeId size)
-{
-    int i = 0;
-
-    while (PageSizeList[i].size != QPageSize::Custom) {
-        if (PageSizeList[i].size == size) {
-            break;
-        }
-
-        ++i;
-    }
-
-    return PageSizeList[i].name;
-}
-
-
 int PageSizes::width(QPageSize::PageSizeId size, QPageLayout::Orientation orientation)
 {
     int i = 0;
