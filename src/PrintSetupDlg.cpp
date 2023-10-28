@@ -42,6 +42,40 @@
 
 static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 
+static const QPageSize::PageSizeId pageSizes[] = {
+    QPageSize::A0,
+    QPageSize::A1,
+    QPageSize::A2,
+    QPageSize::A3,
+    QPageSize::A4,
+    QPageSize::A5,
+    QPageSize::A6,
+    QPageSize::A7,
+    QPageSize::A8,
+    QPageSize::A9,
+    QPageSize::B0,
+    QPageSize::B1,
+    QPageSize::B2,
+    QPageSize::B3,
+    QPageSize::B4,
+    QPageSize::B5,
+    QPageSize::B6,
+    QPageSize::B7,
+    QPageSize::B8,
+    QPageSize::B9,
+    QPageSize::B10,
+    QPageSize::C5E,
+    QPageSize::Comm10E,
+    QPageSize::DLE,
+    QPageSize::Executive,
+    QPageSize::Folio,
+    QPageSize::Ledger,
+    QPageSize::Legal,
+    QPageSize::Letter,
+    QPageSize::Tabloid,
+};
+static const int pageSizesCount = sizeof(pageSizes) / sizeof(pageSizes[0]);
+
 
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
     :   QDialog(parent),
@@ -73,6 +107,10 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_buttonGroup.addButton(ui.ImageElement);
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
+
+    for (int i = 0; i < pageSizesCount; ++i) {
+        ui.PageSize->addItem(QPageSize::name(pageSizes[i]), pageSizes[i]);
+    }
 
     connect(m_pageLayoutEditor, &PageLayoutEditor::selectionMade, this, &PrintSetupDlg::selectionMade);
     connect(m_pageLayoutEditor, &PageLayoutEditor::elementGeometryChanged, this, &PrintSetupDlg::elementGeometryChanged);
@@ -125,11 +163,11 @@ void PrintSetupDlg::showEvent(QShowEvent *event)
 }
 
 
-void PrintSetupDlg::on_PageSize_currentIndexChanged(const QString &pageSize)
+void PrintSetupDlg::on_PageSize_currentIndexChanged(int pageSizeIndex)
 {
     if (ui.Pages->count() && ui.Pages->currentItem()) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
-        pagePreview->setPageSize(QPageSize(PageSizes::size(pageSize)));
+        pagePreview->setPageSize(QPageSize(ui.PageSize->itemData(pageSizeIndex).value<QPageSize::PageSizeId>()));
         m_pageLayoutEditor->updatePagePreview();
         ui.Pages->repaint();
     }
@@ -161,7 +199,7 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
     if (current) {
         PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(current);
         m_pageLayoutEditor->setPagePreview(pagePreview);
-        ui.PageSize->setCurrentItem(PageSizes::name(pagePreview->pageSize().id()));
+        ui.PageSize->setCurrentIndex(ui.PageSize->findData(pagePreview->pageSize().id()));
         ui.Orientation->setCurrentIndex((pagePreview->orientation() == QPageLayout::Portrait) ? 0 : 1);
         ui.InsertPage->setEnabled(true);
         ui.DeletePage->setEnabled(true);
@@ -443,7 +481,7 @@ void PrintSetupDlg::addPage(int position, Page *page)
 
 QPageSize PrintSetupDlg::selectedPageSize()
 {
-    return QPageSize(PageSizes::size(ui.PageSize->currentText()));
+    return QPageSize(ui.PageSize->itemData(ui.PageSize->currentIndex()).value<QPageSize::PageSizeId>());
 }
 
 
