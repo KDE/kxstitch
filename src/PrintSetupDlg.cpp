@@ -35,7 +35,6 @@
 #include "Page.h"
 #include "PageLayoutEditor.h"
 #include "PagePropertiesDlg.h"
-#include "PaperSizes.h"
 #include "PatternElementDlg.h"
 #include "TextElementDlg.h"
 

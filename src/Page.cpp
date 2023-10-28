@@ -19,7 +19,6 @@
 #include "Document.h"
 #include "Element.h"
 #include "Exceptions.h"
-#include "PaperSizes.h"
 
 
 Page::Page(QPageSize pageSize, QPageLayout::Orientation orientation)
