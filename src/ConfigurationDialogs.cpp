@@ -11,6 +11,7 @@
 
 #include "ConfigurationDialogs.h"
 
+#include "PaperSizes.h"
 #include "SchemeManager.h"
 #include "SymbolManager.h"
 
@@ -304,6 +305,10 @@ PrinterConfigPage::PrinterConfigPage(QWidget *parent, const QString &name)
 {
     setObjectName(name);
     setupUi(this);
+
+    for (QPageSize::PageSizeId id : PageSizes::sizesForPrint()) {
+        kcfg_Page_Size->addItem(QPageSize::name(id));
+    }
 }
 
 #include "moc_ConfigurationDialogs.cpp"
