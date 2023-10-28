@@ -129,13 +129,12 @@ void MainWindow::setupLayout()
     m_horizontalScale = m_editor->horizontalScale();
     m_verticalScale = m_editor->verticalScale();
 
-    QGridLayout *gridLayout = new QGridLayout(this);
+    QWidget *layout = new QWidget();
+
+    QGridLayout *gridLayout = new QGridLayout(layout);
     gridLayout->addWidget(m_horizontalScale, 0, 1);
     gridLayout->addWidget(m_verticalScale, 1, 0);
     gridLayout->addWidget(scrollArea, 1, 1);
-
-    QWidget *layout = new QWidget();
-    layout->setLayout(gridLayout);
 
     setCentralWidget(layout);
 
