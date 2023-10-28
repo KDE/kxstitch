@@ -35,45 +35,12 @@
 #include "Page.h"
 #include "PageLayoutEditor.h"
 #include "PagePropertiesDlg.h"
+#include "PaperSizes.h"
 #include "PatternElementDlg.h"
 #include "TextElementDlg.h"
 
 
 static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
-
-static const QPageSize::PageSizeId pageSizes[] = {
-    QPageSize::A0,
-    QPageSize::A1,
-    QPageSize::A2,
-    QPageSize::A3,
-    QPageSize::A4,
-    QPageSize::A5,
-    QPageSize::A6,
-    QPageSize::A7,
-    QPageSize::A8,
-    QPageSize::A9,
-    QPageSize::B0,
-    QPageSize::B1,
-    QPageSize::B2,
-    QPageSize::B3,
-    QPageSize::B4,
-    QPageSize::B5,
-    QPageSize::B6,
-    QPageSize::B7,
-    QPageSize::B8,
-    QPageSize::B9,
-    QPageSize::B10,
-    QPageSize::C5E,
-    QPageSize::Comm10E,
-    QPageSize::DLE,
-    QPageSize::Executive,
-    QPageSize::Folio,
-    QPageSize::Ledger,
-    QPageSize::Legal,
-    QPageSize::Letter,
-    QPageSize::Tabloid,
-};
-static const int pageSizesCount = sizeof(pageSizes) / sizeof(pageSizes[0]);
 
 
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
@@ -107,8 +74,8 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     m_buttonGroup.addButton(ui.KeyElement);
     m_buttonGroup.setExclusive(true);
 
-    for (int i = 0; i < pageSizesCount; ++i) {
-        ui.PageSize->addItem(QPageSize::name(pageSizes[i]), pageSizes[i]);
+    for (QPageSize::PageSizeId id : PageSizes::sizesForPrint()) {
+        ui.PageSize->addItem(QPageSize::name(id), id);
     }
 
     connect(m_pageLayoutEditor, &PageLayoutEditor::selectionMade, this, &PrintSetupDlg::selectionMade);

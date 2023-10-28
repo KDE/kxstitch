@@ -14,11 +14,13 @@
 
 
 #include <QPageLayout>
+#include <QVector>
 
 
 class PageSizes
 {
 public:
+    static QVector<QPageSize::PageSizeId> sizesForPrint();
     static int width(QPageSize::PageSizeId, QPageLayout::Orientation);
     static int height(QPageSize::PageSizeId, QPageLayout::Orientation);
 };
