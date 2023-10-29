@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 00:43+0000\n"
+"POT-Creation-Date: 2023-10-29 00:40+0000\n"
 "PO-Revision-Date: 2022-09-28 09:57+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -777,7 +777,7 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1165
+#: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1163
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
@@ -785,7 +785,7 @@ msgstr "Свойства файла"
 
 # BUGME: please add contexts --aspotashev
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:58 src/MainWindow.cpp:541 src/MainWindow.cpp:1160
+#: src/Commands.cpp:58 src/MainWindow.cpp:539 src/MainWindow.cpp:1158
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -811,27 +811,27 @@ msgstr "Нарисовать линию"
 msgid "Erase Stitches"
 msgstr "Стереть стежки"
 
-#: src/Commands.cpp:175 src/MainWindow.cpp:1359
+#: src/Commands.cpp:175 src/MainWindow.cpp:1357
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Нарисовать прямоугольник"
 
-#: src/Commands.cpp:198 src/MainWindow.cpp:1367
+#: src/Commands.cpp:198 src/MainWindow.cpp:1365
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Заполнить прямоугольник"
 
-#: src/Commands.cpp:222 src/MainWindow.cpp:1375
+#: src/Commands.cpp:222 src/MainWindow.cpp:1373
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Нарисовать эллипс"
 
-#: src/Commands.cpp:245 src/MainWindow.cpp:1383
+#: src/Commands.cpp:245 src/MainWindow.cpp:1381
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "Заполнить эллипс"
 
-#: src/Commands.cpp:268 src/MainWindow.cpp:1391
+#: src/Commands.cpp:268 src/MainWindow.cpp:1389
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Заполнить многоугольник"
@@ -902,12 +902,12 @@ msgstr "Обрезать по схеме"
 msgid "Crop to Selection"
 msgstr "Обрезать по выделению"
 
-#: src/Commands.cpp:806 src/MainWindow.cpp:1505
+#: src/Commands.cpp:806 src/MainWindow.cpp:1503
 #, kde-format
 msgid "Insert Columns"
 msgstr "Вставить столбцы"
 
-#: src/Commands.cpp:852 src/MainWindow.cpp:1499
+#: src/Commands.cpp:852 src/MainWindow.cpp:1497
 #, kde-format
 msgid "Insert Rows"
 msgstr "Вставить строки"
@@ -918,7 +918,7 @@ msgstr "Вставить строки"
 msgid "Extend Pattern"
 msgstr "Расширение схемы"
 
-#: src/Commands.cpp:943 src/MainWindow.cpp:1481
+#: src/Commands.cpp:943 src/MainWindow.cpp:1479
 #, kde-format
 msgid "Center Pattern"
 msgstr "Центрирование схемы"
@@ -938,7 +938,7 @@ msgstr "Изменить схему ниток"
 msgid "Replace Color"
 msgstr "Заменить цвет"
 
-#: src/Commands.cpp:1177 src/MainWindow.cpp:1463
+#: src/Commands.cpp:1177 src/MainWindow.cpp:1461
 #, kde-format
 msgid "Swap Colors"
 msgstr "Поменять цвета местами"
@@ -953,7 +953,7 @@ msgstr "Обновить конфигурацию принтера"
 msgid "Cut"
 msgstr "Вырезать"
 
-#: src/Commands.cpp:1402 src/Editor.cpp:2001 src/MainWindow.cpp:1407
+#: src/Commands.cpp:1402 src/Editor.cpp:2001 src/MainWindow.cpp:1405
 #, kde-format
 msgid "Alphabet"
 msgstr "Алфавит"
@@ -963,24 +963,24 @@ msgstr "Алфавит"
 msgid "Configure KXStitch"
 msgstr "Настроить KXStitch"
 
-#: src/ConfigurationDialogs.cpp:36
+#: src/ConfigurationDialogs.cpp:37
 #, kde-format
 msgid "Default (Centimeters)"
 msgstr "По умолчанию (сантиметры)"
 
-#: src/ConfigurationDialogs.cpp:36
+#: src/ConfigurationDialogs.cpp:37
 #, kde-format
 msgid "Default (Inches)"
 msgstr "По умолчанию (дюймы)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
-#: src/ConfigurationDialogs.cpp:37 ui/PatternConfigPage.ui:164
+#: src/ConfigurationDialogs.cpp:38 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
 msgstr "По умолчанию"
 
 # BUGME: input field is too narrow to fit the full translation "дюйм" --aspotashev
-#: src/ConfigurationDialogs.cpp:235 src/ConfigurationDialogs.cpp:238
+#: src/ConfigurationDialogs.cpp:236 src/ConfigurationDialogs.cpp:239
 #: src/FilePropertiesDlg.cpp:333 src/FilePropertiesDlg.cpp:334
 #: src/ImportImageDlg.cpp:538 src/ImportImageDlg.cpp:539
 #, kde-format
@@ -988,7 +988,7 @@ msgctxt "Per inch measurements"
 msgid "/in"
 msgstr "/д."
 
-#: src/ConfigurationDialogs.cpp:244 src/ConfigurationDialogs.cpp:247
+#: src/ConfigurationDialogs.cpp:245 src/ConfigurationDialogs.cpp:248
 #: src/FilePropertiesDlg.cpp:326 src/FilePropertiesDlg.cpp:327
 #: src/ImportImageDlg.cpp:531 src/ImportImageDlg.cpp:532
 #, kde-format
@@ -996,8 +996,8 @@ msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr "/см"
 
-#: src/Document.cpp:125 src/MainWindow.cpp:312 src/MainWindow.cpp:384
-#: src/MainWindow.cpp:540 src/SymbolLibrary.cpp:101
+#: src/Document.cpp:125 src/MainWindow.cpp:310 src/MainWindow.cpp:382
+#: src/MainWindow.cpp:538 src/SymbolLibrary.cpp:101
 #, kde-format
 msgid "Untitled"
 msgstr "Без имени"
@@ -1046,10 +1046,10 @@ msgstr "Название нитки %1 не найдено"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1812 src/Document.cpp:2018 src/Element.cpp:520
-#: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1524
+#: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1522
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
-#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:1032
+#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
 #, kde-format
 msgid "Stitches"
 msgstr "Стежки"
@@ -1069,7 +1069,7 @@ msgstr "Сантиметры"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1820 src/Document.cpp:2026 src/ImportImageDlg.cpp:241
-#: src/MainWindow.cpp:1538 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/MainWindow.cpp:1536 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1180,8 +1180,8 @@ msgid "Drag"
 msgstr "Перетаскивание"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:843 src/Editor.cpp:1977 src/MainWindow.cpp:1399
-#: ui/PrinterConfigPage.ui:534
+#: src/Editor.cpp:843 src/Editor.cpp:1977 src/MainWindow.cpp:1397
+#: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "Текст"
@@ -1215,7 +1215,7 @@ msgstr "Название"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
 #: src/Element.cpp:518 src/Element.cpp:547 ui/KeyElement.ui:403
-#: ui/PrinterConfigPage.ui:1022
+#: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
 msgstr "Волокна"
@@ -1275,7 +1275,7 @@ msgstr "Импорт изображения (размер — %1⨯%2 пиксе
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1531 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1529 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
@@ -1292,7 +1292,7 @@ msgstr "%1 x %2 %3"
 msgid "Rendering preview"
 msgstr "Обработка предварительного просмотра"
 
-#: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:621
+#: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:619
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
@@ -1516,35 +1516,35 @@ msgstr "translation-team@basealt.ru"
 msgid "Document to open."
 msgstr "Открываемый документ."
 
-#: src/MainWindow.cpp:248
+#: src/MainWindow.cpp:246
 #, fuzzy, kde-format
 #| msgid "Revert changes to document?"
 msgid "Save changes to document?"
 msgstr "Сбросить изменения в документе?"
 
-#: src/MainWindow.cpp:265
+#: src/MainWindow.cpp:263
 #, kde-format
 msgid "Unable to save the file"
 msgstr "Не удалось сохранить файл"
 
-#: src/MainWindow.cpp:305
+#: src/MainWindow.cpp:303
 #, kde-format
 msgid "Open file"
 msgstr "Открыть файл"
 
-#: src/MainWindow.cpp:305
+#: src/MainWindow.cpp:303
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr "Схемы KXStitch (*.kxs);;Схемы PC Stitch (*.pat);;Все файлы (*)"
 
-#: src/MainWindow.cpp:345
+#: src/MainWindow.cpp:343
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr ""
 "Похоже, формат этого файла отличается от поддерживаемых программой файлов "
 "стежков."
 
-#: src/MainWindow.cpp:348
+#: src/MainWindow.cpp:346
 #, kde-format
 msgid ""
 "This version of the file is not supported.\n"
@@ -1553,7 +1553,7 @@ msgstr ""
 "Эта версия файла не поддерживается.\n"
 "%1"
 
-#: src/MainWindow.cpp:350
+#: src/MainWindow.cpp:348
 #, kde-format
 msgid ""
 "Failed to read the file.\n"
@@ -1562,7 +1562,7 @@ msgstr ""
 "Не удалось прочитать файл.\n"
 "%1."
 
-#: src/MainWindow.cpp:402
+#: src/MainWindow.cpp:400
 #, kde-format
 msgid ""
 "Failed to save the file.\n"
@@ -1571,7 +1571,7 @@ msgstr ""
 "Не удалось сохранить файл.\n"
 "%1"
 
-#: src/MainWindow.cpp:406
+#: src/MainWindow.cpp:404
 #, kde-format
 msgid ""
 "Failed to open the file.\n"
@@ -1580,266 +1580,266 @@ msgstr ""
 "Не удалось открыть файл.\n"
 "%1"
 
-#: src/MainWindow.cpp:415
+#: src/MainWindow.cpp:413
 #, kde-format
 msgid "Save As..."
 msgstr "Сохранить как..."
 
-#: src/MainWindow.cpp:415
+#: src/MainWindow.cpp:413
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
 msgstr "Схемы вышивки крестом (*.kxs)"
 
-#: src/MainWindow.cpp:435
+#: src/MainWindow.cpp:433
 #, kde-format
 msgid "Revert changes to document?"
 msgstr "Сбросить изменения в документе?"
 
-#: src/MainWindow.cpp:436
+#: src/MainWindow.cpp:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
 msgstr ""
 
-#: src/MainWindow.cpp:484
+#: src/MainWindow.cpp:482
 #, kde-format
 msgid "There is nothing to print"
 msgstr "Нечего печатать"
 
-#: src/MainWindow.cpp:541 src/MainWindow.cpp:770
+#: src/MainWindow.cpp:539 src/MainWindow.cpp:768
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 "Изображения (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
-#: src/MainWindow.cpp:621
+#: src/MainWindow.cpp:619
 #, kde-format
 msgid "Converting to stitches"
 msgstr "Преобразование в стежки"
 
-#: src/MainWindow.cpp:770
+#: src/MainWindow.cpp:768
 #, kde-format
 msgid "Background Image"
 msgstr "Фоновое изображение"
 
-#: src/MainWindow.cpp:824
+#: src/MainWindow.cpp:822
 #, kde-format
 msgid "Undo %1"
 msgstr "Отменить %1"
 
-#: src/MainWindow.cpp:830
+#: src/MainWindow.cpp:828
 #, kde-format
 msgid "Redo %1"
 msgstr "Повторить %1"
 
-#: src/MainWindow.cpp:983
+#: src/MainWindow.cpp:981
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Редактор"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:984 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:982 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "Схема"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:986 src/MainWindow.cpp:1742 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:984 src/MainWindow.cpp:1740 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "Палитра"
 
-#: src/MainWindow.cpp:987
+#: src/MainWindow.cpp:985
 #, kde-format
 msgid "Import"
 msgstr "Импорт"
 
-#: src/MainWindow.cpp:988
+#: src/MainWindow.cpp:986
 #, kde-format
 msgid "Library"
 msgstr "Библиотека"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:989 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:987 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Настройка печати"
 
-#: src/MainWindow.cpp:1153
+#: src/MainWindow.cpp:1151
 #, kde-format
 msgid "Print Setup..."
 msgstr "Параметры печати..."
 
-#: src/MainWindow.cpp:1170
+#: src/MainWindow.cpp:1168
 #, kde-format
 msgid "Add Background Image..."
 msgstr "Добавить фоновое изображение..."
 
-#: src/MainWindow.cpp:1188
+#: src/MainWindow.cpp:1186
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "Отзеркаливание и поворот создают копии"
 
-#: src/MainWindow.cpp:1194
+#: src/MainWindow.cpp:1192
 #, kde-format
 msgid "Horizontally"
 msgstr "Горизонтально"
 
-#: src/MainWindow.cpp:1201
+#: src/MainWindow.cpp:1199
 #, kde-format
 msgid "Vertically"
 msgstr "Вертикально"
 
-#: src/MainWindow.cpp:1208
+#: src/MainWindow.cpp:1206
 #, kde-format
 msgid "90 Degrees"
 msgstr "90 градусов"
 
-#: src/MainWindow.cpp:1215
+#: src/MainWindow.cpp:1213
 #, kde-format
 msgid "180 Degrees"
 msgstr "180 градусов"
 
-#: src/MainWindow.cpp:1222
+#: src/MainWindow.cpp:1220
 #, kde-format
 msgid "270 Degrees"
 msgstr "270 градусов"
 
-#: src/MainWindow.cpp:1230
+#: src/MainWindow.cpp:1228
 #, kde-format
 msgid "Stitch Mask"
 msgstr "Маска стежков"
 
-#: src/MainWindow.cpp:1236
+#: src/MainWindow.cpp:1234
 #, kde-format
 msgid "Color Mask"
 msgstr "Маска цветов"
 
-#: src/MainWindow.cpp:1242
+#: src/MainWindow.cpp:1240
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "Исключить обратные стежки"
 
-#: src/MainWindow.cpp:1248
+#: src/MainWindow.cpp:1246
 #, kde-format
 msgid "Exclude Knots"
 msgstr "Исключить узлы"
 
-#: src/MainWindow.cpp:1274
+#: src/MainWindow.cpp:1272
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "Четвертной стежок"
 
-#: src/MainWindow.cpp:1282
+#: src/MainWindow.cpp:1280
 #, kde-format
 msgid "Half Stitch"
 msgstr "Полукрест"
 
-#: src/MainWindow.cpp:1290
+#: src/MainWindow.cpp:1288
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "Стежок на три четверти"
 
-#: src/MainWindow.cpp:1298
+#: src/MainWindow.cpp:1296
 #, kde-format
 msgid "Full Stitch"
 msgstr "Полный стежок"
 
-#: src/MainWindow.cpp:1306
+#: src/MainWindow.cpp:1304
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "Малый полукрест"
 
-#: src/MainWindow.cpp:1314
+#: src/MainWindow.cpp:1312
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "Малый полный стежок"
 
-#: src/MainWindow.cpp:1322
+#: src/MainWindow.cpp:1320
 #, kde-format
 msgid "French Knot"
 msgstr "Французский узел"
 
-#: src/MainWindow.cpp:1335
+#: src/MainWindow.cpp:1333
 #, kde-format
 msgid "Paint"
 msgstr "Окрасить"
 
-#: src/MainWindow.cpp:1343
+#: src/MainWindow.cpp:1341
 #, kde-format
 msgid "Draw"
 msgstr "Нарисовать"
 
-#: src/MainWindow.cpp:1351
+#: src/MainWindow.cpp:1349
 #, kde-format
 msgid "Erase"
 msgstr "Стереть"
 
-#: src/MainWindow.cpp:1415
+#: src/MainWindow.cpp:1413
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "Выделение"
 
-#: src/MainWindow.cpp:1423
+#: src/MainWindow.cpp:1421
 #, kde-format
 msgid "Backstitch"
 msgstr "Обратный стежок"
 
-#: src/MainWindow.cpp:1431
+#: src/MainWindow.cpp:1429
 #, kde-format
 msgid "Color Picker"
 msgstr "Пипетка"
 
-#: src/MainWindow.cpp:1441
+#: src/MainWindow.cpp:1439
 #, kde-format
 msgid "Palette Manager..."
 msgstr "Редактировать палитру..."
 
-#: src/MainWindow.cpp:1447
+#: src/MainWindow.cpp:1445
 #, kde-format
 msgid "Show Symbols"
 msgstr "Показывать обозначения"
 
-#: src/MainWindow.cpp:1453
+#: src/MainWindow.cpp:1451
 #, kde-format
 msgid "Clear Unused"
 msgstr "Убрать неиспользуемые"
 
-#: src/MainWindow.cpp:1458
+#: src/MainWindow.cpp:1456
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "Настройка схемы…"
 
-#: src/MainWindow.cpp:1468
+#: src/MainWindow.cpp:1466
 #, kde-format
 msgid "Replace Colors"
 msgstr "Заменить цвета"
 
-#: src/MainWindow.cpp:1475
+#: src/MainWindow.cpp:1473
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "Расширить схему..."
 
-#: src/MainWindow.cpp:1487
+#: src/MainWindow.cpp:1485
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "Обрезать холст по схеме"
 
-#: src/MainWindow.cpp:1492
+#: src/MainWindow.cpp:1490
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "Обрезать холст по выделению"
 
-#: src/MainWindow.cpp:1513
+#: src/MainWindow.cpp:1511
 #, kde-format
 msgid "Library Manager..."
 msgstr "Диспетчер библиотек…"
 
-#: src/MainWindow.cpp:1549
+#: src/MainWindow.cpp:1547
 #, kde-format
 msgid "Regular Stitches"
 msgstr "Обычные стежки"
@@ -1848,7 +1848,7 @@ msgstr "Обычные стежки"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1557 src/MainWindow.cpp:1597 src/MainWindow.cpp:1630
+#: src/MainWindow.cpp:1555 src/MainWindow.cpp:1595 src/MainWindow.cpp:1628
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1859,7 +1859,7 @@ msgstr "Чёрно-белые обозначения"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1564 src/MainWindow.cpp:1623 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1621 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1869,66 +1869,66 @@ msgstr "Цветные обозначения"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1571 src/MainWindow.cpp:1608 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1569 src/MainWindow.cpp:1606 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "Цветные блоки"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1578 src/MainWindow.cpp:1616 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1576 src/MainWindow.cpp:1614 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Цветные блоки и обозначения"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1589 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1587 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "Цветные линии"
 
-#: src/MainWindow.cpp:1638
+#: src/MainWindow.cpp:1636
 #, kde-format
 msgid "Color Highlight"
 msgstr "Цветная подсветка"
 
-#: src/MainWindow.cpp:1644
+#: src/MainWindow.cpp:1642
 #, kde-format
 msgid "Show Stitches"
 msgstr "Показывать стежки"
 
-#: src/MainWindow.cpp:1650
+#: src/MainWindow.cpp:1648
 #, kde-format
 msgid "Show Backstitches"
 msgstr "Показывать обратные стежки"
 
-#: src/MainWindow.cpp:1656
+#: src/MainWindow.cpp:1654
 #, kde-format
 msgid "Show French Knots"
 msgstr "Показывать французские узлы"
 
-#: src/MainWindow.cpp:1662
+#: src/MainWindow.cpp:1660
 #, kde-format
 msgid "Show Grid"
 msgstr "Показать сетку"
 
-#: src/MainWindow.cpp:1668
+#: src/MainWindow.cpp:1666
 #, kde-format
 msgid "Show Background Images"
 msgstr "Показывать фоновые изображения"
 
-#: src/MainWindow.cpp:1729
+#: src/MainWindow.cpp:1727
 #, kde-format
 msgid "Preview"
 msgstr "Предварительный просмотр"
 
-#: src/MainWindow.cpp:1751
+#: src/MainWindow.cpp:1749
 #, kde-format
 msgid "History"
 msgstr "Журнал действий"
 
-#: src/MainWindow.cpp:1759
+#: src/MainWindow.cpp:1757
 #, kde-format
 msgid "Imported Image"
 msgstr "Импортированное изображение"
@@ -1939,7 +1939,7 @@ msgstr "Импортированное изображение"
 msgid "New Floss"
 msgstr "Добавить нить"
 
-#: src/NewFlossDlg.cpp:90 src/PrintSetupDlg.cpp:483
+#: src/NewFlossDlg.cpp:90 src/PrintSetupDlg.cpp:487
 #, kde-format
 msgid "Overwrite"
 msgstr "Перезаписать"
@@ -1960,12 +1960,12 @@ msgctxt "@action:button"
 msgid "Do Not Overwrite"
 msgstr "Перезаписать"
 
-#: src/Page.cpp:254
+#: src/Page.cpp:253
 #, kde-format
 msgid "Page version %1"
 msgstr "Версия страницы %1"
 
-#: src/Page.cpp:295
+#: src/Page.cpp:294
 #, kde-format
 msgid "Invalid element type"
 msgstr "Некорректный тип элемента"
@@ -2053,27 +2053,27 @@ msgstr "Конфигурация принтера %1"
 msgid "Print Setup"
 msgstr "Параметры печати"
 
-#: src/PrintSetupDlg.cpp:323
+#: src/PrintSetupDlg.cpp:327
 #, kde-format
 msgid "Properties"
 msgstr "Свойства"
 
-#: src/PrintSetupDlg.cpp:327
+#: src/PrintSetupDlg.cpp:331
 #, kde-format
 msgid "Delete Element"
 msgstr "Удалить элемент"
 
-#: src/PrintSetupDlg.cpp:466
+#: src/PrintSetupDlg.cpp:470
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Страница %1 из %2"
 
-#: src/PrintSetupDlg.cpp:483
+#: src/PrintSetupDlg.cpp:487
 #, kde-format
 msgid "Overwrite the current configuration?"
 msgstr "Перезаписать текущую конфигурацию?"
 
-#: src/PrintSetupDlg.cpp:532
+#: src/PrintSetupDlg.cpp:536
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2090,8 +2090,8 @@ msgstr ""
 "Размер схемы: ${width.stitches} x ${height.stitches}\n"
 "Нитки из диапазона ${scheme}."
 
-#: src/PrintSetupDlg.cpp:538 src/PrintSetupDlg.cpp:592
-#: src/PrintSetupDlg.cpp:614
+#: src/PrintSetupDlg.cpp:542 src/PrintSetupDlg.cpp:596
+#: src/PrintSetupDlg.cpp:618
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2569,8 +2569,8 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:616
-#: ui/PrinterConfigPage.ui:786 ui/TextElement.ui:158
+#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:466
+#: ui/PrinterConfigPage.ui:636 ui/TextElement.ui:158
 #, kde-format
 msgid "Border"
 msgstr "Рамка"
@@ -2578,8 +2578,8 @@ msgstr "Рамка"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:622
-#: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
+#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:472
+#: ui/PrinterConfigPage.ui:642 ui/TextElement.ui:167
 #, kde-format
 msgid "Show border"
 msgstr "Показывать рамку"
@@ -2630,15 +2630,15 @@ msgstr "Толщина линии"
 #: ui/KeyElement.ui:113 ui/KeyElement.ui:142 ui/KeyElement.ui:213
 #: ui/PageProperties.ui:45 ui/PageProperties.ui:77 ui/PageProperties.ui:109
 #: ui/PageProperties.ui:141 ui/PageProperties.ui:205
-#: ui/PrinterConfigPage.ui:252 ui/PrinterConfigPage.ui:272
-#: ui/PrinterConfigPage.ui:292 ui/PrinterConfigPage.ui:312
-#: ui/PrinterConfigPage.ui:365 ui/PrinterConfigPage.ui:385
-#: ui/PrinterConfigPage.ui:405 ui/PrinterConfigPage.ui:425
-#: ui/PrinterConfigPage.ui:661 ui/PrinterConfigPage.ui:694
-#: ui/PrinterConfigPage.ui:714 ui/PrinterConfigPage.ui:734
-#: ui/PrinterConfigPage.ui:754 ui/PrinterConfigPage.ui:831
-#: ui/PrinterConfigPage.ui:917 ui/PrinterConfigPage.ui:937
-#: ui/PrinterConfigPage.ui:957 ui/PrinterConfigPage.ui:977 ui/TextElement.ui:45
+#: ui/PrinterConfigPage.ui:102 ui/PrinterConfigPage.ui:122
+#: ui/PrinterConfigPage.ui:142 ui/PrinterConfigPage.ui:162
+#: ui/PrinterConfigPage.ui:215 ui/PrinterConfigPage.ui:235
+#: ui/PrinterConfigPage.ui:255 ui/PrinterConfigPage.ui:275
+#: ui/PrinterConfigPage.ui:511 ui/PrinterConfigPage.ui:544
+#: ui/PrinterConfigPage.ui:564 ui/PrinterConfigPage.ui:584
+#: ui/PrinterConfigPage.ui:604 ui/PrinterConfigPage.ui:681
+#: ui/PrinterConfigPage.ui:767 ui/PrinterConfigPage.ui:787
+#: ui/PrinterConfigPage.ui:807 ui/PrinterConfigPage.ui:827 ui/TextElement.ui:45
 #: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
 #: ui/TextElement.ui:204
 #, kde-format
@@ -2722,7 +2722,7 @@ msgstr "Обрезать изображение"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
-#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:780
+#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:630
 #, kde-format
 msgid "Key Element"
 msgstr "Элемент обозначения"
@@ -2731,9 +2731,9 @@ msgstr "Элемент обозначения"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
-#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:231
-#: ui/PrinterConfigPage.ui:344 ui/PrinterConfigPage.ui:673
-#: ui/PrinterConfigPage.ui:896 ui/TextElement.ui:20
+#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:81
+#: ui/PrinterConfigPage.ui:194 ui/PrinterConfigPage.ui:523
+#: ui/PrinterConfigPage.ui:746 ui/TextElement.ui:20
 #, kde-format
 msgid "Margins"
 msgstr "Поля"
@@ -2773,7 +2773,7 @@ msgstr "Фон"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:606 ui/PrinterConfigPage.ui:849
+#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:456 ui/PrinterConfigPage.ui:699
 #: ui/TextElement.ui:238
 #, kde-format
 msgid "Fill background"
@@ -2783,7 +2783,7 @@ msgstr "Заполнить фон"
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:586 ui/PrinterConfigPage.ui:873
+#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:436 ui/PrinterConfigPage.ui:723
 #: ui/TextElement.ui:262
 #, kde-format
 msgid "Transparency"
@@ -2847,28 +2847,28 @@ msgstr "Цвет"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:1005
+#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:855
 #, kde-format
 msgid "Floss name"
 msgstr "Название нитки"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
-#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:1015
+#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:865
 #, kde-format
 msgid "Floss description"
 msgstr "Описание нитки"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
-#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:1039
+#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:889
 #, kde-format
 msgid "Length"
 msgstr "Длина"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
-#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:1046
+#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:896
 #, kde-format
 msgid "Skeins"
 msgstr "Мотки"
@@ -3149,256 +3149,16 @@ msgstr "Стандартный размер бумаги"
 msgid "Select a paper size"
 msgstr "Выбрать размер бумаги"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:49 ui/PrintSetup.ui:214
-#, kde-format
-msgctxt "Paper size"
-msgid "A0"
-msgstr "A0"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:54 ui/PrintSetup.ui:219
-#, kde-format
-msgctxt "Paper size"
-msgid "A1"
-msgstr "A1"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:59 ui/PrintSetup.ui:224
-#, kde-format
-msgctxt "Paper size"
-msgid "A2"
-msgstr "A2"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:64 ui/PrintSetup.ui:229
-#, kde-format
-msgctxt "Paper size"
-msgid "A3"
-msgstr "A3"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:234
-#, kde-format
-msgctxt "Paper size"
-msgid "A4"
-msgstr "A4"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:74 ui/PrintSetup.ui:239
-#, kde-format
-msgctxt "Paper size"
-msgid "A5"
-msgstr "A5"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:79 ui/PrintSetup.ui:244
-#, kde-format
-msgctxt "Paper size"
-msgid "A6"
-msgstr "A6"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:84 ui/PrintSetup.ui:249
-#, kde-format
-msgctxt "Paper size"
-msgid "A7"
-msgstr "A7"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:89 ui/PrintSetup.ui:254
-#, kde-format
-msgctxt "Paper size"
-msgid "A8"
-msgstr "A8"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:94 ui/PrintSetup.ui:259
-#, kde-format
-msgctxt "Paper size"
-msgid "A9"
-msgstr "A9"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:99 ui/PrintSetup.ui:264
-#, kde-format
-msgctxt "Paper size"
-msgid "B0"
-msgstr "B0"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:104 ui/PrintSetup.ui:269
-#, kde-format
-msgctxt "Paper size"
-msgid "B1"
-msgstr "B1"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:109 ui/PrintSetup.ui:274
-#, kde-format
-msgctxt "Paper size"
-msgid "B2"
-msgstr "B2"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:114 ui/PrintSetup.ui:279
-#, kde-format
-msgctxt "Paper size"
-msgid "B3"
-msgstr "B3"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:119 ui/PrintSetup.ui:284
-#, kde-format
-msgctxt "Paper size"
-msgid "B4"
-msgstr "B4"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:124 ui/PrintSetup.ui:289
-#, kde-format
-msgctxt "Paper size"
-msgid "B5"
-msgstr "B5"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:129 ui/PrintSetup.ui:294
-#, kde-format
-msgctxt "Paper size"
-msgid "B6"
-msgstr "B6"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:134 ui/PrintSetup.ui:299
-#, kde-format
-msgctxt "Paper size"
-msgid "B7"
-msgstr "B7"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:139 ui/PrintSetup.ui:304
-#, kde-format
-msgctxt "Paper size"
-msgid "B8"
-msgstr "B8"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:144 ui/PrintSetup.ui:309
-#, kde-format
-msgctxt "Paper size"
-msgid "B9"
-msgstr "B9"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:149 ui/PrintSetup.ui:314
-#, kde-format
-msgctxt "Paper size"
-msgid "B10"
-msgstr "B10"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:154 ui/PrintSetup.ui:319
-#, kde-format
-msgctxt "Paper size"
-msgid "C5E"
-msgstr "C5E"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:159 ui/PrintSetup.ui:324
-#, kde-format
-msgctxt "Paper size"
-msgid "Comm10E"
-msgstr "Конверт США №10"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:164 ui/PrintSetup.ui:329
-#, kde-format
-msgctxt "Paper size"
-msgid "DLE"
-msgstr "DLE"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:169 ui/PrintSetup.ui:334
-#, kde-format
-msgctxt "Paper size"
-msgid "Executive"
-msgstr "Executive"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:174 ui/PrintSetup.ui:339
-#, kde-format
-msgctxt "Paper size"
-msgid "Folio"
-msgstr "Инфолио США"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:179 ui/PrintSetup.ui:344
-#, kde-format
-msgctxt "Paper size"
-msgid "Ledger"
-msgstr "Ledger"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:184 ui/PrintSetup.ui:349
-#, kde-format
-msgctxt "Paper size"
-msgid "Legal"
-msgstr "Legal"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:189 ui/PrintSetup.ui:354
-#, kde-format
-msgctxt "Paper size"
-msgid "Letter"
-msgstr "Letter"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PageSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:194 ui/PrintSetup.ui:359
-#, kde-format
-msgctxt "Paper size"
-msgid "Tabloid"
-msgstr "Tabloid"
-
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
-#: ui/PrinterConfigPage.ui:206 ui/PrintSetup.ui:377
+#: ui/PrinterConfigPage.ui:56 ui/PrintSetup.ui:227
 #, kde-format
 msgid "Portrait"
 msgstr "Портретная"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
-#: ui/PrinterConfigPage.ui:219 ui/PrintSetup.ui:382
+#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:232
 #, kde-format
 msgid "Landscape"
 msgstr "Альбомная"
@@ -3407,8 +3167,8 @@ msgstr "Альбомная"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #. i18n: ectx: property (text), widget (QLabel, label_14)
-#: ui/PrinterConfigPage.ui:239 ui/PrinterConfigPage.ui:352
-#: ui/PrinterConfigPage.ui:681 ui/PrinterConfigPage.ui:904
+#: ui/PrinterConfigPage.ui:89 ui/PrinterConfigPage.ui:202
+#: ui/PrinterConfigPage.ui:531 ui/PrinterConfigPage.ui:754
 #, kde-format
 msgctxt "Left margin"
 msgid "Left"
@@ -3418,8 +3178,8 @@ msgstr "Слева"
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #. i18n: ectx: property (text), widget (QLabel, label_15)
-#: ui/PrinterConfigPage.ui:259 ui/PrinterConfigPage.ui:372
-#: ui/PrinterConfigPage.ui:701 ui/PrinterConfigPage.ui:924
+#: ui/PrinterConfigPage.ui:109 ui/PrinterConfigPage.ui:222
+#: ui/PrinterConfigPage.ui:551 ui/PrinterConfigPage.ui:774
 #, kde-format
 msgctxt "Right margin"
 msgid "Right"
@@ -3429,8 +3189,8 @@ msgstr "Справа"
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #. i18n: ectx: property (text), widget (QLabel, label_16)
-#: ui/PrinterConfigPage.ui:279 ui/PrinterConfigPage.ui:392
-#: ui/PrinterConfigPage.ui:721 ui/PrinterConfigPage.ui:944
+#: ui/PrinterConfigPage.ui:129 ui/PrinterConfigPage.ui:242
+#: ui/PrinterConfigPage.ui:571 ui/PrinterConfigPage.ui:794
 #, kde-format
 msgctxt "Top margin"
 msgid "Top"
@@ -3440,65 +3200,65 @@ msgstr "Сверху"
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #. i18n: ectx: property (text), widget (QLabel, label_17)
-#: ui/PrinterConfigPage.ui:299 ui/PrinterConfigPage.ui:412
-#: ui/PrinterConfigPage.ui:741 ui/PrinterConfigPage.ui:964
+#: ui/PrinterConfigPage.ui:149 ui/PrinterConfigPage.ui:262
+#: ui/PrinterConfigPage.ui:591 ui/PrinterConfigPage.ui:814
 #, kde-format
 msgctxt "Bottom margin"
 msgid "Bottom"
 msgstr "Снизу"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: ui/PrinterConfigPage.ui:338
+#: ui/PrinterConfigPage.ui:188
 #, kde-format
 msgid "Pattern Element"
 msgstr "Элемент схемы"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
-#: ui/PrinterConfigPage.ui:437
+#: ui/PrinterConfigPage.ui:287
 #, kde-format
 msgid "Cells"
 msgstr "Ячейки"
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
-#: ui/PrinterConfigPage.ui:445
+#: ui/PrinterConfigPage.ui:295
 #, kde-format
 msgid "Minimum cell size (mm)"
 msgstr "Минимальный размер ячейки (мм)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
-#: ui/PrinterConfigPage.ui:458
+#: ui/PrinterConfigPage.ui:308
 #, kde-format
 msgid "Minimum overflow"
 msgstr "Переполнение минимального значения"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
-#: ui/PrinterConfigPage.ui:476
+#: ui/PrinterConfigPage.ui:326
 #, kde-format
 msgid "Selections"
 msgstr "Выделения"
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
-#: ui/PrinterConfigPage.ui:482
+#: ui/PrinterConfigPage.ui:332
 #, kde-format
 msgid "Selected area color"
 msgstr "Цвет выбранной области"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: ui/PrinterConfigPage.ui:528
+#: ui/PrinterConfigPage.ui:378
 #, kde-format
 msgid "Text Element"
 msgstr "Текстовый элемент"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
-#: ui/PrinterConfigPage.ui:540 ui/TextElement.ui:463
+#: ui/PrinterConfigPage.ui:390 ui/TextElement.ui:463
 #, kde-format
 msgid "Text color"
 msgstr "Цвет текста"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
-#: ui/PrinterConfigPage.ui:560 ui/PrinterConfigPage.ui:843
+#: ui/PrinterConfigPage.ui:410 ui/PrinterConfigPage.ui:693
 #, kde-format
 msgctxt "Fill the background"
 msgid "Background"
@@ -3506,7 +3266,7 @@ msgstr "Фон"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #. i18n: ectx: property (text), widget (QLabel, label_25)
-#: ui/PrinterConfigPage.ui:569 ui/PrinterConfigPage.ui:856
+#: ui/PrinterConfigPage.ui:419 ui/PrinterConfigPage.ui:706
 #, kde-format
 msgctxt "Background color"
 msgid "Color"
@@ -3514,7 +3274,7 @@ msgstr "Цвет"
 
 #. i18n: ectx: property (text), widget (QLabel, label_18)
 #. i18n: ectx: property (text), widget (QLabel, label_23)
-#: ui/PrinterConfigPage.ui:631 ui/PrinterConfigPage.ui:801
+#: ui/PrinterConfigPage.ui:481 ui/PrinterConfigPage.ui:651
 #, kde-format
 msgctxt "Border color"
 msgid "Color"
@@ -3522,19 +3282,19 @@ msgstr "Цвет"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_24)
-#: ui/PrinterConfigPage.ui:648 ui/PrinterConfigPage.ui:818
+#: ui/PrinterConfigPage.ui:498 ui/PrinterConfigPage.ui:668
 #, kde-format
 msgid "Thickness"
 msgstr "Толщина"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
-#: ui/PrinterConfigPage.ui:989
+#: ui/PrinterConfigPage.ui:839
 #, kde-format
 msgid "Elements"
 msgstr "Элементы"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
-#: ui/PrinterConfigPage.ui:995
+#: ui/PrinterConfigPage.ui:845
 #, kde-format
 msgid "Symbols"
 msgstr "Обозначения"
@@ -3564,55 +3324,55 @@ msgid "Delete the selected page"
 msgstr "Удалить выбранную страницу"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
-#: ui/PrintSetup.ui:373
+#: ui/PrintSetup.ui:223
 #, kde-format
 msgid "Select the paper orientation"
 msgstr "Выбрать ориентацию бумаги"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
-#: ui/PrintSetup.ui:396
+#: ui/PrintSetup.ui:246
 #, kde-format
 msgid "Zoom factor"
 msgstr "Масштаб"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
-#: ui/PrintSetup.ui:456
+#: ui/PrintSetup.ui:306
 #, kde-format
 msgid "Select an element"
 msgstr "Выбрать элемент"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
-#: ui/PrintSetup.ui:478
+#: ui/PrintSetup.ui:328
 #, kde-format
 msgid "Insert a text element"
 msgstr "Вставить текстовый элемент"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
-#: ui/PrintSetup.ui:503
+#: ui/PrintSetup.ui:353
 #, kde-format
 msgid "Insert a pattern element"
 msgstr "Вставить элемент схемы"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
-#: ui/PrintSetup.ui:525
+#: ui/PrintSetup.ui:375
 #, kde-format
 msgid "Insert a picture element"
 msgstr "Вставить элемент изображения"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
-#: ui/PrintSetup.ui:535
+#: ui/PrintSetup.ui:385
 #, kde-format
 msgid "Insert a key element"
 msgstr "Вставить элемент обозначения"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
-#: ui/PrintSetup.ui:606
+#: ui/PrintSetup.ui:456
 #, kde-format
 msgid "Page list"
 msgstr "Список страниц"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
-#: ui/PrintSetup.ui:634
+#: ui/PrintSetup.ui:484
 #, kde-format
 msgid "Page preview"
 msgstr "Предварительный просмотр страницы"
@@ -3724,6 +3484,126 @@ msgstr "Выровнять по правому краю"
 #, kde-format
 msgid "Align justified"
 msgstr "Выровнять по ширине"
+
+#~ msgctxt "Paper size"
+#~ msgid "A0"
+#~ msgstr "A0"
+
+#~ msgctxt "Paper size"
+#~ msgid "A1"
+#~ msgstr "A1"
+
+#~ msgctxt "Paper size"
+#~ msgid "A2"
+#~ msgstr "A2"
+
+#~ msgctxt "Paper size"
+#~ msgid "A3"
+#~ msgstr "A3"
+
+#~ msgctxt "Paper size"
+#~ msgid "A4"
+#~ msgstr "A4"
+
+#~ msgctxt "Paper size"
+#~ msgid "A5"
+#~ msgstr "A5"
+
+#~ msgctxt "Paper size"
+#~ msgid "A6"
+#~ msgstr "A6"
+
+#~ msgctxt "Paper size"
+#~ msgid "A7"
+#~ msgstr "A7"
+
+#~ msgctxt "Paper size"
+#~ msgid "A8"
+#~ msgstr "A8"
+
+#~ msgctxt "Paper size"
+#~ msgid "A9"
+#~ msgstr "A9"
+
+#~ msgctxt "Paper size"
+#~ msgid "B0"
+#~ msgstr "B0"
+
+#~ msgctxt "Paper size"
+#~ msgid "B1"
+#~ msgstr "B1"
+
+#~ msgctxt "Paper size"
+#~ msgid "B2"
+#~ msgstr "B2"
+
+#~ msgctxt "Paper size"
+#~ msgid "B3"
+#~ msgstr "B3"
+
+#~ msgctxt "Paper size"
+#~ msgid "B4"
+#~ msgstr "B4"
+
+#~ msgctxt "Paper size"
+#~ msgid "B5"
+#~ msgstr "B5"
+
+#~ msgctxt "Paper size"
+#~ msgid "B6"
+#~ msgstr "B6"
+
+#~ msgctxt "Paper size"
+#~ msgid "B7"
+#~ msgstr "B7"
+
+#~ msgctxt "Paper size"
+#~ msgid "B8"
+#~ msgstr "B8"
+
+#~ msgctxt "Paper size"
+#~ msgid "B9"
+#~ msgstr "B9"
+
+#~ msgctxt "Paper size"
+#~ msgid "B10"
+#~ msgstr "B10"
+
+#~ msgctxt "Paper size"
+#~ msgid "C5E"
+#~ msgstr "C5E"
+
+#~ msgctxt "Paper size"
+#~ msgid "Comm10E"
+#~ msgstr "Конверт США №10"
+
+#~ msgctxt "Paper size"
+#~ msgid "DLE"
+#~ msgstr "DLE"
+
+#~ msgctxt "Paper size"
+#~ msgid "Executive"
+#~ msgstr "Executive"
+
+#~ msgctxt "Paper size"
+#~ msgid "Folio"
+#~ msgstr "Инфолио США"
+
+#~ msgctxt "Paper size"
+#~ msgid "Ledger"
+#~ msgstr "Ledger"
+
+#~ msgctxt "Paper size"
+#~ msgid "Legal"
+#~ msgstr "Legal"
+
+#~ msgctxt "Paper size"
+#~ msgid "Letter"
+#~ msgstr "Letter"
+
+#~ msgctxt "Paper size"
+#~ msgid "Tabloid"
+#~ msgstr "Tabloid"
 
 #~ msgid ""
 #~ "Save changes to document?\n"
