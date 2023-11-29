@@ -10,6 +10,7 @@
   <name xml:lang="da">KXStitch</name>
   <name xml:lang="de">KXStitch</name>
   <name xml:lang="en-GB">KXStitch</name>
+  <name xml:lang="eo">KXStitch</name>
   <name xml:lang="es">KXStitch</name>
   <name xml:lang="et">KXStitch</name>
   <name xml:lang="eu">KXStitch</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="cs">Tvůrce předloh výšivek křížkovým stehem</summary>
   <summary xml:lang="de">Ein Kreuzstich-Musterersteller</summary>
   <summary xml:lang="en-GB">A cross stitch pattern creator</summary>
+  <summary xml:lang="eo">Kreinto de ŝablonoj de krucpunkto</summary>
   <summary xml:lang="es">Un creador de patrones de punto de cruz</summary>
   <summary xml:lang="et">Tikkimismustrite loomise rakendus</summary>
   <summary xml:lang="eu">Gurutze-puntuko eredu sortzaile bat</summary>
@@ -95,6 +97,7 @@
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
@@ -125,6 +128,7 @@
       <li xml:lang="ca-valencia">Creació de patrons nous</li>
       <li xml:lang="de">Erstellung neuer Muster</li>
       <li xml:lang="en-GB">Creation of new patterns</li>
+      <li xml:lang="eo">Kreado de novaj ŝablonoj</li>
       <li xml:lang="es">Creación de nuevos patrones</li>
       <li xml:lang="et">Uute mustrite loomine</li>
       <li xml:lang="eu">Eredu berriak sortzea</li>
@@ -179,6 +183,7 @@
       <li xml:lang="ca">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
       <li xml:lang="ca-valencia">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
       <li xml:lang="en-GB">Use of various floss pallets, DMC, Anchor, Madeira</li>
+      <li xml:lang="eo">Uzo de diversaj fadenaj paletoj, DMC, Anchor, Madejro</li>
       <li xml:lang="es">Uso de ovillos de hilo variados, DMC, Anchor, Madeira</li>
       <li xml:lang="et">Mitmesuguste lõngapalettide (DMC, Anchor, Madeira jt) kasutamine</li>
       <li xml:lang="eu">Harizko hainbat paleta erabiltzea, DMC, Anchor, Madeira</li>
@@ -205,6 +210,7 @@
       <li xml:lang="ca-valencia">Creació de paletes i colors personalitzats</li>
       <li xml:lang="de">Erstellen von eigenen Paletten und Farben</li>
       <li xml:lang="en-GB">Creation of custom palettes and colours</li>
+      <li xml:lang="eo">Kreado de propraj paletoj kaj koloroj</li>
       <li xml:lang="es">Creación de paletas y colores personalizados</li>
       <li xml:lang="et">Kohandatud palettide ja värvide loomine</li>
       <li xml:lang="eu">Norberak finkatutako paletak eta koloreak sortzea</li>
@@ -233,6 +239,7 @@
       <li xml:lang="ca-valencia">Ús de puntades estàndard</li>
       <li xml:lang="de">Standardstiche verwenden</li>
       <li xml:lang="en-GB">Use of standard stitches</li>
+      <li xml:lang="eo">Uzo de normaj kudreroj</li>
       <li xml:lang="es">Uso de puntos estándares</li>
       <li xml:lang="et">Standardsete pistete kasutamine</li>
       <li xml:lang="eu">Puntu estandarrak erabiltzea</li>
@@ -259,6 +266,7 @@
       <li xml:lang="ca">Ús lliure de repunts</li>
       <li xml:lang="ca-valencia">Ús lliure de repunts</li>
       <li xml:lang="en-GB">Free use of backstitching</li>
+      <li xml:lang="eo">Libera uzo de dorskudrido</li>
       <li xml:lang="es">Libre uso de pespuntes</li>
       <li xml:lang="et">Tikkpistete vaba kasutamine</li>
       <li xml:lang="eu">Atzera-puntadaren erabilera askea</li>
@@ -286,6 +294,7 @@
       <li xml:lang="ca-valencia">Importació de diversos formats d'imatge</li>
       <li xml:lang="de">Import verschiedener Bildformate</li>
       <li xml:lang="en-GB">Importing of various picture formats</li>
+      <li xml:lang="eo">Importado de diversaj bildformatoj</li>
       <li xml:lang="es">Importación de diversos formatos de imágenes</li>
       <li xml:lang="et">Mitmesuguste pildivormingute import</li>
       <li xml:lang="eu">Hainbat irudi-formatu inportatzea</li>
@@ -313,6 +322,7 @@
       <li xml:lang="ca">Impressió de patrons i claus de fil</li>
       <li xml:lang="ca-valencia">Impressió de patrons i claus de fil</li>
       <li xml:lang="en-GB">Printing of patterns and floss keys</li>
+      <li xml:lang="eo">Preso de ŝablonoj kaj ŝlosiloj</li>
       <li xml:lang="es">Impresión de patrones y claves de hilos</li>
       <li xml:lang="et">Mustrite ja legendide trükkimine</li>
       <li xml:lang="eu">Ereduak inprimatzea eta hari-txirrikak</li>
