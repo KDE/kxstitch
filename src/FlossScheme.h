@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef FlossScheme_H
 #define FlossScheme_H
-
 
 #include <QColor>
 #include <QList>
@@ -26,7 +24,6 @@
 #pragma GCC diagnostic pop
 
 #include "Floss.h"
-
 
 class FlossScheme
 {
@@ -48,10 +45,10 @@ public:
     void setPath(const QString &name);
 
 private:
-    QString     m_schemeName;
-    QString     m_path;
-    QList<Floss *>  m_flosses;
-    Magick::Image   *m_map;
+    QString m_schemeName;
+    QString m_path;
+    QList<Floss *> m_flosses;
+    Magick::Image *m_map;
 };
 
 #endif // FlossScheme_H

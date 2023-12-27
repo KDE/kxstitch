@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef NewFlossDlg_H
 #define NewFlossDlg_H
-
 
 #include <QDialog>
 
@@ -24,7 +22,6 @@ class QWidget;
 
 class Floss;
 class FlossScheme;
-
 
 class NewFlossDlg : public QDialog
 {
@@ -51,8 +48,7 @@ private:
     Ui::NewFloss ui;
 
     FlossScheme *m_flossScheme;
-    Floss       *m_floss;
+    Floss *m_floss;
 };
-
 
 #endif // NewFlossDlg_H

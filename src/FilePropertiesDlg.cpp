@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "FilePropertiesDlg.h"
 
 #include <QLocale>
@@ -23,10 +22,9 @@
 #include "FlossScheme.h"
 #include "SchemeManager.h"
 
-
 FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
-    :   QDialog(parent),
-        m_document(document)
+    : QDialog(parent)
+    , m_document(document)
 {
     setWindowTitle(i18n("File Properties"));
     ui.setupUi(this);
@@ -75,90 +73,75 @@ FilePropertiesDlg::FilePropertiesDlg(QWidget *parent, Document *document)
     ui.Instructions->setPlainText(m_document->property(QStringLiteral("instructions")).toString());
 }
 
-
 int FilePropertiesDlg::documentWidth() const
 {
     return m_widthStitches;
 }
-
 
 int FilePropertiesDlg::documentHeight() const
 {
     return m_heightStitches;
 }
 
-
 Configuration::EnumDocument_UnitsFormat::type FilePropertiesDlg::unitsFormat() const
 {
     return m_unitsFormat;
 }
-
 
 double FilePropertiesDlg::horizontalClothCount() const
 {
     return m_horizontalClothCount;
 }
 
-
 bool FilePropertiesDlg::clothCountLink() const
 {
     return ui.ClothCountLink->isChecked();
 }
-
 
 double FilePropertiesDlg::verticalClothCount() const
 {
     return m_verticalClothCount;
 }
 
-
 Configuration::EnumEditor_ClothCountUnits::type FilePropertiesDlg::clothCountUnits() const
 {
     return m_clothCountUnits;
 }
-
 
 QString FilePropertiesDlg::title() const
 {
     return ui.PatternTitle->text();
 }
 
-
 QString FilePropertiesDlg::author() const
 {
     return ui.PatternAuthor->text();
 }
-
 
 QString FilePropertiesDlg::copyright() const
 {
     return ui.PatternCopyright->text();
 }
 
-
 QString FilePropertiesDlg::fabric() const
 {
     return ui.PatternFabric->text();
 }
-
 
 QColor FilePropertiesDlg::fabricColor() const
 {
     return ui.FabricColor->color();
 }
 
-
 QString FilePropertiesDlg::instructions() const
 {
     return ui.Instructions->toPlainText();
 }
 
-
 QString FilePropertiesDlg::flossScheme() const
 {
     return ui.FlossScheme->currentText();
 }
-
 
 void FilePropertiesDlg::hideEvent(QHideEvent *event)
 {
@@ -166,7 +149,6 @@ void FilePropertiesDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void FilePropertiesDlg::showEvent(QShowEvent *event)
 {
@@ -177,14 +159,12 @@ void FilePropertiesDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void FilePropertiesDlg::on_UnitsFormat_activated(int index)
 {
     m_unitsFormat = static_cast<Configuration::EnumDocument_UnitsFormat::type>(index);
 
     updatePatternSizes();
 }
-
 
 void FilePropertiesDlg::on_PatternWidth_valueChanged(double d)
 {
@@ -195,7 +175,6 @@ void FilePropertiesDlg::on_PatternWidth_valueChanged(double d)
     m_widthStitches = std::max((int)d, m_minWidthStitches);
 }
 
-
 void FilePropertiesDlg::on_PatternHeight_valueChanged(double d)
 {
     if (m_unitsFormat != Configuration::EnumDocument_UnitsFormat::Stitches) {
@@ -204,7 +183,6 @@ void FilePropertiesDlg::on_PatternHeight_valueChanged(double d)
 
     m_heightStitches = std::max((int)d, m_minHeightStitches);
 }
-
 
 void FilePropertiesDlg::on_HorizontalClothCount_valueChanged(double d)
 {
@@ -217,14 +195,12 @@ void FilePropertiesDlg::on_HorizontalClothCount_valueChanged(double d)
     updatePatternSizes();
 }
 
-
 void FilePropertiesDlg::on_VerticalClothCount_valueChanged(double d)
 {
     m_verticalClothCount = d;
 
     updatePatternSizes();
 }
-
 
 void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
 {
@@ -238,24 +214,20 @@ void FilePropertiesDlg::on_ClothCountLink_clicked(bool checked)
     }
 }
 
-
 void FilePropertiesDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
-
 
 void FilePropertiesDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void FilePropertiesDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PatternPropertiesDialog"), QStringLiteral("kxstitch"));
 }
-
 
 void FilePropertiesDlg::updatePatternSizes()
 {

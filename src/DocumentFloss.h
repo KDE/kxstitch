@@ -8,16 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef DocumentFloss_H
 #define DocumentFloss_H
-
 
 #include <QChar>
 #include <QColor>
 #include <QDataStream>
 #include <QString>
-
 
 class DocumentFloss
 {
@@ -49,17 +46,15 @@ public:
 private:
     static const int version = 101;
 
-    QString         m_flossName;
-    QColor          m_flossColor;
-    qint16          m_stitchSymbol;
-    Qt::PenStyle    m_backstitchSymbol;
-    int             m_stitchStrands;
-    int             m_backstitchStrands;
+    QString m_flossName;
+    QColor m_flossColor;
+    qint16 m_stitchSymbol;
+    Qt::PenStyle m_backstitchSymbol;
+    int m_stitchStrands;
+    int m_backstitchStrands;
 };
-
 
 QDataStream &operator<<(QDataStream &, const DocumentFloss &);
 QDataStream &operator>>(QDataStream &, DocumentFloss &);
-
 
 #endif // DocumentFloss_H

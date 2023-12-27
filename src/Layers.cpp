@@ -8,15 +8,12 @@
  * (at your option) any later version.
  */
 
-
 #include "Layers.h"
 
-
 Layers::Layers()
-    :   m_currentLayer(-1)
+    : m_currentLayer(-1)
 {
 }
-
 
 void Layers::clear()
 {
@@ -24,12 +21,10 @@ void Layers::clear()
     m_currentLayer = -1;
 }
 
-
 const QList<Layer> &Layers::layers() const
 {
     return m_layers;
 }
-
 
 QStringList Layers::layerNames() const
 {
@@ -44,7 +39,6 @@ QStringList Layers::layerNames() const
     return namesList;
 }
 
-
 QList<int> Layers::layerNumbers() const
 {
     QList<int> numberList;
@@ -58,12 +52,10 @@ QList<int> Layers::layerNumbers() const
     return numberList;
 }
 
-
 int Layers::currentLayer() const
 {
     return m_currentLayer;
 }
-
 
 void Layers::addLayer(int layer, const QString &name)
 {
@@ -73,7 +65,6 @@ void Layers::addLayer(int layer, const QString &name)
         m_currentLayer = 0;
     }
 }
-
 
 void Layers::removeLayer(int number)
 {
@@ -90,7 +81,6 @@ void Layers::removeLayer(int number)
     }
 }
 
-
 void Layers::removeLayer(const QString &name)
 {
     QMutableListIterator<Layer> iterator(m_layers);
@@ -106,14 +96,12 @@ void Layers::removeLayer(const QString &name)
     }
 }
 
-
 void Layers::setCurrentLayer(int layer)
 {
     if (m_layers.count() > 0) {
         m_currentLayer = layer;
     }
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const Layers &layers)
 {
@@ -123,7 +111,6 @@ QDataStream &operator<<(QDataStream &stream, const Layers &layers)
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Layers &layers)
 {

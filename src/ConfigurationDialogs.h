@@ -8,19 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #ifndef ConfigurationDialogs_H
 #define ConfigurationDialogs_H
 
-
 #include "configuration.h"
 #include "ui_EditorConfigPage.h"
-#include "ui_PatternConfigPage.h"
-#include "ui_PaletteConfigPage.h"
 #include "ui_ImportConfigPage.h"
 #include "ui_LibraryConfigPage.h"
+#include "ui_PaletteConfigPage.h"
+#include "ui_PatternConfigPage.h"
 #include "ui_PrinterConfigPage.h"
-
 
 class EditorConfigPage : public QWidget, public Ui::EditorConfigPage
 {
@@ -29,7 +26,6 @@ class EditorConfigPage : public QWidget, public Ui::EditorConfigPage
 public:
     explicit EditorConfigPage(QWidget *parent, const QString &name);
 };
-
 
 class PatternConfigPage : public QWidget, public Ui::PatternConfigPage
 {
@@ -48,10 +44,9 @@ private:
     void setPatternSizePrecision();
     void setClothCountPrecision();
 
-    Configuration::EnumDocument_UnitsFormat::type   m_currentDocumentUnitsIndex;
+    Configuration::EnumDocument_UnitsFormat::type m_currentDocumentUnitsIndex;
     Configuration::EnumEditor_ClothCountUnits::type m_currentClothCountUnitsIndex;
 };
-
 
 class PaletteConfigPage : public QWidget, public Ui::PaletteConfigPage
 {
@@ -64,7 +59,6 @@ public slots:
     void defaultClicked();
 };
 
-
 class ImportConfigPage : public QWidget, public Ui::ImportConfigPage
 {
     Q_OBJECT
@@ -72,7 +66,6 @@ class ImportConfigPage : public QWidget, public Ui::ImportConfigPage
 public:
     explicit ImportConfigPage(QWidget *parent, const QString &name);
 };
-
 
 class LibraryConfigPage : public QWidget, public Ui::LibraryConfigPage
 {
@@ -82,7 +75,6 @@ public:
     explicit LibraryConfigPage(QWidget *parent, const QString &name);
 };
 
-
 class PrinterConfigPage : public QWidget, public Ui::PrinterConfigPage
 {
     Q_OBJECT
@@ -90,6 +82,5 @@ class PrinterConfigPage : public QWidget, public Ui::PrinterConfigPage
 public:
     explicit PrinterConfigPage(QWidget *parent, const QString &name);
 };
-
 
 #endif // ConfigurationDialogs_H

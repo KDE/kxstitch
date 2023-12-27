@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef TextToolDlg_H
 #define TextToolDlg_H
-
 
 #include <QDialog>
 #include <QFont>
@@ -19,10 +17,8 @@
 
 #include "ui_TextTool.h"
 
-
 class QHideEvent;
 class QShowEvent;
-
 
 class TextToolDlg : public QDialog
 {
@@ -47,13 +43,11 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::TextTool    ui;
+    Ui::TextTool ui;
 
-    QFont   m_font;
-    int     m_size;
+    QFont m_font;
+    int m_size;
     QString m_text;
 };
 
-
 #endif // TextToolDlg_H
-

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "TextToolDlg.h"
 
 #include <QBitmap>
@@ -21,9 +20,8 @@
 
 #include "configuration.h"
 
-
 TextToolDlg::TextToolDlg(QWidget *parent)
-    :   QDialog(parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Text Tool"));
     ui.setupUi(this);
@@ -32,7 +30,6 @@ TextToolDlg::TextToolDlg(QWidget *parent)
     ui.TextToolSize->setValue(Configuration::textTool_FontSize());
     ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
-
 
 QImage TextToolDlg::image()
 {
@@ -63,14 +60,12 @@ QImage TextToolDlg::image()
     return image;
 }
 
-
 void TextToolDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("TextToolDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void TextToolDlg::showEvent(QShowEvent *event)
 {
@@ -81,14 +76,12 @@ void TextToolDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void TextToolDlg::on_TextToolFont_currentFontChanged(const QFont &font)
 {
     QFont f = ui.TextToolText->font();
     f.setFamily(font.family());
     ui.TextToolText->setFont(f);
 }
-
 
 void TextToolDlg::on_TextToolSize_valueChanged(int s)
 {
@@ -97,12 +90,10 @@ void TextToolDlg::on_TextToolSize_valueChanged(int s)
     ui.TextToolText->setFont(f);
 }
 
-
 void TextToolDlg::on_TextToolText_textChanged(const QString &s)
 {
     ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(!s.isEmpty());
 }
-
 
 void TextToolDlg::on_DialogButtonBox_accepted()
 {
@@ -116,12 +107,10 @@ void TextToolDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void TextToolDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void TextToolDlg::on_DialogButtonBox_helpRequested()
 {

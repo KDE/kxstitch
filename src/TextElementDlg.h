@@ -8,20 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #ifndef TextElementDlg_H
 #define TextElementDlg_H
-
 
 #include <QDialog>
 
 #include "ui_TextElement.h"
 
-
 class TextElement;
 class QHideEvent;
 class QShowEvent;
-
 
 class TextElementDlg : public QDialog
 {
@@ -65,6 +61,5 @@ private:
 
     TextElement *m_textElement;
 };
-
 
 #endif // TextElementDlg_H

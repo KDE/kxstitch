@@ -8,45 +8,37 @@
  * (at your option) any later version.
  */
 
-
 #include "Layer.h"
-
 
 Layer::Layer()
 {
 }
 
-
 Layer::Layer(int number, const QString &name)
-    :   m_number(number),
-        m_name(name)
+    : m_number(number)
+    , m_name(name)
 {
 }
-
 
 int Layer::number() const
 {
     return m_number;
 }
 
-
 const QString &Layer::name() const
 {
     return m_name;
 }
-
 
 void Layer::setNumber(int number)
 {
     m_number = number;
 }
 
-
 void Layer::setName(const QString &name)
 {
     m_name = name;
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const Layer &layer)
 {
@@ -56,7 +48,6 @@ QDataStream &operator<<(QDataStream &stream, const Layer &layer)
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Layer &layer)
 {

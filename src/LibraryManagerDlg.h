@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryManagerDlg_H
 #define LibraryManagerDlg_H
-
 
 #include <QDialog>
 #include <QMenu>
@@ -20,12 +18,10 @@
 
 #include "ui_LibraryManager.h"
 
-
 class LibraryListWidgetItem;
 class LibraryTreeWidgetItem;
 class QHideEvent;
 class QShowEvent;
-
 
 class LibraryManagerDlg : public QDialog
 {
@@ -67,12 +63,11 @@ private:
     void refreshLibraries();
     void recurseLibraryDirectory(LibraryTreeWidgetItem *, const QString &);
 
-    QMenu                   m_contextMenu;
-    LibraryTreeWidgetItem   *m_contextTreeItem;
-    LibraryListWidgetItem   *m_contextListItem;
+    QMenu m_contextMenu;
+    LibraryTreeWidgetItem *m_contextTreeItem;
+    LibraryListWidgetItem *m_contextListItem;
 
-    Ui::LibraryManager  ui;
+    Ui::LibraryManager ui;
 };
-
 
 #endif // LibraryManagerDlg_H

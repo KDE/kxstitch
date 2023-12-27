@@ -8,26 +8,22 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Document_H
 #define Document_H
-
 
 #include <QPolygon>
 #include <QUndoStack>
 #include <QUrl>
 
 #include "BackgroundImages.h"
-#include "configuration.h"
 #include "Exceptions.h"
 #include "Pattern.h"
 #include "PrinterConfiguration.h"
-
+#include "configuration.h"
 
 class Editor;
 class Palette;
 class Preview;
-
 
 class Document
 {
@@ -79,18 +75,17 @@ private:
 
     QMap<QString, QVariant> m_properties;
 
-    QUrl    m_url;
+    QUrl m_url;
 
-    QUndoStack  m_undoStack;
+    QUndoStack m_undoStack;
 
-    Editor  *m_editor;
+    Editor *m_editor;
     Palette *m_palette;
     Preview *m_preview;
 
-    BackgroundImages    m_backgroundImages;
-    Pattern             *m_pattern;
-    PrinterConfiguration    m_printerConfiguration;
+    BackgroundImages m_backgroundImages;
+    Pattern *m_pattern;
+    PrinterConfiguration m_printerConfiguration;
 };
-
 
 #endif // Document_H

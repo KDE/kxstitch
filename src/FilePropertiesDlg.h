@@ -8,22 +8,18 @@
  * (at your option) any later version.
  */
 
-
 #ifndef FilePropertiesDlg_H
 #define FilePropertiesDlg_H
-
 
 #include <QDialog>
 
 #include "configuration.h"
 #include "ui_FileProperties.h"
 
-
 class Document;
 class QHideEvent;
 class QShowEvent;
 class QWidget;
-
 
 class FilePropertiesDlg : public QDialog
 {
@@ -66,22 +62,21 @@ private slots:
 private:
     void updatePatternSizes();
 
-    Ui::FileProperties  ui;
+    Ui::FileProperties ui;
 
-    Document    *m_document;
+    Document *m_document;
 
     int m_widthStitches;
     int m_heightStitches;
     int m_minWidthStitches;
     int m_minHeightStitches;
 
-    double  m_horizontalClothCount;
-    double  m_verticalClothCount;
-    bool    m_clothCountLink;
+    double m_horizontalClothCount;
+    double m_verticalClothCount;
+    bool m_clothCountLink;
 
-    Configuration::EnumDocument_UnitsFormat::type   m_unitsFormat;
+    Configuration::EnumDocument_UnitsFormat::type m_unitsFormat;
     Configuration::EnumEditor_ClothCountUnits::type m_clothCountUnits;
 };
-
 
 #endif // FilePropertiesDlg_H

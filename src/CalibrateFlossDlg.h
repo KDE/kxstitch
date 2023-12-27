@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef CalibrateFlossDlg_H
 #define CalibrateFlossDlg_H
-
 
 #include <QColor>
 #include <QDialog>
@@ -20,13 +18,11 @@
 
 #include "ui_CalibrateFloss.h"
 
-
 class QHideEvent;
 class QListWidgetItem;
 class QPixmap;
 class QShowEvent;
 class SchemeManager;
-
 
 class CalibrateFlossDlg : public QDialog
 {
@@ -58,16 +54,15 @@ private:
     void updateName(bool modified);
     void commitColor();
 
-    Ui::CalibrateFloss  ui;
+    Ui::CalibrateFloss ui;
 
-    QString         m_schemeName;
+    QString m_schemeName;
     QListWidgetItem *m_item;
-    QColor          m_sampleColor;
-    QPixmap         *m_sample;
+    QColor m_sampleColor;
+    QPixmap *m_sample;
 
-    typedef QMap<QString, QColor>   ChangedColors;
-    QMap<QString, ChangedColors>    m_calibratedColors;
+    typedef QMap<QString, QColor> ChangedColors;
+    QMap<QString, ChangedColors> m_calibratedColors;
 };
-
 
 #endif // CalibrateFlossDlg_H

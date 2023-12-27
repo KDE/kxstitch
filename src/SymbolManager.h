@@ -8,23 +8,18 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Header file for the SymbolManager class.
  */
 
-
 #ifndef SymbolManager_H
 #define SymbolManager_H
-
 
 #include <QList>
 #include <QStringList>
 
-
 class SymbolLibrary;
-
 
 /**
  * @brief Manages the collection of symbol libraries.
@@ -50,9 +45,8 @@ private:
     void refresh();
     SymbolLibrary *readLibrary(const QString &name);
 
-    static SymbolManager    *symbolManager;         /**< pointer to the static symbol manager */
-    QList<SymbolLibrary *>  m_symbolLibraries;      /**< list of the symbol libraries loaded */
+    static SymbolManager *symbolManager; /**< pointer to the static symbol manager */
+    QList<SymbolLibrary *> m_symbolLibraries; /**< list of the symbol libraries loaded */
 };
-
 
 #endif // SymbolManager_H

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryFile.h"
 
 #include <QDataStream>
@@ -23,14 +22,12 @@
 
 #include "LibraryPattern.h"
 
-
 LibraryFile::LibraryFile(const QString &path)
-    :   m_read(false),
-        m_path(path)
+    : m_read(false)
+    , m_path(path)
 {
     m_exists = QFile::exists(localFile());
 }
-
 
 LibraryFile::~LibraryFile()
 {
@@ -41,25 +38,21 @@ LibraryFile::~LibraryFile()
     qDeleteAll(m_libraryPatterns);
 }
 
-
 QString LibraryFile::path() const
 {
     return m_path;
 }
-
 
 bool LibraryFile::isWritable() const
 {
     return QFileInfo(m_path).isWritable();
 }
 
-
 void LibraryFile::addPattern(LibraryPattern *libraryPattern)
 {
     m_libraryPatterns.append(libraryPattern);
     writeFile();
 }
-
 
 void LibraryFile::deletePattern(LibraryPattern *libraryPattern)
 {
@@ -68,7 +61,6 @@ void LibraryFile::deletePattern(LibraryPattern *libraryPattern)
         writeFile();
     }
 }
-
 
 LibraryPattern *LibraryFile::first()
 {
@@ -85,7 +77,6 @@ LibraryPattern *LibraryFile::first()
     return nullptr;
 }
 
-
 LibraryPattern *LibraryFile::next()
 {
     if (m_current < m_libraryPatterns.count()) {
@@ -94,7 +85,6 @@ LibraryPattern *LibraryFile::next()
 
     return nullptr;
 }
-
 
 void LibraryFile::readFile()
 {
@@ -110,10 +100,10 @@ void LibraryFile::readFile()
             if (strncmp(header, "KXStitchLib", 11) == 0) {
                 qint16 version;
                 qint32 count;
-                qint32 key;         // version 1 of library format
-                qint32 modifier;    // version 1 of library format
-                qint16 baseline;    // version 1 of library format
-                quint16 checksum;   // version 1 of library format
+                qint32 key; // version 1 of library format
+                qint32 modifier; // version 1 of library format
+                qint16 baseline; // version 1 of library format
+                quint16 checksum; // version 1 of library format
                 ok = true;
                 QByteArray data;
                 LibraryPattern *libraryPattern;
@@ -156,7 +146,9 @@ void LibraryFile::readFile()
                         if (checksum == qChecksum(data.data(), data.size())) {
                             m_libraryPatterns.append(new LibraryPattern(data, key, replacedModifiers, baseline));
                         } else {
-                            KMessageBox::error(nullptr, i18n("Failed to read a pattern from the library %1.\n%2", localFile(), file.errorString()), i18n("Failed to read library."));
+                            KMessageBox::error(nullptr,
+                                               i18n("Failed to read a pattern from the library %1.\n%2", localFile(), file.errorString()),
+                                               i18n("Failed to read library."));
                             ok = false;
                         }
 
@@ -195,7 +187,6 @@ void LibraryFile::readFile()
     }
 }
 
-
 void LibraryFile::writeFile()
 {
     QFile file(localFile());
@@ -219,7 +210,6 @@ void LibraryFile::writeFile()
     }
 }
 
-
 QString LibraryFile::localFile() const
 {
     QFileInfo path(m_path);
@@ -230,7 +220,6 @@ QString LibraryFile::localFile() const
         return m_path;
     }
 }
-
 
 bool LibraryFile::hasChanged()
 {

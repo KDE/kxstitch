@@ -8,26 +8,21 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Header file for the SymbolSelectorDlg class.
  */
 
-
 #ifndef SymbolSelectorDlg_H
 #define SymbolSelectorDlg_H
-
 
 #include <QDialog>
 
 #include "ui_SymbolSelector.h"
 
-
 class SymbolLibrary;
 class QHideEvent;
 class QShowEvent;
-
 
 /**
  * @brief Provide a dialog to allow the selection of a symbol for the floss.
@@ -60,11 +55,10 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::SymbolSelector    ui;           /**< dialog interface description */
+    Ui::SymbolSelector ui; /**< dialog interface description */
 
-    QList<qint16>   m_usedSymbols;      /**< a list of used symbols indexes */
-    qint16          m_currentSymbol;    /**< the current symbols index */
+    QList<qint16> m_usedSymbols; /**< a list of used symbols indexes */
+    qint16 m_currentSymbol; /**< the current symbols index */
 };
-
 
 #endif

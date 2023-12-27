@@ -8,14 +8,12 @@
  * (at your option) any later version.
  */
 
-
 /**
     @file
     Implement the main function that is the first function to be called when the application starts.
     Initialises the application and creates any MainWindows required.  Calls exec on the KApplication
     to begin the event loop.
     */
-
 
 /**
     @mainpage KXStitch documentation
@@ -57,7 +55,6 @@
     (at your option) any later version.under the GNU General Public License V2
     */
 
-
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QUrl>
@@ -65,10 +62,9 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
-#include "configuration.h"
 #include "MainWindow.h"
 #include "Version.h"
-
+#include "configuration.h"
 
 /**
     The main function creates an instance of a KAboutData object and populates it with any
@@ -92,16 +88,16 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kxstitch");
 
-    KAboutData aboutData(QStringLiteral("kxstitch"),                    // component name
-                         QString(i18n("kxstitch")),                     // display name
-                         QStringLiteral(KXSTITCH_VERSION_STRING),       // version
-                         i18n("A cross stitch pattern creator."),       // short description
-                         KAboutLicense::GPL_V2,                         // license
-                         i18n("(c) 2010-2019 Stephen Allewell"),        // copyright
-                         QString(),                                     // other text
-                         QStringLiteral("http://userbase.kde.org/KXStitch")    // home page
+    KAboutData aboutData(QStringLiteral("kxstitch"), // component name
+                         QString(i18n("kxstitch")), // display name
+                         QStringLiteral(KXSTITCH_VERSION_STRING), // version
+                         i18n("A cross stitch pattern creator."), // short description
+                         KAboutLicense::GPL_V2, // license
+                         i18n("(c) 2010-2019 Stephen Allewell"), // copyright
+                         QString(), // other text
+                         QStringLiteral("http://userbase.kde.org/KXStitch") // home page
                          // bug address defaults to submit@bugs.kde.org
-               );
+    );
 
     aboutData.addAuthor(QStringLiteral("Stephen Allewell"), i18n("Project Lead"), QStringLiteral("steve.allewell@gmail.com"));
     aboutData.addCredit(QStringLiteral("Pierre Brua"), i18n("Bug fixes, application icons"), QStringLiteral("kxstitchdev@paralline.com"));

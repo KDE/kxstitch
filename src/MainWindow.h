@@ -8,13 +8,10 @@
  * (at your option) any later version.
  */
 
-
 #ifndef MainWindow_H
 #define MainWindow_H
 
-
 #include <KXmlGuiWindow>
-
 
 class QPrinter;
 class QString;
@@ -28,7 +25,6 @@ class Preview;
 class Scale;
 class ScaledPixmapLabel;
 class SchemeManager;
-
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -122,19 +118,18 @@ private:
     void convertPreview(const QString &, const QRect &);
     QPrinter *printer();
 
-    Document    *m_document;
-    Editor      *m_editor;
-    Palette     *m_palette;
-    Preview     *m_preview;
-    QUndoView   *m_history;
+    Document *m_document;
+    Editor *m_editor;
+    Palette *m_palette;
+    Preview *m_preview;
+    QUndoView *m_history;
 
-    ScaledPixmapLabel   *m_imageLabel;
+    ScaledPixmapLabel *m_imageLabel;
 
-    Scale       *m_horizontalScale;
-    Scale       *m_verticalScale;
+    Scale *m_horizontalScale;
+    Scale *m_verticalScale;
 
-    QPrinter    *m_printer;
+    QPrinter *m_printer;
 };
-
 
 #endif // MainWindow_H

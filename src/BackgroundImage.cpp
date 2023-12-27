@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file implements a background image to be used as an overlay on a canvas for
  * the purpose of tracing.
  */
-
 
 // Class include
 #include "BackgroundImage.h"
@@ -27,11 +25,10 @@
 // Application includes
 #include "Exceptions.h"
 
-
 BackgroundImage::BackgroundImage(const QUrl &url, const QRect &location)
-    :   m_url(url),
-        m_location(location),
-        m_visible(true)
+    : m_url(url)
+    , m_location(location)
+    , m_visible(true)
 {
     m_status = m_image.load(m_url.path());
 
@@ -40,60 +37,50 @@ BackgroundImage::BackgroundImage(const QUrl &url, const QRect &location)
     }
 }
 
-
 const QUrl &BackgroundImage::url() const
 {
     return m_url;
 }
-
 
 const QRect &BackgroundImage::location() const
 {
     return m_location;
 }
 
-
 bool BackgroundImage::isVisible() const
 {
     return m_visible;
 }
-
 
 bool BackgroundImage::isValid() const
 {
     return m_status;
 }
 
-
 const QImage &BackgroundImage::image() const
 {
     return m_image;
 }
-
 
 const QIcon &BackgroundImage::icon() const
 {
     return m_icon;
 }
 
-
 void BackgroundImage::setLocation(const QRect &location)
 {
     m_location = location;
 }
-
 
 void BackgroundImage::setVisible(bool visible)
 {
     m_visible = visible;
 }
 
-
 void BackgroundImage::generateIcon()
 {
     m_icon = QPixmap::fromImage(m_image).scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const BackgroundImage &backgroundImage)
 {
@@ -105,7 +92,6 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImage &backgroundIm
     stream << backgroundImage.m_image;
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, BackgroundImage &backgroundImage)
 {

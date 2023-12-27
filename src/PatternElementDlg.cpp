@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PatternElementDlg.h"
 
 #include <KHelpClient>
@@ -18,15 +17,14 @@
 #include "Element.h"
 #include "SelectArea.h"
 
-
-PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect> > &patternRects)
-    :   QDialog(parent),
-        m_patternElement(patternElement),
-        m_document(document),
-        m_patternRects(patternRects)
+PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternElement, Document *document, const QMap<int, QList<QRect>> &patternRects)
+    : QDialog(parent)
+    , m_patternElement(patternElement)
+    , m_document(document)
+    , m_patternRects(patternRects)
 {
     setWindowModality(Qt::WindowModal);
-    
+
     setWindowTitle(i18n("Pattern Element Properties"));
 
     ui.setupUi(this);
@@ -64,18 +62,15 @@ PatternElementDlg::PatternElementDlg(QWidget *parent, PatternElement *patternEle
     ui.RenderKnotsAs->setCurrentIndex(ui.RenderKnotsAs->findData(patternElement->m_renderKnotsAs));
 }
 
-
 bool PatternElementDlg::showPlan() const
 {
     return ui.ShowPlan->isChecked();
 }
 
-
 PlanElement *PatternElementDlg::planElement() const
 {
     return m_patternElement->m_planElement;
 }
-
 
 void PatternElementDlg::hideEvent(QHideEvent *event)
 {
@@ -83,7 +78,6 @@ void PatternElementDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void PatternElementDlg::showEvent(QShowEvent *event)
 {
@@ -93,7 +87,6 @@ void PatternElementDlg::showEvent(QShowEvent *event)
         resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("PatternElementDlg"), QSize()));
     }
 }
-
 
 void PatternElementDlg::on_DialogButtonBox_accepted()
 {
@@ -108,7 +101,7 @@ void PatternElementDlg::on_DialogButtonBox_accepted()
         if (m_patternElement->m_planElement) {
             delete m_patternElement->m_planElement;
             m_patternElement->m_planElement = nullptr;
-         }
+        }
     }
 
     if (m_patternElement->m_planElement) {
@@ -116,10 +109,14 @@ void PatternElementDlg::on_DialogButtonBox_accepted()
     }
 
     m_patternElement->m_showPlan = ui.ShowPlan->isChecked();
-    m_patternElement->m_formatScalesAs = static_cast<Configuration::EnumEditor_FormatScalesAs::type>(ui.FormatScalesAs->itemData(ui.FormatScalesAs->currentIndex()).toInt());
-    m_patternElement->setRenderStitchesAs(static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(ui.RenderStitchesAs->itemData(ui.RenderStitchesAs->currentIndex()).toInt()));
-    m_patternElement->setRenderBackstitchesAs(static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(ui.RenderBackstitchesAs->itemData(ui.RenderBackstitchesAs->currentIndex()).toInt()));
-    m_patternElement->setRenderKnotsAs(static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(ui.RenderKnotsAs->itemData(ui.RenderKnotsAs->currentIndex()).toInt()));
+    m_patternElement->m_formatScalesAs =
+        static_cast<Configuration::EnumEditor_FormatScalesAs::type>(ui.FormatScalesAs->itemData(ui.FormatScalesAs->currentIndex()).toInt());
+    m_patternElement->setRenderStitchesAs(
+        static_cast<Configuration::EnumRenderer_RenderStitchesAs::type>(ui.RenderStitchesAs->itemData(ui.RenderStitchesAs->currentIndex()).toInt()));
+    m_patternElement->setRenderBackstitchesAs(static_cast<Configuration::EnumRenderer_RenderBackstitchesAs::type>(
+        ui.RenderBackstitchesAs->itemData(ui.RenderBackstitchesAs->currentIndex()).toInt()));
+    m_patternElement->setRenderKnotsAs(
+        static_cast<Configuration::EnumRenderer_RenderKnotsAs::type>(ui.RenderKnotsAs->itemData(ui.RenderKnotsAs->currentIndex()).toInt()));
     m_patternElement->m_showStitches = ui.ShowStitches->isChecked();
     m_patternElement->m_showBackstitches = ui.ShowBackstitches->isChecked();
     m_patternElement->m_showKnots = ui.ShowKnots->isChecked();
@@ -128,12 +125,10 @@ void PatternElementDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void PatternElementDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void PatternElementDlg::on_DialogButtonBox_helpRequested()
 {

@@ -8,20 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PagePropertiesDlg_H
 #define PagePropertiesDlg_H
-
 
 #include <QDialog>
 
 #include "ui_PageProperties.h"
 
-
 class PagePreviewListWidgetItem;
 class QHideEvent;
 class QShowEvent;
-
 
 class PagePropertiesDlg : public QDialog
 {
@@ -45,8 +41,7 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::PageProperties  ui;
+    Ui::PageProperties ui;
 };
-
 
 #endif // PagePropertiesDlg_H

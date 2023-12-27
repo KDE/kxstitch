@@ -8,14 +8,11 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PaperSizes_H
 #define PaperSizes_H
 
-
 #include <QPageLayout>
 #include <QVector>
-
 
 class PageSizes
 {
@@ -24,6 +21,5 @@ public:
     static int width(QPageSize::PageSizeId, QPageLayout::Orientation);
     static int height(QPageSize::PageSizeId, QPageLayout::Orientation);
 };
-
 
 #endif // PaperSizes_H

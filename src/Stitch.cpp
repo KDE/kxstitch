@@ -8,19 +8,16 @@
  * (at your option) any later version.
  */
 
-
 /**
     @file
     Implement classes for Stitch, StitchQueue, Backstitch and Knot.
     */
-
 
 #include "Stitch.h"
 
 #include <KLocalizedString>
 
 #include "Exceptions.h"
-
 
 /**
     Constructor.
@@ -30,18 +27,16 @@ Stitch::Stitch()
 {
 }
 
-
 /**
     Constructor.
     @param t stitch type
     @param i color index
     */
 Stitch::Stitch(Stitch::Type t, int i)
-    :   type(t),
-        colorIndex(i)
+    : type(t)
+    , colorIndex(i)
 {
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const Stitch &stitch)
 {
@@ -50,7 +45,6 @@ QDataStream &operator<<(QDataStream &stream, const Stitch &stitch)
     stream << qint32(stitch.colorIndex);
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Stitch &stitch)
 {
@@ -76,15 +70,13 @@ QDataStream &operator>>(QDataStream &stream, Stitch &stitch)
     return stream;
 }
 
-
 /**
     Constructor.
     */
 StitchQueue::StitchQueue()
-    :   QQueue<Stitch *>()
+    : QQueue<Stitch *>()
 {
 }
-
 
 StitchQueue::~StitchQueue()
 {
@@ -92,7 +84,6 @@ StitchQueue::~StitchQueue()
         delete dequeue();
     }
 }
-
 
 StitchQueue::StitchQueue(StitchQueue *stitchQueue)
 {
@@ -103,7 +94,6 @@ StitchQueue::StitchQueue(StitchQueue *stitchQueue)
         enqueue(new Stitch(stitch->type, stitch->colorIndex));
     }
 }
-
 
 /**
     Add a stitch to the queue.
@@ -158,11 +148,11 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
     }
 
     /** iterate the queue of existing stitches for any that have been overwritten by the new stitch */
-    while (stitchCount--) {                                                 // while there are existing stitches
-        Stitch *stitch = dequeue();                                         // get the stitch at the head of the queue
-        Stitch::Type currentStitchType = (Stitch::Type)(stitch->type);      // and find its type
-        int currentColorIndex = stitch->colorIndex;                         // and color
-        Stitch::Type usageMask = (Stitch::Type)(currentStitchType & 15);    // and find which parts of a stitch cell are used
+    while (stitchCount--) { // while there are existing stitches
+        Stitch *stitch = dequeue(); // get the stitch at the head of the queue
+        Stitch::Type currentStitchType = (Stitch::Type)(stitch->type); // and find its type
+        int currentColorIndex = stitch->colorIndex; // and color
+        Stitch::Type usageMask = (Stitch::Type)(currentStitchType & 15); // and find which parts of a stitch cell are used
         Stitch::Type interferenceMask = (Stitch::Type)(usageMask & type);
 
         // interferenceMask now contains a mask of which bits are affected by new stitch
@@ -203,9 +193,9 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
                 break;
             }
 
-            if (changeMask) {               // Check if there is anything left of the original stitch, Stitch::Delete is 0
-                stitch->type = changeMask;  // and change stitch type to the changeMask value
-                enqueue(stitch);            // and then add it back to the queue
+            if (changeMask) { // Check if there is anything left of the original stitch, Stitch::Delete is 0
+                stitch->type = changeMask; // and change stitch type to the changeMask value
+                enqueue(stitch); // and then add it back to the queue
             }
         } else {
             enqueue(stitch);
@@ -215,13 +205,12 @@ int StitchQueue::add(Stitch::Type type, int colorIndex)
     return count();
 }
 
-
 Stitch *StitchQueue::find(Stitch::Type type, int colorIndex)
 {
     int stitchCount = count();
     Stitch *found = nullptr;
 
-    for (int i = 0 ; i < stitchCount ; ++i) {
+    for (int i = 0; i < stitchCount; ++i) {
         Stitch *stitch = at(i);
 
         if (((type == Stitch::Delete) || ((stitch->type & type) == type)) && ((colorIndex == -1) || (stitch->colorIndex == colorIndex))) {
@@ -232,7 +221,6 @@ Stitch *StitchQueue::find(Stitch::Type type, int colorIndex)
 
     return found;
 }
-
 
 int StitchQueue::remove(Stitch::Type type, int colorIndex)
 {
@@ -303,7 +291,6 @@ int StitchQueue::remove(Stitch::Type type, int colorIndex)
     return count();
 }
 
-
 QDataStream &operator<<(QDataStream &stream, const StitchQueue &stitchQueue)
 {
     stream << qint32(stitchQueue.version);
@@ -316,7 +303,6 @@ QDataStream &operator<<(QDataStream &stream, const StitchQueue &stitchQueue)
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, StitchQueue &stitchQueue)
 {
@@ -345,7 +331,6 @@ QDataStream &operator>>(QDataStream &stream, StitchQueue &stitchQueue)
     return stream;
 }
 
-
 /**
     Constructor.
     Used when creating instances for streaming.
@@ -354,7 +339,6 @@ Backstitch::Backstitch()
 {
 }
 
-
 /**
     Constructor.
     @param s start of backstitch line
@@ -362,12 +346,11 @@ Backstitch::Backstitch()
     @param i palette index
     */
 Backstitch::Backstitch(const QPoint &s, const QPoint &e, int i)
-    :   start(s),
-        end(e),
-        colorIndex(i)
+    : start(s)
+    , end(e)
+    , colorIndex(i)
 {
 }
-
 
 /**
     Test if the backstitch start or end is equal to the
@@ -385,19 +368,16 @@ bool Backstitch::contains(const QPoint &point) const
     return false;
 }
 
-
 void Backstitch::move(int dx, int dy)
 {
     move(QPoint(dx, dy));
 }
-
 
 void Backstitch::move(const QPoint &offset)
 {
     start += offset;
     end += offset;
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const Backstitch &backstitch)
 {
@@ -407,7 +387,6 @@ QDataStream &operator<<(QDataStream &stream, const Backstitch &backstitch)
     stream << qint32(backstitch.colorIndex);
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Backstitch &backstitch)
 {
@@ -432,7 +411,6 @@ QDataStream &operator>>(QDataStream &stream, Backstitch &backstitch)
     return stream;
 }
 
-
 /**
     Constructor.
     Used when creating instances for streaming.
@@ -441,30 +419,26 @@ Knot::Knot()
 {
 }
 
-
 /**
     Constructor.
     @param p position for the knot
     @param i palette index
     */
 Knot::Knot(const QPoint &p, int i)
-    :   position(p),
-        colorIndex(i)
+    : position(p)
+    , colorIndex(i)
 {
 }
-
 
 void Knot::move(int dx, int dy)
 {
     move(QPoint(dx, dy));
 }
 
-
 void Knot::move(const QPoint &offset)
 {
     position += offset;
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const Knot &knot)
 {
@@ -473,7 +447,6 @@ QDataStream &operator<<(QDataStream &stream, const Knot &knot)
     stream << knot.colorIndex;
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Knot &knot)
 {

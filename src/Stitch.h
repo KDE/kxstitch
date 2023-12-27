@@ -8,14 +8,12 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Stitch_H
 #define Stitch_H
 
 #include <QDataStream>
 #include <QPoint>
 #include <QQueue>
-
 
 class Stitch
 {
@@ -49,14 +47,12 @@ public:
 
     static const int version = 100;
 
-    Stitch::Type    type;
-    int     colorIndex;
+    Stitch::Type type;
+    int colorIndex;
 };
-
 
 QDataStream &operator<<(QDataStream &, const Stitch &);
 QDataStream &operator>>(QDataStream &, Stitch &);
-
 
 class StitchQueue : public QQueue<Stitch *>
 {
@@ -72,10 +68,8 @@ public:
     static const int version = 100;
 };
 
-
 QDataStream &operator<<(QDataStream &, const StitchQueue &);
 QDataStream &operator>>(QDataStream &, StitchQueue &);
-
 
 class Backstitch
 {
@@ -89,15 +83,13 @@ public:
 
     static const int version = 100;
 
-    QPoint  start;
-    QPoint  end;
+    QPoint start;
+    QPoint end;
     int colorIndex;
 };
 
-
 QDataStream &operator<<(QDataStream &, const Backstitch &);
 QDataStream &operator>>(QDataStream &, Backstitch &);
-
 
 class Knot
 {
@@ -110,53 +102,18 @@ public:
 
     static const int version = 100;
 
-    QPoint  position;
+    QPoint position;
     int colorIndex;
 };
-
 
 QDataStream &operator<<(QDataStream &, const Knot &);
 QDataStream &operator>>(QDataStream &, Knot &);
 
-
-const Stitch::Type stitchMap[][4] = {
-    {
-        Stitch::TLQtr,
-        Stitch::TRQtr,
-        Stitch::BLQtr,
-        Stitch::BRQtr
-    },
-    {
-        Stitch::TBHalf,
-        Stitch::BTHalf,
-        Stitch::BTHalf,
-        Stitch::TBHalf
-    },
-    {
-        Stitch::TL3Qtr,
-        Stitch::TR3Qtr,
-        Stitch::BL3Qtr,
-        Stitch::BR3Qtr
-    },
-    {
-        Stitch::Full,
-        Stitch::Full,
-        Stitch::Full,
-        Stitch::Full
-    },
-    {
-        Stitch::TLSmallHalf,
-        Stitch::TRSmallHalf,
-        Stitch::BLSmallHalf,
-        Stitch::BRSmallHalf
-    },
-    {
-        Stitch::TLSmallFull,
-        Stitch::TRSmallFull,
-        Stitch::BLSmallFull,
-        Stitch::BRSmallFull
-    }
-};
-
+const Stitch::Type stitchMap[][4] = {{Stitch::TLQtr, Stitch::TRQtr, Stitch::BLQtr, Stitch::BRQtr},
+                                     {Stitch::TBHalf, Stitch::BTHalf, Stitch::BTHalf, Stitch::TBHalf},
+                                     {Stitch::TL3Qtr, Stitch::TR3Qtr, Stitch::BL3Qtr, Stitch::BR3Qtr},
+                                     {Stitch::Full, Stitch::Full, Stitch::Full, Stitch::Full},
+                                     {Stitch::TLSmallHalf, Stitch::TRSmallHalf, Stitch::BLSmallHalf, Stitch::BRSmallHalf},
+                                     {Stitch::TLSmallFull, Stitch::TRSmallFull, Stitch::BLSmallFull, Stitch::BRSmallFull}};
 
 #endif // Stitch_H

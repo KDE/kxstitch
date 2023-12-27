@@ -8,20 +8,16 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Header file for the exception classes.
  */
 
-
 #ifndef Exceptions_H
 #define Exceptions_H
 
-
 #include <QDataStream>
 #include <QtGlobal>
-
 
 /**
  * @brief Invalid file exception class.
@@ -37,7 +33,6 @@ public:
 private:
 };
 
-
 /**
  * @brief Invalid file version exception class.
  *
@@ -50,9 +45,8 @@ class InvalidFileVersion
 public:
     explicit InvalidFileVersion(const QString &v);
 
-    QString version;    /**< the version of the file read */
+    QString version; /**< the version of the file read */
 };
-
 
 /**
  * @brief Failed to read the file exception class.
@@ -65,9 +59,8 @@ public:
     explicit FailedReadFile(QDataStream::Status s);
     explicit FailedReadFile(const QString &s);
 
-    QString status;   /**< the status of the error */
+    QString status; /**< the status of the error */
 };
-
 
 /**
  * @brief Failed to write the file exception class.
@@ -82,9 +75,8 @@ public:
     QString statusMessage() const;
 
 private:
-    QDataStream::Status m_status;   /**< the status of the error */
+    QDataStream::Status m_status; /**< the status of the error */
 };
-
 
 /**
  * @brief Found an invalid symbol version.
@@ -96,8 +88,7 @@ class InvalidSymbolVersion
 public:
     explicit InvalidSymbolVersion(qint32 v);
 
-    qint32  version;    /** the version of the symbol read */
+    qint32 version; /** the version of the symbol read */
 };
-
 
 #endif

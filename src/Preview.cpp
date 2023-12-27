@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Preview.h"
 
 #include <QMouseEvent>
@@ -16,14 +15,13 @@
 #include <QScrollArea>
 #include <QStyleOptionRubberBand>
 
-#include "configuration.h"
 #include "Document.h"
-
+#include "configuration.h"
 
 Preview::Preview(QWidget *parent)
-    :   QWidget(parent),
-        m_document(nullptr),
-        m_zoomFactor(1.0)
+    : QWidget(parent)
+    , m_document(nullptr)
+    , m_zoomFactor(1.0)
 {
     setObjectName(QStringLiteral("Preview#"));
     m_renderer.setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
@@ -31,26 +29,24 @@ Preview::Preview(QWidget *parent)
     m_renderer.setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
 
-
 void Preview::setDocument(Document *document)
 {
     m_document = document;
     readDocumentSettings();
 }
 
-
 Document *Preview::document()
 {
     return m_document;
 }
-
 
 void Preview::readDocumentSettings()
 {
     int width = m_document->pattern()->stitches().width();
     int height = m_document->pattern()->stitches().height();
     m_cellWidth = 4;
-    m_cellHeight = 4 * m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
+    m_cellHeight =
+        4 * m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
     m_previewWidth = m_cellWidth * width * m_zoomFactor;
     m_previewHeight = m_cellHeight * height * m_zoomFactor;
     resize(m_previewWidth, m_previewHeight);
@@ -58,19 +54,16 @@ void Preview::readDocumentSettings()
     drawContents();
 }
 
-
 void Preview::setVisibleCells(const QRect &cells)
 {
     m_visible = cells;
     update();
 }
 
-
 void Preview::loadSettings()
 {
     drawContents();
 }
-
 
 void Preview::mousePressEvent(QMouseEvent *e)
 {
@@ -78,7 +71,6 @@ void Preview::mousePressEvent(QMouseEvent *e)
         m_start = m_tracking = m_end = contentToCell(e->pos());
     }
 }
-
 
 void Preview::mouseMoveEvent(QMouseEvent *e)
 {
@@ -93,7 +85,6 @@ void Preview::mouseMoveEvent(QMouseEvent *e)
     }
 }
 
-
 void Preview::mouseReleaseEvent(QMouseEvent *)
 {
     if (m_start == m_end) {
@@ -105,7 +96,6 @@ void Preview::mouseReleaseEvent(QMouseEvent *)
     m_rubberBand = QRect();
     update();
 }
-
 
 void Preview::drawContents()
 {
@@ -124,7 +114,6 @@ void Preview::drawContents()
     painter.end();
     update();
 }
-
 
 void Preview::paintEvent(QPaintEvent *)
 {
@@ -156,7 +145,6 @@ void Preview::paintEvent(QPaintEvent *)
 
     painter.end();
 }
-
 
 QPoint Preview::contentToCell(const QPoint &content) const
 {

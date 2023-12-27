@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PaletteManagerDlg_H
 #define PaletteManagerDlg_H
-
 
 #include <QDialog>
 #include <QMouseEvent>
@@ -21,14 +19,12 @@
 
 #include "ui_PaletteManager.h"
 
-
 class Document;
 class DocumentFloss;
 class SchemeManager;
 class SymbolSelectorDlg;
 class QHideEvent;
 class QShowEvent;
-
 
 class PaletteManagerDlg : public QDialog
 {
@@ -71,14 +67,13 @@ private:
     int paletteIndex(const QString &) const;
     bool symbolsAvailable() const;
 
-    Ui::PaletteManager  ui;
+    Ui::PaletteManager ui;
 
-    Document                *m_document;
-    DocumentPalette         m_dialogPalette;
-    QMap<int, FlossUsage>   m_flossUsage;
-    FlossScheme             *m_scheme;
-    SymbolSelectorDlg       *m_symbolSelectorDlg;
+    Document *m_document;
+    DocumentPalette m_dialogPalette;
+    QMap<int, FlossUsage> m_flossUsage;
+    FlossScheme *m_scheme;
+    SymbolSelectorDlg *m_symbolSelectorDlg;
 };
-
 
 #endif // PaletteManagerDlg_H

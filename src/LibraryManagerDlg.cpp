@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryManagerDlg.h"
 
 #include <QClipboard>
@@ -20,10 +19,10 @@
 #include <QStandardPaths>
 #include <QToolTip>
 
-#include <kwidgetsaddons_version.h>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 
 #include "LibraryFilePathsDlg.h"
 #include "LibraryListWidgetItem.h"
@@ -33,9 +32,8 @@
 
 #include "configuration.h"
 
-
 LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
-    :   QDialog(parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Library Manager"));
 
@@ -49,12 +47,10 @@ LibraryManagerDlg::LibraryManagerDlg(QWidget *parent)
     ui.IconSizeSlider->setValue(Configuration::icon_DefaultSize());
 }
 
-
 LibraryTreeWidgetItem *LibraryManagerDlg::currentLibrary()
 {
     return static_cast<LibraryTreeWidgetItem *>(ui.LibraryTree->currentItem());
 }
-
 
 bool LibraryManagerDlg::event(QEvent *event)
 {
@@ -63,7 +59,9 @@ bool LibraryManagerDlg::event(QEvent *event)
         QString tip;
 
         if (ui.LibraryTree->topLevelItemCount() == 0) {
-            tip = i18n("The Library Manager can be used to store\nreusable patterns for insertion into\nnew patterns.\n\nThere are no library categories defined.\nClick the Help button for information on creating\nand populating libraries.");
+            tip = i18n(
+                "The Library Manager can be used to store\nreusable patterns for insertion into\nnew patterns.\n\nThere are no library categories "
+                "defined.\nClick the Help button for information on creating\nand populating libraries.");
         } else {
             if (ui.LibraryTree->currentItem() == nullptr) {
                 tip = i18n("Select a library to show the associated patterns.");
@@ -84,14 +82,12 @@ bool LibraryManagerDlg::event(QEvent *event)
     return QWidget::event(event);
 }
 
-
 void LibraryManagerDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryManagerDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void LibraryManagerDlg::showEvent(QShowEvent *event)
 {
@@ -102,12 +98,10 @@ void LibraryManagerDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void LibraryManagerDlg::setCellSize(double cellWidth, double cellHeight)
 {
     ui.LibraryIcons->setCellSize(cellWidth, cellHeight);
 }
-
 
 void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &position)
 {
@@ -126,15 +120,14 @@ void LibraryManagerDlg::on_LibraryTree_customContextMenuRequested(const QPoint &
     m_contextMenu.popup(QCursor::pos());
 }
 
-
 void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint &position)
 {
     m_contextMenu.clear();
 
     if ((m_contextListItem = static_cast<LibraryListWidgetItem *>(ui.LibraryIcons->itemAt(position)))) {
         m_contextMenu.addAction(i18n("Properties..."), this, &LibraryManagerDlg::patternProperties);
-//        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
-//        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
+        //        m_contextMenu.addAction(i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
+        //        m_contextMenu.addAction(i18n("Copy"), this, SLOT(copyToClipboard()));
         m_contextMenu.addAction(i18n("Delete"), this, &LibraryManagerDlg::deletePattern);
         m_contextMenu.popup(QCursor::pos());
     } else {
@@ -145,36 +138,31 @@ void LibraryManagerDlg::on_LibraryIcons_customContextMenuRequested(const QPoint 
     }
 }
 
-
 void LibraryManagerDlg::on_LibraryTree_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *)
 {
     ui.LibraryIcons->clear();
     LibraryTreeWidgetItem *libraryTreeWidgetItem = dynamic_cast<LibraryTreeWidgetItem *>(current);
 
-    for (LibraryPattern *libraryPattern = libraryTreeWidgetItem->first() ; libraryPattern ; libraryPattern = libraryTreeWidgetItem->next()) {
+    for (LibraryPattern *libraryPattern = libraryTreeWidgetItem->first(); libraryPattern; libraryPattern = libraryTreeWidgetItem->next()) {
         LibraryListWidgetItem *libraryListWidgetItem = new LibraryListWidgetItem(ui.LibraryIcons, libraryPattern);
         libraryPattern->setLibraryListWidgetItem(libraryListWidgetItem);
     }
 }
-
 
 void LibraryManagerDlg::on_IconSizeSlider_valueChanged(int size)
 {
     ui.LibraryIcons->changeIconSize(size);
 }
 
-
 void LibraryManagerDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void LibraryManagerDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PatternLibraryDialog"), QStringLiteral("kxstitch"));
 }
-
 
 void LibraryManagerDlg::newCategory()
 {
@@ -185,10 +173,11 @@ void LibraryManagerDlg::newCategory()
 
     category = QInputDialog::getText(this, i18n("Create Category"), i18n("Category Name"), QLineEdit::Normal, QString(), &ok);
 
-    if (!ok) return; // user cancelled
+    if (!ok)
+        return; // user cancelled
 
     if (m_contextTreeItem) {
-        for (int i = 0 ; i < m_contextTreeItem->childCount() ; ++i) {
+        for (int i = 0; i < m_contextTreeItem->childCount(); ++i) {
             if (m_contextTreeItem->child(i)->text(0) == category) {
                 exists = true;
             }
@@ -238,11 +227,9 @@ void LibraryManagerDlg::newCategory()
     ui.LibraryTree->setCurrentItem(newItem);
 }
 
-
 void LibraryManagerDlg::addLibraryToExportList()
 {
 }
-
 
 void LibraryManagerDlg::libraryProperties()
 {
@@ -250,7 +237,6 @@ void LibraryManagerDlg::libraryProperties()
     dialog->exec();
     delete dialog;
 }
-
 
 void LibraryManagerDlg::pasteFromClipboard()
 {
@@ -263,18 +249,17 @@ void LibraryManagerDlg::pasteFromClipboard()
     on_LibraryTree_currentItemChanged(static_cast<QTreeWidgetItem *>(item), nullptr);
 }
 
-
 void LibraryManagerDlg::patternProperties()
 {
     LibraryPattern *libraryPattern = m_contextListItem->libraryPattern();
     QPointer<LibraryPatternPropertiesDlg> dialog = new LibraryPatternPropertiesDlg(this,
-            libraryPattern->key(),
-            libraryPattern->modifiers(),
-            libraryPattern->baseline(),
-            libraryPattern->pattern()->palette().schemeName(),
-            libraryPattern->pattern()->stitches().width(),
-            libraryPattern->pattern()->stitches().height(),
-            m_contextListItem->icon());
+                                                                                   libraryPattern->key(),
+                                                                                   libraryPattern->modifiers(),
+                                                                                   libraryPattern->baseline(),
+                                                                                   libraryPattern->pattern()->palette().schemeName(),
+                                                                                   libraryPattern->pattern()->stitches().width(),
+                                                                                   libraryPattern->pattern()->stitches().height(),
+                                                                                   m_contextListItem->icon());
 
     if (dialog->exec()) {
         libraryPattern->setKeyModifiers(dialog->key(), dialog->modifiers());
@@ -284,16 +269,13 @@ void LibraryManagerDlg::patternProperties()
     delete dialog;
 }
 
-
 void LibraryManagerDlg::addPatternToExportList()
 {
 }
 
-
 void LibraryManagerDlg::copyToClipboard()
 {
 }
-
 
 void LibraryManagerDlg::deletePattern()
 {
@@ -302,9 +284,10 @@ void LibraryManagerDlg::deletePattern()
 #else
     if (KMessageBox::warningYesNo(nullptr,
 #endif
-                                  i18n("Delete this pattern."), QString(),
-                                  KStandardGuiItem::del(),
-                                  KStandardGuiItem::cancel())
+                                       i18n("Delete this pattern."),
+                                       QString(),
+                                       KStandardGuiItem::del(),
+                                       KStandardGuiItem::cancel())
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         == KMessageBox::PrimaryAction) {
 #else
@@ -314,7 +297,6 @@ void LibraryManagerDlg::deletePattern()
         delete m_contextListItem;
     }
 }
-
 
 void LibraryManagerDlg::refreshLibraries()
 {
@@ -326,7 +308,6 @@ void LibraryManagerDlg::refreshLibraries()
         recurseLibraryDirectory(nullptr, libraryDirectoriesIterator.next());
     }
 }
-
 
 void LibraryManagerDlg::recurseLibraryDirectory(LibraryTreeWidgetItem *parent, const QString &path)
 {

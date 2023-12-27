@@ -8,21 +8,17 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Page_H
 #define Page_H
-
 
 #include <QDataStream>
 #include <QList>
 #include <QMargins>
 #include <QPrinter>
 
-
 class Document;
 class Element;
 class QPainter;
-
 
 class Page : public QPageLayout
 {
@@ -55,10 +51,9 @@ private:
 
     static const int version = 102;
 
-    int     m_pageNumber;
+    int m_pageNumber;
 
-    QList<Element *>  m_elements;
+    QList<Element *> m_elements;
 };
-
 
 #endif // Page_H

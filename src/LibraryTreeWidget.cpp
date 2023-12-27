@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryTreeWidget.h"
 
 #include <QDragEnterEvent>
@@ -16,8 +15,8 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QMimeData>
-#include <QToolTip>
 #include <QTimer>
+#include <QToolTip>
 #include <QTreeWidgetItem>
 
 #include <KLocalizedString>
@@ -26,27 +25,23 @@
 #include "LibraryTreeWidgetItem.h"
 #include "Pattern.h"
 
-
 /* Auto expanding of QTreeWidgetItems doesn't appear to be working.
  * Implement some code to do it via a timer when hovered over.
  */
 const int AUTO_EXPAND_DELAY = 500;
 
-
 LibraryTreeWidget::LibraryTreeWidget(QWidget *parent)
-    :   QTreeWidget(parent)
+    : QTreeWidget(parent)
 {
     setAcceptDrops(true);
     m_openBranchTimer = new QTimer(this);
     connect(m_openBranchTimer, &QTimer::timeout, this, &LibraryTreeWidget::openBranch);
 }
 
-
 LibraryTreeWidget::~LibraryTreeWidget()
 {
     delete m_openBranchTimer;
 }
-
 
 void LibraryTreeWidget::dragEnterEvent(QDragEnterEvent *event)
 {
@@ -62,7 +57,6 @@ void LibraryTreeWidget::dragEnterEvent(QDragEnterEvent *event)
         event->ignore();
     }
 }
-
 
 void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 {
@@ -87,7 +81,6 @@ void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
-
 void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent *)
 {
     m_openBranchTimer->stop();
@@ -100,7 +93,6 @@ void LibraryTreeWidget::dragLeaveEvent(QDragLeaveEvent *)
     m_currentItem = nullptr;
     m_dropItem = nullptr;
 }
-
 
 void LibraryTreeWidget::dropEvent(QDropEvent *event)
 {
@@ -120,19 +112,16 @@ void LibraryTreeWidget::dropEvent(QDropEvent *event)
     }
 }
 
-
 bool LibraryTreeWidget::acceptDrag(QDropEvent *event) const
 {
     return event->mimeData()->hasFormat(QStringLiteral("application/kxstitch"));
 }
 
-
 void LibraryTreeWidget::openBranch()
 {
     m_openBranchTimer->stop();
 
-    if (m_dropItem && !m_dropItem->isExpanded())
-    {
+    if (m_dropItem && !m_dropItem->isExpanded()) {
         m_dropItem->setExpanded(true);
     }
 }

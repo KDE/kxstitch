@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the exception classes.
  */
-
 
 /**
  * @page exceptions Exceptions
@@ -30,11 +28,9 @@
  * the opportunity to do any cleaning up and displaying suitable error messages.
  */
 
-
 #include "Exceptions.h"
 
 #include <KLocalizedString>
-
 
 /**
  * Constructor
@@ -43,17 +39,15 @@ InvalidFile::InvalidFile()
 {
 }
 
-
 /**
  * Constructor
  *
  * @param v the version of the file that was being read
  */
 InvalidFileVersion::InvalidFileVersion(const QString &v)
-    :   version(v)
+    : version(v)
 {
 }
-
 
 /**
  * Constructor
@@ -71,17 +65,15 @@ FailedReadFile::FailedReadFile(QDataStream::Status s)
     }
 }
 
-
 /**
  * Constructor
  *
  * @param s the status message for the event causing the error
  */
 FailedReadFile::FailedReadFile(const QString &s)
-    :   status(s)
+    : status(s)
 {
 }
-
 
 /**
  * Constructor
@@ -89,10 +81,9 @@ FailedReadFile::FailedReadFile(const QString &s)
  * @param status the status of the QDataStream that caused the exception
  */
 FailedWriteFile::FailedWriteFile(QDataStream::Status status)
-    :   m_status(status)
+    : m_status(status)
 {
 }
-
 
 /**
  * Get the status message of the QDataStream::Status
@@ -112,13 +103,12 @@ QString FailedWriteFile::statusMessage() const
     return QString(i18n("Undefined status message status %1", m_status));
 }
 
-
 /**
  * Constructor
  *
  * @param v the version of the Symbol being read
  */
 InvalidSymbolVersion::InvalidSymbolVersion(qint32 v)
-    :   version(v)
+    : version(v)
 {
 }

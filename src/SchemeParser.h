@@ -8,19 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #ifndef SchemeParser_H
 #define SchemeParser_H
 
-
-#include <QXmlDefaultHandler>
-#include <QString>
 #include <QMap>
 #include <QStack>
-
+#include <QString>
+#include <QXmlDefaultHandler>
 
 class FlossScheme;
-
 
 class SchemeParser : public QXmlDefaultHandler
 {
@@ -35,11 +31,10 @@ public:
     virtual QString errorString() const Q_DECL_OVERRIDE;
 
 private:
-    int         m_errorCode;
-    FlossScheme     *m_scheme;
-    QMap<QString, QString>   m_flossMap;
-    QStack<QString>     m_elements;
+    int m_errorCode;
+    FlossScheme *m_scheme;
+    QMap<QString, QString> m_flossMap;
+    QStack<QString> m_elements;
 };
-
 
 #endif // SchemeParser_H

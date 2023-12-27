@@ -8,19 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #include "Pattern.h"
 
 #include <KLocalizedString>
 
 #include "Exceptions.h"
 
-
 Pattern::Pattern(Document *document)
-    :   m_document(document)
+    : m_document(document)
 {
 }
-
 
 void Pattern::clear()
 {
@@ -28,24 +25,20 @@ void Pattern::clear()
     m_stitchData.clear();
 }
 
-
 Document *Pattern::document()
 {
     return m_document;
 }
-
 
 DocumentPalette &Pattern::palette()
 {
     return m_documentPalette;
 }
 
-
 StitchData &Pattern::stitches()
 {
     return m_stitchData;
 }
-
 
 void Pattern::constructPalette(Pattern *pattern)
 {
@@ -64,14 +57,13 @@ void Pattern::constructPalette(Pattern *pattern)
     }
 }
 
-
 Pattern *Pattern::cut(const QRect &area, int colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots)
 {
     Pattern *pattern = new Pattern;
     pattern->stitches().resize(area.width(), area.height());
 
-    for (int row = area.top() ; row <= area.bottom() ; row++) {
-        for (int column = area.left() ; column <= area.right() ; ++column) {
+    for (int row = area.top(); row <= area.bottom(); row++) {
+        for (int column = area.left(); column <= area.right(); ++column) {
             QPoint src(column, row);
             QPoint dst(src - area.topLeft());
             StitchQueue *srcQ = stitches().takeStitchQueueAt(src);
@@ -142,14 +134,13 @@ Pattern *Pattern::cut(const QRect &area, int colorMask, const QList<Stitch::Type
     return pattern;
 }
 
-
-Pattern *Pattern::copy(const QRect &area,  int colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots)
+Pattern *Pattern::copy(const QRect &area, int colorMask, const QList<Stitch::Type> &stitchMask, bool excludeBackstitches, bool excludeKnots)
 {
     Pattern *pattern = new Pattern;
     pattern->stitches().resize(area.width(), area.height());
 
-    for (int row = area.top() ; row <= area.bottom() ; row++) {
-        for (int column = area.left() ; column <= area.right() ; ++column) {
+    for (int row = area.top(); row <= area.bottom(); row++) {
+        for (int column = area.left(); column <= area.right(); ++column) {
             QPoint src(column, row);
             QPoint dst(src - area.topLeft());
             StitchQueue *srcQ = stitches().stitchQueueAt(src);
@@ -206,13 +197,12 @@ Pattern *Pattern::copy(const QRect &area,  int colorMask, const QList<Stitch::Ty
     return pattern;
 }
 
-
 void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
 {
     pattern->palette().setSchemeName(palette().schemeName());
 
-    for (int row = 0 ; row < pattern->stitches().height() ; ++row) {
-        for (int col = 0 ; col < pattern->stitches().width() ; ++col) {
+    for (int row = 0; row < pattern->stitches().height(); ++row) {
+        for (int col = 0; col < pattern->stitches().width(); ++col) {
             QPoint src(col, row);
             QPoint dst(cell + src);
 
@@ -268,7 +258,6 @@ void Pattern::paste(Pattern *pattern, const QPoint &cell, bool merge)
     }
 }
 
-
 QDataStream &operator<<(QDataStream &stream, const Pattern &pattern)
 {
     stream << qint32(pattern.version);
@@ -279,8 +268,7 @@ QDataStream &operator<<(QDataStream &stream, const Pattern &pattern)
     return stream;
 }
 
-
-QDataStream  &operator>>(QDataStream &stream, Pattern &pattern)
+QDataStream &operator>>(QDataStream &stream, Pattern &pattern)
 {
     qint32 version;
 

@@ -8,19 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #ifndef ExtendPatternDlg_H
 #define ExtendPatternDlg_H
-
 
 #include "ui_ExtendPattern.h"
 
 #include <QDialog>
 
-
 class QHideEvent;
 class QShowEvent;
-
 
 class ExtendPatternDlg : public QDialog
 {
@@ -45,8 +41,7 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::ExtendPattern   ui;
+    Ui::ExtendPattern ui;
 };
-
 
 #endif // ExtendPatternDlg_H

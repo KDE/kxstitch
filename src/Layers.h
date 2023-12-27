@@ -8,17 +8,14 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Layers_H
 #define Layers_H
-
 
 #include <QDataStream>
 #include <QList>
 #include <QStringList>
 
 #include "Layer.h"
-
 
 class Layers
 {
@@ -43,13 +40,11 @@ public:
 private:
     static const int version = 100;
 
-    int             m_currentLayer;
-    QList<Layer>    m_layers;
+    int m_currentLayer;
+    QList<Layer> m_layers;
 };
-
 
 QDataStream &operator<<(QDataStream &, const Layers &);
 QDataStream &operator>>(QDataStream &, Layers &);
-
 
 #endif // Layers_H

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PrinterConfiguration.h"
 
 #include <KLocalizedString>
@@ -16,23 +15,19 @@
 #include "Element.h"
 #include "Exceptions.h"
 
-
 PrinterConfiguration::PrinterConfiguration()
 {
 }
-
 
 PrinterConfiguration::PrinterConfiguration(const PrinterConfiguration &other)
 {
     *this = other;
 }
 
-
 PrinterConfiguration::~PrinterConfiguration()
 {
     qDeleteAll(m_pages);
 }
-
 
 bool PrinterConfiguration::isEmpty() const
 {
@@ -45,13 +40,11 @@ bool PrinterConfiguration::isEmpty() const
     return true;
 }
 
-
 void PrinterConfiguration::addPage(Page *page)
 {
     m_pages.append(page);
     updatePageNumbers();
 }
-
 
 void PrinterConfiguration::insertPage(int position, Page *page)
 {
@@ -59,19 +52,16 @@ void PrinterConfiguration::insertPage(int position, Page *page)
     updatePageNumbers();
 }
 
-
 void PrinterConfiguration::removePage(Page *page)
 {
     m_pages.takeAt(m_pages.indexOf(page));
     updatePageNumbers();
 }
 
-
 QList<Page *> PrinterConfiguration::pages() const
 {
     return m_pages;
 }
-
 
 PrinterConfiguration &PrinterConfiguration::operator=(const PrinterConfiguration &other)
 {
@@ -88,7 +78,6 @@ PrinterConfiguration &PrinterConfiguration::operator=(const PrinterConfiguration
 
     return *this;
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const PrinterConfiguration &printerConfiguration)
 {
@@ -107,7 +96,6 @@ QDataStream &operator<<(QDataStream &stream, const PrinterConfiguration &printer
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, PrinterConfiguration &printerConfiguration)
 {
@@ -140,7 +128,6 @@ QDataStream &operator>>(QDataStream &stream, PrinterConfiguration &printerConfig
 
     return stream;
 }
-
 
 void PrinterConfiguration::updatePageNumbers()
 {

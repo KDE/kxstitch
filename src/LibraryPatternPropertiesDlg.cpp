@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryPatternPropertiesDlg.h"
 
 #include <QIcon>
@@ -18,9 +17,15 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-
-LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline, const QString &scheme, int width, int height, const QIcon &icon)
-    :   QDialog(parent)
+LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent,
+                                                         qint32 key,
+                                                         Qt::KeyboardModifiers modifiers,
+                                                         qint16 baseline,
+                                                         const QString &scheme,
+                                                         int width,
+                                                         int height,
+                                                         const QIcon &icon)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Library Pattern Properties"));
     ui.setupUi(this);
@@ -33,24 +38,20 @@ LibraryPatternPropertiesDlg::LibraryPatternPropertiesDlg(QWidget *parent, qint32
     ui.Icon->setPixmap(icon.pixmap(ui.Icon->size()));
 }
 
-
 qint32 LibraryPatternPropertiesDlg::key() const
 {
     return ui.KeyCode->key();
 }
-
 
 Qt::KeyboardModifiers LibraryPatternPropertiesDlg::modifiers() const
 {
     return ui.KeyCode->modifiers();
 }
 
-
 qint16 LibraryPatternPropertiesDlg::baseline() const
 {
     return ui.Baseline->value();
 }
-
 
 void LibraryPatternPropertiesDlg::hideEvent(QHideEvent *event)
 {
@@ -58,7 +59,6 @@ void LibraryPatternPropertiesDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void LibraryPatternPropertiesDlg::showEvent(QShowEvent *event)
 {
@@ -69,18 +69,15 @@ void LibraryPatternPropertiesDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void LibraryPatternPropertiesDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
 
-
 void LibraryPatternPropertiesDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void LibraryPatternPropertiesDlg::on_DialogButtonBox_helpRequested()
 {

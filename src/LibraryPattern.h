@@ -8,19 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryPattern_H
 #define LibraryPattern_H
-
 
 #include <QByteArray>
 #include <QDataStream>
 #include <QString>
 
-
 class LibraryListWidgetItem;
 class Pattern;
-
 
 class LibraryPattern
 {
@@ -46,17 +42,15 @@ public:
 private:
     static const int version = 100;
 
-    Pattern         *m_pattern;
-    qint32          m_key;
-    Qt::KeyboardModifiers   m_modifiers;
-    qint16          m_baseline;
-    LibraryListWidgetItem   *m_libraryListWidgetItem;
-    bool            m_changed;
+    Pattern *m_pattern;
+    qint32 m_key;
+    Qt::KeyboardModifiers m_modifiers;
+    qint16 m_baseline;
+    LibraryListWidgetItem *m_libraryListWidgetItem;
+    bool m_changed;
 };
-
 
 QDataStream &operator<<(QDataStream &, const LibraryPattern &);
 QDataStream &operator>>(QDataStream &, LibraryPattern &);
-
 
 #endif // LibraryPattern_H

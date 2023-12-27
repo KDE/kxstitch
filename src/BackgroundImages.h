@@ -8,29 +8,24 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file defines a collection of background images to be used as overlays on
  * a canvas for the purpose of tracing.
  */
 
-
 #ifndef BackgroundImages_H
 #define BackgroundImages_H
-
 
 // Qt includes
 #include <QList>
 #include <QRect>
 #include <QSharedPointer>
 
-
 // Forward declaration of Qt classes
 class QDataStream;
 
 // Forward declaration of application classes
 class BackgroundImage;
-
 
 /**
  * This class defines a collection of background images allowing the addition
@@ -129,12 +124,10 @@ public:
 private:
     static const int version = 100; /**< The version of the streamed object */
 
-    QList<QSharedPointer<BackgroundImage>> m_backgroundImages;    /**< A list of BackgroundImage shared pointers */
+    QList<QSharedPointer<BackgroundImage>> m_backgroundImages; /**< A list of BackgroundImage shared pointers */
 };
-
 
 QDataStream &operator<<(QDataStream &, const BackgroundImages &);
 QDataStream &operator>>(QDataStream &, BackgroundImages &);
-
 
 #endif // BackgroundImages_H

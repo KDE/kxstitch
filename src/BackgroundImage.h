@@ -8,16 +8,13 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file defines a background image to be used as an overlay on a canvas for
  * the purpose of tracing.
  */
 
-
 #ifndef BackgroundImage_H
 #define BackgroundImage_H
-
 
 // Qt includes
 #include <QIcon>
@@ -25,10 +22,8 @@
 #include <QRect>
 #include <QUrl>
 
-
 // Forward declaration of Qt classes
 class QDataStream;
-
 
 /**
  * This class defines a background image including the area it occupies on the
@@ -144,14 +139,13 @@ private:
     static const int version = 101; /**< The version of the streamed object */
     // no longer store m_icon, generate it on loading
 
-    QUrl    m_url;      /**< The URL of the source file */
-    QRect   m_location; /**< The area of the canvas occupied by the image */
-    bool    m_visible;  /**< The visibility state, @c true if visible, @c false otherwise */
-    bool    m_status;   /**< The validity state of the class instance, @c true if valid, @c false otherwise */
-    QImage  m_image;    /**< The image read from the URL */
-    QIcon   m_icon;     /**< An icon of the image */
+    QUrl m_url; /**< The URL of the source file */
+    QRect m_location; /**< The area of the canvas occupied by the image */
+    bool m_visible; /**< The visibility state, @c true if visible, @c false otherwise */
+    bool m_status; /**< The validity state of the class instance, @c true if valid, @c false otherwise */
+    QImage m_image; /**< The image read from the URL */
+    QIcon m_icon; /**< An icon of the image */
 };
-
 
 /**
  * Allows the QSharedPointer<BackgroundImage> to be stored in a QAction QVariant value
@@ -159,9 +153,7 @@ private:
  */
 Q_DECLARE_METATYPE(QSharedPointer<BackgroundImage>)
 
-
 QDataStream &operator<<(QDataStream &, const BackgroundImage &);
 QDataStream &operator>>(QDataStream &, BackgroundImage &);
-
 
 #endif // BackgroundImage_H

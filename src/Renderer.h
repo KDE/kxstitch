@@ -8,17 +8,14 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Renderer_H
 #define Renderer_H
-
 
 #include <QFont>
 #include <QPolygon>
 #include <QRect>
 
 #include "configuration.h"
-
 
 class QPainter;
 
@@ -29,7 +26,6 @@ class Pattern;
 class RendererData;
 class Stitch;
 class StitchQueue;
-
 
 class Renderer
 {
@@ -46,14 +42,7 @@ public:
     void setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type);
     void setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type);
 
-    void render(QPainter *,
-                Pattern *,
-                QRect updateCells,
-                bool renderGrid,
-                bool renderStitches,
-                bool renderBackstitches,
-                bool renderKnots,
-                int colorHighlight);
+    void render(QPainter *, Pattern *, QRect updateCells, bool renderGrid, bool renderStitches, bool renderBackstitches, bool renderKnots, int colorHighlight);
 
     Renderer &operator=(const Renderer &);
 
@@ -81,8 +70,7 @@ private:
     void renderKnotsAsColorSymbols(Knot *);
     void renderKnotsAsBlackWhiteSymbols(Knot *);
 
-    QSharedDataPointer<RendererData>    d;
+    QSharedDataPointer<RendererData> d;
 };
-
 
 #endif // Renderer_H

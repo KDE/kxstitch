@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef DocumentPalette_H
 #define DocumentPalette_H
-
 
 #include <QDataStream>
 #include <QList>
@@ -21,11 +19,9 @@
 
 #include "DocumentFloss.h"
 
-
 class QString;
 
 class DocumentPaletteData;
-
 
 class DocumentPalette
 {
@@ -66,9 +62,7 @@ private:
     QSharedDataPointer<DocumentPaletteData> d;
 };
 
-
 QDataStream &operator<<(QDataStream &, const DocumentPalette &);
 QDataStream &operator>>(QDataStream &, DocumentPalette &);
-
 
 #endif // DocumentPalette_H
