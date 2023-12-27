@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<component type="desktop-application">
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop">
+  <!--Created with jdAppStreamEdit 8.0-->
   <id>org.kde.kxstitch</id>
-  <metadata_license>GFDL-1.2-only</metadata_license>
   <name>KXStitch</name>
   <name xml:lang="ca">KXStitch</name>
   <name xml:lang="ca-valencia">KXStitch</name>
@@ -63,6 +63,10 @@
   <summary xml:lang="uk">Програма для створення візерунків для вишивання хрестиком</summary>
   <summary xml:lang="x-test">xxA cross stitch pattern creatorxx</summary>
   <summary xml:lang="zh-CN">十字绣图案创建器</summary>
+  <launchable type="desktop-id">org.kde.kxstitch.desktop</launchable>
+  <metadata_license>GFDL-1.2</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <project_group>KDE</project_group>
   <description>
     <p>KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colors and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
     <p xml:lang="ca">El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, la qual es pot ampliar o reduir de mida mentre s'està fent el patró. De manera alternativa, podeu importar imatges des de molts formats de fitxer per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a puntades senceres. També podeu utilitzar imatges com a fons, dibuixant-hi a sobre. Aquestes imatges importades es poden modificar utilitzant les eines subministrades per a produir el disseny final.</p>
@@ -348,20 +352,20 @@
       <li xml:lang="zh-CN">打印图案和线键</li>
     </ul>
   </description>
-  <launchable type="desktop-id">org.kde.kxstitch.desktop</launchable>
-  <releases>
-    <release date="2019-06-07" version="2.2.0"/>
-  </releases>
-  <content_rating type="oars-1.1"/>
-  <url type="homepage">https://userbase.kde.org/Special:myLanguage/KXStitch</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kxstitch</url>
-  <url type="help">https://docs.kde.org/?application=kxstitch</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://cdn.kde.org/screenshots/kxstitch/Importedimage.png</image>
+      <caption>A stitch pattern created from an image</caption>
+      <image type="source">https://cdn.kde.org/screenshots/kxstitch/Importedimage.png</image>
     </screenshot>
   </screenshots>
-  <project_group>KDE</project_group>
+  <releases>
+    <release version="2.2.0" date="2019-06-07" type="stable"/>
+  </releases>
+  <url type="homepage">https://userbase.kde.org/Special:myLanguage/KXStitch</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kxstitch</url>
+  <url type="help">https://docs.kde.org/stable5/en/kxstitch/kxstitch/index.html</url>
+  <url type="vcs-browser">https://invent.kde.org/graphics/kxstitch</url>
+  <content_rating type="oars-1.1"/>
   <provides>
     <binary>kxstitch</binary>
   </provides>
