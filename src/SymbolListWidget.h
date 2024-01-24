@@ -8,23 +8,18 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Header file for the SymbolListWidget class.
  */
 
-
 #ifndef SymbolListWidget_H
 #define SymbolListWidget_H
 
-
 #include <QListWidget>
-
 
 class SymbolLibrary;
 class Symbol;
-
 
 /**
  * @brief An extension to the QListWidget to view and select Symbols.
@@ -61,13 +56,12 @@ private:
     QListWidgetItem *createItem(qint16 index);
     void updateIcons();
 
-    int             m_size;                     /**< size of icons generated in the view */
-    SymbolLibrary   *m_library;                 /**< pointer to the library the items belong to */
+    int m_size; /**< size of icons generated in the view */
+    SymbolLibrary *m_library; /**< pointer to the library the items belong to */
 
-    qint16          m_lastIndex;                /**< the last index in the list */
+    qint16 m_lastIndex; /**< the last index in the list */
 
-    QMap<qint16, QListWidgetItem*>  m_items;    /**< map of index to QListWidgetItem */
+    QMap<qint16, QListWidgetItem *> m_items; /**< map of index to QListWidgetItem */
 };
-
 
 #endif

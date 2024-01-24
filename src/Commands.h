@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Commands_H
 #define Commands_H
-
 
 #include <QPoint>
 #include <QRect>
@@ -24,7 +22,6 @@
 #include "Stitch.h"
 #include "StitchData.h"
 
-
 class BackgroundImage;
 class Document;
 class DocumentFloss;
@@ -34,7 +31,6 @@ class MainWindow;
 class Palette;
 class Pattern;
 class Preview;
-
 
 class FilePropertiesCommand : public QUndoCommand
 {
@@ -46,9 +42,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class ImportImageCommand : public QUndoCommand
 {
@@ -60,9 +55,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class PaintStitchesCommand : public QUndoCommand
 {
@@ -74,9 +68,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class PaintKnotsCommand : public QUndoCommand
 {
@@ -88,9 +81,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class DrawLineCommand : public QUndoCommand
 {
@@ -102,9 +94,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;    /**< pointer to the associated Document */
+    Document *m_document; /**< pointer to the associated Document */
 };
-
 
 class EraseStitchesCommand : public QUndoCommand
 {
@@ -116,9 +107,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class DrawRectangleCommand : public QUndoCommand
 {
@@ -130,9 +120,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;    /**< pointer to the associated Document */
+    Document *m_document; /**< pointer to the associated Document */
 };
-
 
 class FillRectangleCommand : public QUndoCommand
 {
@@ -144,9 +133,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;    /**< pointer to the associated Document */
+    Document *m_document; /**< pointer to the associated Document */
 };
-
 
 class DrawEllipseCommand : public QUndoCommand
 {
@@ -158,9 +146,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;    /**< pointer to the associated Document */
+    Document *m_document; /**< pointer to the associated Document */
 };
-
 
 class FillEllipseCommand : public QUndoCommand
 {
@@ -172,9 +159,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;    /**< pointer to the associated Document */
+    Document *m_document; /**< pointer to the associated Document */
 };
-
 
 class FillPolygonCommand : public QUndoCommand
 {
@@ -186,9 +172,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class AddStitchCommand : public QUndoCommand
 {
@@ -200,13 +185,12 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
-    QPoint          m_cell;
-    Stitch::Type    m_type;
-    int             m_colorIndex;
-    StitchQueue     *m_original;
+    Document *m_document;
+    QPoint m_cell;
+    Stitch::Type m_type;
+    int m_colorIndex;
+    StitchQueue *m_original;
 };
-
 
 class DeleteStitchCommand : public QUndoCommand
 {
@@ -218,13 +202,12 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
-    QPoint          m_cell;
-    Stitch::Type    m_type;
-    int             m_colorIndex;
-    StitchQueue     *m_original;
+    Document *m_document;
+    QPoint m_cell;
+    Stitch::Type m_type;
+    int m_colorIndex;
+    StitchQueue *m_original;
 };
-
 
 class AddBackstitchCommand : public QUndoCommand
 {
@@ -236,12 +219,11 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QPoint      m_start;
-    QPoint      m_end;
-    int         m_colorIndex;
+    Document *m_document;
+    QPoint m_start;
+    QPoint m_end;
+    int m_colorIndex;
 };
-
 
 class DeleteBackstitchCommand : public QUndoCommand
 {
@@ -253,13 +235,12 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QPoint      m_start;
-    QPoint      m_end;
-    int         m_colorIndex;
-    Backstitch  *m_backstitch;
+    Document *m_document;
+    QPoint m_start;
+    QPoint m_end;
+    int m_colorIndex;
+    Backstitch *m_backstitch;
 };
-
 
 class AddKnotCommand : public QUndoCommand
 {
@@ -271,11 +252,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QPoint      m_snap;
-    int         m_colorIndex;
+    Document *m_document;
+    QPoint m_snap;
+    int m_colorIndex;
 };
-
 
 class DeleteKnotCommand : public QUndoCommand
 {
@@ -287,12 +267,11 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QPoint      m_snap;
-    int         m_colorIndex;
-    Knot        *m_knot;
+    Document *m_document;
+    QPoint m_snap;
+    int m_colorIndex;
+    Knot *m_knot;
 };
-
 
 class SetPropertyCommand : public QUndoCommand
 {
@@ -304,12 +283,11 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QString     m_name;
-    QVariant    m_value;
-    QVariant    m_oldValue;
+    Document *m_document;
+    QString m_name;
+    QVariant m_value;
+    QVariant m_oldValue;
 };
-
 
 class AddBackgroundImageCommand : public QUndoCommand
 {
@@ -321,11 +299,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
+    Document *m_document;
     QSharedPointer<BackgroundImage> m_backgroundImage;
-    MainWindow      *m_mainWindow;
+    MainWindow *m_mainWindow;
 };
-
 
 class FitBackgroundImageCommand : public QUndoCommand
 {
@@ -337,11 +314,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
+    Document *m_document;
     QSharedPointer<BackgroundImage> m_backgroundImage;
-    QRect           m_rect;
+    QRect m_rect;
 };
-
 
 class ShowBackgroundImageCommand : public QUndoCommand
 {
@@ -353,11 +329,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
+    Document *m_document;
     QSharedPointer<BackgroundImage> m_backgroundImage;
-    bool            m_visible;
+    bool m_visible;
 };
-
 
 class RemoveBackgroundImageCommand : public QUndoCommand
 {
@@ -369,11 +344,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
+    Document *m_document;
     QSharedPointer<BackgroundImage> m_backgroundImage;
-    MainWindow      *m_mainWindow;
+    MainWindow *m_mainWindow;
 };
-
 
 class AddDocumentFlossCommand : public QUndoCommand
 {
@@ -385,11 +359,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
-    int             m_key;
-    DocumentFloss   *m_documentFloss;
+    Document *m_document;
+    int m_key;
+    DocumentFloss *m_documentFloss;
 };
-
 
 class RemoveDocumentFlossCommand : public QUndoCommand
 {
@@ -401,11 +374,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
-    int             m_key;
-    DocumentFloss   *m_documentFloss;
+    Document *m_document;
+    int m_key;
+    DocumentFloss *m_documentFloss;
 };
-
 
 class ReplaceDocumentFlossCommand : public QUndoCommand
 {
@@ -417,11 +389,10 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
-    int             m_key;
-    DocumentFloss   *m_documentFloss;
+    Document *m_document;
+    int m_key;
+    DocumentFloss *m_documentFloss;
 };
-
 
 class ClearUnusedFlossesCommand : public QUndoCommand
 {
@@ -433,9 +404,8 @@ public:
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
+    Document *m_document;
 };
-
 
 class ResizeDocumentCommand : public QUndoCommand
 {
@@ -447,16 +417,15 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    int         m_width;
-    int         m_height;
-    int         m_originalWidth;
-    int         m_originalHeight;
-    int         m_xOffset;
-    int         m_yOffset;
-    QPoint      m_snapOffset;
+    Document *m_document;
+    int m_width;
+    int m_height;
+    int m_originalWidth;
+    int m_originalHeight;
+    int m_xOffset;
+    int m_yOffset;
+    QPoint m_snapOffset;
 };
-
 
 class CropToPatternCommand : public QUndoCommand
 {
@@ -468,14 +437,13 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    unsigned    m_originalWidth;
-    unsigned    m_originalHeight;
-    int         m_xOffset;
-    int         m_yOffset;
-    QRect       m_extents;
+    Document *m_document;
+    unsigned m_originalWidth;
+    unsigned m_originalHeight;
+    int m_xOffset;
+    int m_yOffset;
+    QRect m_extents;
 };
-
 
 class CropToSelectionCommand : public QUndoCommand
 {
@@ -487,11 +455,10 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QRect       m_selectionArea;
-    QByteArray  m_originalPattern;
+    Document *m_document;
+    QRect m_selectionArea;
+    QByteArray m_originalPattern;
 };
-
 
 class InsertColumnsCommand : public QUndoCommand
 {
@@ -503,10 +470,9 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QRect       m_selectionArea;
+    Document *m_document;
+    QRect m_selectionArea;
 };
-
 
 class InsertRowsCommand : public QUndoCommand
 {
@@ -518,10 +484,9 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QRect       m_selectionArea;
+    Document *m_document;
+    QRect m_selectionArea;
 };
-
 
 class ExtendPatternCommand : public QUndoCommand
 {
@@ -533,13 +498,12 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    int         m_top;
-    int         m_left;
-    int         m_right;
-    int         m_bottom;
+    Document *m_document;
+    int m_top;
+    int m_left;
+    int m_right;
+    int m_bottom;
 };
-
 
 class CentrePatternCommand : public QUndoCommand
 {
@@ -551,11 +515,10 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    int         m_xOffset;
-    int         m_yOffset;
+    Document *m_document;
+    int m_xOffset;
+    int m_yOffset;
 };
-
 
 class UpdateDocumentPaletteCommand : public QUndoCommand
 {
@@ -567,10 +530,9 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document        *m_document;
+    Document *m_document;
     DocumentPalette m_palette;
 };
-
 
 class ChangeSchemeCommand : public QUndoCommand
 {
@@ -582,11 +544,10 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    QString     m_schemeName;
-    QByteArray  m_originalPalette;
+    Document *m_document;
+    QString m_schemeName;
+    QByteArray m_originalPalette;
 };
-
 
 class EditorReadDocumentSettingsCommand : public QUndoCommand
 {
@@ -598,9 +559,8 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Editor  *m_editor;
+    Editor *m_editor;
 };
-
 
 class PreviewReadDocumentSettingsCommand : public QUndoCommand
 {
@@ -615,7 +575,6 @@ private:
     Preview *m_preview;
 };
 
-
 class PaletteReplaceColorCommand : public QUndoCommand
 {
 public:
@@ -626,14 +585,13 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    int         m_originalIndex;
-    int         m_replacementIndex;
-    QList<Stitch *>     m_stitches;
+    Document *m_document;
+    int m_originalIndex;
+    int m_replacementIndex;
+    QList<Stitch *> m_stitches;
     QList<Backstitch *> m_backstitches;
-    QList<Knot *>       m_knots;
+    QList<Knot *> m_knots;
 };
-
 
 class PaletteSwapColorCommand : public QUndoCommand
 {
@@ -645,11 +603,10 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    int         m_originalIndex;
-    int         m_swappedIndex;
+    Document *m_document;
+    int m_originalIndex;
+    int m_swappedIndex;
 };
-
 
 class UpdatePrinterConfigurationCommand : public QUndoCommand
 {
@@ -661,31 +618,34 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document                *m_document;
-    PrinterConfiguration    m_printerConfiguration;
+    Document *m_document;
+    PrinterConfiguration m_printerConfiguration;
 };
-
 
 class EditCutCommand : public QUndoCommand
 {
 public:
-    EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots);
+    EditCutCommand(Document *document,
+                   const QRect &selectionArea,
+                   int colorMask,
+                   const QList<Stitch::Type> &stitchMasks,
+                   bool excludeBackstitches,
+                   bool excludeKnots);
     virtual ~EditCutCommand();
 
     void redo() Q_DECL_OVERRIDE;
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document            *m_document;
-    QRect               m_selectionArea;
-    int                 m_colorMask;
+    Document *m_document;
+    QRect m_selectionArea;
+    int m_colorMask;
     QList<Stitch::Type> m_stitchMasks;
-    bool                m_excludeBackstitches;
-    bool                m_excludeKnots;
+    bool m_excludeBackstitches;
+    bool m_excludeKnots;
 
-    Pattern             *m_originalPattern;
+    Pattern *m_originalPattern;
 };
-
 
 class EditPasteCommand : public QUndoCommand
 {
@@ -697,64 +657,83 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    Pattern     *m_pastePattern;
-    QPoint      m_cell;
-    bool        m_merge;
+    Document *m_document;
+    Pattern *m_pastePattern;
+    QPoint m_cell;
+    bool m_merge;
 
-    QByteArray  m_originalPattern;
+    QByteArray m_originalPattern;
 };
-
 
 class MirrorSelectionCommand : public QUndoCommand
 {
 public:
-    MirrorSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, Qt::Orientation, bool, const QByteArray &, Pattern *, const QPoint &, bool merge);
+    MirrorSelectionCommand(Document *,
+                           const QRect &,
+                           int,
+                           const QList<Stitch::Type> &,
+                           bool,
+                           bool,
+                           Qt::Orientation,
+                           bool,
+                           const QByteArray &,
+                           Pattern *,
+                           const QPoint &,
+                           bool merge);
     virtual ~MirrorSelectionCommand();
 
     virtual void redo() Q_DECL_OVERRIDE;
     virtual void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document            *m_document;
-    QRect               m_selectionArea;
-    int                 m_colorMask;
+    Document *m_document;
+    QRect m_selectionArea;
+    int m_colorMask;
     QList<Stitch::Type> m_stitchMasks;
-    bool                m_excludeBackstitches;
-    bool                m_excludeKnots;
-    Qt::Orientation     m_orientation;
-    bool                m_copies;
-    QByteArray          m_originalPatternData;
-    Pattern             *m_invertedPattern;
-    QPoint              m_pasteCell;
-    bool                m_merge;
+    bool m_excludeBackstitches;
+    bool m_excludeKnots;
+    Qt::Orientation m_orientation;
+    bool m_copies;
+    QByteArray m_originalPatternData;
+    Pattern *m_invertedPattern;
+    QPoint m_pasteCell;
+    bool m_merge;
 };
-
 
 class RotateSelectionCommand : public QUndoCommand
 {
 public:
-    RotateSelectionCommand(Document *, const QRect &, int, const QList<Stitch::Type> &, bool, bool, StitchData::Rotation, bool, const QByteArray &, Pattern *, const QPoint &, bool);
+    RotateSelectionCommand(Document *,
+                           const QRect &,
+                           int,
+                           const QList<Stitch::Type> &,
+                           bool,
+                           bool,
+                           StitchData::Rotation,
+                           bool,
+                           const QByteArray &,
+                           Pattern *,
+                           const QPoint &,
+                           bool);
     virtual ~RotateSelectionCommand();
 
     void redo() Q_DECL_OVERRIDE;
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    Document                *m_document;
-    QRect                   m_selectionArea;
-    int                     m_colorMask;
-    QList<Stitch::Type>     m_stitchMasks;
-    bool                    m_excludeBackstitches;
-    bool                    m_excludeKnots;
-    StitchData::Rotation    m_rotation;
-    bool                    m_copies;
-    QByteArray              m_originalPatternData;
-    Pattern                 *m_rotatedPattern;
-    QPoint                  m_pasteCell;
-    bool                    m_merge;
+    Document *m_document;
+    QRect m_selectionArea;
+    int m_colorMask;
+    QList<Stitch::Type> m_stitchMasks;
+    bool m_excludeBackstitches;
+    bool m_excludeKnots;
+    StitchData::Rotation m_rotation;
+    bool m_copies;
+    QByteArray m_originalPatternData;
+    Pattern *m_rotatedPattern;
+    QPoint m_pasteCell;
+    bool m_merge;
 };
-
 
 class AlphabetCommand : public QUndoCommand
 {
@@ -771,10 +750,9 @@ public:
     int childCount() const;
 
 private:
-    Document                *m_document;
-    QList<QUndoCommand *>   m_children;
+    Document *m_document;
+    QList<QUndoCommand *> m_children;
 };
-
 
 class ConfigurationCommand : public QUndoCommand
 {
@@ -786,8 +764,7 @@ public:
     void undo() Q_DECL_OVERRIDE;
 
 private:
-    MainWindow  *m_mainWindow;
+    MainWindow *m_mainWindow;
 };
-
 
 #endif // Commands_H

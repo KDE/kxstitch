@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the SymbolManager class. This loads all symbol libraries from the kxstitch application
@@ -17,14 +16,12 @@
  * palette manager and from the renderer.
  */
 
-
 /**
  * @page symbol_manager Symbol Manager
  * The symbol manager provides an interface between the application and the collection of symbol sets.
  * A number of symbol libraries can exist and a particular set can be selected in the palette manager
  * symbol selector.
  */
-
 
 #include "SymbolManager.h"
 
@@ -41,9 +38,7 @@
 #include "Symbol.h"
 #include "SymbolLibrary.h"
 
-
 SymbolManager *SymbolManager::symbolManager = nullptr;
-
 
 /**
  * Accessor for the static object
@@ -57,7 +52,6 @@ SymbolManager &SymbolManager::self()
     return *symbolManager;
 }
 
-
 /**
  * Constructor.
  */
@@ -66,7 +60,6 @@ SymbolManager::SymbolManager()
     refresh();
 }
 
-
 /**
  *Destructor. Delete all the symbol libraries.
  */
@@ -74,7 +67,6 @@ SymbolManager::~SymbolManager()
 {
     qDeleteAll(m_symbolLibraries);
 }
-
 
 /**
  * Get a list of the symbol libraries available.
@@ -94,7 +86,6 @@ QStringList SymbolManager::libraries()
     return libraryNames;
 }
 
-
 /**
  * Get a pointer to a symbol library by name
  *
@@ -104,7 +95,7 @@ QStringList SymbolManager::libraries()
  */
 SymbolLibrary *SymbolManager::library(const QString &name)
 {
-    for (int i = 0 ; i < self().m_symbolLibraries.count() ; ++i) {
+    for (int i = 0; i < self().m_symbolLibraries.count(); ++i) {
         SymbolLibrary *symbolLibrary = self().m_symbolLibraries.at(i);
 
         if (symbolLibrary->name() == name) {
@@ -114,7 +105,6 @@ SymbolLibrary *SymbolManager::library(const QString &name)
 
     return nullptr;
 }
-
 
 /**
  * Get a list of files stored in the symbols path, iterating each one to create a new SymbolLibrary instance
@@ -137,7 +127,6 @@ void SymbolManager::refresh()
         }
     }
 }
-
 
 /**
  * Read a symbol library.

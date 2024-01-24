@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef ImportImageDlg_H
 #define ImportImageDlg_H
-
 
 #include <QAction>
 #include <QDialog>
@@ -30,11 +28,9 @@
 #include "AlphaSelect.h"
 #include "ui_ImportImage.h"
 
-
 class SchemeManager;
 class QHideEvent;
 class QShowEvent;
-
 
 class ImportImageDlg : public QDialog
 {
@@ -89,17 +85,16 @@ private:
 
     Ui::ImportImage ui;
 
-    QPixmap     m_pixmap;
-    QSize       m_originalSize;
-    QSize       m_preferredSize;
-    int         m_timer;
+    QPixmap m_pixmap;
+    QSize m_originalSize;
+    QSize m_preferredSize;
+    int m_timer;
     AlphaSelect *m_alphaSelect;
-    Magick::ColorRGB    m_ignoreColorValue;
-    Magick::Image       m_originalImage;
-    Magick::Image       m_convertedImage;
-    Magick::Image       m_colorMap;
-    QRect       m_crop;
+    Magick::ColorRGB m_ignoreColorValue;
+    Magick::Image m_originalImage;
+    Magick::Image m_convertedImage;
+    Magick::Image m_colorMap;
+    QRect m_crop;
 };
-
 
 #endif // ImportImageDlg_H

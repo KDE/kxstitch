@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PagePreviewListWidgetItem.h"
 
 #include <algorithm>
@@ -21,39 +20,33 @@
 #include "Page.h"
 #include "PaperSizes.h"
 
-
 PagePreviewListWidgetItem::PagePreviewListWidgetItem(Document *document, Page *page)
-    :   QListWidgetItem(nullptr, QListWidgetItem::UserType),
-        m_document(document),
-        m_page(page)
+    : QListWidgetItem(nullptr, QListWidgetItem::UserType)
+    , m_document(document)
+    , m_page(page)
 {
     generatePreviewIcon();
 }
-
 
 QPageSize PagePreviewListWidgetItem::pageSize() const
 {
     return m_page->pageSize();
 }
 
-
 QPageLayout::Orientation PagePreviewListWidgetItem::orientation() const
 {
     return m_page->orientation();
 }
-
 
 int PagePreviewListWidgetItem::paperWidth() const
 {
     return m_paperWidth;
 }
 
-
 int PagePreviewListWidgetItem::paperHeight() const
 {
     return m_paperHeight;
 }
-
 
 void PagePreviewListWidgetItem::setPageSize(QPageSize pageSize)
 {
@@ -61,19 +54,16 @@ void PagePreviewListWidgetItem::setPageSize(QPageSize pageSize)
     generatePreviewIcon();
 }
 
-
 void PagePreviewListWidgetItem::setOrientation(QPageLayout::Orientation orientation)
 {
     m_page->setOrientation(orientation);
     generatePreviewIcon();
 }
 
-
 Page *PagePreviewListWidgetItem::page() const
 {
     return m_page;
 }
-
 
 void PagePreviewListWidgetItem::generatePreviewIcon()
 {

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Renderer.h"
 
 #include <QPaintEngine>
@@ -23,7 +22,6 @@
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 
-
 class RendererData : public QSharedData
 {
 public:
@@ -33,26 +31,26 @@ public:
     friend class Renderer;
 
 private:
-    int     m_cellHorizontalGrouping;
-    int     m_cellVerticalGrouping;
+    int m_cellHorizontalGrouping;
+    int m_cellVerticalGrouping;
 
-    double  m_thinLineWidth;
-    double  m_thickLineWidth;
+    double m_thinLineWidth;
+    double m_thickLineWidth;
 
-    QColor  m_thinLineColor;
-    QColor  m_thickLineColor;
+    QColor m_thinLineColor;
+    QColor m_thickLineColor;
 
-    Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
-    Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
-    Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
+    Configuration::EnumRenderer_RenderStitchesAs::type m_renderStitchesAs;
+    Configuration::EnumRenderer_RenderBackstitchesAs::type m_renderBackstitchesAs;
+    Configuration::EnumRenderer_RenderKnotsAs::type m_renderKnotsAs;
 
-    QPainter    *m_painter;
+    QPainter *m_painter;
 
-    Document        *m_document;
-    Pattern         *m_pattern;
-    SymbolLibrary   *m_symbolLibrary;
+    Document *m_document;
+    Pattern *m_pattern;
+    SymbolLibrary *m_symbolLibrary;
 
-    int     m_highlight;
+    int m_highlight;
 
     QPointF m_topLeft;
     QPointF m_topRight;
@@ -64,44 +62,43 @@ private:
     QPointF m_centerRight;
     QPointF m_centerBottom;
 
-    QRectF  m_renderCell;
-    QRectF  m_renderTLCell;
-    QRectF  m_renderTL3Cell;
-    QRectF  m_renderTRCell;
-    QRectF  m_renderTR3Cell;
-    QRectF  m_renderBLCell;
-    QRectF  m_renderBL3Cell;
-    QRectF  m_renderBRCell;
-    QRectF  m_renderBR3Cell;
+    QRectF m_renderCell;
+    QRectF m_renderTLCell;
+    QRectF m_renderTL3Cell;
+    QRectF m_renderTRCell;
+    QRectF m_renderTR3Cell;
+    QRectF m_renderBLCell;
+    QRectF m_renderBL3Cell;
+    QRectF m_renderBRCell;
+    QRectF m_renderBR3Cell;
 
-    QPolygonF   m_renderTLQ;
-    QPolygonF   m_renderTRQ;
-    QPolygonF   m_renderBLQ;
-    QPolygonF   m_renderBRQ;
+    QPolygonF m_renderTLQ;
+    QPolygonF m_renderTRQ;
+    QPolygonF m_renderBLQ;
+    QPolygonF m_renderBRQ;
 
-    QPolygonF   m_renderBLTRH;
-    QPolygonF   m_renderTLBRH;
+    QPolygonF m_renderBLTRH;
+    QPolygonF m_renderTLBRH;
 
-    QPolygonF   m_renderTL3Q;
-    QPolygonF   m_renderTR3Q;
-    QPolygonF   m_renderBL3Q;
-    QPolygonF   m_renderBR3Q;
+    QPolygonF m_renderTL3Q;
+    QPolygonF m_renderTR3Q;
+    QPolygonF m_renderBL3Q;
+    QPolygonF m_renderBR3Q;
 };
 
-
 RendererData::RendererData()
-    :   QSharedData(),
-        m_cellHorizontalGrouping(Configuration::editor_CellHorizontalGrouping()),
-        m_cellVerticalGrouping(Configuration::editor_CellVerticalGrouping()),
-        m_thinLineColor(Configuration::editor_ThinLineColor()),
-        m_thickLineColor(Configuration::editor_ThickLineColor()),
-        m_renderStitchesAs(Configuration::renderer_RenderStitchesAs()),
-        m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs()),
-        m_renderKnotsAs(Configuration::renderer_RenderKnotsAs()),
-        m_painter(nullptr),
-        m_document(nullptr),
-        m_pattern(nullptr),
-        m_symbolLibrary(nullptr)
+    : QSharedData()
+    , m_cellHorizontalGrouping(Configuration::editor_CellHorizontalGrouping())
+    , m_cellVerticalGrouping(Configuration::editor_CellVerticalGrouping())
+    , m_thinLineColor(Configuration::editor_ThinLineColor())
+    , m_thickLineColor(Configuration::editor_ThickLineColor())
+    , m_renderStitchesAs(Configuration::renderer_RenderStitchesAs())
+    , m_renderBackstitchesAs(Configuration::renderer_RenderBackstitchesAs())
+    , m_renderKnotsAs(Configuration::renderer_RenderKnotsAs())
+    , m_painter(nullptr)
+    , m_document(nullptr)
+    , m_pattern(nullptr)
+    , m_symbolLibrary(nullptr)
 {
     m_topLeft = QPointF(0.0, 0.0);
     m_topRight = QPointF(1.0, 0.0);
@@ -138,48 +135,46 @@ RendererData::RendererData()
     m_renderBR3Q << m_centerTop << m_topRight << m_bottomRight << m_bottomLeft << m_centerLeft;
 }
 
-
 RendererData::RendererData(const RendererData &other)
-    :   QSharedData(other),
-        m_cellHorizontalGrouping(other.m_cellHorizontalGrouping),
-        m_cellVerticalGrouping(other.m_cellVerticalGrouping),
-        m_thinLineWidth(other.m_thinLineWidth),
-        m_thickLineWidth(other.m_thickLineWidth),
-        m_thinLineColor(other.m_thinLineColor),
-        m_thickLineColor(other.m_thickLineColor),
-        m_renderStitchesAs(other.m_renderStitchesAs),
-        m_renderBackstitchesAs(other.m_renderBackstitchesAs),
-        m_renderKnotsAs(other.m_renderKnotsAs),
-        m_document(other.m_document),
-        m_pattern(other.m_pattern),
-        m_symbolLibrary(other.m_symbolLibrary),
-        m_topLeft(other.m_topLeft),
-        m_topRight(other.m_topRight),
-        m_bottomLeft(other.m_bottomLeft),
-        m_bottomRight(other.m_bottomRight),
-        m_center(other.m_center),
-        m_renderCell(other.m_renderCell),
-        m_renderTLCell(other.m_renderTLCell),
-        m_renderTL3Cell(other.m_renderTL3Cell),
-        m_renderTRCell(other.m_renderTRCell),
-        m_renderTR3Cell(other.m_renderTR3Cell),
-        m_renderBLCell(other.m_renderBLCell),
-        m_renderBL3Cell(other.m_renderBL3Cell),
-        m_renderBRCell(other.m_renderBRCell),
-        m_renderBR3Cell(other.m_renderBR3Cell),
-        m_renderTLQ(other.m_renderTLQ),
-        m_renderTRQ(other.m_renderTRQ),
-        m_renderBLQ(other.m_renderBLQ),
-        m_renderBRQ(other.m_renderBRQ),
-        m_renderBLTRH(other.m_renderBLTRH),
-        m_renderTLBRH(other.m_renderTLBRH),
-        m_renderTL3Q(other.m_renderTL3Q),
-        m_renderTR3Q(other.m_renderTR3Q),
-        m_renderBL3Q(other.m_renderBL3Q),
-        m_renderBR3Q(other.m_renderBR3Q)
+    : QSharedData(other)
+    , m_cellHorizontalGrouping(other.m_cellHorizontalGrouping)
+    , m_cellVerticalGrouping(other.m_cellVerticalGrouping)
+    , m_thinLineWidth(other.m_thinLineWidth)
+    , m_thickLineWidth(other.m_thickLineWidth)
+    , m_thinLineColor(other.m_thinLineColor)
+    , m_thickLineColor(other.m_thickLineColor)
+    , m_renderStitchesAs(other.m_renderStitchesAs)
+    , m_renderBackstitchesAs(other.m_renderBackstitchesAs)
+    , m_renderKnotsAs(other.m_renderKnotsAs)
+    , m_document(other.m_document)
+    , m_pattern(other.m_pattern)
+    , m_symbolLibrary(other.m_symbolLibrary)
+    , m_topLeft(other.m_topLeft)
+    , m_topRight(other.m_topRight)
+    , m_bottomLeft(other.m_bottomLeft)
+    , m_bottomRight(other.m_bottomRight)
+    , m_center(other.m_center)
+    , m_renderCell(other.m_renderCell)
+    , m_renderTLCell(other.m_renderTLCell)
+    , m_renderTL3Cell(other.m_renderTL3Cell)
+    , m_renderTRCell(other.m_renderTRCell)
+    , m_renderTR3Cell(other.m_renderTR3Cell)
+    , m_renderBLCell(other.m_renderBLCell)
+    , m_renderBL3Cell(other.m_renderBL3Cell)
+    , m_renderBRCell(other.m_renderBRCell)
+    , m_renderBR3Cell(other.m_renderBR3Cell)
+    , m_renderTLQ(other.m_renderTLQ)
+    , m_renderTRQ(other.m_renderTRQ)
+    , m_renderBLQ(other.m_renderBLQ)
+    , m_renderBRQ(other.m_renderBRQ)
+    , m_renderBLTRH(other.m_renderBLTRH)
+    , m_renderTLBRH(other.m_renderTLBRH)
+    , m_renderTL3Q(other.m_renderTL3Q)
+    , m_renderTR3Q(other.m_renderTR3Q)
+    , m_renderBL3Q(other.m_renderBL3Q)
+    , m_renderBR3Q(other.m_renderBR3Q)
 {
 }
-
 
 const Renderer::renderStitchCallPointer Renderer::renderStitchCallPointers[] = {
     &Renderer::renderStitchesAsStitches,
@@ -201,31 +196,26 @@ const Renderer::renderKnotCallPointer Renderer::renderKnotCallPointers[] = {
     &Renderer::renderKnotsAsBlackWhiteSymbols,
 };
 
-
 Renderer::Renderer()
-    :   d(new RendererData)
+    : d(new RendererData)
 {
     setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
 }
 
-
 Renderer::Renderer(const Renderer &other)
-    :   d(other.d)
+    : d(other.d)
 {
 }
-
 
 Renderer::~Renderer()
 {
 }
-
 
 void Renderer::setCellGrouping(int cellHorizontalGrouping, int cellVerticalGrouping)
 {
     d->m_cellHorizontalGrouping = cellHorizontalGrouping;
     d->m_cellVerticalGrouping = cellVerticalGrouping;
 }
-
 
 void Renderer::setGridLineWidths(double thinLineWidth, double thickLineWidth)
 {
@@ -244,31 +234,26 @@ void Renderer::setGridLineWidths(double thinLineWidth, double thickLineWidth)
     d->m_thickLineWidth = thickLineWidth;
 }
 
-
 void Renderer::setGridLineColors(QColor thinLineColor, QColor thickLineColor)
 {
     d->m_thinLineColor = thinLineColor;
     d->m_thickLineColor = thickLineColor;
 }
 
-
 void Renderer::setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type renderStitchesAs)
 {
     d->m_renderStitchesAs = renderStitchesAs;
 }
-
 
 void Renderer::setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type renderBackstitchesAs)
 {
     d->m_renderBackstitchesAs = renderBackstitchesAs;
 }
 
-
 void Renderer::setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type renderKnotsAs)
 {
     d->m_renderKnotsAs = renderKnotsAs;
 }
-
 
 void Renderer::render(QPainter *painter,
                       Pattern *pattern,
@@ -301,12 +286,12 @@ void Renderer::render(QPainter *painter,
         thickPen.setWidthF(d->m_thickLineWidth);
         thinPen.setWidthF(d->m_thinLineWidth);
 
-        for (int y = patternTop ; y <= patternTop + patternHeight ; ++y) {
+        for (int y = patternTop; y <= patternTop + patternHeight; ++y) {
             painter->setPen((y % d->m_cellVerticalGrouping) ? thinPen : thickPen);
             painter->drawLine(patternLeft, y, patternLeft + patternWidth, y);
         }
 
-        for (int x = patternLeft ; x <= patternLeft + patternWidth ; ++x) {
+        for (int x = patternLeft; x <= patternLeft + patternWidth; ++x) {
             painter->setPen((x % d->m_cellHorizontalGrouping) ? thinPen : thickPen);
             painter->drawLine(x, patternTop, x, patternTop + patternHeight);
         }
@@ -315,8 +300,8 @@ void Renderer::render(QPainter *painter,
     if (renderStitches) {
         QTransform transform = painter->transform();
 
-        for (int y = patternTop ; y <= patternBottom ; ++y) {
-            for (int x = patternLeft ; x <= patternRight ; ++x) {
+        for (int y = patternTop; y <= patternBottom; ++y) {
+            for (int x = patternLeft; x <= patternRight; ++x) {
                 if (StitchQueue *queue = pattern->stitches().stitchQueueAt(QPoint(x, y))) {
                     painter->translate(x, y);
                     (this->*renderStitchCallPointers[d->m_renderStitchesAs])(queue);
@@ -327,24 +312,23 @@ void Renderer::render(QPainter *painter,
     }
 
     if (renderBackstitches) {
-        QList<Backstitch*> backstitches = pattern->stitches().backstitches();
+        QList<Backstitch *> backstitches = pattern->stitches().backstitches();
 
-        for (int i = 0 ; i < backstitches.count() ; ++i) {
+        for (int i = 0; i < backstitches.count(); ++i) {
             (this->*renderBackstitchCallPointers[d->m_renderBackstitchesAs])(backstitches.at(i));
         }
     }
 
     if (renderKnots) {
-        QList<Knot*> knots = pattern->stitches().knots();
+        QList<Knot *> knots = pattern->stitches().knots();
 
-        for (int i = 0 ; i < knots.count() ; ++i) {
+        for (int i = 0; i < knots.count(); ++i) {
             (this->*renderKnotCallPointers[d->m_renderKnotsAs])(knots.at(i));
         }
     }
 
     painter->restore();
 }
-
 
 void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
 {
@@ -461,7 +445,6 @@ void Renderer::renderStitchesAsStitches(StitchQueue *stitchQueue)
     }
 }
 
-
 void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
 {
     int i = stitchQueue->count();
@@ -491,7 +474,6 @@ void Renderer::renderStitchesAsBlackWhiteSymbols(StitchQueue *stitchQueue)
         }
     }
 }
-
 
 void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
 {
@@ -523,7 +505,6 @@ void Renderer::renderStitchesAsColorSymbols(StitchQueue *stitchQueue)
         }
     }
 }
-
 
 void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
 {
@@ -633,7 +614,6 @@ void Renderer::renderStitchesAsColorBlocks(StitchQueue *stitchQueue)
         }
     }
 }
-
 
 void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
 {
@@ -759,7 +739,6 @@ void Renderer::renderStitchesAsColorBlocksSymbols(StitchQueue *stitchQueue)
     }
 }
 
-
 void Renderer::renderStitchHints(Stitch *stitch)
 {
     d->m_painter->setPen(QPen(Qt::lightGray, 0));
@@ -856,7 +835,6 @@ void Renderer::renderStitchHints(Stitch *stitch)
     }
 }
 
-
 void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
 {
     QPointF start(QPointF(backstitch->start) / 2);
@@ -878,7 +856,6 @@ void Renderer::renderBackstitchesAsColorLines(Backstitch *backstitch)
     d->m_painter->setPen(pen);
     d->m_painter->drawLine(start, end);
 }
-
 
 void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
 {
@@ -903,7 +880,6 @@ void Renderer::renderBackstitchesAsBlackWhiteSymbols(Backstitch *backstitch)
     d->m_painter->drawLine(start, end);
 }
 
-
 void Renderer::renderKnotsAsColorBlocks(Knot *knot)
 {
     DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
@@ -924,7 +900,6 @@ void Renderer::renderKnotsAsColorBlocks(Knot *knot)
 
     d->m_painter->drawEllipse(rect);
 }
-
 
 void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
 {
@@ -960,7 +935,6 @@ void Renderer::renderKnotsAsColorBlocksSymbols(Knot *knot)
     d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
-
 void Renderer::renderKnotsAsColorSymbols(Knot *knot)
 {
     DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
@@ -994,7 +968,6 @@ void Renderer::renderKnotsAsColorSymbols(Knot *knot)
     d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
 
-
 void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
 {
     DocumentFloss *documentFloss = d->m_pattern->palette().floss(knot->colorIndex);
@@ -1026,7 +999,6 @@ void Renderer::renderKnotsAsBlackWhiteSymbols(Knot *knot)
     d->m_painter->setBrush(symbolBrush);
     d->m_painter->drawPath(symbol.path(Stitch::FrenchKnot).translated(QPointF(knot->position) / 2 - QPointF(0.5, 0.5)));
 }
-
 
 Renderer &Renderer::operator=(const Renderer &other)
 {

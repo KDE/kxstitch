@@ -8,16 +8,13 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Header file for the SymbolLibrary class.
  */
 
-
 #ifndef SymbolLibrary_H
 #define SymbolLibrary_H
-
 
 #include <QMap>
 #include <QPainterPath>
@@ -26,12 +23,10 @@
 
 #include "Symbol.h"
 
-
 class QDataStream;
 class QListWidgetItem;
 
 class SymbolListWidget;
-
 
 /**
  * @brief Manages the library of symbols.
@@ -70,23 +65,21 @@ public:
 private:
     void generateItems();
 
-    static const qint32 version = 101;      /**< stream version of this file */
+    static const qint32 version = 101; /**< stream version of this file */
 
-    QUndoStack m_undoStack;                 /**< holds the commands that have made changes to this library */
+    QUndoStack m_undoStack; /**< holds the commands that have made changes to this library */
 
-    QUrl    m_url;                          /**< url of the file loaded, this may be Untitled */
+    QUrl m_url; /**< url of the file loaded, this may be Untitled */
 
-    QString m_name;                         /**< name of the symbol library */
+    QString m_name; /**< name of the symbol library */
 
-    SymbolListWidget *m_listWidget;         /**< pointer to a QListWidget containing the QListWidgetItems for the QIcons, this may be null for an imported file */
+    SymbolListWidget *m_listWidget; /**< pointer to a QListWidget containing the QListWidgetItems for the QIcons, this may be null for an imported file */
 
-    qint16                  m_nextIndex;    /**< index for the next symbol added */
-    QMap<qint16, Symbol>    m_symbols;      /**< map of the Symbol to indexes */
+    qint16 m_nextIndex; /**< index for the next symbol added */
+    QMap<qint16, Symbol> m_symbols; /**< map of the Symbol to indexes */
 };
-
 
 QDataStream &operator<<(QDataStream &stream, const SymbolLibrary &library);
 QDataStream &operator>>(QDataStream &stream, SymbolLibrary &library);
-
 
 #endif

@@ -8,17 +8,14 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PatternElementDlg_H
 #define PatternElementDlg_H
-
 
 #include <QDialog>
 #include <QList>
 #include <QRect>
 
 #include "ui_PatternElement.h"
-
 
 class Document;
 class PlanElement;
@@ -27,13 +24,12 @@ class SelectArea;
 class QHideEvent;
 class QShowEvent;
 
-
 class PatternElementDlg : public QDialog
 {
     Q_OBJECT
 
 public:
-    PatternElementDlg(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect> > &);
+    PatternElementDlg(QWidget *, PatternElement *, Document *, const QMap<int, QList<QRect>> &);
     virtual ~PatternElementDlg() = default;
 
     bool showPlan() const;
@@ -49,16 +45,15 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    SelectArea  *m_selectArea;
+    SelectArea *m_selectArea;
 
-    PatternElement  *m_patternElement;
-    Document    *m_document;
+    PatternElement *m_patternElement;
+    Document *m_document;
 
-    QRect                       m_patternRect;
-    QMap<int, QList<QRect> >    m_patternRects;
+    QRect m_patternRect;
+    QMap<int, QList<QRect>> m_patternRects;
 
-    Ui::PatternElement  ui;
+    Ui::PatternElement ui;
 };
-
 
 #endif // PatternElementDlg_H

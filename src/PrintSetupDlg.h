@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PrintSetupDlg_H
 #define PrintSetupDlg_H
-
 
 #include <QButtonGroup>
 #include <QDialog>
@@ -22,7 +20,6 @@
 
 #include "ui_PrintSetup.h"
 
-
 class QHideEvent;
 class QResizeEvent;
 class QShowEvent;
@@ -31,7 +28,6 @@ class QString;
 class Document;
 class Element;
 class PageLayoutEditor;
-
 
 class PrintSetupDlg : public QDialog
 {
@@ -72,30 +68,29 @@ private slots:
     void deleteElement();
 
 private:
-    enum ElementMode {Select, Text, Pattern, Key, Image};
+    enum ElementMode { Select, Text, Pattern, Key, Image };
 
     void initialiseFromConfig();
     void addPage(int, Page *);
     void updatePageNumbers();
-//    void selectTemplate();
+    //    void selectTemplate();
 
     QPageSize selectedPageSize();
     QPageLayout::Orientation selectedOrientation();
     double selectedZoom();
 
-    Ui::PrintSetup  ui;
+    Ui::PrintSetup ui;
 
-    PrinterConfiguration    m_printerConfiguration;
+    PrinterConfiguration m_printerConfiguration;
 
-    double          m_scale;
-    QButtonGroup    m_buttonGroup;
-    ElementMode     m_elementMode;
-    Element         *m_elementUnderCursor;
-    Document        *m_document;
-    QPrinter        *m_printer;
+    double m_scale;
+    QButtonGroup m_buttonGroup;
+    ElementMode m_elementMode;
+    Element *m_elementUnderCursor;
+    Document *m_document;
+    QPrinter *m_printer;
 
-    PageLayoutEditor    *m_pageLayoutEditor;
+    PageLayoutEditor *m_pageLayoutEditor;
 };
-
 
 #endif // PrintSetupDlg_H

@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Editor_H
 #define Editor_H
-
 
 #include <QStack>
 #include <QWidget>
@@ -20,10 +18,9 @@
 
 #include "Stitch.h"
 
-#include "configuration.h"
 #include "Renderer.h"
 #include "StitchData.h"
-
+#include "configuration.h"
 
 class QUndoCommand;
 
@@ -34,21 +31,12 @@ class Preview;
 class Renderer;
 class Scale;
 
-
 class Editor : public QWidget
 {
     Q_OBJECT
 
 public:
-    enum SelectedStitchType {
-        StitchQuarter,
-        StitchHalf,
-        Stitch3Quarter,
-        StitchFull,
-        StitchSmallHalf,
-        StitchSmallFull,
-        StitchFrenchKnot
-    };
+    enum SelectedStitchType { StitchQuarter, StitchHalf, Stitch3Quarter, StitchFull, StitchSmallHalf, StitchSmallFull, StitchFrenchKnot };
 
     enum ToolMode {
         ToolPaint,
@@ -69,13 +57,13 @@ public:
         ToolRotate
     };
 
-    explicit Editor(QWidget*);
+    explicit Editor(QWidget *);
     virtual ~Editor() = default;
 
-    void setDocument(Document*);
+    void setDocument(Document *);
     Document *document();
 
-    void setPreview(Preview*);
+    void setPreview(Preview *);
 
     void readDocumentSettings();
 
@@ -87,13 +75,13 @@ public:
 
 signals:
     void selectionMade(bool);
-    void changedVisibleCells(const QRect&);
+    void changedVisibleCells(const QRect &);
 
 public slots:
     void libraryManager();
 
-    void previewClicked(const QPoint&);
-    void previewClicked(const QRect&);
+    void previewClicked(const QPoint &);
+    void previewClicked(const QRect &);
 
     void zoomIn();
     void zoomOut();
@@ -144,33 +132,33 @@ public slots:
     void drawContents(const QRect &);
 
 protected:
-    virtual bool event(QEvent*) Q_DECL_OVERRIDE;
-    virtual void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
-    virtual void dragEnterEvent(QDragEnterEvent*) Q_DECL_OVERRIDE;
-    virtual void dragLeaveEvent(QDragLeaveEvent*) Q_DECL_OVERRIDE;
-    virtual void dragMoveEvent(QDragMoveEvent*) Q_DECL_OVERRIDE;
-    virtual void dropEvent(QDropEvent*) Q_DECL_OVERRIDE;
-    virtual void keyPressEvent(QKeyEvent*) Q_DECL_OVERRIDE;
-    virtual void keyReleaseEvent(QKeyEvent*) Q_DECL_OVERRIDE;
-    virtual void mousePressEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-    virtual void mouseMoveEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-    virtual void mouseReleaseEvent(QMouseEvent*) Q_DECL_OVERRIDE;
-    virtual void moveEvent(QMoveEvent*) Q_DECL_OVERRIDE;
-    virtual void resizeEvent(QResizeEvent*) Q_DECL_OVERRIDE;
-    virtual void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
-    virtual void wheelEvent(QWheelEvent*) Q_DECL_OVERRIDE;
-    virtual bool eventFilter(QObject*, QEvent*) Q_DECL_OVERRIDE;
+    virtual bool event(QEvent *) Q_DECL_OVERRIDE;
+    virtual void contextMenuEvent(QContextMenuEvent *) Q_DECL_OVERRIDE;
+    virtual void dragEnterEvent(QDragEnterEvent *) Q_DECL_OVERRIDE;
+    virtual void dragLeaveEvent(QDragLeaveEvent *) Q_DECL_OVERRIDE;
+    virtual void dragMoveEvent(QDragMoveEvent *) Q_DECL_OVERRIDE;
+    virtual void dropEvent(QDropEvent *) Q_DECL_OVERRIDE;
+    virtual void keyPressEvent(QKeyEvent *) Q_DECL_OVERRIDE;
+    virtual void keyReleaseEvent(QKeyEvent *) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    virtual void moveEvent(QMoveEvent *) Q_DECL_OVERRIDE;
+    virtual void resizeEvent(QResizeEvent *) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
+    virtual void wheelEvent(QWheelEvent *) Q_DECL_OVERRIDE;
+    virtual bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
 private:
     bool zoom(double);
 
-    void keyPressPolygon(QKeyEvent*);
-    void keyPressText(QKeyEvent*);
-    void keyPressAlphabet(QKeyEvent*);
-    void keyPressPaste(QKeyEvent*);
-    void keyPressMirror(QKeyEvent*);
-    void keyPressRotate(QKeyEvent*);
-    void keyPressMovePattern(QKeyEvent*);
+    void keyPressPolygon(QKeyEvent *);
+    void keyPressText(QKeyEvent *);
+    void keyPressAlphabet(QKeyEvent *);
+    void keyPressPaste(QKeyEvent *);
+    void keyPressMirror(QKeyEvent *);
+    void keyPressRotate(QKeyEvent *);
+    void keyPressMovePattern(QKeyEvent *);
 
     void toolInitPolygon();
     void toolInitText();
@@ -182,182 +170,181 @@ private:
     void toolCleanupMirror();
     void toolCleanupRotate();
 
-    void renderBackgroundImages(QPainter &, const QRect&);
-    void renderStitches(QPainter*, const QRect&);
-    void renderBackstitches(QPainter*, const QRect&);
-    void renderFrenchKnots(QPainter*, const QRect&);
+    void renderBackgroundImages(QPainter &, const QRect &);
+    void renderStitches(QPainter *, const QRect &);
+    void renderBackstitches(QPainter *, const QRect &);
+    void renderFrenchKnots(QPainter *, const QRect &);
 
-    void renderRubberBandLine(QPainter*, const QRect&);
-    void renderRubberBandRectangle(QPainter*, const QRect&);
-    void renderRubberBandEllipse(QPainter*, const QRect&);
-    void renderFillPolygon(QPainter*, const QRect&);
-    void renderAlphabetCursor(QPainter*, const QRect&);
-    void renderPasteImage(QPainter*, const QRect&);
+    void renderRubberBandLine(QPainter *, const QRect &);
+    void renderRubberBandRectangle(QPainter *, const QRect &);
+    void renderRubberBandEllipse(QPainter *, const QRect &);
+    void renderFillPolygon(QPainter *, const QRect &);
+    void renderAlphabetCursor(QPainter *, const QRect &);
+    void renderPasteImage(QPainter *, const QRect &);
 
-    void mousePressEvent_Paint(QMouseEvent*);
-    void mouseMoveEvent_Paint(QMouseEvent*);
-    void mouseReleaseEvent_Paint(QMouseEvent*);
+    void mousePressEvent_Paint(QMouseEvent *);
+    void mouseMoveEvent_Paint(QMouseEvent *);
+    void mouseReleaseEvent_Paint(QMouseEvent *);
 
-    void mousePressEvent_Draw(QMouseEvent*);
-    void mouseMoveEvent_Draw(QMouseEvent*);
-    void mouseReleaseEvent_Draw(QMouseEvent*);
+    void mousePressEvent_Draw(QMouseEvent *);
+    void mouseMoveEvent_Draw(QMouseEvent *);
+    void mouseReleaseEvent_Draw(QMouseEvent *);
 
-    void mousePressEvent_Erase(QMouseEvent*);
-    void mouseMoveEvent_Erase(QMouseEvent*);
-    void mouseReleaseEvent_Erase(QMouseEvent*);
+    void mousePressEvent_Erase(QMouseEvent *);
+    void mouseMoveEvent_Erase(QMouseEvent *);
+    void mouseReleaseEvent_Erase(QMouseEvent *);
 
-    void mousePressEvent_Rectangle(QMouseEvent*);
-    void mouseMoveEvent_Rectangle(QMouseEvent*);
-    void mouseReleaseEvent_Rectangle(QMouseEvent*);
+    void mousePressEvent_Rectangle(QMouseEvent *);
+    void mouseMoveEvent_Rectangle(QMouseEvent *);
+    void mouseReleaseEvent_Rectangle(QMouseEvent *);
 
-    void mousePressEvent_FillRectangle(QMouseEvent*);
-    void mouseMoveEvent_FillRectangle(QMouseEvent*);
-    void mouseReleaseEvent_FillRectangle(QMouseEvent*);
+    void mousePressEvent_FillRectangle(QMouseEvent *);
+    void mouseMoveEvent_FillRectangle(QMouseEvent *);
+    void mouseReleaseEvent_FillRectangle(QMouseEvent *);
 
-    void mousePressEvent_Ellipse(QMouseEvent*);
-    void mouseMoveEvent_Ellipse(QMouseEvent*);
-    void mouseReleaseEvent_Ellipse(QMouseEvent*);
+    void mousePressEvent_Ellipse(QMouseEvent *);
+    void mouseMoveEvent_Ellipse(QMouseEvent *);
+    void mouseReleaseEvent_Ellipse(QMouseEvent *);
 
-    void mousePressEvent_FillEllipse(QMouseEvent*);
-    void mouseMoveEvent_FillEllipse(QMouseEvent*);
-    void mouseReleaseEvent_FillEllipse(QMouseEvent*);
+    void mousePressEvent_FillEllipse(QMouseEvent *);
+    void mouseMoveEvent_FillEllipse(QMouseEvent *);
+    void mouseReleaseEvent_FillEllipse(QMouseEvent *);
 
-    void mousePressEvent_FillPolygon(QMouseEvent*);
-    void mouseMoveEvent_FillPolygon(QMouseEvent*);
-    void mouseReleaseEvent_FillPolygon(QMouseEvent*);
+    void mousePressEvent_FillPolygon(QMouseEvent *);
+    void mouseMoveEvent_FillPolygon(QMouseEvent *);
+    void mouseReleaseEvent_FillPolygon(QMouseEvent *);
 
-    void mousePressEvent_Text(QMouseEvent*);
-    void mouseMoveEvent_Text(QMouseEvent*);
-    void mouseReleaseEvent_Text(QMouseEvent*);
+    void mousePressEvent_Text(QMouseEvent *);
+    void mouseMoveEvent_Text(QMouseEvent *);
+    void mouseReleaseEvent_Text(QMouseEvent *);
 
-    void mousePressEvent_Alphabet(QMouseEvent*);
-    void mouseMoveEvent_Alphabet(QMouseEvent*);
-    void mouseReleaseEvent_Alphabet(QMouseEvent*);
+    void mousePressEvent_Alphabet(QMouseEvent *);
+    void mouseMoveEvent_Alphabet(QMouseEvent *);
+    void mouseReleaseEvent_Alphabet(QMouseEvent *);
 
-    void mousePressEvent_Select(QMouseEvent*);
-    void mouseMoveEvent_Select(QMouseEvent*);
-    void mouseReleaseEvent_Select(QMouseEvent*);
+    void mousePressEvent_Select(QMouseEvent *);
+    void mouseMoveEvent_Select(QMouseEvent *);
+    void mouseReleaseEvent_Select(QMouseEvent *);
 
-    void mousePressEvent_Backstitch(QMouseEvent*);
-    void mouseMoveEvent_Backstitch(QMouseEvent*);
-    void mouseReleaseEvent_Backstitch(QMouseEvent*);
+    void mousePressEvent_Backstitch(QMouseEvent *);
+    void mouseMoveEvent_Backstitch(QMouseEvent *);
+    void mouseReleaseEvent_Backstitch(QMouseEvent *);
 
-    void mousePressEvent_ColorPicker(QMouseEvent*);
-    void mouseMoveEvent_ColorPicker(QMouseEvent*);
-    void mouseReleaseEvent_ColorPicker(QMouseEvent*);
+    void mousePressEvent_ColorPicker(QMouseEvent *);
+    void mouseMoveEvent_ColorPicker(QMouseEvent *);
+    void mouseReleaseEvent_ColorPicker(QMouseEvent *);
 
-    void mousePressEvent_Paste(QMouseEvent*);
-    void mouseMoveEvent_Paste(QMouseEvent*);
-    void mouseReleaseEvent_Paste(QMouseEvent*);
+    void mousePressEvent_Paste(QMouseEvent *);
+    void mouseMoveEvent_Paste(QMouseEvent *);
+    void mouseReleaseEvent_Paste(QMouseEvent *);
 
-    void mousePressEvent_Mirror(QMouseEvent*);
-    void mouseMoveEvent_Mirror(QMouseEvent*);
-    void mouseReleaseEvent_Mirror(QMouseEvent*);
+    void mousePressEvent_Mirror(QMouseEvent *);
+    void mouseMoveEvent_Mirror(QMouseEvent *);
+    void mouseReleaseEvent_Mirror(QMouseEvent *);
 
-    void mousePressEvent_Rotate(QMouseEvent*);
-    void mouseMoveEvent_Rotate(QMouseEvent*);
-    void mouseReleaseEvent_Rotate(QMouseEvent*);
+    void mousePressEvent_Rotate(QMouseEvent *);
+    void mouseMoveEvent_Rotate(QMouseEvent *);
+    void mouseReleaseEvent_Rotate(QMouseEvent *);
 
-    QPoint contentsToCell(const QPoint&) const;
-    int contentsToZone(const QPoint&) const;
-    QPoint contentsToSnap(const QPoint&) const;
-    QRect snapToCells(const QPoint&) const;
-    QRect cellToRect(const QPoint&) const;
-    QRect polygonToCells(const QPolygon&) const;
-    QRect rectToContents(const QRect&) const;
+    QPoint contentsToCell(const QPoint &) const;
+    int contentsToZone(const QPoint &) const;
+    QPoint contentsToSnap(const QPoint &) const;
+    QRect snapToCells(const QPoint &) const;
+    QRect cellToRect(const QPoint &) const;
+    QRect polygonToCells(const QPolygon &) const;
+    QRect rectToContents(const QRect &) const;
 
-    void processBitmap(QUndoCommand*, const QBitmap&);
+    void processBitmap(QUndoCommand *, const QBitmap &);
     QRect visibleCells();
     QList<Stitch::Type> maskStitches() const;
 
-    Document    *m_document;
-    Preview     *m_preview;
+    Document *m_document;
+    Preview *m_preview;
 
-    Renderer    m_renderer;
+    Renderer m_renderer;
 
-    Scale       *m_horizontalScale;
-    Scale       *m_verticalScale;
+    Scale *m_horizontalScale;
+    Scale *m_verticalScale;
     Configuration::EnumEditor_FormatScalesAs::type m_formatScalesAs;
 
-    LibraryManagerDlg   *m_libraryManagerDlg;
+    LibraryManagerDlg *m_libraryManagerDlg;
 
-    double  m_zoomFactor;
-    double  m_cellWidth;
-    double  m_cellHeight;
-    double  m_horizontalClothCount;
-    double  m_verticalClothCount;
-    int     m_cellHorizontalGrouping;
-    int     m_cellVerticalGrouping;
+    double m_zoomFactor;
+    double m_cellWidth;
+    double m_cellHeight;
+    double m_horizontalClothCount;
+    double m_verticalClothCount;
+    int m_cellHorizontalGrouping;
+    int m_cellVerticalGrouping;
 
-    enum ToolMode   m_toolMode;
-    enum ToolMode   m_oldToolMode;
+    enum ToolMode m_toolMode;
+    enum ToolMode m_oldToolMode;
 
-    bool    m_renderBackgroundImages;
-    bool    m_renderGrid;
-    bool    m_renderStitches;
-    bool    m_renderBackstitches;
-    bool    m_renderFrenchKnots;
+    bool m_renderBackgroundImages;
+    bool m_renderGrid;
+    bool m_renderStitches;
+    bool m_renderBackstitches;
+    bool m_renderFrenchKnots;
 
-    bool    m_maskStitch;
-    bool    m_maskColor;
-    bool    m_maskBackstitch;
-    bool    m_maskKnot;
-    bool    m_makesCopies;
+    bool m_maskStitch;
+    bool m_maskColor;
+    bool m_maskBackstitch;
+    bool m_maskKnot;
+    bool m_makesCopies;
 
-    Qt::Orientation         m_orientation;
-    StitchData::Rotation    m_rotation;
+    Qt::Orientation m_orientation;
+    StitchData::Rotation m_rotation;
 
-    QPoint  m_cellStart;
-    QPoint  m_cellTracking;
-    QPoint  m_cellEnd;
+    QPoint m_cellStart;
+    QPoint m_cellTracking;
+    QPoint m_cellEnd;
 
-    QPoint  m_pasteOffset;
+    QPoint m_pasteOffset;
 
     int m_zoneStart;
     int m_zoneTracking;
     int m_zoneEnd;
 
-    QPolygon    m_polygon;
+    QPolygon m_polygon;
 
-    QUndoCommand    *m_activeCommand;
+    QUndoCommand *m_activeCommand;
 
     enum SelectedStitchType m_currentStitchType;
 
-    Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
-    Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
-    Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
-    bool    m_colorHighlight;
+    Configuration::EnumRenderer_RenderStitchesAs::type m_renderStitchesAs;
+    Configuration::EnumRenderer_RenderBackstitchesAs::type m_renderBackstitchesAs;
+    Configuration::EnumRenderer_RenderKnotsAs::type m_renderKnotsAs;
+    bool m_colorHighlight;
 
-    QRect   m_rubberBand;
-    QRect   m_selectionArea;
+    QRect m_rubberBand;
+    QRect m_selectionArea;
 
-    QByteArray  m_pasteData;
-    Pattern     *m_pastePattern;
+    QByteArray m_pasteData;
+    Pattern *m_pastePattern;
 
-    QPixmap     m_cachedContents;
+    QPixmap m_cachedContents;
 
-    QStack<QPoint>  m_cursorStack;
-    QMap<int, int>  m_cursorCommands;
+    QStack<QPoint> m_cursorStack;
+    QMap<int, int> m_cursorCommands;
 
     KModifierKeyInfo m_keyInfo;
 
-    typedef void (Editor::*keyPressCallPointer)(QKeyEvent*);
+    typedef void (Editor::*keyPressCallPointer)(QKeyEvent *);
     typedef void (Editor::*toolInitCallPointer)();
     typedef void (Editor::*toolCleanupCallPointer)();
-    typedef void (Editor::*mouseEventCallPointer)(QMouseEvent*);
-    typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter*, const QRect&);
+    typedef void (Editor::*mouseEventCallPointer)(QMouseEvent *);
+    typedef void (Editor::*renderToolSpecificGraphicsCallPointer)(QPainter *, const QRect &);
 
-    static const keyPressCallPointer    keyPressCallPointers[];
+    static const keyPressCallPointer keyPressCallPointers[];
 
-    static const toolInitCallPointer    toolInitCallPointers[];
+    static const toolInitCallPointer toolInitCallPointers[];
     static const toolCleanupCallPointer toolCleanupCallPointers[];
 
-    static const mouseEventCallPointer  mousePressEventCallPointers[];
-    static const mouseEventCallPointer  mouseMoveEventCallPointers[];
-    static const mouseEventCallPointer  mouseReleaseEventCallPointers[];
+    static const mouseEventCallPointer mousePressEventCallPointers[];
+    static const mouseEventCallPointer mouseMoveEventCallPointers[];
+    static const mouseEventCallPointer mouseReleaseEventCallPointers[];
 
-    static const renderToolSpecificGraphicsCallPointer  renderToolSpecificGraphics[];
+    static const renderToolSpecificGraphicsCallPointer renderToolSpecificGraphics[];
 };
-
 
 #endif // Editor_H

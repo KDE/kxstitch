@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the SymbolLibrary class
  */
-
 
 /**
  * @page symbol_library Symbol Library
@@ -44,7 +42,6 @@
  * File->Close will close the current library leaving a new empty library that new symbols can be added to.
  */
 
-
 #include "SymbolLibrary.h"
 
 #include <QDataStream>
@@ -57,7 +54,6 @@
 #include "Exceptions.h"
 #include "SymbolListWidget.h"
 
-
 /**
  * Construct a SymbolLibrary.
  * Set the url to Untitled and the index to 1.
@@ -65,11 +61,10 @@
  * have been added. It will be saved with the file for the next time it is loaded.
  */
 SymbolLibrary::SymbolLibrary(SymbolListWidget *listWidget)
-    :   m_listWidget(listWidget)
+    : m_listWidget(listWidget)
 {
     clear();
 }
-
 
 /**
  * Destructor
@@ -78,7 +73,6 @@ SymbolLibrary::~SymbolLibrary()
 {
     clear();
 }
-
 
 /**
  * Clear the file of symbols.
@@ -101,7 +95,6 @@ void SymbolLibrary::clear()
     m_url = QUrl(i18n("Untitled"));
 }
 
-
 /**
  * Get the path associated with an index.
  * If the index is not in the library it returns a default constructed Symbol.
@@ -114,7 +107,6 @@ Symbol SymbolLibrary::symbol(qint16 index) const
 {
     return (m_symbols.contains(index) ? m_symbols.value(index) : Symbol());
 }
-
 
 /**
  * Take a symbol from the library.
@@ -140,7 +132,6 @@ Symbol SymbolLibrary::takeSymbol(qint16 index)
 
     return symbol;
 }
-
 
 /**
  * Update the Symbol for an index in the library.
@@ -169,7 +160,6 @@ qint16 SymbolLibrary::setSymbol(qint16 index, const Symbol &symbol)
     return index;
 }
 
-
 /**
  * Get the url for the file.
  *
@@ -179,7 +169,6 @@ QUrl SymbolLibrary::url() const
 {
     return m_url;
 }
-
 
 /**
  * Set the url for the file.
@@ -192,15 +181,13 @@ void SymbolLibrary::setUrl(const QUrl &url)
     m_name = url.fileName();
 }
 
-
 /**
  * Get the name of the symbol library.
  */
-QString  SymbolLibrary::name() const
+QString SymbolLibrary::name() const
 {
     return m_name;
 }
-
 
 /**
  * Set the name of the symbol library.
@@ -211,7 +198,6 @@ void SymbolLibrary::setName(const QString &name)
 {
     m_name = name;
 }
-
 
 /**
  * Get a sorted list of symbol indexes
@@ -225,7 +211,6 @@ QList<qint16> SymbolLibrary::indexes() const
     return keys;
 }
 
-
 /**
  * Get a pointer to the symbol library undo stack.
  *
@@ -235,7 +220,6 @@ QUndoStack *SymbolLibrary::undoStack()
 {
     return &m_undoStack;
 }
-
 
 /**
  * Generate all the items in the library.
@@ -254,7 +238,6 @@ void SymbolLibrary::generateItems()
         m_listWidget->addSymbol(index, m_symbols[index]);
     }
 }
-
 
 /**
  * Stream out the file.
@@ -281,7 +264,6 @@ QDataStream &operator<<(QDataStream &stream, const SymbolLibrary &library)
     stream << library.m_symbols;
     return stream;
 }
-
 
 /**
  * Stream in the file.

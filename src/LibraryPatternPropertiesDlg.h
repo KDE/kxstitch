@@ -8,19 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryPatternPropertiesDlg_H
 #define LibraryPatternPropertiesDlg_H
-
 
 #include <QDialog>
 
 #include "ui_LibraryPatternProperties.h"
 
-
 class QHideEvent;
 class QShowEvent;
-
 
 class LibraryPatternPropertiesDlg : public QDialog
 {
@@ -44,8 +40,7 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::LibraryPatternProperties    ui;
+    Ui::LibraryPatternProperties ui;
 };
-
 
 #endif // LibraryPatternPropertiesDlg_H

@@ -8,17 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryFile_H
 #define LibraryFile_H
-
 
 #include <QList>
 #include <QString>
 
-
 class LibraryPattern;
-
 
 class LibraryFile
 {
@@ -42,14 +38,11 @@ private:
 
     static const int version = 100;
 
-    bool            m_exists;
-    bool            m_read;
-    QString         m_path;
+    bool m_exists;
+    bool m_read;
+    QString m_path;
     QList<LibraryPattern *> m_libraryPatterns;
-    int         m_current;
-
-
+    int m_current;
 };
-
 
 #endif // LibraryFile_H

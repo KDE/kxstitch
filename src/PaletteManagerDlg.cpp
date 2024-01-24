@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PaletteManagerDlg.h"
 
 #include <QBitmap>
@@ -22,7 +21,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include "configuration.h"
 #include "CalibrateFlossDlg.h"
 #include "Commands.h"
 #include "Floss.h"
@@ -33,51 +31,23 @@
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 #include "SymbolSelectorDlg.h"
-
+#include "configuration.h"
 
 const uchar pickColorCursorMask[] = {
-    0x18, 0x00, 0x00, 0x00,
-    0x18, 0x00, 0x00, 0x00,
-    0x18, 0x00, 0x00, 0x00,
-    0xff, 0x00, 0x00, 0x00,
-    0xff, 0x00, 0x00, 0x00,
-    0x18, 0x00, 0x00, 0x00,
-    0x18, 0x00, 0x00, 0x00,
-    0x18, 0x00, 0x00, 0x00,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
-    0x00, 0xff, 0xff, 0xff,
+    0x18, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0xff, 0x00, 0x00, 0x00, 0xff, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x18, 0x00,
+    0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff,
+    0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff,
+    0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff,
+    0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff, 0x00, 0xff, 0xff, 0xff,
 };
 
-
 PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
-    :   QDialog(parent),
-        m_document(document),
-        m_dialogPalette(m_document->pattern()->palette()),
-        m_flossUsage(document->pattern()->stitches().flossUsage()),
-        m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName())),
-        m_symbolSelectorDlg(nullptr)
+    : QDialog(parent)
+    , m_document(document)
+    , m_dialogPalette(m_document->pattern()->palette())
+    , m_flossUsage(document->pattern()->stitches().flossUsage())
+    , m_scheme(SchemeManager::scheme(m_dialogPalette.schemeName()))
+    , m_symbolSelectorDlg(nullptr)
 {
     setWindowTitle(i18n("Palette Manager"));
     ui.setupUi(this);
@@ -88,18 +58,15 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
     fillLists();
 }
 
-
 PaletteManagerDlg::~PaletteManagerDlg()
 {
     delete m_symbolSelectorDlg;
 }
 
-
 const DocumentPalette &PaletteManagerDlg::palette() const
 {
     return m_dialogPalette;
 }
-
 
 void PaletteManagerDlg::hideEvent(QHideEvent *event)
 {
@@ -107,7 +74,6 @@ void PaletteManagerDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void PaletteManagerDlg::showEvent(QShowEvent *event)
 {
@@ -118,12 +84,10 @@ void PaletteManagerDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void PaletteManagerDlg::on_ColorList_currentRowChanged(int currentRow)
 {
     ui.AddFloss->setEnabled((currentRow != -1) && symbolsAvailable());
 }
-
 
 int mapStyleToIndex(Qt::PenStyle style)
 {
@@ -147,7 +111,6 @@ int mapStyleToIndex(Qt::PenStyle style)
 
     return index;
 }
-
 
 void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
 {
@@ -188,7 +151,6 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
     }
 }
 
-
 void PaletteManagerDlg::on_AddFloss_clicked(bool)
 {
     QListWidgetItem *listWidgetItem = ui.ColorList->takeItem(ui.ColorList->currentRow());
@@ -197,7 +159,6 @@ void PaletteManagerDlg::on_AddFloss_clicked(bool)
     ui.CurrentList->scrollToItem(listWidgetItem, QAbstractItemView::PositionAtCenter);
     ui.CurrentList->setCurrentItem(listWidgetItem);
 }
-
 
 void PaletteManagerDlg::on_RemoveFloss_clicked(bool)
 {
@@ -210,18 +171,15 @@ void PaletteManagerDlg::on_RemoveFloss_clicked(bool)
     ui.ColorList->setCurrentItem(listWidgetItem);
 }
 
-
 void PaletteManagerDlg::on_StitchStrands_activated(int index)
 {
     m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setStitchStrands(index + 1);
 }
 
-
 void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
 {
     m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setBackstitchStrands(index + 1);
 }
-
 
 void PaletteManagerDlg::on_SymbolLibrary_activated(const QString &library)
 {
@@ -240,7 +198,6 @@ void PaletteManagerDlg::on_SymbolLibrary_activated(const QString &library)
     on_CurrentList_currentRowChanged(ui.CurrentList->currentRow());
 }
 
-
 void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 {
     int i = paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString());
@@ -253,10 +210,11 @@ void PaletteManagerDlg::on_StitchSymbol_clicked(bool)
 
     if (m_symbolSelectorDlg->exec() == QDialog::Accepted) {
         m_dialogPalette.floss(i)->setStitchSymbol(m_symbolSelectorDlg->selectedSymbol());
-        ui.StitchSymbol->setIcon(SymbolListWidget::createIcon(SymbolManager::library(m_dialogPalette.symbolLibrary())->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol()), 22));
+        ui.StitchSymbol->setIcon(
+            SymbolListWidget::createIcon(SymbolManager::library(m_dialogPalette.symbolLibrary())->symbol(m_dialogPalette.flosses().value(i)->stitchSymbol()),
+                                         22));
     }
 }
-
 
 void PaletteManagerDlg::on_BackstitchSymbol_activated(int index)
 {
@@ -274,7 +232,6 @@ void PaletteManagerDlg::on_BackstitchSymbol_activated(int index)
 
     m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setBackstitchSymbol(style);
 }
-
 
 void PaletteManagerDlg::on_NewFloss_clicked(bool)
 {
@@ -304,10 +261,9 @@ void PaletteManagerDlg::on_NewFloss_clicked(bool)
     delete newFlossDlg;
 }
 
-
 void PaletteManagerDlg::on_ClearUnused_clicked(bool)
 {
-    for (int row = 0 ; row < ui.CurrentList->count() ;) {
+    for (int row = 0; row < ui.CurrentList->count();) {
         ui.CurrentList->setCurrentRow(row);
         QListWidgetItem *listWidgetItem = ui.CurrentList->currentItem();
         int i = paletteIndex(listWidgetItem->data(Qt::UserRole).toString());
@@ -320,7 +276,6 @@ void PaletteManagerDlg::on_ClearUnused_clicked(bool)
     }
 }
 
-
 void PaletteManagerDlg::on_Calibrate_clicked(bool)
 {
     QPointer<CalibrateFlossDlg> calibrateFlossDlg = new CalibrateFlossDlg(this, m_dialogPalette.schemeName());
@@ -330,14 +285,12 @@ void PaletteManagerDlg::on_Calibrate_clicked(bool)
     }
 }
 
-
 void PaletteManagerDlg::on_PickColor_clicked()
 {
     setMouseTracking(true);
     setCursor(Qt::CrossCursor);
     grabMouse();
 }
-
 
 void PaletteManagerDlg::mouseMoveEvent(QMouseEvent *event)
 {
@@ -358,7 +311,6 @@ void PaletteManagerDlg::mouseMoveEvent(QMouseEvent *event)
     pixmap.setMask(QBitmap().fromData(QSize(32, 32), pickColorCursorMask, QImage::Format_Mono));
     setCursor(QCursor(pixmap, 4, 4));
 }
-
 
 void PaletteManagerDlg::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -384,24 +336,20 @@ void PaletteManagerDlg::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-
 void PaletteManagerDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
-
 
 void PaletteManagerDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void PaletteManagerDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PaletteManagerDialog"), QStringLiteral("kxstitch"));
 }
-
 
 void PaletteManagerDlg::fillLists()
 {
@@ -409,7 +357,7 @@ void PaletteManagerDlg::fillLists()
     ui.CurrentList->clear();
     ui.CurrentScheme->setText(m_scheme->schemeName());
 
-    foreach (const Floss * floss, m_scheme->flosses()) {
+    foreach (const Floss *floss, m_scheme->flosses()) {
         QListWidgetItem *listWidgetItem = new QListWidgetItem;
         listWidgetItem->setText(QString::fromLatin1("%1 %2").arg(floss->name(), floss->description()));
         listWidgetItem->setData(Qt::DecorationRole, QColor(floss->color()));
@@ -446,12 +394,11 @@ void PaletteManagerDlg::fillLists()
     }
 }
 
-
 void PaletteManagerDlg::insertListWidgetItem(QListWidget *listWidget, QListWidgetItem *listWidgetItem)
 {
     int rows = listWidget->count();
 
-    for (int row = 0 ; row < rows ; row++) {
+    for (int row = 0; row < rows; row++) {
         if (listWidgetItem->data(Qt::UserRole).toInt() < listWidget->item(row)->data(Qt::UserRole).toInt()) {
             do {
                 QListWidgetItem *oldListWidgetItem = listWidget->item(row);
@@ -464,10 +411,9 @@ void PaletteManagerDlg::insertListWidgetItem(QListWidget *listWidget, QListWidge
     listWidget->addItem(listWidgetItem);
 }
 
-
 bool PaletteManagerDlg::contains(const QString &flossName) const
 {
-    for (QMap<int, DocumentFloss*>::const_iterator i = m_dialogPalette.flosses().constBegin() ; i != m_dialogPalette.flosses().constEnd() ; ++i) {
+    for (QMap<int, DocumentFloss *>::const_iterator i = m_dialogPalette.flosses().constBegin(); i != m_dialogPalette.flosses().constEnd(); ++i) {
         if (flossName == i.value()->flossName()) {
             return true;
         }
@@ -476,10 +422,9 @@ bool PaletteManagerDlg::contains(const QString &flossName) const
     return false;
 }
 
-
 int PaletteManagerDlg::paletteIndex(const QString &flossName) const
 {
-    for (QMap<int, DocumentFloss*>::const_iterator i = m_dialogPalette.flosses().constBegin() ; i != m_dialogPalette.flosses().constEnd() ; ++i) {
+    for (QMap<int, DocumentFloss *>::const_iterator i = m_dialogPalette.flosses().constBegin(); i != m_dialogPalette.flosses().constEnd(); ++i) {
         if (flossName == i.value()->flossName()) {
             return i.key();
         }
@@ -487,7 +432,6 @@ int PaletteManagerDlg::paletteIndex(const QString &flossName) const
 
     return -1;
 }
-
 
 bool PaletteManagerDlg::symbolsAvailable() const
 {

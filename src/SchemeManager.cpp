@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "SchemeManager.h"
 
 #include <QDir>
@@ -27,7 +26,6 @@
 #include "FlossScheme.h"
 #include "SchemeParser.h"
 
-
 SchemeManager *SchemeManager::schemeManager = nullptr;
 
 /**
@@ -42,17 +40,15 @@ SchemeManager &SchemeManager::self()
     return *schemeManager;
 }
 
-
 /**
     Constructor.
     */
 SchemeManager::SchemeManager()
-    :   QObject()
+    : QObject()
 {
     /** Refresh the list of floss schemes. */
     refresh();
 }
-
 
 /**
     Destructor. Delete all the floss schemes.
@@ -61,7 +57,6 @@ SchemeManager::~SchemeManager()
 {
     qDeleteAll(m_flossSchemes);
 }
-
 
 /**
     Create a new scheme.  The name is checked to see if it already exists, if not a new instance of a FlossScheme
@@ -83,7 +78,6 @@ FlossScheme *SchemeManager::createScheme(QString schemeName)
     return flossScheme;
 }
 
-
 /**
     Get a list of the FlossSchemes available.
     @return QStringList of scheme names.
@@ -100,7 +94,6 @@ QStringList SchemeManager::schemes()
 
     return schemeNames;
 }
-
 
 /**
     Get a pointer to a scheme by name
@@ -123,7 +116,6 @@ FlossScheme *SchemeManager::scheme(QString name)
 
     return nullptr;
 }
-
 
 /**
     Read a scheme.
@@ -155,7 +147,6 @@ FlossScheme *SchemeManager::readScheme(QString name)
 
     return flossScheme;
 }
-
 
 /**
     Save a modified scheme to a writable location.
@@ -198,12 +189,13 @@ bool SchemeManager::writeScheme(QString name)
         QTextStream stream(&schemeFile);
         stream << "<!DOCTYPE flossScheme SYSTEM \"flossScheme.dtd\">\n<flossScheme>\n";
         stream << "<title>" << name.replace(QLatin1Char('&'), QLatin1String("&amp;")) << "</title>\n"; // includes fixup for the J&P Coates scheme
-        QListIterator<Floss*> it(flossScheme->flosses());
+        QListIterator<Floss *> it(flossScheme->flosses());
 
         while (it.hasNext()) {
             Floss *floss = it.next();
             stream << "<floss><name>" << floss->name() << "</name><description>" << floss->description() << "</description>";
-            stream << "<color><red>" << floss->color().red() << "</red><green>" << floss->color().green() << "</green><blue>" << floss->color().blue() << "</blue></color></floss>\n";
+            stream << "<color><red>" << floss->color().red() << "</red><green>" << floss->color().green() << "</green><blue>" << floss->color().blue()
+                   << "</blue></color></floss>\n";
         }
 
         stream << "</flossScheme>\n";
@@ -214,7 +206,6 @@ bool SchemeManager::writeScheme(QString name)
 
     return false;
 }
-
 
 /**
     Get a list of files that contain xml schemes, iterating each one to create a new FlossScheme instance
@@ -233,7 +224,7 @@ void SchemeManager::refresh()
             FlossScheme *flossScheme = readScheme(it.next());
 
             if (flossScheme) {
-                for (int i = 0 ; i < m_flossSchemes.count() ; ++i) {
+                for (int i = 0; i < m_flossSchemes.count(); ++i) {
                     if (m_flossSchemes.at(i)->schemeName() == flossScheme->schemeName()) {
                         delete flossScheme;
                         flossScheme = nullptr;

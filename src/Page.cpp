@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Page.h"
 
 #include <QPainter>
@@ -20,26 +19,26 @@
 #include "Element.h"
 #include "Exceptions.h"
 
-
 Page::Page(QPageSize pageSize, QPageLayout::Orientation orientation)
-    :   QPageLayout(pageSize, orientation, QMarginsF(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom()), QPageLayout::Millimeter),
-        m_pageNumber(0)
+    : QPageLayout(
+        pageSize,
+        orientation,
+        QMarginsF(Configuration::page_MarginLeft(), Configuration::page_MarginTop(), Configuration::page_MarginRight(), Configuration::page_MarginBottom()),
+        QPageLayout::Millimeter)
+    , m_pageNumber(0)
 {
 }
 
-
 Page::Page(const Page &other)
-    :   QPageLayout(other)
+    : QPageLayout(other)
 {
     *this = other;
 }
-
 
 Page::~Page()
 {
     qDeleteAll(m_elements);
 }
-
 
 Page &Page::operator=(const Page &other)
 {
@@ -73,36 +72,30 @@ Page &Page::operator=(const Page &other)
     return *this;
 }
 
-
 int Page::pageNumber() const
 {
     return m_pageNumber;
 }
-
 
 const QList<Element *> Page::elements() const
 {
     return m_elements;
 }
 
-
 void Page::setPageNumber(int pageNumber)
 {
     m_pageNumber = pageNumber;
 }
-
 
 void Page::addElement(Element *element)
 {
     m_elements.append(element);
 }
 
-
 void Page::removeElement(Element *element)
 {
     m_elements.removeOne(element);
 }
-
 
 void Page::render(Document *document, QPainter *painter) const
 {
@@ -123,14 +116,13 @@ void Page::render(Document *document, QPainter *painter) const
     painter->restore();
 }
 
-
 Element *Page::itemAt(const QPoint &pos) const
 {
     Element *element = nullptr;
 
     if (m_elements.count()) {
         QListIterator<Element *> elementIterator(m_elements);
-        elementIterator.toBack();  // start from the end of the list
+        elementIterator.toBack(); // start from the end of the list
 
         while (elementIterator.hasPrevious()) {
             Element *testElement = elementIterator.previous();
@@ -145,25 +137,18 @@ Element *Page::itemAt(const QPoint &pos) const
     return element; // will be the element under the cursor or 0
 }
 
-
 QDataStream &operator<<(QDataStream &stream, const Page &page)
 {
     stream << qint32(page.version);
 
-    stream  << qint32(page.m_pageNumber)
-            << qint32(page.pageSize().id())
-            << qint32(page.orientation())
-            << qint32(page.margins().left())
-            << qint32(page.margins().top())
-            << qint32(page.margins().right())
-            << qint32(page.margins().bottom())
-            << qint32(page.m_elements.count());
+    stream << qint32(page.m_pageNumber) << qint32(page.pageSize().id()) << qint32(page.orientation()) << qint32(page.margins().left())
+           << qint32(page.margins().top()) << qint32(page.margins().right()) << qint32(page.margins().bottom()) << qint32(page.m_elements.count());
 
     QListIterator<Element *> elementIterator(page.m_elements);
 
     while (elementIterator.hasNext()) {
         const Element *element = elementIterator.next();
-        stream  << qint32(element->type());
+        stream << qint32(element->type());
 
         if (element->type() != Element::Plan) {
             stream << *element;
@@ -176,7 +161,6 @@ QDataStream &operator<<(QDataStream &stream, const Page &page)
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, Page &page)
 {
@@ -197,13 +181,7 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
 
     switch (version) {
     case 102:
-        stream  >> pageNumber
-                >> pageSizeId
-                >> orientation
-                >> left
-                >> top
-                >> right
-                >> bottom;
+        stream >> pageNumber >> pageSizeId >> orientation >> left >> top >> right >> bottom;
         page.m_pageNumber = pageNumber;
         page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
         page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
@@ -213,16 +191,7 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
         break;
 
     case 101:
-        stream  >> pageNumber
-                >> pageSizeId
-                >> orientation
-                >> left
-                >> top
-                >> right
-                >> bottom
-                >> showGrid
-                >> gridX
-                >> gridY;
+        stream >> pageNumber >> pageSizeId >> orientation >> left >> top >> right >> bottom >> showGrid >> gridX >> gridY;
         page.m_pageNumber = pageNumber;
         page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
         page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
@@ -234,12 +203,7 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
         break;
 
     case 100:
-        stream  >> pageSizeId
-                >> orientation
-                >> left
-                >> top
-                >> right
-                >> bottom;
+        stream >> pageSizeId >> orientation >> left >> top >> right >> bottom;
         page.setPageSize(QPageSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
         page.setOrientation(static_cast<QPageLayout::Orientation>(orientation));
         page.setMargins(QMarginsF(left, top, right, bottom));
@@ -256,7 +220,6 @@ QDataStream &operator>>(QDataStream &stream, Page &page)
 
     return stream;
 }
-
 
 void Page::readElements(QDataStream &stream)
 {

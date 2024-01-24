@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "ExtendPatternDlg.h"
 
 #include <KConfigGroup>
@@ -16,38 +15,32 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-
 ExtendPatternDlg::ExtendPatternDlg(QWidget *parent)
-    :   QDialog(parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Extend Pattern"));
     ui.setupUi(this);
 }
-
 
 int ExtendPatternDlg::top() const
 {
     return ui.TopMargin->value();
 }
 
-
 int ExtendPatternDlg::left() const
 {
     return ui.LeftMargin->value();
 }
-
 
 int ExtendPatternDlg::right() const
 {
     return ui.RightMargin->value();
 }
 
-
 int ExtendPatternDlg::bottom() const
 {
     return ui.BottomMargin->value();
 }
-
 
 void ExtendPatternDlg::hideEvent(QHideEvent *event)
 {
@@ -55,7 +48,6 @@ void ExtendPatternDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void ExtendPatternDlg::showEvent(QShowEvent *event)
 {
@@ -66,18 +58,15 @@ void ExtendPatternDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void ExtendPatternDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
 
-
 void ExtendPatternDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void ExtendPatternDlg::on_DialogButtonBox_helpRequested()
 {

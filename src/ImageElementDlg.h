@@ -8,23 +8,19 @@
  * (at your option) any later version.
  */
 
-
 #ifndef ImageElementDlg_H
 #define ImageElementDlg_H
-
 
 #include <QDialog>
 #include <QRect>
 
 #include "ui_ImageElement.h"
 
-
 class Document;
 class ImageElement;
 class SelectArea;
 class QHideEvent;
 class QShowEvent;
-
 
 class ImageElementDlg : public QDialog
 {
@@ -44,15 +40,14 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    SelectArea      *m_selectArea;
+    SelectArea *m_selectArea;
 
-    ImageElement    *m_imageElement;
-    Document        *m_document;
+    ImageElement *m_imageElement;
+    Document *m_document;
 
-    QRect           m_patternRect;
+    QRect m_patternRect;
 
-    Ui::ImageElement  ui;
+    Ui::ImageElement ui;
 };
-
 
 #endif // ImageElementDlg_H

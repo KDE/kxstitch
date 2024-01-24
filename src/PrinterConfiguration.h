@@ -8,16 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PrinterConfiguration_H
 #define PrinterConfiguration_H
-
 
 #include <QDataStream>
 #include <QList>
 
 #include "Page.h"
-
 
 class PrinterConfiguration
 {
@@ -44,8 +41,7 @@ private:
 
     static const int version = 100;
 
-    QList<Page *>   m_pages;
+    QList<Page *> m_pages;
 };
-
 
 #endif // PrinterConfiguration_H

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryFilePathsDlg.h"
 
 #include <KConfigGroup>
@@ -16,9 +15,8 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-
-LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStringList paths)
-    :   QDialog(parent)
+LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString &, QStringList paths)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Library File Paths"));
     ui.setupUi(this);
@@ -30,14 +28,12 @@ LibraryFilePathsDlg::LibraryFilePathsDlg(QWidget *parent, const QString&, QStrin
     }
 }
 
-
 void LibraryFilePathsDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("LibraryFilePathsDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void LibraryFilePathsDlg::showEvent(QShowEvent *event)
 {
@@ -48,12 +44,10 @@ void LibraryFilePathsDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void LibraryFilePathsDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
-
 
 void LibraryFilePathsDlg::on_DialogButtonBox_helpRequested()
 {

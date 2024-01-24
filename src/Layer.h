@@ -8,14 +8,11 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Layer_H
 #define Layer_H
 
-
 #include <QDataStream>
 #include <QString>
-
 
 class Layer
 {
@@ -35,13 +32,11 @@ public:
 private:
     static const int version = 100;
 
-    int     m_number;
+    int m_number;
     QString m_name;
 };
 
-
 QDataStream &operator<<(QDataStream &, const Layer &);
 QDataStream &operator>>(QDataStream &, Layer &);
-
 
 #endif // Layer_H

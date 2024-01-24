@@ -8,16 +8,13 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file defines an overlay to be used on top of a QLabel to allow the
  * selection of a pixel point to be used as a color to be ignored.
  */
 
-
 #ifndef AlphaSelect_H
 #define AlphaSelect_H
-
 
 // Qt includes
 #include <QPoint>
@@ -65,6 +62,5 @@ protected:
      */
     virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 };
-
 
 #endif // AlphaSelect_H

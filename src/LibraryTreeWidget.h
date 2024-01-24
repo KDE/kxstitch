@@ -8,13 +8,10 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryTreeWidget_H
 #define LibraryTreeWidget_H
 
-
 #include <QTreeWidget>
-
 
 class QDragEnterEvent;
 class QDragLeaveEvent;
@@ -23,7 +20,6 @@ class QDropEvent;
 class QTimer;
 class QTreeWidgetItem;
 class QWidget;
-
 
 class LibraryTreeWidget : public QTreeWidget
 {
@@ -44,10 +40,9 @@ private slots:
     void openBranch();
 
 private:
-    QTimer          *m_openBranchTimer;
+    QTimer *m_openBranchTimer;
     QTreeWidgetItem *m_dropItem;
     QTreeWidgetItem *m_currentItem;
 };
-
 
 #endif // LibraryTreeWidget_H

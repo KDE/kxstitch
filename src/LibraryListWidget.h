@@ -8,21 +8,17 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryListWidget_H
 #define LibraryListWidget_H
-
 
 #include <QListWidget>
 #include <QWidget>
 
 #include "Renderer.h"
 
-
 class QString;
 
 class Renderer;
-
 
 class LibraryListWidget : public QListWidget
 {
@@ -41,13 +37,12 @@ protected:
     virtual void mouseMoveEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
-    Renderer    m_renderer;
+    Renderer m_renderer;
 
-    QPoint  m_startDrag;
+    QPoint m_startDrag;
 
-    double  m_cellWidth;
-    double  m_cellHeight;
+    double m_cellWidth;
+    double m_cellHeight;
 };
-
 
 #endif // LibraryListWidget_H

@@ -8,23 +8,19 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Palette_H
 #define Palette_H
 
-
 #include <QFrame>
 
-
 class Document;
-
 
 class Palette : public QFrame
 {
     Q_OBJECT
 
 public:
-    enum Mode {Select, Replace, Swap};
+    enum Mode { Select, Replace, Swap };
 
     explicit Palette(QWidget *);
     virtual ~Palette() = default;
@@ -53,17 +49,16 @@ protected:
     virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
-    Document    *m_document;
-    bool        m_showSymbols;
-    int         m_cols;
-    int         m_rows;
-    int         m_width;
-    int         m_height;
-    int         m_flosses;
-    QVector<int>    m_paletteIndex;
+    Document *m_document;
+    bool m_showSymbols;
+    int m_cols;
+    int m_rows;
+    int m_width;
+    int m_height;
+    int m_flosses;
+    QVector<int> m_paletteIndex;
 
-    Mode        m_mode;
+    Mode m_mode;
 };
-
 
 #endif // Palette_H

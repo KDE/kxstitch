@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "ImageElementDlg.h"
 
 #include <QList>
@@ -20,18 +19,17 @@
 #include "Element.h"
 #include "SelectArea.h"
 
-
 ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Document *document)
-    :   QDialog(parent),
-        m_imageElement(imageElement),
-        m_document(document)
+    : QDialog(parent)
+    , m_imageElement(imageElement)
+    , m_document(document)
 {
     setWindowModality(Qt::WindowModal);
-    
+
     setWindowTitle(i18n("Image Element Properties"));
     ui.setupUi(this);
 
-    m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QMap<int, QList<QRect> >());
+    m_selectArea = new SelectArea(ui.PreviewFrame, imageElement, document, QMap<int, QList<QRect>>());
     m_selectArea->setPatternRect(imageElement->patternRect());
 
     ui.PreviewFrame->setWidget(m_selectArea);
@@ -40,14 +38,12 @@ ImageElementDlg::ImageElementDlg(QWidget *parent, ImageElement *imageElement, Do
     ui.BorderThickness->setValue(double(imageElement->borderThickness()) / 10);
 }
 
-
 void ImageElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("ImageElementDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void ImageElementDlg::showEvent(QShowEvent *event)
 {
@@ -57,7 +53,6 @@ void ImageElementDlg::showEvent(QShowEvent *event)
         resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("ImageElementDlg"), QSize()));
     }
 }
-
 
 void ImageElementDlg::on_DialogButtonBox_accepted()
 {
@@ -69,12 +64,10 @@ void ImageElementDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void ImageElementDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void ImageElementDlg::on_DialogButtonBox_helpRequested()
 {

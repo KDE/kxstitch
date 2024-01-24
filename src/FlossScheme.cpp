@@ -8,21 +8,17 @@
  * (at your option) any later version.
  */
 
-
 #include "FlossScheme.h"
 
-
 FlossScheme::FlossScheme()
-    :   m_map(nullptr)
+    : m_map(nullptr)
 {
 }
-
 
 FlossScheme::~FlossScheme()
 {
     delete m_map;
 }
-
 
 Floss *FlossScheme::convert(const QColor &color)
 {
@@ -39,11 +35,10 @@ Floss *FlossScheme::convert(const QColor &color)
 #endif
     image.map(*m_map);
 
-    const Magick::ColorRGB rgb = image.pixelColor(0,0);
+    const Magick::ColorRGB rgb = image.pixelColor(0, 0);
 
-    return find(QColor((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue())));
+    return find(QColor((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue())));
 }
-
 
 Floss *FlossScheme::find(const QString &name) const
 {
@@ -60,7 +55,6 @@ Floss *FlossScheme::find(const QString &name) const
     return nullptr;
 }
 
-
 Floss *FlossScheme::find(const QColor &color) const
 {
     QListIterator<Floss *> flossIterator(m_flosses);
@@ -73,7 +67,7 @@ Floss *FlossScheme::find(const QColor &color) const
         QColor c = floss->color();
 
         // the color mapping may not be perfect so search for a near match.
-        int distance = abs(color.red()-c.red()) + abs(color.green()-c.green()) + abs(color.blue()-c.blue());
+        int distance = abs(color.red() - c.red()) + abs(color.green() - c.green()) + abs(color.blue() - c.blue());
 
         if (distance < closest) {
             matched = floss;
@@ -84,24 +78,20 @@ Floss *FlossScheme::find(const QColor &color) const
     return matched;
 }
 
-
 QString FlossScheme::schemeName() const
 {
     return m_schemeName;
 }
-
 
 QString FlossScheme::path() const
 {
     return m_path;
 }
 
-
 const QList<Floss *> &FlossScheme::flosses() const
 {
     return m_flosses;
 }
-
 
 void FlossScheme::addFloss(Floss *floss)
 {
@@ -109,7 +99,6 @@ void FlossScheme::addFloss(Floss *floss)
     delete m_map;
     m_map = nullptr;
 }
-
 
 void FlossScheme::clearScheme()
 {
@@ -120,18 +109,15 @@ void FlossScheme::clearScheme()
     m_map = nullptr;
 }
 
-
 void FlossScheme::setSchemeName(const QString &name)
 {
     m_schemeName = name;
 }
 
-
 void FlossScheme::setPath(const QString &name)
 {
     m_path = name;
 }
-
 
 Magick::Image *FlossScheme::createImageMap()
 {

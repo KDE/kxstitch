@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the SymbolListWidget class
  */
-
 
 /**
  * @page library_list_widget SymbolListWidget
@@ -28,7 +26,6 @@
  * @image html ui-main-library.png "The user interface showing the library tab"
  */
 
-
 #include "SymbolListWidget.h"
 
 #include <QApplication>
@@ -42,20 +39,18 @@
 #include "Symbol.h"
 #include "SymbolLibrary.h"
 
-
 /**
  * Constructor.
  */
 SymbolListWidget::SymbolListWidget(QWidget *parent)
-    :   QListWidget(parent),
-        m_library(nullptr),
-        m_lastIndex(0)
+    : QListWidget(parent)
+    , m_library(nullptr)
+    , m_lastIndex(0)
 {
     setResizeMode(QListView::Adjust);
     setViewMode(QListView::IconMode);
     setIconSize(24);
 }
-
 
 /**
  * Set the size of the icons to be used.
@@ -69,7 +64,6 @@ void SymbolListWidget::setIconSize(int size)
     QListWidget::setIconSize(QSize(m_size, m_size));
     setGridSize(QSize(m_size, m_size));
 }
-
 
 /**
  * Populate the QListWidget with the QListWidgetItems for each Symbol in the SymbolLibrary.
@@ -91,7 +85,6 @@ void SymbolListWidget::loadFromLibrary(SymbolLibrary *library)
     }
 }
 
-
 /**
  * Add an individual Symbol to the view.
  *
@@ -107,7 +100,6 @@ QListWidgetItem *SymbolListWidget::addSymbol(qint16 index, const Symbol &symbol)
     return item;
 }
 
-
 /**
  * Enable the item so that it can be selected clearing the tooltip.
  *
@@ -120,7 +112,6 @@ void SymbolListWidget::enableItem(qint16 index)
         m_items.value(index)->setToolTip(QString());
     }
 }
-
 
 /**
  * Disable the item so that it can not be selected adding a tooltip to
@@ -136,7 +127,6 @@ void SymbolListWidget::disableItem(qint16 index)
     }
 }
 
-
 /**
  * Remove a symbol item from the view.
  *
@@ -149,7 +139,6 @@ void SymbolListWidget::removeSymbol(qint16 index)
     }
 }
 
-
 /**
  * Set an item as the currently selected one.
  *
@@ -161,7 +150,6 @@ void SymbolListWidget::setCurrent(qint16 index)
         m_items.value(index)->setSelected(true);
     }
 }
-
 
 /**
  * If an item for the index currently exists return it otherwise create
@@ -200,7 +188,6 @@ QListWidgetItem *SymbolListWidget::createItem(qint16 index)
     return item;
 }
 
-
 /**
  * Create a QIcon for the supplied Symbol.
  *
@@ -234,7 +221,6 @@ QIcon SymbolListWidget::createIcon(const Symbol &symbol, int size)
     return QIcon(icon);
 }
 
-
 /**
  * Intercept the events system to discover if the theme has changed, this should invoke
  * an update to the icons used to display the correct colors.
@@ -254,7 +240,6 @@ bool SymbolListWidget::event(QEvent *e)
     return accepted;
 }
 
-
 /**
  * Generate the icons for all the QListWidgetItems stored in m_items.
  */
@@ -267,4 +252,3 @@ void SymbolListWidget::updateIcons()
         i.value()->setIcon(createIcon(m_library->symbol(i.key()), m_size));
     }
 }
-

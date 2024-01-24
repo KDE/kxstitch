@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "KeyElementDlg.h"
 
 #include <QCheckBox>
@@ -18,10 +17,9 @@
 
 #include "Element.h"
 
-
 KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
-    :   QDialog(parent),
-        m_keyElement(keyElement)
+    : QDialog(parent)
+    , m_keyElement(keyElement)
 {
     setWindowTitle(i18n("Key Element Properties"));
     ui.setupUi(this);
@@ -49,14 +47,12 @@ KeyElementDlg::KeyElementDlg(QWidget *parent, KeyElement *keyElement)
     ui.SkeinsColumn->setChecked(m_keyElement->m_skeinsColumn);
 }
 
-
 void KeyElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("KeyElementDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void KeyElementDlg::showEvent(QShowEvent *event)
 {
@@ -66,7 +62,6 @@ void KeyElementDlg::showEvent(QShowEvent *event)
         resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("KeyElementDlg"), QSize()));
     }
 }
-
 
 void KeyElementDlg::on_DialogButtonBox_accepted()
 {
@@ -92,12 +87,10 @@ void KeyElementDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void KeyElementDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void KeyElementDlg::on_DialogButtonBox_helpRequested()
 {

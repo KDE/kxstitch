@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef SchemeManager_H
 #define SchemeManager_H
-
 
 #include <QColor>
 #include <QList>
@@ -19,9 +17,7 @@
 
 #include <KDirWatch>
 
-
 class FlossScheme;
-
 
 class SchemeManager : private QObject
 {
@@ -36,17 +32,15 @@ public:
     static QStringList schemes();
     static FlossScheme *scheme(QString name);
 
-
 private:
     static SchemeManager &self();
     SchemeManager();
 
     void refresh();
 
-    static SchemeManager            *schemeManager;
-    typedef QMap<QString, QColor>   CalibratedColor;
-    QList<FlossScheme *>            m_flossSchemes;
+    static SchemeManager *schemeManager;
+    typedef QMap<QString, QColor> CalibratedColor;
+    QList<FlossScheme *> m_flossSchemes;
 };
-
 
 #endif // SchemeManager_H

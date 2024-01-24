@@ -8,13 +8,11 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file defines an extension to a QLabel that scales the associated QPixmap
  * to maintain the aspect ratio when scaling to fill the extents of the QLabel
  * area.
  */
-
 
 // Class include
 #include "ScaledPixmapLabel.h"
@@ -24,16 +22,14 @@
 #include <QPainter>
 #include <QStyleOptionRubberBand>
 
-
 ScaledPixmapLabel::ScaledPixmapLabel(QWidget *parent)
-    : QLabel(parent),
-      m_cropping(false)
+    : QLabel(parent)
+    , m_cropping(false)
 {
-    setMinimumSize(1,1);
+    setMinimumSize(1, 1);
     setAlignment(Qt::AlignCenter);
     setMouseTracking(true);
 }
-
 
 void ScaledPixmapLabel::setPixmap(const QPixmap &pixmap)
 {
@@ -42,7 +38,6 @@ void ScaledPixmapLabel::setPixmap(const QPixmap &pixmap)
     QLabel::setPixmap(m_pixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
-
 void ScaledPixmapLabel::setCropping(bool checked)
 {
     m_cropping = checked;
@@ -50,12 +45,10 @@ void ScaledPixmapLabel::setCropping(bool checked)
     update();
 }
 
-
 int ScaledPixmapLabel::heightForWidth(int width) const
 {
     return ((qreal)m_pixmap.height() * width) / m_pixmap.width();
 }
-
 
 QSize ScaledPixmapLabel::sizeHint() const
 {
@@ -63,18 +56,16 @@ QSize ScaledPixmapLabel::sizeHint() const
     return QSize(w, heightForWidth(w));
 }
 
-
 QRect ScaledPixmapLabel::pixmapRect() const
 {
     QSize previewSize = size();
-    QSize pixmapSize  = pixmap()->size();
+    QSize pixmapSize = pixmap()->size();
 
-    int dx = (previewSize.width()  - pixmapSize.width())  / 2;
+    int dx = (previewSize.width() - pixmapSize.width()) / 2;
     int dy = (previewSize.height() - pixmapSize.height()) / 2;
 
     return QRect(dx, dy, pixmapSize.width(), pixmapSize.height());
 }
-
 
 void ScaledPixmapLabel::resizeEvent(QResizeEvent *event)
 {
@@ -83,16 +74,14 @@ void ScaledPixmapLabel::resizeEvent(QResizeEvent *event)
     QLabel::setPixmap(m_pixmap.scaled(this->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
-
 void ScaledPixmapLabel::paintEvent(QPaintEvent *event)
 {
     QLabel::paintEvent(event);
 
-    QPainter painter(this);    
+    QPainter painter(this);
     painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
 
     if (m_crop.isValid()) {
-
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
@@ -104,12 +93,11 @@ void ScaledPixmapLabel::paintEvent(QPaintEvent *event)
         if (m_cropping && underMouse() && (children().count() == 0)) {
             // draw guides
             QPoint cursor = mapFromGlobal(QCursor::pos());
-            painter.drawLine(cursor.x(),0,cursor.x(),size().height());
-            painter.drawLine(0,cursor.y(),size().width(),cursor.y());
+            painter.drawLine(cursor.x(), 0, cursor.x(), size().height());
+            painter.drawLine(0, cursor.y(), size().width(), cursor.y());
         }
     }
 }
-
 
 void ScaledPixmapLabel::mousePressEvent(QMouseEvent *event)
 {
@@ -120,17 +108,15 @@ void ScaledPixmapLabel::mousePressEvent(QMouseEvent *event)
     }
 }
 
-
 void ScaledPixmapLabel::mouseMoveEvent(QMouseEvent *event)
 {
     if (m_cropping && (event->buttons() & Qt::LeftButton)) {
         m_end = event->pos();
         m_crop = pixmapRect().intersected(QRect(m_start, m_end).normalized());
-    }   
+    }
 
     update();
 }
-
 
 void ScaledPixmapLabel::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -138,13 +124,13 @@ void ScaledPixmapLabel::mouseReleaseEvent(QMouseEvent *event)
         m_end = event->pos();
         m_crop = pixmapRect().intersected(QRect(m_start, m_end).normalized());
         update();
-        
-        double scale = (double)m_pixmap.size().width()/(double)pixmap()->size().width();
+
+        double scale = (double)m_pixmap.size().width() / (double)pixmap()->size().width();
         m_crop.translate(-pixmapRect().topLeft());
-        QRectF cropF(scale*m_crop.x(), scale*m_crop.y(), scale*m_crop.width(), scale*m_crop.height());
+        QRectF cropF(scale * m_crop.x(), scale * m_crop.y(), scale * m_crop.width(), scale * m_crop.height());
 
         emit imageCropped(cropF);
-        
+
         m_crop = QRect();
     }
 }

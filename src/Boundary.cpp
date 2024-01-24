@@ -8,13 +8,11 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file implements an overlay rectangle with corner nodes to be used on top
  * of an element on the print layout pages allowing the user to change the size
  * and position of the underlying element.
  */
-
 
 // Class include
 #include "Boundary.h"
@@ -25,24 +23,21 @@
 // Application includes
 #include "Element.h"
 
-
 Boundary::Boundary()
-    :   m_element(nullptr)
+    : m_element(nullptr)
 {
 }
-
 
 Element *Boundary::element() const
 {
     return m_element;
 }
 
-
 const QPoint *Boundary::node(const QPoint &point) const
 {
     int snapDistance = Configuration::page_SelectNodeSnapDistance();
 
-    for (int node = 0 ; node < 4 ; node++) {
+    for (int node = 0; node < 4; node++) {
         if (QRect(-snapDistance, -snapDistance, snapDistance * 2, snapDistance * 2).translated(m_nodes[node]).contains(point)) {
             return &m_nodes[node];
         }
@@ -51,19 +46,17 @@ const QPoint *Boundary::node(const QPoint &point) const
     return nullptr;
 }
 
-
 QRect Boundary::rectangle() const
 {
     return m_rectangle;
 }
-
 
 Qt::CursorShape Boundary::cursor(const QPoint *node)
 {
     static const Qt::CursorShape nodeCursors[2] = {Qt::SizeFDiagCursor, Qt::SizeBDiagCursor};
     Qt::CursorShape shape = Qt::ArrowCursor;
 
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0; i < 4; i++) {
         if (m_nodes[i] == *node) {
             shape = nodeCursors[i % 2];
         }
@@ -72,12 +65,10 @@ Qt::CursorShape Boundary::cursor(const QPoint *node)
     return shape;
 }
 
-
 bool Boundary::isValid() const
 {
     return (m_element && m_rectangle.isValid());
 }
-
 
 void Boundary::setElement(Element *element)
 {
@@ -90,7 +81,6 @@ void Boundary::setElement(Element *element)
     }
 }
 
-
 void Boundary::setRectangle(const QRect &rectangle)
 {
     m_rectangle = rectangle;
@@ -100,10 +90,9 @@ void Boundary::setRectangle(const QRect &rectangle)
     m_nodes[3] = rectangle.bottomLeft() + QPoint(0, 1);
 }
 
-
 void Boundary::moveNode(const QPoint *node, const QPoint &point)
 {
-    for (int i = 0 ; i < 4 ; i++) {
+    for (int i = 0; i < 4; i++) {
         if (m_nodes[i] == *node) {
             int dx = point.x() - node->x();
             int dy = point.y() - node->y();
@@ -138,7 +127,6 @@ void Boundary::moveNode(const QPoint *node, const QPoint &point)
     }
 }
 
-
 void Boundary::render(QPainter *painter)
 {
     if (!m_element) {
@@ -157,7 +145,7 @@ void Boundary::render(QPainter *painter)
 
     int nodeSize = Configuration::page_SelectNodeSize();
 
-    for (int node = 0 ; node < 4 ; node++) {
+    for (int node = 0; node < 4; node++) {
         painter->drawRect(QRect(-nodeSize, -nodeSize, nodeSize * 2, nodeSize * 2).translated(transform.map(QPoint(m_nodes[node]))));
     }
 

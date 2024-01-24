@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Document.h"
 
 #include <QDataStream>
@@ -27,22 +26,19 @@
 #include "Preview.h"
 #include "SchemeManager.h"
 
-
 Document::Document()
-    :   m_editor(nullptr),
-        m_palette(nullptr),
-        m_preview(nullptr),
-        m_pattern(nullptr)
+    : m_editor(nullptr)
+    , m_palette(nullptr)
+    , m_preview(nullptr)
+    , m_pattern(nullptr)
 {
     initialiseNew();
 }
-
 
 Document::~Document()
 {
     delete m_pattern;
 }
-
 
 void Document::initialiseNew()
 {
@@ -70,7 +66,8 @@ void Document::initialiseNew()
     Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
 
     if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Default) {
-        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem)?Configuration::EnumEditor_ClothCountUnits::Centimeters:Configuration::EnumEditor_ClothCountUnits::Inches;
+        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters
+                                                                                           : Configuration::EnumEditor_ClothCountUnits::Inches;
     }
 
     switch (Configuration::document_UnitsFormat()) {
@@ -125,84 +122,70 @@ void Document::initialiseNew()
     setUrl(QUrl(i18n("Untitled")));
 }
 
-
 QUndoStack &Document::undoStack()
 {
     return m_undoStack;
 }
-
 
 void Document::setUrl(const QUrl &url)
 {
     m_url = url;
 }
 
-
 QUrl Document::url() const
 {
     return m_url;
 }
-
 
 void Document::addView(Editor *editor)
 {
     m_editor = editor;
 }
 
-
 void Document::addView(Palette *palette)
 {
     m_palette = palette;
 }
-
 
 void Document::addView(Preview *preview)
 {
     m_preview = preview;
 }
 
-
 Editor *Document::editor() const
 {
     return m_editor;
 }
-
 
 Palette *Document::palette() const
 {
     return m_palette;
 }
 
-
 Preview *Document::preview() const
 {
     return m_preview;
 }
-
 
 BackgroundImages &Document::backgroundImages()
 {
     return m_backgroundImages;
 }
 
-
 Pattern *Document::pattern()
 {
     return m_pattern;
 }
-
 
 const PrinterConfiguration &Document::printerConfiguration() const
 {
     return m_printerConfiguration;
 }
 
-
 void Document::setPrinterConfiguration(const PrinterConfiguration &printerConfiguration)
 {
     m_printerConfiguration = printerConfiguration;
 }
-
 
 void Document::readKXStitch(QDataStream &stream)
 {
@@ -248,7 +231,7 @@ void Document::readKXStitch(QDataStream &stream)
 
         case 101:
             stream.setVersion(QDataStream::Qt_4_0); // maintain consistancy in the qt types
-            [[gnu::fallthrough]];                   // flow through to version 100
+            [[gnu::fallthrough]]; // flow through to version 100
 
         case 100:
             stream >> m_properties;
@@ -301,7 +284,6 @@ void Document::readKXStitch(QDataStream &stream)
     }
 }
 
-
 void Document::readPCStitch(QDataStream &stream)
 {
     initialiseNew();
@@ -320,7 +302,6 @@ void Document::readPCStitch(QDataStream &stream)
     }
 }
 
-
 void Document::write(QDataStream &stream)
 {
     stream.setVersion(QDataStream::Qt_4_0); // maintain consistancy in the qt types
@@ -336,7 +317,6 @@ void Document::write(QDataStream &stream)
     }
 }
 
-
 QVariant Document::property(const QString &name) const
 {
     QVariant p;
@@ -350,12 +330,10 @@ QVariant Document::property(const QString &name) const
     return p;
 }
 
-
 void Document::setProperty(const QString &name, const QVariant &value)
 {
     m_properties[name] = value;
 }
-
 
 void Document::readPCStitch5File(QDataStream &stream)
 {
@@ -466,13 +444,13 @@ void Document::readPCStitch5File(QDataStream &stream)
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf(QLatin1String("}}"));      // end of font defs
-        index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf(QLatin1Char('}'), index);   // end of color table defs
-        index += 3;                                 // skip paste } and CR LF
-        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
-        index++;                                    // and skip past it
-                                                    // index should now point to the first character of the instructions
+        int index = instructions.indexOf(QLatin1String("}}")); // end of font defs
+        index += 4; // skip paste }} and CR LF
+        index = instructions.indexOf(QLatin1Char('}'), index); // end of color table defs
+        index += 3; // skip paste } and CR LF
+        index = instructions.indexOf(QLatin1Char(' '), index); // find first space - end of text def
+        index++; // and skip past it
+                 // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
@@ -486,29 +464,29 @@ void Document::readPCStitch5File(QDataStream &stream)
         quint16 colors;
         stream >> colors;
 
-        stream.readRawData(buffer, 30);                 // this should be 'DMC       Anchor    Coates    '
+        stream.readRawData(buffer, 30); // this should be 'DMC       Anchor    Coates    '
 
-        QString fontName = readPCStitchString(stream);  // the font name, usually 'PCStitch Symbols'
+        QString fontName = readPCStitchString(stream); // the font name, usually 'PCStitch Symbols'
 
-        m_pattern->palette().setSchemeName(QStringLiteral("DMC"));      // assume this palette will be DMC
+        m_pattern->palette().setSchemeName(QStringLiteral("DMC")); // assume this palette will be DMC
         FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
-            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
+            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found"))); // this shouldn't happen because DMC should always be available
         }
 
         stream >> unknown32;
 
-        for (int i = 0 ; i < colors ; i++) {
+        for (int i = 0; i < colors; i++) {
 #pragma pack(push)
 #pragma pack(1)
             struct PALETTE_ENTRY {
-                unsigned char   RGBA[4];
-                char            colorName[30];
-                char            colorDescription[50];
-                unsigned char   symbol;
-                unsigned short  stitchStrands;
-                unsigned short  backstitchStrands;
+                unsigned char RGBA[4];
+                char colorName[30];
+                char colorDescription[50];
+                unsigned char symbol;
+                unsigned short stitchStrands;
+                unsigned short backstitchStrands;
             } paletteEntry;
 #pragma pack(pop)
 
@@ -518,11 +496,11 @@ void Document::readPCStitch5File(QDataStream &stream)
             QString colorName = QString::fromLatin1(paletteEntry.colorName, 10).trimmed();
 
             if (colorName == QLatin1String("White")) {
-                colorName = QLatin1String("Blanc");                        // fix colorName
+                colorName = QLatin1String("Blanc"); // fix colorName
             }
 
             if (colorName == QLatin1String("5200")) {
-                colorName = QLatin1String("B5200");                        // fix colorName
+                colorName = QLatin1String("B5200"); // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
@@ -532,7 +510,12 @@ void Document::readPCStitch5File(QDataStream &stream)
             }
 
             colorName = floss->name();
-            DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, (paletteEntry.stitchStrands) ? paletteEntry.stitchStrands : Configuration::palette_StitchStrands(), (paletteEntry.backstitchStrands) ? paletteEntry.backstitchStrands : Configuration::palette_BackstitchStrands());
+            DocumentFloss *documentFloss =
+                new DocumentFloss(colorName,
+                                  m_pattern->palette().freeSymbol(),
+                                  Qt::SolidLine,
+                                  (paletteEntry.stitchStrands) ? paletteEntry.stitchStrands : Configuration::palette_StitchStrands(),
+                                  (paletteEntry.backstitchStrands) ? paletteEntry.backstitchStrands : Configuration::palette_BackstitchStrands());
             documentFloss->setFlossColor(floss->color());
             m_pattern->palette().add(i, documentFloss);
         }
@@ -542,7 +525,19 @@ void Document::readPCStitch5File(QDataStream &stream)
 
     m_pattern->palette().setCurrentIndex(-1);
 
-    Stitch::Type stitchType[] = {Stitch::Delete, Stitch::Full, Stitch::TL3Qtr, Stitch::TR3Qtr, Stitch::BL3Qtr, Stitch::BR3Qtr, Stitch::TBHalf, Stitch::BTHalf, Stitch::Delete, Stitch::TLQtr, Stitch::TRQtr, Stitch::BLQtr, Stitch::BRQtr}; // conversion of PCStitch to KXStitch
+    Stitch::Type stitchType[] = {Stitch::Delete,
+                                 Stitch::Full,
+                                 Stitch::TL3Qtr,
+                                 Stitch::TR3Qtr,
+                                 Stitch::BL3Qtr,
+                                 Stitch::BR3Qtr,
+                                 Stitch::TBHalf,
+                                 Stitch::BTHalf,
+                                 Stitch::Delete,
+                                 Stitch::TLQtr,
+                                 Stitch::TRQtr,
+                                 Stitch::BLQtr,
+                                 Stitch::BRQtr}; // conversion of PCStitch to KXStitch
 
     int documentWidth = m_pattern->stitches().width();
     int documentHeight = m_pattern->stitches().height();
@@ -550,7 +545,7 @@ void Document::readPCStitch5File(QDataStream &stream)
 
     quint16 cellCount;
 
-    for (int i = 0 ; i < cells ; i += cellCount) {
+    for (int i = 0; i < cells; i += cellCount) {
         quint8 color;
         quint8 type;
 
@@ -559,7 +554,7 @@ void Document::readPCStitch5File(QDataStream &stream)
         stream >> type;
 
         if (type != 0xff) {
-            for (int c = 0 ; c < cellCount ; c++) {
+            for (int c = 0; c < cellCount; c++) {
                 int xc = (i + c) / documentHeight;
                 int yc = (i + c) % documentHeight;
                 m_pattern->stitches().addStitch(QPoint(xc, yc), stitchType[type], color - 1); // color-1 because PCStitch uses 1 based array
@@ -579,7 +574,7 @@ void Document::readPCStitch5File(QDataStream &stream)
         stream >> x;
         stream >> y;
 
-        for (int dx = 0 ; dx < 4 ; dx++) {
+        for (int dx = 0; dx < 4; dx++) {
             stream >> color;
             stream >> type;
 
@@ -619,14 +614,15 @@ void Document::readPCStitch5File(QDataStream &stream)
         quint16 ep;
         quint8 color;
         stream >> sx >> sy >> sp >> ex >> ey >> ep >> color;
-        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)), QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)), color - 1);
+        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)),
+                                            QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)),
+                                            color - 1);
     }
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readPCStitch6File(QDataStream &stream)
 {
@@ -744,11 +740,11 @@ void Document::readPCStitch6File(QDataStream &stream)
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf(QLatin1String("}}"));     // end of font defs
-        index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
-        index++;                                    // and skip past it
-                                                    // index should now point to the first character of the instructions
+        int index = instructions.indexOf(QLatin1String("}}")); // end of font defs
+        index += 4; // skip paste }} and CR LF
+        index = instructions.indexOf(QLatin1Char(' '), index); // find first space - end of text def
+        index++; // and skip past it
+                 // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
@@ -773,47 +769,48 @@ void Document::readPCStitch6File(QDataStream &stream)
         FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
-            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
+            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found"))); // this shouldn't happen because DMC should always be available
         }
 
-        for (int i = 0 ; i < colors ; i++) {
+        for (int i = 0; i < colors; i++) {
 #pragma pack(push)
-#pragma pack(1)     // pack the structure
+#pragma pack(1) // pack the structure
             struct PALETTE_ENTRY {
-                char            colorDescription_1[30];
-                unsigned char   RGBA[4];
-                char            colorName_1[10];
-                unsigned char   unknown_1[59];
-                unsigned short  stitchStrands;
-                unsigned short  backstitchStrands;
-                unsigned short  unknown_2;
-                char            colorDescription_2[30];
-                unsigned char   unknown_3[5];
-                char            colorName_2[25];            // seems to be Black all the time
+                char colorDescription_1[30];
+                unsigned char RGBA[4];
+                char colorName_1[10];
+                unsigned char unknown_1[59];
+                unsigned short stitchStrands;
+                unsigned short backstitchStrands;
+                unsigned short unknown_2;
+                char colorDescription_2[30];
+                unsigned char unknown_3[5];
+                char colorName_2[25]; // seems to be Black all the time
             } paletteEntry;
 #pragma pack(pop)
 
             stream.readRawData(reinterpret_cast<char *>(&paletteEntry), sizeof(struct PALETTE_ENTRY));
 
             QColor color = QColor(paletteEntry.RGBA[0], paletteEntry.RGBA[1], paletteEntry.RGBA[2]);
-            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
+            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed(); // minus the white space
 
             if (colorName == QLatin1String("White")) {
-                colorName = QLatin1String("Blanc");                        // fix colorName
+                colorName = QLatin1String("Blanc"); // fix colorName
             }
 
             if (colorName == QLatin1String("5200")) {
-                colorName = QLatin1String("B5200");                        // fix colorName
+                colorName = QLatin1String("B5200"); // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
 
             if (floss == nullptr) {
-                floss = scheme->convert(color);     // the name wasn't found so look for a similar color in DMC
+                floss = scheme->convert(color); // the name wasn't found so look for a similar color in DMC
             }
 
             colorName = floss->name();
-            DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, paletteEntry.stitchStrands, paletteEntry.backstitchStrands);
+            DocumentFloss *documentFloss =
+                new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, paletteEntry.stitchStrands, paletteEntry.backstitchStrands);
             documentFloss->setFlossColor(floss->color());
             m_pattern->palette().add(i, documentFloss);
         }
@@ -823,7 +820,19 @@ void Document::readPCStitch6File(QDataStream &stream)
 
     m_pattern->palette().setCurrentIndex(-1);
 
-    Stitch::Type stitchType[] = {Stitch::Delete, Stitch::Full, Stitch::TL3Qtr, Stitch::TR3Qtr, Stitch::BL3Qtr, Stitch::BR3Qtr, Stitch::TBHalf, Stitch::BTHalf, Stitch::Delete, Stitch::TLQtr, Stitch::TRQtr, Stitch::BLQtr, Stitch::BRQtr}; // conversion of PCStitch to KXStitch
+    Stitch::Type stitchType[] = {Stitch::Delete,
+                                 Stitch::Full,
+                                 Stitch::TL3Qtr,
+                                 Stitch::TR3Qtr,
+                                 Stitch::BL3Qtr,
+                                 Stitch::BR3Qtr,
+                                 Stitch::TBHalf,
+                                 Stitch::BTHalf,
+                                 Stitch::Delete,
+                                 Stitch::TLQtr,
+                                 Stitch::TRQtr,
+                                 Stitch::BLQtr,
+                                 Stitch::BRQtr}; // conversion of PCStitch to KXStitch
 
     int documentWidth = m_pattern->stitches().width();
     int documentHeight = m_pattern->stitches().height();
@@ -831,7 +840,7 @@ void Document::readPCStitch6File(QDataStream &stream)
 
     quint16 cellCount;
 
-    for (int i = 0 ; i < cells ; i += cellCount) {
+    for (int i = 0; i < cells; i += cellCount) {
         quint8 color;
         quint8 type;
 
@@ -840,7 +849,7 @@ void Document::readPCStitch6File(QDataStream &stream)
         stream >> type;
 
         if (type != 0xff) {
-            for (int c = 0 ; c < cellCount ; c++) {
+            for (int c = 0; c < cellCount; c++) {
                 int xc = (i + c) / documentHeight;
                 int yc = (i + c) % documentHeight;
                 m_pattern->stitches().addStitch(QPoint(xc, yc), stitchType[type], color - 1); // color-1 because PCStitch uses 1 based array
@@ -860,7 +869,7 @@ void Document::readPCStitch6File(QDataStream &stream)
         stream >> x;
         stream >> y;
 
-        for (int dx = 0 ; dx < 4 ; dx++) {
+        for (int dx = 0; dx < 4; dx++) {
             stream >> color;
             stream >> type;
 
@@ -900,14 +909,15 @@ void Document::readPCStitch6File(QDataStream &stream)
         qint16 ep;
         quint16 color;
         stream >> sx >> sy >> sp >> ex >> ey >> ep >> color;
-        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)), QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)), color - 1);
+        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)),
+                                            QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)),
+                                            color - 1);
     }
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readPCStitch7File(QDataStream &stream)
 {
@@ -1040,11 +1050,11 @@ void Document::readPCStitch7File(QDataStream &stream)
     QString instructions = readPCStitchString(stream);
 
     if (!instructions.isEmpty()) {
-        int index = instructions.indexOf(QLatin1String("}}"));     // end of font defs
-        index += 4;                                 // skip paste }} and CR LF
-        index = instructions.indexOf(QLatin1Char(' '), index);   // find first space - end of text def
-        index++;                                    // and skip past it
-                                                    // index should now point to the first character of the instructions
+        int index = instructions.indexOf(QLatin1String("}}")); // end of font defs
+        index += 4; // skip paste }} and CR LF
+        index = instructions.indexOf(QLatin1Char(' '), index); // find first space - end of text def
+        index++; // and skip past it
+                 // index should now point to the first character of the instructions
         instructions = instructions.remove(0, index);
         instructions.truncate(instructions.length() - 10);
     }
@@ -1071,49 +1081,50 @@ void Document::readPCStitch7File(QDataStream &stream)
         FlossScheme *scheme = SchemeManager::scheme(QStringLiteral("DMC"));
 
         if (scheme == nullptr) {
-            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found")));    // this shouldn't happen because DMC should always be available
+            throw FailedReadFile(QString(i18n("The floss scheme DMC was not found"))); // this shouldn't happen because DMC should always be available
         }
 
-        for (int i = 0 ; i < colors ; i++) {
+        for (int i = 0; i < colors; i++) {
 #pragma pack(push)
 #pragma pack(1)
             struct PALETTE_ENTRY {
-                char        scheme[33];
-                char        colorName_1[10];
-                char        colorDescription_1[30];
-                uchar       unknown_1[4];
-                uchar       RGBA_1[4];
-                uchar       unknown_2[81];
-                char        font[30];
-                uchar       unknown_3[7];
-                char        colorDescription_2[30];
-                uchar       RGBA_2[4];
-                char        colorName_2[10];
-                uchar       unknown_4[7];
+                char scheme[33];
+                char colorName_1[10];
+                char colorDescription_1[30];
+                uchar unknown_1[4];
+                uchar RGBA_1[4];
+                uchar unknown_2[81];
+                char font[30];
+                uchar unknown_3[7];
+                char colorDescription_2[30];
+                uchar RGBA_2[4];
+                char colorName_2[10];
+                uchar unknown_4[7];
             } paletteEntry;
 #pragma pack(pop)
 
             stream.readRawData(reinterpret_cast<char *>(&paletteEntry), sizeof(struct PALETTE_ENTRY));
 
             QColor color = QColor(int(paletteEntry.RGBA_1[0]), int(paletteEntry.RGBA_1[1]), int(paletteEntry.RGBA_1[2]));
-            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed();  // minus the white space
+            QString colorName = QString::fromLatin1(paletteEntry.colorName_1, 10).trimmed(); // minus the white space
 
             if (colorName == QLatin1String("White")) {
-                colorName = QLatin1String("Blanc");     // fix colorName
+                colorName = QLatin1String("Blanc"); // fix colorName
             }
 
             if (colorName == QLatin1String("5200")) {
-                colorName = QLatin1String("B5200");     // fix colorName
+                colorName = QLatin1String("B5200"); // fix colorName
             }
 
             Floss *floss = scheme->find(colorName);
 
             if (floss == nullptr) {
-                floss = scheme->convert(color);     // the name wasn't found so look for a similar color in DMC
+                floss = scheme->convert(color); // the name wasn't found so look for a similar color in DMC
             }
 
             colorName = floss->name();
-            DocumentFloss *documentFloss = new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, defaultStitchStrands, defaultBackstitchStrands);
+            DocumentFloss *documentFloss =
+                new DocumentFloss(colorName, m_pattern->palette().freeSymbol(), Qt::SolidLine, defaultStitchStrands, defaultBackstitchStrands);
             documentFloss->setFlossColor(floss->color());
             m_pattern->palette().add(i, documentFloss);
         }
@@ -1123,7 +1134,19 @@ void Document::readPCStitch7File(QDataStream &stream)
 
     m_pattern->palette().setCurrentIndex(-1);
 
-    Stitch::Type stitchType[] = {Stitch::Delete, Stitch::Full, Stitch::TL3Qtr, Stitch::TR3Qtr, Stitch::BL3Qtr, Stitch::BR3Qtr, Stitch::TBHalf, Stitch::BTHalf, Stitch::Delete, Stitch::TLQtr, Stitch::TRQtr, Stitch::BLQtr, Stitch::BRQtr}; // conversion of PCStitch to KXStitch
+    Stitch::Type stitchType[] = {Stitch::Delete,
+                                 Stitch::Full,
+                                 Stitch::TL3Qtr,
+                                 Stitch::TR3Qtr,
+                                 Stitch::BL3Qtr,
+                                 Stitch::BR3Qtr,
+                                 Stitch::TBHalf,
+                                 Stitch::BTHalf,
+                                 Stitch::Delete,
+                                 Stitch::TLQtr,
+                                 Stitch::TRQtr,
+                                 Stitch::BLQtr,
+                                 Stitch::BRQtr}; // conversion of PCStitch to KXStitch
     // TODO above needs to include petite stitches
     int documentWidth = m_pattern->stitches().width();
     int documentHeight = m_pattern->stitches().height();
@@ -1131,7 +1154,7 @@ void Document::readPCStitch7File(QDataStream &stream)
 
     quint16 cellCount;
 
-    for (int i = 0 ; i < cells ; i += cellCount) {
+    for (int i = 0; i < cells; i += cellCount) {
         quint8 color;
         quint8 type;
 
@@ -1140,7 +1163,7 @@ void Document::readPCStitch7File(QDataStream &stream)
         stream >> type;
 
         if (type != 0xff) {
-            for (int c = 0 ; c < cellCount ; c++) {
+            for (int c = 0; c < cellCount; c++) {
                 int xc = (i + c) / documentHeight;
                 int yc = (i + c) % documentHeight;
                 m_pattern->stitches().addStitch(QPoint(xc, yc), stitchType[type], color - 1); // color-1 because PCStitch uses 1 based array
@@ -1160,7 +1183,7 @@ void Document::readPCStitch7File(QDataStream &stream)
         stream >> x;
         stream >> y;
 
-        for (int dx = 0 ; dx < 4 ; dx++) {
+        for (int dx = 0; dx < 4; dx++) {
             stream >> color;
             stream >> type;
 
@@ -1200,14 +1223,15 @@ void Document::readPCStitch7File(QDataStream &stream)
         quint16 ep;
         quint16 color;
         stream >> sx >> sy >> sp >> ex >> ey >> ep >> color;
-        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)), QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)), color - 1);
+        m_pattern->stitches().addBackstitch(QPoint(--sx * 2 + ((sp - 1) % 3), --sy * 2 + ((sp - 1) / 3)),
+                                            QPoint(--ex * 2 + ((ep - 1) % 3), --ey * 2 + ((ep - 1) / 3)),
+                                            color - 1);
     }
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 QString Document::readPCStitchString(QDataStream &stream)
 {
@@ -1218,7 +1242,7 @@ QString Document::readPCStitchString(QDataStream &stream)
     stream.readRawData(buffer, stringSize);
     buffer[stringSize] = '\0';
     QString string = QString::fromLatin1(buffer);
-    delete [] buffer;
+    delete[] buffer;
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedReadFile(QString(i18n("Stream error")));
@@ -1226,7 +1250,6 @@ QString Document::readPCStitchString(QDataStream &stream)
 
     return string;
 }
-
 
 void Document::readKXStitchV2File(QDataStream &stream)
 {
@@ -1276,9 +1299,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
     QString title;
     QString author;
     QString fabric;
-    stream  >> title
-            >> author
-            >> fabric;
+    stream >> title >> author >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("fabric"), fabric);
@@ -1287,44 +1308,41 @@ void Document::readKXStitchV2File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
-    stream  >> schemeIndex; // discard
+    stream >> schemeIndex; // discard
 
     qint16 inches;
-    stream  >> inches;
-    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    stream >> inches;
+    setProperty(QStringLiteral("unitsFormat"),
+                (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
-    stream  >> width
-            >> height;
+    stream >> width >> height;
 
     qint32 clothCount;
-    stream  >> clothCount;
+    stream >> clothCount;
     setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     QString schemeName;
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -1341,13 +1359,7 @@ void Document::readKXStitchV2File(QDataStream &stream)
         // QColor color - read as rgba instead
         qint16 symbol;
 
-        stream  >> flossName
-                >> flossDescription
-                >> red
-                >> green
-                >> blue
-                >> alpha
-                >> symbol;
+        stream >> flossName >> flossDescription >> red >> green >> blue >> alpha >> symbol;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -1355,42 +1367,41 @@ void Document::readKXStitchV2File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName,
+                                                         m_pattern->palette().freeSymbol(),
+                                                         Qt::SolidLine,
+                                                         Configuration::palette_StitchStrands(),
+                                                         Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex++, documentFloss);
     }
 
-
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }
@@ -1399,7 +1410,6 @@ void Document::readKXStitchV2File(QDataStream &stream)
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readKXStitchV3File(QDataStream &stream)
 {
@@ -1443,15 +1453,12 @@ void Document::readKXStitchV3File(QDataStream &stream)
         // there were no knots supported in this version
         */
 
-
     /* this is currently untested */
     // read header
     QString title;
     QString author;
     QString fabric;
-    stream  >> title
-            >> author
-            >> fabric;
+    stream >> title >> author >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("fabric"), fabric);
@@ -1460,38 +1467,35 @@ void Document::readKXStitchV3File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
-    stream  >> schemeIndex; // discard
+    stream >> schemeIndex; // discard
 
     qint16 inches;
-    stream  >> inches;
-    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    stream >> inches;
+    setProperty(QStringLiteral("unitsFormat"),
+                (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
-    stream  >> width
-            >> height;
+    stream >> width >> height;
 
     qint32 clothCount;
-    stream  >> clothCount;
+    stream >> clothCount;
     setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     QString schemeName;
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -1501,19 +1505,17 @@ void Document::readKXStitchV3File(QDataStream &stream)
     }
 
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     while (colors--) {
         qint32 colorIndex;
         QString flossName;
         qint16 symbol;
 
-        stream  >> colorIndex
-                >> flossName
-                >> symbol;
+        stream >> colorIndex >> flossName >> symbol;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -1521,42 +1523,41 @@ void Document::readKXStitchV3File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName,
+                                                         m_pattern->palette().freeSymbol(),
+                                                         Qt::SolidLine,
+                                                         Configuration::palette_StitchStrands(),
+                                                         Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
 
-
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }
@@ -1565,7 +1566,6 @@ void Document::readKXStitchV3File(QDataStream &stream)
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readKXStitchV4File(QDataStream &stream)
 {
@@ -1614,15 +1614,12 @@ void Document::readKXStitchV4File(QDataStream &stream)
             qint16(colorIndex)  ] each backstitch
         */
 
-
     /* this is currently untested */
     // read header
     QString title;
     QString author;
     QString fabric;
-    stream  >> title
-            >> author
-            >> fabric;
+    stream >> title >> author >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("fabric"), fabric);
@@ -1631,38 +1628,35 @@ void Document::readKXStitchV4File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     qint16 schemeIndex;
-    stream  >> schemeIndex; // discard
+    stream >> schemeIndex; // discard
 
     qint16 inches;
-    stream  >> inches;
-    setProperty(QStringLiteral("unitsFormat"), (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
+    stream >> inches;
+    setProperty(QStringLiteral("unitsFormat"),
+                (bool(inches)) ? Configuration::EnumDocument_UnitsFormat::Inches : Configuration::EnumDocument_UnitsFormat::Stitches);
 
     qint32 width;
     qint32 height;
-    stream  >> width
-            >> height;
+    stream >> width >> height;
 
     qint32 clothCount;
-    stream  >> clothCount;
+    stream >> clothCount;
     setProperty(QStringLiteral("clothCountUnits"), Configuration::EnumEditor_ClothCountUnits::Inches);
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
     QString schemeName;
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -1672,19 +1666,17 @@ void Document::readKXStitchV4File(QDataStream &stream)
     }
 
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     while (colors--) {
         qint32 colorIndex;
         QString flossName;
         qint16 symbol;
 
-        stream  >> colorIndex
-                >> flossName
-                >> symbol;
+        stream >> colorIndex >> flossName >> symbol;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -1692,54 +1684,52 @@ void Document::readKXStitchV4File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName,
+                                                         m_pattern->palette().freeSymbol(),
+                                                         Qt::SolidLine,
+                                                         Configuration::palette_StitchStrands(),
+                                                         Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
 
-
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 knots;
-    stream  >> knots;
+    stream >> knots;
 
     while (knots--) {
         QPoint position;
         qint16 colorIndex;
-        stream  >> position
-                >> colorIndex;
+        stream >> position >> colorIndex;
 
         m_pattern->stitches().addFrenchKnot(position, colorIndex);
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }
@@ -1748,7 +1738,6 @@ void Document::readKXStitchV4File(QDataStream &stream)
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readKXStitchV5File(QDataStream &stream)
 {
@@ -1799,15 +1788,12 @@ void Document::readKXStitchV5File(QDataStream &stream)
             qint16(colorIndex)  ] each backstitch
         */
 
-
     /* this is currently untested */
     // read header
     QString sizeUnits;
     qint32 width;
     qint32 height;
-    stream  >> sizeUnits
-            >> width
-            >> height;
+    stream >> sizeUnits >> width >> height;
 
     if (sizeUnits == i18n("Stitches")) {
         setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
@@ -1823,8 +1809,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
 
     double clothCount;
     QString clothCountUnits;
-    stream  >> clothCount
-            >> clothCountUnits;
+    stream >> clothCount >> clothCountUnits;
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
@@ -1841,10 +1826,7 @@ void Document::readKXStitchV5File(QDataStream &stream)
     QString author;
     QString copyright;
     QString fabric;
-    stream  >> title
-            >> author
-            >> copyright
-            >> fabric;
+    stream >> title >> author >> copyright >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("copyright"), copyright);
@@ -1854,21 +1836,18 @@ void Document::readKXStitchV5File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
-    stream  >> schemeName;  // discard, also read in palette
+    stream >> schemeName; // discard, also read in palette
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -1878,19 +1857,17 @@ void Document::readKXStitchV5File(QDataStream &stream)
     }
 
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     while (colors--) {
         qint32 colorIndex;
         QString flossName;
         qint16 symbol;
 
-        stream  >> colorIndex
-                >> flossName
-                >> symbol;
+        stream >> colorIndex >> flossName >> symbol;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -1898,53 +1875,52 @@ void Document::readKXStitchV5File(QDataStream &stream)
             throw FailedReadFile(QString(i18n("The floss name %1 was not found", flossName)));
         }
 
-        DocumentFloss *documentFloss = new DocumentFloss(flossName, m_pattern->palette().freeSymbol(), Qt::SolidLine, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+        DocumentFloss *documentFloss = new DocumentFloss(flossName,
+                                                         m_pattern->palette().freeSymbol(),
+                                                         Qt::SolidLine,
+                                                         Configuration::palette_StitchStrands(),
+                                                         Configuration::palette_BackstitchStrands());
         documentFloss->setFlossColor(floss->color());
         m_pattern->palette().add(colorIndex, documentFloss);
     }
 
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 knots;
-    stream  >> knots;
+    stream >> knots;
 
     while (knots--) {
         QPoint position;
         qint16 colorIndex;
-        stream  >> position
-                >> colorIndex;
+        stream >> position >> colorIndex;
 
         m_pattern->stitches().addFrenchKnot(position, colorIndex);
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }
@@ -1953,7 +1929,6 @@ void Document::readKXStitchV5File(QDataStream &stream)
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readKXStitchV6File(QDataStream &stream)
 {
@@ -2011,9 +1986,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
     QString sizeUnits;
     qint32 width;
     qint32 height;
-    stream  >> sizeUnits
-            >> width
-            >> height;
+    stream >> sizeUnits >> width >> height;
 
     if (sizeUnits == i18n("Stitches")) {
         setProperty(QStringLiteral("unitsFormat"), Configuration::EnumDocument_UnitsFormat::Stitches);
@@ -2029,8 +2002,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
 
     double clothCount;
     QString clothCountUnits;
-    stream  >> clothCount
-            >> clothCountUnits;
+    stream >> clothCount >> clothCountUnits;
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
@@ -2047,10 +2019,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
     QString author;
     QString copyright;
     QString fabric;
-    stream  >> title
-            >> author
-            >> copyright
-            >> fabric;
+    stream >> title >> author >> copyright >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("copyright"), copyright);
@@ -2060,21 +2029,18 @@ void Document::readKXStitchV6File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
-    stream  >> schemeName;  // discard, also read in palette
+    stream >> schemeName; // discard, also read in palette
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -2084,10 +2050,10 @@ void Document::readKXStitchV6File(QDataStream &stream)
     }
 
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     while (colors--) {
         qint32 colorIndex;
@@ -2096,11 +2062,7 @@ void Document::readKXStitchV6File(QDataStream &stream)
         qint8 stitchStrands;
         qint8 backstitchStrands;
 
-        stream  >> colorIndex
-                >> flossName
-                >> symbol
-                >> stitchStrands
-                >> backstitchStrands;
+        stream >> colorIndex >> flossName >> symbol >> stitchStrands >> backstitchStrands;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -2114,47 +2076,42 @@ void Document::readKXStitchV6File(QDataStream &stream)
     }
 
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 knots;
-    stream  >> knots;
+    stream >> knots;
 
     while (knots--) {
         QPoint position;
         qint16 colorIndex;
-        stream  >> position
-                >> colorIndex;
+        stream >> position >> colorIndex;
 
         m_pattern->stitches().addFrenchKnot(position, colorIndex);
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }
@@ -2163,7 +2120,6 @@ void Document::readKXStitchV6File(QDataStream &stream)
         throw FailedReadFile(QString(i18n("Stream error")));
     }
 }
-
 
 void Document::readKXStitchV7File(QDataStream &stream)
 {
@@ -2217,30 +2173,23 @@ void Document::readKXStitchV7File(QDataStream &stream)
         */
 
     /* Working */
-    Configuration::EnumDocument_UnitsFormat::type convertSizeUnits[] = {
-        Configuration::EnumDocument_UnitsFormat::Stitches,
-        Configuration::EnumDocument_UnitsFormat::Centimeters,        // was MM
-        Configuration::EnumDocument_UnitsFormat::Centimeters,
-        Configuration::EnumDocument_UnitsFormat::Inches
-    };
-    Configuration::EnumEditor_ClothCountUnits::type convertClothCountUnits[] = {
-        Configuration::EnumEditor_ClothCountUnits::Inches,  // was Stitches
-        Configuration::EnumEditor_ClothCountUnits::Centimeters,
-        Configuration::EnumEditor_ClothCountUnits::Inches
-    };
+    Configuration::EnumDocument_UnitsFormat::type convertSizeUnits[] = {Configuration::EnumDocument_UnitsFormat::Stitches,
+                                                                        Configuration::EnumDocument_UnitsFormat::Centimeters, // was MM
+                                                                        Configuration::EnumDocument_UnitsFormat::Centimeters,
+                                                                        Configuration::EnumDocument_UnitsFormat::Inches};
+    Configuration::EnumEditor_ClothCountUnits::type convertClothCountUnits[] = {Configuration::EnumEditor_ClothCountUnits::Inches, // was Stitches
+                                                                                Configuration::EnumEditor_ClothCountUnits::Centimeters,
+                                                                                Configuration::EnumEditor_ClothCountUnits::Inches};
     // read header
     qint32 sizeUnits;
     qint32 width;
     qint32 height;
-    stream  >> sizeUnits
-            >> width
-            >> height;
+    stream >> sizeUnits >> width >> height;
     setProperty(QStringLiteral("unitsFormat"), convertSizeUnits[sizeUnits]);
 
     double clothCount;
     qint32 clothCountUnits;
-    stream  >> clothCount
-            >> clothCountUnits;
+    stream >> clothCount >> clothCountUnits;
     setProperty(QStringLiteral("horizontalClothCount"), double(clothCount));
     setProperty(QStringLiteral("verticalClothCount"), double(clothCount));
     setProperty(QStringLiteral("clothCountLink"), true);
@@ -2250,10 +2199,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
     QString author;
     QString copyright;
     QString fabric;
-    stream  >> title
-            >> author
-            >> copyright
-            >> fabric;
+    stream >> title >> author >> copyright >> fabric;
     setProperty(QStringLiteral("title"), title);
     setProperty(QStringLiteral("author"), author);
     setProperty(QStringLiteral("copyright"), copyright);
@@ -2263,21 +2209,18 @@ void Document::readKXStitchV7File(QDataStream &stream)
     quint8 green;
     quint8 blue;
     quint8 alpha;
-    stream  >> red
-            >> green
-            >> blue
-            >> alpha;
+    stream >> red >> green >> blue >> alpha;
     setProperty(QStringLiteral("fabricColor"), QColor(red, green, blue, alpha));
 
     QString schemeName;
-    stream  >> schemeName;  // discard, also read in palette
+    stream >> schemeName; // discard, also read in palette
 
     QString instructions;
-    stream  >> instructions;
+    stream >> instructions;
     setProperty(QStringLiteral("instructions"), instructions);
 
     // read palette
-    stream  >> schemeName;
+    stream >> schemeName;
     m_pattern->palette().setSchemeName(schemeName);
 
     FlossScheme *flossScheme = SchemeManager::scheme(schemeName);
@@ -2287,10 +2230,10 @@ void Document::readKXStitchV7File(QDataStream &stream)
     }
 
     qint32 current;
-    stream  >> current;
+    stream >> current;
 
     qint32 colors;
-    stream  >> colors;
+    stream >> colors;
 
     while (colors--) {
         qint32 colorIndex;
@@ -2299,11 +2242,7 @@ void Document::readKXStitchV7File(QDataStream &stream)
         qint8 stitchStrands;
         qint8 backstitchStrands;
 
-        stream  >> colorIndex
-                >> flossName
-                >> symbol
-                >> stitchStrands
-                >> backstitchStrands;
+        stream >> colorIndex >> flossName >> symbol >> stitchStrands >> backstitchStrands;
 
         Floss *floss = flossScheme->find(flossName);
 
@@ -2317,47 +2256,42 @@ void Document::readKXStitchV7File(QDataStream &stream)
     }
 
     // read stitches
-    stream  >> width
-            >> height;
+    stream >> width >> height;
     qint32 cells = width * height;
     m_pattern->stitches().resize(width, height);
 
-    for (int i = 0 ; i < cells ; i++) {
+    for (int i = 0; i < cells; i++) {
         qint8 stitches;
-        stream  >> stitches;
+        stream >> stitches;
 
         while (stitches--) {
             qint8 type;
             qint16 colorIndex;
-            stream  >> type
-                    >> colorIndex;
+            stream >> type >> colorIndex;
 
             m_pattern->stitches().addStitch(QPoint(i % width, i / width), Stitch::Type(type), colorIndex);
         }
     }
 
     qint32 knots;
-    stream  >> knots;
+    stream >> knots;
 
     while (knots--) {
         QPoint position;
         qint16 colorIndex;
-        stream  >> position
-                >> colorIndex;
+        stream >> position >> colorIndex;
 
         m_pattern->stitches().addFrenchKnot(position, colorIndex);
     }
 
     qint32 backstitches;
-    stream  >> backstitches;
+    stream >> backstitches;
 
     while (backstitches--) {
         QPoint start;
         QPoint end;
         qint16 colorIndex;
-        stream  >> start
-                >> end
-                >> colorIndex;
+        stream >> start >> end >> colorIndex;
 
         m_pattern->stitches().addBackstitch(start, end, colorIndex);
     }

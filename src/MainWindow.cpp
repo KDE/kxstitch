@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "MainWindow.h"
 
 #include <QAction>
@@ -20,20 +19,19 @@
 #include <QGridLayout>
 #include <QMenu>
 #include <QMimeData>
-#include <QPainter>
 #include <QPaintEngine>
-#include <QProgressDialog>
+#include <QPainter>
 #include <QPrintDialog>
-#include <QPrinter>
 #include <QPrintEngine>
 #include <QPrintPreviewDialog>
+#include <QPrinter>
+#include <QProgressDialog>
 #include <QSaveFile>
 #include <QScrollArea>
 #include <QTemporaryFile>
 #include <QUndoView>
 #include <QUrl>
 
-#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KIO/FileCopyJob>
@@ -43,11 +41,11 @@
 #include <KRecentFilesAction>
 #include <KSelectAction>
 #include <KXMLGUIFactory>
+#include <kwidgetsaddons_version.h>
 
 #include "BackgroundImage.h"
-#include "configuration.h"
-#include "ConfigurationDialogs.h"
 #include "Commands.h"
+#include "ConfigurationDialogs.h"
 #include "Document.h"
 #include "Editor.h"
 #include "ExtendPatternDlg.h"
@@ -65,17 +63,16 @@
 #include "SchemeManager.h"
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
-
+#include "configuration.h"
 
 MainWindow::MainWindow()
-    :   m_printer(nullptr)
+    : m_printer(nullptr)
 {
     setupActions();
 }
 
-
 MainWindow::MainWindow(const QUrl &url)
-    :   m_printer(nullptr)
+    : m_printer(nullptr)
 {
     setupMainWindow();
     setupLayout();
@@ -91,9 +88,8 @@ MainWindow::MainWindow(const QUrl &url)
     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->hide();
 }
 
-
 MainWindow::MainWindow(const QString &source)
-    :   m_printer(nullptr)
+    : m_printer(nullptr)
 {
     setupMainWindow();
     setupLayout();
@@ -109,13 +105,11 @@ MainWindow::MainWindow(const QString &source)
     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
 }
 
-
 void MainWindow::setupMainWindow()
 {
     setObjectName(QStringLiteral("MainWindow#"));
     setAutoSaveSettings();
 }
-
 
 void MainWindow::setupLayout()
 {
@@ -141,7 +135,6 @@ void MainWindow::setupLayout()
     setStatusBar(nullptr);
 }
 
-
 void MainWindow::setupDocument()
 {
     m_document = new Document();
@@ -157,7 +150,6 @@ void MainWindow::setupDocument()
     m_document->addView(m_palette);
 }
 
-
 void MainWindow::setupConnections()
 {
     KActionCollection *actions = actionCollection();
@@ -165,7 +157,7 @@ void MainWindow::setupConnections()
     connect(&(m_document->undoStack()), &QUndoStack::canUndoChanged, actions->action(QStringLiteral("edit_undo")), &QAction::setEnabled);
     connect(&(m_document->undoStack()), &QUndoStack::canUndoChanged, actions->action(QStringLiteral("file_revert")), &QAction::setEnabled);
     connect(&(m_document->undoStack()), &QUndoStack::canRedoChanged, actions->action(QStringLiteral("edit_redo")), &QAction::setEnabled);
-    connect(QApplication::clipboard(),  &QClipboard::dataChanged, this, &MainWindow::clipboardDataChanged);
+    connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &MainWindow::clipboardDataChanged);
     connect(m_editor, &Editor::selectionMade, actionCollection()->action(QStringLiteral("edit_cut")), &QAction::setEnabled);
     connect(m_editor, &Editor::selectionMade, actionCollection()->action(QStringLiteral("edit_copy")), &QAction::setEnabled);
     connect(m_editor, &Editor::selectionMade, actionCollection()->action(QStringLiteral("mirrorHorizontal")), &QAction::setEnabled);
@@ -184,11 +176,16 @@ void MainWindow::setupConnections()
     connect(m_palette, static_cast<void (Palette::*)(int, int)>(&Palette::replaceColor), this, &MainWindow::paletteReplaceColor);
     connect(m_palette, &Palette::signalStateChanged, this, static_cast<void (KXmlGuiWindow::*)(const QString &, bool)>(&KXmlGuiWindow::slotStateChanged));
     connect(m_palette, &Palette::customContextMenuRequested, this, &MainWindow::paletteContextMenu);
-    connect(m_editor,  &Editor::changedVisibleCells, m_preview, &Preview::setVisibleCells);
-    connect(m_preview, static_cast<void (Preview::*)(QPoint)>(&Preview::clicked), m_editor, static_cast<void (Editor::*)(const QPoint &)>(&Editor::previewClicked));
-    connect(m_preview, static_cast<void (Preview::*)(QRect)>(&Preview::clicked), m_editor, static_cast<void (Editor::*)(const QRect &)>(&Editor::previewClicked));
+    connect(m_editor, &Editor::changedVisibleCells, m_preview, &Preview::setVisibleCells);
+    connect(m_preview,
+            static_cast<void (Preview::*)(QPoint)>(&Preview::clicked),
+            m_editor,
+            static_cast<void (Editor::*)(const QPoint &)>(&Editor::previewClicked));
+    connect(m_preview,
+            static_cast<void (Preview::*)(QRect)>(&Preview::clicked),
+            m_editor,
+            static_cast<void (Editor::*)(const QRect &)>(&Editor::previewClicked));
 }
-
 
 void MainWindow::setupActionDefaults()
 {
@@ -199,37 +196,32 @@ void MainWindow::setupActionDefaults()
     actions->action(QStringLiteral("maskBackstitch"))->setChecked(false);
     actions->action(QStringLiteral("maskKnot"))->setChecked(false);
 
-    actions->action(QStringLiteral("stitchFull"))->trigger();   // Select full stitch
+    actions->action(QStringLiteral("stitchFull"))->trigger(); // Select full stitch
 
-    actions->action(QStringLiteral("toolPaint"))->trigger();    // Select paint tool
+    actions->action(QStringLiteral("toolPaint"))->trigger(); // Select paint tool
 
     clipboardDataChanged();
 }
-
 
 MainWindow::~MainWindow()
 {
     delete m_printer;
 }
 
-
 Editor *MainWindow::editor()
 {
     return m_editor;
 }
-
 
 Preview *MainWindow::preview()
 {
     return m_preview;
 }
 
-
 Palette *MainWindow::palette()
 {
     return m_palette;
 }
-
 
 bool MainWindow::queryClose()
 {
@@ -243,17 +235,17 @@ bool MainWindow::queryClose()
 #else
         int messageBoxResult = KMessageBox::warningYesNoCancel(this,
 #endif
-                                                               i18n("Save changes to document?"),
-                                                               QString(),
-                                                               KStandardGuiItem::save(),
-                                                               KStandardGuiItem::discard(),
-                                                               KStandardGuiItem::cancel());
+                                                                    i18n("Save changes to document?"),
+                                                                    QString(),
+                                                                    KStandardGuiItem::save(),
+                                                                    KStandardGuiItem::discard(),
+                                                                    KStandardGuiItem::cancel());
 
         switch (messageBoxResult) {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        case KMessageBox::PrimaryAction :
+        case KMessageBox::PrimaryAction:
 #else
-        case KMessageBox::Yes :
+        case KMessageBox::Yes:
 #endif
             fileSave();
 
@@ -266,18 +258,17 @@ bool MainWindow::queryClose()
             break;
 
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        case KMessageBox::SecondaryAction :
+        case KMessageBox::SecondaryAction:
 #else
-        case KMessageBox::No :
+        case KMessageBox::No:
 #endif
             return true;
 
-        case KMessageBox::Cancel :
+        case KMessageBox::Cancel:
             return false;
         }
     }
 }
-
 
 void MainWindow::setupActionsFromDocument()
 {
@@ -290,19 +281,19 @@ void MainWindow::setupActionsFromDocument()
     updateBackgroundImageActionLists();
 }
 
-
 void MainWindow::fileNew()
 {
     MainWindow *window = new MainWindow(QUrl());
     window->show();
 }
 
-
 void MainWindow::fileOpen()
 {
-    fileOpen(QFileDialog::getOpenFileUrl(this, i18n("Open file"), QUrl::fromLocalFile(QDir::homePath()), i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
+    fileOpen(QFileDialog::getOpenFileUrl(this,
+                                         i18n("Open file"),
+                                         QUrl::fromLocalFile(QDir::homePath()),
+                                         i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
 }
-
 
 void MainWindow::fileOpen(const QUrl &url)
 {
@@ -374,7 +365,6 @@ void MainWindow::fileOpen(const QUrl &url)
     }
 }
 
-
 void MainWindow::fileSave()
 {
     QUrl url = m_document->url();
@@ -404,9 +394,7 @@ void MainWindow::fileSave()
             KMessageBox::error(nullptr, QString(i18n("Failed to open the file.\n%1", file.errorString())));
         }
     }
-
 }
-
 
 void MainWindow::fileSaveAs()
 {
@@ -421,7 +409,6 @@ void MainWindow::fileSaveAs()
     }
 }
 
-
 void MainWindow::fileRevert()
 {
     if (!m_document->undoStack().isClean()) {
@@ -430,9 +417,10 @@ void MainWindow::fileRevert()
 #else
         if (KMessageBox::warningYesNo(this,
 #endif
-                                      i18n("Revert changes to document?"), QString(),
-                                      KGuiItem(i18nc("@action:button", "Revert"), QStringLiteral("document-revert")),
-                                      KStandardGuiItem::cancel())
+                                           i18n("Revert changes to document?"),
+                                           QString(),
+                                           KGuiItem(i18nc("@action:button", "Revert"), QStringLiteral("document-revert")),
+                                           KStandardGuiItem::cancel())
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             == KMessageBox::PrimaryAction) {
 #else
@@ -442,7 +430,6 @@ void MainWindow::fileRevert()
         }
     }
 }
-
 
 void MainWindow::filePrintSetup()
 {
@@ -458,7 +445,6 @@ void MainWindow::filePrintSetup()
 
     delete printSetupDlg;
 }
-
 
 void MainWindow::filePrint()
 {
@@ -483,7 +469,6 @@ void MainWindow::filePrint()
     }
 }
 
-
 void MainWindow::printPages()
 {
     QList<Page *> pages = m_document->printerConfiguration().pages();
@@ -496,12 +481,14 @@ void MainWindow::printPages()
         toPage = m_printer->toPage();
     }
 
-    while (toPage < pages.count()) pages.removeLast();
-    while (--fromPage) pages.removeFirst();
+    while (toPage < pages.count())
+        pages.removeLast();
+    while (--fromPage)
+        pages.removeFirst();
 
     int totalPages = pages.count();
 
-    const Page *page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
+    const Page *page = (m_printer->pageOrder() == QPrinter::FirstPageFirst) ? pages.takeFirst() : pages.takeLast();
 
     m_printer->setPageSize(page->pageSize());
     m_printer->setPageOrientation(page->orientation());
@@ -510,7 +497,7 @@ void MainWindow::printPages()
     painter.begin(m_printer);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    for (int p = 0 ; p < totalPages ;) {
+    for (int p = 0; p < totalPages;) {
         int paperWidth = PageSizes::width(page->pageSize().id(), page->orientation());
         int paperHeight = PageSizes::height(page->pageSize().id(), page->orientation());
 
@@ -519,7 +506,7 @@ void MainWindow::printPages()
         page->render(m_document, &painter);
 
         if (++p < totalPages) {
-            page = (m_printer->pageOrder() == QPrinter::FirstPageFirst)?pages.takeFirst():pages.takeLast();
+            page = (m_printer->pageOrder() == QPrinter::FirstPageFirst) ? pages.takeFirst() : pages.takeLast();
 
             m_printer->setPageSize(page->pageSize());
             m_printer->setPageOrientation(page->orientation());
@@ -531,12 +518,14 @@ void MainWindow::printPages()
     painter.end();
 }
 
-
 void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url().toString() == i18n("Untitled")));
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    QUrl url = QFileDialog::getOpenFileUrl(this,
+                                           i18n("Import Image"),
+                                           QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)),
+                                           i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (url.isValid()) {
         QTemporaryFile tmpFile;
@@ -558,7 +547,6 @@ void MainWindow::fileImportImage()
         }
     }
 }
-
 
 void MainWindow::convertImage(const QString &source)
 {
@@ -619,7 +607,7 @@ void MainWindow::convertImage(const QString &source)
         QProgressDialog progress(i18n("Converting to stitches"), i18n("Cancel"), 0, pixelCount, this);
         progress.setWindowModality(Qt::WindowModal);
 
-        for (int dy = 0 ; dy < imageHeight ; dy++) {
+        for (int dy = 0; dy < imageHeight; dy++) {
             progress.setValue(dy * imageWidth);
             QApplication::processEvents();
 
@@ -629,7 +617,7 @@ void MainWindow::convertImage(const QString &source)
                 return;
             }
 
-            for (int dx = 0 ; dx < imageWidth ; dx++) {
+            for (int dx = 0; dx < imageWidth; dx++) {
 #if MagickLibVersion < 0x700
                 Magick::ColorRGB rgb = Magick::Color(*pixels++);
 #else
@@ -641,9 +629,9 @@ void MainWindow::convertImage(const QString &source)
                 } else {
                     if (!(ignoreColor && (rgb == ignoreColorValue))) {
                         int flossIndex;
-                        QColor color((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue()));
+                        QColor color((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue()));
 
-                        for (flossIndex = 0 ; flossIndex < documentFlosses.count() ; ++flossIndex) {
+                        for (flossIndex = 0; flossIndex < documentFlosses.count(); ++flossIndex) {
                             if (documentFlosses[flossIndex] == color) {
                                 break;
                             }
@@ -654,7 +642,11 @@ void MainWindow::convertImage(const QString &source)
                             Qt::PenStyle backstitchSymbol(Qt::SolidLine);
                             Floss *floss = flossScheme->find(color);
 
-                            DocumentFloss *documentFloss = new DocumentFloss(floss->name(), stitchSymbol, backstitchSymbol, Configuration::palette_StitchStrands(), Configuration::palette_BackstitchStrands());
+                            DocumentFloss *documentFloss = new DocumentFloss(floss->name(),
+                                                                             stitchSymbol,
+                                                                             backstitchSymbol,
+                                                                             Configuration::palette_StitchStrands(),
+                                                                             Configuration::palette_BackstitchStrands());
                             documentFloss->setFlossColor(floss->color());
                             new AddDocumentFlossCommand(m_document, flossIndex, documentFloss, importImageCommand);
                             documentFlosses.insert(flossIndex, color);
@@ -683,7 +675,6 @@ void MainWindow::convertImage(const QString &source)
     delete importImageDlg;
 }
 
-
 void MainWindow::convertPreview(const QString &source, const QRect &croppedArea)
 {
     QPixmap pixmap;
@@ -692,7 +683,6 @@ void MainWindow::convertPreview(const QString &source, const QRect &croppedArea)
     m_imageLabel->setPixmap(pixmap);
 }
 
-
 void MainWindow::fileProperties()
 {
     QPointer<FilePropertiesDlg> filePropertiesDlg = new FilePropertiesDlg(this, m_document);
@@ -700,11 +690,13 @@ void MainWindow::fileProperties()
     if (filePropertiesDlg->exec()) {
         QUndoCommand *cmd = new FilePropertiesCommand(m_document);
 
-        if ((filePropertiesDlg->documentWidth() != m_document->pattern()->stitches().width()) || (filePropertiesDlg->documentHeight() != m_document->pattern()->stitches().height())) {
+        if ((filePropertiesDlg->documentWidth() != m_document->pattern()->stitches().width())
+            || (filePropertiesDlg->documentHeight() != m_document->pattern()->stitches().height())) {
             new ResizeDocumentCommand(m_document, filePropertiesDlg->documentWidth(), filePropertiesDlg->documentHeight(), cmd);
         }
 
-        if (filePropertiesDlg->unitsFormat() != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt())) {
+        if (filePropertiesDlg->unitsFormat()
+            != static_cast<Configuration::EnumDocument_UnitsFormat::type>(m_document->property(QStringLiteral("unitsFormat")).toInt())) {
             new SetPropertyCommand(m_document, QStringLiteral("unitsFormat"), QVariant(filePropertiesDlg->unitsFormat()), cmd);
         }
 
@@ -720,7 +712,8 @@ void MainWindow::fileProperties()
             new SetPropertyCommand(m_document, QStringLiteral("verticalClothCount"), QVariant(filePropertiesDlg->verticalClothCount()), cmd);
         }
 
-        if (filePropertiesDlg->clothCountUnits() != static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())) {
+        if (filePropertiesDlg->clothCountUnits()
+            != static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())) {
             new SetPropertyCommand(m_document, QStringLiteral("clothCountUnits"), QVariant(filePropertiesDlg->clothCountUnits()), cmd);
         }
 
@@ -762,10 +755,12 @@ void MainWindow::fileProperties()
     delete filePropertiesDlg;
 }
 
-
 void MainWindow::fileAddBackgroundImage()
 {
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Background Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    QUrl url = QFileDialog::getOpenFileUrl(this,
+                                           i18n("Background Image"),
+                                           QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)),
+                                           i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (!url.isEmpty()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
@@ -778,13 +773,11 @@ void MainWindow::fileAddBackgroundImage()
     }
 }
 
-
 void MainWindow::fileRemoveBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new RemoveBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), this));
 }
-
 
 void MainWindow::fileClose()
 {
@@ -798,42 +791,37 @@ void MainWindow::fileClose()
     close();
 }
 
-
 void MainWindow::fileQuit()
 {
     close();
 }
-
 
 void MainWindow::editUndo()
 {
     m_document->undoStack().undo();
 }
 
-
 void MainWindow::editRedo()
 {
     m_document->undoStack().redo();
 }
-
 
 void MainWindow::undoTextChanged(const QString &text)
 {
     actionCollection()->action(QStringLiteral("edit_undo"))->setText(i18n("Undo %1", text));
 }
 
-
 void MainWindow::redoTextChanged(const QString &text)
 {
     actionCollection()->action(QStringLiteral("edit_redo"))->setText(i18n("Redo %1", text));
 }
 
-
 void MainWindow::clipboardDataChanged()
 {
-    actionCollection()->action(QStringLiteral("edit_paste"))->setEnabled(QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch")));
+    actionCollection()
+        ->action(QStringLiteral("edit_paste"))
+        ->setEnabled(QApplication::clipboard()->mimeData()->hasFormat(QStringLiteral("application/kxstitch")));
 }
-
 
 void MainWindow::paletteManager()
 {
@@ -850,12 +838,10 @@ void MainWindow::paletteManager()
     delete paletteManagerDlg;
 }
 
-
 void MainWindow::paletteShowSymbols(bool show)
 {
     m_palette->showSymbols(show);
 }
-
 
 void MainWindow::paletteClearUnused()
 {
@@ -878,11 +864,9 @@ void MainWindow::paletteClearUnused()
     }
 }
 
-
 void MainWindow::paletteCalibrateScheme()
 {
 }
-
 
 void MainWindow::paletteSwapColors(int originalIndex, int replacementIndex)
 {
@@ -891,7 +875,6 @@ void MainWindow::paletteSwapColors(int originalIndex, int replacementIndex)
     }
 }
 
-
 void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
 {
     if (originalIndex != replacementIndex) {
@@ -899,26 +882,22 @@ void MainWindow::paletteReplaceColor(int originalIndex, int replacementIndex)
     }
 }
 
-
 void MainWindow::viewFitBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new FitBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), m_editor->selectionArea()));
 }
 
-
 void MainWindow::paletteContextMenu(const QPoint &pos)
 {
     static_cast<QMenu *>(guiFactory()->container(QStringLiteral("PalettePopup"), this))->popup(qobject_cast<QWidget *>(sender())->mapToGlobal(pos));
 }
-
 
 void MainWindow::viewShowBackgroundImage()
 {
     QAction *action = qobject_cast<QAction *>(sender());
     m_document->undoStack().push(new ShowBackgroundImageCommand(m_document, action->data().value<QSharedPointer<BackgroundImage>>(), action->isChecked()));
 }
-
 
 void MainWindow::patternExtend()
 {
@@ -938,36 +917,30 @@ void MainWindow::patternExtend()
     delete extendPatternDlg;
 }
 
-
 void MainWindow::patternCentre()
 {
     m_document->undoStack().push(new CentrePatternCommand(m_document));
 }
-
 
 void MainWindow::patternCrop()
 {
     m_document->undoStack().push(new CropToPatternCommand(m_document));
 }
 
-
 void MainWindow::patternCropToSelection()
 {
     m_document->undoStack().push(new CropToSelectionCommand(m_document, m_editor->selectionArea()));
 }
-
 
 void MainWindow::insertColumns()
 {
     m_document->undoStack().push(new InsertColumnsCommand(m_document, m_editor->selectionArea()));
 }
 
-
 void MainWindow::insertRows()
 {
     m_document->undoStack().push(new InsertRowsCommand(m_document, m_editor->selectionArea()));
 }
-
 
 void MainWindow::preferences()
 {
@@ -978,19 +951,22 @@ void MainWindow::preferences()
     KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("preferences"), Configuration::self());
     dialog->setFaceType(KPageDialog::List);
 
-    dialog->addPage(new EditorConfigPage(nullptr, QStringLiteral("EditorConfigPage")), i18nc("The Editor config page", "Editor"), QStringLiteral("preferences-desktop"));
+    dialog->addPage(new EditorConfigPage(nullptr, QStringLiteral("EditorConfigPage")),
+                    i18nc("The Editor config page", "Editor"),
+                    QStringLiteral("preferences-desktop"));
     dialog->addPage(new PatternConfigPage(nullptr, QStringLiteral("PatternConfigPage")), i18n("Pattern"), QStringLiteral("ksnapshot"));
     PaletteConfigPage *paletteConfigPage = new PaletteConfigPage(nullptr, QStringLiteral("PaletteConfigPage"));
     dialog->addPage(paletteConfigPage, i18n("Palette"), QStringLiteral("preferences-desktop-color"));
     dialog->addPage(new ImportConfigPage(nullptr, QStringLiteral("ImportConfigPage")), i18n("Import"), QStringLiteral("insert-image"));
     dialog->addPage(new LibraryConfigPage(nullptr, QStringLiteral("LibraryConfigPage")), i18n("Library"), QStringLiteral("accessories-dictionary"));
-    dialog->addPage(new PrinterConfigPage(nullptr, QStringLiteral("PrinterConfigPage")), i18n("Printer Configuration"), QStringLiteral("preferences-desktop-printer"));
+    dialog->addPage(new PrinterConfigPage(nullptr, QStringLiteral("PrinterConfigPage")),
+                    i18n("Printer Configuration"),
+                    QStringLiteral("preferences-desktop-printer"));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::settingsChanged);
 
     dialog->show();
 }
-
 
 void MainWindow::settingsChanged()
 {
@@ -998,19 +974,23 @@ void MainWindow::settingsChanged()
     ConfigurationCommand *configurationCommand = new ConfigurationCommand(this);
 
     if (m_document->property(QStringLiteral("cellHorizontalGrouping")) != Configuration::editor_CellHorizontalGrouping()) {
-        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("cellHorizontalGrouping"), Configuration::editor_CellHorizontalGrouping(), configurationCommand));
+        documentChanges.append(
+            new SetPropertyCommand(m_document, QStringLiteral("cellHorizontalGrouping"), Configuration::editor_CellHorizontalGrouping(), configurationCommand));
     }
 
     if (m_document->property(QStringLiteral("cellVerticalGrouping")) != Configuration::editor_CellVerticalGrouping()) {
-        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("cellVerticalGrouping"), Configuration::editor_CellVerticalGrouping(), configurationCommand));
+        documentChanges.append(
+            new SetPropertyCommand(m_document, QStringLiteral("cellVerticalGrouping"), Configuration::editor_CellVerticalGrouping(), configurationCommand));
     }
 
     if (m_document->property(QStringLiteral("thickLineColor")) != Configuration::editor_ThickLineColor()) {
-        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor(), configurationCommand));
+        documentChanges.append(
+            new SetPropertyCommand(m_document, QStringLiteral("thickLineColor"), Configuration::editor_ThickLineColor(), configurationCommand));
     }
 
     if (m_document->property(QStringLiteral("thinLineColor")) != Configuration::editor_ThinLineColor()) {
-        documentChanges.append(new SetPropertyCommand(m_document, QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor(), configurationCommand));
+        documentChanges.append(
+            new SetPropertyCommand(m_document, QStringLiteral("thinLineColor"), Configuration::editor_ThinLineColor(), configurationCommand));
     }
 
     if (documentChanges.count()) {
@@ -1021,7 +1001,6 @@ void MainWindow::settingsChanged()
 
     loadSettings();
 }
-
 
 void MainWindow::loadSettings()
 {
@@ -1125,12 +1104,10 @@ void MainWindow::loadSettings()
     actions->action(QStringLiteral("paletteShowSymbols"))->setChecked(Configuration::palette_ShowSymbols());
 }
 
-
 void MainWindow::documentModified(bool clean)
 {
     setCaption(m_document->url().fileName(), !clean);
 }
-
 
 void MainWindow::setupActions()
 {
@@ -1142,7 +1119,8 @@ void MainWindow::setupActions()
     // File menu
     KStandardAction::openNew(this, &MainWindow::fileNew, actions);
     KStandardAction::open(this, static_cast<void (MainWindow::*)()>(&MainWindow::fileOpen), actions);
-    KStandardAction::openRecent(this, static_cast<void (MainWindow::*)(const QUrl &)>(&MainWindow::fileOpen), actions)->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
+    KStandardAction::openRecent(this, static_cast<void (MainWindow::*)(const QUrl &)>(&MainWindow::fileOpen), actions)
+        ->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     KStandardAction::save(this, &MainWindow::fileSave, actions);
     KStandardAction::saveAs(this, &MainWindow::fileSaveAs, actions);
     KStandardAction::revert(this, &MainWindow::fileRevert, actions);
@@ -1171,7 +1149,6 @@ void MainWindow::setupActions()
 
     KStandardAction::close(this, &MainWindow::fileClose, actions);
     KStandardAction::quit(this, &MainWindow::fileQuit, actions);
-
 
     // Edit menu
     KStandardAction::undo(this, &MainWindow::editUndo, actions);
@@ -1248,7 +1225,6 @@ void MainWindow::setupActions()
     connect(action, &QAction::triggered, m_editor, &Editor::setMaskKnot);
     actions->addAction(QStringLiteral("maskKnot"), action);
 
-
     // View menu
     KStandardAction::zoomIn(m_editor, &Editor::zoomIn, actions);
     KStandardAction::zoomOut(m_editor, &Editor::zoomOut, actions);
@@ -1263,7 +1239,6 @@ void MainWindow::setupActions()
     // Entries for Show/Hide Preview and Palette dock windows are added dynamically
     // Entries for Show/Hide and Remove background images are added dynamically
 
-
     // Stitches Menu
     actionGroup = new QActionGroup(this);
     actionGroup->setExclusive(true);
@@ -1272,7 +1247,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Quarter Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-quarter-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchQuarter); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchQuarter);
+    });
     actions->addAction(QStringLiteral("stitchQuarter"), action);
     actionGroup->addAction(action);
 
@@ -1280,7 +1257,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Half Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-half-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchHalf); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchHalf);
+    });
     actions->addAction(QStringLiteral("stitchHalf"), action);
     actionGroup->addAction(action);
 
@@ -1288,7 +1267,9 @@ void MainWindow::setupActions()
     action->setText(i18n("3 Quarter Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-3quarter-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::Stitch3Quarter); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::Stitch3Quarter);
+    });
     actions->addAction(QStringLiteral("stitch3Quarter"), action);
     actionGroup->addAction(action);
 
@@ -1296,7 +1277,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Full Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-full-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchFull); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchFull);
+    });
     actions->addAction(QStringLiteral("stitchFull"), action);
     actionGroup->addAction(action);
 
@@ -1304,7 +1287,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Small Half Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-small-half-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchSmallHalf); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchSmallHalf);
+    });
     actions->addAction(QStringLiteral("stitchSmallHalf"), action);
     actionGroup->addAction(action);
 
@@ -1312,7 +1297,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Small Full Stitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-small-full-stitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchSmallFull); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchSmallFull);
+    });
     actions->addAction(QStringLiteral("stitchSmallFull"), action);
     actionGroup->addAction(action);
 
@@ -1320,10 +1307,11 @@ void MainWindow::setupActions()
     action->setText(i18n("French Knot"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-frenchknot")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() { m_editor->selectStitch(Editor::StitchFrenchKnot); });
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectStitch(Editor::StitchFrenchKnot);
+    });
     actions->addAction(QStringLiteral("stitchFrenchKnot"), action);
     actionGroup->addAction(action);
-
 
     // Tools Menu
     actionGroup = new QActionGroup(this);
@@ -1333,7 +1321,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Paint"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-brush")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolPaint);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolPaint);
+    });
     actions->addAction(QStringLiteral("toolPaint"), action);
     actionGroup->addAction(action);
 
@@ -1341,7 +1331,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Draw"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-freehand")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolDraw);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolDraw);
+    });
     actions->addAction(QStringLiteral("toolDraw"), action);
     actionGroup->addAction(action);
 
@@ -1349,7 +1341,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Erase"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-eraser")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolErase);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolErase);
+    });
     actions->addAction(QStringLiteral("toolErase"), action);
     actionGroup->addAction(action);
 
@@ -1357,7 +1351,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Draw Rectangle"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-rectangle")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolRectangle);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolRectangle);
+    });
     actions->addAction(QStringLiteral("toolRectangle"), action);
     actionGroup->addAction(action);
 
@@ -1365,7 +1361,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Fill Rectangle"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-draw-rectangle-filled")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillRectangle);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolFillRectangle);
+    });
     actions->addAction(QStringLiteral("toolFillRectangle"), action);
     actionGroup->addAction(action);
 
@@ -1373,7 +1371,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Draw Ellipse"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-ellipse")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolEllipse);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolEllipse);
+    });
     actions->addAction(QStringLiteral("toolEllipse"), action);
     actionGroup->addAction(action);
 
@@ -1381,7 +1381,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Fill Ellipse"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-draw-ellipse-filled")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillEllipse);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolFillEllipse);
+    });
     actions->addAction(QStringLiteral("toolFillEllipse"), action);
     actionGroup->addAction(action);
 
@@ -1389,7 +1391,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Fill Polygon"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("tool_polygon")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolFillPolygon);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolFillPolygon);
+    });
     actions->addAction(QStringLiteral("toolFillPolygon"), action);
     actionGroup->addAction(action);
 
@@ -1397,7 +1401,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Text"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("draw-text")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolText);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolText);
+    });
     actions->addAction(QStringLiteral("toolText"), action);
     actionGroup->addAction(action);
 
@@ -1405,7 +1411,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Alphabet"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("text-field")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolAlphabet);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolAlphabet);
+    });
     actions->addAction(QStringLiteral("toolAlphabet"), action);
     actionGroup->addAction(action);
 
@@ -1413,7 +1421,9 @@ void MainWindow::setupActions()
     action->setText(i18nc("Select an area of the pattern", "Select"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("select-rectangular")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolSelect);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolSelect);
+    });
     actions->addAction(QStringLiteral("toolSelectRectangle"), action);
     actionGroup->addAction(action);
 
@@ -1421,7 +1431,9 @@ void MainWindow::setupActions()
     action->setText(i18n("Backstitch"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("kxs-backstitch")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolBackstitch);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolBackstitch);
+    });
     actions->addAction(QStringLiteral("toolBackstitch"), action);
     actionGroup->addAction(action);
 
@@ -1429,10 +1441,11 @@ void MainWindow::setupActions()
     action->setText(i18n("Color Picker"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("color-picker")));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->selectTool(Editor::ToolColorPicker);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->selectTool(Editor::ToolColorPicker);
+    });
     actions->addAction(QStringLiteral("toolColorPicker"), action);
     actionGroup->addAction(action);
-
 
     // Palette Menu
     action = new QAction(this);
@@ -1466,7 +1479,6 @@ void MainWindow::setupActions()
     action->setText(i18n("Replace Colors"));
     connect(action, &QAction::triggered, m_palette, static_cast<void (Palette::*)()>(&Palette::replaceColor));
     actions->addAction(QStringLiteral("paletteReplaceColor"), action);
-
 
     // Pattern Menu
     action = new QAction(this);
@@ -1504,7 +1516,6 @@ void MainWindow::setupActions()
     connect(action, &QAction::triggered, this, &MainWindow::insertColumns);
     action->setEnabled(false);
     actions->addAction(QStringLiteral("insertColumns"), action);
-
 
     // Library Menu
     action = new QAction(this);
@@ -1547,35 +1558,45 @@ void MainWindow::setupActions()
     action->setText(i18n("Regular Stitches"));
     action->setCheckable(true);
     action->setChecked(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
+    });
     actions->addAction(QStringLiteral("renderStitchesAsRegularStitches"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
+    });
     actions->addAction(QStringLiteral("renderStitchesAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorSymbols);
+    });
     actions->addAction(QStringLiteral("renderStitchesAsColorSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Blocks"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocks);
+    });
     actions->addAction(QStringLiteral("renderStitchesAsColorBlocks"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::ColorBlocksSymbols);
+    });
     actions->addAction(QStringLiteral("renderStitchesAsColorBlocksSymbols"), action);
     actionGroup->addAction(action);
 
@@ -1587,14 +1608,18 @@ void MainWindow::setupActions()
     action->setText(i18n("Color Lines"));
     action->setCheckable(true);
     action->setChecked(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
+    });
     actions->addAction(QStringLiteral("renderBackstitchesAsColorLines"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
+    });
     actions->addAction(QStringLiteral("renderBackstitchesAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
 
@@ -1606,31 +1631,38 @@ void MainWindow::setupActions()
     action->setText(i18n("Color Blocks"));
     action->setCheckable(true);
     action->setChecked(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
+    });
     actions->addAction(QStringLiteral("renderKnotsAsColorBlocks"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Blocks & Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocksSymbols);
+    });
     actions->addAction(QStringLiteral("renderKnotsAsColorBlocksSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Color Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorSymbols);
+    });
     actions->addAction(QStringLiteral("renderKnotsAsColorSymbols"), action);
     actionGroup->addAction(action);
 
     action = new QAction(this);
     action->setText(i18n("Black & White Symbols"));
     action->setCheckable(true);
-    connect(action, &QAction::triggered, m_editor, [=]() {m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);});
+    connect(action, &QAction::triggered, m_editor, [=]() {
+        m_editor->renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
+    });
     actions->addAction(QStringLiteral("renderKnotsAsBlackWhiteSymbols"), action);
     actionGroup->addAction(action);
-
 
     action = new QAction(this);
     action->setText(i18n("Color Highlight"));
@@ -1679,7 +1711,6 @@ void MainWindow::setupActions()
     setupGUI(KXmlGuiWindow::Default, QStringLiteral("kxstitchui.rc"));
 }
 
-
 void MainWindow::updateBackgroundImageActionLists()
 {
     auto backgroundImages = m_document->backgroundImages().backgroundImages();
@@ -1720,7 +1751,6 @@ void MainWindow::updateBackgroundImageActionLists()
     plugActionList(QStringLiteral("fitBackgroundImageActions"), fitBackgroundImageActions);
     plugActionList(QStringLiteral("showBackgroundImageActions"), showBackgroundImageActions);
 }
-
 
 void MainWindow::setupDockWindows()
 {

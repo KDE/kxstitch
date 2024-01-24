@@ -8,15 +8,12 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Scale_H
 #define Scale_H
-
 
 #include <QWidget>
 
 #include "configuration.h"
-
 
 class Scale : public QWidget
 {
@@ -39,15 +36,14 @@ protected:
     virtual void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
 private:
-    Configuration::EnumEditor_FormatScalesAs::type  m_units;
-    double  m_cellSize;
-    int     m_cellGrouping;
-    int     m_cellCount;
-    double  m_clothCount;
+    Configuration::EnumEditor_FormatScalesAs::type m_units;
+    double m_cellSize;
+    int m_cellGrouping;
+    int m_cellCount;
+    double m_clothCount;
     Configuration::EnumEditor_ClothCountUnits::type m_clothCountUnits;
-    double  m_offset;
+    double m_offset;
     Qt::Orientation m_orientation;
 };
-
 
 #endif // Scale_H

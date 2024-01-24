@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the SymbolSelectorDlg class.
  */
-
 
 /**
  * @page symbolSelectorDlg Symbol Selector Dialog
@@ -24,7 +22,6 @@
  * require a single or double click.
  */
 
-
 #include "SymbolSelectorDlg.h"
 
 #include <QListWidget>
@@ -32,11 +29,10 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 
-#include "configuration.h"
 #include "Symbol.h"
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
-
+#include "configuration.h"
 
 /**
  * Constructor.
@@ -45,7 +41,7 @@
  * @param symbolLibrary the name of the symbol library to use
  */
 SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibrary)
-    :   QDialog(parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Symbol Selector"));
     ui.setupUi(this);
@@ -58,7 +54,6 @@ SymbolSelectorDlg::SymbolSelectorDlg(QWidget *parent, const QString &symbolLibra
 
     ui.SymbolTable->loadFromLibrary(library);
 }
-
 
 /**
  * Set the current symbol and the used symbols to correctly display the
@@ -79,7 +74,6 @@ void SymbolSelectorDlg::setSelectedSymbol(qint16 symbol, const QList<qint16> &us
     ui.SymbolTable->setCurrent(m_currentSymbol);
 }
 
-
 /**
  * Get the selected symbol.
  *
@@ -89,7 +83,6 @@ qint16 SymbolSelectorDlg::selectedSymbol()
 {
     return m_currentSymbol;
 }
-
 
 /**
  * Override hideEvent to save the dialogs size.
@@ -102,7 +95,6 @@ void SymbolSelectorDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 /**
  * Override showEvent to restore the dialogs size.
@@ -117,7 +109,6 @@ void SymbolSelectorDlg::showEvent(QShowEvent *event)
         resize(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).readEntry(QStringLiteral("SymbolSelectorDlg"), QSize()));
     }
 }
-
 
 /**
  * Set the selected symbol from the selected icon.
@@ -138,7 +129,6 @@ void SymbolSelectorDlg::on_SymbolTable_itemClicked(QListWidgetItem *item)
     }
 }
 
-
 /**
  * Called when the dialog Close button is pressed.
  */
@@ -146,7 +136,6 @@ void SymbolSelectorDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 /**
  * Called when the dialog Help button is pressed.

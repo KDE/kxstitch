@@ -8,17 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryListWidgetItem_H
 #define LibraryListWidgetItem_H
 
-
 #include <QListWidgetItem>
-
 
 class LibraryPattern;
 class QListWidget;
-
 
 class LibraryListWidgetItem : public QListWidgetItem
 {
@@ -31,6 +27,5 @@ public:
 private:
     LibraryPattern *m_libraryPattern;
 };
-
 
 #endif // LibraryListWidgetItem_H

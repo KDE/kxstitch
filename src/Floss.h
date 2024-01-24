@@ -8,15 +8,12 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Floss_H
 #define Floss_H
-
 
 #include <QColor>
 #include <QString>
 #include <QVariant>
-
 
 class Floss
 {
@@ -34,8 +31,7 @@ public:
 private:
     QString m_name;
     QString m_description;
-    QColor  m_color;
+    QColor m_color;
 };
-
 
 #endif // Floss_H

@@ -8,20 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #ifndef KeyElementDlg_H
 #define KeyElementDlg_H
-
 
 #include <QDialog>
 
 #include "ui_KeyElement.h"
 
-
 class KeyElement;
 class QHideEvent;
 class QShowEvent;
-
 
 class KeyElementDlg : public QDialog
 {
@@ -41,10 +37,9 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    KeyElement  *m_keyElement;
+    KeyElement *m_keyElement;
 
-    Ui::KeyElement  ui;
+    Ui::KeyElement ui;
 };
-
 
 #endif // KeyElementDlg_H

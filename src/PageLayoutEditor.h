@@ -8,20 +8,16 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PageLayoutEditor_H
 #define PageLayoutEditor_H
-
 
 #include <QWidget>
 
 #include "Boundary.h"
 
-
 class Document;
 class PagePreviewListWidgetItem;
 class QMouseEvent;
-
 
 class PageLayoutEditor : public QWidget
 {
@@ -65,26 +61,25 @@ private slots:
 private:
     QPoint toSnap(const QPoint &) const;
 
-    Document                    *m_document;
-    PagePreviewListWidgetItem   *m_pagePreview;
-    Element                     *m_elementUnderCursor;
+    Document *m_document;
+    PagePreviewListWidgetItem *m_pagePreview;
+    Element *m_elementUnderCursor;
 
     int m_paperWidth;
     int m_paperHeight;
 
-    bool            m_selecting;
-    bool            m_resizing;
-    bool            m_moved;
-    Boundary        m_boundary;
-    QRect           m_rubberBand;
-    QPoint          m_start;
-    QPoint          m_end;
-    const QPoint    *m_node;
+    bool m_selecting;
+    bool m_resizing;
+    bool m_moved;
+    Boundary m_boundary;
+    QRect m_rubberBand;
+    QPoint m_start;
+    QPoint m_end;
+    const QPoint *m_node;
 
-    bool    m_showGrid;
-    int     m_gridSize;
-    double  m_zoomFactor;
+    bool m_showGrid;
+    int m_gridSize;
+    double m_zoomFactor;
 };
-
 
 #endif // PageLayoutEditor_H

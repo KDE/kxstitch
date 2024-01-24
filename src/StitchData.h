@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef StitchData_H
 #define StitchData_H
-
 
 #include <QList>
 #include <QListIterator>
@@ -22,7 +20,6 @@
 #include <QVector>
 
 #include "Stitch.h"
-
 
 class FlossUsage
 {
@@ -37,18 +34,13 @@ public:
     QMap<Stitch::Type, int> stitchCounts;
     QMap<Stitch::Type, double> stitchLengths;
     int backstitchCount;
-    double  backstitchLength;
+    double backstitchLength;
 };
-
 
 class StitchData
 {
 public:
-    enum Rotation {
-        Rotate90,
-        Rotate180,
-        Rotate270
-    };
+    enum Rotation { Rotate90, Rotate180, Rotate270 };
 
     StitchData();
     ~StitchData();
@@ -106,26 +98,24 @@ public:
     friend QDataStream &operator>>(QDataStream &, StitchData &);
 
 private:
-    void    deleteStitches();
-    void    invertQueue(Qt::Orientation, StitchQueue *);
-    void    rotateQueue(Rotation, StitchQueue *);
-    int     index(int, int) const;
-    int     index(const QPoint &) const;
-    bool    isValid(int x, int y) const;
+    void deleteStitches();
+    void invertQueue(Qt::Orientation, StitchQueue *);
+    void rotateQueue(Rotation, StitchQueue *);
+    int index(int, int) const;
+    int index(const QPoint &) const;
+    bool isValid(int x, int y) const;
 
     static const int version = 103;
 
     int m_width;
     int m_height;
 
-    QVector<StitchQueue *>                  m_stitches;
-    QList<Backstitch *>                     m_backstitches;
-    QList<Knot *>                           m_knots;
+    QVector<StitchQueue *> m_stitches;
+    QList<Backstitch *> m_backstitches;
+    QList<Knot *> m_knots;
 };
-
 
 QDataStream &operator<<(QDataStream &, const StitchData &);
 QDataStream &operator>>(QDataStream &, StitchData &);
-
 
 #endif // StitchData_H

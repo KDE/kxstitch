@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Editor.h"
 
 #include <QAction>
@@ -46,169 +45,158 @@
 #include "SchemeManager.h"
 #include "TextToolDlg.h"
 
-
 const Editor::keyPressCallPointer Editor::keyPressCallPointers[] = {
-    nullptr,                    // Paint
-    nullptr,                    // Draw
-    nullptr,                    // Erase
-    nullptr,                    // Rectangle
-    nullptr,                    // Fill Rectangle
-    nullptr,                    // Ellipse
-    nullptr,                    // Fill Ellipse
-    &Editor::keyPressPolygon,   // Fill Polygon
-    &Editor::keyPressText,      // Text
-    &Editor::keyPressAlphabet,  // Alphabet
-    nullptr,                    // Select
-    nullptr,                    // Backstitch
-    nullptr,                    // Color Picker
-    &Editor::keyPressPaste,     // Paste
-    &Editor::keyPressMirror,    // Mirror
-    &Editor::keyPressRotate     // Rotate
+    nullptr, // Paint
+    nullptr, // Draw
+    nullptr, // Erase
+    nullptr, // Rectangle
+    nullptr, // Fill Rectangle
+    nullptr, // Ellipse
+    nullptr, // Fill Ellipse
+    &Editor::keyPressPolygon, // Fill Polygon
+    &Editor::keyPressText, // Text
+    &Editor::keyPressAlphabet, // Alphabet
+    nullptr, // Select
+    nullptr, // Backstitch
+    nullptr, // Color Picker
+    &Editor::keyPressPaste, // Paste
+    &Editor::keyPressMirror, // Mirror
+    &Editor::keyPressRotate // Rotate
 };
 
 const Editor::toolInitCallPointer Editor::toolInitCallPointers[] = {
-    nullptr,                    // Paint
-    nullptr,                    // Draw
-    nullptr,                    // Erase
-    nullptr,                    // Rectangle
-    nullptr,                    // Fill Rectangle
-    nullptr,                    // Ellipse
-    nullptr,                    // Fill Ellipse
-    &Editor::toolInitPolygon,   // Fill Polygon
-    &Editor::toolInitText,      // Text
-    &Editor::toolInitAlphabet,  // Alphabet
-    nullptr,                    // Select
-    nullptr,                    // Backstitch
-    nullptr,                    // Color Picker
-    nullptr,                    // Paste
-    nullptr,                    // Mirror
-    nullptr                     // Rotate
+    nullptr, // Paint
+    nullptr, // Draw
+    nullptr, // Erase
+    nullptr, // Rectangle
+    nullptr, // Fill Rectangle
+    nullptr, // Ellipse
+    nullptr, // Fill Ellipse
+    &Editor::toolInitPolygon, // Fill Polygon
+    &Editor::toolInitText, // Text
+    &Editor::toolInitAlphabet, // Alphabet
+    nullptr, // Select
+    nullptr, // Backstitch
+    nullptr, // Color Picker
+    nullptr, // Paste
+    nullptr, // Mirror
+    nullptr // Rotate
 };
-
 
 const Editor::toolCleanupCallPointer Editor::toolCleanupCallPointers[] = {
-    nullptr,                        // Paint
-    nullptr,                        // Draw
-    nullptr,                        // Erase
-    nullptr,                        // Rectangle
-    nullptr,                        // Fill Rectangle
-    nullptr,                        // Ellipse
-    nullptr,                        // Fill Ellipse
-    &Editor::toolCleanupPolygon,    // Fill Polygon
-    nullptr,                        // Text
-    &Editor::toolCleanupAlphabet,   // Alphabet
-    &Editor::toolCleanupSelect,     // Select
-    nullptr,                        // Backstitch
-    nullptr,                        // Color Picker
-    nullptr,                        // Paste
-    &Editor::toolCleanupMirror,     // Mirror
-    &Editor::toolCleanupRotate      // Rotate
+    nullptr, // Paint
+    nullptr, // Draw
+    nullptr, // Erase
+    nullptr, // Rectangle
+    nullptr, // Fill Rectangle
+    nullptr, // Ellipse
+    nullptr, // Fill Ellipse
+    &Editor::toolCleanupPolygon, // Fill Polygon
+    nullptr, // Text
+    &Editor::toolCleanupAlphabet, // Alphabet
+    &Editor::toolCleanupSelect, // Select
+    nullptr, // Backstitch
+    nullptr, // Color Picker
+    nullptr, // Paste
+    &Editor::toolCleanupMirror, // Mirror
+    &Editor::toolCleanupRotate // Rotate
 };
 
+const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] = {&Editor::mousePressEvent_Paint,
+                                                                             &Editor::mousePressEvent_Draw,
+                                                                             &Editor::mousePressEvent_Erase,
+                                                                             &Editor::mousePressEvent_Rectangle,
+                                                                             &Editor::mousePressEvent_FillRectangle,
+                                                                             &Editor::mousePressEvent_Ellipse,
+                                                                             &Editor::mousePressEvent_FillEllipse,
+                                                                             &Editor::mousePressEvent_FillPolygon,
+                                                                             &Editor::mousePressEvent_Text,
+                                                                             &Editor::mousePressEvent_Alphabet,
+                                                                             &Editor::mousePressEvent_Select,
+                                                                             &Editor::mousePressEvent_Backstitch,
+                                                                             &Editor::mousePressEvent_ColorPicker,
+                                                                             &Editor::mousePressEvent_Paste,
+                                                                             &Editor::mousePressEvent_Mirror,
+                                                                             &Editor::mousePressEvent_Rotate};
 
-const Editor::mouseEventCallPointer Editor::mousePressEventCallPointers[] = {
-    &Editor::mousePressEvent_Paint,
-    &Editor::mousePressEvent_Draw,
-    &Editor::mousePressEvent_Erase,
-    &Editor::mousePressEvent_Rectangle,
-    &Editor::mousePressEvent_FillRectangle,
-    &Editor::mousePressEvent_Ellipse,
-    &Editor::mousePressEvent_FillEllipse,
-    &Editor::mousePressEvent_FillPolygon,
-    &Editor::mousePressEvent_Text,
-    &Editor::mousePressEvent_Alphabet,
-    &Editor::mousePressEvent_Select,
-    &Editor::mousePressEvent_Backstitch,
-    &Editor::mousePressEvent_ColorPicker,
-    &Editor::mousePressEvent_Paste,
-    &Editor::mousePressEvent_Mirror,
-    &Editor::mousePressEvent_Rotate
-};
+const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] = {&Editor::mouseMoveEvent_Paint,
+                                                                            &Editor::mouseMoveEvent_Draw,
+                                                                            &Editor::mouseMoveEvent_Erase,
+                                                                            &Editor::mouseMoveEvent_Rectangle,
+                                                                            &Editor::mouseMoveEvent_FillRectangle,
+                                                                            &Editor::mouseMoveEvent_Ellipse,
+                                                                            &Editor::mouseMoveEvent_FillEllipse,
+                                                                            &Editor::mouseMoveEvent_FillPolygon,
+                                                                            &Editor::mouseMoveEvent_Text,
+                                                                            &Editor::mouseMoveEvent_Alphabet,
+                                                                            &Editor::mouseMoveEvent_Select,
+                                                                            &Editor::mouseMoveEvent_Backstitch,
+                                                                            &Editor::mouseMoveEvent_ColorPicker,
+                                                                            &Editor::mouseMoveEvent_Paste,
+                                                                            &Editor::mouseMoveEvent_Mirror,
+                                                                            &Editor::mouseMoveEvent_Rotate};
 
-const Editor::mouseEventCallPointer Editor::mouseMoveEventCallPointers[] = {
-    &Editor::mouseMoveEvent_Paint,
-    &Editor::mouseMoveEvent_Draw,
-    &Editor::mouseMoveEvent_Erase,
-    &Editor::mouseMoveEvent_Rectangle,
-    &Editor::mouseMoveEvent_FillRectangle,
-    &Editor::mouseMoveEvent_Ellipse,
-    &Editor::mouseMoveEvent_FillEllipse,
-    &Editor::mouseMoveEvent_FillPolygon,
-    &Editor::mouseMoveEvent_Text,
-    &Editor::mouseMoveEvent_Alphabet,
-    &Editor::mouseMoveEvent_Select,
-    &Editor::mouseMoveEvent_Backstitch,
-    &Editor::mouseMoveEvent_ColorPicker,
-    &Editor::mouseMoveEvent_Paste,
-    &Editor::mouseMoveEvent_Mirror,
-    &Editor::mouseMoveEvent_Rotate
-};
-
-const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] = {
-    &Editor::mouseReleaseEvent_Paint,
-    &Editor::mouseReleaseEvent_Draw,
-    &Editor::mouseReleaseEvent_Erase,
-    &Editor::mouseReleaseEvent_Rectangle,
-    &Editor::mouseReleaseEvent_FillRectangle,
-    &Editor::mouseReleaseEvent_Ellipse,
-    &Editor::mouseReleaseEvent_FillEllipse,
-    &Editor::mouseReleaseEvent_FillPolygon,
-    &Editor::mouseReleaseEvent_Text,
-    &Editor::mouseReleaseEvent_Alphabet,
-    &Editor::mouseReleaseEvent_Select,
-    &Editor::mouseReleaseEvent_Backstitch,
-    &Editor::mouseReleaseEvent_ColorPicker,
-    &Editor::mouseReleaseEvent_Paste,
-    &Editor::mouseReleaseEvent_Mirror,
-    &Editor::mouseReleaseEvent_Rotate
-};
+const Editor::mouseEventCallPointer Editor::mouseReleaseEventCallPointers[] = {&Editor::mouseReleaseEvent_Paint,
+                                                                               &Editor::mouseReleaseEvent_Draw,
+                                                                               &Editor::mouseReleaseEvent_Erase,
+                                                                               &Editor::mouseReleaseEvent_Rectangle,
+                                                                               &Editor::mouseReleaseEvent_FillRectangle,
+                                                                               &Editor::mouseReleaseEvent_Ellipse,
+                                                                               &Editor::mouseReleaseEvent_FillEllipse,
+                                                                               &Editor::mouseReleaseEvent_FillPolygon,
+                                                                               &Editor::mouseReleaseEvent_Text,
+                                                                               &Editor::mouseReleaseEvent_Alphabet,
+                                                                               &Editor::mouseReleaseEvent_Select,
+                                                                               &Editor::mouseReleaseEvent_Backstitch,
+                                                                               &Editor::mouseReleaseEvent_ColorPicker,
+                                                                               &Editor::mouseReleaseEvent_Paste,
+                                                                               &Editor::mouseReleaseEvent_Mirror,
+                                                                               &Editor::mouseReleaseEvent_Rotate};
 
 const Editor::renderToolSpecificGraphicsCallPointer Editor::renderToolSpecificGraphics[] = {
-    nullptr,                            // Paint
-    &Editor::renderRubberBandLine,      // Draw
-    nullptr,                            // Erase
+    nullptr, // Paint
+    &Editor::renderRubberBandLine, // Draw
+    nullptr, // Erase
     &Editor::renderRubberBandRectangle, // Rectangle
     &Editor::renderRubberBandRectangle, // Fill Rectangle
-    &Editor::renderRubberBandEllipse,   // Ellipse
-    &Editor::renderRubberBandEllipse,   // Fill Ellipse
-    &Editor::renderFillPolygon,         // Fill Polygon
-    &Editor::renderPasteImage,          // Text
-    &Editor::renderAlphabetCursor,      // Alphabet
+    &Editor::renderRubberBandEllipse, // Ellipse
+    &Editor::renderRubberBandEllipse, // Fill Ellipse
+    &Editor::renderFillPolygon, // Fill Polygon
+    &Editor::renderPasteImage, // Text
+    &Editor::renderAlphabetCursor, // Alphabet
     &Editor::renderRubberBandRectangle, // Select
-    &Editor::renderRubberBandLine,      // Backstitch
-    nullptr,                            // Color Picker
-    &Editor::renderPasteImage,          // Paste
-    &Editor::renderPasteImage,          // Mirror - Paste performs the same functions
-    &Editor::renderPasteImage           // Rotate - Paste performs the same functions
+    &Editor::renderRubberBandLine, // Backstitch
+    nullptr, // Color Picker
+    &Editor::renderPasteImage, // Paste
+    &Editor::renderPasteImage, // Mirror - Paste performs the same functions
+    &Editor::renderPasteImage // Rotate - Paste performs the same functions
 };
 
-
 Editor::Editor(QWidget *parent)
-    :   QWidget(parent),
-        m_horizontalScale(new Scale(Qt::Horizontal)),
-        m_verticalScale(new Scale(Qt::Vertical)),
-        m_libraryManagerDlg(nullptr),
-        m_zoomFactor(Configuration::editor_DefaultZoomFactor()),
-        m_toolMode(ToolPaint),
-        m_renderBackgroundImages(Configuration::renderer_RenderBackgroundImages()),
-        m_renderGrid(Configuration::renderer_RenderGrid()),
-        m_renderStitches(Configuration::renderer_RenderStitches()),
-        m_renderBackstitches(Configuration::renderer_RenderBackstitches()),
-        m_renderFrenchKnots(Configuration::renderer_RenderFrenchKnots()),
-        m_maskStitch(false),
-        m_maskColor(false),
-        m_maskBackstitch(false),
-        m_maskKnot(false),
-        m_makesCopies(Configuration::tool_MakesCopies()),
-        m_activeCommand(nullptr),
-        m_colorHighlight(Configuration::renderer_ColorHilight()),
-        m_pastePattern(nullptr)
+    : QWidget(parent)
+    , m_horizontalScale(new Scale(Qt::Horizontal))
+    , m_verticalScale(new Scale(Qt::Vertical))
+    , m_libraryManagerDlg(nullptr)
+    , m_zoomFactor(Configuration::editor_DefaultZoomFactor())
+    , m_toolMode(ToolPaint)
+    , m_renderBackgroundImages(Configuration::renderer_RenderBackgroundImages())
+    , m_renderGrid(Configuration::renderer_RenderGrid())
+    , m_renderStitches(Configuration::renderer_RenderStitches())
+    , m_renderBackstitches(Configuration::renderer_RenderBackstitches())
+    , m_renderFrenchKnots(Configuration::renderer_RenderFrenchKnots())
+    , m_maskStitch(false)
+    , m_maskColor(false)
+    , m_maskBackstitch(false)
+    , m_maskKnot(false)
+    , m_makesCopies(Configuration::tool_MakesCopies())
+    , m_activeCommand(nullptr)
+    , m_colorHighlight(Configuration::renderer_ColorHilight())
+    , m_pastePattern(nullptr)
 {
     setAcceptDrops(true);
     setFocusPolicy(Qt::StrongFocus);
     setMouseTracking(true);
 }
-
 
 void Editor::setDocument(Document *document)
 {
@@ -216,30 +204,25 @@ void Editor::setDocument(Document *document)
     readDocumentSettings();
 }
 
-
 Document *Editor::document()
 {
     return m_document;
 }
-
 
 void Editor::setPreview(Preview *preview)
 {
     m_preview = preview;
 }
 
-
 Scale *Editor::horizontalScale()
 {
     return m_horizontalScale;
 }
 
-
 Scale *Editor::verticalScale()
 {
     return m_verticalScale;
 }
-
 
 void Editor::readDocumentSettings()
 {
@@ -252,36 +235,36 @@ void Editor::readDocumentSettings()
     m_horizontalScale->setCellGrouping(m_cellHorizontalGrouping);
     m_horizontalScale->setCellCount(m_document->pattern()->stitches().width());
     m_horizontalScale->setClothCount(m_horizontalClothCount);
-    m_horizontalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
+    m_horizontalScale->setClothCountUnits(
+        static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
     m_horizontalScale->setUnits(m_formatScalesAs);
 
     m_verticalScale->setCellGrouping(m_cellVerticalGrouping);
     m_verticalScale->setCellCount(m_document->pattern()->stitches().height());
     m_verticalScale->setClothCount(m_verticalClothCount);
-    m_verticalScale->setClothCountUnits(static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
+    m_verticalScale->setClothCountUnits(
+        static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()));
     m_verticalScale->setUnits(m_formatScalesAs);
 
     m_renderer.setCellGrouping(m_cellHorizontalGrouping, m_cellVerticalGrouping);
     m_renderer.setGridLineWidths(Configuration::editor_ThinLineWidth(), Configuration::editor_ThickLineWidth());
-    m_renderer.setGridLineColors(m_document->property(QStringLiteral("thinLineColor")).value<QColor>(), m_document->property(QStringLiteral("thickLineColor")).value<QColor>());
+    m_renderer.setGridLineColors(m_document->property(QStringLiteral("thinLineColor")).value<QColor>(),
+                                 m_document->property(QStringLiteral("thickLineColor")).value<QColor>());
 
     zoom(m_zoomFactor);
 
     drawContents();
 }
 
-
 void Editor::drawContents()
 {
     drawContents(visibleCells());
 }
 
-
 void Editor::drawContents(const QPoint &cell)
 {
     drawContents(QRect(cell, QSize(1, 1)));
 }
-
 
 void Editor::drawContents(const QRect &cells)
 {
@@ -313,7 +296,6 @@ void Editor::drawContents(const QRect &cells)
     update();
 }
 
-
 void Editor::libraryManager()
 {
     if (m_libraryManagerDlg == nullptr) {
@@ -324,13 +306,12 @@ void Editor::libraryManager()
     m_libraryManagerDlg->show();
 }
 
-
 void Editor::previewClicked(const QPoint &cell)
 {
     QRect contentsRect = parentWidget()->contentsRect();
-    dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(cell.x()*m_cellWidth, cell.y()*m_cellHeight, contentsRect.width() / 2, contentsRect.height() / 2);
+    dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())
+        ->ensureVisible(cell.x() * m_cellWidth, cell.y() * m_cellHeight, contentsRect.width() / 2, contentsRect.height() / 2);
 }
-
 
 void Editor::previewClicked(const QRect &cells)
 {
@@ -344,15 +325,16 @@ void Editor::previewClicked(const QRect &cells)
     QRect visibleArea = parentWidget()->contentsRect();
     double visibleWidth = visibleArea.width();
     double visibleHeight = visibleArea.height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
-    double widthScaleFactor = visibleWidth / (right - left) * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())
+                                  == Configuration::EnumEditor_ClothCountUnits::Inches);
+    double widthScaleFactor =
+        visibleWidth / (right - left) * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
     double heightScaleFactor = visibleHeight / (bottom - top) * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
     zoom(std::min(widthScaleFactor, heightScaleFactor));
 
     previewClicked(cells.center());
 }
-
 
 bool Editor::zoom(double factor)
 {
@@ -365,7 +347,8 @@ bool Editor::zoom(double factor)
     double dpiX = logicalDpiX();
     double dpiY = logicalDpiY();
 
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())
+                                  == Configuration::EnumEditor_ClothCountUnits::Inches);
 
     m_cellWidth = dpiX * factor / ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54);
     m_cellHeight = dpiY * factor / ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54);
@@ -390,24 +373,20 @@ bool Editor::zoom(double factor)
     return true;
 }
 
-
 void Editor::zoomIn()
 {
     zoom(m_zoomFactor * 1.2);
 }
-
 
 void Editor::zoomOut()
 {
     zoom(m_zoomFactor / 1.2);
 }
 
-
 void Editor::actualSize()
 {
     zoom(1.0);
 }
-
 
 void Editor::fitToPage()
 {
@@ -416,35 +395,37 @@ void Editor::fitToPage()
     QRect visibleArea = parentWidget()->contentsRect();
     double visibleWidth = visibleArea.width();
     double visibleHeight = visibleArea.height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
-    double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())
+                                  == Configuration::EnumEditor_ClothCountUnits::Inches);
+    double widthScaleFactor =
+        visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
     double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
     zoom(std::min(widthScaleFactor, heightScaleFactor));
 }
 
-
 void Editor::fitToWidth()
 {
     int documentWidth = m_document->pattern()->stitches().width();
     double visibleWidth = parentWidget()->contentsRect().width();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
-    double widthScaleFactor = visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())
+                                  == Configuration::EnumEditor_ClothCountUnits::Inches);
+    double widthScaleFactor =
+        visibleWidth / documentWidth * ((clothCountUnitsInches) ? m_horizontalClothCount : m_horizontalClothCount * 2.54) / physicalDpiX();
 
     zoom(widthScaleFactor);
 }
-
 
 void Editor::fitToHeight()
 {
     int documentHeight = m_document->pattern()->stitches().height();
     double visibleHeight = parentWidget()->contentsRect().height();
-    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt()) == Configuration::EnumEditor_ClothCountUnits::Inches);
+    bool clothCountUnitsInches = (static_cast<Configuration::EnumEditor_ClothCountUnits::type>(m_document->property(QStringLiteral("clothCountUnits")).toInt())
+                                  == Configuration::EnumEditor_ClothCountUnits::Inches);
     double heightScaleFactor = visibleHeight / documentHeight * ((clothCountUnitsInches) ? m_verticalClothCount : m_verticalClothCount * 2.54) / physicalDpiY();
 
     zoom(heightScaleFactor);
 }
-
 
 QList<Stitch::Type> Editor::maskStitches() const
 {
@@ -454,32 +435,38 @@ QList<Stitch::Type> Editor::maskStitches() const
         if (m_currentStitchType == StitchFull) {
             maskStitches << Stitch::Full;
         } else {
-            for (int i = 0 ; i < 4 ; ++i) {
+            for (int i = 0; i < 4; ++i) {
                 maskStitches << stitchMap[m_currentStitchType][i];
             }
         }
     } else {
-        maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr
-                     << Stitch::TBHalf << Stitch::TR3Qtr << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf
-                     << Stitch::TRSmallHalf << Stitch::BLSmallHalf << Stitch::BRSmallHalf << Stitch::TLSmallFull << Stitch::TRSmallFull
-                     << Stitch::BLSmallFull << Stitch::BRSmallFull;
+        maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr << Stitch::TBHalf << Stitch::TR3Qtr
+                     << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf << Stitch::TRSmallHalf << Stitch::BLSmallHalf
+                     << Stitch::BRSmallHalf << Stitch::TLSmallFull << Stitch::TRSmallFull << Stitch::BLSmallFull << Stitch::BRSmallFull;
     }
 
     return maskStitches;
 }
 
-
 void Editor::editCut()
 {
-    m_document->undoStack().push(new EditCutCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot));
+    m_document->undoStack().push(new EditCutCommand(m_document,
+                                                    m_selectionArea,
+                                                    (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                    maskStitches(),
+                                                    m_maskBackstitch,
+                                                    m_maskKnot));
 
     toolCleanupSelect();
 }
 
-
 void Editor::editCopy()
 {
-    Pattern *pattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+    Pattern *pattern = m_document->pattern()->copy(m_selectionArea,
+                                                   (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                   maskStitches(),
+                                                   m_maskBackstitch,
+                                                   m_maskKnot);
 
     toolCleanupSelect();
 
@@ -495,7 +482,6 @@ void Editor::editCopy()
     update();
 }
 
-
 void Editor::editPaste()
 {
     m_pasteData = QApplication::clipboard()->mimeData()->data(QStringLiteral("application/kxstitch"));
@@ -505,7 +491,6 @@ void Editor::editPaste()
 
     pastePattern(ToolPaste);
 }
-
 
 void Editor::pastePattern(ToolMode toolMode)
 {
@@ -522,7 +507,6 @@ void Editor::pastePattern(ToolMode toolMode)
     update();
 }
 
-
 void Editor::mirrorSelection()
 {
     m_orientation = static_cast<Qt::Orientation>(qobject_cast<QAction *>(sender())->data().toInt());
@@ -531,9 +515,17 @@ void Editor::mirrorSelection()
     stream << m_document->pattern()->stitches();
 
     if (m_makesCopies) {
-        m_pastePattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+        m_pastePattern = m_document->pattern()->copy(m_selectionArea,
+                                                     (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                     maskStitches(),
+                                                     m_maskBackstitch,
+                                                     m_maskKnot);
     } else {
-        m_pastePattern = m_document->pattern()->cut(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+        m_pastePattern = m_document->pattern()->cut(m_selectionArea,
+                                                    (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                    maskStitches(),
+                                                    m_maskBackstitch,
+                                                    m_maskKnot);
     }
 
     toolCleanupSelect();
@@ -541,7 +533,6 @@ void Editor::mirrorSelection()
     m_pastePattern->stitches().mirror(m_orientation);
     pastePattern(ToolMirror);
 }
-
 
 void Editor::rotateSelection()
 {
@@ -551,9 +542,17 @@ void Editor::rotateSelection()
     stream << m_document->pattern()->stitches();
 
     if (m_makesCopies) {
-        m_pastePattern = m_document->pattern()->copy(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+        m_pastePattern = m_document->pattern()->copy(m_selectionArea,
+                                                     (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                     maskStitches(),
+                                                     m_maskBackstitch,
+                                                     m_maskKnot);
     } else {
-        m_pastePattern = m_document->pattern()->cut(m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot);
+        m_pastePattern = m_document->pattern()->cut(m_selectionArea,
+                                                    (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                    maskStitches(),
+                                                    m_maskBackstitch,
+                                                    m_maskKnot);
     }
 
     toolCleanupSelect();
@@ -562,14 +561,12 @@ void Editor::rotateSelection()
     pastePattern(ToolRotate);
 }
 
-
 void Editor::formatScalesAsStitches()
 {
     m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::Stitches;
     m_horizontalScale->setUnits(m_formatScalesAs);
     m_verticalScale->setUnits(m_formatScalesAs);
 }
-
 
 void Editor::formatScalesAsCentimeters()
 {
@@ -578,7 +575,6 @@ void Editor::formatScalesAsCentimeters()
     m_verticalScale->setUnits(m_formatScalesAs);
 }
 
-
 void Editor::formatScalesAsInches()
 {
     m_formatScalesAs = Configuration::EnumEditor_FormatScalesAs::Inches;
@@ -586,13 +582,11 @@ void Editor::formatScalesAsInches()
     m_verticalScale->setUnits(m_formatScalesAs);
 }
 
-
 void Editor::renderStitches(bool show)
 {
     m_renderStitches = show;
     drawContents();
 }
-
 
 void Editor::renderBackstitches(bool show)
 {
@@ -600,13 +594,11 @@ void Editor::renderBackstitches(bool show)
     drawContents();
 }
 
-
 void Editor::renderFrenchKnots(bool show)
 {
     m_renderFrenchKnots = show;
     drawContents();
 }
-
 
 void Editor::renderGrid(bool show)
 {
@@ -614,13 +606,11 @@ void Editor::renderGrid(bool show)
     drawContents();
 }
 
-
 void Editor::renderBackgroundImages(bool show)
 {
     m_renderBackgroundImages = show;
     drawContents();
 }
-
 
 void Editor::renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type type)
 {
@@ -629,14 +619,12 @@ void Editor::renderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::type
     drawContents();
 }
 
-
 void Editor::renderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::type type)
 {
     m_renderBackstitchesAs = type;
     m_renderer.setRenderBackstitchesAs(m_renderBackstitchesAs);
     drawContents();
 }
-
 
 void Editor::renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type type)
 {
@@ -645,13 +633,11 @@ void Editor::renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type type)
     drawContents();
 }
 
-
 void Editor::colorHighlight(bool set)
 {
     m_colorHighlight = set;
     drawContents();
 }
-
 
 void Editor::selectTool(ToolMode toolMode)
 {
@@ -666,48 +652,40 @@ void Editor::selectTool(ToolMode toolMode)
     }
 }
 
-
 void Editor::selectStitch(Editor::SelectedStitchType stitchType)
 {
     m_currentStitchType = stitchType;
 }
-
 
 void Editor::setMaskStitch(bool set)
 {
     m_maskStitch = set;
 }
 
-
 void Editor::setMaskColor(bool set)
 {
     m_maskColor = set;
 }
-
 
 void Editor::setMaskBackstitch(bool set)
 {
     m_maskBackstitch = set;
 }
 
-
 void Editor::setMaskKnot(bool set)
 {
     m_maskKnot = set;
 }
-
 
 void Editor::setMakesCopies(bool set)
 {
     m_makesCopies = set;
 }
 
-
 void Editor::loadSettings()
 {
     readDocumentSettings();
 }
-
 
 bool Editor::event(QEvent *e)
 {
@@ -747,7 +725,6 @@ bool Editor::event(QEvent *e)
     return QWidget::event(e);
 }
 
-
 void Editor::contextMenuEvent(QContextMenuEvent *e)
 {
     MainWindow *mainWindow = qobject_cast<MainWindow *>(topLevelWidget());
@@ -756,14 +733,12 @@ void Editor::contextMenuEvent(QContextMenuEvent *e)
     e->accept();
 }
 
-
 void Editor::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasFormat(QStringLiteral("application/kxstitch"))) {
         e->accept();
     }
 }
-
 
 void Editor::dragMoveEvent(QDragMoveEvent *e)
 {
@@ -772,12 +747,10 @@ void Editor::dragMoveEvent(QDragMoveEvent *e)
     }
 }
 
-
-void Editor::dragLeaveEvent(QDragLeaveEvent*)
+void Editor::dragLeaveEvent(QDragLeaveEvent *)
 {
     // don't need to do anything here
 }
-
 
 void Editor::dropEvent(QDropEvent *e)
 {
@@ -785,12 +758,12 @@ void Editor::dropEvent(QDropEvent *e)
     m_pastePattern = new Pattern;
     QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
     stream >> *m_pastePattern;
-    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), e->keyboardModifiers() & Qt::ShiftModifier, i18n("Drag")));
+    m_document->undoStack().push(
+        new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), e->keyboardModifiers() & Qt::ShiftModifier, i18n("Drag")));
     m_pastePattern = nullptr;
     m_pasteData.clear();
     e->accept();
 }
-
 
 void Editor::keyPressEvent(QKeyEvent *e)
 {
@@ -801,11 +774,9 @@ void Editor::keyPressEvent(QKeyEvent *e)
     }
 }
 
-
-void Editor::keyReleaseEvent(QKeyEvent*)
+void Editor::keyReleaseEvent(QKeyEvent *)
 {
 }
-
 
 void Editor::keyPressPolygon(QKeyEvent *e)
 {
@@ -834,7 +805,6 @@ void Editor::keyPressPolygon(QKeyEvent *e)
     }
 }
 
-
 void Editor::keyPressText(QKeyEvent *e)
 {
     switch (e->key()) {
@@ -853,7 +823,6 @@ void Editor::keyPressText(QKeyEvent *e)
     }
 }
 
-
 void Editor::keyPressAlphabet(QKeyEvent *e)
 {
     Qt::KeyboardModifiers modifiers = e->modifiers();
@@ -867,7 +836,6 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
     LibraryPattern *libraryPattern = nullptr;
 
     if (m_libraryManagerDlg->currentLibrary()) {
-
         switch (e->key()) {
         case Qt::Key_Backspace:
             if (m_cursorStack.count() > 1) {
@@ -888,10 +856,12 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
 
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cursorStack.top().y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
+            m_cellTracking = QPoint(m_cursorStack.at(0).x(),
+                                    m_cursorStack.top().y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
 
             if (m_cellTracking.y() >= height) {
-                static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
+                static_cast<AlphabetCommand *>(m_activeCommand)
+                    ->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
                 m_cursorCommands[m_cursorStack.count() - 1]++;
             }
 
@@ -907,13 +877,23 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
             if (libraryPattern) {
                 if ((m_cursorStack.top() + QPoint(libraryPattern->pattern()->stitches().width(), 0)).x() >= width) {
                     if (m_cursorCommands[m_cursorStack.count() - 2]) {
-                        static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, m_cursorStack.top().x() + libraryPattern->pattern()->stitches().width() - width + Configuration::alphabet_ExtendPatternWidth(), 0));
+                        static_cast<AlphabetCommand *>(m_activeCommand)
+                            ->push(new ExtendPatternCommand(m_document,
+                                                            0,
+                                                            0,
+                                                            m_cursorStack.top().x() + libraryPattern->pattern()->stitches().width() - width
+                                                                + Configuration::alphabet_ExtendPatternWidth(),
+                                                            0));
                         m_cursorCommands[m_cursorStack.count() - 1]++;
                     } else {
-                        m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cursorStack.top().y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
+                        m_cellTracking =
+                            QPoint(m_cursorStack.at(0).x(),
+                                   m_cursorStack.top().y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
 
                         if (m_cellTracking.y() >= height) {
-                            static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
+                            static_cast<AlphabetCommand *>(m_activeCommand)
+                                ->push(
+                                    new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
                             m_cursorCommands[m_cursorStack.count() - 1]++;
                         }
 
@@ -924,7 +904,8 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
                 }
 
                 QPoint insertionPoint = m_cursorStack.top() - QPoint(0, libraryPattern->pattern()->stitches().height() - 1 - libraryPattern->baseline());
-                static_cast<AlphabetCommand *>(m_activeCommand)->push(new EditPasteCommand(m_document, libraryPattern->pattern(), insertionPoint, true, i18n("Add Character")));
+                static_cast<AlphabetCommand *>(m_activeCommand)
+                    ->push(new EditPasteCommand(m_document, libraryPattern->pattern(), insertionPoint, true, i18n("Add Character")));
                 m_cursorCommands[m_cursorStack.count() - 1]++;
                 m_cursorStack.push(m_cursorStack.top() + QPoint(libraryPattern->pattern()->stitches().width() + 1, 0));
             } else {
@@ -933,14 +914,23 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
 
                     if (m_cellTracking.x() >= width) {
                         if (Configuration::alphabet_WordWrap()) {
-                            m_cellTracking = QPoint(m_cursorStack.at(0).x(), m_cellTracking.y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
+                            m_cellTracking =
+                                QPoint(m_cursorStack.at(0).x(),
+                                       m_cellTracking.y() + m_libraryManagerDlg->currentLibrary()->maxHeight() + Configuration::alphabet_LineSpacing());
 
                             if (m_cellTracking.y() >= height) {
-                                static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, 0, m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
+                                static_cast<AlphabetCommand *>(m_activeCommand)
+                                    ->push(new ExtendPatternCommand(m_document,
+                                                                    0,
+                                                                    0,
+                                                                    0,
+                                                                    m_cellTracking.y() - height + Configuration::alphabet_ExtendPatternHeight()));
                                 m_cursorCommands[m_cursorStack.count() - 1]++;
                             }
                         } else {
-                            static_cast<AlphabetCommand *>(m_activeCommand)->push(new ExtendPatternCommand(m_document, 0, 0, m_cellTracking.x() - width + Configuration::alphabet_ExtendPatternWidth(), 0));
+                            static_cast<AlphabetCommand *>(m_activeCommand)
+                                ->push(
+                                    new ExtendPatternCommand(m_document, 0, 0, m_cellTracking.x() - width + Configuration::alphabet_ExtendPatternWidth(), 0));
                             m_cursorCommands[m_cursorStack.count() - 1]++;
                         }
                     }
@@ -958,7 +948,6 @@ void Editor::keyPressAlphabet(QKeyEvent *e)
     QPoint contentPoint = rectToContents(cellToRect(m_cursorStack.top())).center();
     dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(contentPoint.x(), contentPoint.y());
 }
-
 
 void Editor::keyPressPaste(QKeyEvent *e)
 {
@@ -978,13 +967,23 @@ void Editor::keyPressPaste(QKeyEvent *e)
     }
 }
 
-
 void Editor::keyPressMirror(QKeyEvent *e)
 {
     switch (e->key()) {
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
+        m_document->undoStack().push(new MirrorSelectionCommand(m_document,
+                                                                m_selectionArea,
+                                                                (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                                maskStitches(),
+                                                                m_maskBackstitch,
+                                                                m_maskKnot,
+                                                                m_orientation,
+                                                                m_makesCopies,
+                                                                m_pasteData,
+                                                                m_pastePattern,
+                                                                m_cellEnd,
+                                                                (e->modifiers() & Qt::ShiftModifier)));
         m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
@@ -996,14 +995,24 @@ void Editor::keyPressMirror(QKeyEvent *e)
         break;
     }
 }
-
 
 void Editor::keyPressRotate(QKeyEvent *e)
 {
     switch (e->key()) {
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, m_cellEnd, (e->modifiers() & Qt::ShiftModifier)));
+        m_document->undoStack().push(new RotateSelectionCommand(m_document,
+                                                                m_selectionArea,
+                                                                (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                                maskStitches(),
+                                                                m_maskBackstitch,
+                                                                m_maskKnot,
+                                                                m_rotation,
+                                                                m_makesCopies,
+                                                                m_pasteData,
+                                                                m_pastePattern,
+                                                                m_cellEnd,
+                                                                (e->modifiers() & Qt::ShiftModifier)));
         m_pastePattern = nullptr;
         m_pasteData.clear();
         e->accept();
@@ -1015,7 +1024,6 @@ void Editor::keyPressRotate(QKeyEvent *e)
         break;
     }
 }
-
 
 void Editor::keyPressMovePattern(QKeyEvent *e)
 {
@@ -1076,12 +1084,10 @@ void Editor::keyPressMovePattern(QKeyEvent *e)
     }
 }
 
-
 void Editor::toolInitPolygon()
 {
     m_polygon.clear();
 }
-
 
 void Editor::toolInitText()
 {
@@ -1098,8 +1104,8 @@ void Editor::toolInitText()
 
         int stitchesAdded = 0;
 
-        for (int row = 0 ; row < image.height() ; ++row) {
-            for (int col = 0 ; col < image.width() ; ++col) {
+        for (int row = 0; row < image.height(); ++row) {
+            for (int col = 0; col < image.width(); ++col) {
                 if (image.pixelIndex(col, row) == 1) {
                     QPoint cell(col, row);
                     m_pastePattern->stitches().addStitch(cell, Stitch::Full, currentIndex);
@@ -1119,12 +1125,10 @@ void Editor::toolInitText()
     }
 }
 
-
 void Editor::toolInitAlphabet()
 {
     libraryManager();
 }
-
 
 void Editor::toolCleanupPolygon()
 {
@@ -1132,14 +1136,12 @@ void Editor::toolCleanupPolygon()
     drawContents();
 }
 
-
 void Editor::toolCleanupAlphabet()
 {
     m_activeCommand = nullptr;
     m_cursorStack.clear();
     m_cursorCommands.clear();
 }
-
 
 void Editor::toolCleanupSelect()
 {
@@ -1151,7 +1153,6 @@ void Editor::toolCleanupSelect()
 
     emit(selectionMade(false));
 }
-
 
 void Editor::toolCleanupMirror()
 {
@@ -1168,7 +1169,6 @@ void Editor::toolCleanupMirror()
     drawContents();
 }
 
-
 void Editor::toolCleanupRotate()
 {
     delete m_pastePattern;
@@ -1184,21 +1184,18 @@ void Editor::toolCleanupRotate()
     drawContents();
 }
 
-
 void Editor::mousePressEvent(QMouseEvent *e)
 {
     if (!rect().contains(e->pos())) {
         return;
     }
 
-    if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
-                                            (m_toolMode == Editor::ToolSelect) ||
-                                            (m_toolMode == Editor::ToolAlphabet) ||
-                                            (m_toolMode == Editor::ToolPaste))) {
+    if ((e->buttons() & Qt::LeftButton)
+        && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)
+            || (m_toolMode == Editor::ToolPaste))) {
         (this->*mousePressEventCallPointers[m_toolMode])(e);
     }
 }
-
 
 void Editor::mouseMoveEvent(QMouseEvent *e)
 {
@@ -1206,15 +1203,11 @@ void Editor::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    if ((e->buttons() & Qt::LeftButton) && ((m_document->pattern()->palette().currentIndex() != -1) ||
-                                            (m_toolMode == Editor::ToolSelect) ||
-                                            (m_toolMode == Editor::ToolAlphabet) ||
-                                            (m_toolMode == Editor::ToolPaste))) {
+    if ((e->buttons() & Qt::LeftButton)
+        && ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)
+            || (m_toolMode == Editor::ToolPaste))) {
         (this->*mouseMoveEventCallPointers[m_toolMode])(e);
-    } else if (m_toolMode == Editor::ToolPaste ||
-               m_toolMode == Editor::ToolMirror ||
-               m_toolMode == Editor::ToolRotate ||
-               m_toolMode == Editor::ToolText) {
+    } else if (m_toolMode == Editor::ToolPaste || m_toolMode == Editor::ToolMirror || m_toolMode == Editor::ToolRotate || m_toolMode == Editor::ToolText) {
         if (m_pastePattern && rectToContents(m_pastePattern->stitches().extents().translated(m_cellStart)).contains(e->pos())) {
             setCursor(Qt::SizeAllCursor);
         } else {
@@ -1223,27 +1216,22 @@ void Editor::mouseMoveEvent(QMouseEvent *e)
     }
 }
 
-
 void Editor::mouseReleaseEvent(QMouseEvent *e)
 {
     if (!rect().contains(e->pos())) {
         return;
     }
 
-    if ((m_document->pattern()->palette().currentIndex() != -1) ||
-        (m_toolMode == Editor::ToolSelect) ||
-        (m_toolMode == Editor::ToolAlphabet) ||
-        (m_toolMode == Editor::ToolPaste)) {
+    if ((m_document->pattern()->palette().currentIndex() != -1) || (m_toolMode == Editor::ToolSelect) || (m_toolMode == Editor::ToolAlphabet)
+        || (m_toolMode == Editor::ToolPaste)) {
         (this->*mouseReleaseEventCallPointers[m_toolMode])(e);
     }
 }
-
 
 void Editor::moveEvent(QMoveEvent *)
 {
     drawContents();
 }
-
 
 void Editor::resizeEvent(QResizeEvent *e)
 {
@@ -1259,7 +1247,6 @@ void Editor::resizeEvent(QResizeEvent *e)
 
     drawContents();
 }
-
 
 void Editor::paintEvent(QPaintEvent *e)
 {
@@ -1289,7 +1276,6 @@ void Editor::paintEvent(QPaintEvent *e)
     emit changedVisibleCells(visibleCells());
 }
 
-
 void Editor::wheelEvent(QWheelEvent *e)
 {
     bool zoomed;
@@ -1310,7 +1296,8 @@ void Editor::wheelEvent(QWheelEvent *e)
         int marginX = parentWidget()->width() / 2;
         int marginY = parentWidget()->height() / 2;
 
-        dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
+        dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())
+            ->ensureVisible(static_cast<int>(offset.x()), static_cast<int>(offset.y()), marginX, marginY);
     }
 
     setUpdatesEnabled(true);
@@ -1318,7 +1305,6 @@ void Editor::wheelEvent(QWheelEvent *e)
 
     e->accept();
 }
-
 
 bool Editor::eventFilter(QObject *object, QEvent *e)
 {
@@ -1337,7 +1323,6 @@ bool Editor::eventFilter(QObject *object, QEvent *e)
     return false;
 }
 
-
 void Editor::renderBackgroundImages(QPainter &painter, const QRect &updateRectangle)
 {
     auto backgroundImages = m_document->backgroundImages().backgroundImages();
@@ -1355,8 +1340,7 @@ void Editor::renderBackgroundImages(QPainter &painter, const QRect &updateRectan
     }
 }
 
-
-void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
+void Editor::renderRubberBandLine(QPainter *painter, const QRect &)
 {
     painter->save();
 
@@ -1371,7 +1355,7 @@ void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
             painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) / 2, QPointF(m_cellEnd) / 2);
         } else {
-            pen.setColor(QColor(200,225,255));
+            pen.setColor(QColor(200, 225, 255));
             painter->setPen(pen);
             painter->drawLine(QPointF(m_cellStart) + QPointF(0.5, 0.5), QPointF(m_cellEnd) + QPointF(0.5, 0.5));
         }
@@ -1380,8 +1364,7 @@ void Editor::renderRubberBandLine(QPainter *painter, const QRect&)
     painter->restore();
 }
 
-
-void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
+void Editor::renderRubberBandRectangle(QPainter *painter, const QRect &)
 {
     painter->save();
 
@@ -1401,8 +1384,7 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect&)
     painter->restore();
 }
 
-
-void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
+void Editor::renderRubberBandEllipse(QPainter *painter, const QRect &)
 {
     painter->save();
 
@@ -1423,8 +1405,7 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect&)
     painter->restore();
 }
 
-
-void Editor::renderFillPolygon(QPainter *painter, const QRect&)
+void Editor::renderFillPolygon(QPainter *painter, const QRect &)
 {
     QPolygonF polyline;
     painter->save();
@@ -1432,16 +1413,16 @@ void Editor::renderFillPolygon(QPainter *painter, const QRect&)
     QPen pen(Qt::green);
     pen.setWidth(0);
 
-    painter->setPen(pen);         // use green for the first point
+    painter->setPen(pen); // use green for the first point
     painter->setBrush(Qt::green);
 
     QVector<QPoint>::const_iterator i;
 
-    for (i = m_polygon.constBegin() ; i != m_polygon.constEnd() ; ++i) {
+    for (i = m_polygon.constBegin(); i != m_polygon.constEnd(); ++i) {
         QPointF cell = QPointF(*i) + QPointF(0.5, 0.5);
         painter->drawEllipse(QRectF(-0.5, -0.5, 1, 1).translated(cell));
         pen.setColor(Qt::blue);
-        painter->setPen(pen);      // use blue for subsequent points
+        painter->setPen(pen); // use blue for subsequent points
         painter->setBrush(Qt::blue);
         polyline.append(cell);
     }
@@ -1450,8 +1431,7 @@ void Editor::renderFillPolygon(QPainter *painter, const QRect&)
     painter->restore();
 }
 
-
-void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
+void Editor::renderAlphabetCursor(QPainter *painter, const QRect &)
 {
     if (m_cursorStack.isEmpty()) {
         return;
@@ -1462,7 +1442,6 @@ void Editor::renderAlphabetCursor(QPainter *painter, const QRect&)
     painter->fillRect(QRect(m_cursorStack.top(), QSize(1, 1)), Qt::red);
     painter->restore();
 }
-
 
 void Editor::renderPasteImage(QPainter *painter, const QRect &)
 {
@@ -1477,18 +1456,17 @@ void Editor::renderPasteImage(QPainter *painter, const QRect &)
         painter->drawRect(outline);
 
         m_renderer.render(painter,
-                           m_pastePattern,  // the pattern data to render
-                           outline,         // update rectangle in cells
-                           false,           // don't render the grid
-                           true,            // render stitches
-                           true,            // render backstitches
-                           true,            // render knots
-                           -1);             // all colors
+                          m_pastePattern, // the pattern data to render
+                          outline, // update rectangle in cells
+                          false, // don't render the grid
+                          true, // render stitches
+                          true, // render backstitches
+                          true, // render knots
+                          -1); // all colors
     }
 
     painter->restore();
 }
-
 
 void Editor::mousePressEvent_Paint(QMouseEvent *e)
 {
@@ -1510,7 +1488,6 @@ void Editor::mousePressEvent_Paint(QMouseEvent *e)
         drawContents(m_cellStart);
     }
 }
-
 
 void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
 {
@@ -1540,20 +1517,17 @@ void Editor::mouseMoveEvent_Paint(QMouseEvent *e)
     }
 }
 
-
-void Editor::mouseReleaseEvent_Paint(QMouseEvent*)
+void Editor::mouseReleaseEvent_Paint(QMouseEvent *)
 {
     m_activeCommand = nullptr;
     m_preview->drawContents();
 }
-
 
 void Editor::mousePressEvent_Draw(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_Draw(QMouseEvent *e)
 {
@@ -1567,8 +1541,7 @@ void Editor::mouseMoveEvent_Draw(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
+void Editor::mouseReleaseEvent_Draw(QMouseEvent *)
 {
     int bitmapWidth = m_document->pattern()->stitches().width();
     int bitmapHeight = m_document->pattern()->stitches().height();
@@ -1602,7 +1575,6 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent*)
     m_rubberBand = QRect();
 }
 
-
 void Editor::mousePressEvent_Erase(QMouseEvent *e)
 {
     QPoint p = e->pos();
@@ -1628,15 +1600,20 @@ void Editor::mousePressEvent_Erase(QMouseEvent *e)
             m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(p);
             m_zoneStart = m_zoneTracking = m_zoneEnd = contentsToZone(p);
 
-            if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
-                cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, stitch->colorIndex, m_activeCommand);
+            if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart,
+                                                                              m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete,
+                                                                              m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+                cmd = new DeleteStitchCommand(m_document,
+                                              m_cellStart,
+                                              m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete,
+                                              stitch->colorIndex,
+                                              m_activeCommand);
                 cmd->redo();
                 drawContents(cellToRect(m_cellStart).adjusted(-1, -1, 1, 1));
             }
         }
     }
 }
-
 
 void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
 {
@@ -1654,7 +1631,8 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
             if (m_cellTracking != m_cellStart) {
                 m_cellStart = m_cellTracking;
 
-                if (Knot *knot = m_document->pattern()->stitches().findKnot(m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1)) {
+                if (Knot *knot =
+                        m_document->pattern()->stitches().findKnot(m_cellStart, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1)) {
                     cmd = new DeleteKnotCommand(m_document, knot->position, knot->colorIndex, m_activeCommand);
                     cmd->redo();
                     drawContents(snapToCells(m_cellStart));
@@ -1668,8 +1646,14 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
                 m_cellStart = m_cellTracking;
                 m_zoneStart = m_zoneTracking;
 
-                if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
-                    cmd = new DeleteStitchCommand(m_document, m_cellStart, m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete, stitch->colorIndex, m_activeCommand);
+                if (Stitch *stitch = m_document->pattern()->stitches().findStitch(m_cellStart,
+                                                                                  m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete,
+                                                                                  m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+                    cmd = new DeleteStitchCommand(m_document,
+                                                  m_cellStart,
+                                                  m_maskStitch ? stitchMap[m_currentStitchType][m_zoneStart] : Stitch::Delete,
+                                                  stitch->colorIndex,
+                                                  m_activeCommand);
                     cmd->redo();
                     drawContents(cellToRect(m_cellStart).adjusted(-1, -1, 1, 1));
                 }
@@ -1678,14 +1662,14 @@ void Editor::mouseMoveEvent_Erase(QMouseEvent *e)
     }
 }
 
-
 void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
 {
     if (e->modifiers() & Qt::ControlModifier) {
         // Erase a backstitch
         m_cellEnd = contentsToSnap(e->pos());
 
-        if (Backstitch *backstitch = m_document->pattern()->stitches().findBackstitch(m_cellStart, m_cellEnd, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
+        if (Backstitch *backstitch =
+                m_document->pattern()->stitches().findBackstitch(m_cellStart, m_cellEnd, m_maskColor ? m_document->pattern()->palette().currentIndex() : -1)) {
             m_document->undoStack().push(new DeleteBackstitchCommand(m_document, backstitch->start, backstitch->end, backstitch->colorIndex));
         }
     }
@@ -1693,13 +1677,11 @@ void Editor::mouseReleaseEvent_Erase(QMouseEvent *e)
     // Nothing needs to be done for french knots or stitches which are handled in mouseMoveEvent_Erase
 }
 
-
 void Editor::mousePressEvent_Rectangle(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_Rectangle(QMouseEvent *e)
 {
@@ -1713,8 +1695,7 @@ void Editor::mouseMoveEvent_Rectangle(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_Rectangle(QMouseEvent*)
+void Editor::mouseReleaseEvent_Rectangle(QMouseEvent *)
 {
     int x = m_rubberBand.left();
     int y = m_rubberBand.top();
@@ -1742,18 +1723,16 @@ void Editor::mouseReleaseEvent_Rectangle(QMouseEvent*)
         cell.setY(y);
     }
 
-    m_rubberBand = QRect();     // this will clear the rubber band rectangle on the next repaint
+    m_rubberBand = QRect(); // this will clear the rubber band rectangle on the next repaint
 
     m_document->undoStack().push(cmd);
 }
-
 
 void Editor::mousePressEvent_FillRectangle(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
 {
@@ -1767,29 +1746,26 @@ void Editor::mouseMoveEvent_FillRectangle(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent*)
+void Editor::mouseReleaseEvent_FillRectangle(QMouseEvent *)
 {
     QUndoCommand *cmd = new FillRectangleCommand(m_document);
 
-    for (int y = m_rubberBand.top() ; y <= m_rubberBand.bottom() ; y++) {
-        for (int x = m_rubberBand.left() ; x <= m_rubberBand.right() ; x++) {
+    for (int y = m_rubberBand.top(); y <= m_rubberBand.bottom(); y++) {
+        for (int x = m_rubberBand.left(); x <= m_rubberBand.right(); x++) {
             new AddStitchCommand(m_document, QPoint(x, y), Stitch::Full, m_document->pattern()->palette().currentIndex(), cmd);
         }
     }
 
-    m_rubberBand = QRect();     // this will clear the rubber band rectangle on the next repaint
+    m_rubberBand = QRect(); // this will clear the rubber band rectangle on the next repaint
 
     m_document->undoStack().push(cmd);
 }
-
 
 void Editor::mousePressEvent_Ellipse(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
 {
@@ -1803,8 +1779,7 @@ void Editor::mouseMoveEvent_Ellipse(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
+void Editor::mouseReleaseEvent_Ellipse(QMouseEvent *)
 {
     int bitmapWidth = m_document->pattern()->stitches().width();
     int bitmapHeight = m_document->pattern()->stitches().height();
@@ -1838,13 +1813,11 @@ void Editor::mouseReleaseEvent_Ellipse(QMouseEvent*)
     m_rubberBand = QRect();
 }
 
-
 void Editor::mousePressEvent_FillEllipse(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
 {
@@ -1858,8 +1831,7 @@ void Editor::mouseMoveEvent_FillEllipse(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
+void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent *)
 {
     int bitmapWidth = m_document->pattern()->stitches().width();
     int bitmapHeight = m_document->pattern()->stitches().height();
@@ -1881,7 +1853,7 @@ void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
         painter.setRenderHint(QPainter::Antialiasing, !useFractionals);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
-        painter.drawEllipse(QRect(m_cellStart, QSize(1,1)).united(QRect(m_cellEnd, QSize(1, 1))));
+        painter.drawEllipse(QRect(m_cellStart, QSize(1, 1)).united(QRect(m_cellEnd, QSize(1, 1))));
         painter.end();
 
         QUndoCommand *cmd = new FillEllipseCommand(m_document);
@@ -1893,7 +1865,6 @@ void Editor::mouseReleaseEvent_FillEllipse(QMouseEvent*)
     m_rubberBand = QRect();
 }
 
-
 void Editor::mousePressEvent_FillPolygon(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
@@ -1901,7 +1872,6 @@ void Editor::mousePressEvent_FillPolygon(QMouseEvent *e)
 
     update();
 }
-
 
 void Editor::mouseMoveEvent_FillPolygon(QMouseEvent *e)
 {
@@ -1914,7 +1884,6 @@ void Editor::mouseMoveEvent_FillPolygon(QMouseEvent *e)
 
     update();
 }
-
 
 void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
 {
@@ -1936,7 +1905,7 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
         QPainter painter;
 
         if (useFractionals) {
-            for (int i = 0 ; i < m_polygon.size() ; ++i) {
+            for (int i = 0; i < m_polygon.size(); ++i) {
                 m_polygon[i] *= 2;
             }
         }
@@ -1959,39 +1928,34 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
     }
 }
 
-
 void Editor::mousePressEvent_Text(QMouseEvent *e)
 {
     mousePressEvent_Paste(e); // performs the required functions
 }
-
 
 void Editor::mouseMoveEvent_Text(QMouseEvent *e)
 {
     mouseMoveEvent_Paste(e); // performs the required functions
 }
 
-
 void Editor::mouseReleaseEvent_Text(QMouseEvent *e)
 {
-    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
+    m_document->undoStack().push(
+        new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Text")));
     m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
-
-void Editor::mousePressEvent_Alphabet(QMouseEvent*)
+void Editor::mousePressEvent_Alphabet(QMouseEvent *)
 {
     // nothing to do
 }
 
-
-void Editor::mouseMoveEvent_Alphabet(QMouseEvent*)
+void Editor::mouseMoveEvent_Alphabet(QMouseEvent *)
 {
     // nothing to do
 }
-
 
 void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
 {
@@ -2010,7 +1974,6 @@ void Editor::mouseReleaseEvent_Alphabet(QMouseEvent *e)
     update();
 }
 
-
 void Editor::mousePressEvent_Select(QMouseEvent *e)
 {
     if (m_rubberBand.isValid()) {
@@ -2021,7 +1984,6 @@ void Editor::mousePressEvent_Select(QMouseEvent *e)
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect(cellToRect(m_cellStart));
 }
-
 
 void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 {
@@ -2034,23 +1996,22 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 
     update();
 
-    QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
+    QToolTip::showText(
+        QCursor::pos(),
+        QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
 }
 
-
-void Editor::mouseReleaseEvent_Select(QMouseEvent*)
+void Editor::mouseReleaseEvent_Select(QMouseEvent *)
 {
     m_selectionArea = m_rubberBand;
     emit(selectionMade(true));
 }
-
 
 void Editor::mousePressEvent_Backstitch(QMouseEvent *e)
 {
     m_cellStart = m_cellTracking = m_cellEnd = contentsToSnap(e->pos());
     m_rubberBand = QRect();
 }
-
 
 void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
 {
@@ -2064,8 +2025,7 @@ void Editor::mouseMoveEvent_Backstitch(QMouseEvent *e)
     update();
 }
 
-
-void Editor::mouseReleaseEvent_Backstitch(QMouseEvent*)
+void Editor::mouseReleaseEvent_Backstitch(QMouseEvent *)
 {
     m_rubberBand = QRect();
 
@@ -2074,18 +2034,15 @@ void Editor::mouseReleaseEvent_Backstitch(QMouseEvent*)
     }
 }
 
-
-void Editor::mousePressEvent_ColorPicker(QMouseEvent*)
+void Editor::mousePressEvent_ColorPicker(QMouseEvent *)
 {
     // nothing to be done
 }
 
-
-void Editor::mouseMoveEvent_ColorPicker(QMouseEvent*)
+void Editor::mouseMoveEvent_ColorPicker(QMouseEvent *)
 {
     // nothing to be done
 }
-
 
 void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
 {
@@ -2116,7 +2073,6 @@ void Editor::mouseReleaseEvent_ColorPicker(QMouseEvent *e)
     }
 }
 
-
 void Editor::mousePressEvent_Paste(QMouseEvent *e)
 {
     QPoint cell = contentsToCell(e->pos());
@@ -2129,7 +2085,6 @@ void Editor::mousePressEvent_Paste(QMouseEvent *e)
 
     update();
 }
-
 
 void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
 {
@@ -2145,66 +2100,80 @@ void Editor::mouseMoveEvent_Paste(QMouseEvent *e)
     }
 }
 
-
 void Editor::mouseReleaseEvent_Paste(QMouseEvent *e)
 {
-    m_document->undoStack().push(new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
+    m_document->undoStack().push(
+        new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier), i18n("Paste")));
     m_pasteData.clear();
     m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
-
 
 void Editor::mousePressEvent_Mirror(QMouseEvent *e)
 {
     mousePressEvent_Paste(e);
 }
 
-
 void Editor::mouseMoveEvent_Mirror(QMouseEvent *e)
 {
     mouseMoveEvent_Paste(e);
 }
 
-
 void Editor::mouseReleaseEvent_Mirror(QMouseEvent *e)
 {
-    m_document->undoStack().push(new MirrorSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_orientation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
+    m_document->undoStack().push(new MirrorSelectionCommand(m_document,
+                                                            m_selectionArea,
+                                                            (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                            maskStitches(),
+                                                            m_maskBackstitch,
+                                                            m_maskKnot,
+                                                            m_orientation,
+                                                            m_makesCopies,
+                                                            m_pasteData,
+                                                            m_pastePattern,
+                                                            contentsToCell(e->pos()) - m_pasteOffset,
+                                                            (e->modifiers() & Qt::ShiftModifier)));
     m_pasteData.clear();
     m_pastePattern = nullptr;
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
-
 
 void Editor::mousePressEvent_Rotate(QMouseEvent *e)
 {
     mousePressEvent_Paste(e);
 }
 
-
 void Editor::mouseMoveEvent_Rotate(QMouseEvent *e)
 {
     mouseMoveEvent_Paste(e);
 }
 
-
 void Editor::mouseReleaseEvent_Rotate(QMouseEvent *e)
 {
-    m_document->undoStack().push(new RotateSelectionCommand(m_document, m_selectionArea, (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1, maskStitches(), m_maskBackstitch, m_maskKnot, m_rotation, m_makesCopies, m_pasteData, m_pastePattern, contentsToCell(e->pos()) - m_pasteOffset, (e->modifiers() & Qt::ShiftModifier)));
+    m_document->undoStack().push(new RotateSelectionCommand(m_document,
+                                                            m_selectionArea,
+                                                            (m_maskColor) ? m_document->pattern()->palette().currentIndex() : -1,
+                                                            maskStitches(),
+                                                            m_maskBackstitch,
+                                                            m_maskKnot,
+                                                            m_rotation,
+                                                            m_makesCopies,
+                                                            m_pasteData,
+                                                            m_pastePattern,
+                                                            contentsToCell(e->pos()) - m_pasteOffset,
+                                                            (e->modifiers() & Qt::ShiftModifier)));
     m_pastePattern = nullptr;
     m_pasteData.clear();
     setCursor(Qt::ArrowCursor);
     selectTool(m_oldToolMode);
 }
 
-
 QPoint Editor::contentsToCell(const QPoint &p) const
 {
     return QPoint(p.x() / m_cellWidth, p.y() / m_cellHeight);
 }
-
 
 int Editor::contentsToZone(const QPoint &p) const
 {
@@ -2213,7 +2182,6 @@ int Editor::contentsToZone(const QPoint &p) const
 
     return zone;
 }
-
 
 QPoint Editor::contentsToSnap(const QPoint &p) const
 {
@@ -2226,40 +2194,36 @@ QPoint Editor::contentsToSnap(const QPoint &p) const
     return QPoint(x, y);
 }
 
-
 QRect Editor::snapToCells(const QPoint &p) const
 {
     int x = p.x();
     int y = p.y();
 
-    int rectWidth  = (x % 2) ? 1 : 2;
+    int rectWidth = (x % 2) ? 1 : 2;
     int rectHeight = (y % 2) ? 1 : 2;
-    int rectLeft   = (x - rectWidth) / 2;
-    int rectTop    = (y - rectHeight) / 2;
+    int rectLeft = (x - rectWidth) / 2;
+    int rectTop = (y - rectHeight) / 2;
 
     return QRect(rectLeft, rectTop, rectWidth, rectHeight);
 }
-
 
 QRect Editor::cellToRect(const QPoint &cell) const
 {
     return QRect(cell.x(), cell.y(), 1, 1);
 }
 
-
 QRect Editor::rectToContents(const QRect &rect) const
 {
     return QRect(rect.left() * m_cellWidth, rect.top() * m_cellHeight, rect.width() * m_cellWidth, rect.height() * m_cellHeight);
 }
-
 
 void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
 {
     QImage image = canvas.toImage();
     int colorIndex = m_document->pattern()->palette().currentIndex();
 
-    for (int y = 0 ; y < image.height() ; y++) {
-        for (int x = 0 ; x < image.width() ; x++) {
+    for (int y = 0; y < image.height(); y++) {
+        for (int x = 0; x < image.width(); x++) {
             if (image.pixelIndex(x, y) == 1) {
                 if (Configuration::toolShapes_UseFractionals()) {
                     int zone = (y % 2) * 2 + (x % 2);
@@ -2272,18 +2236,15 @@ void Editor::processBitmap(QUndoCommand *parent, const QBitmap &canvas)
     }
 }
 
-
 QRect Editor::selectionArea()
 {
     return m_selectionArea;
 }
 
-
 void Editor::resetSelectionArea()
 {
     toolCleanupSelect();
 }
-
 
 QRect Editor::visibleCells()
 {

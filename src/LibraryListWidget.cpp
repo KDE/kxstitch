@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryListWidget.h"
 
 #include <QApplication>
@@ -22,15 +21,13 @@
 #include "LibraryPattern.h"
 #include "Pattern.h"
 
-
 LibraryListWidget::LibraryListWidget(QWidget *parent)
-    :   QListWidget(parent)
+    : QListWidget(parent)
 {
     m_renderer.setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::Stitches);
     m_renderer.setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::ColorLines);
     m_renderer.setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::ColorBlocks);
 }
-
 
 void LibraryListWidget::setCellSize(double cellWidth, double cellHeight)
 {
@@ -38,28 +35,23 @@ void LibraryListWidget::setCellSize(double cellWidth, double cellHeight)
     m_cellHeight = cellHeight;
 }
 
-
 void LibraryListWidget::changeIconSize(int size)
 {
     setIconSize(QSize(size, size));
     setGridSize(QSize(size + 10, size + 20));
 }
 
-
-void LibraryListWidget::dragEnterEvent(QDragEnterEvent*)
+void LibraryListWidget::dragEnterEvent(QDragEnterEvent *)
 {
 }
 
-
-void LibraryListWidget::dragMoveEvent(QDragMoveEvent*)
+void LibraryListWidget::dragMoveEvent(QDragMoveEvent *)
 {
 }
 
-
-void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent*)
+void LibraryListWidget::dragLeaveEvent(QDragLeaveEvent *)
 {
 }
-
 
 void LibraryListWidget::mousePressEvent(QMouseEvent *e)
 {
@@ -72,7 +64,6 @@ void LibraryListWidget::mousePressEvent(QMouseEvent *e)
         e->ignore();
     }
 }
-
 
 void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
 {
@@ -87,7 +78,7 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
             QMimeData *mimeData = new QMimeData();
             mimeData->setData(QStringLiteral("application/kxstitch"), data);
 
-            QPixmap pixmap(pattern->stitches().width()*m_cellWidth, pattern->stitches().height()*m_cellHeight);
+            QPixmap pixmap(pattern->stitches().width() * m_cellWidth, pattern->stitches().height() * m_cellHeight);
             pixmap.fill(Qt::white);
 
             QPainter painter(&pixmap);
@@ -95,13 +86,13 @@ void LibraryListWidget::mouseMoveEvent(QMouseEvent *e)
             painter.setRenderHint(QPainter::Antialiasing, true);
 
             m_renderer.render(&painter,
-                               pattern,
-                               painter.window(),
-                               false,      // render grid
-                               true,       // render stitches
-                               true,       // render backstitches
-                               true,       // render knots
-                               -1);        // no color mask
+                              pattern,
+                              painter.window(),
+                              false, // render grid
+                              true, // render stitches
+                              true, // render backstitches
+                              true, // render knots
+                              -1); // no color mask
 
             painter.end();
             pixmap.setMask(pixmap.createMaskFromColor(Qt::white));

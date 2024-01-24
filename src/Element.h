@@ -8,17 +8,14 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Element_H
 #define Element_H
-
 
 #include <QMargins>
 #include <QRect>
 
-#include "configuration.h"
 #include "Renderer.h"
-
+#include "configuration.h"
 
 class QPainter;
 
@@ -26,11 +23,10 @@ class Document;
 class Page;
 class Renderer;
 
-
 class Element
 {
 public:
-    enum Type {Text, Pattern, Plan, Key, Image};
+    enum Type { Text, Pattern, Plan, Key, Image };
 
     Element(Page *, const QRect &, Element::Type);
     Element(const Element &);
@@ -56,11 +52,10 @@ protected:
 
     static const int version = 101; // removed m_visible
 
-    Page            *m_parent;
-    QRect           m_rectangle; // area to be used on the page, in mm, top, left, width, height
-    Element::Type   m_type;
+    Page *m_parent;
+    QRect m_rectangle; // area to be used on the page, in mm, top, left, width, height
+    Element::Type m_type;
 };
-
 
 class KeyElement : public Element
 {
@@ -121,27 +116,26 @@ protected:
 private:
     static const int version = 103; // added m_symbolColumnColor
 
-    bool        m_showBorder;
-    QColor      m_borderColor;
-    int         m_borderThickness;
-    bool        m_fillBackground;
-    QColor      m_backgroundColor;
-    int         m_backgroundTransparency;
-    QMargins    m_margins;
-    QColor      m_textColor;
-    QFont       m_textFont;
-    int         m_indexStart;
-    int         m_indexCount;
-    bool        m_symbolColumn;
-    bool        m_symbolColumnColor;
-    bool        m_flossNameColumn;
-    bool        m_strandsColumn;
-    bool        m_flossDescriptionColumn;
-    bool        m_stitchesColumn;
-    bool        m_lengthColumn;
-    bool        m_skeinsColumn;
+    bool m_showBorder;
+    QColor m_borderColor;
+    int m_borderThickness;
+    bool m_fillBackground;
+    QColor m_backgroundColor;
+    int m_backgroundTransparency;
+    QMargins m_margins;
+    QColor m_textColor;
+    QFont m_textFont;
+    int m_indexStart;
+    int m_indexCount;
+    bool m_symbolColumn;
+    bool m_symbolColumnColor;
+    bool m_flossNameColumn;
+    bool m_strandsColumn;
+    bool m_flossDescriptionColumn;
+    bool m_stitchesColumn;
+    bool m_lengthColumn;
+    bool m_skeinsColumn;
 };
-
 
 class PlanElement : public Element
 {
@@ -163,9 +157,8 @@ protected:
 private:
     static const int version = 100;
 
-    QRect   m_patternRect;
+    QRect m_patternRect;
 };
-
 
 class PatternElement : public Element
 {
@@ -217,29 +210,28 @@ protected:
 private:
     static const int version = 102; // added m_showBorder, m_borderColor, m_borderThickness
 
-    bool    m_showBorder;
-    QColor  m_borderColor;
-    int     m_borderThickness;
+    bool m_showBorder;
+    QColor m_borderColor;
+    int m_borderThickness;
 
-    QRect   m_patternRect;
-    bool    m_showScales;
-    bool    m_showPlan;
+    QRect m_patternRect;
+    bool m_showScales;
+    bool m_showPlan;
 
-    Configuration::EnumEditor_FormatScalesAs::type      m_formatScalesAs;
+    Configuration::EnumEditor_FormatScalesAs::type m_formatScalesAs;
 
-    Configuration::EnumRenderer_RenderStitchesAs::type      m_renderStitchesAs;
-    Configuration::EnumRenderer_RenderBackstitchesAs::type  m_renderBackstitchesAs;
-    Configuration::EnumRenderer_RenderKnotsAs::type         m_renderKnotsAs;
+    Configuration::EnumRenderer_RenderStitchesAs::type m_renderStitchesAs;
+    Configuration::EnumRenderer_RenderBackstitchesAs::type m_renderBackstitchesAs;
+    Configuration::EnumRenderer_RenderKnotsAs::type m_renderKnotsAs;
 
-    bool        m_showGrid;
-    bool        m_showStitches;
-    bool        m_showBackstitches;
-    bool        m_showKnots;
+    bool m_showGrid;
+    bool m_showStitches;
+    bool m_showBackstitches;
+    bool m_showKnots;
 
-//    Renderer    m_renderer;
+    //    Renderer    m_renderer;
     PlanElement *m_planElement;
 };
-
 
 class ImageElement : public PatternElement
 {
@@ -260,7 +252,6 @@ protected:
 private:
     static const int version = 100;
 };
-
 
 class TextElement : public Element
 {
@@ -308,18 +299,17 @@ private:
 
     static const int version = 100;
 
-    bool        m_showBorder;
-    QColor      m_borderColor;
-    int         m_borderThickness;
-    bool        m_fillBackground;
-    QColor      m_backgroundColor;
-    int         m_backgroundTransparency;
-    QMargins    m_margins;
-    QFont       m_textFont;
-    QColor      m_textColor;
-    Qt::Alignment   m_alignment;
-    QString     m_text;
+    bool m_showBorder;
+    QColor m_borderColor;
+    int m_borderThickness;
+    bool m_fillBackground;
+    QColor m_backgroundColor;
+    int m_backgroundTransparency;
+    QMargins m_margins;
+    QFont m_textFont;
+    QColor m_textColor;
+    Qt::Alignment m_alignment;
+    QString m_text;
 };
-
 
 #endif // Element_H

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PrintSetupDlg.h"
 
 #include <math.h>
@@ -23,10 +22,10 @@
 #include <QPrinter>
 #include <QShowEvent>
 
-#include <kwidgetsaddons_version.h>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 
 #include "Document.h"
 #include "Element.h"
@@ -39,16 +38,14 @@
 #include "PatternElementDlg.h"
 #include "TextElementDlg.h"
 
-
 static const double zoomFactors[] = {0.25, 0.5, 1.0, 1.5, 2.0, 4.0, 8.0, 16.0};
 
-
 PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *printer)
-    :   QDialog(parent),
-        m_printerConfiguration(document->printerConfiguration()),
-        m_elementUnderCursor(nullptr),
-        m_document(document),
-        m_printer(printer)
+    : QDialog(parent)
+    , m_printerConfiguration(document->printerConfiguration())
+    , m_elementUnderCursor(nullptr)
+    , m_document(document)
+    , m_printer(printer)
 {
     setWindowModality(Qt::WindowModal);
 
@@ -84,22 +81,19 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
 
     ui.PageSize->setCurrentIndex(Configuration::page_Size());
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
-    ui.Zoom->setCurrentIndex(4);    // 200%
-    ui.SelectElement->click();      // select mode
+    ui.Zoom->setCurrentIndex(4); // 200%
+    ui.SelectElement->click(); // select mode
 }
-
 
 PrintSetupDlg::~PrintSetupDlg()
 {
     delete m_pageLayoutEditor;
 }
 
-
 const PrinterConfiguration &PrintSetupDlg::printerConfiguration() const
 {
     return m_printerConfiguration;
 }
-
 
 void PrintSetupDlg::hideEvent(QHideEvent *event)
 {
@@ -107,7 +101,6 @@ void PrintSetupDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void PrintSetupDlg::showEvent(QShowEvent *event)
 {
@@ -128,7 +121,6 @@ void PrintSetupDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void PrintSetupDlg::on_PageSize_currentIndexChanged(int pageSizeIndex)
 {
     if (ui.Pages->count() && ui.Pages->currentItem()) {
@@ -138,7 +130,6 @@ void PrintSetupDlg::on_PageSize_currentIndexChanged(int pageSizeIndex)
         ui.Pages->repaint();
     }
 }
-
 
 void PrintSetupDlg::on_Orientation_currentIndexChanged(int orientation)
 {
@@ -150,13 +141,11 @@ void PrintSetupDlg::on_Orientation_currentIndexChanged(int orientation)
     }
 }
 
-
 void PrintSetupDlg::on_Zoom_currentIndexChanged(int zoomIndex)
 {
     m_pageLayoutEditor->setZoomFactor(zoomFactors[zoomIndex]);
     m_pageLayoutEditor->updatePagePreview();
 }
-
 
 void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
@@ -176,7 +165,6 @@ void PrintSetupDlg::on_Pages_currentItemChanged(QListWidgetItem *current, QListW
     }
 }
 
-
 void PrintSetupDlg::on_AddPage_clicked()
 {
     Page *page = new Page(selectedPageSize(), selectedOrientation());
@@ -184,14 +172,12 @@ void PrintSetupDlg::on_AddPage_clicked()
     addPage(ui.Pages->count(), page);
 }
 
-
 void PrintSetupDlg::on_InsertPage_clicked()
 {
     Page *page = new Page(selectedPageSize(), selectedOrientation());
     m_printerConfiguration.insertPage(ui.Pages->currentRow(), page);
     addPage(ui.Pages->currentRow(), page);
 }
-
 
 void PrintSetupDlg::on_DeletePage_clicked()
 {
@@ -212,13 +198,11 @@ void PrintSetupDlg::on_DeletePage_clicked()
     updatePageNumbers();
 }
 
-
 void PrintSetupDlg::on_SelectElement_clicked()
 {
     m_elementMode = Select;
     m_pageLayoutEditor->setSelecting(true);
 }
-
 
 void PrintSetupDlg::on_TextElement_clicked()
 {
@@ -226,13 +210,11 @@ void PrintSetupDlg::on_TextElement_clicked()
     m_pageLayoutEditor->setSelecting(false);
 }
 
-
 void PrintSetupDlg::on_PatternElement_clicked()
 {
     m_elementMode = Pattern;
     m_pageLayoutEditor->setSelecting(false);
 }
-
 
 void PrintSetupDlg::on_ImageElement_clicked()
 {
@@ -240,31 +222,26 @@ void PrintSetupDlg::on_ImageElement_clicked()
     m_pageLayoutEditor->setSelecting(false);
 }
 
-
 void PrintSetupDlg::on_KeyElement_clicked()
 {
     m_elementMode = Key;
     m_pageLayoutEditor->setSelecting(false);
 }
 
-
 void PrintSetupDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
-
 
 void PrintSetupDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void PrintSetupDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("PrinterDialog"), QStringLiteral("kxstitch"));
 }
-
 
 void PrintSetupDlg::selectionMade(const QRect &rectangle)
 {
@@ -302,9 +279,8 @@ void PrintSetupDlg::selectionMade(const QRect &rectangle)
     pagePreview->generatePreviewIcon();
     m_pageLayoutEditor->update();
 
-    ui.SelectElement->click();      // select mode
+    ui.SelectElement->click(); // select mode
 }
-
 
 void PrintSetupDlg::elementGeometryChanged()
 {
@@ -313,7 +289,6 @@ void PrintSetupDlg::elementGeometryChanged()
         pagePreview->generatePreviewIcon();
     }
 }
-
 
 void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
 {
@@ -340,7 +315,6 @@ void PrintSetupDlg::previewContextMenuRequested(const QPoint &pos)
     }
 }
 
-
 void PrintSetupDlg::properties()
 {
     PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
@@ -355,7 +329,7 @@ void PrintSetupDlg::properties()
         }
 
         if (m_elementUnderCursor->type() == Element::Pattern) {
-            QMap<int, QList<QRect> > patternRects;
+            QMap<int, QList<QRect>> patternRects;
             QListIterator<Page *> pageIterator(m_printerConfiguration.pages());
 
             while (pageIterator.hasNext()) {
@@ -371,7 +345,8 @@ void PrintSetupDlg::properties()
                 }
             }
 
-            QPointer<PatternElementDlg> patternElementDlg = new PatternElementDlg(this, static_cast<PatternElement *>(m_elementUnderCursor), m_document, patternRects);
+            QPointer<PatternElementDlg> patternElementDlg =
+                new PatternElementDlg(this, static_cast<PatternElement *>(m_elementUnderCursor), m_document, patternRects);
 
             if (patternElementDlg->exec() == QDialog::Accepted) {
                 updatePreviews = true;
@@ -398,7 +373,8 @@ void PrintSetupDlg::properties()
             delete keyElementDlg;
         }
     } else {
-        QPointer<PagePropertiesDlg> pagePropertiesDlg = new PagePropertiesDlg(this, pagePreview->page()->margins().toMargins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
+        QPointer<PagePropertiesDlg> pagePropertiesDlg =
+            new PagePropertiesDlg(this, pagePreview->page()->margins().toMargins(), m_pageLayoutEditor->showGrid(), m_pageLayoutEditor->gridSize());
 
         if (pagePropertiesDlg->exec() == QDialog::Accepted) {
             updatePreviews = true;
@@ -415,7 +391,6 @@ void PrintSetupDlg::properties()
     }
 }
 
-
 void PrintSetupDlg::deleteElement()
 {
     PagePreviewListWidgetItem *pagePreview = static_cast<PagePreviewListWidgetItem *>(ui.Pages->currentItem());
@@ -423,7 +398,6 @@ void PrintSetupDlg::deleteElement()
     m_pageLayoutEditor->update();
     pagePreview->generatePreviewIcon();
 }
-
 
 void PrintSetupDlg::initialiseFromConfig()
 {
@@ -434,7 +408,6 @@ void PrintSetupDlg::initialiseFromConfig()
     }
 }
 
-
 void PrintSetupDlg::addPage(int position, Page *page)
 {
     PagePreviewListWidgetItem *pagePreview = new PagePreviewListWidgetItem(m_document, page);
@@ -444,37 +417,32 @@ void PrintSetupDlg::addPage(int position, Page *page)
     updatePageNumbers();
 }
 
-
 QPageSize PrintSetupDlg::selectedPageSize()
 {
     return QPageSize(ui.PageSize->itemData(ui.PageSize->currentIndex()).value<QPageSize::PageSizeId>());
 }
-
 
 QPageLayout::Orientation PrintSetupDlg::selectedOrientation()
 {
     return (ui.Orientation->currentIndex() == 0) ? QPageLayout::Portrait : QPageLayout::Landscape;
 }
 
-
 double PrintSetupDlg::selectedZoom()
 {
     return zoomFactors[ui.Zoom->currentIndex()];
 }
 
-
 void PrintSetupDlg::updatePageNumbers()
 {
-    for (int i = 0 ; i < ui.Pages->count() ; ++i) {
+    for (int i = 0; i < ui.Pages->count(); ++i) {
         PagePreviewListWidgetItem *pagePreview = dynamic_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i));
         pagePreview->setText(i18n("Page %1 of %2", pagePreview->page()->pageNumber(), ui.Pages->count()));
     }
 }
 
-
 void PrintSetupDlg::on_Templates_clicked()
 {
-//    QString templateName = qobject_cast<QAction *>(sender())->data().toString();
+    //    QString templateName = qobject_cast<QAction *>(sender())->data().toString();
 
     bool okToCreate = true;
 
@@ -484,9 +452,10 @@ void PrintSetupDlg::on_Templates_clicked()
 #else
         okToCreate = (KMessageBox::questionYesNo(this,
 #endif
-                                                 i18n("Overwrite the current configuration?"), i18n("Overwrite"),
-                                                 KStandardGuiItem::overwrite(),
-                                                 KStandardGuiItem::cancel())
+                                                      i18n("Overwrite the current configuration?"),
+                                                      i18n("Overwrite"),
+                                                      KStandardGuiItem::overwrite(),
+                                                      KStandardGuiItem::cancel())
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
                       == KMessageBox::PrimaryAction);
 #else
@@ -513,7 +482,10 @@ void PrintSetupDlg::on_Templates_clicked()
         m_printerConfiguration.addPage(page);
         addPage(ui.Pages->count(), page);
 
-        QRect printableArea(page->margins().left(), page->margins().top(), 210 - page->margins().left() - page->margins().right(), 297 - page->margins().top() - page->margins().bottom());
+        QRect printableArea(page->margins().left(),
+                            page->margins().top(),
+                            210 - page->margins().left() - page->margins().right(),
+                            297 - page->margins().top() - page->margins().bottom());
         QRect headerTitleArea(printableArea.topLeft(), QSize(printableArea.width(), 10));
         QRect patternArea(headerTitleArea.bottomLeft() + QPoint(0, 5), QSize(printableArea.width(), printableArea.height() - 10 - 35));
         QRect mapArea(patternArea.bottomRight() - QPoint(30, 5), QSize(30, 30));
@@ -526,14 +498,18 @@ void PrintSetupDlg::on_Templates_clicked()
         page->addElement(element);
 
         element = new ImageElement(page, QRect(printableArea.topLeft() + QPoint(0, 60), QSize(printableArea.width(), printableArea.height() / 3)));
-        static_cast<ImageElement *>(element)->setPatternRect(QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
+        static_cast<ImageElement *>(element)->setPatternRect(
+            QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
         static_cast<ImageElement *>(element)->setShowBorder(true);
         static_cast<ImageElement *>(element)->setBorderThickness(2);
         page->addElement(element);
 
-        element = new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
+        element =
+            new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
         static_cast<TextElement *>(element)->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
+        static_cast<TextElement *>(element)->setText(
+            i18nc("Do not translate elements in ${...} which are substituted by properties",
+                  "Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
         page->addElement(element);
 
         element = new TextElement(page, pageNumberArea);
@@ -548,7 +524,8 @@ void PrintSetupDlg::on_Templates_clicked()
 
         // calculate the aspect ratio and the size of the cells to fit within the rectangle and the overall paint area size
         double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
-        double aspect =  m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
+        double aspect =
+            m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
         double cellHeight = cellWidth * aspect;
 
         if (cellHeight < cellWidth) {
@@ -562,16 +539,18 @@ void PrintSetupDlg::on_Templates_clicked()
         int horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
         int verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
 
-        int pagesWide = (documentWidth / horizontalCellsPerPage) + (((documentWidth % horizontalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
-        int pagesTall = (documentHeight / verticalCellsPerPage) + (((documentHeight % verticalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
+        int pagesWide =
+            (documentWidth / horizontalCellsPerPage) + (((documentWidth % horizontalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
+        int pagesTall =
+            (documentHeight / verticalCellsPerPage) + (((documentHeight % verticalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
 
         // the number of pages wide and tall has been calculated based on the minimum cell size.
         // try and make use of the available space across the pages expanding the cell size to fill the space.
-        horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0);               // equal number per page
-        verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0);               // equal number per page
+        horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0); // equal number per page
+        verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0); // equal number per page
 
-        for (int verticalPage = 0 ; verticalPage < pagesTall ; ++verticalPage) {
-            for (int horizontalPage = 0 ; horizontalPage < pagesWide ; ++horizontalPage) {
+        for (int verticalPage = 0; verticalPage < pagesTall; ++verticalPage) {
+            for (int horizontalPage = 0; horizontalPage < pagesWide; ++horizontalPage) {
                 page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
                 m_printerConfiguration.addPage(page);
                 addPage(ui.Pages->count(), page);
@@ -583,7 +562,11 @@ void PrintSetupDlg::on_Templates_clicked()
                 page->addElement(element);
 
                 element = new PatternElement(page, patternArea);
-                static_cast<PatternElement *>(element)->setPatternRect(QRect(horizontalPage * horizontalCellsPerPage, verticalPage * verticalCellsPerPage, std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)), std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
+                static_cast<PatternElement *>(element)->setPatternRect(
+                    QRect(horizontalPage * horizontalCellsPerPage,
+                          verticalPage * verticalCellsPerPage,
+                          std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)),
+                          std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
                 static_cast<PatternElement *>(element)->setShowScales(true);
                 static_cast<PatternElement *>(element)->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
                 static_cast<PatternElement *>(element)->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
@@ -618,7 +601,7 @@ void PrintSetupDlg::on_Templates_clicked()
         static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
         page->addElement(element);
 
-        for (int i = 0 ; i < ui.Pages->count() ; ++i) {
+        for (int i = 0; i < ui.Pages->count(); ++i) {
             static_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i))->generatePreviewIcon();
         }
     }

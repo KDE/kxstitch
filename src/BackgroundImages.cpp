@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file implements a collection of background images to be used as overlays on
  * a canvas for the purpose of tracing.
  */
-
 
 // Class include
 #include "BackgroundImages.h"
@@ -28,30 +26,25 @@
 #include "BackgroundImage.h"
 #include "Exceptions.h"
 
-
 void BackgroundImages::clear()
 {
     m_backgroundImages.clear();
 }
-
 
 QListIterator<QSharedPointer<BackgroundImage>> BackgroundImages::backgroundImages()
 {
     return QListIterator<QSharedPointer<BackgroundImage>>(m_backgroundImages);
 }
 
-
 void BackgroundImages::addBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage)
 {
     m_backgroundImages.append(backgroundImage);
 }
 
-
 bool BackgroundImages::removeBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage)
 {
     return m_backgroundImages.removeOne(backgroundImage);
 }
-
 
 QRect BackgroundImages::fitBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage, const QRect &rectangle)
 {
@@ -61,7 +54,6 @@ QRect BackgroundImages::fitBackgroundImage(QSharedPointer<BackgroundImage> backg
     return oldRectangle;
 }
 
-
 bool BackgroundImages::showBackgroundImage(QSharedPointer<BackgroundImage> backgroundImage, bool show)
 {
     bool shown = backgroundImage->isVisible();
@@ -69,7 +61,6 @@ bool BackgroundImages::showBackgroundImage(QSharedPointer<BackgroundImage> backg
 
     return shown;
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const BackgroundImages &backgroundImages)
 {
@@ -86,7 +77,6 @@ QDataStream &operator<<(QDataStream &stream, const BackgroundImages &backgroundI
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, BackgroundImages &backgroundImages)
 {

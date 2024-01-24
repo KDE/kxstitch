@@ -8,17 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef KeycodeLineEdit_H
 #define KeycodeLineEdit_H
-
 
 #include <KLineEdit>
 #include <QString>
 
-
 class QKeyEvent;
-
 
 class KeycodeLineEdit : public KLineEdit
 {
@@ -37,9 +33,8 @@ protected:
 
 private:
     static QString findQtText(int qtKey);
-    int     m_key;
+    int m_key;
     Qt::KeyboardModifiers m_modifiers;
 };
-
 
 #endif // KeycodeLineEdit_H

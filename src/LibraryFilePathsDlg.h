@@ -8,19 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryFilePathsDlg_H
 #define LibraryFilePathsDlg_H
-
 
 #include <QDialog>
 
 #include "ui_LibraryFilePaths.h"
 
-
 class QHideEvent;
 class QShowEvent;
-
 
 class LibraryFilePathsDlg : public QDialog
 {
@@ -39,8 +35,7 @@ private slots:
     void on_DialogButtonBox_helpRequested();
 
 private:
-    Ui::LibraryFilePaths    ui;
+    Ui::LibraryFilePaths ui;
 };
-
 
 #endif // LibraryFilePathsDlg_H

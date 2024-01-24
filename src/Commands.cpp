@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "Commands.h"
 
 #include <QApplication>
@@ -28,13 +27,11 @@
 #include "SchemeManager.h"
 #include "StitchData.h"
 
-
 FilePropertiesCommand::FilePropertiesCommand(Document *document)
-    :   QUndoCommand(i18n("File Properties")),
-        m_document(document)
+    : QUndoCommand(i18n("File Properties"))
+    , m_document(document)
 {
 }
-
 
 void FilePropertiesCommand::redo()
 {
@@ -44,7 +41,6 @@ void FilePropertiesCommand::redo()
     m_document->palette()->update();
 }
 
-
 void FilePropertiesCommand::undo()
 {
     QUndoCommand::undo();
@@ -53,13 +49,11 @@ void FilePropertiesCommand::undo()
     m_document->palette()->update();
 }
 
-
 ImportImageCommand::ImportImageCommand(Document *document)
-    :   QUndoCommand(i18n("Import Image")),
-        m_document(document)
+    : QUndoCommand(i18n("Import Image"))
+    , m_document(document)
 {
 }
-
 
 void ImportImageCommand::redo()
 {
@@ -69,7 +63,6 @@ void ImportImageCommand::redo()
     m_document->palette()->update();
 }
 
-
 void ImportImageCommand::undo()
 {
     QUndoCommand::undo();
@@ -78,13 +71,11 @@ void ImportImageCommand::undo()
     m_document->palette()->update();
 }
 
-
 PaintStitchesCommand::PaintStitchesCommand(Document *document)
-    :   QUndoCommand(i18n("Paint Stitches")),
-        m_document(document)
+    : QUndoCommand(i18n("Paint Stitches"))
+    , m_document(document)
 {
 }
-
 
 void PaintStitchesCommand::redo()
 {
@@ -93,7 +84,6 @@ void PaintStitchesCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void PaintStitchesCommand::undo()
 {
     QUndoCommand::undo();
@@ -101,13 +91,11 @@ void PaintStitchesCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 PaintKnotsCommand::PaintKnotsCommand(Document *document)
-    :   QUndoCommand(i18n("Paint Knots")),
-        m_document(document)
+    : QUndoCommand(i18n("Paint Knots"))
+    , m_document(document)
 {
 }
-
 
 void PaintKnotsCommand::redo()
 {
@@ -116,7 +104,6 @@ void PaintKnotsCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void PaintKnotsCommand::undo()
 {
     QUndoCommand::undo();
@@ -124,13 +111,11 @@ void PaintKnotsCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 DrawLineCommand::DrawLineCommand(Document *document)
-    :   QUndoCommand(i18n("Draw Line")),
-        m_document(document)
+    : QUndoCommand(i18n("Draw Line"))
+    , m_document(document)
 {
 }
-
 
 void DrawLineCommand::redo()
 {
@@ -139,7 +124,6 @@ void DrawLineCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void DrawLineCommand::undo()
 {
     QUndoCommand::undo();
@@ -147,13 +131,11 @@ void DrawLineCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 EraseStitchesCommand::EraseStitchesCommand(Document *document)
-    :   QUndoCommand(i18n("Erase Stitches")),
-        m_document(document)
+    : QUndoCommand(i18n("Erase Stitches"))
+    , m_document(document)
 {
 }
-
 
 void EraseStitchesCommand::redo()
 {
@@ -162,7 +144,6 @@ void EraseStitchesCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void EraseStitchesCommand::undo()
 {
     QUndoCommand::undo();
@@ -170,13 +151,11 @@ void EraseStitchesCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 DrawRectangleCommand::DrawRectangleCommand(Document *document)
-    :   QUndoCommand(i18n("Draw Rectangle")),
-        m_document(document)
+    : QUndoCommand(i18n("Draw Rectangle"))
+    , m_document(document)
 {
 }
-
 
 void DrawRectangleCommand::redo()
 {
@@ -185,7 +164,6 @@ void DrawRectangleCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void DrawRectangleCommand::undo()
 {
     QUndoCommand::undo();
@@ -193,13 +171,11 @@ void DrawRectangleCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 FillRectangleCommand::FillRectangleCommand(Document *document)
-    :   QUndoCommand(i18n("Fill Rectangle")),
-        m_document(document)
+    : QUndoCommand(i18n("Fill Rectangle"))
+    , m_document(document)
 {
 }
-
 
 void FillRectangleCommand::redo()
 {
@@ -208,7 +184,6 @@ void FillRectangleCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void FillRectangleCommand::undo()
 {
     QUndoCommand::undo();
@@ -216,14 +191,11 @@ void FillRectangleCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
-
 DrawEllipseCommand::DrawEllipseCommand(Document *document)
-    :   QUndoCommand(i18n("Draw Ellipse")),
-        m_document(document)
+    : QUndoCommand(i18n("Draw Ellipse"))
+    , m_document(document)
 {
 }
-
 
 void DrawEllipseCommand::redo()
 {
@@ -232,7 +204,6 @@ void DrawEllipseCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void DrawEllipseCommand::undo()
 {
     QUndoCommand::undo();
@@ -240,13 +211,11 @@ void DrawEllipseCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 FillEllipseCommand::FillEllipseCommand(Document *document)
-    :   QUndoCommand(i18n("Fill Ellipse")),
-        m_document(document)
+    : QUndoCommand(i18n("Fill Ellipse"))
+    , m_document(document)
 {
 }
-
 
 void FillEllipseCommand::redo()
 {
@@ -255,7 +224,6 @@ void FillEllipseCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void FillEllipseCommand::undo()
 {
     QUndoCommand::undo();
@@ -263,13 +231,11 @@ void FillEllipseCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 FillPolygonCommand::FillPolygonCommand(Document *document)
-    :   QUndoCommand(i18n("Fill Polygon")),
-        m_document(document)
+    : QUndoCommand(i18n("Fill Polygon"))
+    , m_document(document)
 {
 }
-
 
 void FillPolygonCommand::redo()
 {
@@ -278,7 +244,6 @@ void FillPolygonCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void FillPolygonCommand::undo()
 {
     QUndoCommand::undo();
@@ -286,23 +251,20 @@ void FillPolygonCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 AddStitchCommand::AddStitchCommand(Document *document, const QPoint &location, Stitch::Type type, int colorIndex, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Add Stitch"), parent),
-        m_document(document),
-        m_cell(location),
-        m_type(type),
-        m_colorIndex(colorIndex),
-        m_original(nullptr)
+    : QUndoCommand(i18n("Add Stitch"), parent)
+    , m_document(document)
+    , m_cell(location)
+    , m_type(type)
+    , m_colorIndex(colorIndex)
+    , m_original(nullptr)
 {
 }
-
 
 AddStitchCommand::~AddStitchCommand()
 {
     delete m_original;
 }
-
 
 void AddStitchCommand::redo()
 {
@@ -315,7 +277,6 @@ void AddStitchCommand::redo()
     m_document->pattern()->stitches().addStitch(m_cell, m_type, m_colorIndex);
 }
 
-
 void AddStitchCommand::undo()
 {
     delete m_document->pattern()->stitches().takeStitchQueueAt(m_cell);
@@ -326,23 +287,20 @@ void AddStitchCommand::undo()
     }
 }
 
-
 DeleteStitchCommand::DeleteStitchCommand(Document *document, const QPoint &cell, Stitch::Type type, int colorIndex, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Delete Stitches"), parent),
-        m_document(document),
-        m_cell(cell),
-        m_type(type),
-        m_colorIndex(colorIndex),
-        m_original(nullptr)
+    : QUndoCommand(i18n("Delete Stitches"), parent)
+    , m_document(document)
+    , m_cell(cell)
+    , m_type(type)
+    , m_colorIndex(colorIndex)
+    , m_original(nullptr)
 {
 }
-
 
 DeleteStitchCommand::~DeleteStitchCommand()
 {
     delete m_original;
 }
-
 
 void DeleteStitchCommand::redo()
 {
@@ -354,7 +312,6 @@ void DeleteStitchCommand::redo()
     }
 }
 
-
 void DeleteStitchCommand::undo()
 {
     if (m_original) {
@@ -363,16 +320,14 @@ void DeleteStitchCommand::undo()
     }
 }
 
-
 AddBackstitchCommand::AddBackstitchCommand(Document *document, const QPoint &start, const QPoint &end, int colorIndex)
-    :   QUndoCommand(i18n("Add Backstitch")),
-        m_document(document),
-        m_start(start),
-        m_end(end),
-        m_colorIndex(colorIndex)
+    : QUndoCommand(i18n("Add Backstitch"))
+    , m_document(document)
+    , m_start(start)
+    , m_end(end)
+    , m_colorIndex(colorIndex)
 {
 }
-
 
 void AddBackstitchCommand::redo()
 {
@@ -381,7 +336,6 @@ void AddBackstitchCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void AddBackstitchCommand::undo()
 {
     delete m_document->pattern()->stitches().takeBackstitch(m_start, m_end, m_colorIndex);
@@ -389,23 +343,20 @@ void AddBackstitchCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 DeleteBackstitchCommand::DeleteBackstitchCommand(Document *document, const QPoint &start, const QPoint &end, int colorIndex)
-    :   QUndoCommand(i18n("Delete Backstitch")),
-        m_document(document),
-        m_start(start),
-        m_end(end),
-        m_colorIndex(colorIndex),
-        m_backstitch(nullptr)
+    : QUndoCommand(i18n("Delete Backstitch"))
+    , m_document(document)
+    , m_start(start)
+    , m_end(end)
+    , m_colorIndex(colorIndex)
+    , m_backstitch(nullptr)
 {
 }
-
 
 DeleteBackstitchCommand::~DeleteBackstitchCommand()
 {
     delete m_backstitch;
 }
-
 
 void DeleteBackstitchCommand::redo()
 {
@@ -413,7 +364,6 @@ void DeleteBackstitchCommand::redo()
     m_document->editor()->drawContents();
     m_document->preview()->drawContents();
 }
-
 
 void DeleteBackstitchCommand::undo()
 {
@@ -423,49 +373,42 @@ void DeleteBackstitchCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 AddKnotCommand::AddKnotCommand(Document *document, const QPoint &snap, int colorIndex, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Add Knot"), parent),
-        m_document(document),
-        m_snap(snap),
-        m_colorIndex(colorIndex)
+    : QUndoCommand(i18n("Add Knot"), parent)
+    , m_document(document)
+    , m_snap(snap)
+    , m_colorIndex(colorIndex)
 {
 }
-
 
 void AddKnotCommand::redo()
 {
     m_document->pattern()->stitches().addFrenchKnot(m_snap, m_colorIndex);
 }
 
-
 void AddKnotCommand::undo()
 {
     delete m_document->pattern()->stitches().takeFrenchKnot(m_snap, m_colorIndex);
 }
 
-
 DeleteKnotCommand::DeleteKnotCommand(Document *document, const QPoint &snap, int colorIndex, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Delete Knots"), parent),
-        m_document(document),
-        m_snap(snap),
-        m_colorIndex(colorIndex),
-        m_knot(nullptr)
+    : QUndoCommand(i18n("Delete Knots"), parent)
+    , m_document(document)
+    , m_snap(snap)
+    , m_colorIndex(colorIndex)
+    , m_knot(nullptr)
 {
 }
-
 
 DeleteKnotCommand::~DeleteKnotCommand()
 {
     delete m_knot;
 }
 
-
 void DeleteKnotCommand::redo()
 {
     m_knot = m_document->pattern()->stitches().takeFrenchKnot(m_snap, m_colorIndex);
 }
-
 
 void DeleteKnotCommand::undo()
 {
@@ -473,15 +416,13 @@ void DeleteKnotCommand::undo()
     m_knot = nullptr;
 }
 
-
 SetPropertyCommand::SetPropertyCommand(Document *document, const QString &name, const QVariant &value, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Set Property"), parent),
-        m_document(document),
-        m_name(name),
-        m_value(value)
+    : QUndoCommand(i18n("Set Property"), parent)
+    , m_document(document)
+    , m_name(name)
+    , m_value(value)
 {
 }
-
 
 void SetPropertyCommand::redo()
 {
@@ -489,21 +430,18 @@ void SetPropertyCommand::redo()
     m_document->setProperty(m_name, m_value);
 }
 
-
 void SetPropertyCommand::undo()
 {
     m_document->setProperty(m_name, m_oldValue);
 }
 
-
 AddBackgroundImageCommand::AddBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, MainWindow *mainWindow)
-    :   QUndoCommand(i18n("Add Background Image")),
-        m_document(document),
-        m_backgroundImage(backgroundImage),
-        m_mainWindow(mainWindow)
+    : QUndoCommand(i18n("Add Background Image"))
+    , m_document(document)
+    , m_backgroundImage(backgroundImage)
+    , m_mainWindow(mainWindow)
 {
 }
-
 
 void AddBackgroundImageCommand::redo()
 {
@@ -512,7 +450,6 @@ void AddBackgroundImageCommand::redo()
     m_document->editor()->drawContents();
 }
 
-
 void AddBackgroundImageCommand::undo()
 {
     m_document->backgroundImages().removeBackgroundImage(m_backgroundImage);
@@ -520,15 +457,13 @@ void AddBackgroundImageCommand::undo()
     m_document->editor()->drawContents();
 }
 
-
 FitBackgroundImageCommand::FitBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, const QRect &rect)
-    :   QUndoCommand(i18n("Fit Background to Selection")),
-        m_document(document),
-        m_backgroundImage(backgroundImage),
-        m_rect(rect)
+    : QUndoCommand(i18n("Fit Background to Selection"))
+    , m_document(document)
+    , m_backgroundImage(backgroundImage)
+    , m_rect(rect)
 {
 }
-
 
 void FitBackgroundImageCommand::redo()
 {
@@ -537,21 +472,18 @@ void FitBackgroundImageCommand::redo()
     m_document->editor()->drawContents();
 }
 
-
 void FitBackgroundImageCommand::undo()
 {
     redo(); // same code required
 }
 
-
 ShowBackgroundImageCommand::ShowBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, bool visible)
-    :   QUndoCommand(i18n("Show Background Image")),
-        m_document(document),
-        m_backgroundImage(backgroundImage),
-        m_visible(visible)
+    : QUndoCommand(i18n("Show Background Image"))
+    , m_document(document)
+    , m_backgroundImage(backgroundImage)
+    , m_visible(visible)
 {
 }
-
 
 void ShowBackgroundImageCommand::redo()
 {
@@ -559,21 +491,18 @@ void ShowBackgroundImageCommand::redo()
     m_document->editor()->drawContents();
 }
 
-
 void ShowBackgroundImageCommand::undo()
 {
     redo(); // same code required
 }
 
-
 RemoveBackgroundImageCommand::RemoveBackgroundImageCommand(Document *document, QSharedPointer<BackgroundImage> backgroundImage, MainWindow *mainWindow)
-    :   QUndoCommand(i18n("Remove Background Image")),
-        m_document(document),
-        m_backgroundImage(backgroundImage),
-        m_mainWindow(mainWindow)
+    : QUndoCommand(i18n("Remove Background Image"))
+    , m_document(document)
+    , m_backgroundImage(backgroundImage)
+    , m_mainWindow(mainWindow)
 {
 }
-
 
 RemoveBackgroundImageCommand::~RemoveBackgroundImageCommand()
 {
@@ -581,7 +510,6 @@ RemoveBackgroundImageCommand::~RemoveBackgroundImageCommand()
     // delete m_backgroundImage;
     // m_backgroundImage may also be deleted by the document, potential for a crash or memory leak
 }
-
 
 void RemoveBackgroundImageCommand::redo()
 {
@@ -593,7 +521,6 @@ void RemoveBackgroundImageCommand::redo()
     }
 }
 
-
 void RemoveBackgroundImageCommand::undo()
 {
     m_document->backgroundImages().addBackgroundImage(m_backgroundImage);
@@ -604,88 +531,75 @@ void RemoveBackgroundImageCommand::undo()
     }
 }
 
-
 AddDocumentFlossCommand::AddDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss, QUndoCommand *parent)
-    :   QUndoCommand(parent),
-        m_document(document),
-        m_key(key),
-        m_documentFloss(documentFloss)
+    : QUndoCommand(parent)
+    , m_document(document)
+    , m_key(key)
+    , m_documentFloss(documentFloss)
 {
 }
-
 
 void AddDocumentFlossCommand::redo()
 {
     m_document->pattern()->palette().add(m_key, m_documentFloss);
 }
 
-
 void AddDocumentFlossCommand::undo()
 {
     m_document->pattern()->palette().remove(m_key);
 }
 
-
 RemoveDocumentFlossCommand::RemoveDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss, QUndoCommand *parent)
-    :   QUndoCommand(parent),
-        m_document(document),
-        m_key(key),
-        m_documentFloss(documentFloss)
+    : QUndoCommand(parent)
+    , m_document(document)
+    , m_key(key)
+    , m_documentFloss(documentFloss)
 {
 }
-
 
 RemoveDocumentFlossCommand::~RemoveDocumentFlossCommand()
 {
     delete m_documentFloss;
 }
 
-
 void RemoveDocumentFlossCommand::redo()
 {
     m_document->pattern()->palette().remove(m_key);
 }
-
 
 void RemoveDocumentFlossCommand::undo()
 {
     m_document->pattern()->palette().add(m_key, m_documentFloss);
 }
 
-
 ReplaceDocumentFlossCommand::ReplaceDocumentFlossCommand(Document *document, int key, DocumentFloss *documentFloss)
-    :   QUndoCommand(),
-        m_document(document),
-        m_key(key),
-        m_documentFloss(documentFloss)
+    : QUndoCommand()
+    , m_document(document)
+    , m_key(key)
+    , m_documentFloss(documentFloss)
 {
 }
-
 
 ReplaceDocumentFlossCommand::~ReplaceDocumentFlossCommand()
 {
     delete m_documentFloss;
 }
 
-
 void ReplaceDocumentFlossCommand::redo()
 {
     m_documentFloss = m_document->pattern()->palette().replace(m_key, m_documentFloss);
 }
-
 
 void ReplaceDocumentFlossCommand::undo()
 {
     redo(); // same code required
 }
 
-
 ClearUnusedFlossesCommand::ClearUnusedFlossesCommand(Document *document)
-    :   QUndoCommand(i18n("Clear Unused Flosses")),
-        m_document(document)
+    : QUndoCommand(i18n("Clear Unused Flosses"))
+    , m_document(document)
 {
 }
-
 
 void ClearUnusedFlossesCommand::redo()
 {
@@ -693,22 +607,19 @@ void ClearUnusedFlossesCommand::redo()
     m_document->palette()->update();
 }
 
-
 void ClearUnusedFlossesCommand::undo()
 {
     QUndoCommand::undo();
     m_document->palette()->update();
 }
 
-
 ResizeDocumentCommand::ResizeDocumentCommand(Document *document, int width, int height, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Resize Document"), parent),
-        m_document(document),
-        m_width(width),
-        m_height(height)
+    : QUndoCommand(i18n("Resize Document"), parent)
+    , m_document(document)
+    , m_width(width)
+    , m_height(height)
 {
 }
-
 
 void ResizeDocumentCommand::redo()
 {
@@ -723,20 +634,17 @@ void ResizeDocumentCommand::redo()
     m_document->pattern()->stitches().resize(m_width, m_height);
 }
 
-
 void ResizeDocumentCommand::undo()
 {
     m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
     m_document->pattern()->stitches().movePattern(-m_xOffset, -m_yOffset);
 }
 
-
 CropToPatternCommand::CropToPatternCommand(Document *document)
-    :   QUndoCommand(i18n("Crop to Pattern")),
-        m_document(document)
+    : QUndoCommand(i18n("Crop to Pattern"))
+    , m_document(document)
 {
 }
-
 
 void CropToPatternCommand::redo()
 {
@@ -751,7 +659,6 @@ void CropToPatternCommand::redo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 void CropToPatternCommand::undo()
 {
     m_document->pattern()->stitches().resize(m_originalWidth, m_originalHeight);
@@ -760,22 +667,19 @@ void CropToPatternCommand::undo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 CropToSelectionCommand::CropToSelectionCommand(Document *document, const QRect &selectionArea)
-    :   QUndoCommand(i18n("Crop to Selection")),
-        m_document(document),
-        m_selectionArea(selectionArea)
+    : QUndoCommand(i18n("Crop to Selection"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
 {
 }
-
 
 void CropToSelectionCommand::redo()
 {
     QList<Stitch::Type> maskStitches;
-    maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr
-                 << Stitch::TBHalf << Stitch::TR3Qtr << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf
-                 << Stitch::TRSmallHalf << Stitch::BLSmallHalf << Stitch::BRSmallHalf << Stitch::TLSmallFull << Stitch::TRSmallFull
-                 << Stitch::BLSmallFull << Stitch::BRSmallFull;
+    maskStitches << Stitch::TLQtr << Stitch::TRQtr << Stitch::BLQtr << Stitch::BTHalf << Stitch::TL3Qtr << Stitch::BRQtr << Stitch::TBHalf << Stitch::TR3Qtr
+                 << Stitch::BL3Qtr << Stitch::BR3Qtr << Stitch::Full << Stitch::TLSmallHalf << Stitch::TRSmallHalf << Stitch::BLSmallHalf << Stitch::BRSmallHalf
+                 << Stitch::TLSmallFull << Stitch::TRSmallFull << Stitch::BLSmallFull << Stitch::BRSmallFull;
 
     QDataStream stream(&m_originalPattern, QIODevice::WriteOnly);
     stream << m_document->pattern()->stitches();
@@ -790,7 +694,6 @@ void CropToSelectionCommand::redo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 void CropToSelectionCommand::undo()
 {
     QDataStream stream(&m_originalPattern, QIODevice::ReadOnly);
@@ -801,14 +704,12 @@ void CropToSelectionCommand::undo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 InsertColumnsCommand::InsertColumnsCommand(Document *document, const QRect &selectionArea)
-    :   QUndoCommand(i18n("Insert Columns")),
-        m_document(document),
-        m_selectionArea(selectionArea)
+    : QUndoCommand(i18n("Insert Columns"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
 {
 }
-
 
 void InsertColumnsCommand::redo()
 {
@@ -828,7 +729,6 @@ void InsertColumnsCommand::redo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 void InsertColumnsCommand::undo()
 {
     m_document->pattern()->stitches().removeColumns(m_selectionArea.left(), m_selectionArea.width());
@@ -847,14 +747,12 @@ void InsertColumnsCommand::undo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 InsertRowsCommand::InsertRowsCommand(Document *document, const QRect &selectionArea)
-    :   QUndoCommand(i18n("Insert Rows")),
-        m_document(document),
-        m_selectionArea(selectionArea)
+    : QUndoCommand(i18n("Insert Rows"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
 {
 }
-
 
 void InsertRowsCommand::redo()
 {
@@ -874,7 +772,6 @@ void InsertRowsCommand::redo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 void InsertRowsCommand::undo()
 {
     m_document->pattern()->stitches().removeRows(m_selectionArea.top(), m_selectionArea.height());
@@ -893,17 +790,15 @@ void InsertRowsCommand::undo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 ExtendPatternCommand::ExtendPatternCommand(Document *document, int top, int left, int right, int bottom)
-    :   QUndoCommand(i18n("Extend Pattern")),
-        m_document(document),
-        m_top(top),
-        m_left(left),
-        m_right(right),
-        m_bottom(bottom)
+    : QUndoCommand(i18n("Extend Pattern"))
+    , m_document(document)
+    , m_top(top)
+    , m_left(left)
+    , m_right(right)
+    , m_bottom(bottom)
 {
 }
-
 
 void ExtendPatternCommand::redo()
 {
@@ -921,7 +816,6 @@ void ExtendPatternCommand::redo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 void ExtendPatternCommand::undo()
 {
     StitchData &stitchData = m_document->pattern()->stitches();
@@ -938,13 +832,11 @@ void ExtendPatternCommand::undo()
     m_document->preview()->readDocumentSettings();
 }
 
-
 CentrePatternCommand::CentrePatternCommand(Document *document)
-    :   QUndoCommand(i18n("Center Pattern")),
-        m_document(document)
+    : QUndoCommand(i18n("Center Pattern"))
+    , m_document(document)
 {
 }
-
 
 void CentrePatternCommand::redo()
 {
@@ -961,8 +853,6 @@ void CentrePatternCommand::redo()
     }
 }
 
-
-
 void CentrePatternCommand::undo()
 {
     if (m_xOffset || m_yOffset) {
@@ -973,14 +863,12 @@ void CentrePatternCommand::undo()
     }
 }
 
-
 UpdateDocumentPaletteCommand::UpdateDocumentPaletteCommand(Document *document, const DocumentPalette &palette)
-    :   QUndoCommand(i18n("Update Palette")),
-        m_document(document),
-        m_palette(palette)
+    : QUndoCommand(i18n("Update Palette"))
+    , m_document(document)
+    , m_palette(palette)
 {
 }
-
 
 void UpdateDocumentPaletteCommand::redo()
 {
@@ -993,20 +881,17 @@ void UpdateDocumentPaletteCommand::redo()
     m_document->palette()->update();
 }
 
-
 void UpdateDocumentPaletteCommand::undo()
 {
     redo(); // swaps the palette back
 }
 
-
 ChangeSchemeCommand::ChangeSchemeCommand(Document *document, const QString &schemeName, QUndoCommand *parent)
-    :   QUndoCommand(i18n("Change Floss Scheme"), parent),
-        m_document(document),
-        m_schemeName(schemeName)
+    : QUndoCommand(i18n("Change Floss Scheme"), parent)
+    , m_document(document)
+    , m_schemeName(schemeName)
 {
 }
-
 
 void ChangeSchemeCommand::redo()
 {
@@ -1019,7 +904,6 @@ void ChangeSchemeCommand::redo()
     m_document->palette()->update();
 }
 
-
 void ChangeSchemeCommand::undo()
 {
     QDataStream stream(&m_originalPalette, QIODevice::ReadOnly);
@@ -1031,53 +915,45 @@ void ChangeSchemeCommand::undo()
     m_document->palette()->update();
 }
 
-
 EditorReadDocumentSettingsCommand::EditorReadDocumentSettingsCommand(Editor *editor)
-    :   QUndoCommand(),
-        m_editor(editor)
+    : QUndoCommand()
+    , m_editor(editor)
 {
 }
-
 
 void EditorReadDocumentSettingsCommand::redo()
 {
     m_editor->readDocumentSettings();
 }
 
-
 void EditorReadDocumentSettingsCommand::undo()
 {
     redo(); // same code required
 }
 
-
 PreviewReadDocumentSettingsCommand::PreviewReadDocumentSettingsCommand(Preview *preview)
-    :   QUndoCommand(),
-        m_preview(preview)
+    : QUndoCommand()
+    , m_preview(preview)
 {
 }
-
 
 void PreviewReadDocumentSettingsCommand::redo()
 {
     m_preview->readDocumentSettings();
 }
 
-
 void PreviewReadDocumentSettingsCommand::undo()
 {
     redo(); // same code required
 }
 
-
 PaletteReplaceColorCommand::PaletteReplaceColorCommand(Document *document, int originalIndex, int replacementIndex)
-    :   QUndoCommand(i18n("Replace Color")),
-        m_document(document),
-        m_originalIndex(originalIndex),
-        m_replacementIndex(replacementIndex)
+    : QUndoCommand(i18n("Replace Color"))
+    , m_document(document)
+    , m_originalIndex(originalIndex)
+    , m_replacementIndex(replacementIndex)
 {
 }
-
 
 void PaletteReplaceColorCommand::redo()
 {
@@ -1099,8 +975,8 @@ void PaletteReplaceColorCommand::redo()
         // search the stitch data for stitches of the required color
         StitchData &stitchData = m_document->pattern()->stitches();
 
-        for (int row = 0 ; row < stitchData.height() ; ++row) {
-            for (int col = 0 ; col < stitchData.width() ; ++col) {
+        for (int row = 0; row < stitchData.height(); ++row) {
+            for (int col = 0; col < stitchData.width(); ++col) {
                 StitchQueue *queue = stitchData.stitchQueueAt(QPoint(col, row));
 
                 if (queue) {
@@ -1146,7 +1022,6 @@ void PaletteReplaceColorCommand::redo()
     m_document->palette()->update();
 }
 
-
 void PaletteReplaceColorCommand::undo()
 {
     QListIterator<Stitch *> stitchIterator(m_stitches);
@@ -1172,15 +1047,13 @@ void PaletteReplaceColorCommand::undo()
     m_document->palette()->update();
 }
 
-
 PaletteSwapColorCommand::PaletteSwapColorCommand(Document *document, int originalIndex, int swappedIndex)
-    :   QUndoCommand(i18n("Swap Colors")),
-        m_document(document),
-        m_originalIndex(originalIndex),
-        m_swappedIndex(swappedIndex)
+    : QUndoCommand(i18n("Swap Colors"))
+    , m_document(document)
+    , m_originalIndex(originalIndex)
+    , m_swappedIndex(swappedIndex)
 {
 }
-
 
 void PaletteSwapColorCommand::redo()
 {
@@ -1190,20 +1063,17 @@ void PaletteSwapColorCommand::redo()
     m_document->palette()->update();
 }
 
-
 void PaletteSwapColorCommand::undo()
 {
     redo();
 }
 
-
 UpdatePrinterConfigurationCommand::UpdatePrinterConfigurationCommand(Document *document, const PrinterConfiguration &printerConfiguration)
-    :   QUndoCommand(i18n("Update Printer Configuration")),
-        m_document(document),
-        m_printerConfiguration(printerConfiguration)
+    : QUndoCommand(i18n("Update Printer Configuration"))
+    , m_document(document)
+    , m_printerConfiguration(printerConfiguration)
 {
 }
-
 
 void UpdatePrinterConfigurationCommand::redo()
 {
@@ -1212,31 +1082,32 @@ void UpdatePrinterConfigurationCommand::redo()
     m_printerConfiguration = original;
 }
 
-
 void UpdatePrinterConfigurationCommand::undo()
 {
     redo();
 }
 
-
-EditCutCommand::EditCutCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots)
-    :   QUndoCommand(i18n("Cut")),
-        m_document(document),
-        m_selectionArea(selectionArea),
-        m_colorMask(colorMask),
-        m_stitchMasks(stitchMasks),
-        m_excludeBackstitches(excludeBackstitches),
-        m_excludeKnots(excludeKnots),
-        m_originalPattern(nullptr)
+EditCutCommand::EditCutCommand(Document *document,
+                               const QRect &selectionArea,
+                               int colorMask,
+                               const QList<Stitch::Type> &stitchMasks,
+                               bool excludeBackstitches,
+                               bool excludeKnots)
+    : QUndoCommand(i18n("Cut"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
+    , m_colorMask(colorMask)
+    , m_stitchMasks(stitchMasks)
+    , m_excludeBackstitches(excludeBackstitches)
+    , m_excludeKnots(excludeKnots)
+    , m_originalPattern(nullptr)
 {
 }
-
 
 EditCutCommand::~EditCutCommand()
 {
     delete m_originalPattern;
 }
-
 
 void EditCutCommand::redo()
 {
@@ -1255,7 +1126,6 @@ void EditCutCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void EditCutCommand::undo()
 {
     m_document->pattern()->paste(m_originalPattern, m_selectionArea.topLeft(), true);
@@ -1266,16 +1136,14 @@ void EditCutCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 EditPasteCommand::EditPasteCommand(Document *document, Pattern *pattern, const QPoint &cell, bool merge, const QString &source)
-    :   QUndoCommand(source),
-        m_document(document),
-        m_pastePattern(pattern),
-        m_cell(cell),
-        m_merge(merge)
+    : QUndoCommand(source)
+    , m_document(document)
+    , m_pastePattern(pattern)
+    , m_cell(cell)
+    , m_merge(merge)
 {
 }
-
 
 void EditPasteCommand::redo()
 {
@@ -1287,7 +1155,6 @@ void EditPasteCommand::redo()
     m_document->preview()->drawContents();
     m_document->palette()->update();
 }
-
 
 void EditPasteCommand::undo()
 {
@@ -1301,30 +1168,38 @@ void EditPasteCommand::undo()
     m_document->palette()->update();
 }
 
-
-MirrorSelectionCommand::MirrorSelectionCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots, Qt::Orientation orientation, bool copies, const QByteArray &originalPatternData, Pattern *invertedPattern, const QPoint &pasteCell, bool merge)
-    :   QUndoCommand(i18n("Mirror Selection")),
-        m_document(document),
-        m_selectionArea(selectionArea),
-        m_colorMask(colorMask),
-        m_stitchMasks(stitchMasks),
-        m_excludeBackstitches(excludeBackstitches),
-        m_excludeKnots(excludeKnots),
-        m_orientation(orientation),
-        m_copies(copies),
-        m_originalPatternData(originalPatternData),
-        m_invertedPattern(invertedPattern),
-        m_pasteCell(pasteCell),
-        m_merge(merge)
+MirrorSelectionCommand::MirrorSelectionCommand(Document *document,
+                                               const QRect &selectionArea,
+                                               int colorMask,
+                                               const QList<Stitch::Type> &stitchMasks,
+                                               bool excludeBackstitches,
+                                               bool excludeKnots,
+                                               Qt::Orientation orientation,
+                                               bool copies,
+                                               const QByteArray &originalPatternData,
+                                               Pattern *invertedPattern,
+                                               const QPoint &pasteCell,
+                                               bool merge)
+    : QUndoCommand(i18n("Mirror Selection"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
+    , m_colorMask(colorMask)
+    , m_stitchMasks(stitchMasks)
+    , m_excludeBackstitches(excludeBackstitches)
+    , m_excludeKnots(excludeKnots)
+    , m_orientation(orientation)
+    , m_copies(copies)
+    , m_originalPatternData(originalPatternData)
+    , m_invertedPattern(invertedPattern)
+    , m_pasteCell(pasteCell)
+    , m_merge(merge)
 {
 }
-
 
 MirrorSelectionCommand::~MirrorSelectionCommand()
 {
     delete m_invertedPattern;
 }
-
 
 void MirrorSelectionCommand::redo()
 {
@@ -1338,7 +1213,6 @@ void MirrorSelectionCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void MirrorSelectionCommand::undo()
 {
     m_document->pattern()->stitches().clear();
@@ -1349,30 +1223,38 @@ void MirrorSelectionCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
-RotateSelectionCommand::RotateSelectionCommand(Document *document, const QRect &selectionArea, int colorMask, const QList<Stitch::Type> &stitchMasks, bool excludeBackstitches, bool excludeKnots, StitchData::Rotation rotation, bool copies, const QByteArray &originalPatternData, Pattern *rotatedPattern, const QPoint &pasteCell, bool merge)
-    :   QUndoCommand(i18n("Rotate Selection")),
-        m_document(document),
-        m_selectionArea(selectionArea),
-        m_colorMask(colorMask),
-        m_stitchMasks(stitchMasks),
-        m_excludeBackstitches(excludeBackstitches),
-        m_excludeKnots(excludeKnots),
-        m_rotation(rotation),
-        m_copies(copies),
-        m_originalPatternData(originalPatternData),
-        m_rotatedPattern(rotatedPattern),
-        m_pasteCell(pasteCell),
-        m_merge(merge)
+RotateSelectionCommand::RotateSelectionCommand(Document *document,
+                                               const QRect &selectionArea,
+                                               int colorMask,
+                                               const QList<Stitch::Type> &stitchMasks,
+                                               bool excludeBackstitches,
+                                               bool excludeKnots,
+                                               StitchData::Rotation rotation,
+                                               bool copies,
+                                               const QByteArray &originalPatternData,
+                                               Pattern *rotatedPattern,
+                                               const QPoint &pasteCell,
+                                               bool merge)
+    : QUndoCommand(i18n("Rotate Selection"))
+    , m_document(document)
+    , m_selectionArea(selectionArea)
+    , m_colorMask(colorMask)
+    , m_stitchMasks(stitchMasks)
+    , m_excludeBackstitches(excludeBackstitches)
+    , m_excludeKnots(excludeKnots)
+    , m_rotation(rotation)
+    , m_copies(copies)
+    , m_originalPatternData(originalPatternData)
+    , m_rotatedPattern(rotatedPattern)
+    , m_pasteCell(pasteCell)
+    , m_merge(merge)
 {
 }
-
 
 RotateSelectionCommand::~RotateSelectionCommand()
 {
     delete m_rotatedPattern;
 }
-
 
 void RotateSelectionCommand::redo()
 {
@@ -1386,7 +1268,6 @@ void RotateSelectionCommand::redo()
     m_document->preview()->drawContents();
 }
 
-
 void RotateSelectionCommand::undo()
 {
     m_document->pattern()->stitches().clear();
@@ -1397,42 +1278,36 @@ void RotateSelectionCommand::undo()
     m_document->preview()->drawContents();
 }
 
-
 AlphabetCommand::AlphabetCommand(Document *document)
-    :   QUndoCommand(i18n("Alphabet")),
-        m_document(document)
+    : QUndoCommand(i18n("Alphabet"))
+    , m_document(document)
 {
 }
-
 
 AlphabetCommand::~AlphabetCommand()
 {
     qDeleteAll(m_children);
 }
 
-
 void AlphabetCommand::redo()
 {
-    for (int i = 0 ; i < m_children.size() ; ++i) {
+    for (int i = 0; i < m_children.size(); ++i) {
         m_children.at(i)->redo();
     }
 }
 
-
 void AlphabetCommand::undo()
 {
-    for (int i = m_children.size() - 1 ; i >= 0 ; --i) {
+    for (int i = m_children.size() - 1; i >= 0; --i) {
         m_children.at(i)->undo();
     }
 }
-
 
 void AlphabetCommand::push(QUndoCommand *child)
 {
     m_children.append(child);
     child->redo();
 }
-
 
 QUndoCommand *AlphabetCommand::pop()
 {
@@ -1444,26 +1319,22 @@ QUndoCommand *AlphabetCommand::pop()
     return m_children.takeLast();
 }
 
-
 int AlphabetCommand::childCount() const
 {
     return m_children.count();
 }
 
-
 ConfigurationCommand::ConfigurationCommand(MainWindow *mainWindow)
-    :   QUndoCommand(i18n("Configure KXStitch")),
-        m_mainWindow(mainWindow)
+    : QUndoCommand(i18n("Configure KXStitch"))
+    , m_mainWindow(mainWindow)
 {
 }
-
 
 void ConfigurationCommand::redo()
 {
     QUndoCommand::redo();
     m_mainWindow->loadSettings();
 }
-
 
 void ConfigurationCommand::undo()
 {

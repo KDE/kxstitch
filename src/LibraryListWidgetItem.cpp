@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryListWidgetItem.h"
 
 #include <QPainter>
@@ -20,13 +19,11 @@
 
 #include "configuration.h"
 
-
 LibraryListWidgetItem::LibraryListWidgetItem(QListWidget *listWidget, LibraryPattern *libraryPattern)
-    :   QListWidgetItem(listWidget)
+    : QListWidgetItem(listWidget)
 {
     setLibraryPattern(libraryPattern);
 }
-
 
 void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
 {
@@ -50,18 +47,10 @@ void LibraryListWidgetItem::setLibraryPattern(LibraryPattern *libraryPattern)
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setWindow(0, 0, stitches.width(), stitches.height());
 
-    renderer->render(&painter,
-                     libraryPattern->pattern(),
-                     pixmap.rect(),
-                     true,
-                     true,
-                     true,
-                     true,
-                     -1);
+    renderer->render(&painter, libraryPattern->pattern(), pixmap.rect(), true, true, true, true, -1);
 
     setIcon(QIcon(pixmap));
 }
-
 
 LibraryPattern *LibraryListWidgetItem::libraryPattern()
 {

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "CalibrateFlossDlg.h"
 
 #include <QHideEvent>
@@ -23,12 +22,11 @@
 #include "FlossScheme.h"
 #include "SchemeManager.h"
 
-
 CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
-    :   QDialog(parent),
-        m_schemeName(schemeName),
-        m_item(nullptr),
-        m_sample(nullptr)
+    : QDialog(parent)
+    , m_schemeName(schemeName)
+    , m_item(nullptr)
+    , m_sample(nullptr)
 {
     setWindowTitle(i18n("Calibrate Floss"));
     ui.setupUi(this);
@@ -37,12 +35,10 @@ CalibrateFlossDlg::CalibrateFlossDlg(QWidget *parent, const QString &schemeName)
     ui.SchemeList->setCurrentIndex(ui.SchemeList->findText(schemeName));
 }
 
-
 CalibrateFlossDlg::~CalibrateFlossDlg()
 {
     delete m_sample;
 }
-
 
 void CalibrateFlossDlg::hideEvent(QHideEvent *event)
 {
@@ -50,7 +46,6 @@ void CalibrateFlossDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void CalibrateFlossDlg::showEvent(QShowEvent *event)
 {
@@ -61,12 +56,10 @@ void CalibrateFlossDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void CalibrateFlossDlg::fillSchemeList()
 {
     ui.SchemeList->insertItems(0, SchemeManager::schemes());
 }
-
 
 void CalibrateFlossDlg::fillColorList()
 {
@@ -84,7 +77,7 @@ void CalibrateFlossDlg::fillColorList()
         listWidgetItem->setData(Qt::UserRole, QString(floss->name()));
         listWidgetItem->setData(Qt::UserRole + 1, QString(floss->description()));
         listWidgetItem->setData(Qt::CheckStateRole, Qt::Unchecked);
-        listWidgetItem->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+        listWidgetItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         ui.ColorList->addItem(listWidgetItem);
     }
 
@@ -92,7 +85,6 @@ void CalibrateFlossDlg::fillColorList()
         ui.ColorList->setCurrentItem(ui.ColorList->item(0));
     }
 }
-
 
 void CalibrateFlossDlg::updateSample()
 {
@@ -107,13 +99,12 @@ void CalibrateFlossDlg::updateSample()
     ui.BlueSlider->setValue(m_sampleColor.blue());
 }
 
-
 void CalibrateFlossDlg::updateName(bool modified)
 {
-    KLocalizedString str = modified ? ki18nc("%1 is floss name, %2 is floss description", "%1-%2 (Modified)") : ki18nc("%1 is floss name, %2 is floss description", "%1-%2");
+    KLocalizedString str =
+        modified ? ki18nc("%1 is floss name, %2 is floss description", "%1-%2 (Modified)") : ki18nc("%1 is floss name, %2 is floss description", "%1-%2");
     ui.SelectedColorName->setText(str.subs(m_item->data(Qt::UserRole).toString()).subs(m_item->data(Qt::UserRole + 1).toString()).toString());
 }
-
 
 void CalibrateFlossDlg::commitColor()
 {
@@ -123,13 +114,11 @@ void CalibrateFlossDlg::commitColor()
     }
 }
 
-
 void CalibrateFlossDlg::on_SchemeList_currentIndexChanged(const QString &)
 {
     commitColor();
     fillColorList();
 }
-
 
 void CalibrateFlossDlg::on_ColorList_currentItemChanged(QListWidgetItem *item)
 {
@@ -151,14 +140,12 @@ void CalibrateFlossDlg::on_ColorList_currentItemChanged(QListWidgetItem *item)
     }
 }
 
-
 void CalibrateFlossDlg::on_RedSlider_valueChanged(int red)
 {
     m_sampleColor.setRgb(red, m_sampleColor.green(), m_sampleColor.blue());
     updateSample();
     updateName(true);
 }
-
 
 void CalibrateFlossDlg::on_GreenSlider_valueChanged(int green)
 {
@@ -167,14 +154,12 @@ void CalibrateFlossDlg::on_GreenSlider_valueChanged(int green)
     updateName(true);
 }
 
-
 void CalibrateFlossDlg::on_BlueSlider_valueChanged(int blue)
 {
     m_sampleColor.setRgb(m_sampleColor.red(), m_sampleColor.green(), blue);
     updateSample();
     updateName(true);
 }
-
 
 void CalibrateFlossDlg::on_ResetColor_clicked()
 {
@@ -188,7 +173,6 @@ void CalibrateFlossDlg::on_ResetColor_clicked()
     updateName(false);
     m_item->setData(Qt::CheckStateRole, Qt::Unchecked);
 }
-
 
 void CalibrateFlossDlg::on_DialogButtonBox_accepted()
 {
@@ -218,12 +202,10 @@ void CalibrateFlossDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void CalibrateFlossDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void CalibrateFlossDlg::on_DialogButtonBox_helpRequested()
 {

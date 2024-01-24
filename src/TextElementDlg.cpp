@@ -12,21 +12,19 @@
  * http://qt-project.org/doc/qt-4.8/demos-textedit.html
  */
 
-
 #include "TextElementDlg.h"
 
-#include <QColorDialog>
 #include <QButtonGroup>
+#include <QColorDialog>
 
 #include <KHelpClient>
 #include <KLocalizedString>
 
 #include "Element.h"
 
-
 TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
-    :   QDialog(parent),
-        m_textElement(textElement)
+    : QDialog(parent)
+    , m_textElement(textElement)
 {
     setWindowTitle(i18n("Text Element Properties"));
 
@@ -70,14 +68,12 @@ TextElementDlg::TextElementDlg(QWidget *parent, TextElement *textElement)
     }
 }
 
-
 void TextElementDlg::hideEvent(QHideEvent *event)
 {
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("DialogSizes")).writeEntry(QStringLiteral("TextElementDlg"), size());
 
     QDialog::hideEvent(event);
 }
-
 
 void TextElementDlg::showEvent(QShowEvent *event)
 {
@@ -88,13 +84,11 @@ void TextElementDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void TextElementDlg::on_FillBackground_toggled(bool checked)
 {
     ui.Text->setAutoFillBackground(checked);
     on_BackgroundColor_activated((checked) ? ui.BackgroundColor->color() : QWidget().palette().color(QPalette::Window));
 }
-
 
 void TextElementDlg::on_BackgroundColor_activated(const QColor &color)
 {
@@ -103,12 +97,10 @@ void TextElementDlg::on_BackgroundColor_activated(const QColor &color)
     ui.Text->setPalette(pal);
 }
 
-
 void TextElementDlg::on_BackgroundTransparency_valueChanged(int value)
 {
     ui.Text->setWindowOpacity(value);
 }
-
 
 void TextElementDlg::on_BoldButton_clicked()
 {
@@ -117,14 +109,12 @@ void TextElementDlg::on_BoldButton_clicked()
     mergeFormatOnWordOrSelection(fmt);
 }
 
-
 void TextElementDlg::on_UnderlineButton_clicked()
 {
     QTextCharFormat fmt;
     fmt.setFontUnderline(ui.UnderlineButton->isChecked());
     mergeFormatOnWordOrSelection(fmt);
 }
-
 
 void TextElementDlg::on_ItalicButton_clicked()
 {
@@ -133,7 +123,6 @@ void TextElementDlg::on_ItalicButton_clicked()
     mergeFormatOnWordOrSelection(fmt);
 }
 
-
 void TextElementDlg::on_FontFamily_currentFontChanged(const QFont &font)
 {
     QTextCharFormat fmt;
@@ -141,14 +130,12 @@ void TextElementDlg::on_FontFamily_currentFontChanged(const QFont &font)
     mergeFormatOnWordOrSelection(fmt);
 }
 
-
 void TextElementDlg::on_PointSize_valueChanged(int size)
 {
     QTextCharFormat fmt;
     fmt.setFontPointSize(double(size));
     mergeFormatOnWordOrSelection(fmt);
 }
-
 
 void TextElementDlg::on_TextColor_clicked()
 {
@@ -161,7 +148,6 @@ void TextElementDlg::on_TextColor_clicked()
         colorChanged(color);
     }
 }
-
 
 void TextElementDlg::textAlign(QAbstractButton *button)
 {
@@ -176,19 +162,16 @@ void TextElementDlg::textAlign(QAbstractButton *button)
     }
 }
 
-
 void TextElementDlg::on_Text_currentCharFormatChanged(const QTextCharFormat &format)
 {
     fontChanged(format.font());
     colorChanged(format.foreground().color());
 }
 
-
 void TextElementDlg::on_Text_cursorPositionChanged()
 {
     alignmentChanged(ui.Text->alignment());
 }
-
 
 void TextElementDlg::on_DialogButtonBox_accepted()
 {
@@ -216,18 +199,15 @@ void TextElementDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void TextElementDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void TextElementDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("TextElement"), QStringLiteral("kxstitch"));
 }
-
 
 void TextElementDlg::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
 {
@@ -241,7 +221,6 @@ void TextElementDlg::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
     ui.Text->mergeCurrentCharFormat(format);
 }
 
-
 void TextElementDlg::fontChanged(const QFont &f)
 {
     ui.FontFamily->setCurrentFont(QFontInfo(f).family());
@@ -251,14 +230,12 @@ void TextElementDlg::fontChanged(const QFont &f)
     ui.UnderlineButton->setChecked(f.underline());
 }
 
-
 void TextElementDlg::colorChanged(const QColor &color)
 {
     QPixmap pix(22, 22);
     pix.fill(color);
     ui.TextColor->setIcon(pix);
 }
-
 
 void TextElementDlg::alignmentChanged(Qt::Alignment align)
 {

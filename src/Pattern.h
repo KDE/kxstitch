@@ -8,17 +8,13 @@
  * (at your option) any later version.
  */
 
-
 #ifndef Pattern_H
 #define Pattern_H
-
 
 #include "DocumentPalette.h"
 #include "StitchData.h"
 
-
 class Document;
-
 
 class Pattern
 {
@@ -43,14 +39,12 @@ private:
 
     void constructPalette(Pattern *pattern);
 
-    Document        *m_document;
+    Document *m_document;
     DocumentPalette m_documentPalette;
-    StitchData      m_stitchData;
+    StitchData m_stitchData;
 };
-
 
 QDataStream &operator<<(QDataStream &, const Pattern &);
 QDataStream &operator>>(QDataStream &, Pattern &);
-
 
 #endif // Pattern_H

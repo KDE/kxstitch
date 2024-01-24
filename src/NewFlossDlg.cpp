@@ -8,24 +8,22 @@
  * (at your option) any later version.
  */
 
-
 #include "NewFlossDlg.h"
 
-#include <kwidgetsaddons_version.h>
 #include <KConfigGroup>
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
+#include <kwidgetsaddons_version.h>
 
 #include "FlossScheme.h"
 #include "SchemeManager.h"
 
-
 NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
-    :   QDialog(parent),
-        m_flossScheme(flossScheme),
-        m_floss(nullptr)
+    : QDialog(parent)
+    , m_flossScheme(flossScheme)
+    , m_floss(nullptr)
 {
     setWindowTitle(i18n("New Floss"));
     ui.setupUi(this);
@@ -34,12 +32,10 @@ NewFlossDlg::NewFlossDlg(QWidget *parent, FlossScheme *flossScheme)
     ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
-
 Floss *NewFlossDlg::floss()
 {
     return m_floss;
 }
-
 
 void NewFlossDlg::hideEvent(QHideEvent *event)
 {
@@ -47,7 +43,6 @@ void NewFlossDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void NewFlossDlg::showEvent(QShowEvent *event)
 {
@@ -58,7 +53,6 @@ void NewFlossDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void NewFlossDlg::on_FlossName_textEdited(const QString &text)
 {
     if (!text.isEmpty() && !ui.FlossDescription->text().isEmpty()) {
@@ -67,7 +61,6 @@ void NewFlossDlg::on_FlossName_textEdited(const QString &text)
         ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 }
-
 
 void NewFlossDlg::on_FlossDescription_textEdited(const QString &text)
 {
@@ -78,7 +71,6 @@ void NewFlossDlg::on_FlossDescription_textEdited(const QString &text)
     }
 }
 
-
 void NewFlossDlg::on_DialogButtonBox_accepted()
 {
     if (!m_flossScheme->find(ui.FlossName->text()) ||
@@ -87,9 +79,10 @@ void NewFlossDlg::on_DialogButtonBox_accepted()
 #else
         KMessageBox::questionYesNo(this,
 #endif
-                                   i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()), i18n("Overwrite"),
-                                   KStandardGuiItem::overwrite(),
-                                   KGuiItem(i18nc("@action:button", "Do Not Overwrite"), QStringLiteral("dialog-cancel")))
+                                        i18n("The floss name %1 is already used.\nOverwrite with the description and color selected.", ui.FlossName->text()),
+                                        i18n("Overwrite"),
+                                        KStandardGuiItem::overwrite(),
+                                        KGuiItem(i18nc("@action:button", "Do Not Overwrite"), QStringLiteral("dialog-cancel")))
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             == KMessageBox::PrimaryAction) {
 #else
@@ -103,12 +96,10 @@ void NewFlossDlg::on_DialogButtonBox_accepted()
     accept();
 }
 
-
 void NewFlossDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void NewFlossDlg::on_DialogButtonBox_helpRequested()
 {

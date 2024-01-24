@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PagePropertiesDlg.h"
 
 #include <KConfigGroup>
@@ -20,9 +19,8 @@
 #include "PageLayoutEditor.h"
 #include "PagePreviewListWidgetItem.h"
 
-
 PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, bool showGrid, int gridSize)
-    :   QDialog(parent)
+    : QDialog(parent)
 {
     setWindowTitle(i18n("Page Properties"));
     ui.setupUi(this);
@@ -36,24 +34,20 @@ PagePropertiesDlg::PagePropertiesDlg(QWidget *parent, const QMargins &margins, b
     ui.GridSize->setValue(gridSize);
 }
 
-
 QMargins PagePropertiesDlg::margins() const
 {
     return QMargins(ui.MarginLeft->value(), ui.MarginTop->value(), ui.MarginRight->value(), ui.MarginBottom->value());
 }
-
 
 bool PagePropertiesDlg::showGrid() const
 {
     return ui.ShowGrid->isChecked();
 }
 
-
 int PagePropertiesDlg::gridSize() const
 {
     return ui.GridSize->value();
 }
-
 
 void PagePropertiesDlg::hideEvent(QHideEvent *event)
 {
@@ -61,7 +55,6 @@ void PagePropertiesDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void PagePropertiesDlg::showEvent(QShowEvent *event)
 {
@@ -72,18 +65,15 @@ void PagePropertiesDlg::showEvent(QShowEvent *event)
     }
 }
 
-
 void PagePropertiesDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
 
-
 void PagePropertiesDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
-
 
 void PagePropertiesDlg::on_DialogButtonBox_helpRequested()
 {

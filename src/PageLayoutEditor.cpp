@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "PageLayoutEditor.h"
 
 #include <QMenu>
@@ -22,28 +21,27 @@
 
 #include <math.h>
 
-#include "configuration.h"
 #include "Document.h"
 #include "Element.h"
 #include "KeyElementDlg.h"
 #include "Page.h"
-#include "PagePropertiesDlg.h"
 #include "PagePreviewListWidgetItem.h"
+#include "PagePropertiesDlg.h"
 #include "TextElementDlg.h"
-
+#include "configuration.h"
 
 PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
-    :   QWidget(parent),
-        m_document(document),
-        m_pagePreview(nullptr),
-        m_elementUnderCursor(nullptr),
-        m_selecting(false),
-        m_resizing(false),
-        m_moved(false),
-        m_node(nullptr),
-        m_showGrid(Configuration::page_ShowGrid()),
-        m_gridSize(Configuration::page_GridSize()),
-        m_zoomFactor(1.0)
+    : QWidget(parent)
+    , m_document(document)
+    , m_pagePreview(nullptr)
+    , m_elementUnderCursor(nullptr)
+    , m_selecting(false)
+    , m_resizing(false)
+    , m_moved(false)
+    , m_node(nullptr)
+    , m_showGrid(Configuration::page_ShowGrid())
+    , m_gridSize(Configuration::page_GridSize())
+    , m_zoomFactor(1.0)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
     setPagePreview(nullptr);
@@ -52,24 +50,20 @@ PageLayoutEditor::PageLayoutEditor(QWidget *parent, Document *document)
     connect(this, &PageLayoutEditor::customContextMenuRequested, this, &PageLayoutEditor::contextMenuRequestedOn);
 }
 
-
 double PageLayoutEditor::zoomFactor() const
 {
     return m_zoomFactor;
 }
-
 
 int PageLayoutEditor::gridSize() const
 {
     return m_gridSize;
 }
 
-
 bool PageLayoutEditor::showGrid() const
 {
     return m_showGrid;
 }
-
 
 void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
 {
@@ -82,7 +76,6 @@ void PageLayoutEditor::setPagePreview(PagePreviewListWidgetItem *pagePreview)
     }
 }
 
-
 void PageLayoutEditor::updatePagePreview()
 {
     if (m_pagePreview) {
@@ -93,7 +86,6 @@ void PageLayoutEditor::updatePagePreview()
         update();
     }
 }
-
 
 void PageLayoutEditor::setZoomFactor(double zoomFactor)
 {
@@ -107,20 +99,17 @@ void PageLayoutEditor::setZoomFactor(double zoomFactor)
     repaint();
 }
 
-
 void PageLayoutEditor::setGridSize(int size)
 {
     m_gridSize = size;
     repaint();
 }
 
-
 void PageLayoutEditor::setShowGrid(bool show)
 {
     m_showGrid = show;
     repaint();
 }
-
 
 void PageLayoutEditor::setSelecting(bool selecting)
 {
@@ -130,7 +119,6 @@ void PageLayoutEditor::setSelecting(bool selecting)
         m_boundary.setElement(nullptr);
     }
 }
-
 
 void PageLayoutEditor::mousePressEvent(QMouseEvent *event)
 {
@@ -150,7 +138,6 @@ void PageLayoutEditor::mousePressEvent(QMouseEvent *event)
     }
 }
 
-
 void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
 {
     m_end = toSnap(event->pos());
@@ -167,7 +154,12 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
                     m_boundary.setRectangle(m_boundary.rectangle().translated(offset));
                 }
 
-                QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_boundary.rectangle().left()).arg(m_boundary.rectangle().top()).arg(m_boundary.rectangle().width()).arg(m_boundary.rectangle().height()));
+                QToolTip::showText(QCursor::pos(),
+                                   QString::fromLatin1("%1,%2 %3 x %4")
+                                       .arg(m_boundary.rectangle().left())
+                                       .arg(m_boundary.rectangle().top())
+                                       .arg(m_boundary.rectangle().width())
+                                       .arg(m_boundary.rectangle().height()));
                 m_moved = true;
                 m_start = m_end;
                 update();
@@ -176,7 +168,9 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
             m_rubberBand = QRect(m_start, m_end).normalized();
             update();
 
-            QToolTip::showText(QCursor::pos(), QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
+            QToolTip::showText(
+                QCursor::pos(),
+                QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
         }
     } else {
         if (m_boundary.element() && (m_node = m_boundary.node(unscale(event->pos())))) {
@@ -186,7 +180,6 @@ void PageLayoutEditor::mouseMoveEvent(QMouseEvent *event)
         }
     }
 }
-
 
 void PageLayoutEditor::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -208,11 +201,10 @@ void PageLayoutEditor::mouseReleaseEvent(QMouseEvent *event)
     update();
 }
 
-
 void PageLayoutEditor::paintEvent(QPaintEvent *event)
 {
     QPainter painter;
-    QRect updateRect = event->rect();               // in device coordinates
+    QRect updateRect = event->rect(); // in device coordinates
 
     painter.begin(this);
     painter.fillRect(updateRect, Qt::white);
@@ -226,8 +218,8 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
         int xOffset = (m_paperWidth / 2) % m_gridSize;
         int yOffset = (m_paperHeight / 2) % m_gridSize;
 
-        for (int y = yOffset ; y < m_paperHeight ; y += m_gridSize) {
-            for (int x = xOffset ; x < m_paperWidth ; x += m_gridSize) {
+        for (int y = yOffset; y < m_paperHeight; y += m_gridSize) {
+            for (int x = xOffset; x < m_paperWidth; x += m_gridSize) {
                 painter.setPen(QPen(Qt::black, 0.2));
                 painter.drawPoint(x, y);
             }
@@ -257,7 +249,6 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
     painter.end();
 }
 
-
 void PageLayoutEditor::contextMenuRequestedOn(const QPoint &pos)
 {
     Element *element = m_pagePreview->page()->itemAt(unscale(pos));
@@ -273,7 +264,6 @@ void PageLayoutEditor::contextMenuRequestedOn(const QPoint &pos)
     update();
 }
 
-
 QPoint PageLayoutEditor::toSnap(const QPoint &pos) const
 {
     int scaledGridSize = scale(m_gridSize);
@@ -284,36 +274,30 @@ QPoint PageLayoutEditor::toSnap(const QPoint &pos) const
     return QPoint(xSnap, ySnap);
 }
 
-
 int PageLayoutEditor::scale(int n) const
 {
     return int(double(n) * m_zoomFactor);
 }
-
 
 int PageLayoutEditor::unscale(int n) const
 {
     return int(double(n) / m_zoomFactor);
 }
 
-
 QPoint PageLayoutEditor::scale(const QPoint &p) const
 {
     return QPoint(scale(p.x()), scale(p.y()));
 }
-
 
 QPoint PageLayoutEditor::unscale(const QPoint &p) const
 {
     return QPoint(unscale(p.x()), unscale(p.y()));
 }
 
-
 QRect PageLayoutEditor::scale(const QRect &r) const
 {
     return QRect(scale(r.topLeft()), scale(r.bottomRight()));
 }
-
 
 QRect PageLayoutEditor::unscale(const QRect &r) const
 {

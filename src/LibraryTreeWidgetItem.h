@@ -8,10 +8,8 @@
  * (at your option) any later version.
  */
 
-
 #ifndef LibraryTreeWidgetItem_H
 #define LibraryTreeWidgetItem_H
-
 
 #include <QList>
 #include <QString>
@@ -21,9 +19,7 @@
 #include "LibraryFile.h"
 #include "LibraryPattern.h"
 
-
 class QTreeWidget;
-
 
 class LibraryTreeWidgetItem : public QTreeWidgetItem
 {
@@ -46,9 +42,8 @@ public:
 private:
     LibraryFile *writablePath();
 
-    int         m_libraryFilesIndex;
-    QList<LibraryFile *>    m_libraryFiles;
+    int m_libraryFilesIndex;
+    QList<LibraryFile *> m_libraryFiles;
 };
-
 
 #endif // LibraryTreeWidgetItem_H

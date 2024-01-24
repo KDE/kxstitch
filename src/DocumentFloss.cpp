@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "DocumentFloss.h"
 
 #include <QMap>
@@ -19,121 +18,100 @@
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 
-
 DocumentFloss::DocumentFloss()
 {
 }
 
-
 DocumentFloss::DocumentFloss(const QString &flossName, qint16 stitchSymbol, Qt::PenStyle backstitchSymbol, int stitchStrands, int backstitchStrands)
-    :   m_flossName(flossName),
-        m_stitchSymbol(stitchSymbol),
-        m_backstitchSymbol(backstitchSymbol),
-        m_stitchStrands(stitchStrands),
-        m_backstitchStrands(backstitchStrands)
+    : m_flossName(flossName)
+    , m_stitchSymbol(stitchSymbol)
+    , m_backstitchSymbol(backstitchSymbol)
+    , m_stitchStrands(stitchStrands)
+    , m_backstitchStrands(backstitchStrands)
 {
 }
-
 
 DocumentFloss::DocumentFloss(const DocumentFloss *other)
-    :   m_flossName(other->m_flossName),
-        m_flossColor(other->m_flossColor),
-        m_stitchSymbol(other->m_stitchSymbol),
-        m_backstitchSymbol(other->m_backstitchSymbol),
-        m_stitchStrands(other->m_stitchStrands),
-        m_backstitchStrands(other->m_backstitchStrands)
+    : m_flossName(other->m_flossName)
+    , m_flossColor(other->m_flossColor)
+    , m_stitchSymbol(other->m_stitchSymbol)
+    , m_backstitchSymbol(other->m_backstitchSymbol)
+    , m_stitchStrands(other->m_stitchStrands)
+    , m_backstitchStrands(other->m_backstitchStrands)
 {
 }
-
 
 QString DocumentFloss::flossName() const
 {
     return m_flossName;
 }
 
-
 QColor DocumentFloss::flossColor() const
 {
     return m_flossColor;
 }
-
 
 qint16 DocumentFloss::stitchSymbol() const
 {
     return m_stitchSymbol;
 }
 
-
 Qt::PenStyle DocumentFloss::backstitchSymbol() const
 {
     return m_backstitchSymbol;
 }
-
 
 int DocumentFloss::stitchStrands() const
 {
     return m_stitchStrands;
 }
 
-
 int DocumentFloss::backstitchStrands() const
 {
     return m_backstitchStrands;
 }
-
 
 void DocumentFloss::setFlossName(const QString &flossName)
 {
     m_flossName = flossName;
 }
 
-
 void DocumentFloss::setFlossColor(const QColor &flossColor)
 {
     m_flossColor = flossColor;
 }
-
 
 void DocumentFloss::setStitchSymbol(qint16 stitchSymbol)
 {
     m_stitchSymbol = stitchSymbol;
 }
 
-
 void DocumentFloss::setBackstitchSymbol(Qt::PenStyle backstitchSymbol)
 {
     m_backstitchSymbol = backstitchSymbol;
 }
-
 
 void DocumentFloss::setStitchStrands(int stitchStrands)
 {
     m_stitchStrands = stitchStrands;
 }
 
-
 void DocumentFloss::setBackstitchStrands(int backstitchStrands)
 {
     m_backstitchStrands = backstitchStrands;
 }
 
-
 bool DocumentFloss::operator==(const DocumentFloss &other) const
 {
-    return ((m_flossName == other.m_flossName) &&
-            (m_flossColor == other.m_flossColor) &&
-            (m_stitchSymbol == other.m_stitchSymbol) &&
-            (m_backstitchSymbol == other.m_backstitchSymbol) &&
-            (m_stitchStrands == other.m_stitchStrands) &&
-            (m_backstitchStrands == other.m_backstitchStrands));
+    return ((m_flossName == other.m_flossName) && (m_flossColor == other.m_flossColor) && (m_stitchSymbol == other.m_stitchSymbol)
+            && (m_backstitchSymbol == other.m_backstitchSymbol) && (m_stitchStrands == other.m_stitchStrands)
+            && (m_backstitchStrands == other.m_backstitchStrands));
 }
-
 
 bool DocumentFloss::operator!=(const DocumentFloss &other) const
 {
     return !(*this == other);
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const DocumentFloss &documentFloss)
 {
@@ -148,7 +126,6 @@ QDataStream &operator<<(QDataStream &stream, const DocumentFloss &documentFloss)
 
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, DocumentFloss &documentFloss)
 {

@@ -8,9 +8,7 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryTreeWidgetItem.h"
-
 
 /*
 struct LIBRARY (original)
@@ -100,44 +98,39 @@ struct LIBRARY (new kde4)
 #include "LibraryPattern.h"
 #include "Pattern.h"
 
-
 LibraryTreeWidgetItem::LibraryTreeWidgetItem(QTreeWidget *parent, const QString &name)
-    :   QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
+    : QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
 {
     setText(0, name);
 }
-
 
 LibraryTreeWidgetItem::LibraryTreeWidgetItem(LibraryTreeWidgetItem *parent, const QString &name)
-    :   QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
+    : QTreeWidgetItem(parent, QTreeWidgetItem::UserType)
 {
     setText(0, name);
 }
-
 
 LibraryTreeWidgetItem::~LibraryTreeWidgetItem()
 {
     qDeleteAll(m_libraryFiles);
 }
 
-
 int LibraryTreeWidgetItem::maxHeight()
 {
     int max = 0;
 
-    for (LibraryPattern *libraryPattern = first() ; libraryPattern ; libraryPattern = next()) {
+    for (LibraryPattern *libraryPattern = first(); libraryPattern; libraryPattern = next()) {
         max = std::max(max, libraryPattern->pattern()->stitches().height());
     }
 
     return max;
 }
 
-
 LibraryPattern *LibraryTreeWidgetItem::findCharacter(int key, Qt::KeyboardModifiers modifiers)
 {
     LibraryPattern *libraryPattern;
 
-    for (libraryPattern = first() ; libraryPattern ; libraryPattern = next()) {
+    for (libraryPattern = first(); libraryPattern; libraryPattern = next()) {
         if (libraryPattern->key() == key && libraryPattern->modifiers() == modifiers) {
             break;
         }
@@ -145,7 +138,6 @@ LibraryPattern *LibraryTreeWidgetItem::findCharacter(int key, Qt::KeyboardModifi
 
     return libraryPattern;
 }
-
 
 LibraryPattern *LibraryTreeWidgetItem::first()
 {
@@ -163,7 +155,6 @@ LibraryPattern *LibraryTreeWidgetItem::first()
     return libraryPattern;
 }
 
-
 LibraryPattern *LibraryTreeWidgetItem::next()
 {
     LibraryPattern *libraryPattern = nullptr;
@@ -171,9 +162,9 @@ LibraryPattern *LibraryTreeWidgetItem::next()
     while (libraryPattern == nullptr && !m_libraryFiles.isEmpty() && m_libraryFilesIndex != m_libraryFiles.count()) {
         libraryPattern = m_libraryFiles[m_libraryFilesIndex]->next();
 
-        if (libraryPattern == nullptr) {  // reached the end of the current file
+        if (libraryPattern == nullptr) { // reached the end of the current file
             if (++m_libraryFilesIndex < m_libraryFiles.count()) {
-                libraryPattern = m_libraryFiles[m_libraryFilesIndex]->first();  // get the first pattern of the next file
+                libraryPattern = m_libraryFiles[m_libraryFilesIndex]->first(); // get the first pattern of the next file
             }
         }
     }
@@ -181,18 +172,15 @@ LibraryPattern *LibraryTreeWidgetItem::next()
     return libraryPattern;
 }
 
-
 void LibraryTreeWidgetItem::addPath(const QString &path)
 {
     m_libraryFiles.append(new LibraryFile(path));
 }
 
-
 QString LibraryTreeWidgetItem::path()
 {
     return m_libraryFiles.first()->path();
 }
-
 
 QStringList LibraryTreeWidgetItem::paths()
 {
@@ -205,7 +193,6 @@ QStringList LibraryTreeWidgetItem::paths()
 
     return paths;
 }
-
 
 LibraryFile *LibraryTreeWidgetItem::writablePath()
 {
@@ -228,12 +215,10 @@ LibraryFile *LibraryTreeWidgetItem::writablePath()
     return libraryFile;
 }
 
-
 void LibraryTreeWidgetItem::addPattern(LibraryPattern *libraryPattern)
 {
     writablePath()->addPattern(libraryPattern);
 }
-
 
 void LibraryTreeWidgetItem::deletePattern(LibraryPattern *libraryPattern)
 {
@@ -242,7 +227,7 @@ void LibraryTreeWidgetItem::deletePattern(LibraryPattern *libraryPattern)
     while (libraryFilesIterator.hasNext()) {
         LibraryFile *file = libraryFilesIterator.next();
 
-        for (LibraryPattern *pattern = file->first() ; pattern ; pattern = file->next()) {
+        for (LibraryPattern *pattern = file->first(); pattern; pattern = file->next()) {
             if (pattern == libraryPattern) {
                 file->deletePattern(libraryPattern);
             }

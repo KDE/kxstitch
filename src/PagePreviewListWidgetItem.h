@@ -8,18 +8,14 @@
  * (at your option) any later version.
  */
 
-
 #ifndef PagePreviewListWidgetItem_H
 #define PagePreviewListWidgetItem_H
-
 
 #include <QListWidgetItem>
 #include <QPrinter>
 
-
 class Document;
 class Page;
-
 
 class PagePreviewListWidgetItem : public QListWidgetItem
 {
@@ -39,12 +35,10 @@ public:
     void generatePreviewIcon();
 
 private:
-
-    Document    *m_document;
-    Page        *m_page;
-    int         m_paperWidth;
-    int         m_paperHeight;
+    Document *m_document;
+    Page *m_page;
+    int m_paperWidth;
+    int m_paperHeight;
 };
-
 
 #endif // PagePreviewListWidgetItem_H

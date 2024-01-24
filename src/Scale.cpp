@@ -8,17 +8,15 @@
  * (at your option) any later version.
  */
 
-
 #include "Scale.h"
 
-#include <QScrollBar>
 #include <QPainter>
+#include <QScrollBar>
 
 #include "configuration.h"
 
-
 Scale::Scale(Qt::Orientation orientation)
-    :   QWidget()
+    : QWidget()
 {
     setContextMenuPolicy(Qt::ActionsContextMenu);
 
@@ -37,13 +35,11 @@ Scale::Scale(Qt::Orientation orientation)
     m_offset = 0;
 }
 
-
 void Scale::setUnits(Configuration::EnumEditor_FormatScalesAs::type units)
 {
     m_units = units;
     update();
 }
-
 
 void Scale::setCellSize(double cellSize)
 {
@@ -51,13 +47,11 @@ void Scale::setCellSize(double cellSize)
     update();
 }
 
-
 void Scale::setCellGrouping(int cellGrouping)
 {
     m_cellGrouping = cellGrouping;
     update();
 }
-
 
 void Scale::setCellCount(int cellCount)
 {
@@ -65,13 +59,11 @@ void Scale::setCellCount(int cellCount)
     update();
 }
 
-
 void Scale::setClothCount(double clothCount)
 {
     m_clothCount = clothCount;
     update();
 }
-
 
 void Scale::setClothCountUnits(Configuration::EnumEditor_ClothCountUnits::type clothCountUnits)
 {
@@ -79,13 +71,11 @@ void Scale::setClothCountUnits(Configuration::EnumEditor_ClothCountUnits::type c
     update();
 }
 
-
 void Scale::setOffset(double offset)
 {
     m_offset = offset;
     update();
 }
-
 
 QSize Scale::sizeHint() const
 {
@@ -96,8 +86,7 @@ QSize Scale::sizeHint() const
     }
 }
 
-
-void Scale::paintEvent(QPaintEvent*)
+void Scale::paintEvent(QPaintEvent *)
 {
     double length = m_cellSize * m_cellCount;
     double halfLength = length / 2;
@@ -143,7 +132,6 @@ void Scale::paintEvent(QPaintEvent*)
 
     default:
         break;
-
     }
 
     QPainter painter;
@@ -154,17 +142,19 @@ void Scale::paintEvent(QPaintEvent*)
 
     if (m_orientation == Qt::Horizontal) {
         painter.drawLine(left, bottom, right, bottom);
-        midPoint << QPointF(left + halfLength + m_offset, bottom) << QPointF(left + halfLength - 5 + m_offset, bottom - 5) << QPointF(left + halfLength + 5 + m_offset, bottom - 5);
+        midPoint << QPointF(left + halfLength + m_offset, bottom) << QPointF(left + halfLength - 5 + m_offset, bottom - 5)
+                 << QPointF(left + halfLength + 5 + m_offset, bottom - 5);
     } else {
         painter.drawLine(right, top, right, bottom);
-        midPoint << QPointF(right, top + halfLength + m_offset) << QPointF(right - 5, top + halfLength - 5 + m_offset) << QPointF(right - 5, top + halfLength + 5 + m_offset);
+        midPoint << QPointF(right, top + halfLength + m_offset) << QPointF(right - 5, top + halfLength - 5 + m_offset)
+                 << QPointF(right - 5, top + halfLength + 5 + m_offset);
     }
 
     painter.drawPolygon(midPoint);
 
     int ticks = length / subTick;
 
-    for (int i = 0 ; i <= ticks ; i++) {
+    for (int i = 0; i <= ticks; i++) {
         ticklen = 3;
         double tickwidth = i * subTick;
 

@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "LibraryPattern.h"
 
 #include <QListWidget>
@@ -17,39 +16,34 @@
 #include "LibraryListWidgetItem.h"
 #include "Pattern.h"
 
-
 LibraryPattern::LibraryPattern()
 {
     m_pattern = new Pattern;
 }
 
-
 LibraryPattern::LibraryPattern(Pattern *pattern, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline)
-    :   m_pattern(pattern),
-        m_key(key),
-        m_modifiers(modifiers),
-        m_baseline(baseline),
-        m_libraryListWidgetItem(nullptr),
-        m_changed(false)
+    : m_pattern(pattern)
+    , m_key(key)
+    , m_modifiers(modifiers)
+    , m_baseline(baseline)
+    , m_libraryListWidgetItem(nullptr)
+    , m_changed(false)
 {
 }
 
-
 LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifiers modifiers, qint16 baseline)
-    :   m_key(key),
-        m_modifiers(modifiers),
-        m_baseline(baseline),
-        m_libraryListWidgetItem(nullptr),
-        m_changed(false)
+    : m_key(key)
+    , m_modifiers(modifiers)
+    , m_baseline(baseline)
+    , m_libraryListWidgetItem(nullptr)
+    , m_changed(false)
 {
     QDataStream stream(&data, QIODevice::ReadOnly);
     stream.setVersion(QDataStream::Qt_3_3);
     QString scheme;
     qint32 width;
     qint32 height;
-    stream  >> scheme
-            >> width
-            >> height;
+    stream >> scheme >> width >> height;
     m_pattern = new Pattern;
     m_pattern->palette().setSchemeName(scheme);
     m_pattern->stitches().resize(width, height);
@@ -57,8 +51,8 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
     QMap<int, QColor> colors;
     int colorIndex;
 
-    for (int y = 0 ; y < height ; ++y) {
-        for (int x = 0 ; x < width ; ++x) {
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
             QPoint cell(x, y);
             qint8 stitches;
             stream >> stitches;
@@ -112,42 +106,35 @@ LibraryPattern::LibraryPattern(QByteArray data, qint32 key, Qt::KeyboardModifier
     }
 }
 
-
 qint32 LibraryPattern::key() const
 {
     return m_key;
 }
-
 
 Qt::KeyboardModifiers LibraryPattern::modifiers() const
 {
     return m_modifiers;
 }
 
-
 qint16 LibraryPattern::baseline() const
 {
     return m_baseline;
 }
-
 
 Pattern *LibraryPattern::pattern()
 {
     return m_pattern;
 }
 
-
 LibraryListWidgetItem *LibraryPattern::libraryListWidgetItem() const
 {
     return m_libraryListWidgetItem;
 }
 
-
 bool LibraryPattern::hasChanged() const
 {
     return m_changed;
 }
-
 
 void LibraryPattern::setKeyModifiers(qint32 key, Qt::KeyboardModifiers modifiers)
 {
@@ -157,20 +144,17 @@ void LibraryPattern::setKeyModifiers(qint32 key, Qt::KeyboardModifiers modifiers
     m_changed = true;
 }
 
-
 void LibraryPattern::setBaseline(qint16 baseline)
 {
     m_baseline = baseline;
     m_changed = true;
 }
 
-
 void LibraryPattern::setLibraryListWidgetItem(LibraryListWidgetItem *libraryListWidgetItem)
 {
     m_libraryListWidgetItem = libraryListWidgetItem;
     libraryListWidgetItem->setText(KeycodeLineEdit::keyString(m_key, m_modifiers));
 }
-
 
 QDataStream &operator<<(QDataStream &stream, const LibraryPattern &libraryPattern)
 {
@@ -181,7 +165,6 @@ QDataStream &operator<<(QDataStream &stream, const LibraryPattern &libraryPatter
     stream << *(libraryPattern.m_pattern);
     return stream;
 }
-
 
 QDataStream &operator>>(QDataStream &stream, LibraryPattern &libraryPattern)
 {
@@ -205,7 +188,6 @@ QDataStream &operator>>(QDataStream &stream, LibraryPattern &libraryPattern)
         // not supported
         // throw exception
         break;
-
     }
 
     return stream;

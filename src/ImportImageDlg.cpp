@@ -8,7 +8,6 @@
  * (at your option) any later version.
  */
 
-
 #include "ImportImageDlg.h"
 
 #include <QApplication>
@@ -18,46 +17,31 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 
-#include "configuration.h"
 #include "FlossScheme.h"
 #include "SchemeManager.h"
-#include "SymbolManager.h"
 #include "SymbolLibrary.h"
+#include "SymbolManager.h"
+#include "configuration.h"
 
-
-const uchar alphaData[] = {
-    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
-    0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52,
-    0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x04,
-    0x08, 0x06, 0x00, 0x00, 0x00, 0xa9, 0xf1, 0x9e,
-    0x7e, 0x00, 0x00, 0x00, 0x04, 0x73, 0x42, 0x49,
-    0x54, 0x08, 0x08, 0x08, 0x08, 0x7c, 0x08, 0x64,
-    0x88, 0x00, 0x00, 0x00, 0x09, 0x70, 0x48, 0x59,
-    0x73, 0x00, 0x00, 0x0b, 0x13, 0x00, 0x00, 0x0b,
-    0x13, 0x01, 0x00, 0x9a, 0x9c, 0x18, 0x00, 0x00,
-    0x00, 0x31, 0x49, 0x44, 0x41, 0x54, 0x08, 0x99,
-    0x4d, 0xc1, 0xc1, 0x0d, 0xc0, 0x20, 0x0c, 0x04,
-    0x30, 0x53, 0xb1, 0x51, 0xa6, 0x65, 0x2a, 0xc4,
-    0x3e, 0x28, 0xd7, 0x4f, 0x1f, 0xb5, 0xc7, 0x5a,
-    0x2b, 0x70, 0xce, 0xd1, 0xdd, 0x1e, 0x9f, 0x7b,
-    0xaf, 0x24, 0xe6, 0xde, 0x1b, 0x54, 0x15, 0x98,
-    0x49, 0xfc, 0xbd, 0x57, 0x37, 0x14, 0x37, 0x6c,
-    0x77, 0x53, 0x2d, 0x00, 0x00, 0x00, 0x00, 0x49,
-    0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
-};
-
+const uchar alphaData[] = {0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x04, 0x00,
+                           0x00, 0x00, 0x04, 0x08, 0x06, 0x00, 0x00, 0x00, 0xa9, 0xf1, 0x9e, 0x7e, 0x00, 0x00, 0x00, 0x04, 0x73, 0x42, 0x49, 0x54, 0x08,
+                           0x08, 0x08, 0x08, 0x7c, 0x08, 0x64, 0x88, 0x00, 0x00, 0x00, 0x09, 0x70, 0x48, 0x59, 0x73, 0x00, 0x00, 0x0b, 0x13, 0x00, 0x00,
+                           0x0b, 0x13, 0x01, 0x00, 0x9a, 0x9c, 0x18, 0x00, 0x00, 0x00, 0x31, 0x49, 0x44, 0x41, 0x54, 0x08, 0x99, 0x4d, 0xc1, 0xc1, 0x0d,
+                           0xc0, 0x20, 0x0c, 0x04, 0x30, 0x53, 0xb1, 0x51, 0xa6, 0x65, 0x2a, 0xc4, 0x3e, 0x28, 0xd7, 0x4f, 0x1f, 0xb5, 0xc7, 0x5a, 0x2b,
+                           0x70, 0xce, 0xd1, 0xdd, 0x1e, 0x9f, 0x7b, 0xaf, 0x24, 0xe6, 0xde, 0x1b, 0x54, 0x15, 0x98, 0x49, 0xfc, 0xbd, 0x57, 0x37, 0x14,
+                           0x37, 0x6c, 0x77, 0x53, 0x2d, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82};
 
 ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalImage)
-    :   QDialog(parent),
-        m_alphaSelect(nullptr),
-        m_originalImage(originalImage)
+    : QDialog(parent)
+    , m_alphaSelect(nullptr)
+    , m_originalImage(originalImage)
 {
     ui.setupUi(this);
 
     m_crop = QRect(0, 0, m_originalImage.columns(), m_originalImage.rows());
     m_originalSize = QSize(m_crop.width(), m_crop.height());
     updateWindowTitle();
-    
+
     // disable some signals whilst the dialog is setup
     ui.FlossScheme->blockSignals(true);
     ui.UseMaximumColors->blockSignals(true);
@@ -95,61 +79,51 @@ ImportImageDlg::ImportImageDlg(QWidget *parent, const Magick::Image &originalIma
     connect(ui.ImagePreview, &ScaledPixmapLabel::imageCropped, this, &ImportImageDlg::imageCropped);
 }
 
-
 void ImportImageDlg::updateWindowTitle()
 {
     QString caption = i18n("Import Image - Image Size %1 x %2 pixels", m_crop.width(), m_crop.height());
     setWindowTitle(caption);
 }
 
-
 Magick::Image ImportImageDlg::convertedImage() const
 {
     return m_convertedImage;
 }
-
 
 bool ImportImageDlg::ignoreColor() const
 {
     return ui.IgnoreColor->isChecked();
 }
 
-
 Magick::Color ImportImageDlg::ignoreColorValue() const
 {
     return m_ignoreColorValue;
 }
-
 
 QString ImportImageDlg::flossScheme() const
 {
     return ui.FlossScheme->currentText();
 }
 
-
 double ImportImageDlg::horizontalClothCount() const
 {
     return ui.HorizontalClothCount->value();
 }
-
 
 double ImportImageDlg::verticalClothCount() const
 {
     return ui.VerticalClothCount->value();
 }
 
-
 bool ImportImageDlg::useFractionals() const
 {
     return ui.UseFractionals->isChecked();
 }
 
-
 QRect ImportImageDlg::croppedArea() const
 {
     return m_crop;
 }
-
 
 void ImportImageDlg::hideEvent(QHideEvent *event)
 {
@@ -157,7 +131,6 @@ void ImportImageDlg::hideEvent(QHideEvent *event)
 
     QDialog::hideEvent(event);
 }
-
 
 void ImportImageDlg::showEvent(QShowEvent *event)
 {
@@ -168,22 +141,19 @@ void ImportImageDlg::showEvent(QShowEvent *event)
     }
 }
 
-
-void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString&)
+void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString &)
 {
     createImageMap();
     renderPixmap();
 }
 
-
 void ImportImageDlg::on_UseMaximumColors_toggled(bool checked)
 {
     Q_UNUSED(checked);
-    
+
     killTimer(m_timer);
     m_timer = startTimer(500);
 }
-
 
 void ImportImageDlg::on_MaximumColors_valueChanged(int)
 {
@@ -191,17 +161,15 @@ void ImportImageDlg::on_MaximumColors_valueChanged(int)
     m_timer = startTimer(500);
 }
 
-
 void ImportImageDlg::on_IgnoreColor_toggled(bool checked)
 {
     Q_UNUSED(checked);
-    
+
     delete m_alphaSelect;
     m_alphaSelect = nullptr;
 
     renderPixmap();
 }
-
 
 void ImportImageDlg::on_ColorButton_clicked(bool)
 {
@@ -210,18 +178,15 @@ void ImportImageDlg::on_ColorButton_clicked(bool)
     m_alphaSelect->show();
 }
 
-
 void ImportImageDlg::on_HorizontalClothCount_valueChanged(double horizontalClothCount)
 {
     clothCountChanged(horizontalClothCount, ui.VerticalClothCount->value());
 }
 
-
 void ImportImageDlg::on_VerticalClothCount_valueChanged(double verticalClothCount)
 {
     clothCountChanged(ui.HorizontalClothCount->value(), verticalClothCount);
 }
-
 
 void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verticalClothCount)
 {
@@ -234,34 +199,41 @@ void ImportImageDlg::clothCountChanged(double horizontalClothCount, double verti
     case Configuration::EnumDocument_UnitsFormat::Stitches:
         suffix = QString(i18n("Stitches"));
         break;
-        
+
     case Configuration::EnumDocument_UnitsFormat::Inches:
         preferredSizeWidth /= horizontalClothCount;
         preferredSizeHeight /= verticalClothCount;
         suffix = QString(i18n("Inches"));
         break;
-        
+
     case Configuration::EnumDocument_UnitsFormat::Centimeters:
         preferredSizeWidth /= horizontalClothCount;
         preferredSizeHeight /= verticalClothCount;
         suffix = QString(i18n("Centimeters"));
         break;
-        
+
     default:
         break;
     }
-    
+
     if (ui.ClothCountLink->isChecked()) {
         ui.VerticalClothCount->setValue(horizontalClothCount);
     }
 
     if (Configuration::document_UnitsFormat() == Configuration::EnumDocument_UnitsFormat::Stitches) {
-        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 0), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 0), suffix)));
+        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units",
+                                            "%1 x %2 %3",
+                                            QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 0),
+                                            QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 0),
+                                            suffix)));
     } else {
-        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units", "%1 x %2 %3", QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 2), QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 2), suffix)));
+        ui.FinalSize->setText(QString(i18nc("%1 width, %2 height and %3 units",
+                                            "%1 x %2 %3",
+                                            QString::fromLatin1("%1").arg(preferredSizeWidth, 0, 'f', 2),
+                                            QString::fromLatin1("%1").arg(preferredSizeHeight, 0, 'f', 2),
+                                            suffix)));
     }
 }
-
 
 void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
 {
@@ -275,13 +247,11 @@ void ImportImageDlg::on_ClothCountLink_clicked(bool checked)
     }
 }
 
-
 void ImportImageDlg::on_PatternScale_valueChanged(int)
 {
     killTimer(m_timer);
     m_timer = startTimer(500);
 }
-
 
 void ImportImageDlg::on_CropEnabled_toggled(bool checked)
 {
@@ -291,18 +261,16 @@ void ImportImageDlg::on_CropEnabled_toggled(bool checked)
     }
 }
 
-
 void ImportImageDlg::on_CropReset_clicked(bool checked)
 {
     Q_UNUSED(checked);
-    
+
     m_convertedImage = m_originalImage;
     m_crop = QRect(0, 0, m_originalImage.columns(), m_originalImage.rows());
     updateWindowTitle();
 
     renderPixmap();
 }
-
 
 void ImportImageDlg::imageCropped(const QRectF &rectF)
 {
@@ -311,35 +279,33 @@ void ImportImageDlg::imageCropped(const QRectF &rectF)
     // m_original size may be cropped from m_originalImage, but is not scaled.
     // add new crop to original one.
     double scaleFactor = (double)m_originalSize.width() / (double)m_convertedImage.columns();
-    QRect scaledCrop = QRect(scaleFactor*rectF.left(), scaleFactor*rectF.top(), scaleFactor*rectF.width(), scaleFactor*rectF.height());
-    m_crop = QRect(m_crop.left()+scaledCrop.left(), m_crop.top()+scaledCrop.top(), scaledCrop.width(), scaledCrop.height());
-    
+    QRect scaledCrop = QRect(scaleFactor * rectF.left(), scaleFactor * rectF.top(), scaleFactor * rectF.width(), scaleFactor * rectF.height());
+    m_crop = QRect(m_crop.left() + scaledCrop.left(), m_crop.top() + scaledCrop.top(), scaledCrop.width(), scaledCrop.height());
+
     updateWindowTitle();
-    
+
     renderPixmap();
 }
-
 
 void ImportImageDlg::on_UseFractionals_toggled(bool checked)
 {
     Q_UNUSED(checked);
-    
+
     killTimer(m_timer);
     m_timer = startTimer(500);
 }
 
-
 void ImportImageDlg::calculateSizes()
 {
     m_convertedImage = m_originalImage;
-    
+
     if (m_crop.isValid()) {
-        m_convertedImage.chop(Magick::Geometry(m_crop.left(),m_crop.top()));
-        m_convertedImage.crop(Magick::Geometry(m_crop.width(),m_crop.height()));
+        m_convertedImage.chop(Magick::Geometry(m_crop.left(), m_crop.top()));
+        m_convertedImage.crop(Magick::Geometry(m_crop.width(), m_crop.height()));
         m_originalSize = QSize(m_convertedImage.columns(), m_convertedImage.rows());
     }
-    
-    m_preferredSize = m_originalSize * ui.PatternScale->value() / 100;    
+
+    m_preferredSize = m_originalSize * ui.PatternScale->value() / 100;
     QSize imageSize = m_preferredSize;
 
     if (ui.UseFractionals->isChecked()) {
@@ -348,18 +314,16 @@ void ImportImageDlg::calculateSizes()
 
     Magick::Geometry geometry(imageSize.width(), imageSize.height());
     geometry.percent(false);
-    geometry.aspect(true);      // set to true to ignore maintaining the aspect ratio
+    geometry.aspect(true); // set to true to ignore maintaining the aspect ratio
     m_convertedImage.sample(geometry);
     on_HorizontalClothCount_valueChanged(ui.HorizontalClothCount->value());
 }
-
 
 void ImportImageDlg::createImageMap()
 {
     FlossScheme *scheme = SchemeManager::scheme(ui.FlossScheme->currentText());
     m_colorMap = *(scheme->createImageMap());
 }
-
 
 void ImportImageDlg::renderPixmap()
 {
@@ -374,9 +338,10 @@ void ImportImageDlg::renderPixmap()
     m_pixmap.fill();
 
     m_convertedImage.quantizeColorSpace(Magick::RGBColorspace);
-    m_convertedImage.quantizeColors(ui.UseMaximumColors->isChecked() ?
-                                    std::min(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count()) :
-                                    SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
+    m_convertedImage.quantizeColors(
+        ui.UseMaximumColors->isChecked()
+            ? std::min(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count())
+            : SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
     m_convertedImage.quantize();
     m_convertedImage.map(m_colorMap);
     m_convertedImage.modifyImage();
@@ -394,10 +359,10 @@ void ImportImageDlg::renderPixmap()
 /*
  * ImageMagick prior to V7 used matte (opacity) to determine if an image has transparency.
  * 0.0 for transparent to 1.0 for opaque
- * 
+ *
  * ImageMagick V7 now uses alpha (transparency).
  * 1.0 for transparent to 0.0 for opaque
- * 
+ *
  * Access to pixels has changed too, V7 can use pixelColor to access the color of a particular
  * pixel, but although this was available in V6, it doesn't appear to produce the same result
  * and has resulted in black images when importing.
@@ -410,8 +375,8 @@ void ImportImageDlg::renderPixmap()
     bool hasTransparency = m_convertedImage.alpha();
     double transparent = 0.0;
 #endif
-    
-    for (int dy = 0 ; dy < height ; dy++) {
+
+    for (int dy = 0; dy < height; dy++) {
         QApplication::processEvents();
         progress.setValue(dy * width);
 
@@ -419,7 +384,7 @@ void ImportImageDlg::renderPixmap()
             break;
         }
 
-        for (int dx = 0 ; dx < width ; dx++) {
+        for (int dx = 0; dx < width; dx++) {
 #if MagickLibVersion < 0x700
             Magick::ColorRGB rgb = Magick::Color(*pixels++);
 #else
@@ -427,10 +392,10 @@ void ImportImageDlg::renderPixmap()
 #endif
 
             if (hasTransparency && (rgb.alpha() == transparent)) {
-                //ignore this pixel as it is transparent
+                // ignore this pixel as it is transparent
             } else {
                 if (!(ui.IgnoreColor->isChecked() && rgb == m_ignoreColorValue)) {
-                    QColor color((int)(255*rgb.red()), (int)(255*rgb.green()), (int)(255*rgb.blue()));
+                    QColor color((int)(255 * rgb.red()), (int)(255 * rgb.green()), (int)(255 * rgb.blue()));
                     painter.setPen(QPen(color));
                     painter.drawPoint(dx, dy);
                 }
@@ -443,13 +408,11 @@ void ImportImageDlg::renderPixmap()
     ui.ImagePreview->setCursor(Qt::ArrowCursor);
 }
 
-
-void ImportImageDlg::timerEvent(QTimerEvent*)
+void ImportImageDlg::timerEvent(QTimerEvent *)
 {
     killTimer(m_timer);
     renderPixmap();
 }
-
 
 void ImportImageDlg::pickColor()
 {
@@ -462,7 +425,6 @@ void ImportImageDlg::pickColor()
         m_alphaSelect = nullptr;
     }
 }
-
 
 void ImportImageDlg::selectColor(const QPoint &p)
 {
@@ -481,30 +443,26 @@ void ImportImageDlg::selectColor(const QPoint &p)
 
     m_ignoreColorValue = m_convertedImage.pixelColor(x, y);
     QPixmap swatch(ui.ColorButton->size());
-    swatch.fill(QColor((int)(255*m_ignoreColorValue.red()), (int)(255*m_ignoreColorValue.green()), (int)(255*m_ignoreColorValue.blue())));
+    swatch.fill(QColor((int)(255 * m_ignoreColorValue.red()), (int)(255 * m_ignoreColorValue.green()), (int)(255 * m_ignoreColorValue.blue())));
     ui.ColorButton->setIcon(swatch);
 
     renderPixmap();
 }
-
 
 void ImportImageDlg::on_DialogButtonBox_accepted()
 {
     accept();
 }
 
-
 void ImportImageDlg::on_DialogButtonBox_rejected()
 {
     reject();
 }
 
-
 void ImportImageDlg::on_DialogButtonBox_helpRequested()
 {
     KHelpClient::invokeHelp(QStringLiteral("ImportImageDialog"), QStringLiteral("kxstitch"));
 }
-
 
 void ImportImageDlg::on_DialogButtonBox_clicked(QAbstractButton *button)
 {
@@ -515,7 +473,6 @@ void ImportImageDlg::on_DialogButtonBox_clicked(QAbstractButton *button)
     }
 }
 
-
 void ImportImageDlg::resetImportParameters()
 {
     double horizontalClothCount = Configuration::editor_HorizontalClothCount();
@@ -524,7 +481,8 @@ void ImportImageDlg::resetImportParameters()
     Configuration::EnumEditor_ClothCountUnits::type clothCountUnits = Configuration::editor_ClothCountUnits();
 
     if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Default) {
-        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters : Configuration::EnumEditor_ClothCountUnits::Inches;
+        clothCountUnits = (QLocale::system().measurementSystem() == QLocale::MetricSystem) ? Configuration::EnumEditor_ClothCountUnits::Centimeters
+                                                                                           : Configuration::EnumEditor_ClothCountUnits::Inches;
     }
 
     if (clothCountUnits == Configuration::EnumEditor_ClothCountUnits::Centimeters) {
@@ -547,47 +505,48 @@ void ImportImageDlg::resetImportParameters()
     ui.VerticalClothCount->setValue(verticalClothCount);
     ui.ClothCountLink->setChecked(Configuration::editor_ClothCountLink());
     ui.VerticalClothCount->setEnabled(!ui.ClothCountLink->isChecked());
-    ui.ClothCountLink->setIcon(ui.ClothCountLink->isChecked() ? QIcon::fromTheme(QStringLiteral("object-locked")) : QIcon::fromTheme(QStringLiteral("object-unlocked")));
+    ui.ClothCountLink->setIcon(ui.ClothCountLink->isChecked() ? QIcon::fromTheme(QStringLiteral("object-locked"))
+                                                              : QIcon::fromTheme(QStringLiteral("object-unlocked")));
 
     m_preferredSize = QSize(Configuration::document_Width(), Configuration::document_Height());
-    
+
     Configuration::EnumDocument_UnitsFormat::type preferredSizeUnits = Configuration::document_UnitsFormat();
-    
+
     switch (preferredSizeUnits) {
     case Configuration::EnumDocument_UnitsFormat::Inches:
         switch (clothCountUnits) {
         case Configuration::EnumEditor_ClothCountUnits::Inches:
             m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount, m_preferredSize.height() * verticalClothCount);
             break;
-            
+
         case Configuration::EnumEditor_ClothCountUnits::Centimeters:
             m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount * 2.54, m_preferredSize.height() * verticalClothCount * 2.54);
             break;
-            
+
         default:
             // No conversion required
             break;
         }
-        
+
         break;
-            
+
     case Configuration::EnumDocument_UnitsFormat::Centimeters:
         switch (clothCountUnits) {
         case Configuration::EnumEditor_ClothCountUnits::Inches:
             m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount / 2.54, m_preferredSize.height() * verticalClothCount / 2.54);
             break;
-            
+
         case Configuration::EnumEditor_ClothCountUnits::Centimeters:
             m_preferredSize = QSize(m_preferredSize.width() * horizontalClothCount, m_preferredSize.height() * verticalClothCount);
             break;
-            
+
         default:
             // No conversion required
             break;
         }
-        
+
         break;
-        
+
     default:
         break;
     }
@@ -595,7 +554,7 @@ void ImportImageDlg::resetImportParameters()
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
     int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
     int scale = std::min(scaledWidth, scaledHeight);
-    
+
     QString scheme = Configuration::palette_DefaultScheme();
 
     if (SchemeManager::scheme(scheme) == nullptr) {

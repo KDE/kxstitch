@@ -8,12 +8,10 @@
  * (at your option) any later version.
  */
 
-
 /**
  * @file
  * Implement the Symbol class.
  */
-
 
 /**
  * @page symbol Symbol
@@ -21,7 +19,6 @@
  * or not. If the path is drawn as an outline, the @ref Symbol::lineWidth() attribute is used to initialize the pen for
  * drawing the path. The end cap style and join style can be set which are added to the pen when drawing the path.
  */
-
 
 #include "Symbol.h"
 
@@ -34,7 +31,6 @@
 
 #include "Exceptions.h"
 
-
 /**
  * Constructor
  *
@@ -42,13 +38,12 @@
  * Qt::MiterJoin join type. The pen width is scaled with the painter.
  */
 Symbol::Symbol()
-    :   m_filled(true),
-        m_lineWidth(0.01),
-        m_capStyle(Qt::SquareCap),
-        m_joinStyle(Qt::MiterJoin)
+    : m_filled(true)
+    , m_lineWidth(0.01)
+    , m_capStyle(Qt::SquareCap)
+    , m_joinStyle(Qt::MiterJoin)
 {
 }
-
 
 /**
  * Get the QPainterPath for the symbol. The path also incorporates the path fill mode.
@@ -59,7 +54,6 @@ QPainterPath Symbol::path() const
 {
     return m_paths.value(Stitch::Full);
 }
-
 
 /**
  * Get a version of the symbol based on the stitch type to be rendered.
@@ -137,7 +131,6 @@ QPainterPath Symbol::path(Stitch::Type type)
     return m_paths.value(type);
 }
 
-
 /**
  * Get the path filled status.
  *
@@ -147,7 +140,6 @@ bool Symbol::filled() const
 {
     return m_filled;
 }
-
 
 /**
  * Get the outline path line width.
@@ -159,7 +151,6 @@ qreal Symbol::lineWidth() const
     return m_lineWidth;
 }
 
-
 /**
  * Get the pen cap style, see the QPen documentation for details on the styles.
  *
@@ -170,7 +161,6 @@ Qt::PenCapStyle Symbol::capStyle() const
     return m_capStyle;
 }
 
-
 /**
  * Get the pen join style, see the QPen documentation for details on the styles.
  *
@@ -180,7 +170,6 @@ Qt::PenJoinStyle Symbol::joinStyle() const
 {
     return m_joinStyle;
 }
-
 
 /**
  * Set the QPainterPath for the symbol.
@@ -193,7 +182,6 @@ void Symbol::setPath(const QPainterPath &path)
     m_paths.insert(Stitch::Full, path);
 }
 
-
 /**
  * Set the filled status of the path.
  *
@@ -203,7 +191,6 @@ void Symbol::setFilled(bool filled)
 {
     m_filled = filled;
 }
-
 
 /**
  * Set the line width for the outline paths.
@@ -215,7 +202,6 @@ void Symbol::setLineWidth(qreal width)
     m_lineWidth = width;
 }
 
-
 /**
  * Set the pen cap style, see the QPen documentation for details on the styles.
  *
@@ -226,7 +212,6 @@ void Symbol::setCapStyle(Qt::PenCapStyle capStyle)
     m_capStyle = capStyle;
 }
 
-
 /**
  * Set the pen join style, see the QPen documentation for details on the styles.
  *
@@ -236,7 +221,6 @@ void Symbol::setJoinStyle(Qt::PenJoinStyle joinStyle)
 {
     m_joinStyle = joinStyle;
 }
-
 
 /**
  * Get a pen based on the parameters of the symbol.
@@ -258,7 +242,6 @@ QPen Symbol::pen() const
     return p;
 }
 
-
 /**
  * Get a brush based on the parameters of the symbol.
  *
@@ -268,7 +251,6 @@ QBrush Symbol::brush() const
 {
     return QBrush(m_filled ? Qt::SolidPattern : Qt::NoBrush);
 }
-
 
 /**
  * Stream out a Symbol.
@@ -280,7 +262,8 @@ QBrush Symbol::brush() const
  */
 QDataStream &operator<<(QDataStream &stream, const Symbol &symbol)
 {
-    stream << symbol.version << symbol.m_paths.value(Stitch::Full) << symbol.m_filled << symbol.m_lineWidth << static_cast<qint32>(symbol.m_capStyle) << static_cast<qint32>(symbol.m_joinStyle);
+    stream << symbol.version << symbol.m_paths.value(Stitch::Full) << symbol.m_filled << symbol.m_lineWidth << static_cast<qint32>(symbol.m_capStyle)
+           << static_cast<qint32>(symbol.m_joinStyle);
 
     if (stream.status() != QDataStream::Ok) {
         throw FailedWriteFile(stream.status());
@@ -288,7 +271,6 @@ QDataStream &operator<<(QDataStream &stream, const Symbol &symbol)
 
     return stream;
 }
-
 
 /**
  * Stream in a Symbol.

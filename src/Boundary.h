@@ -8,29 +8,24 @@
  * (at your option) any later version.
  */
 
-
 /** @file
  * This file defines an overlay rectangle with corner nodes to be used on top
  * of an element on the print layout pages allowing the user to change the size
  * and position of the underlying element.
  */
 
-
 #ifndef Boundary_H
 #define Boundary_H
-
 
 // Qt includes
 #include <QPoint>
 #include <QRect>
-
 
 // Forward declaration of Qt classes
 class QPainter;
 
 // Forward declaration of application classes
 class Element;
-
 
 /**
  * This class defines a rectangle around a print element allowing the user
@@ -116,10 +111,9 @@ public:
     void render(QPainter *painter);
 
 private:
-    Element *m_element;     /**< A pointer to the element the boundary is applied to */
-    QPoint  m_nodes[4];     /**< An array of corner nodes, topLeft, topRight, bottomRight and bottomLeft */
-    QRect   m_rectangle;    /**< The rectangle defining the boundary size and position */
+    Element *m_element; /**< A pointer to the element the boundary is applied to */
+    QPoint m_nodes[4]; /**< An array of corner nodes, topLeft, topRight, bottomRight and bottomLeft */
+    QRect m_rectangle; /**< The rectangle defining the boundary size and position */
 };
-
 
 #endif // Boundary_H
