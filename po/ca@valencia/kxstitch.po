@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:26+0000\n"
+"POT-Creation-Date: 2024-01-25 01:34+0000\n"
 "PO-Revision-Date: 2023-09-14 12:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -626,7 +626,7 @@ msgid "&File"
 msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
-#: kxstitchui.rc:10 src/Commands.cpp:570
+#: kxstitchui.rc:10 src/Commands.cpp:500
 #, kde-format
 msgid "Remove Background Image"
 msgstr "Elimina la imatge de fons"
@@ -644,13 +644,13 @@ msgid "Selection Masks"
 msgstr "Màscares de selecció"
 
 #. i18n: ectx: Menu (mirror)
-#: kxstitchui.rc:23 src/Commands.cpp:1306
+#: kxstitchui.rc:23 src/Commands.cpp:1183
 #, kde-format
 msgid "Mirror Selection"
 msgstr "Emmiralla la selecció"
 
 #. i18n: ectx: Menu (rotate)
-#: kxstitchui.rc:27 src/Commands.cpp:1354
+#: kxstitchui.rc:27 src/Commands.cpp:1238
 #, kde-format
 msgid "Rotate Selection"
 msgstr "Gira la selecció"
@@ -692,7 +692,7 @@ msgid "&View"
 msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:481
 #, kde-format
 msgid "Show Background Image"
 msgstr "Mostra la imatge de fons"
@@ -751,291 +751,291 @@ msgstr "Barra d'eines"
 msgid "Zoom Toolbar"
 msgstr "Barra d'eines de Zoom"
 
-#: src/BackgroundImage.cpp:136
+#: src/BackgroundImage.cpp:122
 #, kde-format
 msgid "Background image version %1"
 msgstr "Versió %1 de la imatge de fons"
 
-#: src/BackgroundImages.cpp:111
+#: src/BackgroundImages.cpp:101
 #, kde-format
 msgid "Background images version %1"
 msgstr "Versió %1 de les imatges de fons"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
-#: src/CalibrateFlossDlg.cpp:33 ui/CalibrateFloss.ui:14
+#: src/CalibrateFlossDlg.cpp:31 ui/CalibrateFloss.ui:14
 #, kde-format
 msgid "Calibrate Floss"
 msgstr "Calibra el fil"
 
-#: src/CalibrateFlossDlg.cpp:113
+#: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
 msgstr "%1-%2 (modificat)"
 
-#: src/CalibrateFlossDlg.cpp:113
+#: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1163
+#: src/Commands.cpp:31 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Propietats del fitxer"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:58 src/MainWindow.cpp:539 src/MainWindow.cpp:1158
+#: src/Commands.cpp:53 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
 msgstr "Importa una imatge"
 
-#: src/Commands.cpp:83
+#: src/Commands.cpp:75
 #, kde-format
 msgid "Paint Stitches"
 msgstr "Pinta les puntades"
 
-#: src/Commands.cpp:106
+#: src/Commands.cpp:95
 #, kde-format
 msgid "Paint Knots"
 msgstr "Pinta els nusos"
 
-#: src/Commands.cpp:129
+#: src/Commands.cpp:115
 #, kde-format
 msgid "Draw Line"
 msgstr "Dibuixa una línia"
 
-#: src/Commands.cpp:152
+#: src/Commands.cpp:135
 #, kde-format
 msgid "Erase Stitches"
 msgstr "Esborra les puntades"
 
-#: src/Commands.cpp:175 src/MainWindow.cpp:1357
+#: src/Commands.cpp:155 src/MainWindow.cpp:1351
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Dibuixa un rectangle"
 
-#: src/Commands.cpp:198 src/MainWindow.cpp:1365
+#: src/Commands.cpp:175 src/MainWindow.cpp:1361
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Rectangle emplenat"
 
-#: src/Commands.cpp:222 src/MainWindow.cpp:1373
+#: src/Commands.cpp:195 src/MainWindow.cpp:1371
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Dibuixa una el·lipse"
 
-#: src/Commands.cpp:245 src/MainWindow.cpp:1381
+#: src/Commands.cpp:215 src/MainWindow.cpp:1381
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "El·lipse emplenada"
 
-#: src/Commands.cpp:268 src/MainWindow.cpp:1389
+#: src/Commands.cpp:235 src/MainWindow.cpp:1391
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Polígon emplenat"
 
-#: src/Commands.cpp:291
+#: src/Commands.cpp:255
 #, kde-format
 msgid "Add Stitch"
 msgstr "Afig una puntada"
 
-#: src/Commands.cpp:331
+#: src/Commands.cpp:291
 #, kde-format
 msgid "Delete Stitches"
 msgstr "Suprimix les puntades"
 
-#: src/Commands.cpp:368
+#: src/Commands.cpp:324
 #, kde-format
 msgid "Add Backstitch"
 msgstr "Afig un repunt"
 
-#: src/Commands.cpp:394
+#: src/Commands.cpp:347
 #, kde-format
 msgid "Delete Backstitch"
 msgstr "Suprimix el repunt"
 
-#: src/Commands.cpp:428
+#: src/Commands.cpp:377
 #, kde-format
 msgid "Add Knot"
 msgstr "Afig un nus"
 
-#: src/Commands.cpp:449
+#: src/Commands.cpp:395
 #, kde-format
 msgid "Delete Knots"
 msgstr "Suprimix els nusos"
 
-#: src/Commands.cpp:478
+#: src/Commands.cpp:420
 #, kde-format
 msgid "Set Property"
 msgstr "Establix les propietats"
 
-#: src/Commands.cpp:500
+#: src/Commands.cpp:439
 #, kde-format
 msgid "Add Background Image"
 msgstr "Inserix una imatge de fons"
 
-#: src/Commands.cpp:525
+#: src/Commands.cpp:461
 #, kde-format
 msgid "Fit Background to Selection"
 msgstr "Encabix el fons a la selecció"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:684 ui/PaletteManager.ui:189
+#: src/Commands.cpp:599 ui/PaletteManager.ui:189
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Neteja els fils no emprats"
 
-#: src/Commands.cpp:705
+#: src/Commands.cpp:617
 #, kde-format
 msgid "Resize Document"
 msgstr "Redimensiona el document"
 
-#: src/Commands.cpp:735
+#: src/Commands.cpp:644
 #, kde-format
 msgid "Crop to Pattern"
 msgstr "Escapça al patró"
 
-#: src/Commands.cpp:765
+#: src/Commands.cpp:671
 #, kde-format
 msgid "Crop to Selection"
 msgstr "Escapça a la selecció"
 
-#: src/Commands.cpp:806 src/MainWindow.cpp:1503
+#: src/Commands.cpp:708 src/MainWindow.cpp:1515
 #, kde-format
 msgid "Insert Columns"
 msgstr "Inserix columnes"
 
-#: src/Commands.cpp:852 src/MainWindow.cpp:1497
+#: src/Commands.cpp:751 src/MainWindow.cpp:1509
 #, kde-format
 msgid "Insert Rows"
 msgstr "Inserix files"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
-#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
+#: src/Commands.cpp:794 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
 msgstr "Amplia el patró"
 
-#: src/Commands.cpp:943 src/MainWindow.cpp:1479
+#: src/Commands.cpp:836 src/MainWindow.cpp:1491
 #, kde-format
 msgid "Center Pattern"
 msgstr "Centra el patró"
 
-#: src/Commands.cpp:978
+#: src/Commands.cpp:867
 #, kde-format
 msgid "Update Palette"
 msgstr "Actualitza la paleta"
 
-#: src/Commands.cpp:1004
+#: src/Commands.cpp:890
 #, kde-format
 msgid "Change Floss Scheme"
 msgstr "Canvia l'esquema del fil"
 
-#: src/Commands.cpp:1074
+#: src/Commands.cpp:951
 #, kde-format
 msgid "Replace Color"
 msgstr "Substituïx el color"
 
-#: src/Commands.cpp:1177 src/MainWindow.cpp:1461
+#: src/Commands.cpp:1051 src/MainWindow.cpp:1474
 #, kde-format
 msgid "Swap Colors"
 msgstr "Intercanvia els colors"
 
-#: src/Commands.cpp:1201
+#: src/Commands.cpp:1072
 #, kde-format
 msgid "Update Printer Configuration"
 msgstr "Actualitza la configuració de la impressora"
 
-#: src/Commands.cpp:1223
+#: src/Commands.cpp:1096
 #, kde-format
 msgid "Cut"
 msgstr "Retalla"
 
-#: src/Commands.cpp:1402 src/Editor.cpp:2001 src/MainWindow.cpp:1405
+#: src/Commands.cpp:1282 src/Editor.cpp:1965 src/MainWindow.cpp:1411
 #, kde-format
 msgid "Alphabet"
 msgstr "Alfabet"
 
-#: src/Commands.cpp:1455
+#: src/Commands.cpp:1328
 #, kde-format
 msgid "Configure KXStitch"
 msgstr "Configura KXStitch"
 
-#: src/ConfigurationDialogs.cpp:37
+#: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Centimeters)"
 msgstr "Predeterminada (centímetres)"
 
-#: src/ConfigurationDialogs.cpp:37
+#: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Inches)"
 msgstr "Predeterminada (polzades)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
-#: src/ConfigurationDialogs.cpp:38 ui/PatternConfigPage.ui:164
+#: src/ConfigurationDialogs.cpp:35 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
 msgstr "Predeterminada"
 
 # skip-rule: t-com_anglo
 # Nota: https://ca.wikipedia.org/wiki/Polzada
-#: src/ConfigurationDialogs.cpp:236 src/ConfigurationDialogs.cpp:239
-#: src/FilePropertiesDlg.cpp:333 src/FilePropertiesDlg.cpp:334
-#: src/ImportImageDlg.cpp:538 src/ImportImageDlg.cpp:539
+#: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
+#: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
+#: src/ImportImageDlg.cpp:496 src/ImportImageDlg.cpp:497
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
 msgstr "/\""
 
-#: src/ConfigurationDialogs.cpp:245 src/ConfigurationDialogs.cpp:248
-#: src/FilePropertiesDlg.cpp:326 src/FilePropertiesDlg.cpp:327
-#: src/ImportImageDlg.cpp:531 src/ImportImageDlg.cpp:532
+#: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
+#: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
+#: src/ImportImageDlg.cpp:489 src/ImportImageDlg.cpp:490
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr "/cm"
 
-#: src/Document.cpp:125 src/MainWindow.cpp:310 src/MainWindow.cpp:382
-#: src/MainWindow.cpp:538 src/SymbolLibrary.cpp:101
+#: src/Document.cpp:122 src/MainWindow.cpp:301 src/MainWindow.cpp:372
+#: src/MainWindow.cpp:524 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
 msgstr "Sense títol"
 
-#: src/Document.cpp:262 src/Document.cpp:296
+#: src/Document.cpp:245 src/Document.cpp:279
 #, kde-format
 msgid "KXStitch version %1"
 msgstr "KXStitch versió %1"
 
-#: src/Document.cpp:497 src/Document.cpp:776 src/Document.cpp:1074
+#: src/Document.cpp:475 src/Document.cpp:772 src/Document.cpp:1084
 #, kde-format
 msgid "The floss scheme DMC was not found"
 msgstr "No es troba l'esquema del fil DMC"
 
-#: src/Document.cpp:540 src/Document.cpp:821 src/Document.cpp:1121
+#: src/Document.cpp:523 src/Document.cpp:818 src/Document.cpp:1132
 #, kde-format
 msgid "Invalid data read."
 msgstr "Dades llegides no vàlides."
 
-#: src/Document.cpp:626 src/Document.cpp:907 src/Document.cpp:1207
-#: src/Document.cpp:1224 src/Document.cpp:1399 src/Document.cpp:1565
-#: src/Document.cpp:1748 src/Document.cpp:1953 src/Document.cpp:2163
-#: src/Document.cpp:2366 src/SymbolLibrary.cpp:320
+#: src/Document.cpp:623 src/Document.cpp:918 src/Document.cpp:1232
+#: src/Document.cpp:1248 src/Document.cpp:1410 src/Document.cpp:1566
+#: src/Document.cpp:1738 src/Document.cpp:1929 src/Document.cpp:2120
+#: src/Document.cpp:2300 src/SymbolLibrary.cpp:302
 #, kde-format
 msgid "Stream error"
 msgstr "S'ha produït un error de seqüència"
 
-#: src/Document.cpp:1333 src/Document.cpp:1500 src/Document.cpp:1671
-#: src/Document.cpp:1877 src/Document.cpp:2083 src/Document.cpp:2286
+#: src/Document.cpp:1351 src/Document.cpp:1504 src/Document.cpp:1665
+#: src/Document.cpp:1856 src/Document.cpp:2049 src/Document.cpp:2229
 #, kde-format
 msgid "The floss scheme %1 was not found"
 msgstr "No es troba l'esquema %1 del fil"
 
-#: src/Document.cpp:1355 src/Document.cpp:1521 src/Document.cpp:1692
-#: src/Document.cpp:1898 src/Document.cpp:2108 src/Document.cpp:2311
+#: src/Document.cpp:1367 src/Document.cpp:1523 src/Document.cpp:1684
+#: src/Document.cpp:1875 src/Document.cpp:2070 src/Document.cpp:2250
 #, kde-format
 msgid "The floss name %1 was not found"
 msgstr "No es troba el nom del fil %1"
@@ -1048,8 +1048,8 @@ msgstr "No es troba el nom del fil %1"
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1812 src/Document.cpp:2018 src/Element.cpp:520
-#: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1522
+#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:477
+#: src/Element.cpp:512 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1533
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
@@ -1060,7 +1060,7 @@ msgstr "Puntades"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1816 src/Document.cpp:2022 ui/EditorConfigPage.ui:82
+#: src/Document.cpp:1802 src/Document.cpp:1995 ui/EditorConfigPage.ui:82
 #: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
 #, kde-format
 msgid "CM"
@@ -1071,30 +1071,30 @@ msgstr "CM"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1820 src/Document.cpp:2026 src/ImportImageDlg.cpp:241
-#: src/MainWindow.cpp:1536 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/Document.cpp:1806 src/Document.cpp:1999 src/ImportImageDlg.cpp:206
+#: src/MainWindow.cpp:1547 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
 msgid "Inches"
 msgstr "Polzades"
 
-#: src/DocumentFloss.cpp:190
+#: src/DocumentFloss.cpp:167
 #, kde-format
 msgid "Document floss version %1"
 msgstr "Versió %1 del document de fils"
 
-#: src/DocumentPalette.cpp:407
+#: src/DocumentPalette.cpp:384
 #, kde-format
 msgid "Palette version %1"
 msgstr "Versió %1 de la paleta"
 
-#: src/DocumentPalette.cpp:412
+#: src/DocumentPalette.cpp:389
 #, kde-format
 msgid "Failed reading palette"
 msgstr "No s'ha pogut llegir la paleta"
 
-#: src/DocumentPalette.cpp:434
+#: src/DocumentPalette.cpp:414
 #, kde-format
 msgid ""
 "There are insufficient symbols available in the symbol library for this "
@@ -1103,12 +1103,12 @@ msgstr ""
 "No hi ha prou símbols disponibles en la biblioteca per a este patró. És "
 "necessari %1 símbols més."
 
-#: src/DocumentPalette.cpp:435
+#: src/DocumentPalette.cpp:416
 #, kde-format
 msgid "Canceled: Insufficient symbols available"
 msgstr "Cancel·lat: No hi ha prou símbols disponibles"
 
-#: src/DocumentPalette.cpp:452
+#: src/DocumentPalette.cpp:433
 #, kde-format
 msgid ""
 "The following floss color has had its symbol\n"
@@ -1127,7 +1127,7 @@ msgstr[1] ""
 "substituïts, perquè no existixen en la biblioteca de símbols.\n"
 "\n"
 
-#: src/DocumentPalette.cpp:461
+#: src/DocumentPalette.cpp:442
 #, kde-format
 msgid ""
 "The following floss color has had an empty symbol assigned.\n"
@@ -1142,7 +1142,7 @@ msgstr[1] ""
 "Els següents colors del fil tenen assignat un símbol buit.\n"
 "\n"
 
-#: src/DocumentPalette.cpp:470
+#: src/DocumentPalette.cpp:451
 #, kde-format
 msgid ""
 "\n"
@@ -1157,25 +1157,25 @@ msgstr[1] ""
 "\n"
 "Potser voleu comprovar si són correctes."
 
-#: src/Editor.cpp:788
+#: src/Editor.cpp:762
 #, kde-format
 msgid "Drag"
 msgstr "Arrossega"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:843 src/Editor.cpp:1977 src/MainWindow.cpp:1397
+#: src/Editor.cpp:813 src/Editor.cpp:1944 src/MainWindow.cpp:1401
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "Text"
 
-#: src/Editor.cpp:927
+#: src/Editor.cpp:908
 #, kde-format
 msgid "Add Character"
 msgstr "Afig un caràcter"
 
-#: src/Editor.cpp:968 src/Editor.cpp:2151 src/LibraryManagerDlg.cpp:122
-#: src/LibraryManagerDlg.cpp:142
+#: src/Editor.cpp:957 src/Editor.cpp:2106 src/LibraryManagerDlg.cpp:116
+#: src/LibraryManagerDlg.cpp:135
 #, kde-format
 msgid "Paste"
 msgstr "Apega"
@@ -1183,13 +1183,13 @@ msgstr "Apega"
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/Element.cpp:516 src/Element.cpp:539 ui/KeyElement.ui:377
+#: src/Element.cpp:473 src/Element.cpp:496 ui/KeyElement.ui:377
 #: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
 #, kde-format
 msgid "Symbol"
 msgstr "Símbol"
 
-#: src/Element.cpp:517 src/Element.cpp:543
+#: src/Element.cpp:474 src/Element.cpp:500
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
@@ -1197,106 +1197,106 @@ msgstr "Nom"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#: src/Element.cpp:518 src/Element.cpp:547 ui/KeyElement.ui:403
+#: src/Element.cpp:475 src/Element.cpp:504 ui/KeyElement.ui:403
 #: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
 msgstr "Brins"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/Element.cpp:519 src/Element.cpp:551 ui/NewFloss.ui:44
+#: src/Element.cpp:476 src/Element.cpp:508 ui/NewFloss.ui:44
 #, kde-format
 msgid "Description"
 msgstr "Descripció"
 
-#: src/Element.cpp:521 src/Element.cpp:559
+#: src/Element.cpp:478 src/Element.cpp:517
 #, kde-format
 msgid "Length(m)"
 msgstr "Llargada(m)"
 
-#: src/Element.cpp:522 src/Element.cpp:563
+#: src/Element.cpp:479 src/Element.cpp:523
 #, kde-format
 msgid "Skeins (8m)"
 msgstr "Madeixes (8m)"
 
-#: src/Element.cpp:535
+#: src/Element.cpp:492
 #, kde-format
 msgctxt "%1 is a scheme name"
 msgid "%1 Flosses"
 msgstr "%1 fils"
 
-#: src/Exceptions.cpp:66
+#: src/Exceptions.cpp:60
 #, kde-format
 msgid "Tried to read past the end of the data"
 msgstr "He provat de llegir més enllà del final de les dades"
 
-#: src/Exceptions.cpp:68
+#: src/Exceptions.cpp:62
 #, kde-format
 msgid "Tried to read corrupted data"
 msgstr "He provat de llegir dades corruptes"
 
-#: src/Exceptions.cpp:70 src/Exceptions.cpp:112
+#: src/Exceptions.cpp:64 src/Exceptions.cpp:103
 #, kde-format
 msgid "Undefined status message status %1"
 msgstr "Estat indefinit del missatge d'estat %1"
 
-#: src/Exceptions.cpp:107
+#: src/Exceptions.cpp:98
 #, kde-format
 msgid "Failed to write to the device"
 msgstr "No s'ha pogut escriure al dispositiu"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
-#: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
+#: src/ImageElementDlg.cpp:29 ui/ImageElement.ui:14
 #, kde-format
 msgid "Image Element Properties"
 msgstr "Propietats de l'element imatge"
 
-#: src/ImportImageDlg.cpp:101
+#: src/ImportImageDlg.cpp:84
 #, kde-format
 msgid "Import Image - Image Size %1 x %2 pixels"
 msgstr "Importa una imatge: mida de la imatge %1 x %2 píxels"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1529 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1540 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
 msgstr "Centímetres"
 
-#: src/ImportImageDlg.cpp:259 src/ImportImageDlg.cpp:261
+#: src/ImportImageDlg.cpp:225 src/ImportImageDlg.cpp:231
 #, kde-format
 msgctxt "%1 width, %2 height and %3 units"
 msgid "%1 x %2 %3"
 msgstr "%1 x %2 %3"
 
-#: src/ImportImageDlg.cpp:391
+#: src/ImportImageDlg.cpp:356
 #, kde-format
 msgid "Rendering preview"
 msgstr "S'està renderitzant la vista prèvia"
 
-#: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:619
+#: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:607
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/ImportImageDlg.cpp:611
+#: src/ImportImageDlg.cpp:570
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
 msgstr "Colors limitats a %1 a causa del nombre de símbols disponibles"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
-#: src/KeyElementDlg.cpp:26 ui/KeyElement.ui:14
+#: src/KeyElementDlg.cpp:24 ui/KeyElement.ui:14
 #, kde-format
 msgid "Key Element Properties"
 msgstr "Propietats de l'element de clau"
 
-#: src/LibraryFile.cpp:122
+#: src/LibraryFile.cpp:112
 #, kde-format
 msgid "Loading Library %1"
 msgstr "S'està carregant la biblioteca %1"
 
-#: src/LibraryFile.cpp:159
+#: src/LibraryFile.cpp:150
 #, kde-format
 msgid ""
 "Failed to read a pattern from the library %1.\n"
@@ -1305,12 +1305,12 @@ msgstr ""
 "No s'ha pogut llegir un patró des de la biblioteca %1.\n"
 "%2"
 
-#: src/LibraryFile.cpp:159
+#: src/LibraryFile.cpp:151
 #, kde-format
 msgid "Failed to read library."
 msgstr "No s'ha pogut llegir la biblioteca."
 
-#: src/LibraryFile.cpp:193
+#: src/LibraryFile.cpp:185
 #, kde-format
 msgid ""
 "The file %1\n"
@@ -1321,12 +1321,12 @@ msgstr ""
 "no es pot obrir per a lectura.\n"
 "%2"
 
-#: src/LibraryFile.cpp:193 src/LibraryFile.cpp:218
+#: src/LibraryFile.cpp:185 src/LibraryFile.cpp:209
 #, kde-format
 msgid "Error opening file"
 msgstr "S'ha produït un error en obrir el fitxer"
 
-#: src/LibraryFile.cpp:218
+#: src/LibraryFile.cpp:209
 #, kde-format
 msgid ""
 "The file %1\n"
@@ -1338,18 +1338,18 @@ msgstr ""
 "%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
-#: src/LibraryFilePathsDlg.cpp:23 ui/LibraryFilePaths.ui:14
+#: src/LibraryFilePathsDlg.cpp:21 ui/LibraryFilePaths.ui:14
 #, kde-format
 msgid "Library File Paths"
 msgstr "Camins cap al fitxer de biblioteques"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
-#: src/LibraryManagerDlg.cpp:40 ui/LibraryManager.ui:14
+#: src/LibraryManagerDlg.cpp:38 ui/LibraryManager.ui:14
 #, kde-format
 msgid "Library Manager"
 msgstr "Gestor de la biblioteca"
 
-#: src/LibraryManagerDlg.cpp:66
+#: src/LibraryManagerDlg.cpp:63
 #, kde-format
 msgid ""
 "The Library Manager can be used to store\n"
@@ -1368,12 +1368,12 @@ msgstr ""
 "Feu clic en el botó «Ajuda» per a obtindre informació\n"
 "sobre com crear i omplir les biblioteques."
 
-#: src/LibraryManagerDlg.cpp:69
+#: src/LibraryManagerDlg.cpp:67
 #, kde-format
 msgid "Select a library to show the associated patterns."
 msgstr "Selecciona una biblioteca per a mostrar els patrons associats."
 
-#: src/LibraryManagerDlg.cpp:71
+#: src/LibraryManagerDlg.cpp:69
 #, kde-format
 msgid ""
 "There are no patterns defined\n"
@@ -1388,144 +1388,144 @@ msgstr ""
 "Feu clic en el botó «Ajuda» per a obtindre informació\n"
 "quant a crear i omplir les biblioteques."
 
-#: src/LibraryManagerDlg.cpp:115
+#: src/LibraryManagerDlg.cpp:109
 #, kde-format
 msgid "New Category"
 msgstr "Categoria nova"
 
-#: src/LibraryManagerDlg.cpp:118
+#: src/LibraryManagerDlg.cpp:112
 #, kde-format
 msgid "Add to Export List"
 msgstr "Afig a la llista d'exportació"
 
-#: src/LibraryManagerDlg.cpp:119 src/LibraryManagerDlg.cpp:135
+#: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
 #, kde-format
 msgid "Properties..."
 msgstr "Propietats..."
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
-#: src/LibraryManagerDlg.cpp:138
+#: src/LibraryManagerDlg.cpp:131
 #, kde-format
 msgid "Delete"
 msgstr "Suprimix"
 
-#: src/LibraryManagerDlg.cpp:186
+#: src/LibraryManagerDlg.cpp:174
 #, kde-format
 msgid "Create Category"
 msgstr "Crea una categoria"
 
-#: src/LibraryManagerDlg.cpp:186
+#: src/LibraryManagerDlg.cpp:174
 #, kde-format
 msgid "Category Name"
 msgstr "Nom de la categoria"
 
-#: src/LibraryManagerDlg.cpp:205
+#: src/LibraryManagerDlg.cpp:194
 #, kde-format
 msgid "This category already exists."
 msgstr "Esta categoria ja existix."
 
-#: src/LibraryManagerDlg.cpp:205
+#: src/LibraryManagerDlg.cpp:194
 #, kde-format
 msgid "Category Exists"
 msgstr "La categoria ja existix"
 
-#: src/LibraryManagerDlg.cpp:305
+#: src/LibraryManagerDlg.cpp:287
 #, kde-format
 msgid "Delete this pattern."
 msgstr "Suprimix este patró."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
-#: src/LibraryPatternPropertiesDlg.cpp:25 ui/LibraryPatternProperties.ui:14
+#: src/LibraryPatternPropertiesDlg.cpp:30 ui/LibraryPatternProperties.ui:14
 #, kde-format
 msgid "Library Pattern Properties"
 msgstr "Propietats de la biblioteca de patrons"
 
-#: src/LibraryTreeWidget.cpp:76
+#: src/LibraryTreeWidget.cpp:70
 #, kde-format
 msgid "existing library"
 msgstr "biblioteca existent"
 
-#: src/Main.cpp:96
+#: src/Main.cpp:92
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:98
+#: src/Main.cpp:94
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Un creador de patrons de punt de creu."
 
-#: src/Main.cpp:100
+#: src/Main.cpp:96
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "(c) 2010-2019 Stephen Allewell"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:102
 #, kde-format
 msgid "Project Lead"
 msgstr "Cap del projecte"
 
-#: src/Main.cpp:107
+#: src/Main.cpp:103
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Correccions d'errors, icones d'aplicació"
 
-#: src/Main.cpp:108
+#: src/Main.cpp:104
 #, kde-format
 msgid "Man page"
 msgstr "Pàgina «man»"
 
-#: src/Main.cpp:109
+#: src/Main.cpp:105
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Correccions d'errors, millores"
 
-#: src/Main.cpp:110
+#: src/Main.cpp:106
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Joan Teixidó"
 
-#: src/Main.cpp:110
+#: src/Main.cpp:106
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "joan4@users.sourceforge.net"
 
-#: src/Main.cpp:124
+#: src/Main.cpp:120
 #, kde-format
 msgid "Document to open."
 msgstr "Document que s'obrirà."
 
-#: src/MainWindow.cpp:246
+#: src/MainWindow.cpp:238
 #, kde-format
 msgid "Save changes to document?"
 msgstr "Voleu guardar els canvis en el document?"
 
-#: src/MainWindow.cpp:263
+#: src/MainWindow.cpp:255
 #, kde-format
 msgid "Unable to save the file"
 msgstr "No s'ha pogut guardar el fitxer"
 
-#: src/MainWindow.cpp:303
+#: src/MainWindow.cpp:293
 #, kde-format
 msgid "Open file"
 msgstr "Obri un fitxer"
 
-#: src/MainWindow.cpp:303
+#: src/MainWindow.cpp:295
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
 "Patrons de KXStitch (*.kxs);;Patrons del PC Stitch (*.pat);;Tots els fitxers "
 "(*)"
 
-#: src/MainWindow.cpp:343
+#: src/MainWindow.cpp:334
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr "Este fitxer no es reconeix com un fitxer de punt de creu."
 
-#: src/MainWindow.cpp:346
+#: src/MainWindow.cpp:337
 #, kde-format
 msgid ""
 "This version of the file is not supported.\n"
@@ -1534,7 +1534,7 @@ msgstr ""
 "Esta versió del fitxer no està permesa.\n"
 "%1"
 
-#: src/MainWindow.cpp:348
+#: src/MainWindow.cpp:339
 #, kde-format
 msgid ""
 "Failed to read the file.\n"
@@ -1543,7 +1543,7 @@ msgstr ""
 "No s'ha pogut llegir el fitxer.\n"
 "%1."
 
-#: src/MainWindow.cpp:400
+#: src/MainWindow.cpp:390
 #, kde-format
 msgid ""
 "Failed to save the file.\n"
@@ -1552,7 +1552,7 @@ msgstr ""
 "No s'ha pogut guardar el fitxer.\n"
 "%1"
 
-#: src/MainWindow.cpp:404
+#: src/MainWindow.cpp:394
 #, kde-format
 msgid ""
 "Failed to open the file.\n"
@@ -1561,265 +1561,265 @@ msgstr ""
 "No s'ha pogut obrir el fitxer.\n"
 "%1"
 
-#: src/MainWindow.cpp:413
+#: src/MainWindow.cpp:401
 #, kde-format
 msgid "Save As..."
 msgstr "Anomena i guarda..."
 
-#: src/MainWindow.cpp:413
+#: src/MainWindow.cpp:401
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
 msgstr "Patrons de punt de creu (*.kxs)"
 
-#: src/MainWindow.cpp:433
+#: src/MainWindow.cpp:420
 #, kde-format
 msgid "Revert changes to document?"
 msgstr "Voleu revertir els canvis en el document?"
 
-#: src/MainWindow.cpp:434
+#: src/MainWindow.cpp:422
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
 msgstr "Revertix"
 
-#: src/MainWindow.cpp:482
+#: src/MainWindow.cpp:468
 #, kde-format
 msgid "There is nothing to print"
 msgstr "No hi ha res per a imprimir"
 
-#: src/MainWindow.cpp:539 src/MainWindow.cpp:768
+#: src/MainWindow.cpp:528 src/MainWindow.cpp:763
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr "Imatges (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
-#: src/MainWindow.cpp:619
+#: src/MainWindow.cpp:607
 #, kde-format
 msgid "Converting to stitches"
 msgstr "S'està transformant a puntades"
 
-#: src/MainWindow.cpp:768
+#: src/MainWindow.cpp:761
 #, kde-format
 msgid "Background Image"
 msgstr "Imatge de fons"
 
-#: src/MainWindow.cpp:822
+#: src/MainWindow.cpp:811
 #, kde-format
 msgid "Undo %1"
 msgstr "Desfés %1"
 
-#: src/MainWindow.cpp:828
+#: src/MainWindow.cpp:816
 #, kde-format
 msgid "Redo %1"
 msgstr "Refés %1"
 
-#: src/MainWindow.cpp:981
+#: src/MainWindow.cpp:955
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Editor"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:982 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:957 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "Patró"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:984 src/MainWindow.cpp:1740 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:959 src/MainWindow.cpp:1770 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "Paleta"
 
-#: src/MainWindow.cpp:985
+#: src/MainWindow.cpp:960
 #, kde-format
 msgid "Import"
 msgstr "Importa"
 
-#: src/MainWindow.cpp:986
+#: src/MainWindow.cpp:961
 #, kde-format
 msgid "Library"
 msgstr "Biblioteca"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:987 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:963 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Configureu la impressora"
 
-#: src/MainWindow.cpp:1151
+#: src/MainWindow.cpp:1129
 #, kde-format
 msgid "Print Setup..."
 msgstr "Configura la impressió..."
 
-#: src/MainWindow.cpp:1168
+#: src/MainWindow.cpp:1146
 #, kde-format
 msgid "Add Background Image..."
 msgstr "Afig una imatge de fons..."
 
-#: src/MainWindow.cpp:1186
+#: src/MainWindow.cpp:1163
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "Emmiralla/Gira fent còpies"
 
-#: src/MainWindow.cpp:1192
+#: src/MainWindow.cpp:1169
 #, kde-format
 msgid "Horizontally"
 msgstr "Horitzontalment"
 
-#: src/MainWindow.cpp:1199
+#: src/MainWindow.cpp:1176
 #, kde-format
 msgid "Vertically"
 msgstr "Verticalment"
 
-#: src/MainWindow.cpp:1206
+#: src/MainWindow.cpp:1183
 #, kde-format
 msgid "90 Degrees"
 msgstr "90 Graus"
 
-#: src/MainWindow.cpp:1213
+#: src/MainWindow.cpp:1190
 #, kde-format
 msgid "180 Degrees"
 msgstr "180 Graus"
 
-#: src/MainWindow.cpp:1220
+#: src/MainWindow.cpp:1197
 #, kde-format
 msgid "270 Degrees"
 msgstr "270 Graus"
 
-#: src/MainWindow.cpp:1228
+#: src/MainWindow.cpp:1205
 #, kde-format
 msgid "Stitch Mask"
 msgstr "Màscara de puntades"
 
-#: src/MainWindow.cpp:1234
+#: src/MainWindow.cpp:1211
 #, kde-format
 msgid "Color Mask"
 msgstr "Màscara de color"
 
-#: src/MainWindow.cpp:1240
+#: src/MainWindow.cpp:1217
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "Exclou els repunts"
 
-#: src/MainWindow.cpp:1246
+#: src/MainWindow.cpp:1223
 #, kde-format
 msgid "Exclude Knots"
 msgstr "Exclou els nusos"
 
-#: src/MainWindow.cpp:1272
+#: src/MainWindow.cpp:1247
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "Quart de punt"
 
-#: src/MainWindow.cpp:1280
+#: src/MainWindow.cpp:1257
 #, kde-format
 msgid "Half Stitch"
 msgstr "Mig punt"
 
-#: src/MainWindow.cpp:1288
+#: src/MainWindow.cpp:1267
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "3 quarts de punt"
 
-#: src/MainWindow.cpp:1296
+#: src/MainWindow.cpp:1277
 #, kde-format
 msgid "Full Stitch"
 msgstr "Punt sencer"
 
-#: src/MainWindow.cpp:1304
+#: src/MainWindow.cpp:1287
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "Mig punt xicotet"
 
-#: src/MainWindow.cpp:1312
+#: src/MainWindow.cpp:1297
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "Punt sencer xicotet"
 
-#: src/MainWindow.cpp:1320
+#: src/MainWindow.cpp:1307
 #, kde-format
 msgid "French Knot"
 msgstr "Nus francés"
 
-#: src/MainWindow.cpp:1333
+#: src/MainWindow.cpp:1321
 #, kde-format
 msgid "Paint"
 msgstr "Pinta"
 
-#: src/MainWindow.cpp:1341
+#: src/MainWindow.cpp:1331
 #, kde-format
 msgid "Draw"
 msgstr "Dibuixa"
 
-#: src/MainWindow.cpp:1349
+#: src/MainWindow.cpp:1341
 #, kde-format
 msgid "Erase"
 msgstr "Esborra"
 
-#: src/MainWindow.cpp:1413
+#: src/MainWindow.cpp:1421
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/MainWindow.cpp:1421
+#: src/MainWindow.cpp:1431
 #, kde-format
 msgid "Backstitch"
 msgstr "Repunt"
 
-#: src/MainWindow.cpp:1429
+#: src/MainWindow.cpp:1441
 #, kde-format
 msgid "Color Picker"
 msgstr "Selector de color"
 
-#: src/MainWindow.cpp:1439
+#: src/MainWindow.cpp:1452
 #, kde-format
 msgid "Palette Manager..."
 msgstr "Gestor de la paleta..."
 
-#: src/MainWindow.cpp:1445
+#: src/MainWindow.cpp:1458
 #, kde-format
 msgid "Show Symbols"
 msgstr "Mostra els símbols"
 
-#: src/MainWindow.cpp:1451
+#: src/MainWindow.cpp:1464
 #, kde-format
 msgid "Clear Unused"
 msgstr "Neteja els no emprats"
 
-#: src/MainWindow.cpp:1456
+#: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "Calibra l'esquema..."
 
-#: src/MainWindow.cpp:1466
+#: src/MainWindow.cpp:1479
 #, kde-format
 msgid "Replace Colors"
 msgstr "Substituïx els colors"
 
-#: src/MainWindow.cpp:1473
+#: src/MainWindow.cpp:1485
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "Amplia el patró..."
 
-#: src/MainWindow.cpp:1485
+#: src/MainWindow.cpp:1497
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "Escapça el llenç al patró"
 
-#: src/MainWindow.cpp:1490
+#: src/MainWindow.cpp:1502
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "Escapça el llenç a la selecció"
 
-#: src/MainWindow.cpp:1511
+#: src/MainWindow.cpp:1522
 #, kde-format
 msgid "Library Manager..."
 msgstr "Gestor de la biblioteca..."
 
-#: src/MainWindow.cpp:1547
+#: src/MainWindow.cpp:1558
 #, kde-format
 msgid "Regular Stitches"
 msgstr "Puntades normals"
@@ -1828,7 +1828,7 @@ msgstr "Puntades normals"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1555 src/MainWindow.cpp:1595 src/MainWindow.cpp:1628
+#: src/MainWindow.cpp:1568 src/MainWindow.cpp:1618 src/MainWindow.cpp:1659
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1839,7 +1839,7 @@ msgstr "Símbols en blanc i negre"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1621 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1577 src/MainWindow.cpp:1650 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1849,82 +1849,77 @@ msgstr "Símbols amb color"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1569 src/MainWindow.cpp:1606 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1586 src/MainWindow.cpp:1631 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "Blocs amb color"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1576 src/MainWindow.cpp:1614 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1595 src/MainWindow.cpp:1641 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Blocs i símbols amb color"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1587 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1608 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "Línies amb color"
 
-#: src/MainWindow.cpp:1636
+#: src/MainWindow.cpp:1668
 #, kde-format
 msgid "Color Highlight"
 msgstr "Ressaltat amb color"
 
-#: src/MainWindow.cpp:1642
+#: src/MainWindow.cpp:1674
 #, kde-format
 msgid "Show Stitches"
 msgstr "Mostra les puntades"
 
-#: src/MainWindow.cpp:1648
+#: src/MainWindow.cpp:1680
 #, kde-format
 msgid "Show Backstitches"
 msgstr "Mostra els repunts"
 
-#: src/MainWindow.cpp:1654
+#: src/MainWindow.cpp:1686
 #, kde-format
 msgid "Show French Knots"
 msgstr "Mostra el nus francés"
 
-#: src/MainWindow.cpp:1660
+#: src/MainWindow.cpp:1692
 #, kde-format
 msgid "Show Grid"
 msgstr "Mostra la quadrícula"
 
-#: src/MainWindow.cpp:1666
+#: src/MainWindow.cpp:1698
 #, kde-format
 msgid "Show Background Images"
 msgstr "Mostra les imatges de fons"
 
-#: src/MainWindow.cpp:1727
+#: src/MainWindow.cpp:1757
 #, kde-format
 msgid "Preview"
 msgstr "Vista prèvia"
 
-#: src/MainWindow.cpp:1749
+#: src/MainWindow.cpp:1779
 #, kde-format
 msgid "History"
 msgstr "Historial"
 
-#: src/MainWindow.cpp:1757
+#: src/MainWindow.cpp:1787
 #, kde-format
 msgid "Imported Image"
 msgstr "Imatge importada"
 
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: src/NewFlossDlg.cpp:30 ui/PaletteManager.ui:182
+#: src/NewFlossDlg.cpp:28 ui/PaletteManager.ui:182
 #, kde-format
 msgid "New Floss"
 msgstr "Fil nou"
 
-#: src/NewFlossDlg.cpp:90 src/PrintSetupDlg.cpp:487
-#, kde-format
-msgid "Overwrite"
-msgstr "Sobreescriu"
-
-#: src/NewFlossDlg.cpp:90
+#: src/NewFlossDlg.cpp:82
 #, kde-format
 msgid ""
 "The floss name %1 is already used.\n"
@@ -1933,29 +1928,34 @@ msgstr ""
 "El nom del fil %1 ja s'utilitza.\n"
 "Sobreescriu amb la descripció i el color seleccionats."
 
-#: src/NewFlossDlg.cpp:92
+#: src/NewFlossDlg.cpp:83 src/PrintSetupDlg.cpp:456
+#, kde-format
+msgid "Overwrite"
+msgstr "Sobreescriu"
+
+#: src/NewFlossDlg.cpp:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
 msgstr "No sobreescrigues"
 
-#: src/Page.cpp:253
+#: src/Page.cpp:217
 #, kde-format
 msgid "Page version %1"
 msgstr "Versió %1 de la pàgina"
 
-#: src/Page.cpp:294
+#: src/Page.cpp:257
 #, kde-format
 msgid "Invalid element type"
 msgstr "Tipus d'element no vàlid"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
-#: src/PagePropertiesDlg.cpp:27 ui/PageProperties.ui:14
+#: src/PagePropertiesDlg.cpp:25 ui/PageProperties.ui:14
 #, kde-format
 msgid "Page Properties"
 msgstr "Propietats de la pàgina"
 
-#: src/Palette.cpp:255
+#: src/Palette.cpp:132
 #, kde-format
 msgctxt ""
 "%1 is the number of stitches of a particular floss, %2 is the floss name and "
@@ -1973,7 +1973,7 @@ msgstr[1] ""
 "%2 %3\n"
 "%1 puntades"
 
-#: src/Palette.cpp:262
+#: src/Palette.cpp:144
 #, kde-format
 msgid ""
 "There are no flosses in the palette.\n"
@@ -1985,17 +1985,17 @@ msgstr ""
 "el qual permet activar les eines de dibuix."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
-#: src/PaletteManagerDlg.cpp:82 ui/PaletteManager.ui:14
+#: src/PaletteManagerDlg.cpp:52 ui/PaletteManager.ui:14
 #, kde-format
 msgid "Palette Manager"
 msgstr "Gestor de la paleta"
 
-#: src/PaletteManagerDlg.cpp:187
+#: src/PaletteManagerDlg.cpp:150
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "No hi ha més símbols disponibles."
 
-#: src/PaletteManagerDlg.cpp:233
+#: src/PaletteManagerDlg.cpp:191
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2004,49 +2004,49 @@ msgstr ""
 "La biblioteca de símbols seleccionada no disposa de símbols per als fils de "
 "la paleta."
 
-#: src/Pattern.cpp:296
+#: src/Pattern.cpp:284
 #, kde-format
 msgid "Pattern version %1"
 msgstr "Versió %1 del patró"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
-#: src/PatternElementDlg.cpp:30 ui/PatternElement.ui:14
+#: src/PatternElementDlg.cpp:28 ui/PatternElement.ui:14
 #, kde-format
 msgid "Pattern Element Properties"
 msgstr "Propietats de l'element de patró"
 
-#: src/PrinterConfiguration.cpp:133
+#: src/PrinterConfiguration.cpp:121
 #, kde-format
 msgid "Printer configuration %1"
 msgstr "Configureu la impressora %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
-#: src/PrintSetupDlg.cpp:55 ui/PrintSetup.ui:20
+#: src/PrintSetupDlg.cpp:52 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
 msgstr "Configureu la impressió"
 
-#: src/PrintSetupDlg.cpp:327
+#: src/PrintSetupDlg.cpp:302
 #, kde-format
 msgid "Properties"
 msgstr "Propietats"
 
-#: src/PrintSetupDlg.cpp:331
+#: src/PrintSetupDlg.cpp:306
 #, kde-format
 msgid "Delete Element"
 msgstr "Suprimix l'element"
 
-#: src/PrintSetupDlg.cpp:470
+#: src/PrintSetupDlg.cpp:439
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Pàgina %1 de %2"
 
-#: src/PrintSetupDlg.cpp:487
+#: src/PrintSetupDlg.cpp:455
 #, kde-format
 msgid "Overwrite the current configuration?"
 msgstr "Voleu sobreescriure la configuració actual?"
 
-#: src/PrintSetupDlg.cpp:536
+#: src/PrintSetupDlg.cpp:512
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2063,15 +2063,15 @@ msgstr ""
 "Dimensions del patró: ${width.stitches} x ${height.stitches}\n"
 "Fils de l'interval ${scheme}."
 
-#: src/PrintSetupDlg.cpp:542 src/PrintSetupDlg.cpp:596
-#: src/PrintSetupDlg.cpp:618
+#: src/PrintSetupDlg.cpp:518 src/PrintSetupDlg.cpp:579
+#: src/PrintSetupDlg.cpp:601
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
 msgstr "Pàgina ${page}"
 
-#: src/SchemeManager.cpp:144
+#: src/SchemeManager.cpp:136
 #, kde-format
 msgid ""
 "Error reading scheme %1\n"
@@ -2080,12 +2080,12 @@ msgstr ""
 "S'ha produït un error en llegir l'esquema %1\n"
 "%2."
 
-#: src/SchemeManager.cpp:144
+#: src/SchemeManager.cpp:136
 #, kde-format
 msgid "Error reading floss scheme."
 msgstr "S'ha produït un error en llegir l'esquema del fil."
 
-#: src/SchemeManager.cpp:174 src/SchemeManager.cpp:183
+#: src/SchemeManager.cpp:165 src/SchemeManager.cpp:174
 #, kde-format
 msgid ""
 "Unable to locate a writable directory\n"
@@ -2094,105 +2094,105 @@ msgstr ""
 "No es troba un directori on es puga escriure\n"
 "per a emmagatzemar l'esquema."
 
-#: src/SchemeParser.cpp:46
+#: src/SchemeParser.cpp:41
 #, kde-format
 msgid "No error"
 msgstr "Sense errors"
 
-#: src/SchemeParser.cpp:47
+#: src/SchemeParser.cpp:42
 #, kde-format
 msgid "Floss not completely defined"
 msgstr "Els fils no estan completament definits"
 
-#: src/SchemeParser.cpp:48
+#: src/SchemeParser.cpp:43
 #, kde-format
 msgid "Unmatched element tags"
 msgstr "Etiquetes d'element no coincidents"
 
-#: src/SchemeParser.cpp:49
+#: src/SchemeParser.cpp:44
 #, kde-format
 msgid "Unknown element tag"
 msgstr "Etiqueta d'element desconeguda"
 
-#: src/SchemeParser.cpp:50
+#: src/SchemeParser.cpp:45
 #, kde-format
 msgid "Color value is invalid"
 msgstr "El valor del color no és vàlid"
 
-#: src/SchemeParser.cpp:51
+#: src/SchemeParser.cpp:46
 #, kde-format
 msgid "Unknown error code"
 msgstr "Codi d'error desconegut"
 
-#: src/Stitch.cpp:72
+#: src/Stitch.cpp:66
 #, kde-format
 msgid "Stitch version %1"
 msgstr "Versió %1 de la puntada"
 
-#: src/Stitch.cpp:341
+#: src/Stitch.cpp:327
 #, kde-format
 msgid "Stitch queue version %1"
 msgstr "Versió %1 de la fila de puntades"
 
-#: src/Stitch.cpp:428
+#: src/Stitch.cpp:407
 #, kde-format
 msgid "Backstitch version %1"
 msgstr "Versió %1 del repunt"
 
-#: src/Stitch.cpp:494
+#: src/Stitch.cpp:467
 #, kde-format
 msgid "Knot version %1"
 msgstr "Versió %1 del nus"
 
-#: src/StitchData.cpp:1175
+#: src/StitchData.cpp:1121
 #, kde-format
 msgid "Stitch data version %1"
 msgstr "Versió %1 de les dades de la puntada"
 
-#: src/StitchData.cpp:1180
+#: src/StitchData.cpp:1126
 #, kde-format
 msgid "Failed reading stitch data"
 msgstr "No s'ha pogut llegir les dades de la puntada"
 
-#: src/Symbol.cpp:318
+#: src/Symbol.cpp:300
 #, kde-format
 msgid "Symbol version %1"
 msgstr "Versió %1 del símbol"
 
-#: src/SymbolLibrary.cpp:342
+#: src/SymbolLibrary.cpp:324
 #, kde-format
 msgid "Symbol file version %1"
 msgstr "Versió %1 del fitxer de símbols"
 
-#: src/SymbolListWidget.cpp:135
+#: src/SymbolListWidget.cpp:126
 #, kde-format
 msgctxt "A symbol that has been used"
 msgid "Used"
 msgstr "Utilitzat"
 
-#: src/SymbolManager.cpp:162
+#: src/SymbolManager.cpp:151
 #, kde-format
 msgid "This does not appear to be a valid symbol file"
 msgstr "No pareix un fitxer de símbols vàlid"
 
-#: src/SymbolManager.cpp:177
+#: src/SymbolManager.cpp:166
 #, kde-format
 msgid "Failed to open the file %1"
 msgstr "No s'ha pogut obrir el fitxer %1"
 
-#: src/SymbolSelectorDlg.cpp:50
+#: src/SymbolSelectorDlg.cpp:46
 #, kde-format
 msgid "Symbol Selector"
 msgstr "Selector de símbols"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
-#: src/TextElementDlg.cpp:31 ui/TextElement.ui:14
+#: src/TextElementDlg.cpp:29 ui/TextElement.ui:14
 #, kde-format
 msgid "Text Element Properties"
 msgstr "Propietats de l'element de text"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
-#: src/TextToolDlg.cpp:28 ui/TextTool.ui:17
+#: src/TextToolDlg.cpp:26 ui/TextTool.ui:17
 #, kde-format
 msgid "Text Tool"
 msgstr "Eina de text"
