@@ -179,7 +179,7 @@
       <li xml:lang="sk">Použitie existujúcich vzorov - KXStitch dokáže čítať súbory PC Stitch</li>
       <li xml:lang="sl">Urejanje obstoječih vzorcev - KXStitch zmore brati tudi datoteke PC Stitch</li>
       <li xml:lang="sv">Redigering av befintliga mönster: KXStitch klarar också av att läsa PC Stitch-filer</li>
-      <li xml:lang="tr">Mevcut desenleri düzenleme - KXStitch, PC Stitch dosyalarını da okuyabilir</li>
+      <li xml:lang="tr">Var olan desenleri düzenleme - KXStitch, PC Stitch dosyalarını da okuyabilir</li>
       <li xml:lang="uk">Редагування наявних візерунків — програма KXStitch здатна читати файли PC Stitch.</li>
       <li xml:lang="x-test">xxEditing of existing patterns - KXStitch is also capable of reading PC Stitch filesxx</li>
       <li xml:lang="zh-CN">编辑现有图案 - KXStitch 也能读取 PC Stitch 的文件</li>
@@ -318,7 +318,7 @@
       <li xml:lang="sk">Import rôznych obrazových formátov</li>
       <li xml:lang="sl">Uvoz različnih vrst slik</li>
       <li xml:lang="sv">Import av diverse bildformat</li>
-      <li xml:lang="tr">Çeşitli resim biçimi içe aktarma</li>
+      <li xml:lang="tr">Çeşitli resim biçimlerini içe aktarma</li>
       <li xml:lang="uk">Імпортування зображень у різних форматах.</li>
       <li xml:lang="x-test">xxImporting of various picture formatsxx</li>
       <li xml:lang="zh-CN">导入多种图片格式</li>
@@ -355,6 +355,13 @@
   <screenshots>
     <screenshot type="default">
       <caption>A stitch pattern created from an image</caption>
+      <caption xml:lang="ca">Un patró de punt de creu creat a partir d'una imatge</caption>
+      <caption xml:lang="es">Un patrón de puntos creado a partir de una imagen</caption>
+      <caption xml:lang="nl">Een kruissteek-patronen gemaakt uit een afbeelding</caption>
+      <caption xml:lang="sl">Vzorec šiva ustvarjen iz slike</caption>
+      <caption xml:lang="tr">Bir görselden oluşturulmuş çapraz dikiş deseni</caption>
+      <caption xml:lang="uk">Створений із зображення візерунок для вишивання хрестиком</caption>
+      <caption xml:lang="x-test">xxA stitch pattern created from an imagexx</caption>
       <image type="source">https://cdn.kde.org/screenshots/kxstitch/Importedimage.png</image>
     </screenshot>
   </screenshots>
