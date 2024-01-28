@@ -67,7 +67,7 @@
 >Color</guilabel
 > es mostrarà un <ulink url="help:/fundamentals/colors.html"
 >diàleg de selecció de color estàndard del &kde;</ulink
->. Es pot seleccionar el color inicial i després ajustar els paràmetres per obtenir el color correcte. </para>
+>. Es pot seleccionar el color inicial i després ajustar els paràmetres per a obtenir el color correcte. </para>
         <para
 >Un cop afegit, aquest color nou estarà disponible per a ser inclòs a la vostra paleta de patrons mitjançant el diàleg <guilabel
 >Gestor de la paleta</guilabel
@@ -148,7 +148,7 @@
         <para
 >Es pot seleccionar l'esquema del fil per al patró acabat, de manera predeterminada això és el mateix que els valors predeterminats del diàleg Propietats del patró nou. Els colors màxims que s'utilitzaran per al patró es poden habilitar i canviar segons sigui necessari, de manera predeterminada el patró importat tindrà tants colors com es defineixin a la imatge original, els quals es convertiran en colors del fil. Marcar la casella de selecció <guilabel
 >Ignora el color</guilabel
-> permet fer clic sobre l'eina de comptagotes per a seleccionar un color en la imatge que s'ignorarà durant la importació. Això és útil per eliminar fons que no necessiteu convertir en puntades. El color ignorat es mostrarà a la vista prèvia com un patró de tauler d'escacs. </para>
+> permet fer clic sobre l'eina de comptagotes per a seleccionar un color en la imatge que s'ignorarà durant la importació. Això és útil per a eliminar fons que no necessiteu convertir en puntades. El color ignorat es mostrarà a la vista prèvia com un patró de tauler d'escacs. </para>
         <para
 >El valor del recompte de la tela s'estableix de manera predeterminada en el diàleg <guilabel
 >Propietats del patró nou</guilabel
@@ -181,7 +181,7 @@
 ></screenshot>
         </para>
         <para
->La mida del patró es pot definir en unitats de puntades, centímetres o polzades. Si es canvia el tipus d'unitat, els valors d'amplada i alçada s'actualitzaran automàticament a la mida equivalent en el nou tipus d'unitat. </para>
+>La mida del patró es pot definir en unitats de puntades, centímetres o polzades. Si es canvia el tipus d'unitat, els valors d'amplada i alçada s'actualitzaran automàticament a la mida equivalent en el tipus d'unitat nou. </para>
         <para
 >El recompte de la tela es defineix en unitats per centímetre o polzades i depèn de les unitats de mida. &ead;, si se selecciona CM per a les unitats, el recompte de la tela estarà en unitats per centímetre, de manera similar per a polzades. Si les <guilabel
 >Unitats</guilabel
@@ -195,7 +195,7 @@
         <para
 >La pestanya <guilabel
 >Instruccions</guilabel
-> es pot utilitzar per introduir qualsevol instrucció específica per cosir el patró. </para>
+> es pot utilitzar per a introduir qualsevol instrucció específica per a cosir el patró. </para>
     </sect1>
 
     <sect1 id="PatternLibraryDialog">
@@ -212,7 +212,7 @@
         <para
 >El Gestor de la biblioteca de patrons té una vista en arbre jeràrquica (en realitat, més que un bosc) de categories a l'esquerra amb una vista d'icona de la categoria de patrons seleccionada a la dreta. Aquest diàleg no és modal i es podrà deixar obert mentre es treballa en el patró. </para>
         <para
->La manera més senzilla d'utilitzar els patrons de la biblioteca és arrossegar i deixar-los anar a dins de l'espai del patró. De manera alternativa, utilitzant el &BDR; sobre un patró de biblioteca mostrarà un menú contextual amb una opció per copiar-lo, que després es podrà enganxar a dins del patró tantes vegades com sigui necessari. </para>
+>La manera més senzilla d'utilitzar els patrons de la biblioteca és arrossegar i deixar-los anar a dins de l'espai del patró. De manera alternativa, utilitzant el &BDR; sobre un patró de biblioteca mostrarà un menú contextual amb una opció per a copiar-lo, que després es podrà enganxar a dins del patró tantes vegades com sigui necessari. </para>
         <para
 >Els elements addicionals en el menú contextual són: <itemizedlist>
                 <listitem
@@ -234,7 +234,7 @@
 ></screenshot>
         </para>
         <para
->El diàleg de propietats per a cada element mostra la seva mida i l'esquema del fil utilitzat, el valor de la línia base i el caràcter associat del teclat. Quan s'utilitza l'eina Alfabet, la línia de base es fa servir per a col·locar el patró de caràcters verticalment en relació amb la posició de l'indicador. Els valors positius el mouen cap avall, els valors negatius el mouen cap amunt. El caràcter associat només es requereix per utilitzar amb l'eina Alfabet. Després de fer clic al quadre de text del caràcter associat, la següent tecla premuda, inclosos els modificadors (&Maj;, &Ctrl;, &etc;) es farà servir com a tecla. </para>
+>El diàleg de propietats per a cada element mostra la seva mida i l'esquema del fil utilitzat, el valor de la línia base i el caràcter associat del teclat. Quan s'utilitza l'eina Alfabet, la línia de base es fa servir per a col·locar el patró de caràcters verticalment en relació amb la posició de l'indicador. Els valors positius el mouen cap avall, els valors negatius el mouen cap amunt. El caràcter associat només es requereix per a utilitzar amb l'eina Alfabet. Després de fer clic al quadre de text del caràcter associat, la tecla premuda següent, inclosos els modificadors (&Maj;, &Ctrl;, &etc;) es farà servir com a tecla. </para>
         <para
 >Es creen biblioteques noves fent clic amb el &BDR; sobre una categoria existent, per a crear una subcategoria o en una àrea en blanc de la llista de biblioteques, per a una categoria nova de nivell superior, i seleccioneu l'opció <guimenuitem
 >Categoria nova</guimenuitem
@@ -242,9 +242,9 @@
 >D'acord</guibutton
 >. </para>
         <para
->Crear un nou patró de biblioteca seleccionant una àrea a l'editor de patrons, seleccioneu copiar, després utilitzeu el &BDR; sobre una categoria existent i seleccioneu enganxar. Si cal, podreu utilitzar l'opció de propietats per afegir una clau associada si voleu emprar-la com una biblioteca de caràcters. </para>
+>Crear un patró nou de biblioteca seleccionant una àrea a l'editor de patrons, seleccioneu copiar, després utilitzeu el &BDR; sobre una categoria existent i seleccioneu enganxar. Si cal, podreu utilitzar l'opció de propietats per a afegir una clau associada si voleu emprar-la com una biblioteca de caràcters. </para>
         <para
->Els patrons de la biblioteca es poden arrossegar i deixar anar a altres biblioteques de la llista per permetre reorganitzar-ho segons les vostres necessitats. Tingueu en compte que no hi ha comprovacions per a garantir que els codis clau assignats als patrons de la biblioteca siguin únics i haureu de modificar els que dupliquin un d'existent. </para>
+>Els patrons de la biblioteca es poden arrossegar i deixar anar a altres biblioteques de la llista per a permetre reorganitzar-ho segons les vostres necessitats. Tingueu en compte que no hi ha comprovacions per a garantir que els codis clau assignats als patrons de la biblioteca siguin únics i haureu de modificar els que dupliquin un d'existent. </para>
     </sect1>
 
     <sect1 id="TextDialog">
@@ -274,9 +274,9 @@
         <title
 >El diàleg Amplia el patró</title>
         <para
->Això es fa servir per estendre el patró en diverses direccions a través de diverses cel·les. Introduïu el nombre de cel·les en els botons de selecció de valors i premeu <guibutton
+>Això es fa servir per a estendre el patró en diverses direccions a través de diverses cel·les. Introduïu el nombre de cel·les en els botons de selecció de valors i premeu <guibutton
 >D'acord</guibutton
-> per estendre el patró. </para>
+> per a estendre el patró. </para>
         <screenshot
 ><mediaobject
 ><imageobject
@@ -326,31 +326,31 @@
 ><imageobject
 ><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->Selecciona un element: s'utilitza per a seleccionar elements per editar o canviar la mida.</para>
+>Selecciona un element: s'utilitza per a seleccionar elements per a editar o canviar la mida.</para>
         <para
 ><inlinemediaobject
 ><imageobject
 ><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->Insereix un element de text: s'utilitza per inserir un element de text a la pàgina actual.</para>
+>Insereix un element de text: s'utilitza per a inserir un element de text a la pàgina actual.</para>
         <para
 ><inlinemediaobject
 ><imageobject
 ><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->Insereix un element de patró: s'utilitza per inserir un element de patró a la pàgina actual.</para>
+>Insereix un element de patró: s'utilitza per a inserir un element de patró a la pàgina actual.</para>
         <para
 ><inlinemediaobject
 ><imageobject
 ><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->Insereix un element d'imatge: s'utilitza per inserir un element d'imatge a la pàgina actual.</para>
+>Insereix un element d'imatge: s'utilitza per a inserir un element d'imatge a la pàgina actual.</para>
         <para
 ><inlinemediaobject
 ><imageobject
 ><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->Insereix un element clau: s'utilitza per inserir un element clau de fil a la pàgina actual.</para>
+>Insereix un element clau: s'utilitza per a inserir un element clau de fil a la pàgina actual.</para>
 
         <para
 >En afegir elements, seleccioneu la icona de l'element requerit, després seleccioneu l'àrea de la pàgina que ocuparà l'element fent-hi clic i arrossegant amb el &BER; des d'una cantonada a una altra. Les propietats de l'element es poden veure i canviar utilitzant el menú contextual, al qual s'accedeix amb el &BDR;. </para>
@@ -359,7 +359,7 @@
 ><imageobject
 ><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
->, això proporcionarà un rectangle de mida al voltant de l'element. Les cantonades es poden arrossegar per ajustar la mida o es pot moure tot l'element fent-hi clic i arrossegant-lo amb el &BER;. </para>
+>, això proporcionarà un rectangle de mida al voltant de l'element. Les cantonades es poden arrossegar per a ajustar la mida o es pot moure tot l'element fent-hi clic i arrossegant-lo amb el &BER;. </para>
         <para
 >La pàgina té un diàleg de propietats associat que permet configurar el marge de la pàgina, així com la mida i la visibilitat de la quadrícula. El marge de la pàgina proporciona una guia per a la col·locació dels objectes, però no evita que els elements es posicionin fora del marge definit. <screenshot
 ><mediaobject
@@ -398,7 +398,7 @@
             <title
 >Element de text</title>
             <para
->Es pot utilitzar un element de text per afegir notes de text al patró o per a mostrar els títols o comentaris. El text es pot configurar amb els tipus de lletra, color i transparència. A més, es pot mostrar una vora. <screenshot
+>Es pot utilitzar un element de text per a afegir notes de text al patró o per a mostrar els títols o comentaris. El text es pot configurar amb els tipus de lletra, color i transparència. A més, es pot mostrar una vora. <screenshot
 ><mediaobject
 ><imageobject
 ><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject

@@ -204,7 +204,7 @@
                         <listitem
 ><simpara
 ><action
->Selecciona una imatge de fons per eliminar. El submenú per això es completa a partir de les imatges de fons inserides prèviament.</action
+>Selecciona una imatge de fons a eliminar. El submenú per això es completa a partir de les imatges de fons inserides prèviament.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -866,7 +866,7 @@
                         <listitem
 ><simpara
 ><action
->Esborra les puntades: premeu el &BER; i arrossegueu sobre les puntades que voleu suprimir. S'eliminaran totes les puntades dins de les cel·les per on es passi. Deixeu anar el botó del ratolí per a deixar d'esborrar. Per esborrar els repunts, premeu la tecla &Ctrl; i feu clic esquerre en el punt inicial o final del repunt, si hi ha més d'un repunt en el punt digitalitzat, aquest mètode esborrarà el primer que trobi. Per a suprimir un repunt específic, feu clic i arrossegueu d'un extrem a l'altre. Per esborrar les puntades de nus francès, premeu la tecla &Maj; i feu clic esquerre sobre el nus per a suprimir-lo. </action
+>Esborra les puntades: premeu el &BER; i arrossegueu sobre les puntades que voleu suprimir. S'eliminaran totes les puntades dins de les cel·les per on es passi. Deixeu anar el botó del ratolí per a deixar d'esborrar. Per a esborrar els repunts, premeu la tecla &Ctrl; i feu clic esquerre en el punt inicial o final del repunt, si hi ha més d'un repunt en el punt digitalitzat, aquest mètode esborrarà el primer que trobi. Per a suprimir un repunt específic, feu clic i arrossegueu d'un extrem a l'altre. Per a esborrar les puntades de nus francès, premeu la tecla &Maj; i feu clic esquerre sobre el nus per a suprimir-lo. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -936,7 +936,7 @@
                         <listitem
 ><simpara
 ><action
->Dibuixa un polígon emplenat: feu clic sobre cada cel·la que marca els vèrtexs del polígon, feu-hi clic i arrossegueu-los per a crear corbes més complexes. Cadascun dels vèrtexs està marcat per un cercle amb una línia negra que els uneix. Per a tancar el polígon, feu clic de nou sobre la cel·la inicial. Feu servir la tecla &Retro; per eliminar l'últim punt, o la tecla &Esc; per eliminar tots els vèrtexs i cancel·lar l'operació. </action
+>Dibuixa un polígon emplenat: feu clic sobre cada cel·la que marca els vèrtexs del polígon, feu-hi clic i arrossegueu-los per a crear corbes més complexes. Cadascun dels vèrtexs està marcat per un cercle amb una línia negra que els uneix. Per a tancar el polígon, feu clic de nou sobre la cel·la inicial. Feu servir la tecla &Retro; per a eliminar l'últim punt, o la tecla &Esc; per a eliminar tots els vèrtexs i cancel·lar l'operació. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -966,9 +966,9 @@
                         <listitem
 ><simpara
 ><action
->Insereix patrons des de la biblioteca seleccionada que coincideixen amb les tecles premudes. Això permet la creació d'alfabets de patrons que poden tenir una assignació de tecla. Després de seleccionar aquesta eina i fer clic a una posició sobre el patró per al punt d'inserció, cada tecla premuda se cercarà a la biblioteca actual per trobar un patró coincident. Si es troba, s'inserirà a la posició del patró i a la posició d'inserció, després avançarà per l'amplada del patró de caràcters inserit. L'espai del patró s'estendrà a la dreta per permetre que s'introdueixin més caràcters. En prémer &Intro; es començarà una línia nova a sota de la posició del punt d'inserció original, l'espai del patró s'estendrà cap avall per acomodar la línia nova si no hi ha prou espai disponible. La tecla &Retro; suprimirà l'últim caràcter introduït i la tecla <keycap
+>Insereix patrons des de la biblioteca seleccionada que coincideixen amb les tecles premudes. Això permet la creació d'alfabets de patrons que poden tenir una assignació de tecla. Després de seleccionar aquesta eina i fer clic a una posició sobre el patró per al punt d'inserció, cada tecla premuda se cercarà a la biblioteca actual per a trobar un patró coincident. Si es troba, s'inserirà a la posició del patró i a la posició d'inserció, després avançarà per l'amplada del patró de caràcters inserit. L'espai del patró s'estendrà a la dreta per a permetre que s'introdueixin més caràcters. En prémer &Intro; es començarà una línia nova a sota de la posició del punt d'inserció original, l'espai del patró s'estendrà cap avall per a acomodar la línia nova si no hi ha prou espai disponible. La tecla &Retro; suprimirà l'últim caràcter introduït i la tecla <keycap
 >Espai</keycap
-> avançarà el punt d'inserció ja sigui per l'amplada d'un caràcter d'espai a la biblioteca o per una quantitat predeterminada si no hi ha un caràcter d'espai. El text s'ajustarà a la següent línia si s'abasta la vora del patró i es detecta el final d'una paraula. </action
+> avançarà el punt d'inserció ja sigui per l'amplada d'un caràcter d'espai a la biblioteca o per una quantitat predeterminada si no hi ha un caràcter d'espai. El text s'ajustarà a la línia següent si s'abasta la vora del patró i es detecta el final d'una paraula. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -982,7 +982,7 @@
                         <listitem
 ><simpara
 ><action
->Selecciona una regió rectangular: premeu el &BER; a una cantonada del rectangle, arrossegueu-la fins a la cantonada oposada i deixeu anar el botó. Es mostrarà un rectangle de selecció per indicar l'àrea. </action
+>Selecciona una regió rectangular: premeu el &BER; a una cantonada del rectangle, arrossegueu-la fins a la cantonada oposada i deixeu anar el botó. Es mostrarà un rectangle de selecció per a indicar l'àrea. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -1075,7 +1075,7 @@
                         <listitem
 ><simpara
 ><action
->El següent color seleccionat s'intercanviarà amb el color actualment seleccionat. Si seleccioneu l'eina de comptagotes, podreu triar el color amb el qual s'intercanviarà directament des del patró. </action
+>El color seleccionat següent s'intercanviarà amb el color actualment seleccionat. Si seleccioneu l'eina de comptagotes, podreu triar el color amb el qual s'intercanviarà directament des del patró. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -1089,7 +1089,7 @@
                         <listitem
 ><simpara
 ><action
->El següent color seleccionat substituirà el color actualment seleccionat. Com amb els colors d'intercanvi, podreu utilitzar l'eina de comptagotes per a seleccionar el color des del patró. </action
+>El color seleccionat següent substituirà el color actualment seleccionat. Com amb els colors d'intercanvi, podreu utilitzar l'eina de comptagotes per a seleccionar el color des del patró. </action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -1112,7 +1112,7 @@
                         <listitem
 ><simpara
 ><action
->Obre el gestor de la biblioteca de patrons, el qual és un diàleg no modal que permet la creació i l'ús de biblioteques de patrons o alfabets. El fer arrossega i deixa està disponible per a permetre arrossegar i deixar anar patrons des de la biblioteca cap al patró. La conversió automàtica de fils per adaptar-los al patró actual i escalar la imatge fins a l'escala del patró actual per a un posicionament precís. </action
+>Obre el gestor de la biblioteca de patrons, el qual és un diàleg no modal que permet la creació i l'ús de biblioteques de patrons o alfabets. El fer arrossega i deixa està disponible per a permetre arrossegar i deixar anar patrons des de la biblioteca cap al patró. La conversió automàtica de fils per a adaptar-los al patró actual i escalar la imatge fins a l'escala del patró actual per a un posicionament precís. </action
 ></simpara
 ></listitem>
                     </varlistentry>

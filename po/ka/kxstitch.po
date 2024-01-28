@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 01:34+0000\n"
-"PO-Revision-Date: 2022-10-20 06:13+0200\n"
+"PO-Revision-Date: 2024-01-27 05:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1200,12 +1200,12 @@ msgstr ""
 #: src/Exceptions.cpp:60
 #, kde-format
 msgid "Tried to read past the end of the data"
-msgstr ""
+msgstr "მონაცემების დასასრულს მიღმა წაკითხვის მცდელობა"
 
 #: src/Exceptions.cpp:62
 #, kde-format
 msgid "Tried to read corrupted data"
-msgstr ""
+msgstr "დაზიანებული მონაცემების წაკითხვის მცდელობა"
 
 #: src/Exceptions.cpp:64 src/Exceptions.cpp:103
 #, kde-format
@@ -1215,7 +1215,7 @@ msgstr ""
 #: src/Exceptions.cpp:98
 #, kde-format
 msgid "Failed to write to the device"
-msgstr ""
+msgstr "მოწყობილობაზე ჩაწერის შეცდომა"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
 #: src/ImageElementDlg.cpp:29 ui/ImageElement.ui:14
@@ -1453,7 +1453,7 @@ msgstr "გასახსნელი დოკუმენტი."
 #: src/MainWindow.cpp:238
 #, kde-format
 msgid "Save changes to document?"
-msgstr ""
+msgstr "შევინახო დოკუმენტის ცვლილებები?"
 
 #: src/MainWindow.cpp:255
 #, kde-format
@@ -2051,7 +2051,7 @@ msgstr ""
 #: src/SchemeParser.cpp:46
 #, kde-format
 msgid "Unknown error code"
-msgstr ""
+msgstr "უცნობი შეცდომის კოდი"
 
 #: src/Stitch.cpp:66
 #, kde-format
@@ -3220,7 +3220,7 @@ msgstr ""
 #: ui/PrintSetup.ui:188
 #, kde-format
 msgid "Delete the selected page"
-msgstr ""
+msgstr "მონიშნული გვერდის წაშლა"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
 #: ui/PrintSetup.ui:223
@@ -3358,7 +3358,7 @@ msgstr ""
 #: ui/TextElement.ui:368
 #, kde-format
 msgid "Underline text"
-msgstr ""
+msgstr "ტექსტის ხაზგასმა"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
 #: ui/TextElement.ui:387
