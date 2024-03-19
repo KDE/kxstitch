@@ -107,11 +107,7 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(aboutData);
 
-    app.setApplicationName(aboutData.componentName());
-    app.setApplicationDisplayName(aboutData.displayName());
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kxstitch")));
-    app.setOrganizationDomain(aboutData.organizationDomain());
-    app.setApplicationVersion(aboutData.version());
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
