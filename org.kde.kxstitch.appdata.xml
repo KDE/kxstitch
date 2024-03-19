@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <!--Created with jdAppStreamEdit 8.0-->
   <id>org.kde.kxstitch</id>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>KXStitch</name>
   <name xml:lang="ca">KXStitch</name>
   <name xml:lang="ca-valencia">KXStitch</name>
