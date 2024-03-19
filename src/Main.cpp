@@ -106,13 +106,10 @@ int main(int argc, char *argv[])
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(aboutData);
-
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kxstitch")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
-    parser.setApplicationDescription(aboutData.shortDescription());
-
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("Document to open."), QStringLiteral("[urls...]"));
 
     parser.process(app);
