@@ -166,7 +166,8 @@ if (SILENCE_DEPRECATED)
     add_definitions( -Wno-deprecated-declarations )
 endif (SILENCE_DEPRECATED)
 
-exec_program (Magick++-config ARGS --cxxflags OUTPUT_VARIABLE magick_config)
+find_program (MAGICK_CONFIG_EXEC "Magick++-config")
+execute_process (COMMAND ${MAGICK_CONFIG_EXEC} "--cxxflags" OUTPUT_VARIABLE magick_config)
 
 string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
 string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${magick_config})
@@ -179,7 +180,8 @@ endif (magick_config_hdri STREQUAL "")
 
 if (magick_config_quantum STREQUAL "")
     # MAGICKCORE_QUANTUM_DEPTH can also be found in the version string of an ImageMagick application
-    exec_program (mogrify ARGS --version OUTPUT_VARIABLE mogrify_version)
+    find_program (MOGRIFY_EXEC "mogrify")
+    execute_process (COMMAND ${MOGRIFY_EXEC} "--version" OUTPUT_VARIABLE mogrify_version)
     string (REGEX MATCH "Q8|Q16" mogrify_version_quantum ${mogrify_version})
 
     if (mogrify_version_quantum STREQUAL "Q8")
