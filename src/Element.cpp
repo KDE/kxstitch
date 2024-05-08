@@ -453,23 +453,30 @@ void KeyElement::render(Document *document, QPainter *painter) const
         int index = sortedFlossesIterator.next();
         FlossUsage usage = flossUsage[index];
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         flossNameWidth = std::max(flossNameWidth, fontMetrics.width(flosses[index]->flossName()));
-        strandsWidth =
-            std::max(strandsWidth,
-                     fontMetrics.width(QString::fromLatin1("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
+        strandsWidth = std::max(strandsWidth, fontMetrics.width(QString::fromLatin1("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
         flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.width(scheme->find(flosses[index]->flossName())->description()));
         stitchesWidth = std::max(stitchesWidth, fontMetrics.width(QString::fromLatin1("%1").arg(usage.totalStitches())));
-        double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands()
-                                         + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(),
-                                     2);
+        double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(), 2);
         lengthWidth = std::max(lengthWidth, fontMetrics.width(QString::fromLatin1("%1").arg(flossLength)));
         skeinsWidth = std::max(skeinsWidth, fontMetrics.width(QString::fromLatin1("%1").arg(flossLength / 48))); // 1 skein = 6 strands of 8m
+#else
+        flossNameWidth = std::max(flossNameWidth, fontMetrics.horizontalAdvance(flosses[index]->flossName()));
+        strandsWidth = std::max(strandsWidth, fontMetrics.horizontalAdvance(QString::fromLatin1("%1 / %2").arg(flosses[index]->stitchStrands()).arg(flosses[index]->backstitchStrands())));
+        flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.horizontalAdvance(scheme->find(flosses[index]->flossName())->description()));
+        stitchesWidth = std::max(stitchesWidth, fontMetrics.horizontalAdvance(QString::fromLatin1("%1").arg(usage.totalStitches())));
+        double flossLength = round_n(usage.stitchLength() * unitLength * flosses[index]->stitchStrands() + usage.backstitchLength * unitLength * flosses[index]->backstitchStrands(), 2);
+        lengthWidth = std::max(lengthWidth, fontMetrics.horizontalAdvance(QString::fromLatin1("%1").arg(flossLength)));
+        skeinsWidth = std::max(skeinsWidth, fontMetrics.horizontalAdvance(QString::fromLatin1("%1").arg(flossLength / 48))); // 1 skein = 6 strands of 8m
+#endif
     }
 
     font.setBold(true);
     fontMetrics = QFontMetrics(font, painter->device());
     int spacing = fontMetrics.averageCharWidth() * 2;
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
     symbolWidth = std::max(symbolWidth, fontMetrics.width(i18n("Symbol")));
     flossNameWidth = std::max(flossNameWidth, fontMetrics.width(i18nc("The name of the floss", "Name")));
     strandsWidth = std::max(strandsWidth, fontMetrics.width(i18n("Strands")));
@@ -477,6 +484,15 @@ void KeyElement::render(Document *document, QPainter *painter) const
     stitchesWidth = std::max(stitchesWidth, fontMetrics.width(i18n("Stitches")));
     lengthWidth = std::max(lengthWidth, fontMetrics.width(i18n("Length(m)")));
     skeinsWidth = std::max(skeinsWidth, fontMetrics.width(i18n("Skeins (8m)")));
+#else
+    symbolWidth = std::max(symbolWidth, fontMetrics.horizontalAdvance(i18n("Symbol")));
+    flossNameWidth = std::max(flossNameWidth, fontMetrics.horizontalAdvance(i18nc("The name of the floss", "Name")));
+    strandsWidth = std::max(strandsWidth, fontMetrics.horizontalAdvance(i18n("Strands")));
+    flossDescriptionWidth = std::max(flossDescriptionWidth, fontMetrics.horizontalAdvance(i18n("Description")));
+    stitchesWidth = std::max(stitchesWidth, fontMetrics.horizontalAdvance(i18n("Stitches")));
+    lengthWidth = std::max(lengthWidth, fontMetrics.horizontalAdvance(i18n("Length(m)")));
+    skeinsWidth = std::max(skeinsWidth, fontMetrics.horizontalAdvance(i18n("Skeins (8m)")));
+#endif
 
     // if a column is not being displayed zero the width, otherwise add the spacing value
     symbolWidth = (m_symbolColumn) ? symbolWidth + spacing : 0;

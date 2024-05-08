@@ -59,7 +59,11 @@ QSize ScaledPixmapLabel::sizeHint() const
 QRect ScaledPixmapLabel::pixmapRect() const
 {
     QSize previewSize = size();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     QSize pixmapSize = pixmap()->size();
+#else
+    QSize pixmapSize = pixmap(Qt::ReturnByValue).size();
+#endif
 
     int dx = (previewSize.width() - pixmapSize.width()) / 2;
     int dy = (previewSize.height() - pixmapSize.height()) / 2;
@@ -125,7 +129,11 @@ void ScaledPixmapLabel::mouseReleaseEvent(QMouseEvent *event)
         m_crop = pixmapRect().intersected(QRect(m_start, m_end).normalized());
         update();
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         double scale = (double)m_pixmap.size().width() / (double)pixmap()->size().width();
+#else
+        double scale = (double)m_pixmap.size().width() / (double)pixmap(Qt::ReturnByValue).size().width();
+#endif
         m_crop.translate(-pixmapRect().topLeft());
         QRectF cropF(scale * m_crop.x(), scale * m_crop.y(), scale * m_crop.width(), scale * m_crop.height());
 

@@ -1279,12 +1279,16 @@ void Editor::paintEvent(QPaintEvent *e)
 void Editor::wheelEvent(QWheelEvent *e)
 {
     bool zoomed;
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
     QPoint p = e->pos();
+#else
+    QPoint p = e->position().toPoint();
+#endif
     QPoint offset = parentWidget()->rect().center() - pos();
 
     setUpdatesEnabled(false);
 
-    if (e->delta() > 0) {
+    if (e->angleDelta().y() > 0) {
         zoomed = zoom(m_zoomFactor * 1.2);
         offset -= (p - (p * 1.2));
     } else {
