@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 01:39+0000\n"
+"POT-Creation-Date: 2024-05-09 01:50+0000\n"
 "PO-Revision-Date: 2018-07-31 17:26+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Cut"
 msgstr ""
 
-#: src/Commands.cpp:1282 src/Editor.cpp:1965 src/MainWindow.cpp:1411
+#: src/Commands.cpp:1282 src/Editor.cpp:1969 src/MainWindow.cpp:1411
 #, kde-format
 msgid "Alphabet"
 msgstr "Aakkoset"
@@ -1041,11 +1041,11 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:477
-#: src/Element.cpp:512 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1533
-#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
-#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
-#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
+#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:484
+#: src/Element.cpp:492 src/Element.cpp:528 src/ImportImageDlg.cpp:200
+#: src/MainWindow.cpp:1533 ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304
+#: ui/FileProperties.ui:82 ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86
+#: ui/PatternElement.ui:81 ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
 #, kde-format
 msgid "Stitches"
 msgstr ""
@@ -1144,7 +1144,7 @@ msgid "Drag"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:813 src/Editor.cpp:1944 src/MainWindow.cpp:1401
+#: src/Editor.cpp:813 src/Editor.cpp:1948 src/MainWindow.cpp:1401
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
@@ -1155,7 +1155,7 @@ msgstr "Teksti"
 msgid "Add Character"
 msgstr "Lisää merkki"
 
-#: src/Editor.cpp:957 src/Editor.cpp:2106 src/LibraryManagerDlg.cpp:116
+#: src/Editor.cpp:957 src/Editor.cpp:2110 src/LibraryManagerDlg.cpp:116
 #: src/LibraryManagerDlg.cpp:135
 #, kde-format
 msgid "Paste"
@@ -1164,13 +1164,13 @@ msgstr "Liitä"
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/Element.cpp:473 src/Element.cpp:496 ui/KeyElement.ui:377
-#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#: src/Element.cpp:480 src/Element.cpp:488 src/Element.cpp:512
+#: ui/KeyElement.ui:377 ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
 #, kde-format
 msgid "Symbol"
 msgstr "Symboli"
 
-#: src/Element.cpp:474 src/Element.cpp:500
+#: src/Element.cpp:481 src/Element.cpp:489 src/Element.cpp:516
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
@@ -1178,29 +1178,30 @@ msgstr "Nimi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#: src/Element.cpp:475 src/Element.cpp:504 ui/KeyElement.ui:403
-#: ui/PrinterConfigPage.ui:872
+#: src/Element.cpp:482 src/Element.cpp:490 src/Element.cpp:520
+#: ui/KeyElement.ui:403 ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/Element.cpp:476 src/Element.cpp:508 ui/NewFloss.ui:44
+#: src/Element.cpp:483 src/Element.cpp:491 src/Element.cpp:524
+#: ui/NewFloss.ui:44
 #, kde-format
 msgid "Description"
 msgstr "Kuvaus"
 
-#: src/Element.cpp:478 src/Element.cpp:517
+#: src/Element.cpp:485 src/Element.cpp:493 src/Element.cpp:533
 #, kde-format
 msgid "Length(m)"
 msgstr "Pituus (m)"
 
-#: src/Element.cpp:479 src/Element.cpp:523
+#: src/Element.cpp:486 src/Element.cpp:494 src/Element.cpp:539
 #, kde-format
 msgid "Skeins (8m)"
 msgstr ""
 
-#: src/Element.cpp:492
+#: src/Element.cpp:508
 #, kde-format
 msgctxt "%1 is a scheme name"
 msgid "%1 Flosses"
