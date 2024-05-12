@@ -1402,7 +1402,7 @@ msgstr "Afig a la llista d'exportació"
 #: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
 #, kde-format
 msgid "Properties..."
-msgstr "Propietats..."
+msgstr "Propietats…"
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
@@ -1470,7 +1470,7 @@ msgstr "Cap del projecte"
 #: src/Main.cpp:103
 #, kde-format
 msgid "Bug fixes, application icons"
-msgstr "Correccions d'errors, icones d'aplicació"
+msgstr "Esmenes d'errors, icones d'aplicació"
 
 #: src/Main.cpp:104
 #, kde-format
@@ -1480,7 +1480,7 @@ msgstr "Pàgina «man»"
 #: src/Main.cpp:105
 #, kde-format
 msgid "Bug fixes, improvements"
-msgstr "Correccions d'errors, millores"
+msgstr "Esmenes d'errors, millores"
 
 #: src/Main.cpp:106
 #, kde-format
@@ -1565,7 +1565,7 @@ msgstr ""
 #: src/MainWindow.cpp:401
 #, kde-format
 msgid "Save As..."
-msgstr "Anomena i guarda..."
+msgstr "Anomena i guarda…"
 
 #: src/MainWindow.cpp:401
 #, kde-format
@@ -1652,12 +1652,12 @@ msgstr "Configureu la impressora"
 #: src/MainWindow.cpp:1129
 #, kde-format
 msgid "Print Setup..."
-msgstr "Configura la impressió..."
+msgstr "Configura la impressió…"
 
 #: src/MainWindow.cpp:1146
 #, kde-format
 msgid "Add Background Image..."
-msgstr "Afig una imatge de fons..."
+msgstr "Afig una imatge de fons…"
 
 #: src/MainWindow.cpp:1163
 #, kde-format
@@ -1778,7 +1778,7 @@ msgstr "Selector de color"
 #: src/MainWindow.cpp:1452
 #, kde-format
 msgid "Palette Manager..."
-msgstr "Gestor de la paleta..."
+msgstr "Gestor de la paleta…"
 
 #: src/MainWindow.cpp:1458
 #, kde-format
@@ -1793,7 +1793,7 @@ msgstr "Neteja els no emprats"
 #: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr "Calibra l'esquema..."
+msgstr "Calibra l'esquema…"
 
 #: src/MainWindow.cpp:1479
 #, kde-format
@@ -1803,7 +1803,7 @@ msgstr "Substituïx els colors"
 #: src/MainWindow.cpp:1485
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Amplia el patró..."
+msgstr "Amplia el patró…"
 
 #: src/MainWindow.cpp:1497
 #, kde-format
@@ -1818,7 +1818,7 @@ msgstr "Escapça el llenç a la selecció"
 #: src/MainWindow.cpp:1522
 #, kde-format
 msgid "Library Manager..."
-msgstr "Gestor de la biblioteca..."
+msgstr "Gestor de la biblioteca…"
 
 #: src/MainWindow.cpp:1558
 #, kde-format
@@ -3458,123 +3458,3 @@ msgstr "Alinea a la dreta"
 #, kde-format
 msgid "Align justified"
 msgstr "Alinea justificat"
-
-#~ msgctxt "Paper size"
-#~ msgid "A0"
-#~ msgstr "A0"
-
-#~ msgctxt "Paper size"
-#~ msgid "A1"
-#~ msgstr "A1"
-
-#~ msgctxt "Paper size"
-#~ msgid "A2"
-#~ msgstr "A2"
-
-#~ msgctxt "Paper size"
-#~ msgid "A3"
-#~ msgstr "A3"
-
-#~ msgctxt "Paper size"
-#~ msgid "A4"
-#~ msgstr "A4"
-
-#~ msgctxt "Paper size"
-#~ msgid "A5"
-#~ msgstr "A5"
-
-#~ msgctxt "Paper size"
-#~ msgid "A6"
-#~ msgstr "A6"
-
-#~ msgctxt "Paper size"
-#~ msgid "A7"
-#~ msgstr "A7"
-
-#~ msgctxt "Paper size"
-#~ msgid "A8"
-#~ msgstr "A8"
-
-#~ msgctxt "Paper size"
-#~ msgid "A9"
-#~ msgstr "A9"
-
-#~ msgctxt "Paper size"
-#~ msgid "B0"
-#~ msgstr "B0"
-
-#~ msgctxt "Paper size"
-#~ msgid "B1"
-#~ msgstr "B1"
-
-#~ msgctxt "Paper size"
-#~ msgid "B2"
-#~ msgstr "B2"
-
-#~ msgctxt "Paper size"
-#~ msgid "B3"
-#~ msgstr "B3"
-
-#~ msgctxt "Paper size"
-#~ msgid "B4"
-#~ msgstr "B4"
-
-#~ msgctxt "Paper size"
-#~ msgid "B5"
-#~ msgstr "B5"
-
-#~ msgctxt "Paper size"
-#~ msgid "B6"
-#~ msgstr "B6"
-
-#~ msgctxt "Paper size"
-#~ msgid "B7"
-#~ msgstr "B7"
-
-#~ msgctxt "Paper size"
-#~ msgid "B8"
-#~ msgstr "B8"
-
-#~ msgctxt "Paper size"
-#~ msgid "B9"
-#~ msgstr "B9"
-
-#~ msgctxt "Paper size"
-#~ msgid "B10"
-#~ msgstr "B10"
-
-#~ msgctxt "Paper size"
-#~ msgid "C5E"
-#~ msgstr "C5E"
-
-#~ msgctxt "Paper size"
-#~ msgid "Comm10E"
-#~ msgstr "Comm10E"
-
-#~ msgctxt "Paper size"
-#~ msgid "DLE"
-#~ msgstr "DLE"
-
-#~ msgctxt "Paper size"
-#~ msgid "Executive"
-#~ msgstr "Executiu"
-
-#~ msgctxt "Paper size"
-#~ msgid "Folio"
-#~ msgstr "Foli"
-
-#~ msgctxt "Paper size"
-#~ msgid "Ledger"
-#~ msgstr "Llibre major"
-
-#~ msgctxt "Paper size"
-#~ msgid "Legal"
-#~ msgstr "Legal"
-
-#~ msgctxt "Paper size"
-#~ msgid "Letter"
-#~ msgstr "Carta"
-
-#~ msgctxt "Paper size"
-#~ msgid "Tabloid"
-#~ msgstr "Tabloide"
