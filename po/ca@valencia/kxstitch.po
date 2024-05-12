@@ -1400,7 +1400,7 @@ msgstr "Afig a la llista d'exportació"
 #: src/LibraryManagerDlg.cpp:118 src/LibraryManagerDlg.cpp:134
 #, kde-format
 msgid "Properties..."
-msgstr "Propietats..."
+msgstr "Propietats…"
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
@@ -1468,7 +1468,7 @@ msgstr "Cap del projecte"
 #: src/Main.cpp:103
 #, kde-format
 msgid "Bug fixes, application icons"
-msgstr "Correccions d'errors, icones d'aplicació"
+msgstr "Esmenes d'errors, icones d'aplicació"
 
 #: src/Main.cpp:104
 #, kde-format
@@ -1478,7 +1478,7 @@ msgstr "Pàgina «man»"
 #: src/Main.cpp:105
 #, kde-format
 msgid "Bug fixes, improvements"
-msgstr "Correccions d'errors, millores"
+msgstr "Esmenes d'errors, millores"
 
 #: src/Main.cpp:106
 #, kde-format
@@ -1567,7 +1567,7 @@ msgstr ""
 #: src/MainWindow.cpp:395
 #, kde-format
 msgid "Save As..."
-msgstr "Anomena i guarda..."
+msgstr "Anomena i guarda…"
 
 #: src/MainWindow.cpp:395
 #, kde-format
@@ -1657,12 +1657,12 @@ msgstr "Configureu la impressora"
 #: src/MainWindow.cpp:1129
 #, kde-format
 msgid "Print Setup..."
-msgstr "Configura la impressió..."
+msgstr "Configura la impressió…"
 
 #: src/MainWindow.cpp:1146
 #, kde-format
 msgid "Add Background Image..."
-msgstr "Afig una imatge de fons..."
+msgstr "Afig una imatge de fons…"
 
 #: src/MainWindow.cpp:1164
 #, kde-format
@@ -1783,7 +1783,7 @@ msgstr "Selector de color"
 #: src/MainWindow.cpp:1417
 #, kde-format
 msgid "Palette Manager..."
-msgstr "Gestor de la paleta..."
+msgstr "Gestor de la paleta…"
 
 #: src/MainWindow.cpp:1423
 #, kde-format
@@ -1798,7 +1798,7 @@ msgstr "Neteja els no emprats"
 #: src/MainWindow.cpp:1434
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr "Calibra l'esquema..."
+msgstr "Calibra l'esquema…"
 
 #: src/MainWindow.cpp:1444
 #, kde-format
@@ -1808,7 +1808,7 @@ msgstr "Substituïx els colors"
 #: src/MainWindow.cpp:1451
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Amplia el patró..."
+msgstr "Amplia el patró…"
 
 #: src/MainWindow.cpp:1463
 #, kde-format
@@ -1823,7 +1823,7 @@ msgstr "Escapça el llenç a la selecció"
 #: src/MainWindow.cpp:1489
 #, kde-format
 msgid "Library Manager..."
-msgstr "Gestor de la biblioteca..."
+msgstr "Gestor de la biblioteca…"
 
 #: src/MainWindow.cpp:1525
 #, kde-format
