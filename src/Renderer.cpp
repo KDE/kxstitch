@@ -281,6 +281,9 @@ void Renderer::render(QPainter *painter,
     int patternHeight = updateCells.height();
 
     if (renderGrid) {
+        bool antialiasing = d->m_painter->testRenderHint(QPainter::Antialiasing);
+        d->m_painter->setRenderHint(QPainter::Antialiasing, false);
+
         QPen thickPen(d->m_thickLineColor);
         QPen thinPen(d->m_thinLineColor);
         thickPen.setWidthF(d->m_thickLineWidth);
@@ -295,6 +298,8 @@ void Renderer::render(QPainter *painter,
             painter->setPen((x % d->m_cellHorizontalGrouping) ? thinPen : thickPen);
             painter->drawLine(x, patternTop, x, patternTop + patternHeight);
         }
+
+        d->m_painter->setRenderHint(QPainter::Antialiasing, antialiasing);
     }
 
     if (renderStitches) {
