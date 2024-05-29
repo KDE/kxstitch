@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1637,7 +1636,7 @@ msgstr "Paleta"
 #: src/MainWindow.cpp:960
 #, kde-format
 msgid "Import"
-msgstr "Zaimportuj"
+msgstr "Importuj"
 
 #: src/MainWindow.cpp:961
 #, kde-format
