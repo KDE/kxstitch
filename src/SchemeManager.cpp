@@ -159,7 +159,7 @@ bool SchemeManager::writeScheme(QString name)
     QFileInfo fileInfo(flossScheme->path());
 
     if (!fileInfo.isWritable()) {
-        QString writableDir = QStandardPaths::writableLocation(QStandardPaths::DataLocation); // this may be empty or may not exist
+        QString writableDir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation); // this may be empty or may not exist
 
         if (writableDir.isEmpty()) {
             KMessageBox::error(nullptr, i18n("Unable to locate a writable directory\nto store the scheme."));
@@ -215,7 +215,7 @@ bool SchemeManager::writeScheme(QString name)
     */
 void SchemeManager::refresh()
 {
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("schemes"), QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("schemes"), QStandardPaths::LocateDirectory);
 
     Q_FOREACH (const QString &dir, dirs) {
         QDirIterator it(dir, QStringList() << QLatin1String("*.xml"));

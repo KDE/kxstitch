@@ -38,12 +38,12 @@ const QStringList validTags = {
 /**
     Error messages.
     */
-const char *errorMessages[] = {I18N_NOOP("No error"),
-                               I18N_NOOP("Floss not completely defined"),
-                               I18N_NOOP("Unmatched element tags"),
-                               I18N_NOOP("Unknown element tag"),
-                               I18N_NOOP("Color value is invalid"),
-                               I18N_NOOP("Unknown error code")};
+const KLocalizedString errorMessages[] = {ki18n("No error"),
+                               ki18n("Floss not completely defined"),
+                               ki18n("Unmatched element tags"),
+                               ki18n("Unknown element tag"),
+                               ki18n("Color value is invalid"),
+                               ki18n("Unknown error code")};
 
 /**
     Constructor.  Initialises pointers to 0 and set the m_errorCode value to 0.
@@ -177,5 +177,5 @@ bool SchemeParser::endElement(const QString &namespaceURI, const QString &localN
     */
 QString SchemeParser::errorString() const
 {
-    return i18n(errorMessages[m_errorCode]);
+    return errorMessages[m_errorCode].toString();
 }

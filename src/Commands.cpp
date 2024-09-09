@@ -12,6 +12,7 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QIODevice>
 #include <QMimeData>
 
 #include <KLocalizedString>

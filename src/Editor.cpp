@@ -1373,7 +1373,7 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+        //painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
 
         painter->resetTransform();
         QStyleOptionRubberBand opt;
@@ -1393,7 +1393,7 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
+        //painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
 
         painter->resetTransform();
         QStyleOptionRubberBand opt;
@@ -1565,7 +1565,7 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent *)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
-        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
+        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.drawLine(m_cellStart, m_cellEnd);
         painter.end();
@@ -1917,7 +1917,7 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
-        painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
+        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
         painter.drawPolygon(m_polygon);

@@ -1697,17 +1697,17 @@ void TextElement::render(Document *document, QPainter *painter) const
 QString TextElement::convertedText(Document *document) const
 {
     QString replacement = m_text;
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{title\\}")), document->property(QStringLiteral("title")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{author\\}")), document->property(QStringLiteral("author")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{copyright\\}")), document->property(QStringLiteral("copyright")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{fabric\\}")), document->property(QStringLiteral("fabric")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{instructions\\}")), document->property(QStringLiteral("instructions")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{horizontalClothCount\\}")), document->property(QStringLiteral("horizontalClothCount")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{verticalClothCount\\}")), document->property(QStringLiteral("verticalClothCount")).toString());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{width.stitches\\}")), QString::fromLatin1("%1").arg(document->pattern()->stitches().width()));
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{height.stitches\\}")), QString::fromLatin1("%1").arg(document->pattern()->stitches().height()));
+    replacement.replace(QStringLiteral("${title}"), document->property(QStringLiteral("title")).toString());
+    replacement.replace(QStringLiteral("${author}"), document->property(QStringLiteral("author")).toString());
+    replacement.replace(QStringLiteral("${copyright}"), document->property(QStringLiteral("copyright")).toString());
+    replacement.replace(QStringLiteral("${fabric}"), document->property(QStringLiteral("fabric")).toString());
+    replacement.replace(QStringLiteral("${instructions}"), document->property(QStringLiteral("instructions")).toString());
+    replacement.replace(QStringLiteral("${horizontalClothCount}"), document->property(QStringLiteral("horizontalClothCount")).toString());
+    replacement.replace(QStringLiteral("${verticalClothCount}"), document->property(QStringLiteral("verticalClothCount")).toString());
+    replacement.replace(QStringLiteral("${width.stitches}"), QString::fromLatin1("%1").arg(document->pattern()->stitches().width()));
+    replacement.replace(QStringLiteral("${height.stitches}"), QString::fromLatin1("%1").arg(document->pattern()->stitches().height()));
     replacement.replace(
-        QRegExp(QStringLiteral("\\$\\{width.inches\\}")),
+        QStringLiteral("${width.inches}"),
         QString::fromLatin1("%1").arg(
             round_n(document->pattern()->stitches().width()
                         / (document->property(QStringLiteral("horizontalClothCount")).toDouble()
@@ -1717,7 +1717,7 @@ QString TextElement::convertedText(Document *document) const
                                   : 1)),
                     2)));
     replacement.replace(
-        QRegExp(QStringLiteral("\\$\\{height.inches\\}")),
+        QStringLiteral("${height.inches}"),
         QString::fromLatin1("%1").arg(
             round_n(document->pattern()->stitches().height()
                         / (document->property(QStringLiteral("verticalClothCount")).toDouble()
@@ -1727,7 +1727,7 @@ QString TextElement::convertedText(Document *document) const
                                   : 1)),
                     2)));
     replacement.replace(
-        QRegExp(QStringLiteral("\\$\\{width.cm\\}")),
+        QStringLiteral("${width.cm}"),
         QString::fromLatin1("%1").arg(
             round_n(document->pattern()->stitches().width()
                         / (document->property(QStringLiteral("horizontalClothCount")).toDouble()
@@ -1737,7 +1737,7 @@ QString TextElement::convertedText(Document *document) const
                                   : 1)),
                     2)));
     replacement.replace(
-        QRegExp(QStringLiteral("\\$\\{height.cm\\}")),
+        QStringLiteral("${height.cm}"),
         QString::fromLatin1("%1").arg(
             round_n(document->pattern()->stitches().height()
                         / (document->property(QStringLiteral("verticalClothCount")).toDouble()
@@ -1746,8 +1746,8 @@ QString TextElement::convertedText(Document *document) const
                                   ? 2.54
                                   : 1)),
                     2)));
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{scheme\\}")), document->pattern()->palette().schemeName());
-    replacement.replace(QRegExp(QStringLiteral("\\$\\{page\\}")), QString::fromLatin1("%1").arg(parent()->pageNumber()));
+    replacement.replace(QStringLiteral("${scheme}"), document->pattern()->palette().schemeName());
+    replacement.replace(QStringLiteral("${page}"), QString::fromLatin1("%1").arg(parent()->pageNumber()));
     // repeat for all possible values
 
     return replacement;

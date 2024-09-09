@@ -18,6 +18,7 @@
 
 #include <QDataStream>
 #include <QtGlobal>
+#include <QString>
 
 /**
  * @brief Invalid file exception class.

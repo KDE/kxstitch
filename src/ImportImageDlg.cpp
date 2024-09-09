@@ -340,7 +340,7 @@ void ImportImageDlg::renderPixmap()
     m_convertedImage.quantizeColorSpace(Magick::RGBColorspace);
     m_convertedImage.quantizeColors(
         ui.UseMaximumColors->isChecked()
-            ? std::min(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count())
+            ? std::min<int>(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count())
             : SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
     m_convertedImage.quantize();
     m_convertedImage.map(m_colorMap);

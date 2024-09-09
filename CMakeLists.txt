@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project (kxstitch VERSION "2.2.0")
+project (kxstitch VERSION "2.3.0")
 
 find_package (ECM REQUIRED NO_MODULE)
 set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -16,15 +16,16 @@ include (FeatureSummary)
 
 kde_enable_exceptions()
 
-find_package (Qt5 CONFIG REQUIRED
+find_package (Qt6 CONFIG REQUIRED
     Core
+    Core5Compat
     PrintSupport
     Widgets
 )
 
-find_package (KF5DocTools)
+find_package (KF6DocTools)
 
-find_package (KF5 REQUIRED COMPONENTS
+find_package (KF6 REQUIRED COMPONENTS
     Config
     ConfigWidgets
     Completion
@@ -141,17 +142,18 @@ kconfig_add_kcfg_files(kxstitch_SRCS configuration.kcfgc)
 add_executable (kxstitch ${kxstitch_SRCS})
 
 target_link_libraries (kxstitch
-    Qt5::Core
-    Qt5::PrintSupport
-    Qt5::Widgets
-    KF5::Completion
-    KF5::ConfigGui
-    KF5::GuiAddons
-    KF5::KIOFileWidgets
-    KF5::I18n
-    KF5::TextWidgets
-    KF5::WidgetsAddons
-    KF5::XmlGui
+    Qt6::Core
+    Qt6::Core5Compat # for QXmlInputSource etc.
+    Qt6::PrintSupport
+    Qt6::Widgets
+    KF6::Completion
+    KF6::ConfigGui
+    KF6::GuiAddons
+    KF6::KIOFileWidgets
+    KF6::I18n
+    KF6::TextWidgets
+    KF6::WidgetsAddons
+    KF6::XmlGui
     ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
 )
 
@@ -166,11 +168,11 @@ if (SILENCE_DEPRECATED)
     add_definitions( -Wno-deprecated-declarations )
 endif (SILENCE_DEPRECATED)
 
-find_program (MAGICK_CONFIG_EXEC "Magick++-config")
-execute_process (COMMAND ${MAGICK_CONFIG_EXEC} "--cxxflags" OUTPUT_VARIABLE magick_config)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(Magick++ REQUIRED Magick++)
 
-string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
-string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${magick_config})
+string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${Magick++_CFLAGS})
+string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${Magick++_CFLAGS})
 
 # earlier versions of Magick++-config don't provide the necessary options
 if (magick_config_hdri STREQUAL "")

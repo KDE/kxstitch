@@ -20,6 +20,7 @@
 #include <QIcon>
 #include <QImage>
 #include <QRect>
+#include <QSharedPointer>
 #include <QUrl>
 
 // Forward declaration of Qt classes

@@ -19,7 +19,7 @@
 // Qt includes
 #include <QDataStream>
 
-// KF5 includes
+// KF includes
 #include <KLocalizedString>
 
 // Application includes

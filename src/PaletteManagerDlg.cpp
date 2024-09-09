@@ -11,7 +11,6 @@
 #include "PaletteManagerDlg.h"
 
 #include <QBitmap>
-#include <QDesktopWidget>
 #include <QPainter>
 #include <QScreen>
 #include <QWidget>

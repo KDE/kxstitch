@@ -11,6 +11,7 @@
 #include "LibraryPattern.h"
 
 #include <QListWidget>
+#include <QIODevice>
 
 #include "KeycodeLineEdit.h"
 #include "LibraryListWidgetItem.h"

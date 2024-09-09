@@ -83,7 +83,7 @@ void ScaledPixmapLabel::paintEvent(QPaintEvent *event)
     QLabel::paintEvent(event);
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
+    //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
 
     if (m_crop.isValid()) {
         QStyleOptionRubberBand opt;

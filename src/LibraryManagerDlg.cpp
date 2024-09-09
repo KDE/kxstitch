@@ -212,10 +212,10 @@ void LibraryManagerDlg::newCategory()
 
         if (!fileInfo.isWritable()) {
             path.remove(0, path.indexOf(QLatin1String("/library")));
-            path.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+            path.prepend(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
         }
     } else {
-        path = QString::fromLatin1("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).arg(QLatin1String("library"));
+        path = QString::fromLatin1("%1/%2").arg(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).arg(QLatin1String("library"));
     }
 
     path = QString::fromLatin1("%1/%2").arg(path, category);
@@ -301,7 +301,7 @@ void LibraryManagerDlg::deletePattern()
 void LibraryManagerDlg::refreshLibraries()
 {
     ui.LibraryTree->clear();
-    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("library"), QStandardPaths::LocateDirectory);
+    QStringList libraryDirectories = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("library"), QStandardPaths::LocateDirectory);
     QStringListIterator libraryDirectoriesIterator(libraryDirectories);
 
     while (libraryDirectoriesIterator.hasNext()) {
