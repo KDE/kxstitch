@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Zmožnosti</title>
+    <para
+>Tukaj je prikazan trenutni seznam funkcij in druge načrtovane funkcije.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Ustvarjanje novih vzorcev <itemizedlist>
+                <listitem
+><para
+>Uporabniško določena velikost</para
+></listitem>
+                <listitem
+><para
+>Izbira barve materiala</para
+></listitem>
+                <listitem
+><para
+>Vstavljanje slik ozadja za sledenje</para
+></listitem>
+                <listitem
+><para
+>Uvoz različnih formatov slik</para
+></listitem>
+                <listitem
+><para
+>Možnosti uvoza omogočajo <itemizedlist>
+                        <listitem
+><para
+>Omejitev števila barv</para
+></listitem>
+                        <listitem
+><para
+>Omejitev barv na določeno paleto</para
+></listitem>
+                        <listitem
+><para
+>Povečanje na končno velikost</para
+></listitem>
+                        <listitem
+><para
+>Podpora za preglednost slik</para
+></listitem>
+                        <listitem
+><para
+>Dovoljeno uporabo delnih šivov</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Urejanje obstoječih vzorcev, vključno z orodji za urejanje <itemizedlist>
+                <listitem
+><para
+>Odprti in zapolnjeni pravokotniki</para
+></listitem>
+                <listitem
+><para
+>Odprte in zapolnjene elipse</para
+></listitem>
+                <listitem
+><para
+>Zapolnjeni poligoni</para
+></listitem>
+                <listitem
+><para
+>Slikanje</para
+></listitem>
+                <listitem
+><para
+>Črte</para
+></listitem>
+                <listitem
+><para
+>Brisanje šivov, vozlov in hrbtnih šivov</para
+></listitem>
+                <listitem
+><para
+>Izbira barve iz obstoječih šivov</para
+></listitem>
+                <listitem
+><para
+>Premenjava dveh barv</para
+></listitem>
+                <listitem
+><para
+>Zamenja eno barvo z drugo</para
+></listitem>
+                <listitem
+><para
+>Besedilo z uporabniško določenimi pisavami in velikostmi</para
+></listitem>
+                <listitem
+><para
+>Izrez, kopiranje in lepljenje pravokotnih površin</para
+></listitem>
+                <listitem
+><para
+>Neomejeno razveljavitev in uveljavitev</para
+></listitem>
+                <listitem
+><para
+>Zrcaljenje vodoravno in navpično.</para
+></listitem>
+                <listitem
+><para
+>Vrtenje, 90, 180 in 270 stopinj v nasprotni smeri urinega kazalca.</para
+></listitem>
+                <listitem
+><para
+>Spreminjanje velikosti platna <itemizedlist>
+                        <listitem
+><para
+>Razširjanje platna levo, zgoraj, desno, spodaj</para
+></listitem>
+                        <listitem
+><para
+>Obrezovanje platna po vzorcu</para
+></listitem>
+                        <listitem
+><para
+>Obrezovanje platna na izbor</para
+></listitem>
+                        <listitem
+><para
+>Vstavljanje vrstic in stolpcev</para
+></listitem>
+                        <listitem
+><para
+>Centriranje vzorca na platnu</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Pretvorba med shemami nitke</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Uporaba standardnih palet nitke, DMC, Anchor itd.</para
+></listitem>
+        <listitem
+><para
+>Ustvari prilagojene palete z nitko</para
+></listitem>
+        <listitem
+><para
+>Ustvari nove barve za vsako paleto z nitko</para
+></listitem>
+        <listitem
+><para
+>Shrani/naloži trenutno paleto</para
+></listitem>
+        <listitem
+><para
+>Uporaba standardnih šivov</para
+></listitem>
+        <listitem
+><para
+>Upravljalnik knjižnice vzorcev <itemizedlist>
+                <listitem
+><para
+>Ustvari nove vzorce knjižnice</para
+></listitem>
+                <listitem
+><para
+>Vstavi vzorce knjižnice v dizajn</para
+></listitem>
+                <listitem
+><para
+>Povleci in spusti iz knjižnice v vzorec</para
+></listitem>
+                <listitem
+><para
+>Povleci in spusti iz ene knjižnice v drugo</para
+></listitem>
+                <listitem
+><para
+>Pritisk tipke dodelite vzorcem za uporabo z orodjem Alphabet</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Prosta uporaba hrbtnih šivov</para
+></listitem>
+        <listitem
+><para
+>Tiskanje dokončanih vzorcev in ključev iz nitke <itemizedlist>
+                <listitem
+><para
+>Slika vzorca</para
+></listitem>
+                <listitem
+><para
+>Navodila</para
+></listitem>
+                <listitem
+><para
+>Povzetek ključa in nitke</para
+></listitem>
+                <listitem
+><para
+>Tabela vzorcev s stranjo zemljevida</para
+></listitem>
+                <listitem
+><para
+>Besedilna polja</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Preslikava simbolov v nitke</para
+></listitem>
+        <listitem
+><para
+>Določite število niti za šive in hrbtne šive</para
+></listitem>
+        <listitem
+><para
+>Kalibracija barv nitke</para
+></listitem>
+    </itemizedlist>
+    <para
+>Zahteve za nove funkcije lahko vložite na <ulink url="http://bugs.kde.org"
+>sistem za sledenje napakam KDE</ulink
+></para>
+</chapter>

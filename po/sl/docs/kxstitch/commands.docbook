@@ -1,0 +1,1395 @@
+<chapter id="commands">
+    <title
+>Referenca ukazov</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>&kxstitch; Meniji</title>
+        <sect2>
+            <title
+>Meni Datoteka</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Nova</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ustvari nov vzorec z uporabo privzetih vrednosti, nastavljenih v pogovornem oknu lastnosti vzorca.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Odpri</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Odpre obstoječi vzorec</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Odpri Nedavno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Odpre nedavno uporabljen vzorec</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Shrani</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Shrani vzorec</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Shrani kot</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Shrani vzorec pod novim imenom</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Povrni</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povrni vzorec v zadnje shranjeno stanje</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Natisni</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Natisni vzorec</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nastavitev tiskanja</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nastavi postavitev tiskanja</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Uvozi sliko</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Uvozi slikovno datoteko in jo pretvori v šive</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Lastnosti datoteke</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži / uredi lastnosti dokumenta</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dodaj sliko ozadja</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vstavi sliko kot ozadje za sledenje.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Odstrani sliko ozadja</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Izberi sliko ozadja, ki jo želite odstraniti. Podmeni za to je izpolnjen iz predhodno vstavljenih slik ozadja.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Zapri</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zapri vzorec</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Zapri</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zapusti</action
+> &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni Urejanje</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Razveljavi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Razveljavi zadnjo spremembo. Seznam sprememb je prikazan v oknu Zgodovina.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Uveljavi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Uveljavi zadnjo razveljavljeno spremembo. Seznam sprememb je prikazan v oknu Zgodovina.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Izreži</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Izreže izbrano območje na odložišče</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Kopiraj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Kopira izbrano območje na odložišče</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Prilepi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prilepi izbrano območje</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Izbirne maske</guisubmenu
+><guimenuitem
+>Maska šiva</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Omeji izbiro na trenutno izbrano vrsto šiva</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Izbirne maske</guisubmenu
+><guimenuitem
+>Barvna maska</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Omeji izbiro na trenutno izbrano barvo</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Izbirne maske</guisubmenu
+><guimenuitem
+>Izključi hrbtne šive</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Iz izbora izključi hrbtne šive</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Izbirne maske</guisubmenu
+><guimenuitem
+>Izključi vozle</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Iz izbora izključi vozle</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Zrcali / Zavrti naredi kopije</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Če je nastavljeno, bosta funkciji zrcaljenja in vrtenja naredili kopijo izbora, sicer se izbrano območje premakne</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Izbira zrcala</guisubmenu
+><guimenuitem
+>Vodoravno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vodoravno zrcaljenje izbranega območja, &ie; obrnjen z leve proti desni</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Izbira zrcaljenja</guisubmenu
+><guimenuitem
+>Navpično</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zrcali izbrano območje navpično, &ie;. obrnjena od zgoraj navzdol</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Zavrti izbor</guisubmenu
+><guimenuitem
+>90 stopinj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zavrti izbrano območje za 90 stopinj v nasprotni smeri urinega kazalca</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Zavrti izbor</guisubmenu
+><guimenuitem
+>180 stopinj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zavrti izbrano območje v nasprotni smeri urinega kazalca za 180 stopinj</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Zavrti izbor</guisubmenu
+><guimenuitem
+>270 stopinj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Zavrti izbrano območje v nasprotni smeri urinega kazalca za 270 stopinj</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Izreži, kopiraj in prilepi</title>
+                <para
+>Območja rezanja in kopiranja vzorca lahko uporabijo šive in barvne maske ter izključitev hrbtnih šivov in vozlov za omejitev izbire. </para>
+                <para
+>Operacija lepljenja v &kxstitch; vam omogoča, da pritisnete in držite &LMB; navzdol približno v položaju, kamor naj gredo prilepljeni podatki, kar bo zagotovilo sliko prilepljenih podatkov, da se omogoči natančno pozicioniranje, preden spustite gumb miške, da dokončate položaj. Ta tehnika se uporablja tudi za funkcije zrcaljenja in vrtenja. S smernimi tipkami lahko premikate tudi prilepljeni vzorec in tipko &Enter; tipka, ki se uporablja za fiksiranje položaja. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni Pogled</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Dejanska velikost</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povečaj pogled tako, da bo velikost zaslona približno enaka fizični velikosti</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prilegaj na stran</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povečaj pogled, tako da se celoten vzorec prilega vidnemu območju</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prilagodi širini strani</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povečaj pogled tako, da se širina vzorcev prilega vidnemu območju</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prilagodi višini strani</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povečaj pogled tako, da se višina vzorcev prilega vidnemu območju</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Povečaj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Povečaj pogled urejevalnika</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Pomanjšaj</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pomanjšaj pogled urejevalnika</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Predogled</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokaži ali skrij okno za predogled</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Paleta</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokaži ali skrij okno palete</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Zgodovina</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži ali skrij okno zgodovine</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Uvožena slika</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokaži ali skrij okno za predogled uvožene slike</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži sliko ozadja</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži ali skrij sliko ozadja. Seznam se ustvari dinamično na podlagi vstavljenih slik ozadja</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prilagodi sliko ozadja izboru</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prilagodi izbrano sliko ozadja trenutnemu izbirnemu območju</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni šivov</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Četrtinski šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Quarter Stitch, položaj je določen s kvadrantom izbrane celice</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Polovični šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Polšiv, smer je določena s kvadrantom izbrane celice</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>3 četrtinski šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Tričetrtinski šiv, orientacija je določena s kvadrantom izbrane celice</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Poln šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Poln šiv</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Majhen polšiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Majhen polovični šiv, položaj je določen s kvadrantom izbrane celice</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Majhen polni šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Majhen polni šiv, položaj je določen s kvadrantom izbrane celice</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Francoski vozel</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Šiv francoski vozel</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni Orodja</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Naslikaj</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Naslikaj šive na platnu - Pritisnite &LMB; in povlecite po oknu. Šivi bodo dodani čez vsako celico. Spustite gumb miške, da ustavite slikanje. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nariši</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariši linijo šivov na platno - pritisnite &LMB; na začetku črte povlecite do želene končne točke črte in spustite tipko miške. Šivi bodo dodani vsaki celici, skozi katero gre črta. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izbriši</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Brisanje šivov - Pritisnite &LMB; in povlecite čez šive, ki jih želite izbrisati. Odstranjeni bodo vsi šivi v celicah, ki so bile prevlečene. Spustite tipko miške, da ustavite brisanje. Če želite izbrisati povratne šive, držite &Ctrl; tipko in levi klik na začetni ali končni točki hrbtnega šiva; če je na digitalizirani točki več kot en zadnji šiv, bo ta metoda izbrisala prvega najdenega. Če želite izbrisati določen zadnji šiv, kliknite in povlecite od enega konca do drugega. Če želite izbrisati francoske vozle, držite &Shift; tipko in levi klik na vozel, da ga izbrišete. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nariši pravokotnik</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariše pravokotnik - pritisnite &LMB; v enem kotu pravokotnika in povlecite v nasprotni kot. Spustite tipko miške in na platno bo dodan nezapolnjen pravokotnik šivov. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izpolni pravokotnik</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariše zapolnjen pravokotnik - pritisnite &LMB; v enem kotu pravokotnika in povlecite v nasprotni kot. Spustite tipko miške in na platno bo dodan zapolnjen pravokotnik šivov. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Nariši elipso</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariše elipso - Pritisnite &LMB; v enem kotu elipse in povlecite v nasprotni kot. Spustite tipko miške in na platno bo dodana nezapolnjena elipsa šivov. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izpolni elipso</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariše zapolnjeno elipso - pritisnite &LMB; v enem kotu elipse in povlecite v nasprotni kot. Spustite tipko miške in na platno bo dodana zapolnjena elipsa šivov. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izpolni poligon</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Nariše zapolnjen mnogokotnik – Kliknite vsako celico, ki označuje oglišča mnogokotnika, kliknite in povlecite, da ustvarite bolj zapletene krivulje. Vsako oglišče je označeno s krogom s črno črto, ki ju povezuje. Za zapiranje poligona znova kliknite začetno celico. Uporabite lahko &Backspace; tipko za odstranitev zadnje točke ali &Esc; tipko za odstranitev vseh vozlišč in preklic operacije. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Besedilo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vstavi besedilo v šive. To prikliče besedilno pogovorno okno. Izberite želeno pisavo in velikost, vnesite besedilo in kliknite <guibutton
+>V redu</guibutton
+>. Pritisnite &LMB; približno tja, kamor želite besedilo, premaknite miško, da natančno postavite besedilo, in nato spustite gumb miške. To je enako kot funkcija lepljenja. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Alphabet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vstavite vzorce iz trenutno izbrane knjižnice, ki se ujemajo s pritisnjenimi tipkami. To omogoča ustvarjanje vzorčnih abeced, ki imajo lahko dodelitev ključa. Ko izberete to orodje in kliknete položaj na vzorcu za točko vstavljanja, bo vsaka pritisnjena tipka v trenutni knjižnici poiskana za ujemajoči se vzorec. Če ga najdemo, bo ta vstavljen na mesto vzorca in položaj vstavljanja se bo nato pomaknil za širino vstavljenega vzorca znakov. Prostor za vzorec bo razširjen desno, da bo omogočen vnos nadaljnjih znakov. S pritiskom &Enter; bo začel novo vrstico pod položajem prvotne točke vstavljanja, bo prostor vzorca podaljšan navzdol, da se prilagodi novi vrstici, če ni na voljo dovolj prostora. &Backspace; bo izbrisal zadnji vneseni znak in tipka <keycap
+>Presledek</keycap
+> bo premaknila točko vstavljanja za širino presledka v knjižnici ali vnaprej določeno količino, če presledek ne obstaja. Če je dosežen rob vzorca in je zaznan konec besede, se besedilo prelije v naslednjo vrstico. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izberi</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Izbere pravokotno območje - Pritisnite &LMB; v enem kotu pravokotnika povlecite v nasprotni kot in spustite gumb. Prikazan je izbirni pravokotnik, ki označuje območje. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Izbirnik barv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Omogoča izbiro barve med obstoječimi šivi. Če miškin kazalec premaknete nad šive, se prikaže nasvet orodja, ki označuje barvo pod kazalcem. S klikom z &LMB; ga bo izbral. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Hrbtni šiv</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dodaj hrbtno šivanje na platno – Pritisnite &LMB; na začetku hrbtnega šiva se bo zaskočil na najbližjo od 9 točk v celici, povlecite do končne točke hrbtnega šiva in spustite gumb miške, to se bo znova zaskočilo na najbližjo od 9 točk v celici. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni palete</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Upravljalnik palet</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Dodajte in odstranite barve v trenutno paleto. Določite simbole in število pramenov za šivanje in hrbtno šivanje. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži simbole</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokažite simbole, povezane s posamezno barvo</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Počisti Neuporabljeno</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Odstrani neuporabljene barve iz palete.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Premenjaj barve</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Naslednja izbrana barva bo zamenjana s trenutno izbrano barvo. Če izberete orodje za kapalko, lahko izberete barvo, ki jo želite zamenjati, neposredno iz vzorca. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Zamenjaj barve</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Naslednja izbrana barva bo nadomestila trenutno izbrano barvo. Tako kot pri zamenjavi barv lahko uporabite orodje kapalke, da izberete barvo iz vzorca. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni knjižnice</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Upravljalnik knjižnice</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Odprite upravitelja knjižnice vzorcev, ki je nemodalno pogovorno okno, ki omogoča ustvarjanje in uporabo knjižnic vzorcev ali abeced. Na voljo je možnost povleci in spusti, ki omogoča vlečenje in spuščanje vzorcev iz knjižnice v vzorec. Samodejna pretvorba nitk, da ustrezajo trenutnemu vzorcu, in prilagajanje lestvice slike na trenutno lestvico vzorca za natančno pozicioniranje. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni vzorca</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Razširi vzorec</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Razširi vzorec zgoraj, levo, desno in spodaj</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Sredinski vzorec</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Centrirajte vzorec na platnu</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Obreži platno na vzorec</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Obreže platno na obseg vzorca</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Obreži platno na izbor</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Obreže platno do obsega trenutne izbire</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Vstavi vrstice</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vstavi več vrstic, ki jih predstavlja izbirno območje</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Vstavi stolpce</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Vstavi več stolpcev, ki jih predstavlja izbirno območje</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Meni z nastavitvami</title>
+            <para
+>Poleg običajnega &kde; Vnosi menija z nastavitvami so opisani v poglavju <ulink url="help:/fundamentals/ui.html#menus-settings"
+> Meni z nastavitvami</ulink
+> v &kde; Osnove, ima &kxstitch; te menijske vnose aplikacije: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Format Lestvice kot</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spremenite obliko prikaza merila za šive, CM ali palce.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Upodabljanje šivov kot</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spremenite način prikaza šivov.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Upodobi hrbtne šive kot</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spremenite način prikaza hrbtnih šivov.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Upodobi vozle kot</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Spremeni način prikaza vozlov.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Barvni poudarek</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Omogoči ali onemogoči način osvetlitve barv</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži šive</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži ali skrij šive</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži hrbtne šive</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži ali skrij hrbtne šive</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži francoske vozle</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokaži ali skrij francoske vozle</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Pokaži mrežo</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Pokaži ali skrij mrežo</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Prikaži slike ozadja</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Prikaži ali skrij vse slike ozadja</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Konfiguriraj &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Odpri &kxstitch; <link linkend="ConfigurationDialog"
+>pogovorno okno konfiguracije</link
+>.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Meni Pomoč</title>
+            <para
+>Dodatno &kxstitch; ima skupno &kde; Elementi menija Pomoč, za več informacij preberite razdelek o <ulink url="help:/fundamentals/ui.html#menus-help"
+>meniju Pomoč</ulink
+> programa &kde; Osnove. </para>
+        </sect2>
+    </sect1>
+</chapter>

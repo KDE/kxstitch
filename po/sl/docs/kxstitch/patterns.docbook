@@ -1,0 +1,98 @@
+<chapter id="creatingpatterns">
+    <title
+>Kreiranje vzorcev</title>
+
+    <sect1 id="starting-kxstitch">
+        <title
+>Zagon &kxstitch;</title>
+        <para
+>Ko zaženete &kxstitch; vam bo prikazano prazno platno privzete velikosti. To velja tudi, ko izberete <menuchoice
+><guimenu
+>Datoteka</guimenu
+><guimenuitem
+>Novo</guimenuitem
+></menuchoice
+>. Privzete velikosti lahko nastavite v pogovornem oknu lastnosti vzorca, tako da omogočite potrditveno polje Nastavi kot privzeto. </para>
+        <para
+>Če privzeta velikost ni primerna za vaš načrtovani vzorec, jo lahko spremenite v pogovornem oknu <menuchoice
+><guimenu
+>Datoteka</guimenu
+><guimenuitem
+>Lastnosti datoteke</guimenuitem
+></menuchoice
+>. Po potrebi prilagodite vrednosti in po kliku na <guibutton
+>V redu</guibutton
+> bo velikost vzorca prilagojena. </para>
+        <para
+>Preden ustvarite vzorec, boste morali paleti dodati nekaj nitk z uporabo <menuchoice
+><guimenu
+>Palette</guimenu
+> <guimenuitem
+>Upravljalnika palet</guimenuitem
+></menuchoice
+>. To bo omogočilo orodja v meniju in orodni vrstici <menuchoice
+><guimenu
+>Orodja</guimenu
+></menuchoice
+>. Za dodatne informacije si oglejte <link linkend="PaletteManagerDialog"
+>pogovorno okno upravljalnika palet</link
+>. </para>
+    </sect1>
+
+    <sect1 id="importing-images">
+        <title
+>Uvažanje slik</title>
+        <para
+>&kxstitch; omogoča uvoz slik. Prikaže se pogovorno okno s predogledom slike na podlagi privzetih možnosti uvoza. </para>
+        <para
+>Začetna velikost vzorca bo temeljila na privzeti velikosti vzorca. </para>
+        <para
+>Možnosti za uvoz vam omogočajo, da spremenite uporabljeno shemo nitke in omejite število barv. Spremenite lahko tudi velikost, da zmanjšate ali povečate končni vzorec. </para>
+        <para
+>Če označite potrditveno polje <guilabel
+>Uporabi ulomke</guilabel
+>, boste omogočili uporabo ulomkov za več podrobnosti za katero koli velikost vzorca. </para>
+        <para
+>Če označite potrditveno polje <guilabel
+>Prezri barvo</guilabel
+>, boste omogočili izbiro barve znotraj slike, ki bo nato obravnavana kot prosojna barva in med uvozom prezrta. </para>
+        <para
+>Ko je slika uvožena, bo na voljo dodatno priklopno okno s predogledom izvirne slike brez barvnih prehodov. </para>
+    </sect1>
+
+    <sect1 id="background-images">
+        <title
+>Slike ozadja</title>
+        <para
+>V okno urejevalnika lahko vstavite sliko kot ozadje. To je uporabno, če uvoz slike ni zaželen ali daje slabe rezultate. </para>
+        <para
+>Slika je običajno prilagojena tako, da pokriva celotno mrežo vzorca. To morda ni primerno, zato lahko uporabite orodje za izbiro, da izberete območje, ki ga želite pokriti, in nato izberete <menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Prilagodi sliko ozadja izboru</guimenuitem
+></menuchoice
+>. To bo spremenilo velikost slike, da se prilega izbranemu območju. To lahko nadaljujete, dokler ne boste zadovoljni z rezultatom, tudi potem, ko ste že začeli dodajati šive. </para>
+        <para
+>Število slik za ozadje, ki jih je mogoče dodati, ni omejeno. Čeprav bodo praktične omejitve menijev določile, koliko jih je mogoče dodati. Slike ozadja so shranjene v dokumentu, tako da bodo na voljo, ko bo vzorec znova naložen. </para>
+    </sect1>
+
+    <sect1 id="pattern-libraries">
+        <title
+>Knjižnice vzorcev</title>
+        <para
+>Upravljalnik knjižnice vzorcev se lahko uporablja za shranjevanje vzorcev za vstavljanje v delovni vzorec. Lahko jih kategoriziramo v hierarhijo kategorij in podkategorij z več korenskimi vozlišči na seznamu knjižnic. Orodje Alphabet uporablja te knjižnice za zagotavljanje abecede znakov, ki jih je mogoče vstaviti, ki jim je mogoče dodeliti pripadajočo tipko. </para>
+        <para
+>Upravljalnik knjižnice je nemodalno pogovorno okno in ga lahko pustite odprtega, medtem ko delate na svojem vzorcu. Po potrebi lahko izberete različne knjižnice in nato povlečete in spustite vzorce knjižnic na delovni vzorec. </para>
+        <para
+>Dodajanje novih naslovov kategorij lahko storite z &RMB; na obstoječem vnosu, da ustvarite podkategorijo, ali na praznem prostoru na seznamu knjižnic, da ustvarite nov korenski vnos, in izberete možnost <guimenuitem
+>Nova kategorija</guimenuitem
+>. Vnesite ime kategorije in kliknite <guibutton
+>V redu</guibutton
+>. </para>
+        <para
+>Ustvarite nov vzorec knjižnice tako, da izberete območje vašega delovnega vzorca, kopirate in prilepite v eno od obstoječih kategorij. </para>
+        <para
+>Vsak vzorec knjižnice ima lastnosti, do katerih dostopate prek kontekstnega menija. Te lastnosti vključujejo velikost, shemo nitke, osnovno vrednost in pripadajoči ključ. Osnovno vrednost uporablja orodje Alphabet za prilagoditev višine znaka nad, negativne vrednosti ali pod točko vstavljanja. Povezano tipko spet uporabi orodje Alphabet, da se ujema s tipko, pritisnjeno na tipkovnici. </para>
+    </sect1>
+</chapter>

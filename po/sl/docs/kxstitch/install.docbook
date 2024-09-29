@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Namestitev</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Kako pridobiti &kxstitch;</title>
+        <para
+>&kxstitch; vir lahko najdete na <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. &kxstitch; domačo stran lahko najdete na <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Zahteve</title>
+        <para
+>&kxstitch; je bilo napisano z &Qt; 5.x in &kf5-full;. </para>
+        <para
+>Za funkcije uvoza slik so potrebne knjižnice ImageMagick, to vključuje razvojni glavi ImageMagick in Magick++, ki sta na voljo pri vaši distribuciji ali na <ulink url="http://www.imagemagick.org/"
+>http://www .imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Prevajanje in namestitev</title>
+        <para
+>Prevajanje KXStitch zahteva cmake in ustrezna orodja za gradnjo, make, gcc itd. Zagotovljen je bil skript za gradnjo, ki bi moral izvesti potrebne operacije prevajanja in namestiti KXStitch, za katerega boste morda morali vnesti geslo root. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>

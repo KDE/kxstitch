@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Slovenian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Uporabniški priročnik KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Prva različica strani priročnika KXStitch za projekt Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Posodobljena stran priročnika.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29.06.2016</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>kreator in urejevalnik vzorcev križnega šiva v &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>datoteka</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Opis</title>
+<para
+>KXStitch je program, ki vam omogoča ustvarjanje vzorcev križnih šivov in grafikonov. Vzorce lahko ustvarite iz nič na uporabniško določeni velikosti mreže, ki jo je mogoče povečati ali zmanjšati, ko vaš vzorec napreduje. Lahko pa uvozite slike iz številnih grafičnih formatov, kar vam bo omogočilo zmanjšanje števila barv in omejitev pretvorbe na polne šive ali po želji uporabo delnih šivov. Za ozadje lahko uporabite tudi sliko. Te uvožene slike lahko nato spremenite s priloženimi orodji, da ustvarite svoj končni dizajn.</para>
+
+<para
+>Obstaja veliko orodij za pomoč pri oblikovanju vašega vzorca, od odprtih in zapolnjenih pravokotnikov in elips, zapolnjenih poligonov in črt do šivanja nazaj. Poleg tega lahko za podvajanje izbranih področij uporabite izrezovanje, kopiranje in lepljenje. Izbrana območja je mogoče tudi zasukati za 90, 180 in 270 stopinj v nasprotni smeri urinega kazalca ali zrcaliti vodoravno ali navpično.</para>
+
+<para
+>Obstaja tudi knjižnica vzorcev, ki jo lahko uporabite za shranjevanje majhnih in manj majhnih delov vzorcev, ki jih je mogoče nato ponovno uporabiti v drugih vzorcih. Vzorci v teh knjižnicah so shranjeni na hierarhičnem seznamu, ki olajša razvrščanje in krmarjenje po njih, da najdete tiste, ki jih želite. Te knjižnice vzorcev lahko uporabite tudi kot abecede, tako da vsaki dodelite znak. Z uporabo orodja Alphabet se vsak pritisk tipke poišče v trenutni knjižnici in, če je prisotna, bo povezan vzorec vstavljen v vzorec.</para>
+
+<para
+>Ko ste pripravljeni, lahko natisnete svoj dizajn v več oblikah. Obstajajo možnosti za tiskanje naslovnic, navodil in ključa za nitkanje, vključno s količino uporabljene niti in številom šivov.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Argumenti</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>datoteka</replaceable
+></term>
+<listitem>
+<para
+>Dokument za križni šiv, ki ga želite odpreti.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Poglejte tudi</title>
+<simplelist>
+<member
+>Podrobnejša uporabniška dokumentacija je na voljo na <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (vnesite ta <acronym
+>URL</acronym
+> v &konqueror; ali zaženite <userinput
+><command
+> khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Dodatne informacije so na voljo tudi na <ulink url="http://userbase.kde.org/KXStitch"
+>domači strani KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Avtorji</title>
+<para
+>KXStitch je napisal <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

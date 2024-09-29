@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Tiskanje vzorcev</title>
+
+    <para
+>Ko boste dokončali svoj dizajn, ga boste nedvomno želeli natisniti. &kxstitch; vam omogoča, da prilagodite tiskanje, od tega, kaj je natisnjeno do tega, kako velik je končni natis. </para>
+    <para
+>Ta različica &kxstitch; omogoča popolnoma prilagojeno postavitev tiskanja. Nova konfiguracija tiskalnika omogoča dodajanje, vstavljanje ali odstranjevanje strani. Izberete lahko velikost in orientacijo papirja, vsaka stran pa lahko vsebuje besedilne elemente, elemente vzorcev ali ključne elemente. </para>
+    <para
+>Za dodatne podrobnosti glejte <link linkend="PrinterDialog"
+>pogovorno okno tiskalnika</link
+></para>
+</chapter>

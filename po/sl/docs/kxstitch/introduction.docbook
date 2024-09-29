@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Uvod</title>
+    <para
+>&kxstitch; je program, ki vam omogoča ustvarjanje vzorcev križnih šivov in shem. Vzorce lahko ustvarite iz nič na uporabniško določeni velikosti mreže, ki jo je mogoče povečati ali zmanjšati, ko vaš vzorec napreduje. Lahko pa uvozite slike iz številnih grafičnih formatov. Pri uvažanju slik lahko omejite pretvorbo na polne šive ali po želji uporabite delne šive. Slike lahko uporabite tudi kot ozadje in jim spremenite velikost, da se prilegajo izbranemu območju. Te uvožene slike lahko nato spremenite s priloženimi orodji, da ustvarite svoj končni dizajn. </para>
+    <para
+>Obstaja veliko orodij za pomoč pri oblikovanju vašega vzorca, od odprtih in zapolnjenih pravokotnikov in elips, zapolnjenih poligonov in črt do hrbtnega šivanja. Poleg tega lahko za podvajanje izbranih področij uporabite izrezovanje, kopiranje in lepljenje. Izbrana območja je mogoče tudi zasukati za 90, 180 in 270 stopinj v nasprotni smeri urinega kazalca ali zrcaliti vodoravno ali navpično. </para>
+    <para
+>Obstaja tudi knjižnica vzorcev, ki jo lahko uporabite za shranjevanje majhnih in manj majhnih delov vzorcev, ki jih je mogoče nato ponovno uporabiti v drugih vzorcih. Vzorci v teh knjižnicah so shranjeni na hierarhičnem seznamu, ki olajša razvrščanje in krmarjenje po njih, da najdete tiste, ki jih želite. Te knjižnice vzorcev lahko uporabite tudi kot abecede, tako da vsaki dodelite znak. Z uporabo orodja Alphabet se vsak pritisk tipke poišče v trenutni knjižnici in, če je prisotna, bo povezan vzorec knjižnice vstavljen v vzorec. </para>
+    <para
+>Prijavite vse hrošče (napake) ali zahteve po funkcijah <ulink url="http://bugs.kde.org"
+>KDE Bugtracking System</ulink
+> ali <ulink url="http://mail.kde.org/mailman /listinfo/kxstitch"
+>&kxstitch; poštni seznam</ulink
+> </para>
+</chapter>

@@ -1,0 +1,494 @@
+<chapter id="Dialogs">
+    <title
+>Pogovorna okna</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>Pogovorno okno Upravljalnika palet</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Upravljalnik palet vam omogoča, da dodate, odstranite ali zamenjate nitke iz vaše trenutne palete in izbrane sheme. Iz vaše trenutne palete lahko odstranite vse neuporabljene nitke in v shemo lahko dodate nove nitke. Poleg tega lahko tukaj odprete <link linkend="CalibrateDialog"
+>pogovorno okno za umerjanje zobne nitke</link
+>. </para>
+        <para
+>Določite lahko število pramenov bombaža, uporabljenih za posamezno nitko, tako za šivanje kot za hrbtno šivanje. Te informacije bodo uporabljene pri izračunu količine nitke, potrebne v končnem dizajnu. </para>
+        <para
+>Pogovorno okno vključuje gumb <guilabel
+>Izberi barvo</guilabel
+>, ki omogoča izbiro barve kjer koli na zaslonu. To je lahko na primer iz slike ozadja, ki omogoča enostavno izbiro ujemajočih se barv. Kazalec se bo spremenil v križec z barvnim vzorcem, ki označuje barvo slikovne pike pod križem. Po kliku na slikovno piko bo na seznamu nitke izbrana nitka, ki se zelo ujema z izbrano barvo. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Izbirnik simbolov</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Za vsako od nitk lahko dodelite simbol. Pogovorno okno izbirnika simbolov prikazuje vse razpoložljive simbole. Uporabljeni simboli so prikazani zatemnjeni in v opisu orodja bo prikazan <quote
+>Uporabljeno</quote
+>, ko premaknete miškin kazalec na simbol. Uporabljeno knjižnico simbolov za paleto lahko spremenite tudi tako, da izberete enega s spustnega seznama. Vsem nitkam bo nato dodeljen simbol iz nove knjižnice. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>Pogovorno okno nove barve</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Pogovorno okno prikazuje ime sheme, ki ji bo dodana nova barva. Barva zahteva ime in opis, ki je lahko poljuben, čeprav ime barve običajno določi proizvajalec nitke. </para>
+        <para
+>S klikom na gumb <guilabel
+>Barva</guilabel
+> se prikaže standardno <ulink url="help:/fundamentals/colors.html"
+>&kde; pogovorno okno za izbiro barve</ulink
+>. Izberete lahko začetno barvo in nato prilagodite parametre, da dobite pravilno barvo. </para>
+        <para
+>Ko bo ta nova barva dodana, bo na voljo za vključitev v vašo paleto vzorcev prek pogovornega okna <guilabel
+>Upravljalnik palet</guilabel
+>. Prilagodite ga lahko tudi z <link linkend="CalibrateDialog"
+>pogovornim oknom za umerjanje nitke</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>Pogovorno okno za umerjanje nitke</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>To pogovorno okno ima dva dela. </para>
+        <para
+>Na levi je izbirni seznam shem, ki so trenutno na voljo, skupaj s seznamom barv, ki so v tej shemi. Opis barve bo dodan z <guilabel
+>(umerjeno)</guilabel
+>, če je bila barva spremenjena s trenutnim klicem tega pogovornega okna. </para>
+        <para
+>Na desni strani sta ime in opis trenutno izbrane barve, temu bo dodano <guilabel
+>(Modified)</guilabel
+>, če je bila barva spremenjena, predogled barve in trenutne vrednosti RGB za barva. </para>
+        <para
+>Prikazan je tudi gumb <guibutton
+>Ponastavi barvo</guibutton
+>. To bo ponastavilo trenutno izbrano barvo na vrednost, ki jo je imela ob prvem priklicu pogovornega okna. </para>
+        <para
+>Če pritisnete gumb <guibutton
+>V redu</guibutton
+>, boste potrdili vse spremenjene barve. </para>
+        <para
+>Če pritisnete gumb <guibutton
+>Prekliči</guibutton
+>, boste vse spremenjene barve povrnili na prvotne vrednosti. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>Pogovorno okno konfiguracije</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>To pogovorno okno vam omogoča konfiguracijo številnih elementov KXStitch. </para>
+        <para
+>Večina možnosti je samoumevnih. Potrditvena polja omogočajo ali onemogočajo različne funkcije ali elemente. Izbirni seznami omogočajo izbiro želenega formata teh elementov. </para>
+        <para
+>Z gumbom <guibutton
+>Privzeto</guibutton
+> se lahko vrnete na privzeti nabor parametrov. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>Pogovorno okno za uvoz slike</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Na levi strani pogovornega okna je predogled uvožene slike, ki temelji na parametrih na desni. </para>
+        <para
+>Izberete lahko shemo nitke za končni vzorec, ki je privzeto enaka privzetim nastavitvam pogovornega okna <guilabel
+>Lastnosti novega vzorca</guilabel
+>. Največje število barv, ki se uporabljajo za vzorec, je mogoče omogočiti in po potrebi spremeniti, privzeto bo imel uvoženi vzorec toliko barv, kot je definiranih na izvirni sliki, ki se pretvorijo v barve nitke. Če potrdite polje <guilabel
+>Prezri barvo</guilabel
+>, lahko kliknete orodje za kapljanje, da izberete barvo na sliki, ki bo pri uvozu prezrta. To je uporabno za odstranjevanje ozadij, ki jih ni treba pretvoriti v šive. Prezrta barva bo v predogledu prikazana kot vzorec šahovnice. </para>
+        <para
+>Vrednost števila blaga je privzeto nastavljena na pogovorno okno <guilabel
+>Lastnosti novega vzorca</guilabel
+> in merilo je nastavljeno tako, da je končna velikost čim bližje velikosti vzorca <guilabel
+>Lastnosti novega vzorca</guilabel
+>. Te vrednosti je mogoče po potrebi spremeniti. </para>
+        <para
+>Potrditveno polje <guilabel
+>Obreži sliko</guilabel
+> omogoča obrezovanje slike za predogled. Kliknite in povlecite čez predogled slike, da izberete zahtevano območje. Pred izbiro začetne točke so prikazane vodilne črte, ki omogočajo natančnejšo postavitev. Ko je območje izbrano, bo predogled ponovno upodobljen, da prikaže obrezano območje. Po potrebi se lahko izvede nadaljnje obrezovanje. Če kliknete gumb za ponastavitev ali izklopite obrezovanje, se predogled povrne na izvirno sliko. </para>
+        <para
+>Potrditveno polje <guilabel
+>Uporabi ulomke</guilabel
+> bo omogočilo uporabo ulomkov v uvoženem vzorcu. To dejansko podvoji uvozno ločljivost, ne da bi to vplivalo na celotno velikost vzorca. </para>
+        <para
+>Če kliknete <guibutton
+>V redu</guibutton
+>, boste sliko pretvorili v vzorec. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>Pogovorno okno Lastnosti datoteke</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Velikost vzorca je mogoče določiti v enotah šivov, centimetrih ali palcih. Vrednosti širine in višine se samodejno posodobijo na enakovredno velikost v novi vrsti enote, če se vrsta enote spremeni. </para>
+        <para
+>Število blaga je določeno v enotah na centimeter ali palec in je odvisno od enot velikosti. &ie; če je za enote izbrana CM, bo število tkanin v enotah na centimeter, podobno kot za palce. Če <guilabel
+>Enote</guilabel
+> spremenite v <guimenuitem
+>Šivi</guimenuitem
+>, bodo enote za štetje blaga ostale kot zadnja vrednost v CM ali palcih. </para>
+        <para
+>Polja Naslov, Avtor, Avtorska pravica in Tkanina so prosta besedila, tako da lahko sem vnesete karkoli želite. Barvo tkanine lahko nastavite tako, da pritisnete barvni gumb in izberete želeno barvo. To bo nato prikazano v oknih urejevalnika in predogleda. </para>
+        <para
+>Shema nitke ima izbirni seznam za vse razpoložljive sheme nitke, vključno s tistimi, ki ste jih določili sami. </para>
+        <para
+>Zavihek <guilabel
+>Navodila</guilabel
+> lahko uporabite za vnos posebnih navodil za šivanje vzorca. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>Pogovorno okno knjižnice vzorcev</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Upravljalnik knjižnice vzorcev ima hierarhični drevesni pogled (pravzaprav bolj gozd) kategorij na levi s pogledom ikon izbrane kategorije vzorcev na desni. To pogovorno okno ni modalno in ga lahko pustite odprto med delom na vzorcu. </para>
+        <para
+>Najenostavnejši način uporabe vzorcev knjižnice je, da jih povlečete in spustite v prostor vzorca. Alternativno z &RMB; na vzorcu knjižnice prikaže kontekstni meni z možnostjo kopiranja, ki ga lahko nato prilepite v vzorec tolikokrat, kot je potrebno. </para>
+        <para
+>Dodatni elementi v kontekstnem meniju so: <itemizedlist>
+                <listitem
+><para
+>Izbriši: Izbriše element knjižnice, za kar se prikaže potrditveno pogovorno okno.</para
+></listitem>
+                <listitem
+><para
+>Lastnosti: Prikaže pogovorno okno lastnosti za element.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Pogovorno okno lastnosti za vsak element prikazuje njegovo velikost in uporabljeno shemo nitke, osnovno vrednost in pripadajoči znak na tipkovnici. Osnovna črta se uporablja za postavitev vzorca znakov navpično glede na položaj kazalke pri uporabi orodja Alphabet. Pozitivne vrednosti ga premaknejo navzdol, negativne pa navzgor. Povezan znak je potreben samo za uporabo z orodjem Alphabet. Po kliku v polje z besedilom povezanega znaka se kot tipka uporabi naslednji pritisk tipke, vključno z modifikatorji (&Shift;, &Ctrl; itd.). </para>
+        <para
+>Ustvarite nove knjižnice s klikom &RMB; bodisi na obstoječi kategoriji, da ustvarite podkategorijo, ali na praznem območju seznama knjižnic za novo kategorijo najvišje ravni in izberite možnost <guimenuitem
+>Nova kategorija</guimenuitem
+>, vnesite ime in kliknite <guibutton 
+>V redu</guibutton
+>. </para>
+        <para
+>Ustvarjanje novega vzorca knjižnice tako, da izberete območje v urejevalniku vzorcev, izberete kopiraj in nato uporabite &RMB; na obstoječo kategorijo in izberite prilepi. Po potrebi lahko uporabite možnost lastnosti, da dodate povezani ključ, če ga želite uporabiti kot knjižnico znakov. </para>
+        <para
+>Vzorce knjižnic lahko povlečete in spustite v druge knjižnice na seznamu, da jih lahko preuredite po svojih potrebah. Upoštevajte, da ni nobenih preverjanj, s katerimi bi zagotovili, da so kode ključev, dodeljene vzorcem knjižnic, edinstvene, zato morate spremeniti vse, ki podvajajo obstoječo. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>Besedilno pogovorno okno</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Besedilno pogovorno okno vam omogoča, da izberete pisavo in velikost ter nato vnesete besedilo. S klikom na <guibutton
+>V redu</guibutton
+> zaprete pogovorno okno in se vrnete v okno &kxstitch; okno. Pozicioniranje besedila je enako kot lepljenje katerega koli drugega elementa. Pritisnite &LMB; na platnu približno tam, kjer želite besedilo, bo to prikazalo predogled besedila, besedilo postavite točno tam, kjer ga želite, nato spustite &LMB;. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Pogovorno okno za razširitev vzorca</title>
+        <para
+>To se uporablja za razširitev vzorca v različne smeri za več celic. V vrtilna polja vnesite število celic in pritisnite <guibutton
+>V redu</guibutton
+>, da razširite vzorec. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>Pogovorno okno tiskalnika</title>
+        <para
+>Pogovorno okno ima na levi strani seznam strani, ki prikazuje sličico za vsako od strani. Desna plošča vsebuje urejevalnik postavitve, kamor lahko postavite elemente. Vsak element je mogoče prilagoditi s pomočjo kontekstnega menija in ga je mogoče postaviti v položaj in velikost, da ustreza vašim zahtevam. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Izberite predlogo konfiguracije tiskalnika. Trenutno je vključen podoben KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Pripni stran – s tem bo stran dodana na konec seznama.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Vstavi stran - To bo vstavilo stran pred tisto, ki je trenutno izbrana na seznamu.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Izbriši stran – s tem boste izbrisali trenutno izbrano stran na seznamu.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Izberite element – Uporablja se za izbiro elementov za urejanje ali spreminjanje velikosti.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Vstavi besedilni element – Uporablja se za vstavljanje besedilnega elementa na trenutno stran.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Vstavi element vzorca – Uporablja se za vstavljanje elementa vzorca na trenutno stran.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Vstavi slikovni element – Uporablja se za vstavljanje slikovnega elementa na trenutno stran.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Vstavi ključni element – Uporablja se za vstavljanje ključnega elementa nitke na trenutno stran.</para>
+
+        <para
+>Ko dodajate elemente, izberite ikono zahtevanega elementa, nato izberite območje strani, ki naj bi ga element zasedel, tako da kliknete in povlečete z &LMB; iz enega kota v drugega. Lastnosti elementa si lahko ogledate in spremenite s kontekstnim menijem, do katerega dostopate z &RMB; </para>
+        <para
+>Velikost elementov lahko spremenite tako, da jih izberete z orodjem za izbiro<inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, kar bo zagotovilo pravokotnik velikosti okoli elementa. Vogale lahko povlečete naokoli, da prilagodite velikost, ali pa lahko celoten element premaknete s klikom in vlečenjem z &LMB;. </para>
+        <para
+>Stran ima povezano pogovorno okno lastnosti, ki omogoča nastavitev roba strani ter velikosti mreže in vidnosti. Rob strani je vodilo za postavitev predmetov, vendar ne preprečuje, da bi bili elementi postavljeni zunaj definiranega roba. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Element vzorca</title>
+            <para
+>Element vzorca bo prikazal razporeditev šivov na mreži. Pogovorno okno z lastnostmi lahko uporabite za konfiguracijo, kako bodo prikazani šivi. To omogoča, da se element prikaže kot slika vzorca ali kot delovni vzorec, ki prikazuje simbole. </para>
+            <para
+>Element vzorca privzeto prikazuje celoten vzorec, ko je ustvarjen. Z uporabo pogovornega okna z lastnostmi lahko izberete želeno območje v oknu za predogled, tako da kliknete in povlečete izbirno območje. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Element mape</title>
+                <para
+>Element mape se uporablja, ko vzorec obsega več listov. Prikazuje območje celotnega vzorca, ki ga ta element predstavlja. Omogoči se lahko v lastnostih elementa vzorca. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Besedilni element</title>
+            <para
+>Besedilni element lahko uporabite za dodajanje besedilnih opomb k vzorcu ali za prikaz naslovov ali komentarjev. Besedilo je mogoče konfigurirati s pisavami, barvo in prosojnostjo. Poleg tega je mogoče prikazati obrobo. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Besedilni elementi lahko uporabljajo tudi spremenljivke, ki bodo pretvorjene v lastnosti iz vzorca. </para>
+            <sect3 id="TextVariables">
+                <title
+>Besedilne spremenljivke</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Ključni element</title>
+            <para
+>Ključni element prikazuje uporabljene nitke. Pogovorno okno lastnosti omogoča izbiro polj, ki jih je mogoče prikazati. <guilabel
+>Prvi element</guilabel
+> in <guilabel
+>št. elementi</guilabel
+> se lahko uporabljajo za velike ključe, ki lahko obsegajo več strani in omogočajo, da so nekateri simboli na eni strani, drugi pa na drugi strani. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Spremeni velikost elementa</title>
+            <para
+>Velikost vseh elementov lahko spremenite tako, da jih izberete z <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>, ki bo prikazal mejo za spreminjanje velikosti . Celoten element lahko premaknete s klikom in vlečenjem znotraj elementa. Če želite spremeniti velikost, premaknite miškin kazalec nad kotne ročice za spreminjanje velikosti, kliknite in povlecite na želeno velikost. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

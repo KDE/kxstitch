@@ -1,0 +1,94 @@
+<chapter id="using-kapp">
+    <title
+>Uporabniški vmesnik</title>
+
+    <sect1 id="face-screenshot">
+        <title
+>&kxstitch; Glavno okno</title>
+        <para>
+            <screenshot>
+                <screeninfo
+>Tukaj je posnetek zaslona &kxstitch;</screeninfo>
+                <mediaobject
+><imageobject
+><imagedata fileref="user-interface.png" format="PNG"/></imageobject
+></mediaobject>
+            </screenshot>
+        </para>
+        <para
+>&kxstitch; glavno okno je sestavljeno iz okna urejevalnika, prikazanega na desni na zgornji sliki, s tremi priklopnimi okni. Priključna okna nudijo predogled vzorca, palete nitkanj in seznam zgodovine. Če je slika uvožena, bo prikazano dodatno priklopno okno, ki prikazuje predogled izvirne slike za referenco. Vsako od teh priklopnih oken lahko premaknete na različne robove glavnega okna, jih ločite od pogleda ali izklopite in znova vklopite. </para>
+        <para
+>Odseki so razdeljeni z razdelilniki, ki jih lahko premikate, da spremenite količino prostora, dodeljenega kateremu koli razdelku. </para>
+        <para
+>Postavitev drugih elementov, menijske vrstice, orodnih vrstic in statusne vrstice, je podobna drugim &kde; aplikacijam, ki jih izvajate. </para>
+        <para
+>Vrstica stanja na dnu okna prikazuje različna sporočila o stanju. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-editor">
+        <title
+>Okno urejevalnika</title>
+        <para
+>Glavno okno za urejanje prikazuje vzorec mreže in lestvice zgoraj in levo. Lestvice je mogoče formatirati v šivih, centimetrih ali palcih. Urejevalnik je pomični pogled vašega vzorca z možnostjo povečave in vam omogoča uporabo različnih orodij za urejanje za spreminjanje vašega dizajna. </para>
+        <para
+>Na splošno &LMB; se uporablja za aktiviranje katerega koli orodja na vzorcu. Podrobnosti o vsakem orodju in njihovi uporabi so prikazane v <link linkend="commands"
+>razdelku z referenčnimi informacijami o ukazih</link
+>. </para>
+        <para
+>Mreža prikazuje debelejše črte, ki delijo celice v skupine. Število celic na skupino je nastavljivo, privzeto je 10, prav tako barve za črte. To je uporabno, če ustvarjate vzorce na temnem platnu, ki za kontrast zahteva svetlejše črte. </para>
+        <para
+>Možnost menija vam omogoča, da v okno urejevalnika dodate slike ozadja, ki jih uporabite kot predlogo za dodajanje šivov. Za več podrobnosti si oglejte razdelek <link linkend="creatingpatterns"
+>Ustvarjanje vzorcev</link
+>. </para>
+        <sect2 id="kxstitch-editor-context">
+            <title
+>Kontekstni meni</title>
+            <para
+>Z uporabo &RMB; v urejevalniku aktivira kontekstni meni, ki vam omogoča spreminjanje formata lestvic in vizualnega videza šivov. Omogoča tudi vklop ali izklop slik ozadja, šivov, hrbtnih šivov, mreže in lestvic. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="editor-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="kxstitch-preview">
+        <title
+>Okno za predogled</title>
+        <para
+>Okno <guilabel
+>Predogled</guilabel
+> prikazuje drsni pregled trenutnega dizajna v manjšem obsegu kot okno urejevalnika. <guilabel
+>Predogled</guilabel
+> prikazuje črn pravokotnik, ki predstavlja trenutni pogled v oknu urejevalnika. </para>
+        <para
+>S klikom &LMB; v oknu za predogled bo okno urejevalnika osredotočeno na to točko. Poleg tega s pritiskom &LMB; in povlečete pravokotnik okoli območja, bo okno urejevalnika povečano, da zajame to območje. </para>
+    </sect1>
+
+    <sect1 id="kxstitch-palette">
+        <title
+>Okno Paleta</title>
+        <para
+>Okno <guilabel
+>Paleta</guilabel
+> prikazuje barve nitke, ki so trenutno v tej paleti vzorcev, kot barvne bloke in po želji s simboli, ki so povezani z vsako barvo. Če kazalec miške premaknete nad barvni blok, se prikaže namig orodja, ki prikazuje številko barve in ime te barve. S klikom na barvo izberete to barvo za naslednjo funkcijo slikanja ali risanja. </para>
+        <sect2 id="kxstitch-palette-context">
+            <title
+>Kontekstni meni</title>
+            <para
+>Z uporabo &RMB; v pogledu <guilabel
+>Paleta</guilabel
+> aktivira kontekstni meni, ki vam omogoča izvajanje več funkcij na paleti. Glejte <link linkend="commands"
+>referenco ukazov</link
+> za več podrobnosti o njihovi uporabi. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-context-menu.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>
