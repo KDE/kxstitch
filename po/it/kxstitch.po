@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-09 01:50+0000\n"
+"POT-Creation-Date: 2024-10-20 00:39+0000\n"
 "PO-Revision-Date: 2022-10-22 15:28+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -625,7 +625,7 @@ msgid "&File"
 msgstr "&File"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
-#: kxstitchui.rc:10 src/Commands.cpp:500
+#: kxstitchui.rc:10 src/Commands.cpp:501
 #, kde-format
 msgid "Remove Background Image"
 msgstr "Rimuovi immagine dello sfondo"
@@ -643,13 +643,13 @@ msgid "Selection Masks"
 msgstr "Maschera di selezione"
 
 #. i18n: ectx: Menu (mirror)
-#: kxstitchui.rc:23 src/Commands.cpp:1183
+#: kxstitchui.rc:23 src/Commands.cpp:1184
 #, kde-format
 msgid "Mirror Selection"
 msgstr "Selezione speculare"
 
 #. i18n: ectx: Menu (rotate)
-#: kxstitchui.rc:27 src/Commands.cpp:1238
+#: kxstitchui.rc:27 src/Commands.cpp:1239
 #, kde-format
 msgid "Rotate Selection"
 msgstr "Ruota selezione"
@@ -691,7 +691,7 @@ msgid "&View"
 msgstr "&Vista"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:481
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
 #, kde-format
 msgid "Show Background Image"
 msgstr "Mostra immagine di sfondo"
@@ -779,187 +779,187 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:31 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Proprietà file"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:53 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
+#: src/Commands.cpp:54 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
 msgstr "Importa immagine"
 
-#: src/Commands.cpp:75
+#: src/Commands.cpp:76
 #, kde-format
 msgid "Paint Stitches"
 msgstr "Colora i punti"
 
-#: src/Commands.cpp:95
+#: src/Commands.cpp:96
 #, kde-format
 msgid "Paint Knots"
 msgstr "Colora i nodi"
 
-#: src/Commands.cpp:115
+#: src/Commands.cpp:116
 #, kde-format
 msgid "Draw Line"
 msgstr "Disegna linea"
 
-#: src/Commands.cpp:135
+#: src/Commands.cpp:136
 #, kde-format
 msgid "Erase Stitches"
 msgstr "Cancella punti"
 
-#: src/Commands.cpp:155 src/MainWindow.cpp:1351
+#: src/Commands.cpp:156 src/MainWindow.cpp:1351
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Disegna rettangolo"
 
-#: src/Commands.cpp:175 src/MainWindow.cpp:1361
+#: src/Commands.cpp:176 src/MainWindow.cpp:1361
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Riempi rettangolo"
 
-#: src/Commands.cpp:195 src/MainWindow.cpp:1371
+#: src/Commands.cpp:196 src/MainWindow.cpp:1371
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Disegna ellisse"
 
-#: src/Commands.cpp:215 src/MainWindow.cpp:1381
+#: src/Commands.cpp:216 src/MainWindow.cpp:1381
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "Riempi ellisse"
 
-#: src/Commands.cpp:235 src/MainWindow.cpp:1391
+#: src/Commands.cpp:236 src/MainWindow.cpp:1391
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Riempi poligono"
 
-#: src/Commands.cpp:255
+#: src/Commands.cpp:256
 #, kde-format
 msgid "Add Stitch"
 msgstr "Aggiungi punto"
 
-#: src/Commands.cpp:291
+#: src/Commands.cpp:292
 #, kde-format
 msgid "Delete Stitches"
 msgstr "Elimina punti"
 
-#: src/Commands.cpp:324
+#: src/Commands.cpp:325
 #, kde-format
 msgid "Add Backstitch"
 msgstr "Aggiungi impuntura"
 
-#: src/Commands.cpp:347
+#: src/Commands.cpp:348
 #, kde-format
 msgid "Delete Backstitch"
 msgstr "Elimina impuntura"
 
-#: src/Commands.cpp:377
+#: src/Commands.cpp:378
 #, kde-format
 msgid "Add Knot"
 msgstr "Aggiungi nodo"
 
-#: src/Commands.cpp:395
+#: src/Commands.cpp:396
 #, kde-format
 msgid "Delete Knots"
 msgstr "Elimina nodo"
 
-#: src/Commands.cpp:420
+#: src/Commands.cpp:421
 #, kde-format
 msgid "Set Property"
 msgstr "Imposta proprietà"
 
-#: src/Commands.cpp:439
+#: src/Commands.cpp:440
 #, kde-format
 msgid "Add Background Image"
 msgstr "Aggiungi immagine di sfondo"
 
-#: src/Commands.cpp:461
+#: src/Commands.cpp:462
 #, kde-format
 msgid "Fit Background to Selection"
 msgstr "Adatta sfondo alla selezione"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:599 ui/PaletteManager.ui:189
+#: src/Commands.cpp:600 ui/PaletteManager.ui:189
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Cancella fili non usati"
 
-#: src/Commands.cpp:617
+#: src/Commands.cpp:618
 #, kde-format
 msgid "Resize Document"
 msgstr "Ridimensiona documento"
 
-#: src/Commands.cpp:644
+#: src/Commands.cpp:645
 #, kde-format
 msgid "Crop to Pattern"
 msgstr "Ritaglia al modello"
 
-#: src/Commands.cpp:671
+#: src/Commands.cpp:672
 #, kde-format
 msgid "Crop to Selection"
 msgstr "Ritaglia alla selezione"
 
-#: src/Commands.cpp:708 src/MainWindow.cpp:1515
+#: src/Commands.cpp:709 src/MainWindow.cpp:1515
 #, kde-format
 msgid "Insert Columns"
 msgstr "Inserisci colonna"
 
-#: src/Commands.cpp:751 src/MainWindow.cpp:1509
+#: src/Commands.cpp:752 src/MainWindow.cpp:1509
 #, kde-format
 msgid "Insert Rows"
 msgstr "Inserisci riga"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
-#: src/Commands.cpp:794 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
+#: src/Commands.cpp:795 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
 msgstr "Estendi modello"
 
-#: src/Commands.cpp:836 src/MainWindow.cpp:1491
+#: src/Commands.cpp:837 src/MainWindow.cpp:1491
 #, kde-format
 msgid "Center Pattern"
 msgstr "Centra modello"
 
-#: src/Commands.cpp:867
+#: src/Commands.cpp:868
 #, kde-format
 msgid "Update Palette"
 msgstr "Aggiorna tavolozza"
 
-#: src/Commands.cpp:890
+#: src/Commands.cpp:891
 #, kde-format
 msgid "Change Floss Scheme"
 msgstr "Cambia schema dei fili"
 
-#: src/Commands.cpp:951
+#: src/Commands.cpp:952
 #, kde-format
 msgid "Replace Color"
 msgstr "Sostituisci colore"
 
-#: src/Commands.cpp:1051 src/MainWindow.cpp:1474
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1474
 #, kde-format
 msgid "Swap Colors"
 msgstr "Scambia colori"
 
-#: src/Commands.cpp:1072
+#: src/Commands.cpp:1073
 #, kde-format
 msgid "Update Printer Configuration"
 msgstr "Aggiorna la configurazione della stampante"
 
-#: src/Commands.cpp:1096
+#: src/Commands.cpp:1097
 #, kde-format
 msgid "Cut"
 msgstr "Taglia"
 
-#: src/Commands.cpp:1282 src/Editor.cpp:1969 src/MainWindow.cpp:1411
+#: src/Commands.cpp:1283 src/Editor.cpp:1969 src/MainWindow.cpp:1411
 #, kde-format
 msgid "Alphabet"
 msgstr "Alfabeto"
 
-#: src/Commands.cpp:1328
+#: src/Commands.cpp:1329
 #, kde-format
 msgid "Configure KXStitch"
 msgstr "Configura KXStitch"
@@ -1984,17 +1984,17 @@ msgstr ""
 "che quindi abiliterà gli strumenti di disegno."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
-#: src/PaletteManagerDlg.cpp:52 ui/PaletteManager.ui:14
+#: src/PaletteManagerDlg.cpp:51 ui/PaletteManager.ui:14
 #, kde-format
 msgid "Palette Manager"
 msgstr "Gestore della tavolozza"
 
-#: src/PaletteManagerDlg.cpp:150
+#: src/PaletteManagerDlg.cpp:149
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Non ci sono più simboli disponibili."
 
-#: src/PaletteManagerDlg.cpp:191
+#: src/PaletteManagerDlg.cpp:190
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "

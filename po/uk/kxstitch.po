@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-09 01:50+0000\n"
+"POT-Creation-Date: 2024-10-20 00:39+0000\n"
 "PO-Revision-Date: 2022-10-19 14:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -623,7 +623,7 @@ msgid "&File"
 msgstr "&Файл"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
-#: kxstitchui.rc:10 src/Commands.cpp:500
+#: kxstitchui.rc:10 src/Commands.cpp:501
 #, kde-format
 msgid "Remove Background Image"
 msgstr "Вилучити зображення тла"
@@ -641,13 +641,13 @@ msgid "Selection Masks"
 msgstr "Маски позначення"
 
 #. i18n: ectx: Menu (mirror)
-#: kxstitchui.rc:23 src/Commands.cpp:1183
+#: kxstitchui.rc:23 src/Commands.cpp:1184
 #, kde-format
 msgid "Mirror Selection"
 msgstr "Віддзеркалити позначене"
 
 #. i18n: ectx: Menu (rotate)
-#: kxstitchui.rc:27 src/Commands.cpp:1238
+#: kxstitchui.rc:27 src/Commands.cpp:1239
 #, kde-format
 msgid "Rotate Selection"
 msgstr "Обернути позначене"
@@ -689,7 +689,7 @@ msgid "&View"
 msgstr "П&ерегляд"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:481
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
 #, kde-format
 msgid "Show Background Image"
 msgstr "Показувати зображення тла"
@@ -777,187 +777,187 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:31 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Властивості файла"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:53 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
+#: src/Commands.cpp:54 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
 msgstr "Імпортування зображення"
 
-#: src/Commands.cpp:75
+#: src/Commands.cpp:76
 #, kde-format
 msgid "Paint Stitches"
 msgstr "Малювати стібки"
 
-#: src/Commands.cpp:95
+#: src/Commands.cpp:96
 #, kde-format
 msgid "Paint Knots"
 msgstr "Малювати вузли"
 
-#: src/Commands.cpp:115
+#: src/Commands.cpp:116
 #, kde-format
 msgid "Draw Line"
 msgstr "Малювати пряму"
 
-#: src/Commands.cpp:135
+#: src/Commands.cpp:136
 #, kde-format
 msgid "Erase Stitches"
 msgstr "Витерти стібки"
 
-#: src/Commands.cpp:155 src/MainWindow.cpp:1351
+#: src/Commands.cpp:156 src/MainWindow.cpp:1351
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Малювати прямокутник"
 
-#: src/Commands.cpp:175 src/MainWindow.cpp:1361
+#: src/Commands.cpp:176 src/MainWindow.cpp:1361
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Заповнений прямокутник"
 
-#: src/Commands.cpp:195 src/MainWindow.cpp:1371
+#: src/Commands.cpp:196 src/MainWindow.cpp:1371
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Малювати еліпс"
 
-#: src/Commands.cpp:215 src/MainWindow.cpp:1381
+#: src/Commands.cpp:216 src/MainWindow.cpp:1381
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "Заповнений еліпс"
 
-#: src/Commands.cpp:235 src/MainWindow.cpp:1391
+#: src/Commands.cpp:236 src/MainWindow.cpp:1391
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Заповнений багатокутник"
 
-#: src/Commands.cpp:255
+#: src/Commands.cpp:256
 #, kde-format
 msgid "Add Stitch"
 msgstr "Додати стібок"
 
-#: src/Commands.cpp:291
+#: src/Commands.cpp:292
 #, kde-format
 msgid "Delete Stitches"
 msgstr "Вилучити стібки"
 
-#: src/Commands.cpp:324
+#: src/Commands.cpp:325
 #, kde-format
 msgid "Add Backstitch"
 msgstr "Додати зворотний стібок"
 
-#: src/Commands.cpp:347
+#: src/Commands.cpp:348
 #, kde-format
 msgid "Delete Backstitch"
 msgstr "Вилучити зворотній стібок"
 
-#: src/Commands.cpp:377
+#: src/Commands.cpp:378
 #, kde-format
 msgid "Add Knot"
 msgstr "Додати вузол"
 
-#: src/Commands.cpp:395
+#: src/Commands.cpp:396
 #, kde-format
 msgid "Delete Knots"
 msgstr "Вилучити вузол"
 
-#: src/Commands.cpp:420
+#: src/Commands.cpp:421
 #, kde-format
 msgid "Set Property"
 msgstr "Встановити властивість"
 
-#: src/Commands.cpp:439
+#: src/Commands.cpp:440
 #, kde-format
 msgid "Add Background Image"
 msgstr "Додати зображення тла"
 
-#: src/Commands.cpp:461
+#: src/Commands.cpp:462
 #, kde-format
 msgid "Fit Background to Selection"
 msgstr "Підібрати розміри тла за позначеним"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:599 ui/PaletteManager.ui:189
+#: src/Commands.cpp:600 ui/PaletteManager.ui:189
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Вилучити невикористані нитки"
 
-#: src/Commands.cpp:617
+#: src/Commands.cpp:618
 #, kde-format
 msgid "Resize Document"
 msgstr "Змінити розміри документа"
 
-#: src/Commands.cpp:644
+#: src/Commands.cpp:645
 #, kde-format
 msgid "Crop to Pattern"
 msgstr "Обрізати до візерунка"
 
-#: src/Commands.cpp:671
+#: src/Commands.cpp:672
 #, kde-format
 msgid "Crop to Selection"
 msgstr "Обрізати за позначеним"
 
-#: src/Commands.cpp:708 src/MainWindow.cpp:1515
+#: src/Commands.cpp:709 src/MainWindow.cpp:1515
 #, kde-format
 msgid "Insert Columns"
 msgstr "Вставити стовпчики"
 
-#: src/Commands.cpp:751 src/MainWindow.cpp:1509
+#: src/Commands.cpp:752 src/MainWindow.cpp:1509
 #, kde-format
 msgid "Insert Rows"
 msgstr "Вставити рядки"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
-#: src/Commands.cpp:794 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
+#: src/Commands.cpp:795 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
 msgstr "Розширити візерунок"
 
-#: src/Commands.cpp:836 src/MainWindow.cpp:1491
+#: src/Commands.cpp:837 src/MainWindow.cpp:1491
 #, kde-format
 msgid "Center Pattern"
 msgstr "Центрувати візерунок"
 
-#: src/Commands.cpp:867
+#: src/Commands.cpp:868
 #, kde-format
 msgid "Update Palette"
 msgstr "Оновити палітру"
 
-#: src/Commands.cpp:890
+#: src/Commands.cpp:891
 #, kde-format
 msgid "Change Floss Scheme"
 msgstr "Змінити схему ниток"
 
-#: src/Commands.cpp:951
+#: src/Commands.cpp:952
 #, kde-format
 msgid "Replace Color"
 msgstr "Замінити колір"
 
-#: src/Commands.cpp:1051 src/MainWindow.cpp:1474
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1474
 #, kde-format
 msgid "Swap Colors"
 msgstr "Поміняти кольори місцями"
 
-#: src/Commands.cpp:1072
+#: src/Commands.cpp:1073
 #, kde-format
 msgid "Update Printer Configuration"
 msgstr "Оновити налаштування принтера"
 
-#: src/Commands.cpp:1096
+#: src/Commands.cpp:1097
 #, kde-format
 msgid "Cut"
 msgstr "Вирізати"
 
-#: src/Commands.cpp:1282 src/Editor.cpp:1969 src/MainWindow.cpp:1411
+#: src/Commands.cpp:1283 src/Editor.cpp:1969 src/MainWindow.cpp:1411
 #, kde-format
 msgid "Alphabet"
 msgstr "Абетка"
 
-#: src/Commands.cpp:1328
+#: src/Commands.cpp:1329
 #, kde-format
 msgid "Configure KXStitch"
 msgstr "Налаштувати KXStitch"
@@ -2008,17 +2008,17 @@ msgstr ""
 "нитки за допомогою засобу керування палітрою."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
-#: src/PaletteManagerDlg.cpp:52 ui/PaletteManager.ui:14
+#: src/PaletteManagerDlg.cpp:51 ui/PaletteManager.ui:14
 #, kde-format
 msgid "Palette Manager"
 msgstr "Керування палітрою"
 
-#: src/PaletteManagerDlg.cpp:150
+#: src/PaletteManagerDlg.cpp:149
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Більше позначок немає."
 
-#: src/PaletteManagerDlg.cpp:191
+#: src/PaletteManagerDlg.cpp:190
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
