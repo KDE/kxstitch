@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-20 00:39+0000\n"
-"PO-Revision-Date: 2024-09-23 15:31+0300\n"
+"PO-Revision-Date: 2024-10-20 12:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -323,7 +323,7 @@ msgstr "Şekil araçları kesirli dikiş kullansın mı"
 #: kxstitch.kcfg:267
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr "TextToolDlg'de kullanılacak yazıtipi ailesi"
+msgstr "TextToolDlg’de kullanılacak yazıtipi ailesi"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:271
@@ -761,13 +761,13 @@ msgstr "İp Ayarla"
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
-msgstr "%1-%2 (Değiştirilmiş)"
+msgstr "%1 — %2 (Değiştirilmiş)"
 
 #: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
-msgstr "%1-%2"
+msgstr "%1 — %2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
@@ -953,7 +953,7 @@ msgstr "Abece"
 #: src/Commands.cpp:1329
 #, kde-format
 msgid "Configure KXStitch"
-msgstr "KX Dikiş'i Yapılandır"
+msgstr "KX Dikiş’i Yapılandır"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
@@ -1242,7 +1242,7 @@ msgstr "Görsel Öge Özellikleri"
 #: src/ImportImageDlg.cpp:84
 #, kde-format
 msgid "Import Image - Image Size %1 x %2 pixels"
-msgstr "Görsel İçe Aktar - Görsel Boyutu %1 × %2 piksel"
+msgstr "Görsel İçe Aktar — Görsel Boyutu %1 × %2 piksel"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
@@ -1389,7 +1389,7 @@ msgstr "Dışa Aktarma Listesine Ekle"
 #: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
 #, kde-format
 msgid "Properties..."
-msgstr "Özellikler..."
+msgstr "Özellikler…"
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
@@ -1551,7 +1551,7 @@ msgstr ""
 #: src/MainWindow.cpp:401
 #, kde-format
 msgid "Save As..."
-msgstr "Farklı Kaydet..."
+msgstr "Farklı Kaydet…"
 
 #: src/MainWindow.cpp:401
 #, kde-format
@@ -1639,12 +1639,12 @@ msgstr "Yazıcı Yapılandırması"
 #: src/MainWindow.cpp:1129
 #, kde-format
 msgid "Print Setup..."
-msgstr "Yazdırma Ayarları..."
+msgstr "Yazdırma Ayarları…"
 
 #: src/MainWindow.cpp:1146
 #, kde-format
 msgid "Add Background Image..."
-msgstr "Arka Plan Görseli Ekle..."
+msgstr "Arka Plan Görseli Ekle…"
 
 #: src/MainWindow.cpp:1163
 #, kde-format
@@ -1765,7 +1765,7 @@ msgstr "Renk Seçicisi"
 #: src/MainWindow.cpp:1452
 #, kde-format
 msgid "Palette Manager..."
-msgstr "Palet Yöneticisi..."
+msgstr "Palet Yöneticisi…"
 
 #: src/MainWindow.cpp:1458
 #, kde-format
@@ -1780,7 +1780,7 @@ msgstr "Kullanılmayanleri Temizle"
 #: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr "Şemayı Ayarla..."
+msgstr "Şemayı Ayarla…"
 
 #: src/MainWindow.cpp:1479
 #, kde-format
@@ -1790,7 +1790,7 @@ msgstr "Renkleri Değiştir"
 #: src/MainWindow.cpp:1485
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Kalıbı Genişlet..."
+msgstr "Kalıbı Genişlet…"
 
 #: src/MainWindow.cpp:1497
 #, kde-format
@@ -1805,7 +1805,7 @@ msgstr "Tuvali Seçime Kırp"
 #: src/MainWindow.cpp:1522
 #, kde-format
 msgid "Library Manager..."
-msgstr "Kitaplık Yöneticisi..."
+msgstr "Kitaplık Yöneticisi…"
 
 #: src/MainWindow.cpp:1558
 #, kde-format
@@ -2043,11 +2043,11 @@ msgid ""
 "Pattern Size: ${width.stitches} x ${height.stitches}\n"
 "Flosses from the ${scheme} range."
 msgstr ""
-"Yapan ${author}\n"
+"${author} tarafından oluşturuldu\n"
 "© ${copyright}\n"
 "\n"
-"Desen boyutu: ${width.stitches} x ${height.stitches}\n"
-"İpler ${scheme} aralığından."
+"Desen boyutu: ${width.stitches} × ${height.stitches}\n"
+"İpler ${scheme} eriminden."
 
 #: src/PrintSetupDlg.cpp:518 src/PrintSetupDlg.cpp:579
 #: src/PrintSetupDlg.cpp:601

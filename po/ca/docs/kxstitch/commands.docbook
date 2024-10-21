@@ -447,7 +447,7 @@
                         <listitem
 ><simpara
 ><action
->Emmiralla horitzontalment l'àrea seleccionada, &ead;, se li dona la volta d'esquerra a dreta.</action
+>Emmiralla horitzontalment l'àrea seleccionada, &ead;, tomba d'esquerra a dreta.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -463,7 +463,7 @@
                         <listitem
 ><simpara
 ><action
->Emmiralla verticalment l'àrea seleccionada, &ead;, se li dona la volta de dalt a baix.</action
+>Emmiralla verticalment l'àrea seleccionada, &ead;, tomba de dalt a baix.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -731,7 +731,7 @@
                         <listitem
 ><simpara
 ><action
->Quart de punt, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+>Quart de punt, la posició és determinada pel quadrant de la cel·la seleccionada.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -745,7 +745,7 @@
                         <listitem
 ><simpara
 ><action
->Mig punt, la direcció està determinada pel quadrant de la cel·la seleccionada.</action
+>Mig punt, la direcció és determinada pel quadrant de la cel·la seleccionada.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -759,7 +759,7 @@
                         <listitem>
                     <simpara
 ><action
->Tres quarts de punt, l'orientació està determinada pel quadrant de la cel·la seleccionada.</action
+>Tres quarts de punt, l'orientació és determinada pel quadrant de la cel·la seleccionada.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -787,7 +787,7 @@
                         <listitem
 ><simpara
 ><action
->Mig punt petit, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+>Mig punt petit, la posició és determinada pel quadrant de la cel·la seleccionada.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -801,7 +801,7 @@
                         <listitem
 ><simpara
 ><action
->Punt sencer petit, la posició està determinada pel quadrant de la cel·la seleccionada.</action
+>Punt sencer petit, la posició és determinada pel quadrant de la cel·la seleccionada.</action
 ></simpara
 ></listitem>
                     </varlistentry>
@@ -950,7 +950,7 @@
                         <listitem
 ><simpara
 ><action
->Insereix text amb les puntades. Això invoca el diàleg de text. Seleccioneu el tipus de lletra requerit i la mida, introduïu el text i feu clic a <guibutton
+>Insereix text amb les puntades. Això invoca el diàleg de text. Seleccioneu la lletra requerida i la mida, introduïu el text i feu clic a <guibutton
 >D'acord</guibutton
 >. Premeu el &BER; aproximadament on us agradaria tenir el text, moveu el ratolí per a situar el text amb precisió i després deixeu anar el botó del ratolí. Això és el mateix que la funció enganxa. </action
 ></simpara

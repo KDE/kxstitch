@@ -259,7 +259,7 @@
 ></screenshot>
         </para>
         <para
->El diàleg de text permet seleccionar un tipus de lletra i mida, després introduïu el text. En fer clic a <guibutton
+>El diàleg de text permet seleccionar una lletra i mida, després introduïu el text. En fer clic a <guibutton
 >D'acord</guibutton
 >, es tancarà el diàleg i tornareu a la finestra del &kxstitch;. Posicionar el text és el mateix que enganxar qualsevol altre element. Premeu el &BER; sobre el llenç més o menys on voleu el text, això mostrarà una vista prèvia del text, poseu el text exactament on el voleu, després deixeu anar el &BER;. </para>
         <screenshot
@@ -398,7 +398,7 @@
             <title
 >Element de text</title>
             <para
->Es pot utilitzar un element de text per a afegir notes de text al patró o per a mostrar els títols o comentaris. El text es pot configurar amb els tipus de lletra, color i transparència. A més, es pot mostrar una vora. <screenshot
+>Es pot utilitzar un element de text per a afegir notes de text al patró o per a mostrar els títols o comentaris. El text es pot configurar amb lletra, color i transparència. A més, es pot mostrar una vora. <screenshot
 ><mediaobject
 ><imageobject
 ><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
