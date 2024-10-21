@@ -16,15 +16,14 @@
 #include <QFileInfo>
 #include <QStandardPaths>
 #include <QUrl>
-#include <QXmlInputSource>
-#include <QXmlSimpleReader>
+#include <QDomDocument>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 
 #include "Floss.h"
 #include "FlossScheme.h"
-#include "SchemeParser.h"
+//#include "SchemeParser.h"
 
 SchemeManager *SchemeManager::schemeManager = nullptr;
 
@@ -124,25 +123,100 @@ FlossScheme *SchemeManager::scheme(QString name)
     */
 FlossScheme *SchemeManager::readScheme(QString name)
 {
-    SchemeParser handler;
     QFile xmlFile(name);
-    QXmlInputSource source(&xmlFile);
-    QXmlSimpleReader reader;
-    reader.setContentHandler(&handler);
 
-    bool success = reader.parse(source);
-
-    if (!success) {
-        KMessageBox::error(nullptr, i18n("Error reading scheme %1\n%2.", name, handler.errorString()), i18n("Error reading floss scheme."));
+    if (!xmlFile.open(QIODevice::ReadOnly)) {
+        KMessageBox::error(nullptr, QString(i18n("Cannot open file: %1", name)), i18n("Error"));
+        return nullptr;
     }
 
-    FlossScheme *flossScheme = handler.flossScheme();
+    QDomDocument    dom;
 
-    if (!success) {
-        delete flossScheme;
-        flossScheme = nullptr;
-    } else {
-        flossScheme->setPath(name);
+    if (!dom.setContent(&xmlFile)) {
+        KMessageBox::error(nullptr, QString(i18n("Cannot set DomDocument content from file: %1", name)), i18n("Error"));
+        xmlFile.close();
+        return nullptr;
+    }
+    xmlFile.close();
+
+    FlossScheme *flossScheme = new FlossScheme();
+
+    if (flossScheme == nullptr) {
+        KMessageBox::error(nullptr, QString(i18n("Error creating instance of a FlossScheme for scheme: %1", name)), i18n("Error"));
+        return nullptr;
+    }
+
+    QDomElement documentElement = dom.documentElement();
+
+    if (documentElement.tagName() != QStringLiteral("flossScheme")) {
+        // wrong content
+        KMessageBox::error(nullptr, QString(i18n("File %1 does not appear to be a floss scheme", name)), i18n("Error"));
+        return nullptr;
+    }
+
+    QDomNodeList nodes = documentElement.elementsByTagName(QStringLiteral("title"));
+
+    if (nodes.count() != 1) {
+        // only expecting one of these
+        KMessageBox::error(nullptr, QString(i18n("Multiple title elements found in file: %1", name)), i18n("Error"));
+        return nullptr;
+    }
+
+    QString title = nodes.at(0).toElement().text();
+
+    flossScheme->setSchemeName(title);
+    flossScheme->setPath(name);
+
+    QDomNodeList flossNodes = documentElement.elementsByTagName(QStringLiteral("floss"));
+
+    for (int index = 0 ; index < flossNodes.count() ; ++index) {
+
+        QDomElement node = flossNodes.at(index).toElement();  // <floss>...</floss>
+
+        // Create default invalid values to ensure all elements are read.
+        QString flossName;
+        QString flossDescription;
+        int red = -1, green = -1, blue = -1;
+
+        QDomNodeList flossElements = node.childNodes();
+
+        for (int flossChild = 0 ; flossChild < flossElements.count() ; ++flossChild) {
+            QDomElement flossElement = flossElements.at(flossChild).toElement();
+
+            if (flossElement.tagName() == QStringLiteral("name")) {
+                flossName = flossElement.text();
+            }
+
+            if (flossElement.tagName() == QStringLiteral("description")) {
+                flossDescription = flossElement.text();
+            }
+
+            if (flossElement.tagName() == QStringLiteral("color")) {
+                QDomNodeList colorElements = flossElement.childNodes();
+
+                for (int colorChild = 0 ; colorChild < colorElements.count(); ++colorChild) {
+                    QDomElement colorElement = colorElements.at(colorChild).toElement();
+
+                    if (colorElement.tagName() == QStringLiteral("red")) {
+                        red = colorElement.text().toInt();
+                    }
+
+                    if (colorElement.tagName() == QStringLiteral("green")) {
+                        green = colorElement.text().toInt();
+                    }
+
+                    if (colorElement.tagName() == QStringLiteral("blue")) {
+                        blue = colorElement.text().toInt();
+                    }
+                }
+            }
+        }
+
+        if (flossName.isNull() || flossDescription.isNull() || (red == -1) || (green == -1) || (blue == -1)) {
+            KMessageBox::error(nullptr, QString(i18n("Malformed XML in file: %1", name)), i18n("Error"));
+        } else {
+            flossScheme->addFloss(new Floss(flossName, flossDescription, QColor(red, green, blue)));
+        }
     }
 
     return flossScheme;
@@ -184,6 +258,8 @@ bool SchemeManager::writeScheme(QString name)
     }
 
     QFile schemeFile(fileInfo.filePath());
+
+    // TODO convert the following to use QDomDocument
 
     if (schemeFile.open(QIODevice::WriteOnly)) {
         QTextStream stream(&schemeFile);

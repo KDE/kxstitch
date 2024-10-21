@@ -18,7 +18,6 @@ kde_enable_exceptions()
 
 find_package (Qt6 CONFIG REQUIRED
     Core
-    Core5Compat
     PrintSupport
     Widgets
 )
@@ -90,7 +89,6 @@ set (kxstitch_SRCS
     src/Scale.cpp
     src/ScaledPixmapLabel.cpp
     src/SchemeManager.cpp
-    src/SchemeParser.cpp
     src/Stitch.cpp
     src/StitchData.cpp
     src/Symbol.cpp
@@ -143,7 +141,6 @@ add_executable (kxstitch ${kxstitch_SRCS})
 
 target_link_libraries (kxstitch
     Qt6::Core
-    Qt6::Core5Compat # for QXmlInputSource etc.
     Qt6::PrintSupport
     Qt6::Widgets
     KF6::Completion
@@ -197,9 +194,11 @@ message (STATUS "Set magic_config_quantum: " ${magick_config_quantum})
 message (STATUS "Set magic_config_hdri: " ${magick_config_hdri})
 
 add_definitions(
+    -DQT_NO_COMPAT
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_CAST_TO_ASCII
     -DQT_NO_URL_CAST_FROM_STRING
+    -DKDE_NO_COMPAT
     ${magick_config_hdri}
     ${magick_config_quantum}
 )
@@ -221,4 +220,3 @@ IF (SHAREDMIMEINFO_FOUND AND IS_DIRECTORY ${KDE_INSTALL_MIMEDIR})
 ENDIF (SHAREDMIMEINFO_FOUND AND IS_DIRECTORY ${KDE_INSTALL_MIMEDIR})
 
 feature_summary (WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
