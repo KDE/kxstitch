@@ -62,7 +62,7 @@
   <summary xml:lang="sk">Tvorca vzorov krížových stehov</summary>
   <summary xml:lang="sl">Ustvarjalec vzorcev za vezenje</summary>
   <summary xml:lang="sv">Ett program för att skapa korsstygnsmönster</summary>
-  <summary xml:lang="tr">Çapraz dikiş desen oluşturucu</summary>
+  <summary xml:lang="tr">Çapraz dikiş desen oluşturucusu</summary>
   <summary xml:lang="uk">Програма для створення візерунків для вишивання хрестиком</summary>
   <summary xml:lang="x-test">xxA cross stitch pattern creatorxx</summary>
   <summary xml:lang="zh-CN">十字绣图案创建器</summary>
@@ -84,6 +84,7 @@
     <p xml:lang="gl">KXStitch é un programa que lle permite crear padróns e gráficos de cruz en punta. Pode crear padróns desde cero sobre unha grade de tamaño personalizado. Tamén pode importar imaxes en varios formatos, o que lle permitirá restrinxir o número de cores e restrinxir a conversión a puntadas completas ou usar opcionalmente puntadas fraccionadas. Tamén pode usar imaxes de fondo, para trazar sobre elas. As imaxes importadas poden modificarse mediante as ferramentas fornecidas para producir o deseño final.</p>
     <p xml:lang="id">KXStitch adalah program yang menyegerakanmu menciptakan bagan dan pola kristik. Pola-pola dapat diciptakan dari awal pada ukuran kisi yang ditentukan pengguna, yang mana ukuran  bisa diperbesar atau diperkecil saat selagi progres polamu. Selain itu kamu bisa mengimpor citra dari banyak format file grafik yang akan memungkinkanmu untuk mengurangi jumlah warna dan untuk membatasi konversi untuk memenuhi stitch-stitch atau secara opsional menggunakan stitch kecil-kecil. Kamu juga bisa menggunakan citra sebagai latarbelakang untuk mengeblabnya. Citra yang diimpor tersebut kemudian dapat dimodifikasi menggunakan peralatan yang disediakan untuk menghasilkan desain finalmu.</p>
     <p xml:lang="it">KXStitch è un programma che ti permette di creare modelli e grafici a punto croce. Puoi creare i modelli da zero, su una griglia di cui puoi definire la grandezza: puoi ingrandirla o ridurla man mano che sviluppi il modello. In alternativa, è possibile importare immagini da molti formati; questo ti permette di ridurre il numero dei colori, e di restringere la conversione a punto pieno oppure anche a mezzo punto. Puoi anche usare delle immagini come sfondo, disegnandoci sopra. Queste immagini possono poi essere modificate con gli strumenti del programma per produrre il disegno finale.</p>
+    <p xml:lang="ka">KXStitch არის პროგრამა, რომელიც საშუალებას გაძლევთ შექმნათ ჯვარედინი ნაკერების ნიმუშები და დიაგრამები. შაბლონები შეიძლება შეიქმნას ნულიდან მომხმარებლის მიერ განსაზღვრული ქსელის ზომაზე, რომელიც შეიძლება გაფართოვდეს ან შემცირდეს ზომით, როგორც თქვენი ნიმუში პროგრესირებს. გარდა ამისა, თქვენ შეგიძლიათ შემოიტანოთ სურათები მრავალი გრაფიკული ფაილის ფორმატიდან, რაც საშუალებას მოგცემთ შეამციროთ ფერების რაოდენობა და შეზღუდოთ კონვერტაცია სრულ ნაკერებზე ან სურვილისამებრ გამოიყენოთ ფრაქციული ნაკერი. თქვენ ასევე შეგიძლიათ გამოიყენოთ სურათები, როგორც ფონი, რომელიც საშუალებას გაძლევთ მოძებნოთ ისინი. შემდეგ ეს იმპორტირებული სურათები შეიძლება შეიცვალოს მოწოდებული ხელსაწყოების გამოყენებით თქვენი საბოლოო დიზაინის წარმოებისთვის.</p>
     <p xml:lang="ko">KXStitch는 십자수 패턴과 차트를 만들 수 있는 프로그램입니다. 사용자 정의 크기 모눈에서 패턴을 만들 수 있으며, 나중에 크기를 조정할 수도 있습니다. 또한 다양한 그래픽 파일 형식을 가져올 수 있으며, 색상의 수를 제한할 수 있고 완전한 십자형 및 한 쪽 대각선만 사용하도록 할 수도 있습니다. 가져온 그림을 배경 그림으로 사용하여 따라서 그릴 수 있으며, 제공하는 도구를 사용하여 최종 디자인을 만들 수 있습니다.</p>
     <p xml:lang="nl">KXStitch is een programma waarmee u kruissteekpatronen en kaarten kunt creëren. Patronen kunt u vanaf het begin op een door u bepaald formaat raster ontwerpen, dat raster kunt u later vergroten of verkleinen naar gelang het patroon zich ontwikkelt. Als alternatief kunt u ook afbeeldingen importeren in veel verschillende grafische formaten waarbij u het aantal kleuren kunt beperken en alleen maar hele steken  of ook gedeeltelijke steken wilt gebruiken. U kunt ook afbeeldingen als achtergrond gebruiken, waarmee u er overheen kunt werken. Deze geïmporteerde afbeeldingen kunt u vervolgens met de meegeleverde hulpmiddelen wijzigen om uw uiteindelijke ontwerp te krijgen.</p>
     <p xml:lang="nn">KXStitch er eit program som lèt deg laga og skriva ut krosstingmønster. Du kan teikna mønstera frå grunnen, på ein sjølvvald vev som du eventuelt kan gjera større eller mindre etter kvart som du arbeider med mønsteret. Du kan òg importera bilete frå ulike biletformat og redusera talet på fargar i desse, slik at dei eignar seg som krosstingmønster, anten med heilsting eller delsting. Det er òg mogleg å bruka bilete som bakgrunn og teikna av desse. Til slutt kan finpussa på mønstera med ulike verktøy.</p>
@@ -172,6 +173,7 @@
       <li xml:lang="gl">Edición de padróns existentes. KXStitch tamén pode ler ficheiros de PC Stitch.</li>
       <li xml:lang="id">Pengeditan pola-pola yang ada - KXStitch juga mampu membaca PC Stitch</li>
       <li xml:lang="it">Modifica di un modello esistente - KXStitch può anche leggere un file PC Stitch</li>
+      <li xml:lang="ka">არსებული შაბლონების ჩასწორება - KXStich-ს PC Stritch-ს ფაილების წაკითხვაც შეუძლია</li>
       <li xml:lang="ko">기존 패턴 편집하기 - KXStitch에서는 PC Stitch 파일을 편집할 수 있습니다</li>
       <li xml:lang="nl">Bewerken van bestaande patronen - KXStitch kan ook PC Stitch-bestanden lezen</li>
       <li xml:lang="nn">Kan redigera gamle mønster og lesa mønster frå PC Stitch</li>
@@ -182,7 +184,7 @@
       <li xml:lang="sk">Použitie existujúcich vzorov - KXStitch dokáže čítať súbory PC Stitch</li>
       <li xml:lang="sl">Urejanje obstoječih vzorcev - KXStitch zmore brati tudi datoteke PC Stitch</li>
       <li xml:lang="sv">Redigering av befintliga mönster: KXStitch klarar också av att läsa PC Stitch-filer</li>
-      <li xml:lang="tr">Var olan desenleri düzenleme - KXStitch, PC Stitch dosyalarını da okuyabilir</li>
+      <li xml:lang="tr">Var olan desenleri düzenleme — KXStitch, PC Stitch dosyalarını da okuyabilir</li>
       <li xml:lang="uk">Редагування наявних візерунків — програма KXStitch здатна читати файли PC Stitch.</li>
       <li xml:lang="x-test">xxEditing of existing patterns - KXStitch is also capable of reading PC Stitch filesxx</li>
       <li xml:lang="zh-CN">编辑现有图案 - KXStitch 也能读取 PC Stitch 的文件</li>
@@ -199,6 +201,7 @@
       <li xml:lang="gl">Uso de varios xergóns de fío, DMC, Anchor e Madeira.</li>
       <li xml:lang="id">Menggunakan beberapa palet floss, DMC, Anchor, Madeira</li>
       <li xml:lang="it">Uso di varie matasse di filo, DMC, Anchor, Madeira</li>
+      <li xml:lang="ka">სხვადასხვა ძაფის პალიტრების, DMC-ის, კვანძების, მადეირის გამოყენება</li>
       <li xml:lang="ko">DMC, Anchor, Madeira 등 다양한 색실 사용</li>
       <li xml:lang="nl">Gebruik van verschillende garen paletten, DMC, Anchor, Madeira</li>
       <li xml:lang="nn">Støtte for ulike trådsystem: DMC, Anchor og Madeira</li>
