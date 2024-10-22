@@ -1279,11 +1279,7 @@ void Editor::paintEvent(QPaintEvent *e)
 void Editor::wheelEvent(QWheelEvent *e)
 {
     bool zoomed;
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    QPoint p = e->pos();
-#else
     QPoint p = e->position().toPoint();
-#endif
     QPoint offset = parentWidget()->rect().center() - pos();
 
     setUpdatesEnabled(false);
@@ -1373,8 +1369,6 @@ void Editor::renderRubberBandRectangle(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        //painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
-
         painter->resetTransform();
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
@@ -1393,8 +1387,6 @@ void Editor::renderRubberBandEllipse(QPainter *painter, const QRect &)
     painter->save();
 
     if (m_rubberBand.isValid()) {
-        //painter->setRenderHint(QPainter::Qt4CompatiblePainting, true);
-
         painter->resetTransform();
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
@@ -1565,7 +1557,6 @@ void Editor::mouseReleaseEvent_Draw(QMouseEvent *)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
-        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.drawLine(m_cellStart, m_cellEnd);
         painter.end();
@@ -1917,7 +1908,6 @@ void Editor::mouseReleaseEvent_FillPolygon(QMouseEvent *e)
         canvas.fill(Qt::color0);
         painter.begin(&canvas);
         painter.setRenderHint(QPainter::Antialiasing, false);
-        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         painter.setPen(QPen(Qt::color1));
         painter.setBrush(Qt::color1);
         painter.drawPolygon(m_polygon);

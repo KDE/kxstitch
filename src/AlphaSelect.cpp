@@ -24,11 +24,7 @@ AlphaSelect::AlphaSelect(ScaledPixmapLabel *parent)
 {
     resize(parent->size());
     setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    setPixmap(*(parent->pixmap()));
-#else
     setPixmap(parent->pixmap(Qt::ReturnByValue));
-#endif
     setCursor(QCursor(Qt::CrossCursor));
 }
 

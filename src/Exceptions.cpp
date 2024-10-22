@@ -92,13 +92,9 @@ FailedWriteFile::FailedWriteFile(QDataStream::Status status)
  */
 QString FailedWriteFile::statusMessage() const
 {
-#if QT_VERSION >= 0x040800
-
     if (m_status == QDataStream::WriteFailed) {
         return QString(i18n("Failed to write to the device"));
     }
-
-#endif
 
     return QString(i18n("Undefined status message status %1", m_status));
 }

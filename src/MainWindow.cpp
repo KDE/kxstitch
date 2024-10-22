@@ -230,23 +230,10 @@ bool MainWindow::queryClose()
     }
 
     while (true) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        int messageBoxResult = KMessageBox::warningTwoActionsCancel(this,
-#else
-        int messageBoxResult = KMessageBox::warningYesNoCancel(this,
-#endif
-                                                                    i18n("Save changes to document?"),
-                                                                    QString(),
-                                                                    KStandardGuiItem::save(),
-                                                                    KStandardGuiItem::discard(),
-                                                                    KStandardGuiItem::cancel());
+        int messageBoxResult = KMessageBox::warningTwoActionsCancel(this, i18n("Save changes to document?"), QString(), KStandardGuiItem::save(), KStandardGuiItem::discard(), KStandardGuiItem::cancel());
 
         switch (messageBoxResult) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         case KMessageBox::PrimaryAction:
-#else
-        case KMessageBox::Yes:
-#endif
             fileSave();
 
             if (m_document->undoStack().isClean()) {
@@ -257,11 +244,7 @@ bool MainWindow::queryClose()
 
             break;
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         case KMessageBox::SecondaryAction:
-#else
-        case KMessageBox::No:
-#endif
             return true;
 
         case KMessageBox::Cancel:
@@ -412,20 +395,7 @@ void MainWindow::fileSaveAs()
 void MainWindow::fileRevert()
 {
     if (!m_document->undoStack().isClean()) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        if (KMessageBox::warningTwoActions(this,
-#else
-        if (KMessageBox::warningYesNo(this,
-#endif
-                                           i18n("Revert changes to document?"),
-                                           QString(),
-                                           KGuiItem(i18nc("@action:button", "Revert"), QStringLiteral("document-revert")),
-                                           KStandardGuiItem::cancel())
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-            == KMessageBox::PrimaryAction) {
-#else
-            == KMessageBox::Yes) {
-#endif
+        if (KMessageBox::warningTwoActions(this, i18n("Revert changes to document?"), QString(), KGuiItem(i18nc("@action:button", "Revert"), QStringLiteral("document-revert")), KStandardGuiItem::cancel()) == KMessageBox::PrimaryAction) {
             m_document->undoStack().setIndex(m_document->undoStack().cleanIndex());
         }
     }
@@ -522,10 +492,7 @@ void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url().toString() == i18n("Untitled")));
-    QUrl url = QFileDialog::getOpenFileUrl(this,
-                                           i18n("Import Image"),
-                                           QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)),
-                                           i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
 
     if (url.isValid()) {
         QTemporaryFile tmpFile;

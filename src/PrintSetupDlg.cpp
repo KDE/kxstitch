@@ -447,20 +447,7 @@ void PrintSetupDlg::on_Templates_clicked()
     bool okToCreate = true;
 
     if (!m_printerConfiguration.isEmpty()) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-        okToCreate = (KMessageBox::questionTwoActions(this,
-#else
-        okToCreate = (KMessageBox::questionYesNo(this,
-#endif
-                                                      i18n("Overwrite the current configuration?"),
-                                                      i18n("Overwrite"),
-                                                      KStandardGuiItem::overwrite(),
-                                                      KStandardGuiItem::cancel())
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-                      == KMessageBox::PrimaryAction);
-#else
-                      == KMessageBox::Yes);
-#endif
+        okToCreate = (KMessageBox::questionTwoActions(this, i18n("Overwrite the current configuration?"), i18n("Overwrite"), KStandardGuiItem::overwrite(), KStandardGuiItem::cancel()) == KMessageBox::PrimaryAction);
     }
 
     if (okToCreate) {

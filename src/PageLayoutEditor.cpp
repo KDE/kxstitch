@@ -227,15 +227,12 @@ void PageLayoutEditor::paintEvent(QPaintEvent *event)
     }
 
     if (m_rubberBand.isValid()) {
-        //bool qt4CompatiblePainting = painter.renderHints() & QPainter::Qt4CompatiblePainting;
-        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, true);
         QStyleOptionRubberBand opt;
         opt.initFrom(this);
         opt.shape = QRubberBand::Rectangle;
         opt.opaque = false;
         opt.rect = m_rubberBand;
         style()->drawControl(QStyle::CE_RubberBand, &opt, &painter);
-        //painter.setRenderHint(QPainter::Qt4CompatiblePainting, qt4CompatiblePainting);
     }
 
     if (m_boundary.isValid()) {
