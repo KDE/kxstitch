@@ -43,9 +43,7 @@
 ></screenshot>
             </para>
             <para
->Per a cadascun dels fils es pot assignar un símbol. El diàleg selector de símbols mostra tots els símbols disponibles. Els símbols emprats es mostren en gris i un consell d'eina mostrarà <quote
->Usat</quote
-> quan es passi per sobre del símbol. Per a la paleta, la biblioteca de símbols utilitzada també es pot canviar seleccionant-ne una des de la llista desplegable. A tots els fils se'ls assignarà un símbol des de la biblioteca nova. </para>
+>Per a cadascun dels fils es pot assignar un símbol. El diàleg selector de símbols mostra tots els símbols disponibles. Els símbols emprats es mostren en gris i un consell d'eina mostrarà «Usat» quan es passi per sobre del símbol. Per a la paleta, la biblioteca de símbols utilitzada també es pot canviar seleccionant-ne una des de la llista desplegable. A tots els fils se'ls assignarà un símbol des de la biblioteca nova. </para>
         </sect2>
     </sect1>
 

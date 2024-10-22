@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-20 00:39+0000\n"
+"POT-Creation-Date: 2024-10-22 00:38+0000\n"
 "PO-Revision-Date: 2023-11-10 16:09+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2075,21 +2075,48 @@ msgctxt ""
 msgid "Page ${page}"
 msgstr "Strana ${page}"
 
-#: src/SchemeManager.cpp:136
-#, kde-format
-msgid ""
-"Error reading scheme %1\n"
-"%2."
-msgstr ""
-"Chyba při čtení sady %1\n"
-"%2."
+#: src/SchemeManager.cpp:129
+#, fuzzy, kde-format
+#| msgid "Failed to open the file %1"
+msgid "Cannot open file: %1"
+msgstr "Nepodařilo se otevřít soubor %1"
+
+#: src/SchemeManager.cpp:129 src/SchemeManager.cpp:136
+#: src/SchemeManager.cpp:145 src/SchemeManager.cpp:153
+#: src/SchemeManager.cpp:161 src/SchemeManager.cpp:216
+#, fuzzy, kde-format
+#| msgid "No error"
+msgid "Error"
+msgstr "Žádná chyba"
 
 #: src/SchemeManager.cpp:136
 #, kde-format
-msgid "Error reading floss scheme."
+msgid "Cannot set DomDocument content from file: %1"
+msgstr ""
+
+#: src/SchemeManager.cpp:145
+#, fuzzy, kde-format
+#| msgid "Error reading floss scheme."
+msgid "Error creating instance of a FlossScheme for scheme: %1"
 msgstr "Chyba při čtení sady vyšívacích přízí."
 
-#: src/SchemeManager.cpp:165 src/SchemeManager.cpp:174
+#: src/SchemeManager.cpp:153
+#, fuzzy, kde-format
+#| msgid "This does not appear to be a valid symbol file"
+msgid "File %1 does not appear to be a floss scheme"
+msgstr "Zdá se, že toto není platný soubor symbolu"
+
+#: src/SchemeManager.cpp:161
+#, kde-format
+msgid "Multiple title elements found in file: %1"
+msgstr ""
+
+#: src/SchemeManager.cpp:216
+#, kde-format
+msgid "Malformed XML in file: %1"
+msgstr ""
+
+#: src/SchemeManager.cpp:239 src/SchemeManager.cpp:248
 #, kde-format
 msgid ""
 "Unable to locate a writable directory\n"
@@ -2097,36 +2124,6 @@ msgid ""
 msgstr ""
 "Nelze najít zapisovatelný adresář\n"
 "pro uložení sady."
-
-#: src/SchemeParser.cpp:41
-#, kde-format
-msgid "No error"
-msgstr "Žádná chyba"
-
-#: src/SchemeParser.cpp:42
-#, kde-format
-msgid "Floss not completely defined"
-msgstr ""
-
-#: src/SchemeParser.cpp:43
-#, kde-format
-msgid "Unmatched element tags"
-msgstr ""
-
-#: src/SchemeParser.cpp:44
-#, kde-format
-msgid "Unknown element tag"
-msgstr ""
-
-#: src/SchemeParser.cpp:45
-#, kde-format
-msgid "Color value is invalid"
-msgstr ""
-
-#: src/SchemeParser.cpp:46
-#, kde-format
-msgid "Unknown error code"
-msgstr "Neznámý kód chyby"
 
 #: src/Stitch.cpp:66
 #, kde-format
@@ -3461,3 +3458,13 @@ msgstr "Zarovnat vpravo"
 #, kde-format
 msgid "Align justified"
 msgstr "Zarovnat do bloku"
+
+#~ msgid ""
+#~ "Error reading scheme %1\n"
+#~ "%2."
+#~ msgstr ""
+#~ "Chyba při čtení sady %1\n"
+#~ "%2."
+
+#~ msgid "Unknown error code"
+#~ msgstr "Neznámý kód chyby"
