@@ -126,7 +126,7 @@ void TextElementDlg::on_ItalicButton_clicked()
 void TextElementDlg::on_FontFamily_currentFontChanged(const QFont &font)
 {
     QTextCharFormat fmt;
-    fmt.setFontFamily(font.family());
+    fmt.setFontFamilies({font.family()});
     mergeFormatOnWordOrSelection(fmt);
 }
 

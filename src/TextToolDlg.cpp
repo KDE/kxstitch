@@ -47,7 +47,7 @@ QImage TextToolDlg::image()
 
     int boundingWidth = boundingRect.width();
     int boundingHeight = boundingRect.height();
-    bitmap = bitmap.copy(0, 0, boundingWidth, boundingHeight); // a resize
+    bitmap = QBitmap::fromPixmap(bitmap.copy(0, 0, boundingWidth, boundingHeight)); // a resize
     painter.begin(&bitmap);
     painter.setFont(font);
     bitmap.fill(Qt::color0);

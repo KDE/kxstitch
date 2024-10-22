@@ -48,7 +48,7 @@ void LibraryTreeWidget::dragEnterEvent(QDragEnterEvent *event)
     if (acceptDrag(event)) {
         event->accept();
         m_currentItem = currentItem();
-        m_dropItem = itemAt(event->pos());
+        m_dropItem = itemAt(event->position().toPoint());
 
         if (m_dropItem) {
             m_openBranchTimer->start(AUTO_EXPAND_DELAY);
@@ -64,10 +64,10 @@ void LibraryTreeWidget::dragMoveEvent(QDragMoveEvent *event)
 
     if (acceptDrag(event)) {
         event->accept();
-        m_dropItem = itemAt(event->pos());
+        m_dropItem = itemAt(event->position().toPoint());
 
         if (m_dropItem && m_dropItem == m_currentItem) { // tring to drop on same Library
-            QToolTip::showText(mapToGlobal(event->pos() + QPoint(10, 0)), i18n("existing library"));
+            QToolTip::showText(mapToGlobal(event->position().toPoint() + QPoint(10, 0)), i18n("existing library"));
         } else {
             QToolTip::hideText();
         }

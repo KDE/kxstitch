@@ -143,7 +143,7 @@ void LibraryFile::readFile()
                             replacedModifiers |= Qt::MetaModifier;
                         }
 
-                        if (checksum == qChecksum(data.data(), data.size())) {
+                        if (checksum == qChecksum(QByteArrayView(data))) {
                             m_libraryPatterns.append(new LibraryPattern(data, key, replacedModifiers, baseline));
                         } else {
                             KMessageBox::error(nullptr,

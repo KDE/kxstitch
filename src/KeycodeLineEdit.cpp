@@ -178,7 +178,11 @@ const struct KEYCODE {
     {Qt::Key_twosuperior, QStringLiteral("twosuperior")},
     {Qt::Key_threesuperior, QStringLiteral("threesuperior")},
     {Qt::Key_acute, QStringLiteral("acute")},
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 7, 0))
+    {Qt::Key_micro, QStringLiteral("micro")},
+#else
     {Qt::Key_mu, QStringLiteral("mu")},
+#endif
     {Qt::Key_paragraph, QStringLiteral("paragraph")},
     {Qt::Key_periodcentered, QStringLiteral("periodcentered")},
     {Qt::Key_cedilla, QStringLiteral("cedilla")},

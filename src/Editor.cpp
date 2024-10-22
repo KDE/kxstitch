@@ -759,7 +759,7 @@ void Editor::dropEvent(QDropEvent *e)
     QDataStream stream(&m_pasteData, QIODevice::ReadOnly);
     stream >> *m_pastePattern;
     m_document->undoStack().push(
-        new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->pos()), e->keyboardModifiers() & Qt::ShiftModifier, i18n("Drag")));
+        new EditPasteCommand(m_document, m_pastePattern, contentsToCell(e->position().toPoint()), e->modifiers() & Qt::ShiftModifier, i18n("Drag")));
     m_pastePattern = nullptr;
     m_pasteData.clear();
     e->accept();
