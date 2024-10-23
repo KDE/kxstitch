@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:38+0000\n"
-"PO-Revision-Date: 2024-10-20 12:37+0300\n"
+"POT-Creation-Date: 2024-10-23 00:39+0000\n"
+"PO-Revision-Date: 2024-10-22 09:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -770,14 +770,14 @@ msgid "%1-%2"
 msgstr "%1 — %2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1141
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Dosya Özellikleri"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:54 src/MainWindow.cpp:526 src/MainWindow.cpp:1136
+#: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1103
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -803,27 +803,27 @@ msgstr "Çizgi Çiz"
 msgid "Erase Stitches"
 msgstr "Dikiş Sil"
 
-#: src/Commands.cpp:156 src/MainWindow.cpp:1351
+#: src/Commands.cpp:156 src/MainWindow.cpp:1318
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Dikdörtgen Çiz"
 
-#: src/Commands.cpp:176 src/MainWindow.cpp:1361
+#: src/Commands.cpp:176 src/MainWindow.cpp:1328
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Dikdörtgen Doldur"
 
-#: src/Commands.cpp:196 src/MainWindow.cpp:1371
+#: src/Commands.cpp:196 src/MainWindow.cpp:1338
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Elips Çiz"
 
-#: src/Commands.cpp:216 src/MainWindow.cpp:1381
+#: src/Commands.cpp:216 src/MainWindow.cpp:1348
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "Elipse Doldur"
 
-#: src/Commands.cpp:236 src/MainWindow.cpp:1391
+#: src/Commands.cpp:236 src/MainWindow.cpp:1358
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Poligon Doldur"
@@ -894,12 +894,12 @@ msgstr "Kalıba Kırp"
 msgid "Crop to Selection"
 msgstr "Seçime Kırp"
 
-#: src/Commands.cpp:709 src/MainWindow.cpp:1515
+#: src/Commands.cpp:709 src/MainWindow.cpp:1482
 #, kde-format
 msgid "Insert Columns"
 msgstr "Sütun Ekle"
 
-#: src/Commands.cpp:752 src/MainWindow.cpp:1509
+#: src/Commands.cpp:752 src/MainWindow.cpp:1476
 #, kde-format
 msgid "Insert Rows"
 msgstr "Satır Ekle"
@@ -910,7 +910,7 @@ msgstr "Satır Ekle"
 msgid "Extend Pattern"
 msgstr "Kalıbı Genişlet"
 
-#: src/Commands.cpp:837 src/MainWindow.cpp:1491
+#: src/Commands.cpp:837 src/MainWindow.cpp:1458
 #, kde-format
 msgid "Center Pattern"
 msgstr "Merkez Kalıp"
@@ -930,7 +930,7 @@ msgstr "İp Şemasını Değiştir"
 msgid "Replace Color"
 msgstr "Renk Değiştir"
 
-#: src/Commands.cpp:1052 src/MainWindow.cpp:1474
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1441
 #, kde-format
 msgid "Swap Colors"
 msgstr "Renkleri Değiştir"
@@ -945,7 +945,7 @@ msgstr "Yazıcı Yapılandırmasını Güncelle"
 msgid "Cut"
 msgstr "Kes"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1969 src/MainWindow.cpp:1411
+#: src/Commands.cpp:1283 src/Editor.cpp:1959 src/MainWindow.cpp:1378
 #, kde-format
 msgid "Alphabet"
 msgstr "Abece"
@@ -987,8 +987,8 @@ msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr "/cm"
 
-#: src/Document.cpp:122 src/MainWindow.cpp:301 src/MainWindow.cpp:372
-#: src/MainWindow.cpp:524 src/SymbolLibrary.cpp:95
+#: src/Document.cpp:122 src/MainWindow.cpp:284 src/MainWindow.cpp:355
+#: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
 msgstr "Başlıksız"
@@ -1036,11 +1036,11 @@ msgstr "İp adı %1 bulunamadı"
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:484
-#: src/Element.cpp:492 src/Element.cpp:528 src/ImportImageDlg.cpp:200
-#: src/MainWindow.cpp:1533 ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304
-#: ui/FileProperties.ui:82 ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86
-#: ui/PatternElement.ui:81 ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
+#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:473
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1500
+#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
+#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
+#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
 #, kde-format
 msgid "Stitches"
 msgstr "Dikiş"
@@ -1060,7 +1060,7 @@ msgstr "CM"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1806 src/Document.cpp:1999 src/ImportImageDlg.cpp:206
-#: src/MainWindow.cpp:1547 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1150,7 +1150,7 @@ msgid "Drag"
 msgstr "Sürükle"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:813 src/Editor.cpp:1948 src/MainWindow.cpp:1401
+#: src/Editor.cpp:813 src/Editor.cpp:1938 src/MainWindow.cpp:1368
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
@@ -1161,7 +1161,7 @@ msgstr "Metin"
 msgid "Add Character"
 msgstr "Karakter Ekle"
 
-#: src/Editor.cpp:957 src/Editor.cpp:2110 src/LibraryManagerDlg.cpp:116
+#: src/Editor.cpp:957 src/Editor.cpp:2100 src/LibraryManagerDlg.cpp:116
 #: src/LibraryManagerDlg.cpp:135
 #, kde-format
 msgid "Paste"
@@ -1170,13 +1170,13 @@ msgstr "Yapıştır"
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/Element.cpp:480 src/Element.cpp:488 src/Element.cpp:512
-#: ui/KeyElement.ui:377 ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#: src/Element.cpp:469 src/Element.cpp:492 ui/KeyElement.ui:377
+#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
 #, kde-format
 msgid "Symbol"
 msgstr "Sembol"
 
-#: src/Element.cpp:481 src/Element.cpp:489 src/Element.cpp:516
+#: src/Element.cpp:470 src/Element.cpp:496
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
@@ -1184,30 +1184,29 @@ msgstr "Ad"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#: src/Element.cpp:482 src/Element.cpp:490 src/Element.cpp:520
-#: ui/KeyElement.ui:403 ui/PrinterConfigPage.ui:872
+#: src/Element.cpp:471 src/Element.cpp:500 ui/KeyElement.ui:403
+#: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
 msgstr "Tel"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/Element.cpp:483 src/Element.cpp:491 src/Element.cpp:524
-#: ui/NewFloss.ui:44
+#: src/Element.cpp:472 src/Element.cpp:504 ui/NewFloss.ui:44
 #, kde-format
 msgid "Description"
 msgstr "Açıklama"
 
-#: src/Element.cpp:485 src/Element.cpp:493 src/Element.cpp:533
+#: src/Element.cpp:474 src/Element.cpp:513
 #, kde-format
 msgid "Length(m)"
 msgstr "Uzunluk(m)"
 
-#: src/Element.cpp:486 src/Element.cpp:494 src/Element.cpp:539
+#: src/Element.cpp:475 src/Element.cpp:519
 #, kde-format
 msgid "Skeins (8m)"
 msgstr "Yumak (8m)"
 
-#: src/Element.cpp:508
+#: src/Element.cpp:488
 #, kde-format
 msgctxt "%1 is a scheme name"
 msgid "%1 Flosses"
@@ -1223,12 +1222,12 @@ msgstr "Verinin sonundan okunmaya çalışıldı"
 msgid "Tried to read corrupted data"
 msgstr "Bozuk veriden okunmaya çalışıldı"
 
-#: src/Exceptions.cpp:64 src/Exceptions.cpp:103
+#: src/Exceptions.cpp:64 src/Exceptions.cpp:99
 #, kde-format
 msgid "Undefined status message status %1"
 msgstr "Bilinmeyen durum iletisi durumu %1"
 
-#: src/Exceptions.cpp:98
+#: src/Exceptions.cpp:96
 #, kde-format
 msgid "Failed to write to the device"
 msgstr "Aygıta yazma başarısız"
@@ -1246,7 +1245,7 @@ msgstr "Görsel İçe Aktar — Görsel Boyutu %1 × %2 piksel"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1540 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
@@ -1263,7 +1262,7 @@ msgstr "%1 × %2 %3"
 msgid "Rendering preview"
 msgstr "Önizleme sunuluyor"
 
-#: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:607
+#: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:574
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
@@ -1418,7 +1417,7 @@ msgstr "Bu kategori zaten var."
 msgid "Category Exists"
 msgstr "Kategori Var"
 
-#: src/LibraryManagerDlg.cpp:287
+#: src/LibraryManagerDlg.cpp:283
 #, kde-format
 msgid "Delete this pattern."
 msgstr "Bu kalıbı sil."
@@ -1434,85 +1433,85 @@ msgstr "Kitaplık Desedn Özellikleri"
 msgid "existing library"
 msgstr "mevcut kitaplık"
 
-#: src/Main.cpp:92
+#: src/Main.cpp:89
 #, kde-format
 msgid "kxstitch"
 msgstr "kx dikiş"
 
-#: src/Main.cpp:94
+#: src/Main.cpp:91
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Çapraz dikiş desen oluşturucu."
 
-#: src/Main.cpp:96
+#: src/Main.cpp:93
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "© 2010–2019 Stephen Allewell"
 
-#: src/Main.cpp:102
+#: src/Main.cpp:99
 #, kde-format
 msgid "Project Lead"
 msgstr "Proje Yöneticisi"
 
-#: src/Main.cpp:103
+#: src/Main.cpp:100
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Hata düzeltmeleri, uygulama simgeleri"
 
-#: src/Main.cpp:104
+#: src/Main.cpp:101
 #, kde-format
 msgid "Man page"
 msgstr "Kılavuz sayfası"
 
-#: src/Main.cpp:105
+#: src/Main.cpp:102
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Hata düzeltmeleri, iyileştirmeler"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:103
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Mesutcan Kurt"
 
-#: src/Main.cpp:106
+#: src/Main.cpp:103
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mesutcank@gmail.com"
 
-#: src/Main.cpp:113
+#: src/Main.cpp:110
 #, kde-format
 msgid "Document to open."
 msgstr "Açılacak belge."
 
-#: src/MainWindow.cpp:238
+#: src/MainWindow.cpp:233
 #, kde-format
 msgid "Save changes to document?"
 msgstr "Değişiklikler belgeye kaydedilsin mi?"
 
-#: src/MainWindow.cpp:255
+#: src/MainWindow.cpp:242
 #, kde-format
 msgid "Unable to save the file"
 msgstr "Dosya kaydetme başarısız"
 
-#: src/MainWindow.cpp:293
+#: src/MainWindow.cpp:276
 #, kde-format
 msgid "Open file"
 msgstr "Dosya aç"
 
-#: src/MainWindow.cpp:295
+#: src/MainWindow.cpp:278
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
 "KX Dikiş Kalıpları (*.kxs);;PC Stitch Kalıpları (*.pat);;Tüm Dosyalar (*)"
 
-#: src/MainWindow.cpp:334
+#: src/MainWindow.cpp:317
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr "Bu dosya çapraz dikiş dosyası olarak tanınamadı."
 
-#: src/MainWindow.cpp:337
+#: src/MainWindow.cpp:320
 #, kde-format
 msgid ""
 "This version of the file is not supported.\n"
@@ -1521,7 +1520,7 @@ msgstr ""
 "Dosyanın bu sürümü desteklenmiyor.\n"
 "%1"
 
-#: src/MainWindow.cpp:339
+#: src/MainWindow.cpp:322
 #, kde-format
 msgid ""
 "Failed to read the file.\n"
@@ -1530,7 +1529,7 @@ msgstr ""
 "Dosya okunamadı.\n"
 "%1."
 
-#: src/MainWindow.cpp:390
+#: src/MainWindow.cpp:373
 #, kde-format
 msgid ""
 "Failed to save the file.\n"
@@ -1539,7 +1538,7 @@ msgstr ""
 "Dosya yazılamadı.\n"
 "%1"
 
-#: src/MainWindow.cpp:394
+#: src/MainWindow.cpp:377
 #, kde-format
 msgid ""
 "Failed to open the file.\n"
@@ -1548,266 +1547,266 @@ msgstr ""
 "Dosya okunamadı.\n"
 "%1"
 
-#: src/MainWindow.cpp:401
+#: src/MainWindow.cpp:384
 #, kde-format
 msgid "Save As..."
 msgstr "Farklı Kaydet…"
 
-#: src/MainWindow.cpp:401
+#: src/MainWindow.cpp:384
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
 msgstr "Cross Stitch Patterns (*.kxs)"
 
-#: src/MainWindow.cpp:420
+#: src/MainWindow.cpp:398
 #, kde-format
 msgid "Revert changes to document?"
 msgstr "Belgedeki değişiklikleri geri al?"
 
-#: src/MainWindow.cpp:422
+#: src/MainWindow.cpp:398
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
 msgstr "Geri Al"
 
-#: src/MainWindow.cpp:468
+#: src/MainWindow.cpp:438
 #, kde-format
 msgid "There is nothing to print"
 msgstr "Yazdırılacak bir şey yok"
 
-#: src/MainWindow.cpp:528 src/MainWindow.cpp:763
+#: src/MainWindow.cpp:495 src/MainWindow.cpp:730
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 "Görseller (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
-#: src/MainWindow.cpp:607
+#: src/MainWindow.cpp:574
 #, kde-format
 msgid "Converting to stitches"
 msgstr "Dikişe dönüştürülüyor"
 
-#: src/MainWindow.cpp:761
+#: src/MainWindow.cpp:728
 #, kde-format
 msgid "Background Image"
 msgstr "Arka Plan Görseli"
 
-#: src/MainWindow.cpp:811
+#: src/MainWindow.cpp:778
 #, kde-format
 msgid "Undo %1"
 msgstr "Geri Al: %1"
 
-#: src/MainWindow.cpp:816
+#: src/MainWindow.cpp:783
 #, kde-format
 msgid "Redo %1"
 msgstr "Yinele: %1"
 
-#: src/MainWindow.cpp:955
+#: src/MainWindow.cpp:922
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Düzenleyici"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:957 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:924 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "Desen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:959 src/MainWindow.cpp:1770 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:926 src/MainWindow.cpp:1737 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "Palet"
 
-#: src/MainWindow.cpp:960
+#: src/MainWindow.cpp:927
 #, kde-format
 msgid "Import"
 msgstr "İçe Aktar"
 
-#: src/MainWindow.cpp:961
+#: src/MainWindow.cpp:928
 #, kde-format
 msgid "Library"
 msgstr "Kitaplık"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:963 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:930 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Yazıcı Yapılandırması"
 
-#: src/MainWindow.cpp:1129
+#: src/MainWindow.cpp:1096
 #, kde-format
 msgid "Print Setup..."
 msgstr "Yazdırma Ayarları…"
 
-#: src/MainWindow.cpp:1146
+#: src/MainWindow.cpp:1113
 #, kde-format
 msgid "Add Background Image..."
 msgstr "Arka Plan Görseli Ekle…"
 
-#: src/MainWindow.cpp:1163
+#: src/MainWindow.cpp:1130
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "Aynalama/Döndürme kopya oluşturur"
 
-#: src/MainWindow.cpp:1169
+#: src/MainWindow.cpp:1136
 #, kde-format
 msgid "Horizontally"
 msgstr "Yatay"
 
-#: src/MainWindow.cpp:1176
+#: src/MainWindow.cpp:1143
 #, kde-format
 msgid "Vertically"
 msgstr "Dikey"
 
-#: src/MainWindow.cpp:1183
+#: src/MainWindow.cpp:1150
 #, kde-format
 msgid "90 Degrees"
 msgstr "90 Derece"
 
-#: src/MainWindow.cpp:1190
+#: src/MainWindow.cpp:1157
 #, kde-format
 msgid "180 Degrees"
 msgstr "180 Derece"
 
-#: src/MainWindow.cpp:1197
+#: src/MainWindow.cpp:1164
 #, kde-format
 msgid "270 Degrees"
 msgstr "270 Derece"
 
-#: src/MainWindow.cpp:1205
+#: src/MainWindow.cpp:1172
 #, kde-format
 msgid "Stitch Mask"
 msgstr "Dikiş Maskesi"
 
-#: src/MainWindow.cpp:1211
+#: src/MainWindow.cpp:1178
 #, kde-format
 msgid "Color Mask"
 msgstr "Renk Maskesi"
 
-#: src/MainWindow.cpp:1217
+#: src/MainWindow.cpp:1184
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "İğne Ardı Dikişleri Dışla"
 
-#: src/MainWindow.cpp:1223
+#: src/MainWindow.cpp:1190
 #, kde-format
 msgid "Exclude Knots"
 msgstr "Düğümleri Dışla"
 
-#: src/MainWindow.cpp:1247
+#: src/MainWindow.cpp:1214
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "Çeyrek Dikiş"
 
-#: src/MainWindow.cpp:1257
+#: src/MainWindow.cpp:1224
 #, kde-format
 msgid "Half Stitch"
 msgstr "Yarım Dikiş"
 
-#: src/MainWindow.cpp:1267
+#: src/MainWindow.cpp:1234
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "3 Çeyrek Dikiş"
 
-#: src/MainWindow.cpp:1277
+#: src/MainWindow.cpp:1244
 #, kde-format
 msgid "Full Stitch"
 msgstr "Tam Dikiş"
 
-#: src/MainWindow.cpp:1287
+#: src/MainWindow.cpp:1254
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "Küçük Yarım Dikiş"
 
-#: src/MainWindow.cpp:1297
+#: src/MainWindow.cpp:1264
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "Küçük Tam Dikiş"
 
-#: src/MainWindow.cpp:1307
+#: src/MainWindow.cpp:1274
 #, kde-format
 msgid "French Knot"
 msgstr "Fransız Düğümü"
 
-#: src/MainWindow.cpp:1321
+#: src/MainWindow.cpp:1288
 #, kde-format
 msgid "Paint"
 msgstr "Boya"
 
-#: src/MainWindow.cpp:1331
+#: src/MainWindow.cpp:1298
 #, kde-format
 msgid "Draw"
 msgstr "Çiz"
 
-#: src/MainWindow.cpp:1341
+#: src/MainWindow.cpp:1308
 #, kde-format
 msgid "Erase"
 msgstr "Sil"
 
-#: src/MainWindow.cpp:1421
+#: src/MainWindow.cpp:1388
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "Seç"
 
-#: src/MainWindow.cpp:1431
+#: src/MainWindow.cpp:1398
 #, kde-format
 msgid "Backstitch"
 msgstr "İğne Ardı Dikiş"
 
-#: src/MainWindow.cpp:1441
+#: src/MainWindow.cpp:1408
 #, kde-format
 msgid "Color Picker"
 msgstr "Renk Seçicisi"
 
-#: src/MainWindow.cpp:1452
+#: src/MainWindow.cpp:1419
 #, kde-format
 msgid "Palette Manager..."
 msgstr "Palet Yöneticisi…"
 
-#: src/MainWindow.cpp:1458
+#: src/MainWindow.cpp:1425
 #, kde-format
 msgid "Show Symbols"
 msgstr "Sembolleri Göster"
 
-#: src/MainWindow.cpp:1464
+#: src/MainWindow.cpp:1431
 #, kde-format
 msgid "Clear Unused"
 msgstr "Kullanılmayanleri Temizle"
 
-#: src/MainWindow.cpp:1469
+#: src/MainWindow.cpp:1436
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "Şemayı Ayarla…"
 
-#: src/MainWindow.cpp:1479
+#: src/MainWindow.cpp:1446
 #, kde-format
 msgid "Replace Colors"
 msgstr "Renkleri Değiştir"
 
-#: src/MainWindow.cpp:1485
+#: src/MainWindow.cpp:1452
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "Kalıbı Genişlet…"
 
-#: src/MainWindow.cpp:1497
+#: src/MainWindow.cpp:1464
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "Tuvali Kalıba Kırp"
 
-#: src/MainWindow.cpp:1502
+#: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "Tuvali Seçime Kırp"
 
-#: src/MainWindow.cpp:1522
+#: src/MainWindow.cpp:1489
 #, kde-format
 msgid "Library Manager..."
 msgstr "Kitaplık Yöneticisi…"
 
-#: src/MainWindow.cpp:1558
+#: src/MainWindow.cpp:1525
 #, kde-format
 msgid "Regular Stitches"
 msgstr "Düzenli Dikişler"
@@ -1816,7 +1815,7 @@ msgstr "Düzenli Dikişler"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1568 src/MainWindow.cpp:1618 src/MainWindow.cpp:1659
+#: src/MainWindow.cpp:1535 src/MainWindow.cpp:1585 src/MainWindow.cpp:1626
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1827,7 +1826,7 @@ msgstr "Siyah & Beyaz Semboller"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1577 src/MainWindow.cpp:1650 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1544 src/MainWindow.cpp:1617 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1837,66 +1836,66 @@ msgstr "Renk Sembolleri"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1586 src/MainWindow.cpp:1631 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1553 src/MainWindow.cpp:1598 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "Renk Blokları"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1595 src/MainWindow.cpp:1641 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1608 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Renk Blokları & Semboller"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1608 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1575 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "Renk Çizgileri"
 
-#: src/MainWindow.cpp:1668
+#: src/MainWindow.cpp:1635
 #, kde-format
 msgid "Color Highlight"
 msgstr "Renk Vurgulama"
 
-#: src/MainWindow.cpp:1674
+#: src/MainWindow.cpp:1641
 #, kde-format
 msgid "Show Stitches"
 msgstr "Dikişleri Göster"
 
-#: src/MainWindow.cpp:1680
+#: src/MainWindow.cpp:1647
 #, kde-format
 msgid "Show Backstitches"
 msgstr "İğne Ardı Dikişleri Göster"
 
-#: src/MainWindow.cpp:1686
+#: src/MainWindow.cpp:1653
 #, kde-format
 msgid "Show French Knots"
 msgstr "Fransız Düğümlerini Göster"
 
-#: src/MainWindow.cpp:1692
+#: src/MainWindow.cpp:1659
 #, kde-format
 msgid "Show Grid"
 msgstr "Izgarayı Göster"
 
-#: src/MainWindow.cpp:1698
+#: src/MainWindow.cpp:1665
 #, kde-format
 msgid "Show Background Images"
 msgstr "Arka Plan Görseli Göster"
 
-#: src/MainWindow.cpp:1757
+#: src/MainWindow.cpp:1724
 #, kde-format
 msgid "Preview"
 msgstr "Önizleme"
 
-#: src/MainWindow.cpp:1779
+#: src/MainWindow.cpp:1746
 #, kde-format
 msgid "History"
 msgstr "Geçmiş"
 
-#: src/MainWindow.cpp:1787
+#: src/MainWindow.cpp:1754
 #, kde-format
 msgid "Imported Image"
 msgstr "İçe Aktarılan Görsel"
@@ -1907,7 +1906,12 @@ msgstr "İçe Aktarılan Görsel"
 msgid "New Floss"
 msgstr "Yeni İp"
 
-#: src/NewFlossDlg.cpp:82
+#: src/NewFlossDlg.cpp:77 src/PrintSetupDlg.cpp:450
+#, kde-format
+msgid "Overwrite"
+msgstr "Üzerine Yaz"
+
+#: src/NewFlossDlg.cpp:77
 #, kde-format
 msgid ""
 "The floss name %1 is already used.\n"
@@ -1916,12 +1920,7 @@ msgstr ""
 "İp %1 zaten kullanımda.\n"
 "Seçilen renk ve açıklama ile üzerine yaz."
 
-#: src/NewFlossDlg.cpp:83 src/PrintSetupDlg.cpp:456
-#, kde-format
-msgid "Overwrite"
-msgstr "Üzerine Yaz"
-
-#: src/NewFlossDlg.cpp:85
+#: src/NewFlossDlg.cpp:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
@@ -2027,12 +2026,12 @@ msgstr "Öge Sil"
 msgid "Page %1 of %2"
 msgstr "Sayfa %1 / %2"
 
-#: src/PrintSetupDlg.cpp:455
+#: src/PrintSetupDlg.cpp:450
 #, kde-format
 msgid "Overwrite the current configuration?"
 msgstr "Mevcut yapılandırmanın üstüne yaz?"
 
-#: src/PrintSetupDlg.cpp:512
+#: src/PrintSetupDlg.cpp:499
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2049,56 +2048,52 @@ msgstr ""
 "Desen boyutu: ${width.stitches} × ${height.stitches}\n"
 "İpler ${scheme} eriminden."
 
-#: src/PrintSetupDlg.cpp:518 src/PrintSetupDlg.cpp:579
-#: src/PrintSetupDlg.cpp:601
+#: src/PrintSetupDlg.cpp:505 src/PrintSetupDlg.cpp:566
+#: src/PrintSetupDlg.cpp:588
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
 msgstr "Sayfa ${page}"
 
-#: src/SchemeManager.cpp:129
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#: src/SchemeManager.cpp:128
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Dosya %1 okumak için açılamadı"
+msgstr "Dosya açılamıyor: %1"
 
-#: src/SchemeManager.cpp:129 src/SchemeManager.cpp:136
-#: src/SchemeManager.cpp:145 src/SchemeManager.cpp:153
-#: src/SchemeManager.cpp:161 src/SchemeManager.cpp:216
-#, fuzzy, kde-format
-#| msgid "No error"
+#: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
+#: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
+#: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
+#, kde-format
 msgid "Error"
-msgstr "Hata yok"
+msgstr "Hata"
 
-#: src/SchemeManager.cpp:136
+#: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Dosyadan DomDocument bağlamı ayarlanamıyor: %1"
 
-#: src/SchemeManager.cpp:145
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#: src/SchemeManager.cpp:144
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "İp şeması okunurken hata."
+msgstr "Şema için bir FlossScheme örneği oluşturulurken hata: %1"
 
-#: src/SchemeManager.cpp:153
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#: src/SchemeManager.cpp:152
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Bu geçerli bir sembol dosyası değil"
+msgstr "%1 dosyası geçerli bir FlossScheme gibi görünmüyor"
 
-#: src/SchemeManager.cpp:161
+#: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "Dosyada birden çok başlık ögesi bulundu: %1"
 
-#: src/SchemeManager.cpp:216
+#: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "Dosyada hatalı oluşturulmuş XML: %1"
 
-#: src/SchemeManager.cpp:239 src/SchemeManager.cpp:248
+#: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
 msgid ""
 "Unable to locate a writable directory\n"
