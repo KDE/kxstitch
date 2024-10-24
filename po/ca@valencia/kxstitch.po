@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-10-20 11:53+0200\n"
+"PO-Revision-Date: 2024-10-22 12:16+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2072,45 +2072,43 @@ msgid "Page ${page}"
 msgstr "Pàgina ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "No s'ha pogut obrir el fitxer %1"
+msgstr "No s'ha pogut obrir el fitxer: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Sense errors"
+msgstr "S'ha produït un error"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
 msgstr ""
+"No s'ha pogut establir el contingut del DomDocument a partir del fitxer: %1"
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "S'ha produït un error en llegir l'esquema del fil."
+msgstr ""
+"S'ha produït un error en crear la instància d'un FlossScheme de l'esquema: %1"
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "No pareix un fitxer de símbols vàlid"
+msgstr "El fitxer «%1» no pareix que siga un esquema «floss»"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "S'han trobat múltiples elements de títol en el fitxer: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "Fitxer mal format en el fitxer: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
