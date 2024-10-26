@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the kxstitch package.
 # Ercole Carpanetto <ercole69@gmail.com>, 2014, 2017.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 # Translators:
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2022-10-22 15:28+0200\n"
+"PO-Revision-Date: 2024-10-23 20:42+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -2070,45 +2070,42 @@ msgid "Page ${page}"
 msgstr "Pagina ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Errore nell'apertura del file %1"
+msgstr "Impossibile aprire il file: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Nessun errore"
+msgstr "Errore"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Impossibile impostare il contenuto DomDocument dal file: %1"
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "Errore nella lettura  dello schema dei fili"
+msgstr ""
+"Errore durante la creazione di un'istanza di FlossScheme per lo schema: %1"
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Questo non sembra essere un file di simboli valido"
+msgstr "Il file %1 non sembra essere uno schema floss"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "Sono stati trovati più elementi del titolo nel file: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "XML non valido nel file: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
