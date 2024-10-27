@@ -3452,25 +3452,3 @@ msgstr "Høgrejuster"
 #, kde-format
 msgid "Align justified"
 msgstr "Blokkjuster"
-
-#~ msgid ""
-#~ "Error reading scheme %1\n"
-#~ "%2."
-#~ msgstr ""
-#~ "Feil ved lesing av trådsystem %1\n"
-#~ "%2."
-
-#~ msgid "Floss not completely defined"
-#~ msgstr "Tråden er ikkje fullstendig definert"
-
-#~ msgid "Unmatched element tags"
-#~ msgstr "Ikkje samsvarande elementtaggar"
-
-#~ msgid "Unknown element tag"
-#~ msgstr "Ukjend elementtagg"
-
-#~ msgid "Color value is invalid"
-#~ msgstr "Fargeverdien er ugyldig"
-
-#~ msgid "Unknown error code"
-#~ msgstr "Ukjend feilkode"

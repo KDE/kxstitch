@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2023-02-12 09:23+0100\n"
+"PO-Revision-Date: 2024-10-26 12:34+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -2075,45 +2076,41 @@ msgid "Page ${page}"
 msgstr "Strona ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Nieudane otwieranie pliku %1"
+msgstr "Nie można otworzyć pliku: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Bez błędu"
+msgstr "Błąd"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Nie można ustawić treści DomDocument z pliku : %1"
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "Błąd przy czytaniu schematu nitki."
+msgstr "Błąd tworzenia wystąpienia FlossScheme dla schematu: %1"
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Ten plik nie wygląda na prawidłowy plik symbolu"
+msgstr "Plik %1 nie wygląda na zapisany w schemacie floss"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "Znaleziono wiele elementów tytułów w pliku: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "Zniekształcony XML w pliku: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
@@ -3088,7 +3085,7 @@ msgstr "Jako"
 #: ui/PatternElement.ui:179
 #, kde-format
 msgid "Not currently implemented"
-msgstr "Obecnie niezaimplementowano"
+msgstr "Obecnie nie zaimplementowano"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
 #: ui/PatternElement.ui:182
