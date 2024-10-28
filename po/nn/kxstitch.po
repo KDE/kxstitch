@@ -1,12 +1,11 @@
 # Translation of kxstitch to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2016, 2017, 2018, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2023-01-15 12:19+0100\n"
+"PO-Revision-Date: 2024-10-27 14:40+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2069,18 +2068,16 @@ msgid "Page ${page}"
 msgstr "Side ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Klarte ikkje opna fila %1"
+msgstr "Kan ikkje opna fil: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Ingen feil"
+msgstr "Feil"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
@@ -2107,7 +2104,7 @@ msgstr ""
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "Ugyldig XML-kode i fil: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
