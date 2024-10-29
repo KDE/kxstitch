@@ -1,12 +1,12 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of kxstitch to Spanish
+# This file is distributed under the same license as the kxstitch package.
 #
 # SPDX-FileCopyrightText: 2012, 2014 Joan Teixido Parramona <joan4@users.sourceforge.net>
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2018, 2019, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2016 Sofia Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
 "PO-Revision-Date: 2024-10-22 12:43+0200\n"
