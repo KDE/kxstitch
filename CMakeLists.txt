@@ -36,7 +36,8 @@ find_package (KF5 REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package (ImageMagick COMPONENTS MagickCore Magick++ REQUIRED)
+find_package (PkgConfig REQUIRED)
+pkg_check_modules (Magick++ REQUIRED IMPORTED_TARGET Magick++)
 find_package (Doxygen)
 find_package (SharedMimeInfo)
 
@@ -48,10 +49,6 @@ if (DOXYGEN_FOUND)
 endif (DOXYGEN_FOUND)
 
 include_directories (BEFORE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/src)
-# use both the _DIR and _DIRS variables, since the former are available
-# only in older cmake versions, while the latter only in newer ones
-include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIR} ${ImageMagick_MagickCore_INCLUDE_DIR})
-include_directories (SYSTEM ${ImageMagick_Magick++_INCLUDE_DIRS} ${ImageMagick_MagickCore_INCLUDE_DIRS})
 
 ecm_setup_version(${kxstitch_VERSION}
     VARIABLE_PREFIX KXSTITCH
@@ -152,7 +149,7 @@ target_link_libraries (kxstitch
     KF5::TextWidgets
     KF5::WidgetsAddons
     KF5::XmlGui
-    ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY}
+    PkgConfig::Magick++
 )
 
 set (WITH_PROFILING OFF CACHE BOOL "Build with profiling support")
@@ -166,40 +163,10 @@ if (SILENCE_DEPRECATED)
     add_definitions( -Wno-deprecated-declarations )
 endif (SILENCE_DEPRECATED)
 
-find_program (MAGICK_CONFIG_EXEC "Magick++-config")
-execute_process (COMMAND ${MAGICK_CONFIG_EXEC} "--cxxflags" OUTPUT_VARIABLE magick_config)
-
-string (REGEX MATCH "-DMAGICKCORE_HDRI_ENABLE=." magick_config_hdri ${magick_config})
-string (REGEX MATCH "-DMAGICKCORE_QUANTUM_DEPTH=[0-9]+" magick_config_quantum ${magick_config})
-
-# earlier versions of Magick++-config don't provide the necessary options
-if (magick_config_hdri STREQUAL "")
-    # set a default for MAGICKCORE_HDRI_ENABLE to 0
-    set (magick_config_hdri "-DMAGICKCORE_HDRI_ENABLE=0")
-endif (magick_config_hdri STREQUAL "")
-
-if (magick_config_quantum STREQUAL "")
-    # MAGICKCORE_QUANTUM_DEPTH can also be found in the version string of an ImageMagick application
-    find_program (MOGRIFY_EXEC "mogrify")
-    execute_process (COMMAND ${MOGRIFY_EXEC} "--version" OUTPUT_VARIABLE mogrify_version)
-    string (REGEX MATCH "Q8|Q16" mogrify_version_quantum ${mogrify_version})
-
-    if (mogrify_version_quantum STREQUAL "Q8")
-        set (magick_config_quantum "-DMAGICKCORE_QUANTUM_DEPTH=8")
-    else (mogrify_version_quantum STREQUAL "Q8")
-        set (magick_config_quantum "-DMAGICKCORE_QUANTUM_DEPTH=16")
-    endif (mogrify_version_quantum STREQUAL "Q8")
-endif (magick_config_quantum STREQUAL "")
-
-message (STATUS "Set magic_config_quantum: " ${magick_config_quantum})
-message (STATUS "Set magic_config_hdri: " ${magick_config_hdri})
-
 add_definitions(
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_CAST_TO_ASCII
     -DQT_NO_URL_CAST_FROM_STRING
-    ${magick_config_hdri}
-    ${magick_config_quantum}
 )
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
