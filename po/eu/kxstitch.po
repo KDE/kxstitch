@@ -1,7 +1,7 @@
 # Translation for kxstitch.po to Euskara/Basque (eu).
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
-# KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # SPDX-FileCopyrightText: 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-11-13 17:47+0100\n"
+"PO-Revision-Date: 2024-11-14 20:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -54,13 +54,13 @@ msgstr "Saretako bigarren mailako lerroen zabalera."
 #: kxstitch.kcfg:30
 #, kde-format
 msgid "The number of cells making up a horizontal group."
-msgstr ""
+msgstr "Talde horizontal bat osatzen duten laukien kopurua."
 
 #. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
 #: kxstitch.kcfg:34
 #, kde-format
 msgid "The number of cells making up a vertical group."
-msgstr ""
+msgstr "Talde bertikal bat osatzen duten laukien kopurua."
 
 #. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
 #: kxstitch.kcfg:38
@@ -85,7 +85,7 @@ msgstr ""
 #: kxstitch.kcfg:55
 #, kde-format
 msgid "Square cells"
-msgstr ""
+msgstr "Lauki karratuak"
 
 #. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
 #: kxstitch.kcfg:59
@@ -109,49 +109,49 @@ msgstr ""
 #: kxstitch.kcfg:76
 #, kde-format
 msgid "The minimum zoom factor"
-msgstr ""
+msgstr "Gutxieneko zoom-proportzioa"
 
 #. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
 #: kxstitch.kcfg:80
 #, kde-format
 msgid "The maximum zoom factor"
-msgstr ""
+msgstr "Gehieneko zoom-proportzioa"
 
 #. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr ""
+msgstr "Lehenetsitako zoom-proportzioa"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
 #, kde-format
 msgid "Enable color highlighting mode"
-msgstr ""
+msgstr "Gaitu kolorea nabarmentzeko modua"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
 #: kxstitch.kcfg:95
 #, kde-format
 msgid "Render the background images"
-msgstr ""
+msgstr "Errendatu atzeko planoko irudiak"
 
 #. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
 #: kxstitch.kcfg:99
 #, kde-format
 msgid "Render the grid"
-msgstr ""
+msgstr "Errendatu sareta"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
 #: kxstitch.kcfg:103
 #, kde-format
 msgid "Render the stitches"
-msgstr ""
+msgstr "Errendatu puntadak"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
 #: kxstitch.kcfg:107
 #, kde-format
 msgid "Render the backstitches"
-msgstr ""
+msgstr "Errendatu atzera-puntadak"
 
 #. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
 #: kxstitch.kcfg:111
@@ -169,13 +169,13 @@ msgstr ""
 #: kxstitch.kcfg:119
 #, kde-format
 msgid "How to display stitches."
-msgstr ""
+msgstr "Puntadak nola azaldu."
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
 #: kxstitch.kcfg:130
 #, kde-format
 msgid "How to display backstitches."
-msgstr ""
+msgstr "Atzera-puntadak nola azaldu."
 
 #. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
 #: kxstitch.kcfg:138
@@ -187,49 +187,49 @@ msgstr ""
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr ""
+msgstr "Eredu berri baten zabalera lehenetsia adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr ""
+msgstr "Eredu berri baten altuera lehenetsia adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
 #, kde-format
 msgid "The minimum width of a pattern in the units specified."
-msgstr ""
+msgstr "Eredu baten gutxieneko zabalera adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Document_Min_Height), group (document)
 #: kxstitch.kcfg:172
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
-msgstr ""
+msgstr "Eredu baten gutxieneko altuera adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
 #: kxstitch.kcfg:176
 #, kde-format
 msgid "The maximum width of a pattern in the units specified."
-msgstr ""
+msgstr "Eredu baten gehienezko zabalera adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Document_Max_Height), group (document)
 #: kxstitch.kcfg:180
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
-msgstr ""
+msgstr "Eredu baten gehienezko altuera adierazitako unitateetan."
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
 #: kxstitch.kcfg:187
 #, kde-format
 msgid "Use a maximum number of colors"
-msgstr ""
+msgstr "Erabili gehienezko kolore-kopurua"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
 #: kxstitch.kcfg:191
 #, kde-format
 msgid "Maximum number of colors"
-msgstr ""
+msgstr "Gehienezko kolore-kopurua"
 
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
 #: kxstitch.kcfg:195
@@ -247,73 +247,73 @@ msgstr ""
 #: kxstitch.kcfg:206
 #, kde-format
 msgid "The default symbol library to be used for new documents."
-msgstr ""
+msgstr "Dokumentu berrietan erabili beharreko ikur-liburutegi lehenetsia."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
 #: kxstitch.kcfg:210
 #, kde-format
 msgid "The default number of strands used for stitches."
-msgstr ""
+msgstr "Puntadetarako erabilitako harizpi-kopuru lehenetsia."
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
 #: kxstitch.kcfg:214
 #, kde-format
 msgid "The default number of strands used for backstitches."
-msgstr ""
+msgstr "Atzera-puntadetarako erabilitako harizpi-kopuru lehenetsia."
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr ""
+msgstr "Paletako ikurrak azaldu."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr ""
+msgstr "Ikurrak ertzak leunduta azaltzea"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:229
 #, kde-format
 msgid "The default size of icons shown in the icon view"
-msgstr ""
+msgstr "Ikono-ikuspegian erakutsitako ikonoen neurri lehenetsia"
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr ""
+msgstr "Karaktere hautapenak «Maius. Giltz.» errespetatu beharko luke"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
 #, kde-format
 msgid "The default width of a space in cells"
-msgstr ""
+msgstr "Zuriune baten zabalera laukitan"
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
 #: kxstitch.kcfg:244
 #, kde-format
 msgid "Should a space cause word wrapping at the right edge of the pattern"
-msgstr ""
+msgstr "Zuriune batek ereduaren eskuin ertzean itzulbira eragin beharko luke"
 
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
 #: kxstitch.kcfg:248
 #, kde-format
 msgid "The number of cells between lines of text"
-msgstr ""
+msgstr "Testu-lerroen arteko lauki-kopurua"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
 #: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
-msgstr ""
+msgstr "Eredua eskuinera hedatzean gehitu beharreko lauki kopurua"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
-msgstr ""
+msgstr "Eredua behera hedatzean gehitu beharreko lauki kopurua"
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
 #: kxstitch.kcfg:263
@@ -325,13 +325,13 @@ msgstr ""
 #: kxstitch.kcfg:267
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr ""
+msgstr "TextToolDlg-en erabili beharreko letra-tipo familia"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:271
 #, kde-format
 msgid "The text size in pixels"
-msgstr ""
+msgstr "Testuaren neurria pixeletan"
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
 #: kxstitch.kcfg:275
@@ -343,49 +343,49 @@ msgstr ""
 #: kxstitch.kcfg:282
 #, kde-format
 msgid "The page left margin"
-msgstr ""
+msgstr "Orrialdearen ezkerreko marjina"
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
 #: kxstitch.kcfg:286
 #, kde-format
 msgid "The page top margin"
-msgstr ""
+msgstr "Orrialdearen goiko marjina"
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
 #: kxstitch.kcfg:290
 #, kde-format
 msgid "The page right margin"
-msgstr ""
+msgstr "Orrialdearen eskuineko marjina"
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
 #: kxstitch.kcfg:294
 #, kde-format
 msgid "The page bottom margin"
-msgstr ""
+msgstr "Orrialdearen beheko marjina"
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
 #: kxstitch.kcfg:298
 #, kde-format
 msgid "Show the layout editor"
-msgstr ""
+msgstr "Erakutsi antolaera editorea"
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
 #: kxstitch.kcfg:302
 #, kde-format
 msgid "The grid size in mm"
-msgstr ""
+msgstr "Saretaren neurria mm-tan"
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
 #: kxstitch.kcfg:306
 #, kde-format
 msgid "The default page size"
-msgstr ""
+msgstr "Orrialdearen neurri lehenetsia"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page orientation"
-msgstr ""
+msgstr "Orrialdearen orientazio lehenetsia"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -403,7 +403,7 @@ msgstr ""
 #: kxstitch.kcfg:323
 #, kde-format
 msgid "Show a border around the pattern"
-msgstr ""
+msgstr "Erakutsi ertz bat ereduaren inguruan"
 
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
@@ -468,18 +468,20 @@ msgid ""
 "The color used to represented already selected areas in existing pattern "
 "elements"
 msgstr ""
+"Lehendik dauden eredu-elementuetan hautatutako elementuak irudikatzeko "
+"erabiltzen den kolorea"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:364
 #, kde-format
 msgid "Show a border around the image"
-msgstr ""
+msgstr "Erakutsi ertz bat irudiaren inguruan"
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr ""
+msgstr "Erakutsi ertz bat gakoaren inguruan"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
@@ -504,37 +506,37 @@ msgstr "Atzeko planoaren gardentasuna"
 #: kxstitch.kcfg:401
 #, kde-format
 msgid "The key element left margin"
-msgstr ""
+msgstr "Gako-elementuaren ezker marjina"
 
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
 #: kxstitch.kcfg:405
 #, kde-format
 msgid "The key element top margin"
-msgstr ""
+msgstr "Gako-elementuaren goiko marjina"
 
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
 #: kxstitch.kcfg:409
 #, kde-format
 msgid "The key element right margin"
-msgstr ""
+msgstr "Gako-elementuaren eskuineko marjina"
 
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:413
 #, kde-format
 msgid "The key element bottom margin"
-msgstr ""
+msgstr "Gako-elementuaren beheko marjina"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
 #: kxstitch.kcfg:417
 #, kde-format
 msgid "Show the key element symbol column"
-msgstr ""
+msgstr "Erakutsi gako-elementuaren ikur-zutabea"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
 #: kxstitch.kcfg:421
 #, kde-format
 msgid "Show the key element symbol column in color"
-msgstr ""
+msgstr "Erakutsi gako-elementuaren ikur-zutabea koloreekin"
 
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
 #: kxstitch.kcfg:425
@@ -558,7 +560,7 @@ msgstr ""
 #: kxstitch.kcfg:437
 #, kde-format
 msgid "Show the key element stitch count column"
-msgstr ""
+msgstr "Erakutsi puntada-zenbaketa gako-elementu zutabea"
 
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
 #: kxstitch.kcfg:441
@@ -576,14 +578,14 @@ msgstr ""
 #: kxstitch.kcfg:450
 #, kde-format
 msgid "Show the border"
-msgstr ""
+msgstr "Erakutsi ertza"
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
 #: kxstitch.kcfg:454 ui/TextElement.ui:184
 #, kde-format
 msgid "The border color"
-msgstr ""
+msgstr "Ertzaren kolorea"
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
@@ -591,67 +593,67 @@ msgstr ""
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "Ertzaren lodiera 1/10 mm-tan"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:466
 #, kde-format
 msgid "Color of the background"
-msgstr ""
+msgstr "Atzeko planoaren kolorea"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:470
 #, kde-format
 msgid "The transparency value"
-msgstr ""
+msgstr "Gardentasun-balioa"
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
 #: kxstitch.kcfg:490
 #, kde-format
 msgid "The text color"
-msgstr ""
+msgstr "Testuaren kolorea"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&Fitxategia"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
 #: kxstitchui.rc:10 src/Commands.cpp:501
 #, kde-format
 msgid "Remove Background Image"
-msgstr ""
+msgstr "Kendu atzeko planoko irudia"
 
 #. i18n: ectx: Menu (edit)
 #: kxstitchui.rc:14
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "&Editatu"
 
 #. i18n: ectx: Menu (selectionMasks)
 #: kxstitchui.rc:15
 #, kde-format
 msgid "Selection Masks"
-msgstr ""
+msgstr "Hautapen-maskarak"
 
 #. i18n: ectx: Menu (mirror)
 #: kxstitchui.rc:23 src/Commands.cpp:1184
 #, kde-format
 msgid "Mirror Selection"
-msgstr ""
+msgstr "Ispilatu hautapena"
 
 #. i18n: ectx: Menu (rotate)
 #: kxstitchui.rc:27 src/Commands.cpp:1239
 #, kde-format
 msgid "Rotate Selection"
-msgstr ""
+msgstr "Biratu hautapena"
 
 #. i18n: ectx: Menu (settings)
 #: kxstitchui.rc:33
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "E&zarpenak"
 
 #. i18n: ectx: Menu (formatScalesAs)
 #: kxstitchui.rc:35 kxstitchui.rc:140
@@ -669,7 +671,7 @@ msgstr ""
 #: kxstitchui.rc:49 kxstitchui.rc:154
 #, kde-format
 msgid "Render Backstitches As"
-msgstr ""
+msgstr "Errendatu atzera-puntada honela"
 
 #. i18n: ectx: Menu (renderKnotsAs)
 #: kxstitchui.rc:54 kxstitchui.rc:159
@@ -681,77 +683,77 @@ msgstr ""
 #: kxstitchui.rc:68
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "I&kuspegia"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
 #: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
 #, kde-format
 msgid "Show Background Image"
-msgstr ""
+msgstr "Erakutsi atzeko planoko irudia"
 
 #. i18n: ectx: Menu (viewFitBackgroundImage)
 #: kxstitchui.rc:76 kxstitchui.rc:176
 #, kde-format
 msgid "Fit Background Image to Selection"
-msgstr ""
+msgstr "Egokitu atzeko planoko irudia hautapenera"
 
 #. i18n: ectx: Menu (stitches)
 #: kxstitchui.rc:80
 #, kde-format
 msgid "&Stitches"
-msgstr ""
+msgstr "&Puntadak"
 
 #. i18n: ectx: Menu (Tools)
 #: kxstitchui.rc:91
 #, kde-format
 msgid "&Tools"
-msgstr ""
+msgstr "&Tresnak"
 
 #. i18n: ectx: Menu (palette)
 #: kxstitchui.rc:111
 #, kde-format
 msgid "&Palette"
-msgstr ""
+msgstr "&Paleta"
 
 #. i18n: ectx: Menu (library)
 #: kxstitchui.rc:121
 #, kde-format
 msgid "&Library Manager"
-msgstr ""
+msgstr "&Liburutegi kudeatzailea"
 
 #. i18n: ectx: Menu (pattern)
 #: kxstitchui.rc:124
 #, kde-format
 msgid "&Pattern"
-msgstr ""
+msgstr "Ere&dua"
 
 #. i18n: ectx: ToolBar (StitchToolBar)
 #: kxstitchui.rc:193
 #, kde-format
 msgid "Stitch Toolbar"
-msgstr ""
+msgstr "Puntada tresna-barra"
 
 #. i18n: ectx: ToolBar (ToolsToolbar)
 #: kxstitchui.rc:204
 #, kde-format
 msgid "Tools Toolbar"
-msgstr ""
+msgstr "Tresnen tresna-barra"
 
 #. i18n: ectx: ToolBar (ZoomToolbar)
 #: kxstitchui.rc:227
 #, kde-format
 msgid "Zoom Toolbar"
-msgstr ""
+msgstr "Zoom tresna-barra"
 
 #: src/BackgroundImage.cpp:122
 #, kde-format
 msgid "Background image version %1"
-msgstr ""
+msgstr "Atzeko planoko irudiaren bertsioa %1"
 
 #: src/BackgroundImages.cpp:101
 #, kde-format
 msgid "Background images version %1"
-msgstr ""
+msgstr "Atzeko planoko irudien bertsioa %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
 #: src/CalibrateFlossDlg.cpp:31 ui/CalibrateFloss.ui:14
@@ -763,117 +765,117 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
-msgstr ""
+msgstr "%1-%2 (Modified)"
 
 #: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
-msgstr ""
+msgstr "Fitxategiaren propietateak"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
 #: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1103
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
-msgstr ""
+msgstr "Inportatu irudia"
 
 #: src/Commands.cpp:76
 #, kde-format
 msgid "Paint Stitches"
-msgstr ""
+msgstr "Margotu puntadak"
 
 #: src/Commands.cpp:96
 #, kde-format
 msgid "Paint Knots"
-msgstr ""
+msgstr "Margotu korapiloak"
 
 #: src/Commands.cpp:116
 #, kde-format
 msgid "Draw Line"
-msgstr ""
+msgstr "Marraztu lerroa"
 
 #: src/Commands.cpp:136
 #, kde-format
 msgid "Erase Stitches"
-msgstr ""
+msgstr "Kendu puntadak"
 
 #: src/Commands.cpp:156 src/MainWindow.cpp:1318
 #, kde-format
 msgid "Draw Rectangle"
-msgstr ""
+msgstr "Marraztu laukizuzena"
 
 #: src/Commands.cpp:176 src/MainWindow.cpp:1328
 #, kde-format
 msgid "Fill Rectangle"
-msgstr ""
+msgstr "Bete laukizuzena"
 
 #: src/Commands.cpp:196 src/MainWindow.cpp:1338
 #, kde-format
 msgid "Draw Ellipse"
-msgstr ""
+msgstr "Marraztu elipsea"
 
 #: src/Commands.cpp:216 src/MainWindow.cpp:1348
 #, kde-format
 msgid "Fill Ellipse"
-msgstr ""
+msgstr "Bete elipsea"
 
 #: src/Commands.cpp:236 src/MainWindow.cpp:1358
 #, kde-format
 msgid "Fill Polygon"
-msgstr ""
+msgstr "Bete poligonoa"
 
 #: src/Commands.cpp:256
 #, kde-format
 msgid "Add Stitch"
-msgstr ""
+msgstr "Gehitu puntada"
 
 #: src/Commands.cpp:292
 #, kde-format
 msgid "Delete Stitches"
-msgstr ""
+msgstr "Ezabatu puntadak"
 
 #: src/Commands.cpp:325
 #, kde-format
 msgid "Add Backstitch"
-msgstr ""
+msgstr "Gehitu atzera-puntada"
 
 #: src/Commands.cpp:348
 #, kde-format
 msgid "Delete Backstitch"
-msgstr ""
+msgstr "Ezabatu atzera-puntada"
 
 #: src/Commands.cpp:378
 #, kde-format
 msgid "Add Knot"
-msgstr ""
+msgstr "Gehitu korapiloa"
 
 #: src/Commands.cpp:396
 #, kde-format
 msgid "Delete Knots"
-msgstr ""
+msgstr "Ezabatu korapiloak"
 
 #: src/Commands.cpp:421
 #, kde-format
 msgid "Set Property"
-msgstr ""
+msgstr "Ezarri propietatea"
 
 #: src/Commands.cpp:440
 #, kde-format
 msgid "Add Background Image"
-msgstr ""
+msgstr "Gehitu atzeko planoko irudia"
 
 #: src/Commands.cpp:462
 #, kde-format
 msgid "Fit Background to Selection"
-msgstr ""
+msgstr "Egokitu atzeko planoa hautapenera"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
 #: src/Commands.cpp:600 ui/PaletteManager.ui:189
@@ -1175,7 +1177,7 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
-msgstr ""
+msgstr "Harizpiak"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/Element.cpp:472 src/Element.cpp:504 ui/NewFloss.ui:44
@@ -1645,7 +1647,7 @@ msgstr ""
 #: src/MainWindow.cpp:1184
 #, kde-format
 msgid "Exclude Backstitches"
-msgstr ""
+msgstr "Baztertu atzera-puntadak"
 
 #: src/MainWindow.cpp:1190
 #, kde-format
@@ -1711,7 +1713,7 @@ msgstr ""
 #: src/MainWindow.cpp:1398
 #, kde-format
 msgid "Backstitch"
-msgstr ""
+msgstr "Atzera-puntada"
 
 #: src/MainWindow.cpp:1408
 #, kde-format
@@ -1825,7 +1827,7 @@ msgstr ""
 #: src/MainWindow.cpp:1647
 #, kde-format
 msgid "Show Backstitches"
-msgstr ""
+msgstr "Erakutsi atzera-puntadak"
 
 #: src/MainWindow.cpp:1653
 #, kde-format
@@ -2056,7 +2058,7 @@ msgstr ""
 #: src/Stitch.cpp:407
 #, kde-format
 msgid "Backstitch version %1"
-msgstr ""
+msgstr "Atzera-puntada bertsioa %1"
 
 #: src/Stitch.cpp:467
 #, kde-format
@@ -2278,7 +2280,7 @@ msgstr ""
 #: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
 #, kde-format
 msgid "Show backstitches"
-msgstr ""
+msgstr "Erakutsi atzera-puntadak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
@@ -2317,7 +2319,7 @@ msgstr ""
 #: ui/EditorConfigPage.ui:332
 #, kde-format
 msgid "Render backstitches as"
-msgstr ""
+msgstr "Errendatu atzera-puntadak honela"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: ui/EditorConfigPage.ui:353
@@ -2851,7 +2853,7 @@ msgstr ""
 #: ui/NewFloss.ui:14
 #, kde-format
 msgid "Create New Floss"
-msgstr ""
+msgstr "Sortu hari berria"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/NewFloss.ui:57
@@ -2895,13 +2897,13 @@ msgstr "Ikur-liburutegia"
 #: ui/PaletteConfigPage.ui:60
 #, kde-format
 msgid "Default stitch strands"
-msgstr ""
+msgstr "Puntadaren harizpi lehenetsia"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/PaletteConfigPage.ui:67
 #, kde-format
 msgid "Default backstitch strands"
-msgstr ""
+msgstr "Atzera-puntada hari lehenetsia"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PaletteManager.ui:22
@@ -2913,7 +2915,7 @@ msgstr "Uneko paleta"
 #: ui/PaletteManager.ui:80
 #, kde-format
 msgid "Current scheme"
-msgstr ""
+msgstr "Uneko antolaera"
 
 #. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
 #: ui/PaletteManager.ui:87
@@ -2931,25 +2933,25 @@ msgstr "Ikur-liburutegia"
 #: ui/PaletteManager.ui:109
 #, kde-format
 msgid "Stitch strands"
-msgstr ""
+msgstr "Puntadaren harizpiak"
 
 #. i18n: ectx: property (text), widget (QPushButton, Calibrate)
 #: ui/PaletteManager.ui:196
 #, kde-format
 msgid "Calibrate Flosses"
-msgstr ""
+msgstr "Kalibratu hariak"
 
 #. i18n: ectx: property (text), widget (QPushButton, PickColor)
 #: ui/PaletteManager.ui:203
 #, kde-format
 msgid "Pick Color"
-msgstr ""
+msgstr "Aukeratu kolorea"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:212
 #, kde-format
 msgid "Backstitch strands"
-msgstr ""
+msgstr "Atzera-puntada hariak"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:264
@@ -2963,26 +2965,26 @@ msgstr "Solidoa"
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
-msgstr ""
+msgstr "Marra etenduna"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:274
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
-msgstr ""
+msgstr "Puntuduna"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:279
 #, kde-format
 msgid "Dash Dotted"
-msgstr ""
+msgstr "Marra puntuduna"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:284
 #, kde-format
 msgid "Dash Dash Dotted"
-msgstr ""
+msgstr "Marra, marra, puntuduna"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
@@ -3004,13 +3006,13 @@ msgstr "Honela"
 #: ui/PatternElement.ui:179
 #, kde-format
 msgid "Not currently implemented"
-msgstr ""
+msgstr "Egun, oraindik inplementatu gabe"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
 #: ui/PatternElement.ui:182
 #, kde-format
 msgid "Show scales"
-msgstr ""
+msgstr "Erakutsi eskalak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
 #: ui/PatternElement.ui:225
@@ -3061,7 +3063,7 @@ msgstr "Paisaia"
 #, kde-format
 msgctxt "Left margin"
 msgid "Left"
-msgstr ""
+msgstr "Ezkerra"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -3072,7 +3074,7 @@ msgstr ""
 #, kde-format
 msgctxt "Right margin"
 msgid "Right"
-msgstr ""
+msgstr "Eskuina"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -3083,7 +3085,7 @@ msgstr ""
 #, kde-format
 msgctxt "Top margin"
 msgid "Top"
-msgstr ""
+msgstr "Goikoa"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_9)
@@ -3094,7 +3096,7 @@ msgstr ""
 #, kde-format
 msgctxt "Bottom margin"
 msgid "Bottom"
-msgstr ""
+msgstr "Behekoa"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/PrinterConfigPage.ui:188
@@ -3106,19 +3108,19 @@ msgstr "Eredu-elementua"
 #: ui/PrinterConfigPage.ui:287
 #, kde-format
 msgid "Cells"
-msgstr ""
+msgstr "Laukiak"
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: ui/PrinterConfigPage.ui:295
 #, kde-format
 msgid "Minimum cell size (mm)"
-msgstr ""
+msgstr "Laukiaren gutxieneko neurria (mm)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: ui/PrinterConfigPage.ui:308
 #, kde-format
 msgid "Minimum overflow"
-msgstr ""
+msgstr "Gutxieneko gainezkatzea"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
 #: ui/PrinterConfigPage.ui:326
@@ -3222,7 +3224,7 @@ msgstr "Hautatu paperaren orientazioa"
 #: ui/PrintSetup.ui:246
 #, kde-format
 msgid "Zoom factor"
-msgstr ""
+msgstr "Zoom-proportzioa"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
 #: ui/PrintSetup.ui:306
@@ -3234,37 +3236,37 @@ msgstr "Hautatu elementu bat"
 #: ui/PrintSetup.ui:328
 #, kde-format
 msgid "Insert a text element"
-msgstr ""
+msgstr "Sartu testu elementu bat"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
 #: ui/PrintSetup.ui:353
 #, kde-format
 msgid "Insert a pattern element"
-msgstr ""
+msgstr "Sartu eredu-elementu bat"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
 #: ui/PrintSetup.ui:375
 #, kde-format
 msgid "Insert a picture element"
-msgstr ""
+msgstr "Sartu irudi-elementu bat"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
 #: ui/PrintSetup.ui:385
 #, kde-format
 msgid "Insert a key element"
-msgstr ""
+msgstr "Sartu gako-elementu bat"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
 #: ui/PrintSetup.ui:456
 #, kde-format
 msgid "Page list"
-msgstr ""
+msgstr "Orrialde-zerrenda"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
 #: ui/PrintSetup.ui:484
 #, kde-format
 msgid "Page preview"
-msgstr ""
+msgstr "Orrialdearen aurreikuspegia"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
 #: ui/SymbolSelector.ui:14
@@ -3276,25 +3278,25 @@ msgstr "Ikur hautapena"
 #: ui/TextElement.ui:39
 #, kde-format
 msgid "Top margin in mm, internal to the border."
-msgstr ""
+msgstr "Goiko marjina mm-tan, ertzaren barrukoa."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #: ui/TextElement.ui:68
 #, kde-format
 msgid "Left margin in mm, internal to the border."
-msgstr ""
+msgstr "Ezkerreko marjina mm-tan, ertzaren barrukoa."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
 #: ui/TextElement.ui:97
 #, kde-format
 msgid "Right margin in mm, internal to the border."
-msgstr ""
+msgstr "Eskuineko marjina mm-tan, ertzaren barrukoa."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
 #: ui/TextElement.ui:126
 #, kde-format
 msgid "Bottom margin in mm, internal to the border."
-msgstr ""
+msgstr "Beheko marjina mm-tan, ertzaren barrukoa."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
 #: ui/TextElement.ui:164
@@ -3330,7 +3332,7 @@ msgstr "Testu letra-tipoaren familia"
 #: ui/TextElement.ui:301
 #, kde-format
 msgid "Text point size"
-msgstr ""
+msgstr "Testuaren puntu neurria"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
 #: ui/TextElement.ui:330
