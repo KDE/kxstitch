@@ -55,7 +55,7 @@ protected:
     virtual void timerEvent(QTimerEvent *) Q_DECL_OVERRIDE;
 
 private slots:
-    void on_FlossScheme_currentIndexChanged(const QString &);
+    void on_FlossScheme_currentIndexChanged(int);
     void on_UseMaximumColors_toggled(bool);
     void on_MaximumColors_valueChanged(int);
     void on_IgnoreColor_toggled(bool);

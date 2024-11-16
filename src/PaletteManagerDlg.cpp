@@ -180,7 +180,7 @@ void PaletteManagerDlg::on_BackstitchStrands_activated(int index)
     m_dialogPalette.floss(paletteIndex(ui.CurrentList->currentItem()->data(Qt::UserRole).toString()))->setBackstitchStrands(index + 1);
 }
 
-void PaletteManagerDlg::on_SymbolLibrary_activated(const QString &library)
+void PaletteManagerDlg::on_SymbolLibrary_currentTextChanged(const QString &library)
 {
     m_dialogPalette.setSymbolLibrary(library);
 

@@ -114,7 +114,7 @@ void CalibrateFlossDlg::commitColor()
     }
 }
 
-void CalibrateFlossDlg::on_SchemeList_currentIndexChanged(const QString &)
+void CalibrateFlossDlg::on_SchemeList_currentIndexChanged(int)
 {
     commitColor();
     fillColorList();

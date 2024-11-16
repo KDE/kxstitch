@@ -141,7 +141,7 @@ void ImportImageDlg::showEvent(QShowEvent *event)
     }
 }
 
-void ImportImageDlg::on_FlossScheme_currentIndexChanged(const QString &)
+void ImportImageDlg::on_FlossScheme_currentIndexChanged(int)
 {
     createImageMap();
     renderPixmap();

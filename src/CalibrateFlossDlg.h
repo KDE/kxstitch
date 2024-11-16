@@ -37,7 +37,7 @@ protected:
     virtual void showEvent(QShowEvent *) Q_DECL_OVERRIDE;
 
 private slots:
-    void on_SchemeList_currentIndexChanged(const QString &);
+    void on_SchemeList_currentIndexChanged(int);
     void on_ColorList_currentItemChanged(QListWidgetItem *);
     void on_RedSlider_valueChanged(int);
     void on_GreenSlider_valueChanged(int);
