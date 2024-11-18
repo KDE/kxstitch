@@ -1,0 +1,16 @@
+<chapter id="introduction">
+    <title
+>Introducción</title>
+    <para
+>&kstitch; es un programa que permite crear patrones y gráficos de punto de cruz. Los patrones se pueden crear desde cero con un tamaño de cuadrícula definido por el usuario, que se puede ampliar o reducir a medida que avanza el patrón. De forma alternativa, puede importar imágenes de muchos formatos gráficos. Al importar imágenes, puede restringir la conversión a puntadas completas u opcionalmente usar puntadas fraccionadas. También puede usar imágenes como fondo, cambiando su tamaño para que se ajusten al área seleccionada. Estas imágenes importadas se pueden modificar posteriormente usando las herramientas proporcionadas para producir el diseño final. </para>
+    <para
+>Hay muchas herramientas que pueden ayudarle a diseñar un patrón, desde rectángulos y elipses abiertos y rellenos, polígonos rellenos, líneas, hasta pespuntes. Además, puede usar las funciones de cortar, copiar y pegar para duplicar las áreas seleccionadas. Las áreas seleccionadas también se pueden rotar 90, 180 y 270 grados en sentido contrario a las agujas del reloj o reflejarlas horizontal o verticalmente. </para>
+    <para
+>También hay una biblioteca de patrones que se puede usar para guardar porciones pequeñas y no tan pequeñas de patrones que luego se pueden reutilizar en otros patrones. Los patrones de estas bibliotecas se guardan en una lista jerárquica que facilita la clasificación y la navegación para encontrar los que desea. Estas bibliotecas de patrones también se pueden usar como alfabetos al asignar un carácter a cada uno. Al usar la herramienta de Alfabeto, se busca cada pulsación de tecla en la biblioteca actual y, si está presente, se insertará el patrón de la biblioteca asociada en el patrón. </para>
+    <para
+>Notifique cualquier error que encuentre o sus peticiones al <ulink url="http://bugs.kde.org"
+>Sistema de seguimiento de fallos de KDE</ulink
+> o a la <ulink url="http://mail.kde.org/mailman/listinfo/kxstitch"
+>lista de distribución de &kxstitch;</ulink
+>. </para>
+</chapter>

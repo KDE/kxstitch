@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Spanish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual del usuario de KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Primera versión de la página de manual de KXStitch para el proyecto Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Actualización de la página de manual.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>Creador y editor de patrones de punto de cruz de &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>archivo</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descripción</title>
+<para
+>KXStitch es un programa que le permite crear patrones y gráficos de punto de cruz. Puede crear patrones desde cero con un tamaño de cuadrícula definido por el usuario, que se puede agrandar o reducir a medida que avance el patrón. De forma alternativa, puede importar una imagen de muchos formatos gráficos, reducir el número de colores que usa y restringir la conversión a puntadas completas o usar puntadas fraccionarias. También puede usar una imagen como fondo. Estas imágenes importadas se pueden modificar usando las herramientas suministradas para producir el diseño final.</para>
+
+<para
+>Dispone de muchas herramientas de ayuda para diseñar el patrón, como rectángulos y elipses abiertos o rellenos, polígonos rellenos, líneas y pespuntes. También puede usar las acciones de cortar, copiar y pegar para duplicar las áreas que seleccione. También puede rotar estas áreas 90, 180 y 270 grados en sentido contrario a las agujas del reloj, así como reflejarlas horizontal o verticalmente.</para>
+
+<para
+>También puede usar una biblioteca de patrones para guardar porciones de patrones pequeñas o grandes, que podrá usar posteriormente en otros patrones. Los patrones de estas bibliotecas se guardan en forma de lista jerárquica para facilitar su ordenación y el desplazamiento por ellos para encontrar el que necesite. También puede usar estas bibliotecas de patrones como alfabetos asignándoles un carácter a cada uno. Al usar la herramienta de «Alfabeto», cualquier tecla que pulse se buscará en la biblioteca actual y, si está presente, el patrón que tenga asociado se insertará en el patrón actual.</para>
+
+<para
+>Cuando termine, puede imprimir el diseño en diversos formatos. Existen opciones para imprimir hojas de portada, instrucciones y las claves de hilos, incluyendo la cantidad de hilo usado y el número de puntadas.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Argumentos</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>archivo</replaceable
+></term>
+<listitem>
+<para
+>Documento de punto de cruz que se va a abrir.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Vea también</title>
+<simplelist>
+<member
+>Dispone de información más detallada usando <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (introduzca esta <acronym
+>URL</acronym
+> en &konqueror; o ejecute <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>También existe más información disponible en la <ulink url="http://userbase.kde.org/KXStitch"
+>página web de KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Autores</title>
+<para
+>KXStitch fue escrito por <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

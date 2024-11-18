@@ -1,0 +1,13 @@
+<chapter id="printingpatterns">
+    <title
+>Impresión de patrones</title>
+
+    <para
+>Una vez que haya completado tu diseño, sin duda querrá imprimirlo. &kxstitch; le permite personalizar la impresión, desde lo que se imprime hasta el tamaño de la impresión final. </para>
+    <para
+>Esta versión de &kxstitch; permite un diseño de la impresión totalmente personalizado. La nueva configuración de la impresora permite añadir, insertar y eliminar páginas. Se puede seleccionar el tamaño y la orientación del papel, y cada página puede contener elementos de texto, elementos del patrón o elementos de clave. </para>
+    <para
+>Para más detalles, consulte el <link linkend="PrinterDialog"
+>diálogo de la impresora</link
+>.</para>
+</chapter>
