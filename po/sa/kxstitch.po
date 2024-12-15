@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the kxstitch package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -760,13 +762,13 @@ msgstr "Floss मापन करें"
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
-msgstr ""
+msgstr "%1-%2 (संशोधितम्) २."
 
 #: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
@@ -976,7 +978,7 @@ msgstr "मूलभूतम्‌"
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
-msgstr ""
+msgstr "/इत्यस्मिन्‌"
 
 #: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
 #: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
@@ -984,7 +986,7 @@ msgstr ""
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
-msgstr ""
+msgstr "/से.मी"
 
 #: src/Document.cpp:122 src/MainWindow.cpp:284 src/MainWindow.cpp:355
 #: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
@@ -1106,7 +1108,13 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
+"निम्नलिखितस्य फ्लॉसवर्णस्य प्रतीकं जातम् अस्ति\n"
+"प्रतीकपुस्तकालये नासीत् इति कारणेन प्रतिस्थापितम् ।\n"
+"\n"
 msgstr[1] ""
+"निम्नलिखित-फ्लोस्-वर्णानां चिह्नानि अभवन्\n"
+"प्रतिस्थापिताः यतः ते प्रतीकपुस्तकालये नासीत् ।\n"
+"\n"
 
 #: src/DocumentPalette.cpp:442
 #, kde-format
@@ -1117,7 +1125,11 @@ msgid_plural ""
 "The following floss colors have had an empty symbol assigned.\n"
 "\n"
 msgstr[0] ""
+"निम्नलिखित-फ्लोस्-वर्णे रिक्तं चिह्नं नियुक्तम् अस्ति ।\n"
+"\n"
 msgstr[1] ""
+"निम्नलिखित-फ्लोस्-वर्णेषु रिक्तं चिह्नं नियुक्तम् अस्ति ।\n"
+"\n"
 
 #: src/DocumentPalette.cpp:451
 #, kde-format
@@ -1128,7 +1140,11 @@ msgid_plural ""
 "\n"
 "You may want to check these are suitable."
 msgstr[0] ""
+"\n"
+"भवान् एतत् उपयुक्तम् इति परीक्षितुम् इच्छति ।"
 msgstr[1] ""
+"\n"
+"एतानि उपयुक्तानि इति भवन्तः पश्यतु।"
 
 #: src/Editor.cpp:762
 #, kde-format
@@ -1166,7 +1182,7 @@ msgstr "चिह्न"
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
-msgstr ""
+msgstr "नामः"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
@@ -1196,7 +1212,7 @@ msgstr "स्किन्स् (८मी) २."
 #, kde-format
 msgctxt "%1 is a scheme name"
 msgid "%1 Flosses"
-msgstr ""
+msgstr "%1 फ्लोस्"
 
 #: src/Exceptions.cpp:60
 #, kde-format
@@ -1241,7 +1257,7 @@ msgstr "सेन्टिमीटर्"
 #, kde-format
 msgctxt "%1 width, %2 height and %3 units"
 msgid "%1 x %2 %3"
-msgstr ""
+msgstr "%1 x %2 %3"
 
 #: src/ImportImageDlg.cpp:356
 #, kde-format
@@ -1458,13 +1474,13 @@ msgstr "दोषनिवारणं, सुधारः"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: src/Main.cpp:103
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/Main.cpp:110
 #, kde-format
@@ -1551,7 +1567,7 @@ msgstr "परिवर्तनं दस्तावेजं प्रति 
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "प्रत्यावर्तयतु"
 
 #: src/MainWindow.cpp:438
 #, kde-format
@@ -1587,7 +1603,7 @@ msgstr "पुनः %1"
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
-msgstr ""
+msgstr "सम्पादक"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/MainWindow.cpp:924 ui/FileProperties.ui:27
@@ -1733,7 +1749,7 @@ msgstr "मेटयतु"
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
-msgstr ""
+msgstr "विचि"
 
 #: src/MainWindow.cpp:1398
 #, kde-format
@@ -1908,7 +1924,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr ""
+msgstr "अधिलेखनं न कुर्वन्तु"
 
 #: src/Page.cpp:217
 #, kde-format
@@ -1938,7 +1954,11 @@ msgid_plural ""
 "%2 %3\n"
 "%1 Stitches"
 msgstr[0] ""
+"%2 %3\n"
+"%1 सिलाई"
 msgstr[1] ""
+"%2 %3\n"
+"%1 सिलाई"
 
 #: src/Palette.cpp:144
 #, kde-format
@@ -2022,6 +2042,11 @@ msgid ""
 "Pattern Size: ${width.stitches} x ${height.stitches}\n"
 "Flosses from the ${scheme} range."
 msgstr ""
+"${लेखक} द्वारा निर्मितम् ।\n"
+"(ग) ${प्रतिलिपिधर्मः}\n"
+"\n"
+"पैटर्न आकार: $ {चौड़ाई.सिलाई} x $ {उच्चता.सिलाई}\n"
+"${scheme} श्रेणीतः फ्लोस् भवति ।"
 
 #: src/PrintSetupDlg.cpp:505 src/PrintSetupDlg.cpp:566
 #: src/PrintSetupDlg.cpp:588
@@ -2029,7 +2054,7 @@ msgstr ""
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
-msgstr ""
+msgstr "पृष्ठहरू ${page} बारेमा"
 
 #: src/SchemeManager.cpp:128
 #, kde-format
@@ -2121,7 +2146,7 @@ msgstr "प्रतीकसञ्चिकासंस्करणं %1"
 #, kde-format
 msgctxt "A symbol that has been used"
 msgid "Used"
-msgstr ""
+msgstr "प्रयुक्त"
 
 #: src/SymbolManager.cpp:151
 #, kde-format
@@ -2168,21 +2193,21 @@ msgstr "सम्प्रति चयनितः वर्णः"
 #, kde-format
 msgctxt "Green value of color"
 msgid "Green"
-msgstr ""
+msgstr "हरित"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel3)
 #: ui/CalibrateFloss.ui:112
 #, kde-format
 msgctxt "Red value of color"
 msgid "Red"
-msgstr ""
+msgstr "रक्त"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel5)
 #: ui/CalibrateFloss.ui:132
 #, kde-format
 msgctxt "Blue value of color"
 msgid "Blue"
-msgstr ""
+msgstr "नील"
 
 #. i18n: ectx: property (text), widget (QPushButton, ResetColor)
 #: ui/CalibrateFloss.ui:158
@@ -2439,21 +2464,21 @@ msgstr "वस्त्रगणना"
 #, kde-format
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
-msgstr ""
+msgstr "क्षैतिज"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
 #, kde-format
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
-msgstr ""
+msgstr "ऊर्ध्वाधर"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/FileProperties.ui:279
 #, kde-format
 msgctxt "The document title"
 msgid "Title"
-msgstr ""
+msgstr "शीर्षक"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/FileProperties.ui:292
@@ -2694,7 +2719,7 @@ msgstr "तलमार्जिनं मि.मी"
 #, kde-format
 msgctxt "Groupbox title for background properties"
 msgid "Background"
-msgstr ""
+msgstr "पृष्ठभूमि"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
@@ -2993,21 +3018,21 @@ msgstr "बैकस्टिच स्ट्रैण्ड्"
 #, kde-format
 msgctxt "A solid line"
 msgid "Solid"
-msgstr ""
+msgstr "ठोस"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:269
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
-msgstr ""
+msgstr "डैश"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:274
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
-msgstr ""
+msgstr "बिन्दुयुक्तः"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:279
@@ -3098,7 +3123,7 @@ msgstr "भूप्रदेश"
 #, kde-format
 msgctxt "Left margin"
 msgid "Left"
-msgstr ""
+msgstr "वामः"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -3109,7 +3134,7 @@ msgstr ""
 #, kde-format
 msgctxt "Right margin"
 msgid "Right"
-msgstr ""
+msgstr "दक्षिणः"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -3120,7 +3145,7 @@ msgstr ""
 #, kde-format
 msgctxt "Top margin"
 msgid "Top"
-msgstr ""
+msgstr "उपरितन"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_9)
@@ -3131,7 +3156,7 @@ msgstr ""
 #, kde-format
 msgctxt "Bottom margin"
 msgid "Bottom"
-msgstr ""
+msgstr "अधः"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/PrinterConfigPage.ui:188
@@ -3188,7 +3213,7 @@ msgstr "पाठवर्णः"
 #, kde-format
 msgctxt "Fill the background"
 msgid "Background"
-msgstr ""
+msgstr "पृष्ठभूमि"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #. i18n: ectx: property (text), widget (QLabel, label_25)
