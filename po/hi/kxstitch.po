@@ -1,0 +1,3421 @@
+# Hindi translations for kxstitch package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kxstitch package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kxstitch\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-10-23 00:39+0000\n"
+"PO-Revision-Date: 2024-12-15 19:40+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
+#: kxstitch.kcfg:10
+#, kde-format
+msgid "The background color."
+msgstr "पृष्ठभूमि का रंग."
+
+#. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
+#: kxstitch.kcfg:14
+#, kde-format
+msgid "The color of the editors thick lines."
+msgstr "संपादकों की मोटी रेखाओं का रंग."
+
+#. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
+#: kxstitch.kcfg:18
+#, kde-format
+msgid "The color of the editors thin lines."
+msgstr "संपादकों की पतली रेखाओं का रंग।"
+
+#. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
+#: kxstitch.kcfg:22
+#, kde-format
+msgid "The width of the major grid lines."
+msgstr "प्रमुख ग्रिड लाइनों की चौड़ाई."
+
+#. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
+#: kxstitch.kcfg:26
+#, kde-format
+msgid "The width of the minor grid lines."
+msgstr "छोटी ग्रिड लाइनों की चौड़ाई."
+
+#. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
+#: kxstitch.kcfg:30
+#, kde-format
+msgid "The number of cells making up a horizontal group."
+msgstr "एक क्षैतिज समूह बनाने वाली कोशिकाओं की संख्या."
+
+#. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
+#: kxstitch.kcfg:34
+#, kde-format
+msgid "The number of cells making up a vertical group."
+msgstr "एक ऊर्ध्वाधर समूह बनाने वाली कोशिकाओं की संख्या."
+
+#. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
+#: kxstitch.kcfg:38
+#, kde-format
+msgid "The horizontal cloth count."
+msgstr "क्षैतिज कपड़ा गिनती."
+
+#. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
+#: kxstitch.kcfg:42
+#, kde-format
+msgid "The vertical cloth count."
+msgstr "ऊर्ध्वाधर कपड़ा गिनती."
+
+#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
+#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
+#: kxstitch.kcfg:46 kxstitch.kcfg:159
+#, kde-format
+msgid "The cloth count units."
+msgstr "कपड़ा गिनती इकाइयों."
+
+#. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
+#: kxstitch.kcfg:55
+#, kde-format
+msgid "Square cells"
+msgstr "वर्गाकार कोशिकाएं"
+
+#. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
+#: kxstitch.kcfg:59
+#, kde-format
+msgid "The height of the horizontal ruler."
+msgstr "क्षैतिज रूलर की ऊंचाई."
+
+#. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
+#: kxstitch.kcfg:63
+#, kde-format
+msgid "The width of the vertical ruler."
+msgstr "ऊर्ध्वाधर रूलर की चौड़ाई."
+
+#. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
+#: kxstitch.kcfg:67
+#, kde-format
+msgid "The display units for a scale."
+msgstr "एक पैमाने के लिए प्रदर्शन इकाइयाँ."
+
+#. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
+#: kxstitch.kcfg:76
+#, kde-format
+msgid "The minimum zoom factor"
+msgstr "न्यूनतम ज़ूम कारक"
+
+#. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
+#: kxstitch.kcfg:80
+#, kde-format
+msgid "The maximum zoom factor"
+msgstr "अधिकतम ज़ूम कारक"
+
+#. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
+#: kxstitch.kcfg:84
+#, kde-format
+msgid "The default zoom factor"
+msgstr "डिफ़ॉल्ट ज़ूम फ़ैक्टर"
+
+#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
+#: kxstitch.kcfg:91
+#, kde-format
+msgid "Enable color highlighting mode"
+msgstr "रंग हाइलाइटिंग मोड सक्षम करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
+#: kxstitch.kcfg:95
+#, kde-format
+msgid "Render the background images"
+msgstr "पृष्ठभूमि छवियाँ प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
+#: kxstitch.kcfg:99
+#, kde-format
+msgid "Render the grid"
+msgstr "ग्रिड प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
+#: kxstitch.kcfg:103
+#, kde-format
+msgid "Render the stitches"
+msgstr "टांके प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
+#: kxstitch.kcfg:107
+#, kde-format
+msgid "Render the backstitches"
+msgstr "बैकस्टिच प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
+#: kxstitch.kcfg:111
+#, kde-format
+msgid "Render the french knots"
+msgstr "फ्रेंच नॉट्स प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
+#: kxstitch.kcfg:115
+#, kde-format
+msgid "Render stitch hints for colored blocks"
+msgstr "रंगीन ब्लॉकों के लिए सिलाई संकेत प्रस्तुत करें"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
+#: kxstitch.kcfg:119
+#, kde-format
+msgid "How to display stitches."
+msgstr "टांके कैसे प्रदर्शित करें?"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
+#: kxstitch.kcfg:130
+#, kde-format
+msgid "How to display backstitches."
+msgstr "बैकस्टिच कैसे प्रदर्शित करें?"
+
+#. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
+#: kxstitch.kcfg:138
+#, kde-format
+msgid "How to display french knots."
+msgstr "फ्रेंच नॉट्स कैसे प्रदर्शित करें?"
+
+#. i18n: ectx: label, entry (Document_Width), group (document)
+#: kxstitch.kcfg:151
+#, kde-format
+msgid "The default width of a new pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में नए पैटर्न की डिफ़ॉल्ट चौड़ाई."
+
+#. i18n: ectx: label, entry (Document_Height), group (document)
+#: kxstitch.kcfg:155
+#, kde-format
+msgid "The default height of a new pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में नए पैटर्न की डिफ़ॉल्ट ऊंचाई."
+
+#. i18n: ectx: label, entry (Document_Min_Width), group (document)
+#: kxstitch.kcfg:168
+#, kde-format
+msgid "The minimum width of a pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में पैटर्न की न्यूनतम चौड़ाई."
+
+#. i18n: ectx: label, entry (Document_Min_Height), group (document)
+#: kxstitch.kcfg:172
+#, kde-format
+msgid "The minimum height of a pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में पैटर्न की न्यूनतम ऊंचाई."
+
+#. i18n: ectx: label, entry (Document_Max_Width), group (document)
+#: kxstitch.kcfg:176
+#, kde-format
+msgid "The maximum width of a pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में पैटर्न की अधिकतम चौड़ाई."
+
+#. i18n: ectx: label, entry (Document_Max_Height), group (document)
+#: kxstitch.kcfg:180
+#, kde-format
+msgid "The maximum height of a pattern in the units specified."
+msgstr "निर्दिष्ट इकाइयों में पैटर्न की अधिकतम ऊंचाई."
+
+#. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
+#: kxstitch.kcfg:187
+#, kde-format
+msgid "Use a maximum number of colors"
+msgstr "अधिकतम संख्या में रंगों का उपयोग करें"
+
+#. i18n: ectx: label, entry (Import_MaximumColors), group (import)
+#: kxstitch.kcfg:191
+#, kde-format
+msgid "Maximum number of colors"
+msgstr "रंगों की अधिकतम संख्या"
+
+#. i18n: ectx: label, entry (Import_UseFractionals), group (import)
+#: kxstitch.kcfg:195
+#, kde-format
+msgid "Use fractional stitches for finer detail"
+msgstr "बारीक विवरण के लिए आंशिक टांके का उपयोग करें"
+
+#. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
+#: kxstitch.kcfg:202
+#, kde-format
+msgid "The default floss scheme to be used for new documents."
+msgstr "नये दस्तावेज़ों के लिए उपयोग की जाने वाली डिफ़ॉल्ट फ़्लॉस योजना।"
+
+#. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
+#: kxstitch.kcfg:206
+#, kde-format
+msgid "The default symbol library to be used for new documents."
+msgstr "नये दस्तावेज़ों के लिए उपयोग की जाने वाली डिफ़ॉल्ट प्रतीक लाइब्रेरी."
+
+#. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
+#: kxstitch.kcfg:210
+#, kde-format
+msgid "The default number of strands used for stitches."
+msgstr "टांकों के लिए प्रयुक्त धागों की डिफ़ॉल्ट संख्या."
+
+#. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
+#: kxstitch.kcfg:214
+#, kde-format
+msgid "The default number of strands used for backstitches."
+msgstr "बैकस्टिच के लिए प्रयुक्त धागों की डिफ़ॉल्ट संख्या."
+
+#. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
+#: kxstitch.kcfg:218
+#, kde-format
+msgid "Display the symbols in the palette."
+msgstr "पैलेट में प्रतीकों को प्रदर्शित करें."
+
+#. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
+#: kxstitch.kcfg:222
+#, kde-format
+msgid "Display the symbols antialiased"
+msgstr "एंटीअलियास्ड प्रतीकों को प्रदर्शित करें"
+
+#. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
+#: kxstitch.kcfg:229
+#, kde-format
+msgid "The default size of icons shown in the icon view"
+msgstr "आइकन दृश्य में दिखाए गए आइकन का डिफ़ॉल्ट आकार"
+
+#. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
+#: kxstitch.kcfg:236
+#, kde-format
+msgid "Should character selection honor the caps lock key"
+msgstr "क्या वर्ण चयन में कैप्स लॉक कुंजी का सम्मान होना चाहिए"
+
+#. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
+#: kxstitch.kcfg:240
+#, kde-format
+msgid "The default width of a space in cells"
+msgstr "कक्षों में रिक्त स्थान की डिफ़ॉल्ट चौड़ाई"
+
+#. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
+#: kxstitch.kcfg:244
+#, kde-format
+msgid "Should a space cause word wrapping at the right edge of the pattern"
+msgstr "क्या पैटर्न के दाहिने किनारे पर रिक्त स्थान के कारण शब्द रैपिंग हो सकती है"
+
+#. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
+#: kxstitch.kcfg:248
+#, kde-format
+msgid "The number of cells between lines of text"
+msgstr "पाठ की पंक्तियों के बीच कोशिकाओं की संख्या"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
+#: kxstitch.kcfg:252
+#, kde-format
+msgid "The number of cells to be added when extending the pattern right"
+msgstr "पैटर्न को दाईं ओर बढ़ाते समय जोड़ी जाने वाली कोशिकाओं की संख्या"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
+#: kxstitch.kcfg:256
+#, kde-format
+msgid "The number of cells to be added when extending the pattern down"
+msgstr "पैटर्न को नीचे की ओर बढ़ाते समय जोड़ी जाने वाली कोशिकाओं की संख्या"
+
+#. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
+#: kxstitch.kcfg:263
+#, kde-format
+msgid "Should the shapes tools use fractional stitches"
+msgstr "क्या आकृतियों के औजारों में आंशिक टांकों का उपयोग किया जाना चाहिए"
+
+#. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
+#: kxstitch.kcfg:267
+#, kde-format
+msgid "The font family to be used in the TextToolDlg"
+msgstr "TextToolDlg में उपयोग किया जाने वाला फ़ॉन्ट परिवार"
+
+#. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
+#: kxstitch.kcfg:271
+#, kde-format
+msgid "The text size in pixels"
+msgstr "पिक्सेल में पाठ का आकार"
+
+#. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
+#: kxstitch.kcfg:275
+#, kde-format
+msgid "Does mirroring and copying make copies"
+msgstr "क्या मिररिंग और कॉपी करने से कॉपी बनती है"
+
+#. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
+#: kxstitch.kcfg:282
+#, kde-format
+msgid "The page left margin"
+msgstr "पृष्ठ का बायाँ हाशिया"
+
+#. i18n: ectx: label, entry (Page_MarginTop), group (printer)
+#: kxstitch.kcfg:286
+#, kde-format
+msgid "The page top margin"
+msgstr "पृष्ठ का शीर्ष मार्जिन"
+
+#. i18n: ectx: label, entry (Page_MarginRight), group (printer)
+#: kxstitch.kcfg:290
+#, kde-format
+msgid "The page right margin"
+msgstr "पृष्ठ का दायाँ हाशिया"
+
+#. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
+#: kxstitch.kcfg:294
+#, kde-format
+msgid "The page bottom margin"
+msgstr "पृष्ठ का निचला मार्जिन"
+
+#. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
+#: kxstitch.kcfg:298
+#, kde-format
+msgid "Show the layout editor"
+msgstr "लेआउट संपादक दिखाएँ"
+
+#. i18n: ectx: label, entry (Page_GridSize), group (printer)
+#: kxstitch.kcfg:302
+#, kde-format
+msgid "The grid size in mm"
+msgstr "ग्रिड का आकार मिमी में"
+
+#. i18n: ectx: label, entry (Page_Size), group (printer)
+#: kxstitch.kcfg:306
+#, kde-format
+msgid "The default page size"
+msgstr "डिफ़ॉल्ट पृष्ठ आकार"
+
+#. i18n: ectx: label, entry (Page_Orientation), group (printer)
+#: kxstitch.kcfg:310
+#, kde-format
+msgid "The default page orientation"
+msgstr "डिफ़ॉल्ट पृष्ठ अभिविन्यास"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
+#: kxstitch.kcfg:314
+#, kde-format
+msgid "The snap distance for element boundary corner nodes"
+msgstr "तत्व सीमा कोने नोड्स के लिए स्नैप दूरी"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
+#: kxstitch.kcfg:318
+#, kde-format
+msgid "The snap node size"
+msgstr "स्नेप नोड का आकार"
+
+#. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:323
+#, kde-format
+msgid "Show a border around the pattern"
+msgstr "पैटर्न के चारों ओर बॉर्डर दिखाएँ"
+
+#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
+#: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
+#, kde-format
+msgid "The color of the border"
+msgstr "सीमा का रंग"
+
+#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
+#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
+#, kde-format
+msgid "The thickness of the border in 1/10 mm"
+msgstr "बॉर्डर की मोटाई 1/10 मिमी में"
+
+#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:335 kxstitch.kcfg:478
+#, kde-format
+msgid "The left margin"
+msgstr "बायां हाशिया"
+
+#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
+#: kxstitch.kcfg:339 kxstitch.kcfg:474
+#, kde-format
+msgid "The top margin"
+msgstr "शीर्ष मार्जिन"
+
+#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
+#: kxstitch.kcfg:343 kxstitch.kcfg:482
+#, kde-format
+msgid "The right margin"
+msgstr "दायाँ मार्जिन"
+
+#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:347 kxstitch.kcfg:486
+#, kde-format
+msgid "The bottom margin"
+msgstr "निचला मार्जिन"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
+#: kxstitch.kcfg:351
+#, kde-format
+msgid "Minimum cell size in mm for template generated printer configurations"
+msgstr "टेम्पलेट जनरेटेड प्रिंटर कॉन्फ़िगरेशन के लिए न्यूनतम सेल आकार मिमी में"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
+#: kxstitch.kcfg:355
+#, kde-format
+msgid "Minimum number of cells that can be on a page of its own"
+msgstr "एक पृष्ठ पर न्यूनतम संख्या में कोशिकाएँ हो सकती हैं"
+
+#. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
+#: kxstitch.kcfg:359
+#, kde-format
+msgid ""
+"The color used to represented already selected areas in existing pattern "
+"elements"
+msgstr ""
+"मौजूदा पैटर्न तत्वों में पहले से चयनित क्षेत्रों को दर्शाने के लिए उपयोग किया जाने वाला रंग"
+
+#. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:364
+#, kde-format
+msgid "Show a border around the image"
+msgstr "छवि के चारों ओर बॉर्डर दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:377
+#, kde-format
+msgid "Show a border around the key"
+msgstr "कुंजी के चारों ओर बॉर्डर दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
+#. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
+#: kxstitch.kcfg:389 kxstitch.kcfg:462
+#, kde-format
+msgid "Fill the background"
+msgstr "पृष्ठभूमि भरें"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:393
+#, kde-format
+msgid "The color of the background"
+msgstr "पृष्ठभूमि का रंग"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:397
+#, kde-format
+msgid "Transparency of the background"
+msgstr "पृष्ठभूमि की पारदर्शिता"
+
+#. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:401
+#, kde-format
+msgid "The key element left margin"
+msgstr "मुख्य तत्व बायां मार्जिन"
+
+#. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
+#: kxstitch.kcfg:405
+#, kde-format
+msgid "The key element top margin"
+msgstr "मुख्य तत्व शीर्ष मार्जिन"
+
+#. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
+#: kxstitch.kcfg:409
+#, kde-format
+msgid "The key element right margin"
+msgstr "मुख्य तत्व दायाँ मार्जिन"
+
+#. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:413
+#, kde-format
+msgid "The key element bottom margin"
+msgstr "मुख्य तत्व निचला मार्जिन"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
+#: kxstitch.kcfg:417
+#, kde-format
+msgid "Show the key element symbol column"
+msgstr "मुख्य तत्व प्रतीक स्तंभ दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
+#: kxstitch.kcfg:421
+#, kde-format
+msgid "Show the key element symbol column in color"
+msgstr "मुख्य तत्व प्रतीक स्तंभ को रंग में दिखाएं"
+
+#. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
+#: kxstitch.kcfg:425
+#, kde-format
+msgid "Show the key element floss name column"
+msgstr "मुख्य तत्व फ़्लॉस नाम कॉलम दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
+#: kxstitch.kcfg:429
+#, kde-format
+msgid "Show the key element floss strands column"
+msgstr "मुख्य तत्व फ़्लॉस स्ट्रैंड कॉलम दिखाएं"
+
+#. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
+#: kxstitch.kcfg:433
+#, kde-format
+msgid "Show the key element floss description column"
+msgstr "मुख्य तत्व फ़्लॉस विवरण कॉलम दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
+#: kxstitch.kcfg:437
+#, kde-format
+msgid "Show the key element stitch count column"
+msgstr "मुख्य तत्व सिलाई गिनती कॉलम दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
+#: kxstitch.kcfg:441
+#, kde-format
+msgid "Show the key element floss length column"
+msgstr "मुख्य तत्व फ़्लॉस लंबाई कॉलम दिखाएँ"
+
+#. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
+#: kxstitch.kcfg:445
+#, kde-format
+msgid "Show the key element skeins column"
+msgstr "मुख्य तत्व स्केन कॉलम दिखाएं"
+
+#. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:450
+#, kde-format
+msgid "Show the border"
+msgstr "सीमा दिखाएँ"
+
+#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
+#: kxstitch.kcfg:454 ui/TextElement.ui:184
+#, kde-format
+msgid "The border color"
+msgstr "सीमा का रंग"
+
+#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#: kxstitch.kcfg:458 ui/ImageElement.ui:98 ui/KeyElement.ui:207
+#: ui/TextElement.ui:201
+#, kde-format
+msgid "Thickness of the border in 1/10 mm"
+msgstr "बॉर्डर की मोटाई 1/10 मिमी में"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:466
+#, kde-format
+msgid "Color of the background"
+msgstr "पृष्ठभूमि का रंग"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:470
+#, kde-format
+msgid "The transparency value"
+msgstr "पारदर्शिता मूल्य"
+
+#. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
+#: kxstitch.kcfg:490
+#, kde-format
+msgid "The text color"
+msgstr "पाठ का रंग"
+
+#. i18n: ectx: Menu (file)
+#: kxstitchui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&फ़ाइल"
+
+#. i18n: ectx: Menu (fileRemoveBackgroundImage)
+#: kxstitchui.rc:10 src/Commands.cpp:501
+#, kde-format
+msgid "Remove Background Image"
+msgstr "पृष्ठभूमि छवि हटाएँ"
+
+#. i18n: ectx: Menu (edit)
+#: kxstitchui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "&संपादन करना"
+
+#. i18n: ectx: Menu (selectionMasks)
+#: kxstitchui.rc:15
+#, kde-format
+msgid "Selection Masks"
+msgstr "चयन मास्क"
+
+#. i18n: ectx: Menu (mirror)
+#: kxstitchui.rc:23 src/Commands.cpp:1184
+#, kde-format
+msgid "Mirror Selection"
+msgstr "दर्पण चयन"
+
+#. i18n: ectx: Menu (rotate)
+#: kxstitchui.rc:27 src/Commands.cpp:1239
+#, kde-format
+msgid "Rotate Selection"
+msgstr "चयन घुमाएँ"
+
+#. i18n: ectx: Menu (settings)
+#: kxstitchui.rc:33
+#, kde-format
+msgid "&Settings"
+msgstr "&सेटिंग्स"
+
+#. i18n: ectx: Menu (formatScalesAs)
+#: kxstitchui.rc:35 kxstitchui.rc:140
+#, kde-format
+msgid "Format Scales As"
+msgstr "प्रारूप स्केल इस प्रकार"
+
+#. i18n: ectx: Menu (renderStitchesAs)
+#: kxstitchui.rc:41 kxstitchui.rc:146
+#, kde-format
+msgid "Render Stitches As"
+msgstr "टांके को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#: kxstitchui.rc:49 kxstitchui.rc:154
+#, kde-format
+msgid "Render Backstitches As"
+msgstr "बैकस्टिच को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: Menu (renderKnotsAs)
+#: kxstitchui.rc:54 kxstitchui.rc:159
+#, kde-format
+msgid "Render Knots As"
+msgstr "नॉट्स को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: Menu (view)
+#: kxstitchui.rc:68
+#, kde-format
+msgid "&View"
+msgstr "&देखना"
+
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
+#, kde-format
+msgid "Show Background Image"
+msgstr "पृष्ठभूमि छवि दिखाएं"
+
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#: kxstitchui.rc:76 kxstitchui.rc:176
+#, kde-format
+msgid "Fit Background Image to Selection"
+msgstr "पृष्ठभूमि छवि को चयन में फ़िट करें"
+
+#. i18n: ectx: Menu (stitches)
+#: kxstitchui.rc:80
+#, kde-format
+msgid "&Stitches"
+msgstr "&टांके"
+
+#. i18n: ectx: Menu (Tools)
+#: kxstitchui.rc:91
+#, kde-format
+msgid "&Tools"
+msgstr "&औजार"
+
+#. i18n: ectx: Menu (palette)
+#: kxstitchui.rc:111
+#, kde-format
+msgid "&Palette"
+msgstr "&पैलेट"
+
+#. i18n: ectx: Menu (library)
+#: kxstitchui.rc:121
+#, kde-format
+msgid "&Library Manager"
+msgstr "&लाइब्रेरी प्रबंधक"
+
+#. i18n: ectx: Menu (pattern)
+#: kxstitchui.rc:124
+#, kde-format
+msgid "&Pattern"
+msgstr "&नमूना"
+
+#. i18n: ectx: ToolBar (StitchToolBar)
+#: kxstitchui.rc:193
+#, kde-format
+msgid "Stitch Toolbar"
+msgstr "सिलाई टूलबार"
+
+#. i18n: ectx: ToolBar (ToolsToolbar)
+#: kxstitchui.rc:204
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "उपकरण टूलबार"
+
+#. i18n: ectx: ToolBar (ZoomToolbar)
+#: kxstitchui.rc:227
+#, kde-format
+msgid "Zoom Toolbar"
+msgstr "ज़ूम टूलबार"
+
+#: src/BackgroundImage.cpp:122
+#, kde-format
+msgid "Background image version %1"
+msgstr "पृष्ठभूमि छवि संस्करण %1"
+
+#: src/BackgroundImages.cpp:101
+#, kde-format
+msgid "Background images version %1"
+msgstr "पृष्ठभूमि छवियाँ संस्करण %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
+#: src/CalibrateFlossDlg.cpp:31 ui/CalibrateFloss.ui:14
+#, kde-format
+msgid "Calibrate Floss"
+msgstr "फ़्लॉस को कैलिब्रेट करें"
+
+#: src/CalibrateFlossDlg.cpp:105
+#, kde-format
+msgctxt "%1 is floss name, %2 is floss description"
+msgid "%1-%2 (Modified)"
+msgstr "%1-%2 (संशोधित)"
+
+#: src/CalibrateFlossDlg.cpp:105
+#, kde-format
+msgctxt "%1 is floss name, %2 is floss description"
+msgid "%1-%2"
+msgstr "%1-%2"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
+#: ui/FileProperties.ui:17
+#, kde-format
+msgid "File Properties"
+msgstr "फ़ाइल गुण"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
+#: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1103
+#: ui/ImportImage.ui:14
+#, kde-format
+msgid "Import Image"
+msgstr "छवि आयात करें"
+
+#: src/Commands.cpp:76
+#, kde-format
+msgid "Paint Stitches"
+msgstr "पेंट टांके"
+
+#: src/Commands.cpp:96
+#, kde-format
+msgid "Paint Knots"
+msgstr "पेंट गांठें"
+
+#: src/Commands.cpp:116
+#, kde-format
+msgid "Draw Line"
+msgstr "रेखा खींचना"
+
+#: src/Commands.cpp:136
+#, kde-format
+msgid "Erase Stitches"
+msgstr "टाँके मिटाएँ"
+
+#: src/Commands.cpp:156 src/MainWindow.cpp:1318
+#, kde-format
+msgid "Draw Rectangle"
+msgstr "आयत बनाएं"
+
+#: src/Commands.cpp:176 src/MainWindow.cpp:1328
+#, kde-format
+msgid "Fill Rectangle"
+msgstr "आयत भरें"
+
+#: src/Commands.cpp:196 src/MainWindow.cpp:1338
+#, kde-format
+msgid "Draw Ellipse"
+msgstr "दीर्घवृत्त बनाएं"
+
+#: src/Commands.cpp:216 src/MainWindow.cpp:1348
+#, kde-format
+msgid "Fill Ellipse"
+msgstr "दीर्घवृत्त भरें"
+
+#: src/Commands.cpp:236 src/MainWindow.cpp:1358
+#, kde-format
+msgid "Fill Polygon"
+msgstr "बहुभुज भरें"
+
+#: src/Commands.cpp:256
+#, kde-format
+msgid "Add Stitch"
+msgstr "सिलाई जोड़ें"
+
+#: src/Commands.cpp:292
+#, kde-format
+msgid "Delete Stitches"
+msgstr "टांके हटाएं"
+
+#: src/Commands.cpp:325
+#, kde-format
+msgid "Add Backstitch"
+msgstr "बैकस्टिच जोड़ें"
+
+#: src/Commands.cpp:348
+#, kde-format
+msgid "Delete Backstitch"
+msgstr "बैकस्टिच हटाएं"
+
+#: src/Commands.cpp:378
+#, kde-format
+msgid "Add Knot"
+msgstr "गाँठ जोड़ें"
+
+#: src/Commands.cpp:396
+#, kde-format
+msgid "Delete Knots"
+msgstr "गांठें हटाएं"
+
+#: src/Commands.cpp:421
+#, kde-format
+msgid "Set Property"
+msgstr "संपत्ति सेट करें"
+
+#: src/Commands.cpp:440
+#, kde-format
+msgid "Add Background Image"
+msgstr "पृष्ठभूमि छवि जोड़ें"
+
+#: src/Commands.cpp:462
+#, kde-format
+msgid "Fit Background to Selection"
+msgstr "चयन के लिए पृष्ठभूमि फिट करें"
+
+#. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
+#: src/Commands.cpp:600 ui/PaletteManager.ui:189
+#, kde-format
+msgid "Clear Unused Flosses"
+msgstr "साफ अप्रयुक्त फ्लॉस"
+
+#: src/Commands.cpp:618
+#, kde-format
+msgid "Resize Document"
+msgstr "दस्तावेज़ का आकार बदलें"
+
+#: src/Commands.cpp:645
+#, kde-format
+msgid "Crop to Pattern"
+msgstr "पैटर्न के अनुसार फसल"
+
+#: src/Commands.cpp:672
+#, kde-format
+msgid "Crop to Selection"
+msgstr "फसल से चयन तक"
+
+#: src/Commands.cpp:709 src/MainWindow.cpp:1482
+#, kde-format
+msgid "Insert Columns"
+msgstr "कॉलम डालें"
+
+#: src/Commands.cpp:752 src/MainWindow.cpp:1476
+#, kde-format
+msgid "Insert Rows"
+msgstr "पंक्तियाँ सम्मिलित करें"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
+#: src/Commands.cpp:795 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
+#, kde-format
+msgid "Extend Pattern"
+msgstr "पैटर्न का विस्तार करें"
+
+#: src/Commands.cpp:837 src/MainWindow.cpp:1458
+#, kde-format
+msgid "Center Pattern"
+msgstr "केंद्र पैटर्न"
+
+#: src/Commands.cpp:868
+#, kde-format
+msgid "Update Palette"
+msgstr "पैलेट अपडेट करें"
+
+#: src/Commands.cpp:891
+#, kde-format
+msgid "Change Floss Scheme"
+msgstr "फ़्लॉस योजना बदलें"
+
+#: src/Commands.cpp:952
+#, kde-format
+msgid "Replace Color"
+msgstr "रंग बदलें"
+
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1441
+#, kde-format
+msgid "Swap Colors"
+msgstr "रंग बदलें"
+
+#: src/Commands.cpp:1073
+#, kde-format
+msgid "Update Printer Configuration"
+msgstr "प्रिंटर कॉन्फ़िगरेशन अपडेट करें"
+
+#: src/Commands.cpp:1097
+#, kde-format
+msgid "Cut"
+msgstr "काटना"
+
+#: src/Commands.cpp:1283 src/Editor.cpp:1959 src/MainWindow.cpp:1378
+#, kde-format
+msgid "Alphabet"
+msgstr "वर्णमाला"
+
+#: src/Commands.cpp:1329
+#, kde-format
+msgid "Configure KXStitch"
+msgstr "KXStitch कॉन्फ़िगर करें"
+
+#: src/ConfigurationDialogs.cpp:34
+#, kde-format
+msgid "Default (Centimeters)"
+msgstr "डिफ़ॉल्ट (सेंटीमीटर में)"
+
+#: src/ConfigurationDialogs.cpp:34
+#, kde-format
+msgid "Default (Inches)"
+msgstr "डिफ़ॉल्ट (इंच में)"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#: src/ConfigurationDialogs.cpp:35 ui/PatternConfigPage.ui:164
+#, kde-format
+msgid "Default"
+msgstr "गलती करना"
+
+#: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
+#: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
+#: src/ImportImageDlg.cpp:496 src/ImportImageDlg.cpp:497
+#, kde-format
+msgctxt "Per inch measurements"
+msgid "/in"
+msgstr "/में"
+
+#: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
+#: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
+#: src/ImportImageDlg.cpp:489 src/ImportImageDlg.cpp:490
+#, kde-format
+msgctxt "Per centimeter measurements"
+msgid "/cm"
+msgstr "/सेमी"
+
+#: src/Document.cpp:122 src/MainWindow.cpp:284 src/MainWindow.cpp:355
+#: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
+#, kde-format
+msgid "Untitled"
+msgstr "शीर्षकहीन"
+
+#: src/Document.cpp:245 src/Document.cpp:279
+#, kde-format
+msgid "KXStitch version %1"
+msgstr "KXStitch संस्करण %1"
+
+#: src/Document.cpp:475 src/Document.cpp:772 src/Document.cpp:1084
+#, kde-format
+msgid "The floss scheme DMC was not found"
+msgstr "फ्लॉस योजना DMC नहीं मिली"
+
+#: src/Document.cpp:523 src/Document.cpp:818 src/Document.cpp:1132
+#, kde-format
+msgid "Invalid data read."
+msgstr "अमान्य डेटा पढ़ा गया."
+
+#: src/Document.cpp:623 src/Document.cpp:918 src/Document.cpp:1232
+#: src/Document.cpp:1248 src/Document.cpp:1410 src/Document.cpp:1566
+#: src/Document.cpp:1738 src/Document.cpp:1929 src/Document.cpp:2120
+#: src/Document.cpp:2300 src/SymbolLibrary.cpp:302
+#, kde-format
+msgid "Stream error"
+msgstr "स्ट्रीम त्रुटि"
+
+#: src/Document.cpp:1351 src/Document.cpp:1504 src/Document.cpp:1665
+#: src/Document.cpp:1856 src/Document.cpp:2049 src/Document.cpp:2229
+#, kde-format
+msgid "The floss scheme %1 was not found"
+msgstr "फ्लॉस योजना %1 नहीं मिली"
+
+#: src/Document.cpp:1367 src/Document.cpp:1523 src/Document.cpp:1684
+#: src/Document.cpp:1875 src/Document.cpp:2070 src/Document.cpp:2250
+#, kde-format
+msgid "The floss name %1 was not found"
+msgstr "फ़्लॉस नाम %1 नहीं मिला"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:473
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1500
+#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
+#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
+#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
+#, kde-format
+msgid "Stitches"
+msgstr "टांके"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1802 src/Document.cpp:1995 ui/EditorConfigPage.ui:82
+#: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
+#, kde-format
+msgid "CM"
+msgstr "सेमी"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1806 src/Document.cpp:1999 src/ImportImageDlg.cpp:206
+#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
+#: ui/PatternElement.ui:205
+#, kde-format
+msgid "Inches"
+msgstr "इंच"
+
+#: src/DocumentFloss.cpp:167
+#, kde-format
+msgid "Document floss version %1"
+msgstr "दस्तावेज़ फ़्लॉस संस्करण %1"
+
+#: src/DocumentPalette.cpp:384
+#, kde-format
+msgid "Palette version %1"
+msgstr "पैलेट संस्करण %1"
+
+#: src/DocumentPalette.cpp:389
+#, kde-format
+msgid "Failed reading palette"
+msgstr "पैलेट पढ़ने में विफल"
+
+#: src/DocumentPalette.cpp:414
+#, kde-format
+msgid ""
+"There are insufficient symbols available in the symbol library for this "
+"pattern. An extra %1 are required."
+msgstr ""
+"इस पैटर्न के लिए प्रतीक लाइब्रेरी में अपर्याप्त प्रतीक उपलब्ध हैं। अतिरिक्त %1 की आवश्यकता है।"
+
+#: src/DocumentPalette.cpp:416
+#, kde-format
+msgid "Canceled: Insufficient symbols available"
+msgstr "रद्द: अपर्याप्त प्रतीक उपलब्ध हैं"
+
+#: src/DocumentPalette.cpp:433
+#, kde-format
+msgid ""
+"The following floss color has had its symbol\n"
+"replaced because it did not exist in the symbol library.\n"
+"\n"
+msgid_plural ""
+"The following floss colors have had their symbols\n"
+"replaced because they did not exist in the symbol library.\n"
+"\n"
+msgstr[0] ""
+"निम्नलिखित फ़्लॉस रंगों के प्रतीकों को बदल दिया गया है \n"
+"क्योंकि वे प्रतीक लाइब्रेरी में मौजूद नहीं थे।\n"
+msgstr[1] ""
+"निम्नलिखित फ़्लॉस रंगों के प्रतीकों को बदल दिया गया है \n"
+"क्योंकि वे प्रतीक लाइब्रेरी में मौजूद नहीं थे।\n"
+
+#: src/DocumentPalette.cpp:442
+#, kde-format
+msgid ""
+"The following floss color has had an empty symbol assigned.\n"
+"\n"
+msgid_plural ""
+"The following floss colors have had an empty symbol assigned.\n"
+"\n"
+msgstr[0] "निम्नलिखित फ़्लॉस रंग को एक खाली प्रतीक सौंपा गया है।\n"
+msgstr[1] "निम्नलिखित फ़्लॉस रंगों को एक खाली प्रतीक सौंपा गया है।\n"
+
+#: src/DocumentPalette.cpp:451
+#, kde-format
+msgid ""
+"\n"
+"You may want to check this is suitable."
+msgid_plural ""
+"\n"
+"You may want to check these are suitable."
+msgstr[0] ""
+"\n"
+"आप यह जांचना चाहेंगे कि ये उपयुक्त हैं या नहीं।"
+msgstr[1] ""
+"\n"
+"आप यह जांचना चाहेंगे कि ये उपयुक्त हैं या नहीं।"
+
+#: src/Editor.cpp:762
+#, kde-format
+msgid "Drag"
+msgstr "खींचना"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
+#: src/Editor.cpp:813 src/Editor.cpp:1938 src/MainWindow.cpp:1368
+#: ui/PrinterConfigPage.ui:384
+#, kde-format
+msgid "Text"
+msgstr "मूलपाठ"
+
+#: src/Editor.cpp:908
+#, kde-format
+msgid "Add Character"
+msgstr "चरित्र जोड़ें"
+
+#: src/Editor.cpp:957 src/Editor.cpp:2100 src/LibraryManagerDlg.cpp:116
+#: src/LibraryManagerDlg.cpp:135
+#, kde-format
+msgid "Paste"
+msgstr "पेस्ट करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/Element.cpp:469 src/Element.cpp:492 ui/KeyElement.ui:377
+#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#, kde-format
+msgid "Symbol"
+msgstr "प्रतीक"
+
+#: src/Element.cpp:470 src/Element.cpp:496
+#, kde-format
+msgctxt "The name of the floss"
+msgid "Name"
+msgstr "नाम"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
+#: src/Element.cpp:471 src/Element.cpp:500 ui/KeyElement.ui:403
+#: ui/PrinterConfigPage.ui:872
+#, kde-format
+msgid "Strands"
+msgstr "किस्में"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/Element.cpp:472 src/Element.cpp:504 ui/NewFloss.ui:44
+#, kde-format
+msgid "Description"
+msgstr "विवरण"
+
+#: src/Element.cpp:474 src/Element.cpp:513
+#, kde-format
+msgid "Length(m)"
+msgstr "लंबाई(मीटर)"
+
+#: src/Element.cpp:475 src/Element.cpp:519
+#, kde-format
+msgid "Skeins (8m)"
+msgstr "स्केन्स (8 मी)"
+
+#: src/Element.cpp:488
+#, kde-format
+msgctxt "%1 is a scheme name"
+msgid "%1 Flosses"
+msgstr "%1 फ़्लॉस"
+
+#: src/Exceptions.cpp:60
+#, kde-format
+msgid "Tried to read past the end of the data"
+msgstr "डेटा के अंत से आगे पढ़ने की कोशिश की"
+
+#: src/Exceptions.cpp:62
+#, kde-format
+msgid "Tried to read corrupted data"
+msgstr "दूषित डेटा को पढ़ने का प्रयास किया गया"
+
+#: src/Exceptions.cpp:64 src/Exceptions.cpp:99
+#, kde-format
+msgid "Undefined status message status %1"
+msgstr "अपरिभाषित स्थिति संदेश स्थिति %1"
+
+#: src/Exceptions.cpp:96
+#, kde-format
+msgid "Failed to write to the device"
+msgstr "डिवाइस पर लिखने में विफल"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
+#: src/ImageElementDlg.cpp:29 ui/ImageElement.ui:14
+#, kde-format
+msgid "Image Element Properties"
+msgstr "छवि तत्व गुण"
+
+#: src/ImportImageDlg.cpp:84
+#, kde-format
+msgid "Import Image - Image Size %1 x %2 pixels"
+msgstr "छवि आयात करें - छवि आकार %1 x %2 पिक्सेल"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
+#: ui/PatternConfigPage.ui:96
+#, kde-format
+msgid "Centimeters"
+msgstr "सेंटीमीटर"
+
+#: src/ImportImageDlg.cpp:225 src/ImportImageDlg.cpp:231
+#, kde-format
+msgctxt "%1 width, %2 height and %3 units"
+msgid "%1 x %2 %3"
+msgstr "%1 एक्स %2 %3"
+
+#: src/ImportImageDlg.cpp:356
+#, kde-format
+msgid "Rendering preview"
+msgstr "रेंडरिंग पूर्वावलोकन"
+
+#: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:574
+#, kde-format
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: src/ImportImageDlg.cpp:570
+#, kde-format
+msgid "Colors limited to %1 due to the number of symbols available"
+msgstr "उपलब्ध प्रतीकों की संख्या के कारण रंग %1 तक सीमित हैं"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
+#: src/KeyElementDlg.cpp:24 ui/KeyElement.ui:14
+#, kde-format
+msgid "Key Element Properties"
+msgstr "मुख्य तत्व गुण"
+
+#: src/LibraryFile.cpp:112
+#, kde-format
+msgid "Loading Library %1"
+msgstr "लाइब्रेरी %1 लोड हो रही है"
+
+#: src/LibraryFile.cpp:150
+#, kde-format
+msgid ""
+"Failed to read a pattern from the library %1.\n"
+"%2"
+msgstr ""
+"लाइब्रेरी से पैटर्न पढ़ने में विफल %1.\n"
+"%2"
+
+#: src/LibraryFile.cpp:151
+#, kde-format
+msgid "Failed to read library."
+msgstr "लाइब्रेरी पढ़ने में विफल."
+
+#: src/LibraryFile.cpp:185
+#, kde-format
+msgid ""
+"The file %1\n"
+"could not be opened for reading.\n"
+"%2"
+msgstr ""
+"फ़ाइल %1\n"
+"पढ़ने के लिए नहीं खोली जा सकी.\n"
+"%2"
+
+#: src/LibraryFile.cpp:185 src/LibraryFile.cpp:209
+#, kde-format
+msgid "Error opening file"
+msgstr "फ़ाइल खोलने में त्रुटि"
+
+#: src/LibraryFile.cpp:209
+#, kde-format
+msgid ""
+"The file %1\n"
+"could not be opened for writing.\n"
+"%2"
+msgstr ""
+"फ़ाइल %1\n"
+"लेखन के लिए नहीं खोली जा सकी.\n"
+"%2"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
+#: src/LibraryFilePathsDlg.cpp:21 ui/LibraryFilePaths.ui:14
+#, kde-format
+msgid "Library File Paths"
+msgstr "लाइब्रेरी फ़ाइल पथ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
+#: src/LibraryManagerDlg.cpp:38 ui/LibraryManager.ui:14
+#, kde-format
+msgid "Library Manager"
+msgstr "पुस्तकालय प्रबंधक"
+
+#: src/LibraryManagerDlg.cpp:63
+#, kde-format
+msgid ""
+"The Library Manager can be used to store\n"
+"reusable patterns for insertion into\n"
+"new patterns.\n"
+"\n"
+"There are no library categories defined.\n"
+"Click the Help button for information on creating\n"
+"and populating libraries."
+msgstr ""
+"लाइब्रेरी मैनेजर का उपयोग नए पैटर्न में डालने के लिए पुन: प्रयोज्य पैटर्न को संग्रहीत करने के "
+"लिए किया जा सकता है। कोई लाइब्रेरी श्रेणियाँ परिभाषित नहीं हैं। लाइब्रेरी बनाने और पॉपुलेट "
+"करने के बारे में जानकारी के लिए सहायता बटन पर क्लिक करें।"
+
+#: src/LibraryManagerDlg.cpp:67
+#, kde-format
+msgid "Select a library to show the associated patterns."
+msgstr "संबद्ध पैटर्न दिखाने के लिए लाइब्रेरी का चयन करें."
+
+#: src/LibraryManagerDlg.cpp:69
+#, kde-format
+msgid ""
+"There are no patterns defined\n"
+"for this library.\n"
+"\n"
+"Click the Help button for information\n"
+"on creating and populating libraries."
+msgstr ""
+"इस लाइब्रेरी के लिए कोई पैटर्न परिभाषित नहीं है। लाइब्रेरी बनाने और पॉपुलेट करने के बारे में "
+"जानकारी के लिए सहायता बटन पर क्लिक करें।"
+
+#: src/LibraryManagerDlg.cpp:109
+#, kde-format
+msgid "New Category"
+msgstr "नई श्रेणी"
+
+#: src/LibraryManagerDlg.cpp:112
+#, kde-format
+msgid "Add to Export List"
+msgstr "निर्यात सूची में जोड़ें"
+
+#: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
+#, kde-format
+msgid "Properties..."
+msgstr "गुण..."
+
+#. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
+#. i18n("Copy"), this, SLOT(copyToClipboard()));
+#: src/LibraryManagerDlg.cpp:131
+#, kde-format
+msgid "Delete"
+msgstr "मिटाना"
+
+#: src/LibraryManagerDlg.cpp:174
+#, kde-format
+msgid "Create Category"
+msgstr "श्रेणी बनाएं"
+
+#: src/LibraryManagerDlg.cpp:174
+#, kde-format
+msgid "Category Name"
+msgstr "श्रेणी नाम"
+
+#: src/LibraryManagerDlg.cpp:194
+#, kde-format
+msgid "This category already exists."
+msgstr "यह श्रेणी पहले से मौजूद है."
+
+#: src/LibraryManagerDlg.cpp:194
+#, kde-format
+msgid "Category Exists"
+msgstr "श्रेणी मौजूद है"
+
+#: src/LibraryManagerDlg.cpp:283
+#, kde-format
+msgid "Delete this pattern."
+msgstr "इस पैटर्न को हटाएँ."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
+#: src/LibraryPatternPropertiesDlg.cpp:30 ui/LibraryPatternProperties.ui:14
+#, kde-format
+msgid "Library Pattern Properties"
+msgstr "लाइब्रेरी पैटर्न गुण"
+
+#: src/LibraryTreeWidget.cpp:70
+#, kde-format
+msgid "existing library"
+msgstr "मौजूदा पुस्तकालय"
+
+#: src/Main.cpp:89
+#, kde-format
+msgid "kxstitch"
+msgstr "kxstitch"
+
+#: src/Main.cpp:91
+#, kde-format
+msgid "A cross stitch pattern creator."
+msgstr "एक क्रॉस सिलाई पैटर्न निर्माता।"
+
+#: src/Main.cpp:93
+#, kde-format
+msgid "(c) 2010-2019 Stephen Allewell"
+msgstr "(c) 2010-2019 स्टीफन एलेवेल"
+
+#: src/Main.cpp:99
+#, kde-format
+msgid "Project Lead"
+msgstr "प्रोजेक्ट लीड"
+
+#: src/Main.cpp:100
+#, kde-format
+msgid "Bug fixes, application icons"
+msgstr "बग फिक्स, एप्लिकेशन आइकन"
+
+#: src/Main.cpp:101
+#, kde-format
+msgid "Man page"
+msgstr "मैन पेज"
+
+#: src/Main.cpp:102
+#, kde-format
+msgid "Bug fixes, improvements"
+msgstr "बग फिक्स, सुधार"
+
+#: src/Main.cpp:103
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "तुम्हारे नाम"
+
+#: src/Main.cpp:103
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "आपके ईमेल"
+
+#: src/Main.cpp:110
+#, kde-format
+msgid "Document to open."
+msgstr "दस्तावेज़ खोलने के लिए."
+
+#: src/MainWindow.cpp:233
+#, kde-format
+msgid "Save changes to document?"
+msgstr "दस्तावेज़ में परिवर्तन सहेजें?"
+
+#: src/MainWindow.cpp:242
+#, kde-format
+msgid "Unable to save the file"
+msgstr "फ़ाइल सहेजने में असमर्थ"
+
+#: src/MainWindow.cpp:276
+#, kde-format
+msgid "Open file"
+msgstr "खुली फाइल"
+
+#: src/MainWindow.cpp:278
+#, kde-format
+msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
+msgstr "KXStitch पैटर्न (*.kxs);;PC सिलाई पैटर्न (*.pat);;सभी फ़ाइलें (*)"
+
+#: src/MainWindow.cpp:317
+#, kde-format
+msgid "The file does not appear to be a recognized cross stitch file."
+msgstr "यह फ़ाइल मान्यता प्राप्त क्रॉस स्टिच फ़ाइल नहीं लगती।"
+
+#: src/MainWindow.cpp:320
+#, kde-format
+msgid ""
+"This version of the file is not supported.\n"
+"%1"
+msgstr ""
+"फ़ाइल का यह संस्करण समर्थित नहीं है.\n"
+"%1"
+
+#: src/MainWindow.cpp:322
+#, kde-format
+msgid ""
+"Failed to read the file.\n"
+"%1."
+msgstr ""
+"फ़ाइल पढ़ने में विफल.\n"
+"%1."
+
+#: src/MainWindow.cpp:373
+#, kde-format
+msgid ""
+"Failed to save the file.\n"
+"%1"
+msgstr ""
+"फ़ाइल सहेजने में विफल.\n"
+"%1"
+
+#: src/MainWindow.cpp:377
+#, kde-format
+msgid ""
+"Failed to open the file.\n"
+"%1"
+msgstr ""
+"फ़ाइल खोलने में विफल.\n"
+"%1"
+
+#: src/MainWindow.cpp:384
+#, kde-format
+msgid "Save As..."
+msgstr "के रूप रक्षित करें..."
+
+#: src/MainWindow.cpp:384
+#, kde-format
+msgid "Cross Stitch Patterns (*.kxs)"
+msgstr "क्रॉस सिलाई पैटर्न (*.kxs)"
+
+#: src/MainWindow.cpp:398
+#, kde-format
+msgid "Revert changes to document?"
+msgstr "दस्तावेज़ में परिवर्तन वापस लाएं?"
+
+#: src/MainWindow.cpp:398
+#, kde-format
+msgctxt "@action:button"
+msgid "Revert"
+msgstr "फिर लौट आना"
+
+#: src/MainWindow.cpp:438
+#, kde-format
+msgid "There is nothing to print"
+msgstr "छापने के लिए कुछ भी नहीं है"
+
+#: src/MainWindow.cpp:495 src/MainWindow.cpp:730
+#, kde-format
+msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
+msgstr "छवियां (*.bmp*.gif*.jpg*.png*.pbm*.pgm*.ppm*.xbm*.xpm*.svg)"
+
+#: src/MainWindow.cpp:574
+#, kde-format
+msgid "Converting to stitches"
+msgstr "टांकों में परिवर्तित करना"
+
+#: src/MainWindow.cpp:728
+#, kde-format
+msgid "Background Image"
+msgstr "पृष्ठभूमि छवि"
+
+#: src/MainWindow.cpp:778
+#, kde-format
+msgid "Undo %1"
+msgstr "पूर्ववत करें%1"
+
+#: src/MainWindow.cpp:783
+#, kde-format
+msgid "Redo %1"
+msgstr "फिर से करें %1"
+
+#: src/MainWindow.cpp:922
+#, kde-format
+msgctxt "The Editor config page"
+msgid "Editor"
+msgstr "संपादक"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/MainWindow.cpp:924 ui/FileProperties.ui:27
+#, kde-format
+msgid "Pattern"
+msgstr "नमूना"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
+#: src/MainWindow.cpp:926 src/MainWindow.cpp:1737 ui/FileProperties.ui:33
+#: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
+#, kde-format
+msgid "Palette"
+msgstr "पैलेट"
+
+#: src/MainWindow.cpp:927
+#, kde-format
+msgid "Import"
+msgstr "आयात"
+
+#: src/MainWindow.cpp:928
+#, kde-format
+msgid "Library"
+msgstr "पुस्तकालय"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
+#: src/MainWindow.cpp:930 ui/PrinterConfigPage.ui:14
+#, kde-format
+msgid "Printer Configuration"
+msgstr "प्रिंटर कॉन्फ़िगरेशन"
+
+#: src/MainWindow.cpp:1096
+#, kde-format
+msgid "Print Setup..."
+msgstr "प्रिंट सेटअप..."
+
+#: src/MainWindow.cpp:1113
+#, kde-format
+msgid "Add Background Image..."
+msgstr "पृष्ठभूमि छवि जोड़ें..."
+
+#: src/MainWindow.cpp:1130
+#, kde-format
+msgid "Mirror/Rotate makes copies"
+msgstr "मिरर/रोटेट प्रतिलिपियाँ बनाता है"
+
+#: src/MainWindow.cpp:1136
+#, kde-format
+msgid "Horizontally"
+msgstr "क्षैतिज"
+
+#: src/MainWindow.cpp:1143
+#, kde-format
+msgid "Vertically"
+msgstr "लंबवत"
+
+#: src/MainWindow.cpp:1150
+#, kde-format
+msgid "90 Degrees"
+msgstr "90 डिग्री"
+
+#: src/MainWindow.cpp:1157
+#, kde-format
+msgid "180 Degrees"
+msgstr "180 डिग्री"
+
+#: src/MainWindow.cpp:1164
+#, kde-format
+msgid "270 Degrees"
+msgstr "270 डिग्री"
+
+#: src/MainWindow.cpp:1172
+#, kde-format
+msgid "Stitch Mask"
+msgstr "सिलाई मास्क"
+
+#: src/MainWindow.cpp:1178
+#, kde-format
+msgid "Color Mask"
+msgstr "रंग मास्क"
+
+#: src/MainWindow.cpp:1184
+#, kde-format
+msgid "Exclude Backstitches"
+msgstr "बैकस्टिच को बाहर रखें"
+
+#: src/MainWindow.cpp:1190
+#, kde-format
+msgid "Exclude Knots"
+msgstr "गांठें हटाएँ"
+
+#: src/MainWindow.cpp:1214
+#, kde-format
+msgid "Quarter Stitch"
+msgstr "क्वार्टर सिलाई"
+
+#: src/MainWindow.cpp:1224
+#, kde-format
+msgid "Half Stitch"
+msgstr "आधा सिलाई"
+
+#: src/MainWindow.cpp:1234
+#, kde-format
+msgid "3 Quarter Stitch"
+msgstr "3 क्वार्टर सिलाई"
+
+#: src/MainWindow.cpp:1244
+#, kde-format
+msgid "Full Stitch"
+msgstr "पूर्ण सिलाई"
+
+#: src/MainWindow.cpp:1254
+#, kde-format
+msgid "Small Half Stitch"
+msgstr "छोटी आधी सिलाई"
+
+#: src/MainWindow.cpp:1264
+#, kde-format
+msgid "Small Full Stitch"
+msgstr "छोटी पूरी सिलाई"
+
+#: src/MainWindow.cpp:1274
+#, kde-format
+msgid "French Knot"
+msgstr "फ्रेंच नॉट"
+
+#: src/MainWindow.cpp:1288
+#, kde-format
+msgid "Paint"
+msgstr "रँगना"
+
+#: src/MainWindow.cpp:1298
+#, kde-format
+msgid "Draw"
+msgstr "खींचना"
+
+#: src/MainWindow.cpp:1308
+#, kde-format
+msgid "Erase"
+msgstr "मिटाएं"
+
+#: src/MainWindow.cpp:1388
+#, kde-format
+msgctxt "Select an area of the pattern"
+msgid "Select"
+msgstr "चुनना"
+
+#: src/MainWindow.cpp:1398
+#, kde-format
+msgid "Backstitch"
+msgstr "टांका"
+
+#: src/MainWindow.cpp:1408
+#, kde-format
+msgid "Color Picker"
+msgstr "रंग चुनने वाली मशीन"
+
+#: src/MainWindow.cpp:1419
+#, kde-format
+msgid "Palette Manager..."
+msgstr "पैलेट प्रबंधक..."
+
+#: src/MainWindow.cpp:1425
+#, kde-format
+msgid "Show Symbols"
+msgstr "प्रतीक दिखाएं"
+
+#: src/MainWindow.cpp:1431
+#, kde-format
+msgid "Clear Unused"
+msgstr "अप्रयुक्त साफ़ करें"
+
+#: src/MainWindow.cpp:1436
+#, kde-format
+msgid "Calibrate Scheme..."
+msgstr "अंशांकन योजना..."
+
+#: src/MainWindow.cpp:1446
+#, kde-format
+msgid "Replace Colors"
+msgstr "रंग बदलें"
+
+#: src/MainWindow.cpp:1452
+#, kde-format
+msgid "Extend Pattern..."
+msgstr "पैटर्न का विस्तार करें..."
+
+#: src/MainWindow.cpp:1464
+#, kde-format
+msgid "Crop Canvas to Pattern"
+msgstr "कैनवास को पैटर्न में काटें"
+
+#: src/MainWindow.cpp:1469
+#, kde-format
+msgid "Crop Canvas to Selection"
+msgstr "चयन के लिए कैनवास क्रॉप करें"
+
+#: src/MainWindow.cpp:1489
+#, kde-format
+msgid "Library Manager..."
+msgstr "पुस्तकालय प्रबंधक..."
+
+#: src/MainWindow.cpp:1525
+#, kde-format
+msgid "Regular Stitches"
+msgstr "नियमित टांके"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1535 src/MainWindow.cpp:1585 src/MainWindow.cpp:1626
+#: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
+#: ui/PatternElement.ui:168
+#, kde-format
+msgid "Black & White Symbols"
+msgstr "काले और सफेद प्रतीक"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1544 src/MainWindow.cpp:1617 ui/EditorConfigPage.ui:314
+#: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
+#, kde-format
+msgid "Color Symbols"
+msgstr "रंग प्रतीक"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1553 src/MainWindow.cpp:1598 ui/EditorConfigPage.ui:319
+#: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
+#, kde-format
+msgid "Color Blocks"
+msgstr "रंग ब्लॉक"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1608 ui/PatternElement.ui:101
+#, kde-format
+msgid "Color Blocks & Symbols"
+msgstr "रंग ब्लॉक और प्रतीक"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#: src/MainWindow.cpp:1575 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#, kde-format
+msgid "Color Lines"
+msgstr "रंग रेखाएँ"
+
+#: src/MainWindow.cpp:1635
+#, kde-format
+msgid "Color Highlight"
+msgstr "रंग हाइलाइट"
+
+#: src/MainWindow.cpp:1641
+#, kde-format
+msgid "Show Stitches"
+msgstr "टाँके दिखाएँ"
+
+#: src/MainWindow.cpp:1647
+#, kde-format
+msgid "Show Backstitches"
+msgstr "बैकस्टिच दिखाएँ"
+
+#: src/MainWindow.cpp:1653
+#, kde-format
+msgid "Show French Knots"
+msgstr "फ्रेंच नॉट्स दिखाएँ"
+
+#: src/MainWindow.cpp:1659
+#, kde-format
+msgid "Show Grid"
+msgstr "ग्रिड दिखाएं"
+
+#: src/MainWindow.cpp:1665
+#, kde-format
+msgid "Show Background Images"
+msgstr "पृष्ठभूमि छवियाँ दिखाएँ"
+
+#: src/MainWindow.cpp:1724
+#, kde-format
+msgid "Preview"
+msgstr "पूर्व दर्शन"
+
+#: src/MainWindow.cpp:1746
+#, kde-format
+msgid "History"
+msgstr "इतिहास"
+
+#: src/MainWindow.cpp:1754
+#, kde-format
+msgid "Imported Image"
+msgstr "आयातित छवि"
+
+#. i18n: ectx: property (text), widget (QPushButton, NewFloss)
+#: src/NewFlossDlg.cpp:28 ui/PaletteManager.ui:182
+#, kde-format
+msgid "New Floss"
+msgstr "नया फ़्लॉस"
+
+#: src/NewFlossDlg.cpp:77 src/PrintSetupDlg.cpp:450
+#, kde-format
+msgid "Overwrite"
+msgstr "ओवरराइट"
+
+#: src/NewFlossDlg.cpp:77
+#, kde-format
+msgid ""
+"The floss name %1 is already used.\n"
+"Overwrite with the description and color selected."
+msgstr ""
+"फ़्लॉस नाम %1 पहले से ही उपयोग किया जा चुका है।\n"
+"चयनित विवरण और रंग के साथ ओवरराइट करें।"
+
+#: src/NewFlossDlg.cpp:77
+#, kde-format
+msgctxt "@action:button"
+msgid "Do Not Overwrite"
+msgstr "ओवरराइट न करें"
+
+#: src/Page.cpp:217
+#, kde-format
+msgid "Page version %1"
+msgstr "पेज संस्करण %1"
+
+#: src/Page.cpp:257
+#, kde-format
+msgid "Invalid element type"
+msgstr "अमान्य तत्व प्रकार"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
+#: src/PagePropertiesDlg.cpp:25 ui/PageProperties.ui:14
+#, kde-format
+msgid "Page Properties"
+msgstr "पृष्ठ गुण"
+
+#: src/Palette.cpp:132
+#, kde-format
+msgctxt ""
+"%1 is the number of stitches of a particular floss, %2 is the floss name and "
+"%3 the floss description"
+msgid ""
+"%2 %3\n"
+"%1 Stitch"
+msgid_plural ""
+"%2 %3\n"
+"%1 Stitches"
+msgstr[0] ""
+"%2 %3\n"
+"%1 टांके"
+msgstr[1] ""
+"%2 %3\n"
+"%1 टांके"
+
+#: src/Palette.cpp:144
+#, kde-format
+msgid ""
+"There are no flosses in the palette.\n"
+"Add them with the Palette Manager\n"
+"which will then enable the drawing tools."
+msgstr ""
+"पैलेट में कोई फ़्लॉस नहीं है।\n"
+"उन्हें पैलेट मैनेजर के साथ जोड़ें\n"
+"जो फिर ड्राइंग टूल को सक्षम करेगा।"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
+#: src/PaletteManagerDlg.cpp:51 ui/PaletteManager.ui:14
+#, kde-format
+msgid "Palette Manager"
+msgstr "पैलेट प्रबंधक"
+
+#: src/PaletteManagerDlg.cpp:149
+#, kde-format
+msgid "There are no more symbols available."
+msgstr "अब कोई और प्रतीक उपलब्ध नहीं है."
+
+#: src/PaletteManagerDlg.cpp:190
+#, kde-format
+msgid ""
+"The selected symbol library does not have enough symbols for the flosses in "
+"the palette."
+msgstr "चयनित प्रतीक लाइब्रेरी में पैलेट में मौजूद फ़्लॉस के लिए पर्याप्त प्रतीक नहीं हैं।"
+
+#: src/Pattern.cpp:284
+#, kde-format
+msgid "Pattern version %1"
+msgstr "पैटर्न संस्करण %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
+#: src/PatternElementDlg.cpp:28 ui/PatternElement.ui:14
+#, kde-format
+msgid "Pattern Element Properties"
+msgstr "पैटर्न तत्व गुण"
+
+#: src/PrinterConfiguration.cpp:121
+#, kde-format
+msgid "Printer configuration %1"
+msgstr "प्रिंटर कॉन्फ़िगरेशन%1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
+#: src/PrintSetupDlg.cpp:52 ui/PrintSetup.ui:20
+#, kde-format
+msgid "Print Setup"
+msgstr "प्रिंट सेटअप"
+
+#: src/PrintSetupDlg.cpp:302
+#, kde-format
+msgid "Properties"
+msgstr "गुण"
+
+#: src/PrintSetupDlg.cpp:306
+#, kde-format
+msgid "Delete Element"
+msgstr "तत्व हटाएं"
+
+#: src/PrintSetupDlg.cpp:439
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "पेज %1 का %2"
+
+#: src/PrintSetupDlg.cpp:450
+#, kde-format
+msgid "Overwrite the current configuration?"
+msgstr "वर्तमान कॉन्फ़िगरेशन को अधिलेखित करें?"
+
+#: src/PrintSetupDlg.cpp:499
+#, kde-format
+msgctxt ""
+"Do not translate elements in ${...} which are substituted by properties"
+msgid ""
+"Created by ${author}\n"
+"(C) ${copyright}\n"
+"\n"
+"Pattern Size: ${width.stitches} x ${height.stitches}\n"
+"Flosses from the ${scheme} range."
+msgstr ""
+"${author} द्वारा निर्मित\n"
+"(C) ${copyright}\n"
+"\n"
+"पैटर्न का आकार: ${width.stitches} x ${height.stitches}\n"
+"${scheme} श्रेणी से फ़्लॉस।"
+
+#: src/PrintSetupDlg.cpp:505 src/PrintSetupDlg.cpp:566
+#: src/PrintSetupDlg.cpp:588
+#, kde-format
+msgctxt ""
+"Do not translate elements in ${...} which are substituted by properties"
+msgid "Page ${page}"
+msgstr "पेज ${page}"
+
+#: src/SchemeManager.cpp:128
+#, kde-format
+msgid "Cannot open file: %1"
+msgstr "फ़ाइल नहीं खोली जा सकी: %1"
+
+#: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
+#: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
+#: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
+#, kde-format
+msgid "Error"
+msgstr "गलती"
+
+#: src/SchemeManager.cpp:135
+#, kde-format
+msgid "Cannot set DomDocument content from file: %1"
+msgstr "फ़ाइल: %1 से DomDocument सामग्री सेट नहीं की जा सकती"
+
+#: src/SchemeManager.cpp:144
+#, kde-format
+msgid "Error creating instance of a FlossScheme for scheme: %1"
+msgstr "स्कीम के लिए FlossScheme का उदाहरण बनाते समय त्रुटि: %1"
+
+#: src/SchemeManager.cpp:152
+#, kde-format
+msgid "File %1 does not appear to be a floss scheme"
+msgstr "फ़ाइल %1 फ़्लॉस स्कीम नहीं लगती"
+
+#: src/SchemeManager.cpp:160
+#, kde-format
+msgid "Multiple title elements found in file: %1"
+msgstr "फ़ाइल में एकाधिक शीर्षक तत्व पाए गए: %1"
+
+#: src/SchemeManager.cpp:215
+#, kde-format
+msgid "Malformed XML in file: %1"
+msgstr "फ़ाइल में विकृत XML: %1"
+
+#: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
+#, kde-format
+msgid ""
+"Unable to locate a writable directory\n"
+"to store the scheme."
+msgstr "योजना को संग्रहीत करने के लिए कोई लिखने योग्य निर्देशिका ढूँढने में असमर्थ।"
+
+#: src/Stitch.cpp:66
+#, kde-format
+msgid "Stitch version %1"
+msgstr "सिलाई संस्करण %1"
+
+#: src/Stitch.cpp:327
+#, kde-format
+msgid "Stitch queue version %1"
+msgstr "सिलाई कतार संस्करण %1"
+
+#: src/Stitch.cpp:407
+#, kde-format
+msgid "Backstitch version %1"
+msgstr "बैकस्टिच संस्करण %1"
+
+#: src/Stitch.cpp:467
+#, kde-format
+msgid "Knot version %1"
+msgstr "नॉट संस्करण %1"
+
+#: src/StitchData.cpp:1121
+#, kde-format
+msgid "Stitch data version %1"
+msgstr "स्टिच डेटा संस्करण %1"
+
+#: src/StitchData.cpp:1126
+#, kde-format
+msgid "Failed reading stitch data"
+msgstr "सिलाई डेटा पढ़ने में विफल"
+
+#: src/Symbol.cpp:300
+#, kde-format
+msgid "Symbol version %1"
+msgstr "प्रतीक संस्करण %1"
+
+#: src/SymbolLibrary.cpp:324
+#, kde-format
+msgid "Symbol file version %1"
+msgstr "प्रतीक फ़ाइल संस्करण %1"
+
+#: src/SymbolListWidget.cpp:126
+#, kde-format
+msgctxt "A symbol that has been used"
+msgid "Used"
+msgstr "इस्तेमाल किया गया"
+
+#: src/SymbolManager.cpp:151
+#, kde-format
+msgid "This does not appear to be a valid symbol file"
+msgstr "यह एक वैध प्रतीक फ़ाइल प्रतीत नहीं होती"
+
+#: src/SymbolManager.cpp:166
+#, kde-format
+msgid "Failed to open the file %1"
+msgstr "फ़ाइल %1 खोलने में विफल"
+
+#: src/SymbolSelectorDlg.cpp:46
+#, kde-format
+msgid "Symbol Selector"
+msgstr "प्रतीक चयनकर्ता"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
+#: src/TextElementDlg.cpp:29 ui/TextElement.ui:14
+#, kde-format
+msgid "Text Element Properties"
+msgstr "पाठ तत्व गुण"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
+#: src/TextToolDlg.cpp:26 ui/TextTool.ui:17
+#, kde-format
+msgid "Text Tool"
+msgstr "पाठ उपकरण"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/CalibrateFloss.ui:20 ui/NewFloss.ui:20
+#, kde-format
+msgid "Scheme"
+msgstr "योजना"
+
+#. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
+#: ui/CalibrateFloss.ui:60
+#, kde-format
+msgid "Currently selected color"
+msgstr "वर्तमान में चयनित रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/CalibrateFloss.ui:102
+#, kde-format
+msgctxt "Green value of color"
+msgid "Green"
+msgstr "हरा"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel3)
+#: ui/CalibrateFloss.ui:112
+#, kde-format
+msgctxt "Red value of color"
+msgid "Red"
+msgstr "लाल"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel5)
+#: ui/CalibrateFloss.ui:132
+#, kde-format
+msgctxt "Blue value of color"
+msgid "Blue"
+msgstr "नीला"
+
+#. i18n: ectx: property (text), widget (QPushButton, ResetColor)
+#: ui/CalibrateFloss.ui:158
+#, kde-format
+msgid "Reset Color"
+msgstr "रंग रीसेट करें"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
+#: ui/EditorConfigPage.ui:14
+#, kde-format
+msgid "Editor Configuration"
+msgstr "संपादक कॉन्फ़िगरेशन"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorGridTab)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/EditorConfigPage.ui:24 ui/PageProperties.ui:170
+#, kde-format
+msgid "Grid"
+msgstr "ग्रिड"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/EditorConfigPage.ui:30
+#, kde-format
+msgid "Horizontal scale height"
+msgstr "क्षैतिज पैमाने की ऊंचाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/EditorConfigPage.ui:47
+#, kde-format
+msgid "Vertical scale width"
+msgstr "ऊर्ध्वाधर स्केल चौड़ाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/EditorConfigPage.ui:64
+#, kde-format
+msgid "Format scales as"
+msgstr "स्केल को इस प्रकार प्रारूपित करें"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/EditorConfigPage.ui:90
+#, kde-format
+msgid "Thick line width"
+msgstr "मोटी लाइन की चौड़ाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/EditorConfigPage.ui:104
+#, kde-format
+msgid "Thick line color"
+msgstr "मोटी रेखा का रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/EditorConfigPage.ui:114
+#, kde-format
+msgid "Thin line width"
+msgstr "पतली रेखा की चौड़ाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/EditorConfigPage.ui:128
+#, kde-format
+msgid "Thin line color"
+msgstr "पतली रेखा का रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/EditorConfigPage.ui:138
+#, kde-format
+msgid "Horizontal cell group"
+msgstr "क्षैतिज सेल समूह"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/EditorConfigPage.ui:158
+#, kde-format
+msgid "Vertical cell group"
+msgstr "ऊर्ध्वाधर सेल समूह"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/EditorConfigPage.ui:178
+#, kde-format
+msgid "Minimum zoom factor"
+msgstr "न्यूनतम ज़ूम कारक"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: ui/EditorConfigPage.ui:198
+#, kde-format
+msgid "Maximum zoom factor"
+msgstr "अधिकतम ज़ूम कारक"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: ui/EditorConfigPage.ui:218
+#, kde-format
+msgid "Default zoom factor"
+msgstr "डिफ़ॉल्ट ज़ूम फ़ैक्टर"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
+#: ui/EditorConfigPage.ui:239
+#, kde-format
+msgid "Renderer"
+msgstr "रेंडरर"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
+#: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
+#, kde-format
+msgid "Show grid"
+msgstr "ग्रिड दिखाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
+#: ui/EditorConfigPage.ui:252
+#, kde-format
+msgid "Show background images"
+msgstr "पृष्ठभूमि छवियाँ दिखाएँ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
+#: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
+#, kde-format
+msgid "Show stitches"
+msgstr "टांके दिखाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
+#: ui/EditorConfigPage.ui:266
+#, kde-format
+msgid "Show stitch hints"
+msgstr "सिलाई संकेत दिखाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
+#: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
+#, kde-format
+msgid "Show backstitches"
+msgstr "बैकस्टिच दिखाएँ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
+#: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
+#, kde-format
+msgid "Show knots"
+msgstr "गांठें दिखाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
+#: ui/EditorConfigPage.ui:287
+#, kde-format
+msgid "Color highlight"
+msgstr "रंग हाइलाइट"
+
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: ui/EditorConfigPage.ui:296
+#, kde-format
+msgid "Render stitches as"
+msgstr "टांके को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:309 ui/EditorConfigPage.ui:376
+#, kde-format
+msgid "Black and White Symbols"
+msgstr "काले और सफेद प्रतीक"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:324 ui/EditorConfigPage.ui:366
+#, kde-format
+msgid "Color Blocks and Symbols"
+msgstr "रंग ब्लॉक और प्रतीक"
+
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/EditorConfigPage.ui:332
+#, kde-format
+msgid "Render backstitches as"
+msgstr "बैकस्टिच को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/EditorConfigPage.ui:353
+#, kde-format
+msgid "Render knots as"
+msgstr "गांठों को इस प्रकार प्रस्तुत करें"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
+#: ui/EditorConfigPage.ui:387
+#, kde-format
+msgid "Tools"
+msgstr "औजार"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
+#: ui/EditorConfigPage.ui:396
+#, kde-format
+msgid "Tool Fractionals"
+msgstr "उपकरण अंश"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
+#: ui/EditorConfigPage.ui:403
+#, kde-format
+msgid "Mirror / Rotate makes copies"
+msgstr "मिरर / रोटेट प्रतिलिपियाँ बनाता है"
+
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/EditorConfigPage.ui:412
+#, kde-format
+msgid "Text tool font"
+msgstr "टेक्स्ट टूल फ़ॉन्ट"
+
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/EditorConfigPage.ui:422
+#, kde-format
+msgid "Font size"
+msgstr "फ़ॉन्ट आकार"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/FileProperties.ui:41 ui/ImportImage.ui:48
+#: ui/LibraryPatternProperties.ui:41 ui/PaletteConfigPage.ui:26
+#, kde-format
+msgid "Floss scheme"
+msgstr "फ्लॉस योजना"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
+#: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
+#, kde-format
+msgid "Pattern Size"
+msgstr "पैटर्न का आकार"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:74 ui/PatternConfigPage.ui:32
+#: ui/PatternConfigPage.ui:127
+#, kde-format
+msgid "Units"
+msgstr "इकाइयों"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:100 ui/LibraryPatternProperties.ui:55
+#: ui/PatternConfigPage.ui:39
+#, kde-format
+msgid "Width"
+msgstr "चौड़ाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/FileProperties.ui:123 ui/LibraryPatternProperties.ui:69
+#: ui/PatternConfigPage.ui:62
+#, kde-format
+msgid "Height"
+msgstr "ऊंचाई"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
+#, kde-format
+msgid "Cloth Count"
+msgstr "कपड़े की गिनती"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
+#, kde-format
+msgctxt "Horizontal cloth count value"
+msgid "Horizontal"
+msgstr "क्षैतिज"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
+#, kde-format
+msgctxt "Vertical cloth count value"
+msgid "Vertical"
+msgstr "खड़ा"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/FileProperties.ui:279
+#, kde-format
+msgctxt "The document title"
+msgid "Title"
+msgstr "शीर्षक"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/FileProperties.ui:292
+#, kde-format
+msgid "Author"
+msgstr "लेखक"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/FileProperties.ui:305
+#, kde-format
+msgid "Copyright"
+msgstr "कॉपीराइट"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/FileProperties.ui:318
+#, kde-format
+msgid "Fabric"
+msgstr "कपड़ा"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/FileProperties.ui:338
+#, kde-format
+msgid "Instructions"
+msgstr "निर्देश"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#: ui/ImageElement.ui:32 ui/PatternElement.ui:32
+#, kde-format
+msgid ""
+"<html><head/><body>Click and drag to select the area of the pattern to be "
+"displayed.<br />Grayed out areas have already been selected on this or other "
+"pages.</body></html>"
+msgstr ""
+"<html><head/><body>प्रदर्शित किए जाने वाले पैटर्न के क्षेत्र को चुनने के लिए क्लिक करें और "
+"खींचें।<br /> इस पृष्ठ या अन्य पृष्ठों पर धूसर क्षेत्र पहले से ही चयनित किये जा चुके हैं।</"
+"body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:466
+#: ui/PrinterConfigPage.ui:636 ui/TextElement.ui:158
+#, kde-format
+msgid "Border"
+msgstr "सीमा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:472
+#: ui/PrinterConfigPage.ui:642 ui/TextElement.ui:167
+#, kde-format
+msgid "Show border"
+msgstr "बॉर्डर दिखाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImageElement.ui:74 ui/KeyElement.ui:183 ui/KeyElement.ui:255
+#: ui/TextElement.ui:174 ui/TextElement.ui:245
+#, kde-format
+msgctxt "Label for color value"
+msgid "Color"
+msgstr "रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImageElement.ui:88 ui/KeyElement.ui:197 ui/TextElement.ui:191
+#, kde-format
+msgid "Line thickness"
+msgstr "रेखा मोटाई"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
+#: ui/ImageElement.ui:101 ui/KeyElement.ui:55 ui/KeyElement.ui:84
+#: ui/KeyElement.ui:113 ui/KeyElement.ui:142 ui/KeyElement.ui:213
+#: ui/PageProperties.ui:45 ui/PageProperties.ui:77 ui/PageProperties.ui:109
+#: ui/PageProperties.ui:141 ui/PageProperties.ui:205
+#: ui/PrinterConfigPage.ui:102 ui/PrinterConfigPage.ui:122
+#: ui/PrinterConfigPage.ui:142 ui/PrinterConfigPage.ui:162
+#: ui/PrinterConfigPage.ui:215 ui/PrinterConfigPage.ui:235
+#: ui/PrinterConfigPage.ui:255 ui/PrinterConfigPage.ui:275
+#: ui/PrinterConfigPage.ui:511 ui/PrinterConfigPage.ui:544
+#: ui/PrinterConfigPage.ui:564 ui/PrinterConfigPage.ui:584
+#: ui/PrinterConfigPage.ui:604 ui/PrinterConfigPage.ui:681
+#: ui/PrinterConfigPage.ui:767 ui/PrinterConfigPage.ui:787
+#: ui/PrinterConfigPage.ui:807 ui/PrinterConfigPage.ui:827 ui/TextElement.ui:45
+#: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
+#: ui/TextElement.ui:204
+#, kde-format
+msgid "mm"
+msgstr "मिमी"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
+#: ui/ImportConfigPage.ui:14
+#, kde-format
+msgid "Import Configuration"
+msgstr "कॉन्फ़िगरेशन आयात करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
+#: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
+#, kde-format
+msgid "Maximum colors"
+msgstr "अधिकतम रंग"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
+#: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
+#, kde-format
+msgid "Use fractionals"
+msgstr "भिन्नात्मक का उपयोग करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
+#: ui/ImportImage.ui:118
+#, kde-format
+msgid "Ignore color"
+msgstr "रंग को नज़रअंदाज़ करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
+#: ui/ImportImage.ui:165
+#, kde-format
+msgid "Set as default"
+msgstr "डिफाल्ट के रूप में सेट"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/ImportImage.ui:185 ui/TextTool.ui:38
+#, kde-format
+msgid "Size"
+msgstr "आकार"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/ImportImage.ui:191
+#, kde-format
+msgid "Horizontal cloth count"
+msgstr "क्षैतिज कपड़ा गिनती"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImportImage.ui:254
+#, kde-format
+msgid "Vertical cloth count"
+msgstr "ऊर्ध्वाधर कपड़ा गिनती"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/ImportImage.ui:283
+#, kde-format
+msgid "Pattern scale"
+msgstr "पैटर्न स्केल"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
+#: ui/ImportImage.ui:302
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImportImage.ui:315
+#, kde-format
+msgid "Pattern size"
+msgstr "पैटर्न का आकार"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
+#: ui/ImportImage.ui:339
+#, kde-format
+msgid "Crop image"
+msgstr "छवि सुधारें # क्रॉप इमेज फोटो एडिटर"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
+#. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
+#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:630
+#, kde-format
+msgid "Key Element"
+msgstr "मुख्य तत्व"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:81
+#: ui/PrinterConfigPage.ui:194 ui/PrinterConfigPage.ui:523
+#: ui/PrinterConfigPage.ui:746 ui/TextElement.ui:20
+#, kde-format
+msgid "Margins"
+msgstr "मार्जिन"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/KeyElement.ui:49 ui/PageProperties.ui:39
+#, kde-format
+msgid "Top margin in mm"
+msgstr "शीर्ष मार्जिन मिमी में"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/KeyElement.ui:78 ui/PageProperties.ui:71
+#, kde-format
+msgid "Left margin in mm"
+msgstr "बायां मार्जिन मिमी में"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/KeyElement.ui:107 ui/PageProperties.ui:103
+#, kde-format
+msgid "Right margin in mm"
+msgstr "दायाँ मार्जिन मिमी में"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/KeyElement.ui:136 ui/PageProperties.ui:135
+#, kde-format
+msgid "Bottom margin in mm"
+msgstr "निचला मार्जिन मिमी में"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/KeyElement.ui:240 ui/TextElement.ui:229
+#, kde-format
+msgctxt "Groupbox title for background properties"
+msgid "Background"
+msgstr "पृष्ठभूमि"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
+#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:456 ui/PrinterConfigPage.ui:699
+#: ui/TextElement.ui:238
+#, kde-format
+msgid "Fill background"
+msgstr "पृष्ठभूमि भरें"
+
+#. i18n: ectx: property (text), widget (QLabel, label_22)
+#. i18n: ectx: property (text), widget (QLabel, label_26)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:436 ui/PrinterConfigPage.ui:723
+#: ui/TextElement.ui:262
+#, kde-format
+msgid "Transparency"
+msgstr "पारदर्शिता"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ElementContentTab)
+#: ui/KeyElement.ui:295
+#, kde-format
+msgid "Element Content"
+msgstr "तत्व सामग्री"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/KeyElement.ui:301 ui/TextTool.ui:25
+#, kde-format
+msgid "Font"
+msgstr "फ़ॉन्ट"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#: ui/KeyElement.ui:313
+#, kde-format
+msgid "Key Elements"
+msgstr "मुख्य तत्व"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/KeyElement.ui:321
+#, kde-format
+msgid "First element"
+msgstr "पहला तत्व"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
+#: ui/KeyElement.ui:328
+#, kde-format
+msgid "The first line of the key to display"
+msgstr "प्रदर्शित करने के लिए कुंजी की पहली पंक्ति"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/KeyElement.ui:341
+#, kde-format
+msgid "No. elements"
+msgstr "तत्वों की संख्या"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
+#: ui/KeyElement.ui:348
+#, kde-format
+msgid "The number of key elements to display (0 for all)"
+msgstr "प्रदर्शित करने के लिए कुंजी तत्वों की संख्या (सभी के लिए 0)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/KeyElement.ui:369
+#, kde-format
+msgid "Columns"
+msgstr "कॉलम"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumnColor)
+#: ui/KeyElement.ui:387
+#, kde-format
+msgid "Color"
+msgstr "रंग"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:855
+#, kde-format
+msgid "Floss name"
+msgstr "फ़्लॉस नाम"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
+#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:865
+#, kde-format
+msgid "Floss description"
+msgstr "फ़्लॉस विवरण"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
+#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:889
+#, kde-format
+msgid "Length"
+msgstr "लंबाई"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
+#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:896
+#, kde-format
+msgid "Skeins"
+msgstr "स्केन्स"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
+#: ui/LibraryConfigPage.ui:14
+#, kde-format
+msgid "Library Configuration"
+msgstr "लाइब्रेरी कॉन्फ़िगरेशन"
+
+#. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/LibraryConfigPage.ui:24 ui/LibraryManager.ui:37
+#, kde-format
+msgid "Libraries"
+msgstr "पुस्तकालय"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/LibraryConfigPage.ui:30
+#, kde-format
+msgid "Icon default size"
+msgstr "आइकन डिफ़ॉल्ट आकार"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/LibraryConfigPage.ui:41
+#, kde-format
+msgid "Alphabets"
+msgstr "अक्षर"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
+#: ui/LibraryConfigPage.ui:47
+#, kde-format
+msgid "Use caps lock"
+msgstr "कैप्स लॉक का उपयोग करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
+#: ui/LibraryConfigPage.ui:54
+#, kde-format
+msgid "Word wrap"
+msgstr "वर्ड रैप"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/LibraryConfigPage.ui:63
+#, kde-format
+msgid "Default space width"
+msgstr "डिफ़ॉल्ट स्थान चौड़ाई"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/LibraryConfigPage.ui:73
+#, kde-format
+msgid "Line spacing"
+msgstr "पंक्ति रिक्ति"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/LibraryConfigPage.ui:83
+#, kde-format
+msgid "Extend pattern width"
+msgstr "पैटर्न की चौड़ाई बढ़ाएँ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryConfigPage.ui:93
+#, kde-format
+msgid "Extend pattern height"
+msgstr "पैटर्न की ऊंचाई बढ़ाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, CatagoryName)
+#: ui/LibraryFilePaths.ui:23
+#, kde-format
+msgid "Paths"
+msgstr "के रास्ते"
+
+#. i18n: ectx: property (toolTip), widget (QSlider, IconSizeSlider)
+#: ui/LibraryManager.ui:91
+#, kde-format
+msgid "Icon size"
+msgstr "आइकन का आकार"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryPatternProperties.ui:83
+#, kde-format
+msgid "Baseline"
+msgstr "आधारभूत"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/LibraryPatternProperties.ui:100
+#, kde-format
+msgid "Associated character"
+msgstr "संबद्ध चरित्र"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
+#: ui/NewFloss.ui:14
+#, kde-format
+msgid "Create New Floss"
+msgstr "नया फ़्लॉस बनाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/NewFloss.ui:57
+#, kde-format
+msgctxt "Color chooser"
+msgid "Color"
+msgstr "रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PageProperties.ui:192
+#, kde-format
+msgctxt "The horizontal axis"
+msgid "Size"
+msgstr "आकार"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
+#: ui/PageProperties.ui:202
+#, kde-format
+msgid "Grid X spacing in mm"
+msgstr "ग्रिड X रिक्ति (मिमी में)"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteConfigPage)
+#: ui/PaletteConfigPage.ui:14
+#, kde-format
+msgid "Palette Configuration"
+msgstr "पैलेट कॉन्फ़िगरेशन"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
+#: ui/PaletteConfigPage.ui:43
+#, kde-format
+msgid "Show symbols"
+msgstr "प्रतीक दिखाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteConfigPage.ui:50
+#, kde-format
+msgid "Symbol library"
+msgstr "प्रतीक पुस्तकालय"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteConfigPage.ui:60
+#, kde-format
+msgid "Default stitch strands"
+msgstr "डिफ़ॉल्ट सिलाई किस्में"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteConfigPage.ui:67
+#, kde-format
+msgid "Default backstitch strands"
+msgstr "डिफ़ॉल्ट बैकस्टिच किस्में"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteManager.ui:22
+#, kde-format
+msgid "Current palette"
+msgstr "वर्तमान पैलेट"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteManager.ui:80
+#, kde-format
+msgid "Current scheme"
+msgstr "वर्तमान योजना"
+
+#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
+#: ui/PaletteManager.ui:87
+#, kde-format
+msgid "TextLabel"
+msgstr "पाठलेबल"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/PaletteManager.ui:99
+#, kde-format
+msgid "Symbol Library"
+msgstr "प्रतीक पुस्तकालय"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteManager.ui:109
+#, kde-format
+msgid "Stitch strands"
+msgstr "सिलाई किस्में"
+
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: ui/PaletteManager.ui:196
+#, kde-format
+msgid "Calibrate Flosses"
+msgstr "फ्लॉस को कैलिब्रेट करें"
+
+#. i18n: ectx: property (text), widget (QPushButton, PickColor)
+#: ui/PaletteManager.ui:203
+#, kde-format
+msgid "Pick Color"
+msgstr "रंग चुनें"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PaletteManager.ui:212
+#, kde-format
+msgid "Backstitch strands"
+msgstr "बैकस्टिच किस्में"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:264
+#, kde-format
+msgctxt "A solid line"
+msgid "Solid"
+msgstr "ठोस"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:269
+#, kde-format
+msgctxt "A dashed line"
+msgid "Dashed"
+msgstr "धराशायी"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:274
+#, kde-format
+msgctxt "A dotted line"
+msgid "Dotted"
+msgstr "छितराया हुआ"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:279
+#, kde-format
+msgid "Dash Dotted"
+msgstr "डैश डॉटेड"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:284
+#, kde-format
+msgid "Dash Dash Dotted"
+msgstr "डैश डैश बिंदीदार"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
+#: ui/PatternConfigPage.ui:14
+#, kde-format
+msgid "Pattern Configuration"
+msgstr "पैटर्न कॉन्फ़िगरेशन"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PatternElement.ui:70 ui/PatternElement.ui:116 ui/PatternElement.ui:147
+#: ui/PatternElement.ui:189
+#, kde-format
+msgid "As"
+msgstr "जैसा"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:179
+#, kde-format
+msgid "Not currently implemented"
+msgstr "वर्तमान में क्रियान्वित नहीं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:182
+#, kde-format
+msgid "Show scales"
+msgstr "तराजू दिखाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
+#: ui/PatternElement.ui:225
+#, kde-format
+msgid "Show map"
+msgstr "नक्शा दिखाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/PrinterConfigPage.ui:24 ui/PrintSetup.ui:49
+#, kde-format
+msgid "Pages"
+msgstr "पृष्ठों"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PrinterConfigPage.ui:32
+#, kde-format
+msgid "Default paper size"
+msgstr "डिफ़ॉल्ट पेपर आकार"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, PageSize)
+#. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
+#, kde-format
+msgid "Select a paper size"
+msgstr "कागज़ का आकार चुनें"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
+#: ui/PrinterConfigPage.ui:56 ui/PrintSetup.ui:227
+#, kde-format
+msgid "Portrait"
+msgstr "चित्र"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
+#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:232
+#, kde-format
+msgid "Landscape"
+msgstr "परिदृश्य"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/PrinterConfigPage.ui:89 ui/PrinterConfigPage.ui:202
+#: ui/PrinterConfigPage.ui:531 ui/PrinterConfigPage.ui:754
+#, kde-format
+msgctxt "Left margin"
+msgid "Left"
+msgstr "बाएं"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/PrinterConfigPage.ui:109 ui/PrinterConfigPage.ui:222
+#: ui/PrinterConfigPage.ui:551 ui/PrinterConfigPage.ui:774
+#, kde-format
+msgctxt "Right margin"
+msgid "Right"
+msgstr "सही"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/PrinterConfigPage.ui:129 ui/PrinterConfigPage.ui:242
+#: ui/PrinterConfigPage.ui:571 ui/PrinterConfigPage.ui:794
+#, kde-format
+msgctxt "Top margin"
+msgid "Top"
+msgstr "शीर्ष"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/PrinterConfigPage.ui:149 ui/PrinterConfigPage.ui:262
+#: ui/PrinterConfigPage.ui:591 ui/PrinterConfigPage.ui:814
+#, kde-format
+msgctxt "Bottom margin"
+msgid "Bottom"
+msgstr "तल"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/PrinterConfigPage.ui:188
+#, kde-format
+msgid "Pattern Element"
+msgstr "पैटर्न तत्व"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
+#: ui/PrinterConfigPage.ui:287
+#, kde-format
+msgid "Cells"
+msgstr "प्रकोष्ठों"
+
+#. i18n: ectx: property (text), widget (QLabel, label_27)
+#: ui/PrinterConfigPage.ui:295
+#, kde-format
+msgid "Minimum cell size (mm)"
+msgstr "न्यूनतम सेल आकार (मिमी)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_28)
+#: ui/PrinterConfigPage.ui:308
+#, kde-format
+msgid "Minimum overflow"
+msgstr "न्यूनतम अतिप्रवाह"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
+#: ui/PrinterConfigPage.ui:326
+#, kde-format
+msgid "Selections"
+msgstr "चयन"
+
+#. i18n: ectx: property (text), widget (QLabel, label_29)
+#: ui/PrinterConfigPage.ui:332
+#, kde-format
+msgid "Selected area color"
+msgstr "चयनित क्षेत्र का रंग"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: ui/PrinterConfigPage.ui:378
+#, kde-format
+msgid "Text Element"
+msgstr "पाठ तत्व"
+
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
+#: ui/PrinterConfigPage.ui:390 ui/TextElement.ui:463
+#, kde-format
+msgid "Text color"
+msgstr "पाठ का रंग"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
+#: ui/PrinterConfigPage.ui:410 ui/PrinterConfigPage.ui:693
+#, kde-format
+msgctxt "Fill the background"
+msgid "Background"
+msgstr "पृष्ठभूमि"
+
+#. i18n: ectx: property (text), widget (QLabel, label_20)
+#. i18n: ectx: property (text), widget (QLabel, label_25)
+#: ui/PrinterConfigPage.ui:419 ui/PrinterConfigPage.ui:706
+#, kde-format
+msgctxt "Background color"
+msgid "Color"
+msgstr "रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_18)
+#. i18n: ectx: property (text), widget (QLabel, label_23)
+#: ui/PrinterConfigPage.ui:481 ui/PrinterConfigPage.ui:651
+#, kde-format
+msgctxt "Border color"
+msgid "Color"
+msgstr "रंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_19)
+#. i18n: ectx: property (text), widget (QLabel, label_24)
+#: ui/PrinterConfigPage.ui:498 ui/PrinterConfigPage.ui:668
+#, kde-format
+msgid "Thickness"
+msgstr "मोटाई"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
+#: ui/PrinterConfigPage.ui:839
+#, kde-format
+msgid "Elements"
+msgstr "तत्वों"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
+#: ui/PrinterConfigPage.ui:845
+#, kde-format
+msgid "Symbols"
+msgstr "प्रतीक"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
+#: ui/PrintSetup.ui:68
+#, kde-format
+msgid "Create a default layout"
+msgstr "डिफ़ॉल्ट लेआउट बनाएँ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
+#: ui/PrintSetup.ui:107
+#, kde-format
+msgid "Append a page"
+msgstr "पृष्ठ जोड़ें"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
+#: ui/PrintSetup.ui:149
+#, kde-format
+msgid "Insert a page before the selected page"
+msgstr "चयनित पृष्ठ से पहले एक पृष्ठ सम्मिलित करें"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
+#: ui/PrintSetup.ui:188
+#, kde-format
+msgid "Delete the selected page"
+msgstr "चयनित पृष्ठ हटाएं"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
+#: ui/PrintSetup.ui:223
+#, kde-format
+msgid "Select the paper orientation"
+msgstr "पेपर ओरिएंटेशन का चयन करें"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
+#: ui/PrintSetup.ui:246
+#, kde-format
+msgid "Zoom factor"
+msgstr "ज़ूम कारक"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
+#: ui/PrintSetup.ui:306
+#, kde-format
+msgid "Select an element"
+msgstr "एक तत्व चुनें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
+#: ui/PrintSetup.ui:328
+#, kde-format
+msgid "Insert a text element"
+msgstr "पाठ तत्व डालें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
+#: ui/PrintSetup.ui:353
+#, kde-format
+msgid "Insert a pattern element"
+msgstr "पैटर्न तत्व डालें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
+#: ui/PrintSetup.ui:375
+#, kde-format
+msgid "Insert a picture element"
+msgstr "चित्र तत्व डालें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
+#: ui/PrintSetup.ui:385
+#, kde-format
+msgid "Insert a key element"
+msgstr "एक मुख्य तत्व डालें"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
+#: ui/PrintSetup.ui:456
+#, kde-format
+msgid "Page list"
+msgstr "पृष्ठ सूची"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
+#: ui/PrintSetup.ui:484
+#, kde-format
+msgid "Page preview"
+msgstr "पृष्ठ पूर्वावलोकन"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
+#: ui/SymbolSelector.ui:14
+#, kde-format
+msgid "Symbol Selection"
+msgstr "प्रतीक चयन"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/TextElement.ui:39
+#, kde-format
+msgid "Top margin in mm, internal to the border."
+msgstr "ऊपरी मार्जिन मिमी में, बॉर्डर के अंदर।"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/TextElement.ui:68
+#, kde-format
+msgid "Left margin in mm, internal to the border."
+msgstr "बायां मार्जिन मिमी में, बॉर्डर के अंदर।"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/TextElement.ui:97
+#, kde-format
+msgid "Right margin in mm, internal to the border."
+msgstr "दायां मार्जिन मिमी में, बॉर्डर के अंदर।"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/TextElement.ui:126
+#, kde-format
+msgid "Bottom margin in mm, internal to the border."
+msgstr "निचला मार्जिन मिमी में, बॉर्डर के अंदर।"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
+#: ui/TextElement.ui:164
+#, kde-format
+msgid "Show border around the text box"
+msgstr "टेक्स्ट बॉक्स के चारों ओर बॉर्डर दिखाएँ"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
+#: ui/TextElement.ui:235
+#, kde-format
+msgid "Fill the background with a color"
+msgstr "पृष्ठभूमि को रंग से भरें"
+
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
+#: ui/TextElement.ui:255
+#, kde-format
+msgid "Background color"
+msgstr "पृष्ठभूमि का रंग"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
+#: ui/TextElement.ui:272
+#, kde-format
+msgid "Transparency of the text box"
+msgstr "टेक्स्ट बॉक्स की पारदर्शिता"
+
+#. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
+#: ui/TextElement.ui:288
+#, kde-format
+msgid "Text font family"
+msgstr "पाठ फ़ॉन्ट परिवार"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
+#: ui/TextElement.ui:301
+#, kde-format
+msgid "Text point size"
+msgstr "पाठ बिंदु आकार"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
+#: ui/TextElement.ui:330
+#, kde-format
+msgid "Bold text"
+msgstr "मोटा पाठ्यांश"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
+#: ui/TextElement.ui:349
+#, kde-format
+msgid "Italics text"
+msgstr "इटैलिक पाठ"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
+#: ui/TextElement.ui:368
+#, kde-format
+msgid "Underline text"
+msgstr "पाठ को रेखांकित करें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
+#: ui/TextElement.ui:387
+#, kde-format
+msgid "Align left"
+msgstr "बाईं ओर संरेखित करें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
+#: ui/TextElement.ui:406
+#, kde-format
+msgid "Align centrally"
+msgstr "केंद्रीय रूप से संरेखित करें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
+#: ui/TextElement.ui:425
+#, kde-format
+msgid "Align right"
+msgstr "दाएँ संरेखित करें"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
+#: ui/TextElement.ui:444
+#, kde-format
+msgid "Align justified"
+msgstr "संरेखित करें"
