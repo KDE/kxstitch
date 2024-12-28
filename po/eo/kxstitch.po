@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-05-12 23:22+0100\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -1996,48 +1996,44 @@ msgstr ""
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
-msgstr ""
+msgstr "Paĝo ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Malsukcesis malfermi la dosieron %1"
+msgstr "Ne eblas malfermi dosieron: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Neniu eraro"
+msgstr "Eraro"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Ne eblas meti DomDocument-enhavon el dosiero: %1"
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "Eraro legante flosskemon."
+msgstr "Eraro kreante instancon de FlossScheme por skemo: %1"
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Ĉi tio ne ŝajnas esti valida simboldosiero"
+msgstr "Dosiero %1 ne ŝajnas esti valida floss-skemo"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "Pluraj titolelementoj trvoĝas en dosiero: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "Misformita XML en dosiero: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
@@ -3357,7 +3353,7 @@ msgstr "Substreki tekston"
 #: ui/TextElement.ui:387
 #, kde-format
 msgid "Align left"
-msgstr "Vicigi maldekstren"
+msgstr "Vicigi maldekstre"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
 #: ui/TextElement.ui:406
@@ -3369,25 +3365,10 @@ msgstr "Vicigi centre"
 #: ui/TextElement.ui:425
 #, kde-format
 msgid "Align right"
-msgstr "Vicigi dekstren"
+msgstr "Vicigi dekstre"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
 #: ui/TextElement.ui:444
 #, kde-format
 msgid "Align justified"
-msgstr "Vicigi pravigitan"
-
-#~ msgid "Floss not completely defined"
-#~ msgstr "Floss ne tute difinita"
-
-#~ msgid "Unmatched element tags"
-#~ msgstr "Nekongruaj elemento-etikedoj"
-
-#~ msgid "Unknown element tag"
-#~ msgstr "Nekonata elemento-etikedo"
-
-#~ msgid "Color value is invalid"
-#~ msgstr "Kolora valoro estas nevalida"
-
-#~ msgid "Unknown error code"
-#~ msgstr "Nekonata erarkodo"
+msgstr "Vicigi ĝisrandigite"
