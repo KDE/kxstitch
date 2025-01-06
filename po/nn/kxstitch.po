@@ -2086,13 +2086,11 @@ msgstr ""
 
 #: src/SchemeManager.cpp:144
 #, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
 msgid "Error creating instance of a FlossScheme for scheme: %1"
 msgstr "Feil ved lesing av trådsystem."
 
 #: src/SchemeManager.cpp:152
 #, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
 msgid "File %1 does not appear to be a floss scheme"
 msgstr "Dette er ikkje ei gyldig symbolfil"
 
