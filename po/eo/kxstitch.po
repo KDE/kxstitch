@@ -1,16 +1,16 @@
 # translation of kxstitch.pot to Esperanto
 # Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the kxstitch package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:52+0000\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
-"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
+"Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -281,7 +281,7 @@ msgstr "La defaŭlta grandeco de piktogramoj montritaj en la piktograma vido"
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr "Ĉu signo-elekto honoru la majusklan ŝlosilon"
+msgstr "Ĉu signo-elekto honoru la majusklan klavon"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
@@ -477,7 +477,7 @@ msgstr "Montri randon ĉirkaŭ la bildo"
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr "Montri randon ĉirkaŭ la ŝlosilo"
+msgstr "Montri randon ĉirkaŭ la klavo"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
@@ -1437,13 +1437,13 @@ msgstr "Cimoj korektoj, plibonigoj"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Oliver Kellogg"
 
 #: src/Main.cpp:106
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "olivermkellogg@gmail.com"
 
 #: src/Main.cpp:122
 #, kde-format
@@ -1697,7 +1697,7 @@ msgstr "Farbo"
 #: src/MainWindow.cpp:1319
 #, kde-format
 msgid "Draw"
-msgstr "Egaliĝo"
+msgstr "Desegni"
 
 #: src/MainWindow.cpp:1327
 #, kde-format
@@ -1993,7 +1993,7 @@ msgstr ""
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
-msgstr ""
+msgstr "Paĝo ${page}"
 
 #: src/SchemeManager.cpp:144
 #, kde-format
@@ -2792,7 +2792,7 @@ msgstr "Alfabetoj"
 #: ui/LibraryConfigPage.ui:47
 #, kde-format
 msgid "Use caps lock"
-msgstr "Uzi majusklan ŝlosilon"
+msgstr "Uzi majuskligan klavon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
 #: ui/LibraryConfigPage.ui:54
@@ -3595,7 +3595,7 @@ msgstr "Substreki tekston"
 #: ui/TextElement.ui:387
 #, kde-format
 msgid "Align left"
-msgstr "Vicigi maldekstren"
+msgstr "Vicigi maldekstre"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
 #: ui/TextElement.ui:406
@@ -3607,10 +3607,10 @@ msgstr "Vicigi centre"
 #: ui/TextElement.ui:425
 #, kde-format
 msgid "Align right"
-msgstr "Vicigi dekstren"
+msgstr "Vicigi dekstre"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
 #: ui/TextElement.ui:444
 #, kde-format
 msgid "Align justified"
-msgstr "Vicigi pravigitan"
+msgstr "Vicigi ĝisrandigite"
