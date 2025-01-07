@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-11-10 12:33+0100\n"
+"PO-Revision-Date: 2025-01-06 12:43+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -653,7 +653,7 @@ msgstr "Selección da reflexión"
 #: kxstitchui.rc:27 src/Commands.cpp:1239
 #, kde-format
 msgid "Rotate Selection"
-msgstr "Xirar a selección"
+msgstr "Rotar a selección"
 
 #. i18n: ectx: Menu (settings)
 #: kxstitchui.rc:33
@@ -1659,7 +1659,7 @@ msgstr "Engadir unha imaxe de fondo…"
 #: src/MainWindow.cpp:1130
 #, kde-format
 msgid "Mirror/Rotate makes copies"
-msgstr "Reflectir ou xirar xera copias."
+msgstr "Reflectir ou rotar xera copias."
 
 #: src/MainWindow.cpp:1136
 #, kde-format
@@ -2415,7 +2415,7 @@ msgstr "Fraccionarios nas ferramentas."
 #: ui/EditorConfigPage.ui:403
 #, kde-format
 msgid "Mirror / Rotate makes copies"
-msgstr "Reflectir ou xirar xera copias."
+msgstr "Reflectir ou rotar xera copias."
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: ui/EditorConfigPage.ui:412
