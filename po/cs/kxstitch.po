@@ -2075,18 +2075,16 @@ msgid "Page ${page}"
 msgstr "Strana ${page}"
 
 #: src/SchemeManager.cpp:128
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid "Cannot open file: %1"
-msgstr "Nepodařilo se otevřít soubor %1"
+msgstr "Nelze otevřít soubor: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
-#, fuzzy, kde-format
-#| msgid "No error"
+#, kde-format
 msgid "Error"
-msgstr "Žádná chyba"
+msgstr "Chyba"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
