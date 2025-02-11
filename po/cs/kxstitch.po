@@ -2092,16 +2092,14 @@ msgid "Cannot set DomDocument content from file: %1"
 msgstr ""
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error reading floss scheme."
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "Chyba při čtení sady vyšívacích přízí."
+msgstr ""
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
-#| msgid "This does not appear to be a valid symbol file"
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Zdá se, že toto není platný soubor symbolu"
+msgstr ""
 
 #: src/SchemeManager.cpp:160
 #, kde-format
@@ -3455,13 +3453,3 @@ msgstr "Zarovnat vpravo"
 #, kde-format
 msgid "Align justified"
 msgstr "Zarovnat do bloku"
-
-#~ msgid ""
-#~ "Error reading scheme %1\n"
-#~ "%2."
-#~ msgstr ""
-#~ "Chyba při čtení sady %1\n"
-#~ "%2."
-
-#~ msgid "Unknown error code"
-#~ msgstr "Neznámý kód chyby"
