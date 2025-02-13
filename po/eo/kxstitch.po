@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-12-27 17:40+0100\n"
+"PO-Revision-Date: 2025-02-12 07:00+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -89,13 +89,13 @@ msgstr "Kvadrataj ĉeloj"
 #: kxstitch.kcfg:59
 #, kde-format
 msgid "The height of the horizontal ruler."
-msgstr "La alteco de la horizontala reganto."
+msgstr "La alteco de la horizontala mezurilo."
 
 #. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
 #: kxstitch.kcfg:63
 #, kde-format
 msgid "The width of the vertical ruler."
-msgstr "La larĝo de la vertikala reganto."
+msgstr "La larĝo de la vertikala mezurilo."
 
 #. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
 #: kxstitch.kcfg:67
