@@ -286,7 +286,7 @@ msgstr ""
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr "En cas de selecció de caràcter triar la tecla Bloq Maj"
+msgstr "En cas de selecció de caràcter triar la tecla «Bloq Maj»"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
@@ -3654,7 +3654,7 @@ msgstr "Tipus de lletra del text"
 #: ui/TextElement.ui:301
 #, kde-format
 msgid "Text point size"
-msgstr "Mida del punt al text"
+msgstr "Mida del punt en el text"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
 #: ui/TextElement.ui:330
