@@ -1458,7 +1458,7 @@ msgstr "Fehlerkorrekturen und Verbesserungen"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: src/Main.cpp:103
 #, kde-format

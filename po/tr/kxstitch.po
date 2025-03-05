@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-23 00:39+0000\n"
-"PO-Revision-Date: 2024-10-22 09:03+0300\n"
+"PO-Revision-Date: 2025-03-04 12:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -451,7 +451,8 @@ msgstr "Alt kenar boşluğu"
 #: kxstitch.kcfg:351
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
-msgstr "Şablondan oluşturulmuş yazıcı yapılandırması için azami hücre boyutu"
+msgstr ""
+"Şablondan oluşturulmuş yazıcı yapılandırması için en küçük hücre boyutu"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
 #: kxstitch.kcfg:355
@@ -1348,10 +1349,10 @@ msgid ""
 "and populating libraries."
 msgstr ""
 "Kitaplık yöneticisi, yeni desenlere eklenen\n"
-"tekrar kullanılabilir desenleri saklamak\n"
+"yeniden kullanılabilir desenleri saklamak\n"
 "için kullanılabilir.\n"
 "\n"
-"Hiç kitaplık kategoroisi tanımlanmamış.\n"
+"Hiçbir kitaplık kategorisi tanımlanmamış.\n"
 "Kitaplık oluşturma ve doldurma hakkında\n"
 "bilgi almak için Yardım butonuna tıklayın."
 
