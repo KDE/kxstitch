@@ -1484,7 +1484,7 @@ msgstr "Corrección de fallos e melloras."
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Adrián Chaves Fernández"
+msgstr "Adrián Chaves"
 
 #: src/Main.cpp:106
 #, kde-format
