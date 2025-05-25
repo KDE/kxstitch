@@ -286,7 +286,7 @@ msgstr ""
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr "En cas de selecció de caràcter triar la tecla «Bloq Maj»"
+msgstr "En cas de selecció de caràcter triar la tecla «Bloq Majús»"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
@@ -1211,7 +1211,7 @@ msgstr "Descripció"
 #: src/Element.cpp:521 src/Element.cpp:559
 #, kde-format
 msgid "Length(m)"
-msgstr "Llargada(m)"
+msgstr "Llargària(m)"
 
 #: src/Element.cpp:522 src/Element.cpp:563
 #, kde-format
@@ -1364,7 +1364,7 @@ msgstr ""
 "la inserció en patrons nous.\n"
 "\n"
 "No hi ha categories de biblioteca definides.\n"
-"Feu clic en el botó «Ajuda» per a obtindre informació\n"
+"Cliqueu damunt del botó «Ajuda» per a obtindre informació\n"
 "sobre com crear i omplir les biblioteques."
 
 #: src/LibraryManagerDlg.cpp:68
@@ -1384,7 +1384,7 @@ msgstr ""
 "No hi ha patrons definits\n"
 "per a esta biblioteca.\n"
 "\n"
-"Feu clic en el botó «Ajuda» per a obtindre informació\n"
+"Cliqueu damunt del botó «Ajuda» per a obtindre informació\n"
 "quant a crear i omplir les biblioteques."
 
 #: src/LibraryManagerDlg.cpp:114
@@ -2534,9 +2534,9 @@ msgid ""
 "displayed.<br />Grayed out areas have already been selected on this or other "
 "pages.</body></html>"
 msgstr ""
-"<html><head/><body>Feu clic i arrossegueu per a seleccionar la zona del "
-"patró que es mostrarà.<br />Les zones ombrejades ja han sigut seleccionades "
-"en esta o en altres pàgines.</body></html>"
+"<html><head/><body>Cliqueu i arrossegueu per a seleccionar la zona del patró "
+"a mostrar.<br />Les zones ombrejades ja han sigut seleccionades en esta o en "
+"altres pàgines.</body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
