@@ -1216,7 +1216,7 @@ msgstr "Llargària(m)"
 #: src/Element.cpp:522 src/Element.cpp:563
 #, kde-format
 msgid "Skeins (8m)"
-msgstr "Madeixes (8m)"
+msgstr "Madeixes (8 m)"
 
 #: src/Element.cpp:535
 #, kde-format
