@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-01-06 19:01+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -25,6 +25,736 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 "X-Text-Markup: kde4\n"
 
+#. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
+#: kxstitch.kcfg:10
+#, kde-format
+msgid "The background color."
+msgstr "Couleur d'arrière-plan"
+
+#. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
+#: kxstitch.kcfg:14
+#, kde-format
+msgid "The color of the editors thick lines."
+msgstr "Couleur des lignes épaisses dans les éditeurs"
+
+#. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
+#: kxstitch.kcfg:18
+#, kde-format
+msgid "The color of the editors thin lines."
+msgstr "Couleur des lignes fines dans les éditeurs"
+
+#. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
+#: kxstitch.kcfg:22
+#, kde-format
+msgid "The width of the major grid lines."
+msgstr "Épaisseur des lignes principales dans les grilles"
+
+#. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
+#: kxstitch.kcfg:26
+#, kde-format
+msgid "The width of the minor grid lines."
+msgstr "Épaisseur des lignes secondaires dans les grilles"
+
+#. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
+#: kxstitch.kcfg:30
+#, kde-format
+msgid "The number of cells making up a horizontal group."
+msgstr "Nombre de cases constituant un groupe horizontal"
+
+#. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
+#: kxstitch.kcfg:34
+#, kde-format
+msgid "The number of cells making up a vertical group."
+msgstr "Nombre de cases constituant un groupe vertical"
+
+#. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
+#: kxstitch.kcfg:38
+#, kde-format
+msgid "The horizontal cloth count."
+msgstr "Nombre de points en horizontal par unité de longueur"
+
+#. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
+#: kxstitch.kcfg:42
+#, kde-format
+msgid "The vertical cloth count."
+msgstr "Nombre de points en vertical par unité de longueur"
+
+#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
+#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
+#: kxstitch.kcfg:46 kxstitch.kcfg:159
+#, kde-format
+msgid "The cloth count units."
+msgstr "Unités utilisées pour l'ouvrage"
+
+#. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
+#: kxstitch.kcfg:55
+#, kde-format
+msgid "Square cells"
+msgstr "Cases carrées"
+
+#. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
+#: kxstitch.kcfg:59
+#, kde-format
+msgid "The height of the horizontal ruler."
+msgstr "Hauteur de l'échelle graduée horizontale"
+
+#. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
+#: kxstitch.kcfg:63
+#, kde-format
+msgid "The width of the vertical ruler."
+msgstr "Largeur de l'échelle graduée verticale"
+
+#. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
+#: kxstitch.kcfg:67
+#, kde-format
+msgid "The display units for a scale."
+msgstr "Unité d'affichage pour l'échelle"
+
+#. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
+#: kxstitch.kcfg:76
+#, kde-format
+msgid "The minimum zoom factor"
+msgstr "Facteur de zoom minimum"
+
+#. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
+#: kxstitch.kcfg:80
+#, kde-format
+msgid "The maximum zoom factor"
+msgstr "Facteur de zoom maximum"
+
+#. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
+#: kxstitch.kcfg:84
+#, kde-format
+msgid "The default zoom factor"
+msgstr "Facteur de zoom par défaut"
+
+#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
+#: kxstitch.kcfg:91
+#, kde-format
+msgid "Enable color highlighting mode"
+msgstr "Activer la mise en évidence des couleurs"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
+#: kxstitch.kcfg:95
+#, kde-format
+msgid "Render the background images"
+msgstr "Rendu des images d'arrière-plan"
+
+#. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
+#: kxstitch.kcfg:99
+#, kde-format
+msgid "Render the grid"
+msgstr "Rendu de la grille"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
+#: kxstitch.kcfg:103
+#, kde-format
+msgid "Render the stitches"
+msgstr "Rendu des points de croix"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
+#: kxstitch.kcfg:107
+#, kde-format
+msgid "Render the backstitches"
+msgstr "Rendu des points arrière"
+
+#. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
+#: kxstitch.kcfg:111
+#, kde-format
+msgid "Render the french knots"
+msgstr "Rendu des points de nœud"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
+#: kxstitch.kcfg:115
+#, kde-format
+msgid "Render stitch hints for colored blocks"
+msgstr "Afficher les indices de points pour les blocs colorés"
+
+#. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
+#: kxstitch.kcfg:119
+#, kde-format
+msgid "How to display stitches."
+msgstr "Comment afficher les points de croix"
+
+#. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
+#: kxstitch.kcfg:130
+#, kde-format
+msgid "How to display backstitches."
+msgstr "Comment afficher les points arrière"
+
+#. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
+#: kxstitch.kcfg:138
+#, kde-format
+msgid "How to display french knots."
+msgstr "Comment afficher les points de nœud"
+
+#. i18n: ectx: label, entry (Document_Width), group (document)
+#: kxstitch.kcfg:151
+#, kde-format
+msgid "The default width of a new pattern in the units specified."
+msgstr "Largeur par défaut d'un nouvel ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Document_Height), group (document)
+#: kxstitch.kcfg:155
+#, kde-format
+msgid "The default height of a new pattern in the units specified."
+msgstr "Hauteur par défaut d'un nouvel ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Document_Min_Width), group (document)
+#: kxstitch.kcfg:168
+#, kde-format
+msgid "The minimum width of a pattern in the units specified."
+msgstr "Largeur minimum d'un ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Document_Min_Height), group (document)
+#: kxstitch.kcfg:172
+#, kde-format
+msgid "The minimum height of a pattern in the units specified."
+msgstr "Hauteur minimum d'un ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Document_Max_Width), group (document)
+#: kxstitch.kcfg:176
+#, kde-format
+msgid "The maximum width of a pattern in the units specified."
+msgstr "Largeur maximum d'un ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Document_Max_Height), group (document)
+#: kxstitch.kcfg:180
+#, kde-format
+msgid "The maximum height of a pattern in the units specified."
+msgstr "Hauteur maximum d'un ouvrage, dans l'unité choisie"
+
+#. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
+#: kxstitch.kcfg:187
+#, kde-format
+msgid "Use a maximum number of colors"
+msgstr "Utiliser un nombre maximum de couleurs"
+
+#. i18n: ectx: label, entry (Import_MaximumColors), group (import)
+#: kxstitch.kcfg:191
+#, kde-format
+msgid "Maximum number of colors"
+msgstr "Nombre maximum de couleurs"
+
+#. i18n: ectx: label, entry (Import_UseFractionals), group (import)
+#: kxstitch.kcfg:195
+#, kde-format
+msgid "Use fractional stitches for finer detail"
+msgstr "Utiliser des points fractionnés pour affiner les détails"
+
+#. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
+#: kxstitch.kcfg:202
+#, kde-format
+msgid "The default floss scheme to be used for new documents."
+msgstr "Schéma de fabricant de fil par défaut pour les nouveaux documents"
+
+#. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
+#: kxstitch.kcfg:206
+#, kde-format
+msgid "The default symbol library to be used for new documents."
+msgstr "Bibliothèque de symboles par défaut pour les nouveaux documents"
+
+#. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
+#: kxstitch.kcfg:210
+#, kde-format
+msgid "The default number of strands used for stitches."
+msgstr "Nombre de brins par défaut pour les points de croix"
+
+#. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
+#: kxstitch.kcfg:214
+#, kde-format
+msgid "The default number of strands used for backstitches."
+msgstr "Nombre de brins par défaut pour les points arrière"
+
+#. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
+#: kxstitch.kcfg:218
+#, kde-format
+msgid "Display the symbols in the palette."
+msgstr "Afficher les symboles dans la palette"
+
+#. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
+#: kxstitch.kcfg:222
+#, kde-format
+msgid "Display the symbols antialiased"
+msgstr "Afficher les symboles anticrénelés"
+
+#. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
+#: kxstitch.kcfg:229
+#, kde-format
+msgid "The default size of icons shown in the icon view"
+msgstr "Taille par défaut des icônes dans la vue en icônes"
+
+#. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
+#: kxstitch.kcfg:236
+#, kde-format
+msgid "Should character selection honor the caps lock key"
+msgstr "Les caractères sélectionnés doivent-ils obéir à la touche Verr. Maj. ?"
+
+#. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
+#: kxstitch.kcfg:240
+#, kde-format
+msgid "The default width of a space in cells"
+msgstr "Nombre de cases par défaut pour un espace"
+
+#. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
+#: kxstitch.kcfg:244
+#, kde-format
+msgid "Should a space cause word wrapping at the right edge of the pattern"
+msgstr ""
+"Un espace doit-il provoquer un retour à la ligne automatique à la limite "
+"droite de l'ouvrage ?"
+
+#. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
+#: kxstitch.kcfg:248
+#, kde-format
+msgid "The number of cells between lines of text"
+msgstr "Nombre de cases entre deux lignes de texte"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
+#: kxstitch.kcfg:252
+#, kde-format
+msgid "The number of cells to be added when extending the pattern right"
+msgstr ""
+"Nombre de cases à ajouter lors de l'extension de l'ouvrage par la droite"
+
+#. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
+#: kxstitch.kcfg:256
+#, kde-format
+msgid "The number of cells to be added when extending the pattern down"
+msgstr "Nombre de cases à ajouter lors de l'extension de l'ouvrage par le bas"
+
+#. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
+#: kxstitch.kcfg:263
+#, kde-format
+msgid "Should the shapes tools use fractional stitches"
+msgstr "Permettre aux outils de forme d'utiliser des points fractionnés"
+
+#. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
+#: kxstitch.kcfg:267
+#, kde-format
+msgid "The font family to be used in the TextToolDlg"
+msgstr "Police à utiliser dans « TextToolDlg »"
+
+#. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
+#: kxstitch.kcfg:271
+#, kde-format
+msgid "The text size in pixels"
+msgstr "Taille du texte en pixels"
+
+#. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
+#: kxstitch.kcfg:275
+#, kde-format
+msgid "Does mirroring and copying make copies"
+msgstr "Définit si les opérations de symétrie et de rotation créent des copies"
+
+#. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
+#: kxstitch.kcfg:282
+#, kde-format
+msgid "The page left margin"
+msgstr "Marge de gauche de la page"
+
+#. i18n: ectx: label, entry (Page_MarginTop), group (printer)
+#: kxstitch.kcfg:286
+#, kde-format
+msgid "The page top margin"
+msgstr "Marge du haut de la page"
+
+#. i18n: ectx: label, entry (Page_MarginRight), group (printer)
+#: kxstitch.kcfg:290
+#, kde-format
+msgid "The page right margin"
+msgstr "Marge de droite de la page"
+
+#. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
+#: kxstitch.kcfg:294
+#, kde-format
+msgid "The page bottom margin"
+msgstr "Marge du bas de la page"
+
+#. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
+#: kxstitch.kcfg:298
+#, kde-format
+msgid "Show the layout editor"
+msgstr "Afficher l'éditeur de couches"
+
+#. i18n: ectx: label, entry (Page_GridSize), group (printer)
+#: kxstitch.kcfg:302
+#, kde-format
+msgid "The grid size in mm"
+msgstr "Taille de la grille en mm"
+
+#. i18n: ectx: label, entry (Page_Size), group (printer)
+#: kxstitch.kcfg:306
+#, kde-format
+msgid "The default page size"
+msgstr "Taille par défaut de la page"
+
+#. i18n: ectx: label, entry (Page_Orientation), group (printer)
+#: kxstitch.kcfg:310
+#, kde-format
+msgid "The default page orientation"
+msgstr "Orientation par défaut de la page"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
+#: kxstitch.kcfg:314
+#, kde-format
+msgid "The snap distance for element boundary corner nodes"
+msgstr "Distance du raccord pour les nœuds en bordure des éléments"
+
+#. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
+#: kxstitch.kcfg:318
+#, kde-format
+msgid "The snap node size"
+msgstr "Taille du nœud de raccord"
+
+#. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:323
+#, kde-format
+msgid "Show a border around the pattern"
+msgstr "Afficher une bordure autour de l'ouvrage"
+
+#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
+#: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
+#, kde-format
+msgid "The color of the border"
+msgstr "Couleur de la bordure"
+
+#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
+#. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
+#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
+#, kde-format
+msgid "The thickness of the border in 1/10 mm"
+msgstr "Épaisseur de la bordure en 1/10 mm"
+
+#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:335 kxstitch.kcfg:478
+#, kde-format
+msgid "The left margin"
+msgstr "Marge de gauche"
+
+#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
+#: kxstitch.kcfg:339 kxstitch.kcfg:474
+#, kde-format
+msgid "The top margin"
+msgstr "Marge du haut"
+
+#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
+#: kxstitch.kcfg:343 kxstitch.kcfg:482
+#, kde-format
+msgid "The right margin"
+msgstr "Marge de droite"
+
+#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
+#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:347 kxstitch.kcfg:486
+#, kde-format
+msgid "The bottom margin"
+msgstr "Marge du bas"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
+#: kxstitch.kcfg:351
+#, kde-format
+msgid "Minimum cell size in mm for template generated printer configurations"
+msgstr ""
+"Taille minimum des cases en mm pour les configurations d'impression générées "
+"par les modèles"
+
+#. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
+#: kxstitch.kcfg:355
+#, kde-format
+msgid "Minimum number of cells that can be on a page of its own"
+msgstr "Nombre minimum de cases pouvant être sur leur propre page"
+
+#. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
+#: kxstitch.kcfg:359
+#, kde-format
+msgid ""
+"The color used to represented already selected areas in existing pattern "
+"elements"
+msgstr ""
+"Couleur utilisée pour représenter les aires déjà sélectionnées au sein des "
+"éléments existants de l'ouvrage"
+
+#. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:364
+#, kde-format
+msgid "Show a border around the image"
+msgstr "Afficher une bordure autour de l'image"
+
+#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:377
+#, kde-format
+msgid "Show a border around the key"
+msgstr "Afficher une bordure autour du tableau des fils utilisés"
+
+#. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
+#. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
+#: kxstitch.kcfg:389 kxstitch.kcfg:462
+#, kde-format
+msgid "Fill the background"
+msgstr "Remplir l'arrière-plan"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:393
+#, kde-format
+msgid "The color of the background"
+msgstr "Couleur de l'arrière-plan"
+
+#. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:397
+#, kde-format
+msgid "Transparency of the background"
+msgstr "Transparence d'arrière-plan"
+
+#. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
+#: kxstitch.kcfg:401
+#, kde-format
+msgid "The key element left margin"
+msgstr "Marge de gauche du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
+#: kxstitch.kcfg:405
+#, kde-format
+msgid "The key element top margin"
+msgstr "Marge du haut du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
+#: kxstitch.kcfg:409
+#, kde-format
+msgid "The key element right margin"
+msgstr "Marge de droite du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
+#: kxstitch.kcfg:413
+#, kde-format
+msgid "The key element bottom margin"
+msgstr "Marge du bas du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
+#: kxstitch.kcfg:417
+#, kde-format
+msgid "Show the key element symbol column"
+msgstr "Afficher la colonne « symbole » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
+#: kxstitch.kcfg:421
+#, kde-format
+msgid "Show the key element symbol column in color"
+msgstr "Afficher la colonne « symbole » du tableau des fils en couleurs"
+
+#. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
+#: kxstitch.kcfg:425
+#, kde-format
+msgid "Show the key element floss name column"
+msgstr "Afficher la colonne « nom du fil » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
+#: kxstitch.kcfg:429
+#, kde-format
+msgid "Show the key element floss strands column"
+msgstr "Afficher la colonne « nombre de brins du fil » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
+#: kxstitch.kcfg:433
+#, kde-format
+msgid "Show the key element floss description column"
+msgstr "Afficher la colonne « description du fil » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
+#: kxstitch.kcfg:437
+#, kde-format
+msgid "Show the key element stitch count column"
+msgstr "Afficher la colonne « nombre de points » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
+#: kxstitch.kcfg:441
+#, kde-format
+msgid "Show the key element floss length column"
+msgstr "Afficher la colonne « longueur du fil » du tableau des fils"
+
+#. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
+#: kxstitch.kcfg:445
+#, kde-format
+msgid "Show the key element skeins column"
+msgstr "Afficher la colonne « échevettes » du tableau des fils"
+
+#. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
+#: kxstitch.kcfg:450
+#, kde-format
+msgid "Show the border"
+msgstr "Afficher la bordure"
+
+#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
+#: kxstitch.kcfg:454 ui/TextElement.ui:184
+#, kde-format
+msgid "The border color"
+msgstr "Couleur de la bordure"
+
+#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
+#: kxstitch.kcfg:458 ui/ImageElement.ui:98 ui/KeyElement.ui:207
+#: ui/TextElement.ui:201
+#, kde-format
+msgid "Thickness of the border in 1/10 mm"
+msgstr "Épaisseur de la bordure en 1/10 mm"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
+#: kxstitch.kcfg:466
+#, kde-format
+msgid "Color of the background"
+msgstr "Couleur d'arrière-plan"
+
+#. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
+#: kxstitch.kcfg:470
+#, kde-format
+msgid "The transparency value"
+msgstr "Valeur de la transparence"
+
+#. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
+#: kxstitch.kcfg:490
+#, kde-format
+msgid "The text color"
+msgstr "Couleur du texte"
+
+#. i18n: ectx: Menu (file)
+#: kxstitchui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Fichier"
+
+#. i18n: ectx: Menu (fileRemoveBackgroundImage)
+#: kxstitchui.rc:10 src/Commands.cpp:570
+#, kde-format
+msgid "Remove Background Image"
+msgstr "Supprimer l'image d'arrière-plan"
+
+#. i18n: ectx: Menu (edit)
+#: kxstitchui.rc:14
+#, kde-format
+msgid "&Edit"
+msgstr "É&dition"
+
+#. i18n: ectx: Menu (selectionMasks)
+#: kxstitchui.rc:15
+#, kde-format
+msgid "Selection Masks"
+msgstr "Masques de sélection"
+
+#. i18n: ectx: Menu (mirror)
+#: kxstitchui.rc:23 src/Commands.cpp:1306
+#, kde-format
+msgid "Mirror Selection"
+msgstr "Symétrie de la sélection"
+
+#. i18n: ectx: Menu (rotate)
+#: kxstitchui.rc:27 src/Commands.cpp:1354
+#, kde-format
+msgid "Rotate Selection"
+msgstr "Rotation de la sélection"
+
+#. i18n: ectx: Menu (settings)
+#: kxstitchui.rc:33
+#, kde-format
+msgid "&Settings"
+msgstr "&Configuration"
+
+#. i18n: ectx: Menu (formatScalesAs)
+#: kxstitchui.rc:35 kxstitchui.rc:140
+#, kde-format
+msgid "Format Scales As"
+msgstr "Échelles en…"
+
+#. i18n: ectx: Menu (renderStitchesAs)
+#: kxstitchui.rc:41 kxstitchui.rc:146
+#, kde-format
+msgid "Render Stitches As"
+msgstr "Afficher les points de croix en…"
+
+#. i18n: ectx: Menu (renderBackstitchesAs)
+#: kxstitchui.rc:49 kxstitchui.rc:154
+#, kde-format
+msgid "Render Backstitches As"
+msgstr "Afficher les points arrière en…"
+
+#. i18n: ectx: Menu (renderKnotsAs)
+#: kxstitchui.rc:54 kxstitchui.rc:159
+#, kde-format
+msgid "Render Knots As"
+msgstr "Afficher les points de nœud en…"
+
+#. i18n: ectx: Menu (view)
+#: kxstitchui.rc:68
+#, kde-format
+msgid "&View"
+msgstr "&Affichage"
+
+#. i18n: ectx: Menu (viewShowBackgroundImage)
+#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
+#, kde-format
+msgid "Show Background Image"
+msgstr "Afficher l'image de fond"
+
+#. i18n: ectx: Menu (viewFitBackgroundImage)
+#: kxstitchui.rc:76 kxstitchui.rc:176
+#, kde-format
+msgid "Fit Background Image to Selection"
+msgstr "Ajuster l'image de fond à la sélection"
+
+#. i18n: ectx: Menu (stitches)
+#: kxstitchui.rc:80
+#, kde-format
+msgid "&Stitches"
+msgstr "&Points"
+
+#. i18n: ectx: Menu (Tools)
+#: kxstitchui.rc:91
+#, kde-format
+msgid "&Tools"
+msgstr "O&utils "
+
+#. i18n: ectx: Menu (palette)
+#: kxstitchui.rc:111
+#, kde-format
+msgid "&Palette"
+msgstr "Pa&lette"
+
+#. i18n: ectx: Menu (library)
+#: kxstitchui.rc:121
+#, kde-format
+msgid "&Library Manager"
+msgstr "&Bibliothèque"
+
+#. i18n: ectx: Menu (pattern)
+#: kxstitchui.rc:124
+#, kde-format
+msgid "&Pattern"
+msgstr "O&uvrage"
+
+#. i18n: ectx: ToolBar (StitchToolBar)
+#: kxstitchui.rc:193
+#, kde-format
+msgid "Stitch Toolbar"
+msgstr "Barre d'outils des points"
+
+#. i18n: ectx: ToolBar (ToolsToolbar)
+#: kxstitchui.rc:204
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Barre d'outils des outils"
+
+#. i18n: ectx: ToolBar (ZoomToolbar)
+#: kxstitchui.rc:227
+#, kde-format
+msgid "Zoom Toolbar"
+msgstr "Barre d'outils de zoom"
+
 #: src/BackgroundImage.cpp:136
 #, kde-format
 msgid "Background image version %1"
@@ -35,7 +765,8 @@ msgstr "Version %1 de l'image d'arrière-plan"
 msgid "Background images version %1"
 msgstr "Version %1 des images d'arrière-plan"
 
-#: src/CalibrateFlossDlg.cpp:33
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
+#: src/CalibrateFlossDlg.cpp:33 ui/CalibrateFloss.ui:14
 #, kde-format
 msgid "Calibrate Floss"
 msgstr "Calibrer les fils"
@@ -52,12 +783,16 @@ msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
 msgstr "%1-%2"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1141
+#: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Propriétés du fichier"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
 #: src/Commands.cpp:58 src/MainWindow.cpp:517 src/MainWindow.cpp:1136
+#: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
 msgstr "Importer une image"
@@ -152,17 +887,8 @@ msgstr "Ajouter une image de fond"
 msgid "Fit Background to Selection"
 msgstr "Ajuster l'image de fond à la sélection"
 
-#: src/Commands.cpp:548
-#, kde-format
-msgid "Show Background Image"
-msgstr "Afficher l'image de fond"
-
-#: src/Commands.cpp:570
-#, kde-format
-msgid "Remove Background Image"
-msgstr "Supprimer l'image d'arrière-plan"
-
-#: src/Commands.cpp:684
+#. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
+#: src/Commands.cpp:684 ui/PaletteManager.ui:189
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Enlever les fils inutilisés"
@@ -192,7 +918,8 @@ msgstr "Insérer des colonnes"
 msgid "Insert Rows"
 msgstr "Insérer des lignes"
 
-#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
+#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
 msgstr "Agrandir l'ouvrage"
@@ -232,16 +959,6 @@ msgstr "Mettre à jour la configuration d'impression"
 msgid "Cut"
 msgstr "Couper"
 
-#: src/Commands.cpp:1306
-#, kde-format
-msgid "Mirror Selection"
-msgstr "Symétrie de la sélection"
-
-#: src/Commands.cpp:1354
-#, kde-format
-msgid "Rotate Selection"
-msgstr "Rotation de la sélection"
-
 #: src/Commands.cpp:1402 src/Editor.cpp:1999 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Alphabet"
@@ -262,7 +979,8 @@ msgstr "Par défaut (centimètres)"
 msgid "Default (Inches)"
 msgstr "Par défaut (pouces)"
 
-#: src/ConfigurationDialogs.cpp:39
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#: src/ConfigurationDialogs.cpp:39 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
 msgstr "Par défaut"
@@ -324,19 +1042,41 @@ msgstr "Schéma de fils %1 introuvable"
 msgid "The floss name %1 was not found"
 msgstr "Nom du fil %1 introuvable"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1812 src/Document.cpp:2018 src/Element.cpp:520
 #: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1500
+#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
+#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
+#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:1032
 #, kde-format
 msgid "Stitches"
 msgstr "Points"
 
-#: src/Document.cpp:1816 src/Document.cpp:2022
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
+#: src/Document.cpp:1816 src/Document.cpp:2022 ui/EditorConfigPage.ui:82
+#: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
 #, kde-format
 msgid "CM"
 msgstr "cm"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1820 src/Document.cpp:2026 src/ImportImageDlg.cpp:241
-#: src/MainWindow.cpp:1514
+#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
+#: ui/PatternElement.ui:205
 #, kde-format
 msgid "Inches"
 msgstr "pouces"
@@ -424,7 +1164,9 @@ msgstr[1] ""
 msgid "Drag"
 msgstr "Faire glisser"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
 #: src/Editor.cpp:845 src/Editor.cpp:1975 src/MainWindow.cpp:1375
+#: ui/PrinterConfigPage.ui:534
 #, kde-format
 msgid "Text"
 msgstr "Texte"
@@ -440,7 +1182,11 @@ msgstr "Ajouter un caractère"
 msgid "Paste"
 msgstr "Coller"
 
-#: src/Element.cpp:516 src/Element.cpp:539
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/Element.cpp:516 src/Element.cpp:539 ui/KeyElement.ui:377
+#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
 #, kde-format
 msgid "Symbol"
 msgstr "Symbole"
@@ -451,12 +1197,16 @@ msgctxt "The name of the floss"
 msgid "Name"
 msgstr "Nom"
 
-#: src/Element.cpp:518 src/Element.cpp:547
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
+#: src/Element.cpp:518 src/Element.cpp:547 ui/KeyElement.ui:403
+#: ui/PrinterConfigPage.ui:1022
 #, kde-format
 msgid "Strands"
 msgstr "Brins"
 
-#: src/Element.cpp:519 src/Element.cpp:551
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/Element.cpp:519 src/Element.cpp:551 ui/NewFloss.ui:44
 #, kde-format
 msgid "Description"
 msgstr "Description"
@@ -497,7 +1247,8 @@ msgstr "Message d'état indéfini : %1"
 msgid "Failed to write to the device"
 msgstr "Impossible d'écrire sur le périphérique"
 
-#: src/ImageElementDlg.cpp:31
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
+#: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
 #, kde-format
 msgid "Image Element Properties"
 msgstr "Propriétés de l'élément image"
@@ -507,7 +1258,10 @@ msgstr "Propriétés de l'élément image"
 msgid "Import Image - Image Size %1 x %2 pixels"
 msgstr "Importation d'image - Taille de l'image %1 x %2 pixels"
 
-#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1507
+#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
+#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
+#: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
 msgstr "Centimètres"
@@ -534,7 +1288,8 @@ msgid "Colors limited to %1 due to the number of symbols available"
 msgstr ""
 "Nombre de couleurs limité à %1 en raison du nombre de symboles disponibles"
 
-#: src/KeyElementDlg.cpp:26
+#. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
+#: src/KeyElementDlg.cpp:26 ui/KeyElement.ui:14
 #, kde-format
 msgid "Key Element Properties"
 msgstr "Propriétés du tableau des fils"
@@ -585,12 +1340,14 @@ msgstr ""
 "en écriture.\n"
 "%2"
 
-#: src/LibraryFilePathsDlg.cpp:23
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
+#: src/LibraryFilePathsDlg.cpp:23 ui/LibraryFilePaths.ui:14
 #, kde-format
 msgid "Library File Paths"
 msgstr "Emplacement des fichiers de la bibliothèque"
 
-#: src/LibraryManagerDlg.cpp:39
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
+#: src/LibraryManagerDlg.cpp:39 ui/LibraryManager.ui:14
 #, kde-format
 msgid "Library Manager"
 msgstr "Gestionnaire de bibliothèque"
@@ -681,7 +1438,8 @@ msgstr "Cette catégorie existe déjà"
 msgid "Delete this pattern."
 msgstr "Supprimer cet ouvrage"
 
-#: src/LibraryPatternPropertiesDlg.cpp:25
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
+#: src/LibraryPatternPropertiesDlg.cpp:25 ui/LibraryPatternProperties.ui:14
 #, kde-format
 msgid "Library Pattern Properties"
 msgstr "Propriétés de l'ouvrage de la bibliothèque"
@@ -869,12 +1627,16 @@ msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Éditeur"
 
-#: src/MainWindow.cpp:960
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/MainWindow.cpp:960 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "Ouvrage"
 
-#: src/MainWindow.cpp:962 src/MainWindow.cpp:1718
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
+#: src/MainWindow.cpp:962 src/MainWindow.cpp:1718 ui/FileProperties.ui:33
+#: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "Palette"
@@ -889,7 +1651,8 @@ msgstr "Importer"
 msgid "Library"
 msgstr "Bibliothèque"
 
-#: src/MainWindow.cpp:965
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
+#: src/MainWindow.cpp:965 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Configuration de l'impression"
@@ -1070,27 +1833,46 @@ msgstr "Gestion de la bibliothèque…"
 msgid "Regular Stitches"
 msgstr "Points de croix"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
 #: src/MainWindow.cpp:1533 src/MainWindow.cpp:1573 src/MainWindow.cpp:1606
+#: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
+#: ui/PatternElement.ui:168
 #, kde-format
 msgid "Black & White Symbols"
 msgstr "Symboles en noir et blanc"
 
-#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1599
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1599 ui/EditorConfigPage.ui:314
+#: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
 msgstr "Symboles en couleur"
 
-#: src/MainWindow.cpp:1547 src/MainWindow.cpp:1584
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
+#: src/MainWindow.cpp:1547 src/MainWindow.cpp:1584 ui/EditorConfigPage.ui:319
+#: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "Blocs en couleur"
 
-#: src/MainWindow.cpp:1554 src/MainWindow.cpp:1592
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
+#: src/MainWindow.cpp:1554 src/MainWindow.cpp:1592 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Blocs en couleur avec symboles"
 
-#: src/MainWindow.cpp:1565
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
+#: src/MainWindow.cpp:1565 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "Lignes en couleur"
@@ -1140,7 +1922,8 @@ msgstr "Historique"
 msgid "Imported Image"
 msgstr "Image importée"
 
-#: src/NewFlossDlg.cpp:29
+#. i18n: ectx: property (text), widget (QPushButton, NewFloss)
+#: src/NewFlossDlg.cpp:29 ui/PaletteManager.ui:182
 #, kde-format
 msgid "New Floss"
 msgstr "Nouveau fil"
@@ -1169,7 +1952,8 @@ msgstr "Version %1 de la page"
 msgid "Invalid element type"
 msgstr "Type d'élément non valable"
 
-#: src/PagePropertiesDlg.cpp:27
+#. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
+#: src/PagePropertiesDlg.cpp:27 ui/PageProperties.ui:14
 #, kde-format
 msgid "Page Properties"
 msgstr "Propriétés de la page"
@@ -1204,7 +1988,8 @@ msgstr ""
 "de palette, pour rendre\n"
 "les outils de dessin disponibles."
 
-#: src/PaletteManagerDlg.cpp:82
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
+#: src/PaletteManagerDlg.cpp:82 ui/PaletteManager.ui:14
 #, kde-format
 msgid "Palette Manager"
 msgstr "Gestion des palettes"
@@ -1228,7 +2013,8 @@ msgstr ""
 msgid "Pattern version %1"
 msgstr "Version %1 de l'ouvrage"
 
-#: src/PatternElementDlg.cpp:30
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
+#: src/PatternElementDlg.cpp:30 ui/PatternElement.ui:14
 #, kde-format
 msgid "Pattern Element Properties"
 msgstr "Propriétés de l'élément de l'ouvrage"
@@ -1238,7 +2024,8 @@ msgstr "Propriétés de l'élément de l'ouvrage"
 msgid "Printer configuration %1"
 msgstr "Configuration de l'imprimante %1"
 
-#: src/PrintSetupDlg.cpp:54
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
+#: src/PrintSetupDlg.cpp:54 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
 msgstr "Configuration de l'impression"
@@ -1402,1074 +2189,1518 @@ msgstr "Impossible d'ouvrir le fichier %1"
 msgid "Symbol Selector"
 msgstr "Sélecteur de symboles"
 
-#: src/TextElementDlg.cpp:31
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
+#: src/TextElementDlg.cpp:31 ui/TextElement.ui:14
 #, kde-format
 msgid "Text Element Properties"
 msgstr "Propriétés de l'élément-texte"
 
-#: src/TextToolDlg.cpp:28
+#. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
+#: src/TextToolDlg.cpp:28 ui/TextTool.ui:17
 #, kde-format
 msgid "Text Tool"
 msgstr "Outil texte"
 
-#~ msgid "The background color."
-#~ msgstr "Couleur d'arrière-plan"
-
-#~ msgid "The color of the editors thick lines."
-#~ msgstr "Couleur des lignes épaisses dans les éditeurs"
-
-#~ msgid "The color of the editors thin lines."
-#~ msgstr "Couleur des lignes fines dans les éditeurs"
-
-#~ msgid "The width of the major grid lines."
-#~ msgstr "Épaisseur des lignes principales dans les grilles"
-
-#~ msgid "The width of the minor grid lines."
-#~ msgstr "Épaisseur des lignes secondaires dans les grilles"
-
-#~ msgid "The number of cells making up a horizontal group."
-#~ msgstr "Nombre de cases constituant un groupe horizontal"
-
-#~ msgid "The number of cells making up a vertical group."
-#~ msgstr "Nombre de cases constituant un groupe vertical"
-
-#~ msgid "The horizontal cloth count."
-#~ msgstr "Nombre de points en horizontal par unité de longueur"
-
-#~ msgid "The vertical cloth count."
-#~ msgstr "Nombre de points en vertical par unité de longueur"
-
-#~ msgid "The cloth count units."
-#~ msgstr "Unités utilisées pour l'ouvrage"
-
-#~ msgid "Square cells"
-#~ msgstr "Cases carrées"
-
-#~ msgid "The height of the horizontal ruler."
-#~ msgstr "Hauteur de l'échelle graduée horizontale"
-
-#~ msgid "The width of the vertical ruler."
-#~ msgstr "Largeur de l'échelle graduée verticale"
-
-#~ msgid "The display units for a scale."
-#~ msgstr "Unité d'affichage pour l'échelle"
-
-#~ msgid "The minimum zoom factor"
-#~ msgstr "Facteur de zoom minimum"
-
-#~ msgid "The maximum zoom factor"
-#~ msgstr "Facteur de zoom maximum"
-
-#~ msgid "The default zoom factor"
-#~ msgstr "Facteur de zoom par défaut"
-
-#~ msgid "Enable color highlighting mode"
-#~ msgstr "Activer la mise en évidence des couleurs"
-
-#~ msgid "Render the background images"
-#~ msgstr "Rendu des images d'arrière-plan"
-
-#~ msgid "Render the grid"
-#~ msgstr "Rendu de la grille"
-
-#~ msgid "Render the stitches"
-#~ msgstr "Rendu des points de croix"
-
-#~ msgid "Render the backstitches"
-#~ msgstr "Rendu des points arrière"
-
-#~ msgid "Render the french knots"
-#~ msgstr "Rendu des points de nœud"
-
-#~ msgid "Render stitch hints for colored blocks"
-#~ msgstr "Afficher les indices de points pour les blocs colorés"
-
-#~ msgid "How to display stitches."
-#~ msgstr "Comment afficher les points de croix"
-
-#~ msgid "How to display backstitches."
-#~ msgstr "Comment afficher les points arrière"
-
-#~ msgid "How to display french knots."
-#~ msgstr "Comment afficher les points de nœud"
-
-#~ msgid "The default width of a new pattern in the units specified."
-#~ msgstr "Largeur par défaut d'un nouvel ouvrage, dans l'unité choisie"
-
-#~ msgid "The default height of a new pattern in the units specified."
-#~ msgstr "Hauteur par défaut d'un nouvel ouvrage, dans l'unité choisie"
-
-#~ msgid "The minimum width of a pattern in the units specified."
-#~ msgstr "Largeur minimum d'un ouvrage, dans l'unité choisie"
-
-#~ msgid "The minimum height of a pattern in the units specified."
-#~ msgstr "Hauteur minimum d'un ouvrage, dans l'unité choisie"
-
-#~ msgid "The maximum width of a pattern in the units specified."
-#~ msgstr "Largeur maximum d'un ouvrage, dans l'unité choisie"
-
-#~ msgid "The maximum height of a pattern in the units specified."
-#~ msgstr "Hauteur maximum d'un ouvrage, dans l'unité choisie"
-
-#~ msgid "Use a maximum number of colors"
-#~ msgstr "Utiliser un nombre maximum de couleurs"
-
-#~ msgid "Maximum number of colors"
-#~ msgstr "Nombre maximum de couleurs"
-
-#~ msgid "Use fractional stitches for finer detail"
-#~ msgstr "Utiliser des points fractionnés pour affiner les détails"
-
-#~ msgid "The default floss scheme to be used for new documents."
-#~ msgstr "Schéma de fabricant de fil par défaut pour les nouveaux documents"
-
-#~ msgid "The default symbol library to be used for new documents."
-#~ msgstr "Bibliothèque de symboles par défaut pour les nouveaux documents"
-
-#~ msgid "The default number of strands used for stitches."
-#~ msgstr "Nombre de brins par défaut pour les points de croix"
-
-#~ msgid "The default number of strands used for backstitches."
-#~ msgstr "Nombre de brins par défaut pour les points arrière"
-
-#~ msgid "Display the symbols in the palette."
-#~ msgstr "Afficher les symboles dans la palette"
-
-#~ msgid "Display the symbols antialiased"
-#~ msgstr "Afficher les symboles anticrénelés"
-
-#~ msgid "The default size of icons shown in the icon view"
-#~ msgstr "Taille par défaut des icônes dans la vue en icônes"
-
-#~ msgid "Should character selection honor the caps lock key"
-#~ msgstr ""
-#~ "Les caractères sélectionnés doivent-ils obéir à la touche Verr. Maj. ?"
-
-#~ msgid "The default width of a space in cells"
-#~ msgstr "Nombre de cases par défaut pour un espace"
-
-#~ msgid "Should a space cause word wrapping at the right edge of the pattern"
-#~ msgstr ""
-#~ "Un espace doit-il provoquer un retour à la ligne automatique à la limite "
-#~ "droite de l'ouvrage ?"
-
-#~ msgid "The number of cells between lines of text"
-#~ msgstr "Nombre de cases entre deux lignes de texte"
-
-#~ msgid "The number of cells to be added when extending the pattern right"
-#~ msgstr ""
-#~ "Nombre de cases à ajouter lors de l'extension de l'ouvrage par la droite"
-
-#~ msgid "The number of cells to be added when extending the pattern down"
-#~ msgstr ""
-#~ "Nombre de cases à ajouter lors de l'extension de l'ouvrage par le bas"
-
-#~ msgid "Should the shapes tools use fractional stitches"
-#~ msgstr "Permettre aux outils de forme d'utiliser des points fractionnés"
-
-#~ msgid "The font family to be used in the TextToolDlg"
-#~ msgstr "Police à utiliser dans « TextToolDlg »"
-
-#~ msgid "The text size in pixels"
-#~ msgstr "Taille du texte en pixels"
-
-#~ msgid "Does mirroring and copying make copies"
-#~ msgstr ""
-#~ "Définit si les opérations de symétrie et de rotation créent des copies"
-
-#~ msgid "The page left margin"
-#~ msgstr "Marge de gauche de la page"
-
-#~ msgid "The page top margin"
-#~ msgstr "Marge du haut de la page"
-
-#~ msgid "The page right margin"
-#~ msgstr "Marge de droite de la page"
-
-#~ msgid "The page bottom margin"
-#~ msgstr "Marge du bas de la page"
-
-#~ msgid "Show the layout editor"
-#~ msgstr "Afficher l'éditeur de couches"
-
-#~ msgid "The grid size in mm"
-#~ msgstr "Taille de la grille en mm"
-
-#~ msgid "The default page size"
-#~ msgstr "Taille par défaut de la page"
-
-#~ msgid "The default page orientation"
-#~ msgstr "Orientation par défaut de la page"
-
-#~ msgid "The snap distance for element boundary corner nodes"
-#~ msgstr "Distance du raccord pour les nœuds en bordure des éléments"
-
-#~ msgid "The snap node size"
-#~ msgstr "Taille du nœud de raccord"
-
-#~ msgid "Show a border around the pattern"
-#~ msgstr "Afficher une bordure autour de l'ouvrage"
-
-#~ msgid "The color of the border"
-#~ msgstr "Couleur de la bordure"
-
-#~ msgid "The thickness of the border in 1/10 mm"
-#~ msgstr "Épaisseur de la bordure en 1/10 mm"
-
-#~ msgid "The left margin"
-#~ msgstr "Marge de gauche"
-
-#~ msgid "The top margin"
-#~ msgstr "Marge du haut"
-
-#~ msgid "The right margin"
-#~ msgstr "Marge de droite"
-
-#~ msgid "The bottom margin"
-#~ msgstr "Marge du bas"
-
-#~ msgid ""
-#~ "Minimum cell size in mm for template generated printer configurations"
-#~ msgstr ""
-#~ "Taille minimum des cases en mm pour les configurations d'impression "
-#~ "générées par les modèles"
-
-#~ msgid "Minimum number of cells that can be on a page of its own"
-#~ msgstr "Nombre minimum de cases pouvant être sur leur propre page"
-
-#~ msgid ""
-#~ "The color used to represented already selected areas in existing pattern "
-#~ "elements"
-#~ msgstr ""
-#~ "Couleur utilisée pour représenter les aires déjà sélectionnées au sein "
-#~ "des éléments existants de l'ouvrage"
-
-#~ msgid "Show a border around the image"
-#~ msgstr "Afficher une bordure autour de l'image"
-
-#~ msgid "Show a border around the key"
-#~ msgstr "Afficher une bordure autour du tableau des fils utilisés"
-
-#~ msgid "Fill the background"
-#~ msgstr "Remplir l'arrière-plan"
-
-#~ msgid "The color of the background"
-#~ msgstr "Couleur de l'arrière-plan"
-
-#~ msgid "Transparency of the background"
-#~ msgstr "Transparence d'arrière-plan"
-
-#~ msgid "The key element left margin"
-#~ msgstr "Marge de gauche du tableau des fils"
-
-#~ msgid "The key element top margin"
-#~ msgstr "Marge du haut du tableau des fils"
-
-#~ msgid "The key element right margin"
-#~ msgstr "Marge de droite du tableau des fils"
-
-#~ msgid "The key element bottom margin"
-#~ msgstr "Marge du bas du tableau des fils"
-
-#~ msgid "Show the key element symbol column"
-#~ msgstr "Afficher la colonne « symbole » du tableau des fils"
-
-#~ msgid "Show the key element symbol column in color"
-#~ msgstr "Afficher la colonne « symbole » du tableau des fils en couleurs"
-
-#~ msgid "Show the key element floss name column"
-#~ msgstr "Afficher la colonne « nom du fil » du tableau des fils"
-
-#~ msgid "Show the key element floss strands column"
-#~ msgstr "Afficher la colonne « nombre de brins du fil » du tableau des fils"
-
-#~ msgid "Show the key element floss description column"
-#~ msgstr "Afficher la colonne « description du fil » du tableau des fils"
-
-#~ msgid "Show the key element stitch count column"
-#~ msgstr "Afficher la colonne « nombre de points » du tableau des fils"
-
-#~ msgid "Show the key element floss length column"
-#~ msgstr "Afficher la colonne « longueur du fil » du tableau des fils"
-
-#~ msgid "Show the key element skeins column"
-#~ msgstr "Afficher la colonne « échevettes » du tableau des fils"
-
-#~ msgid "Show the border"
-#~ msgstr "Afficher la bordure"
-
-#~ msgid "The border color"
-#~ msgstr "Couleur de la bordure"
-
-#~ msgid "Thickness of the border in 1/10 mm"
-#~ msgstr "Épaisseur de la bordure en 1/10 mm"
-
-#~ msgid "Color of the background"
-#~ msgstr "Couleur d'arrière-plan"
-
-#~ msgid "The transparency value"
-#~ msgstr "Valeur de la transparence"
-
-#~ msgid "The text color"
-#~ msgstr "Couleur du texte"
-
-#~ msgid "&File"
-#~ msgstr "&Fichier"
-
-#~ msgid "&Edit"
-#~ msgstr "É&dition"
-
-#~ msgid "Selection Masks"
-#~ msgstr "Masques de sélection"
-
-#~ msgid "&Settings"
-#~ msgstr "&Configuration"
-
-#~ msgid "Format Scales As"
-#~ msgstr "Échelles en…"
-
-#~ msgid "Render Stitches As"
-#~ msgstr "Afficher les points de croix en…"
-
-#~ msgid "Render Backstitches As"
-#~ msgstr "Afficher les points arrière en…"
-
-#~ msgid "Render Knots As"
-#~ msgstr "Afficher les points de nœud en…"
-
-#~ msgid "&View"
-#~ msgstr "&Affichage"
-
-#~ msgid "Fit Background Image to Selection"
-#~ msgstr "Ajuster l'image de fond à la sélection"
-
-#~ msgid "&Stitches"
-#~ msgstr "&Points"
-
-#~ msgid "&Tools"
-#~ msgstr "O&utils "
-
-#~ msgid "&Palette"
-#~ msgstr "Pa&lette"
-
-#~ msgid "&Library Manager"
-#~ msgstr "&Bibliothèque"
-
-#~ msgid "&Pattern"
-#~ msgstr "O&uvrage"
-
-#~ msgid "Stitch Toolbar"
-#~ msgstr "Barre d'outils des points"
-
-#~ msgid "Tools Toolbar"
-#~ msgstr "Barre d'outils des outils"
-
-#~ msgid "Zoom Toolbar"
-#~ msgstr "Barre d'outils de zoom"
-
-#~ msgid "Scheme"
-#~ msgstr "Schéma"
-
-#~ msgid "Currently selected color"
-#~ msgstr "Couleur actuellement sélectionnée"
-
-#~ msgctxt "Green value of color"
-#~ msgid "Green"
-#~ msgstr "Vert"
-
-#~ msgctxt "Red value of color"
-#~ msgid "Red"
-#~ msgstr "Rouge"
-
-#~ msgctxt "Blue value of color"
-#~ msgid "Blue"
-#~ msgstr "Bleu"
-
-#~ msgid "Reset Color"
-#~ msgstr "Restaurer la couleur"
-
-#~ msgid "Editor Configuration"
-#~ msgstr "Éditeur de configuration"
-
-#~ msgid "Grid"
-#~ msgstr "Grille"
-
-#~ msgid "Horizontal scale height"
-#~ msgstr "Hauteur de l'échelle horizontale"
-
-#~ msgid "Vertical scale width"
-#~ msgstr "Largeur de l'échelle verticale"
-
-#~ msgid "Format scales as"
-#~ msgstr "Échelles en…"
-
-#~ msgid "Thick line width"
-#~ msgstr "Épaisseur des lignes principales"
-
-#~ msgid "Thick line color"
-#~ msgstr "Couleur des lignes principales"
-
-#~ msgid "Thin line width"
-#~ msgstr "Épaisseur des lignes secondaires"
-
-#~ msgid "Thin line color"
-#~ msgstr "Couleur des lignes secondaires"
-
-#~ msgid "Horizontal cell group"
-#~ msgstr "Nombre de cases par groupe (horizontal)"
-
-#~ msgid "Vertical cell group"
-#~ msgstr "Nombre de cases par groupe (vertical)"
-
-#~ msgid "Minimum zoom factor"
-#~ msgstr "Facteur de zoom minimum"
-
-#~ msgid "Maximum zoom factor"
-#~ msgstr "Facteur de zoom maximum"
-
-#~ msgid "Default zoom factor"
-#~ msgstr "Facteur de zoom par défaut"
-
-#~ msgid "Renderer"
-#~ msgstr "Rendu de la grille"
-
-#~ msgid "Show grid"
-#~ msgstr "Afficher la grille"
-
-#~ msgid "Show background images"
-#~ msgstr "Afficher les images d'arrière-plan"
-
-#~ msgid "Show stitches"
-#~ msgstr "Afficher les points de croix"
-
-#~ msgid "Show stitch hints"
-#~ msgstr "Afficher les indices de points"
-
-#~ msgid "Show backstitches"
-#~ msgstr "Afficher les points arrière"
-
-#~ msgid "Show knots"
-#~ msgstr "Afficher les points de nœud"
-
-#~ msgid "Color highlight"
-#~ msgstr "Mise en évidence des couleurs"
-
-#~ msgid "Render stitches as"
-#~ msgstr "Afficher les points de croix en…"
-
-#~ msgid "Black and White Symbols"
-#~ msgstr "Symboles en noir et blanc"
-
-#~ msgid "Color Blocks and Symbols"
-#~ msgstr "Blocs en couleurs avec symboles"
-
-#~ msgid "Render backstitches as"
-#~ msgstr "Afficher les points arrière en…"
-
-#~ msgid "Render knots as"
-#~ msgstr "Afficher les points de nœud en…"
-
-#~ msgid "Tools"
-#~ msgstr "Outils"
-
-#~ msgid "Tool Fractionals"
-#~ msgstr "Outil points fractionnés"
-
-#~ msgid "Mirror / Rotate makes copies"
-#~ msgstr "Les symétries et rotations créent des copies"
-
-#~ msgid "Text tool font"
-#~ msgstr "Police de l'outil texte"
-
-#~ msgid "Font size"
-#~ msgstr "Taille de la police"
-
-#~ msgid "Floss scheme"
-#~ msgstr "Fabricant du fil utilisé"
-
-#~ msgid "Pattern Size"
-#~ msgstr "Taille de l'ouvrage"
-
-#~ msgid "Units"
-#~ msgstr "Unité"
-
-#~ msgid "Width"
-#~ msgstr "Largeur"
-
-#~ msgid "Height"
-#~ msgstr "Hauteur"
-
-#~ msgid "Cloth Count"
-#~ msgstr "Nombre de points par unité de longueur"
-
-#~ msgctxt "Horizontal cloth count value"
-#~ msgid "Horizontal"
-#~ msgstr "Horizontal"
-
-#~ msgctxt "Vertical cloth count value"
-#~ msgid "Vertical"
-#~ msgstr "Vertical"
-
-#~ msgctxt "The document title"
-#~ msgid "Title"
-#~ msgstr "Titre"
-
-#~ msgid "Author"
-#~ msgstr "Auteur"
-
-#~ msgid "Copyright"
-#~ msgstr "Copyright ©"
-
-#~ msgid "Fabric"
-#~ msgstr "Tissu"
-
-#~ msgid "Instructions"
-#~ msgstr "Instructions"
-
-#~ msgid ""
-#~ "<html><head/><body>Click and drag to select the area of the pattern to be "
-#~ "displayed.<br />Grayed out areas have already been selected on this or "
-#~ "other pages.</body></html>"
-#~ msgstr ""
-#~ "<html><head/><body>Cliquez et glissez sans relâcher pour sélectionner la "
-#~ "partie de l'ouvrage à afficher.<br />Les zones grisées ont déjà été "
-#~ "sélectionnées sur cette page ou sur d'autres pages.</body></html>"
-
-#~ msgid "Border"
-#~ msgstr "Bordure"
-
-#~ msgid "Show border"
-#~ msgstr "Afficher la bordure"
-
-#~ msgctxt "Label for color value"
-#~ msgid "Color"
-#~ msgstr "Couleur"
-
-#~ msgid "Line thickness"
-#~ msgstr "Épaisseur du trait"
-
-#~ msgid "mm"
-#~ msgstr "mm"
-
-#~ msgid "Import Configuration"
-#~ msgstr "Configuration de l'importateur"
-
-#~ msgid "Maximum colors"
-#~ msgstr "Nombre maximum de couleurs"
-
-#~ msgid "Use fractionals"
-#~ msgstr "Utiliser des points fractionnés"
-
-#~ msgid "Ignore color"
-#~ msgstr "Ignorer la couleur"
-
-#~ msgid "Set as default"
-#~ msgstr "Utiliser ces valeurs comme réglage par défaut"
-
-#~ msgid "Size"
-#~ msgstr "Taille"
-
-#~ msgid "Horizontal cloth count"
-#~ msgstr "Nombre de points par unité de longueur (horizontal)"
-
-#~ msgid "Vertical cloth count"
-#~ msgstr "Nombre de points par unité de longueur (vertical)"
-
-#~ msgid "Pattern scale"
-#~ msgstr "Échelle de l'ouvrage"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Pattern size"
-#~ msgstr "Taille de l'ouvrage"
-
-#~ msgid "Crop image"
-#~ msgstr "Rogner l'image"
-
-#~ msgid "Key Element"
-#~ msgstr "Tableau des fils utilisés"
-
-#~ msgid "Margins"
-#~ msgstr "Marges"
-
-#~ msgid "Top margin in mm"
-#~ msgstr "Marge supérieure en mm"
-
-#~ msgid "Left margin in mm"
-#~ msgstr "Marge gauche en mm"
-
-#~ msgid "Right margin in mm"
-#~ msgstr "Marge droite en mm"
-
-#~ msgid "Bottom margin in mm"
-#~ msgstr "Marge inférieure en mm"
-
-#~ msgctxt "Groupbox title for background properties"
-#~ msgid "Background"
-#~ msgstr "Arrière-plan"
-
-#~ msgid "Fill background"
-#~ msgstr "Remplir l'arrière-plan"
-
-#~ msgid "Transparency"
-#~ msgstr "Transparence"
-
-#~ msgid "Element Content"
-#~ msgstr "Contenu de l'élément"
-
-#~ msgid "Font"
-#~ msgstr "Police de caractères"
-
-#~ msgid "Key Elements"
-#~ msgstr "Tableau des fils utilisés"
-
-#~ msgid "First element"
-#~ msgstr "Premier élément"
-
-#~ msgid "The first line of the key to display"
-#~ msgstr "Première ligne du tableau à afficher"
-
-#~ msgid "No. elements"
-#~ msgstr "Nombre d'éléments"
-
-#~ msgid "The number of key elements to display (0 for all)"
-#~ msgstr "Nombre d'éléments du tableau à afficher (0 = tous)"
-
-#~ msgid "Columns"
-#~ msgstr "Colonnes"
-
-#~ msgid "Color"
-#~ msgstr "Couleur"
-
-#~ msgid "Floss name"
-#~ msgstr "Nom du fil"
-
-#~ msgid "Floss description"
-#~ msgstr "Description du fil"
-
-#~ msgid "Length"
-#~ msgstr "Longueur"
-
-#~ msgid "Skeins"
-#~ msgstr "Échevettes"
-
-#~ msgid "Library Configuration"
-#~ msgstr "Configuration de la bibliothèque"
-
-#~ msgid "Libraries"
-#~ msgstr "Bibliothèques"
-
-#~ msgid "Icon default size"
-#~ msgstr "Taille d'icône par défaut"
-
-#~ msgid "Alphabets"
-#~ msgstr "Alphabets"
-
-#~ msgid "Use caps lock"
-#~ msgstr "Utiliser des majuscules"
-
-#~ msgid "Word wrap"
-#~ msgstr "Retour à la ligne automatique"
-
-#~ msgid "Default space width"
-#~ msgstr "Largeur par défaut d'une espace"
-
-#~ msgid "Line spacing"
-#~ msgstr "Espacement des lignes"
-
-#~ msgid "Extend pattern width"
-#~ msgstr "Agrandir la largeur de l'ouvrage"
-
-#~ msgid "Extend pattern height"
-#~ msgstr "Agrandir la hauteur de l'ouvrage"
-
-#~ msgid "Paths"
-#~ msgstr "Emplacements"
-
-#~ msgid "Icon size"
-#~ msgstr "Taille d'icône"
-
-#~ msgid "Baseline"
-#~ msgstr "Ligne de référence"
-
-#~ msgid "Associated character"
-#~ msgstr "Caractère associé"
-
-#~ msgid "Create New Floss"
-#~ msgstr "Créer un nouveau fil"
-
-#~ msgctxt "Color chooser"
-#~ msgid "Color"
-#~ msgstr "Couleur"
-
-#~ msgctxt "The horizontal axis"
-#~ msgid "Size"
-#~ msgstr "Taille"
-
-#~ msgid "Grid X spacing in mm"
-#~ msgstr "Espacement X de la grille en mm"
-
-#~ msgid "Palette Configuration"
-#~ msgstr "Configuration de la palette"
-
-#~ msgid "Show symbols"
-#~ msgstr "Afficher les symboles"
-
-#~ msgid "Symbol library"
-#~ msgstr "Bibliothèque de symboles"
-
-#~ msgid "Default stitch strands"
-#~ msgstr "Brins par défaut des points de croix"
-
-#~ msgid "Default backstitch strands"
-#~ msgstr "Brins par défaut des points arrière"
-
-#~ msgid "Current palette"
-#~ msgstr "Palette actuelle"
-
-#~ msgid "Current scheme"
-#~ msgstr "Schéma actuel"
-
-#~ msgid "TextLabel"
-#~ msgstr "Étiquette de texte"
-
-#~ msgid "Symbol Library"
-#~ msgstr "Bibliothèque de symboles"
-
-#~ msgid "Stitch strands"
-#~ msgstr "Brins des points de croix"
-
-#~ msgid "Calibrate Flosses"
-#~ msgstr "Calibrer les fils"
-
-#~ msgid "Pick Color"
-#~ msgstr "Sélectionner une couleur"
-
-#~ msgid "Backstitch strands"
-#~ msgstr "Brins des points arrière"
-
-#~ msgctxt "A solid line"
-#~ msgid "Solid"
-#~ msgstr "Ligne continue"
-
-#~ msgctxt "A dashed line"
-#~ msgid "Dashed"
-#~ msgstr "Ligne en tirets"
-
-#~ msgctxt "A dotted line"
-#~ msgid "Dotted"
-#~ msgstr "Ligne en pointillés"
-
-#~ msgid "Dash Dotted"
-#~ msgstr "Ligne en tiret point tiret point…"
-
-#~ msgid "Dash Dash Dotted"
-#~ msgstr "Ligne en point point tiret point point tiret…"
-
-#~ msgid "Pattern Configuration"
-#~ msgstr "Configuration de l'ouvrage"
-
-#~ msgid "As"
-#~ msgstr "En"
-
-#~ msgid "Not currently implemented"
-#~ msgstr "Pas encore implémenté"
-
-#~ msgid "Show scales"
-#~ msgstr "Afficher les échelles"
-
-#~ msgid "Show map"
-#~ msgstr "Afficher la carte"
-
-#~ msgid "Pages"
-#~ msgstr "Pages"
-
-#~ msgid "Default paper size"
-#~ msgstr "Taille par défaut de la feuille"
-
-#~ msgid "Select a paper size"
-#~ msgstr "Sélectionner une taille de feuille de papier"
-
-#~ msgctxt "Paper size"
-#~ msgid "A0"
-#~ msgstr "A0"
-
-#~ msgctxt "Paper size"
-#~ msgid "A1"
-#~ msgstr "A1"
-
-#~ msgctxt "Paper size"
-#~ msgid "A2"
-#~ msgstr "A2"
-
-#~ msgctxt "Paper size"
-#~ msgid "A3"
-#~ msgstr "A3"
-
-#~ msgctxt "Paper size"
-#~ msgid "A4"
-#~ msgstr "A4"
-
-#~ msgctxt "Paper size"
-#~ msgid "A5"
-#~ msgstr "A5"
-
-#~ msgctxt "Paper size"
-#~ msgid "A6"
-#~ msgstr "A6"
-
-#~ msgctxt "Paper size"
-#~ msgid "A7"
-#~ msgstr "A7"
-
-#~ msgctxt "Paper size"
-#~ msgid "A8"
-#~ msgstr "A8"
-
-#~ msgctxt "Paper size"
-#~ msgid "A9"
-#~ msgstr "A9"
-
-#~ msgctxt "Paper size"
-#~ msgid "B0"
-#~ msgstr "B0"
-
-#~ msgctxt "Paper size"
-#~ msgid "B1"
-#~ msgstr "B1"
-
-#~ msgctxt "Paper size"
-#~ msgid "B2"
-#~ msgstr "B2"
-
-#~ msgctxt "Paper size"
-#~ msgid "B3"
-#~ msgstr "B3"
-
-#~ msgctxt "Paper size"
-#~ msgid "B4"
-#~ msgstr "B4"
-
-#~ msgctxt "Paper size"
-#~ msgid "B5"
-#~ msgstr "B5"
-
-#~ msgctxt "Paper size"
-#~ msgid "B6"
-#~ msgstr "B6"
-
-#~ msgctxt "Paper size"
-#~ msgid "B7"
-#~ msgstr "B7"
-
-#~ msgctxt "Paper size"
-#~ msgid "B8"
-#~ msgstr "B8"
-
-#~ msgctxt "Paper size"
-#~ msgid "B9"
-#~ msgstr "B9"
-
-#~ msgctxt "Paper size"
-#~ msgid "B10"
-#~ msgstr "B10"
-
-#~ msgctxt "Paper size"
-#~ msgid "C5E"
-#~ msgstr "C5E"
-
-#~ msgctxt "Paper size"
-#~ msgid "Comm10E"
-#~ msgstr "Comm10E"
-
-#~ msgctxt "Paper size"
-#~ msgid "DLE"
-#~ msgstr "DLE"
-
-#~ msgctxt "Paper size"
-#~ msgid "Executive"
-#~ msgstr "Direction"
-
-#~ msgctxt "Paper size"
-#~ msgid "Folio"
-#~ msgstr "Folio"
-
-#~ msgctxt "Paper size"
-#~ msgid "Ledger"
-#~ msgstr "Comptabilité"
-
-#~ msgctxt "Paper size"
-#~ msgid "Legal"
-#~ msgstr "Juridique"
-
-#~ msgctxt "Paper size"
-#~ msgid "Letter"
-#~ msgstr "Lettre US"
-
-#~ msgctxt "Paper size"
-#~ msgid "Tabloid"
-#~ msgstr "Tabloïd"
-
-#~ msgid "Portrait"
-#~ msgstr "Portrait"
-
-#~ msgid "Landscape"
-#~ msgstr "Paysage"
-
-#~ msgctxt "Left margin"
-#~ msgid "Left"
-#~ msgstr "Gauche"
-
-#~ msgctxt "Right margin"
-#~ msgid "Right"
-#~ msgstr "Droite"
-
-#~ msgctxt "Top margin"
-#~ msgid "Top"
-#~ msgstr "Haut"
-
-#~ msgctxt "Bottom margin"
-#~ msgid "Bottom"
-#~ msgstr "Bas"
-
-#~ msgid "Pattern Element"
-#~ msgstr "Élément de l'ouvrage"
-
-#~ msgid "Cells"
-#~ msgstr "Cases"
-
-#~ msgid "Minimum cell size (mm)"
-#~ msgstr "Taille minimale d'une case (mm)"
-
-#~ msgid "Minimum overflow"
-#~ msgstr "Débordement minimum"
-
-#~ msgid "Selections"
-#~ msgstr "Sélections"
-
-#~ msgid "Selected area color"
-#~ msgstr "Couleur de la région actuellement sélectionnée"
-
-#~ msgid "Text Element"
-#~ msgstr "Élément texte"
-
-#~ msgid "Text color"
-#~ msgstr "Couleur du texte"
-
-#~ msgctxt "Fill the background"
-#~ msgid "Background"
-#~ msgstr "Arrière-plan"
-
-#~ msgctxt "Background color"
-#~ msgid "Color"
-#~ msgstr "Couleur"
-
-#~ msgctxt "Border color"
-#~ msgid "Color"
-#~ msgstr "Couleur"
-
-#~ msgid "Thickness"
-#~ msgstr "Épaisseur"
-
-#~ msgid "Elements"
-#~ msgstr "Éléments"
-
-#~ msgid "Symbols"
-#~ msgstr "Symboles"
-
-#~ msgid "Create a default layout"
-#~ msgstr "Créer une disposition par défaut"
-
-#~ msgid "Append a page"
-#~ msgstr "Ajouter une page à la fin"
-
-#~ msgid "Insert a page before the selected page"
-#~ msgstr "Insérer une page avant la page sélectionnée"
-
-#~ msgid "Delete the selected page"
-#~ msgstr "Supprimer la page sélectionnée"
-
-#~ msgid "Select the paper orientation"
-#~ msgstr "Choisir l'orientation de la page"
-
-#~ msgid "Zoom factor"
-#~ msgstr "Facteur de zoom"
-
-#~ msgid "Select an element"
-#~ msgstr "Sélectionner un élément"
-
-#~ msgid "Insert a text element"
-#~ msgstr "Insérer du texte"
-
-#~ msgid "Insert a pattern element"
-#~ msgstr "Insérer un ouvrage"
-
-#~ msgid "Insert a picture element"
-#~ msgstr "Insérer une image"
-
-#~ msgid "Insert a key element"
-#~ msgstr "Insérer le tableau des fils utilisés"
-
-#~ msgid "Page list"
-#~ msgstr "Liste des pages"
-
-#~ msgid "Page preview"
-#~ msgstr "Aperçu de la page"
-
-#~ msgid "Symbol Selection"
-#~ msgstr "Sélection des symboles"
-
-#~ msgid "Top margin in mm, internal to the border."
-#~ msgstr "Marge du haut en mm, à l'intérieur du cadre de cet élément."
-
-#~ msgid "Left margin in mm, internal to the border."
-#~ msgstr "Marge de gauche en mm, à l'intérieur du cadre de cet élément."
-
-#~ msgid "Right margin in mm, internal to the border."
-#~ msgstr "Marge de droite en mm, à l'intérieur du cadre de cet élément."
-
-#~ msgid "Bottom margin in mm, internal to the border."
-#~ msgstr "Marge du bas en mm, à l'intérieur du cadre de cet élément."
-
-#~ msgid "Show border around the text box"
-#~ msgstr "Afficher la bordure autour de l'élément texte"
-
-#~ msgid "Fill the background with a color"
-#~ msgstr "Remplir l'arrière-plan avec une couleur"
-
-#~ msgid "Background color"
-#~ msgstr "Couleur d'arrière-plan"
-
-#~ msgid "Transparency of the text box"
-#~ msgstr "Transparence de l'élément texte"
-
-#~ msgid "Text font family"
-#~ msgstr "Police du texte"
-
-#~ msgid "Text point size"
-#~ msgstr "Taille de la police"
-
-#~ msgid "Bold text"
-#~ msgstr "Texte en gras"
-
-#~ msgid "Italics text"
-#~ msgstr "Texte en italique"
-
-#~ msgid "Underline text"
-#~ msgstr "Texte souligné"
-
-#~ msgid "Align left"
-#~ msgstr "Aligner à gauche"
-
-#~ msgid "Align centrally"
-#~ msgstr "Centrer"
-
-#~ msgid "Align right"
-#~ msgstr "Aligner à droite"
-
-#~ msgid "Align justified"
-#~ msgstr "Justifier"
+#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/CalibrateFloss.ui:20 ui/NewFloss.ui:20
+#, kde-format
+msgid "Scheme"
+msgstr "Schéma"
+
+#. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
+#: ui/CalibrateFloss.ui:60
+#, kde-format
+msgid "Currently selected color"
+msgstr "Couleur actuellement sélectionnée"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/CalibrateFloss.ui:102
+#, kde-format
+msgctxt "Green value of color"
+msgid "Green"
+msgstr "Vert"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel3)
+#: ui/CalibrateFloss.ui:112
+#, kde-format
+msgctxt "Red value of color"
+msgid "Red"
+msgstr "Rouge"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel5)
+#: ui/CalibrateFloss.ui:132
+#, kde-format
+msgctxt "Blue value of color"
+msgid "Blue"
+msgstr "Bleu"
+
+#. i18n: ectx: property (text), widget (QPushButton, ResetColor)
+#: ui/CalibrateFloss.ui:158
+#, kde-format
+msgid "Reset Color"
+msgstr "Restaurer la couleur"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
+#: ui/EditorConfigPage.ui:14
+#, kde-format
+msgid "Editor Configuration"
+msgstr "Éditeur de configuration"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorGridTab)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/EditorConfigPage.ui:24 ui/PageProperties.ui:170
+#, kde-format
+msgid "Grid"
+msgstr "Grille"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/EditorConfigPage.ui:30
+#, kde-format
+msgid "Horizontal scale height"
+msgstr "Hauteur de l'échelle horizontale"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/EditorConfigPage.ui:47
+#, kde-format
+msgid "Vertical scale width"
+msgstr "Largeur de l'échelle verticale"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/EditorConfigPage.ui:64
+#, kde-format
+msgid "Format scales as"
+msgstr "Échelles en…"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/EditorConfigPage.ui:90
+#, kde-format
+msgid "Thick line width"
+msgstr "Épaisseur des lignes principales"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/EditorConfigPage.ui:104
+#, kde-format
+msgid "Thick line color"
+msgstr "Couleur des lignes principales"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/EditorConfigPage.ui:114
+#, kde-format
+msgid "Thin line width"
+msgstr "Épaisseur des lignes secondaires"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/EditorConfigPage.ui:128
+#, kde-format
+msgid "Thin line color"
+msgstr "Couleur des lignes secondaires"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/EditorConfigPage.ui:138
+#, kde-format
+msgid "Horizontal cell group"
+msgstr "Nombre de cases par groupe (horizontal)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/EditorConfigPage.ui:158
+#, kde-format
+msgid "Vertical cell group"
+msgstr "Nombre de cases par groupe (vertical)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/EditorConfigPage.ui:178
+#, kde-format
+msgid "Minimum zoom factor"
+msgstr "Facteur de zoom minimum"
+
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: ui/EditorConfigPage.ui:198
+#, kde-format
+msgid "Maximum zoom factor"
+msgstr "Facteur de zoom maximum"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: ui/EditorConfigPage.ui:218
+#, kde-format
+msgid "Default zoom factor"
+msgstr "Facteur de zoom par défaut"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
+#: ui/EditorConfigPage.ui:239
+#, kde-format
+msgid "Renderer"
+msgstr "Rendu de la grille"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
+#: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
+#, kde-format
+msgid "Show grid"
+msgstr "Afficher la grille"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
+#: ui/EditorConfigPage.ui:252
+#, kde-format
+msgid "Show background images"
+msgstr "Afficher les images d'arrière-plan"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
+#: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
+#, kde-format
+msgid "Show stitches"
+msgstr "Afficher les points de croix"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
+#: ui/EditorConfigPage.ui:266
+#, kde-format
+msgid "Show stitch hints"
+msgstr "Afficher les indices de points"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
+#: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
+#, kde-format
+msgid "Show backstitches"
+msgstr "Afficher les points arrière"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
+#: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
+#, kde-format
+msgid "Show knots"
+msgstr "Afficher les points de nœud"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
+#: ui/EditorConfigPage.ui:287
+#, kde-format
+msgid "Color highlight"
+msgstr "Mise en évidence des couleurs"
+
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: ui/EditorConfigPage.ui:296
+#, kde-format
+msgid "Render stitches as"
+msgstr "Afficher les points de croix en…"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:309 ui/EditorConfigPage.ui:376
+#, kde-format
+msgid "Black and White Symbols"
+msgstr "Symboles en noir et blanc"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
+#: ui/EditorConfigPage.ui:324 ui/EditorConfigPage.ui:366
+#, kde-format
+msgid "Color Blocks and Symbols"
+msgstr "Blocs en couleurs avec symboles"
+
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/EditorConfigPage.ui:332
+#, kde-format
+msgid "Render backstitches as"
+msgstr "Afficher les points arrière en…"
+
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/EditorConfigPage.ui:353
+#, kde-format
+msgid "Render knots as"
+msgstr "Afficher les points de nœud en…"
+
+#. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
+#: ui/EditorConfigPage.ui:387
+#, kde-format
+msgid "Tools"
+msgstr "Outils"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
+#: ui/EditorConfigPage.ui:396
+#, kde-format
+msgid "Tool Fractionals"
+msgstr "Outil points fractionnés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
+#: ui/EditorConfigPage.ui:403
+#, kde-format
+msgid "Mirror / Rotate makes copies"
+msgstr "Les symétries et rotations créent des copies"
+
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/EditorConfigPage.ui:412
+#, kde-format
+msgid "Text tool font"
+msgstr "Police de l'outil texte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/EditorConfigPage.ui:422
+#, kde-format
+msgid "Font size"
+msgstr "Taille de la police"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/FileProperties.ui:41 ui/ImportImage.ui:48
+#: ui/LibraryPatternProperties.ui:41 ui/PaletteConfigPage.ui:26
+#, kde-format
+msgid "Floss scheme"
+msgstr "Fabricant du fil utilisé"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
+#: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
+#, kde-format
+msgid "Pattern Size"
+msgstr "Taille de l'ouvrage"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:74 ui/PatternConfigPage.ui:32
+#: ui/PatternConfigPage.ui:127
+#, kde-format
+msgid "Units"
+msgstr "Unité"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/FileProperties.ui:100 ui/LibraryPatternProperties.ui:55
+#: ui/PatternConfigPage.ui:39
+#, kde-format
+msgid "Width"
+msgstr "Largeur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/FileProperties.ui:123 ui/LibraryPatternProperties.ui:69
+#: ui/PatternConfigPage.ui:62
+#, kde-format
+msgid "Height"
+msgstr "Hauteur"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
+#, kde-format
+msgid "Cloth Count"
+msgstr "Nombre de points par unité de longueur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
+#, kde-format
+msgctxt "Horizontal cloth count value"
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
+#, kde-format
+msgctxt "Vertical cloth count value"
+msgid "Vertical"
+msgstr "Vertical"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/FileProperties.ui:279
+#, kde-format
+msgctxt "The document title"
+msgid "Title"
+msgstr "Titre"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/FileProperties.ui:292
+#, kde-format
+msgid "Author"
+msgstr "Auteur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: ui/FileProperties.ui:305
+#, kde-format
+msgid "Copyright"
+msgstr "Copyright ©"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: ui/FileProperties.ui:318
+#, kde-format
+msgid "Fabric"
+msgstr "Tissu"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/FileProperties.ui:338
+#, kde-format
+msgid "Instructions"
+msgstr "Instructions"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
+#: ui/ImageElement.ui:32 ui/PatternElement.ui:32
+#, kde-format
+msgid ""
+"<html><head/><body>Click and drag to select the area of the pattern to be "
+"displayed.<br />Grayed out areas have already been selected on this or other "
+"pages.</body></html>"
+msgstr ""
+"<html><head/><body>Cliquez et glissez sans relâcher pour sélectionner la "
+"partie de l'ouvrage à afficher.<br />Les zones grisées ont déjà été "
+"sélectionnées sur cette page ou sur d'autres pages.</body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:616
+#: ui/PrinterConfigPage.ui:786 ui/TextElement.ui:158
+#, kde-format
+msgid "Border"
+msgstr "Bordure"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
+#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
+#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:622
+#: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
+#, kde-format
+msgid "Show border"
+msgstr "Afficher la bordure"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImageElement.ui:74 ui/KeyElement.ui:183 ui/KeyElement.ui:255
+#: ui/TextElement.ui:174 ui/TextElement.ui:245
+#, kde-format
+msgctxt "Label for color value"
+msgid "Color"
+msgstr "Couleur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImageElement.ui:88 ui/KeyElement.ui:197 ui/TextElement.ui:191
+#, kde-format
+msgid "Line thickness"
+msgstr "Épaisseur du trait"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
+#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
+#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
+#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
+#: ui/ImageElement.ui:101 ui/KeyElement.ui:55 ui/KeyElement.ui:84
+#: ui/KeyElement.ui:113 ui/KeyElement.ui:142 ui/KeyElement.ui:213
+#: ui/PageProperties.ui:45 ui/PageProperties.ui:77 ui/PageProperties.ui:109
+#: ui/PageProperties.ui:141 ui/PageProperties.ui:205
+#: ui/PrinterConfigPage.ui:252 ui/PrinterConfigPage.ui:272
+#: ui/PrinterConfigPage.ui:292 ui/PrinterConfigPage.ui:312
+#: ui/PrinterConfigPage.ui:365 ui/PrinterConfigPage.ui:385
+#: ui/PrinterConfigPage.ui:405 ui/PrinterConfigPage.ui:425
+#: ui/PrinterConfigPage.ui:661 ui/PrinterConfigPage.ui:694
+#: ui/PrinterConfigPage.ui:714 ui/PrinterConfigPage.ui:734
+#: ui/PrinterConfigPage.ui:754 ui/PrinterConfigPage.ui:831
+#: ui/PrinterConfigPage.ui:917 ui/PrinterConfigPage.ui:937
+#: ui/PrinterConfigPage.ui:957 ui/PrinterConfigPage.ui:977 ui/TextElement.ui:45
+#: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
+#: ui/TextElement.ui:204
+#, kde-format
+msgid "mm"
+msgstr "mm"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
+#: ui/ImportConfigPage.ui:14
+#, kde-format
+msgid "Import Configuration"
+msgstr "Configuration de l'importateur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
+#: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
+#, kde-format
+msgid "Maximum colors"
+msgstr "Nombre maximum de couleurs"
+
+#. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
+#: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
+#, kde-format
+msgid "Use fractionals"
+msgstr "Utiliser des points fractionnés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
+#: ui/ImportImage.ui:118
+#, kde-format
+msgid "Ignore color"
+msgstr "Ignorer la couleur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
+#: ui/ImportImage.ui:165
+#, kde-format
+msgid "Set as default"
+msgstr "Utiliser ces valeurs comme réglage par défaut"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/ImportImage.ui:185 ui/TextTool.ui:38
+#, kde-format
+msgid "Size"
+msgstr "Taille"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/ImportImage.ui:191
+#, kde-format
+msgid "Horizontal cloth count"
+msgstr "Nombre de points par unité de longueur (horizontal)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/ImportImage.ui:254
+#, kde-format
+msgid "Vertical cloth count"
+msgstr "Nombre de points par unité de longueur (vertical)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/ImportImage.ui:283
+#, kde-format
+msgid "Pattern scale"
+msgstr "Échelle de l'ouvrage"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
+#: ui/ImportImage.ui:302
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/ImportImage.ui:315
+#, kde-format
+msgid "Pattern size"
+msgstr "Taille de l'ouvrage"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
+#: ui/ImportImage.ui:339
+#, kde-format
+msgid "Crop image"
+msgstr "Rogner l'image"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
+#. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
+#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:780
+#, kde-format
+msgid "Key Element"
+msgstr "Tableau des fils utilisés"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:231
+#: ui/PrinterConfigPage.ui:344 ui/PrinterConfigPage.ui:673
+#: ui/PrinterConfigPage.ui:896 ui/TextElement.ui:20
+#, kde-format
+msgid "Margins"
+msgstr "Marges"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/KeyElement.ui:49 ui/PageProperties.ui:39
+#, kde-format
+msgid "Top margin in mm"
+msgstr "Marge supérieure en mm"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/KeyElement.ui:78 ui/PageProperties.ui:71
+#, kde-format
+msgid "Left margin in mm"
+msgstr "Marge gauche en mm"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/KeyElement.ui:107 ui/PageProperties.ui:103
+#, kde-format
+msgid "Right margin in mm"
+msgstr "Marge droite en mm"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/KeyElement.ui:136 ui/PageProperties.ui:135
+#, kde-format
+msgid "Bottom margin in mm"
+msgstr "Marge inférieure en mm"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/KeyElement.ui:240 ui/TextElement.ui:229
+#, kde-format
+msgctxt "Groupbox title for background properties"
+msgid "Background"
+msgstr "Arrière-plan"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
+#. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
+#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:606 ui/PrinterConfigPage.ui:849
+#: ui/TextElement.ui:238
+#, kde-format
+msgid "Fill background"
+msgstr "Remplir l'arrière-plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_22)
+#. i18n: ectx: property (text), widget (QLabel, label_26)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:586 ui/PrinterConfigPage.ui:873
+#: ui/TextElement.ui:262
+#, kde-format
+msgid "Transparency"
+msgstr "Transparence"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ElementContentTab)
+#: ui/KeyElement.ui:295
+#, kde-format
+msgid "Element Content"
+msgstr "Contenu de l'élément"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/KeyElement.ui:301 ui/TextTool.ui:25
+#, kde-format
+msgid "Font"
+msgstr "Police de caractères"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#: ui/KeyElement.ui:313
+#, kde-format
+msgid "Key Elements"
+msgstr "Tableau des fils utilisés"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/KeyElement.ui:321
+#, kde-format
+msgid "First element"
+msgstr "Premier élément"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
+#: ui/KeyElement.ui:328
+#, kde-format
+msgid "The first line of the key to display"
+msgstr "Première ligne du tableau à afficher"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/KeyElement.ui:341
+#, kde-format
+msgid "No. elements"
+msgstr "Nombre d'éléments"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
+#: ui/KeyElement.ui:348
+#, kde-format
+msgid "The number of key elements to display (0 for all)"
+msgstr "Nombre d'éléments du tableau à afficher (0 = tous)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/KeyElement.ui:369
+#, kde-format
+msgid "Columns"
+msgstr "Colonnes"
+
+#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumnColor)
+#: ui/KeyElement.ui:387
+#, kde-format
+msgid "Color"
+msgstr "Couleur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:1005
+#, kde-format
+msgid "Floss name"
+msgstr "Nom du fil"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
+#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:1015
+#, kde-format
+msgid "Floss description"
+msgstr "Description du fil"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
+#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:1039
+#, kde-format
+msgid "Length"
+msgstr "Longueur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
+#. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
+#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:1046
+#, kde-format
+msgid "Skeins"
+msgstr "Échevettes"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
+#: ui/LibraryConfigPage.ui:14
+#, kde-format
+msgid "Library Configuration"
+msgstr "Configuration de la bibliothèque"
+
+#. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/LibraryConfigPage.ui:24 ui/LibraryManager.ui:37
+#, kde-format
+msgid "Libraries"
+msgstr "Bibliothèques"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/LibraryConfigPage.ui:30
+#, kde-format
+msgid "Icon default size"
+msgstr "Taille d'icône par défaut"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/LibraryConfigPage.ui:41
+#, kde-format
+msgid "Alphabets"
+msgstr "Alphabets"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
+#: ui/LibraryConfigPage.ui:47
+#, kde-format
+msgid "Use caps lock"
+msgstr "Utiliser des majuscules"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
+#: ui/LibraryConfigPage.ui:54
+#, kde-format
+msgid "Word wrap"
+msgstr "Retour à la ligne automatique"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/LibraryConfigPage.ui:63
+#, kde-format
+msgid "Default space width"
+msgstr "Largeur par défaut d'une espace"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/LibraryConfigPage.ui:73
+#, kde-format
+msgid "Line spacing"
+msgstr "Espacement des lignes"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/LibraryConfigPage.ui:83
+#, kde-format
+msgid "Extend pattern width"
+msgstr "Agrandir la largeur de l'ouvrage"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryConfigPage.ui:93
+#, kde-format
+msgid "Extend pattern height"
+msgstr "Agrandir la hauteur de l'ouvrage"
+
+#. i18n: ectx: property (text), widget (QLabel, CatagoryName)
+#: ui/LibraryFilePaths.ui:23
+#, kde-format
+msgid "Paths"
+msgstr "Emplacements"
+
+#. i18n: ectx: property (toolTip), widget (QSlider, IconSizeSlider)
+#: ui/LibraryManager.ui:91
+#, kde-format
+msgid "Icon size"
+msgstr "Taille d'icône"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/LibraryPatternProperties.ui:83
+#, kde-format
+msgid "Baseline"
+msgstr "Ligne de référence"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: ui/LibraryPatternProperties.ui:100
+#, kde-format
+msgid "Associated character"
+msgstr "Caractère associé"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
+#: ui/NewFloss.ui:14
+#, kde-format
+msgid "Create New Floss"
+msgstr "Créer un nouveau fil"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/NewFloss.ui:57
+#, kde-format
+msgctxt "Color chooser"
+msgid "Color"
+msgstr "Couleur"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PageProperties.ui:192
+#, kde-format
+msgctxt "The horizontal axis"
+msgid "Size"
+msgstr "Taille"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
+#: ui/PageProperties.ui:202
+#, kde-format
+msgid "Grid X spacing in mm"
+msgstr "Espacement X de la grille en mm"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteConfigPage)
+#: ui/PaletteConfigPage.ui:14
+#, kde-format
+msgid "Palette Configuration"
+msgstr "Configuration de la palette"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
+#: ui/PaletteConfigPage.ui:43
+#, kde-format
+msgid "Show symbols"
+msgstr "Afficher les symboles"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteConfigPage.ui:50
+#, kde-format
+msgid "Symbol library"
+msgstr "Bibliothèque de symboles"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteConfigPage.ui:60
+#, kde-format
+msgid "Default stitch strands"
+msgstr "Brins par défaut des points de croix"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteConfigPage.ui:67
+#, kde-format
+msgid "Default backstitch strands"
+msgstr "Brins par défaut des points arrière"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteManager.ui:22
+#, kde-format
+msgid "Current palette"
+msgstr "Palette actuelle"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteManager.ui:80
+#, kde-format
+msgid "Current scheme"
+msgstr "Schéma actuel"
+
+#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
+#: ui/PaletteManager.ui:87
+#, kde-format
+msgid "TextLabel"
+msgstr "Étiquette de texte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/PaletteManager.ui:99
+#, kde-format
+msgid "Symbol Library"
+msgstr "Bibliothèque de symboles"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteManager.ui:109
+#, kde-format
+msgid "Stitch strands"
+msgstr "Brins des points de croix"
+
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: ui/PaletteManager.ui:196
+#, kde-format
+msgid "Calibrate Flosses"
+msgstr "Calibrer les fils"
+
+#. i18n: ectx: property (text), widget (QPushButton, PickColor)
+#: ui/PaletteManager.ui:203
+#, kde-format
+msgid "Pick Color"
+msgstr "Sélectionner une couleur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PaletteManager.ui:212
+#, kde-format
+msgid "Backstitch strands"
+msgstr "Brins des points arrière"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:264
+#, kde-format
+msgctxt "A solid line"
+msgid "Solid"
+msgstr "Ligne continue"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:269
+#, kde-format
+msgctxt "A dashed line"
+msgid "Dashed"
+msgstr "Ligne en tirets"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:274
+#, kde-format
+msgctxt "A dotted line"
+msgid "Dotted"
+msgstr "Ligne en pointillés"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:279
+#, kde-format
+msgid "Dash Dotted"
+msgstr "Ligne en tiret point tiret point…"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
+#: ui/PaletteManager.ui:284
+#, kde-format
+msgid "Dash Dash Dotted"
+msgstr "Ligne en point point tiret point point tiret…"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
+#: ui/PatternConfigPage.ui:14
+#, kde-format
+msgid "Pattern Configuration"
+msgstr "Configuration de l'ouvrage"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PatternElement.ui:70 ui/PatternElement.ui:116 ui/PatternElement.ui:147
+#: ui/PatternElement.ui:189
+#, kde-format
+msgid "As"
+msgstr "En"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:179
+#, kde-format
+msgid "Not currently implemented"
+msgstr "Pas encore implémenté"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
+#: ui/PatternElement.ui:182
+#, kde-format
+msgid "Show scales"
+msgstr "Afficher les échelles"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
+#: ui/PatternElement.ui:225
+#, kde-format
+msgid "Show map"
+msgstr "Afficher la carte"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: ui/PrinterConfigPage.ui:24 ui/PrintSetup.ui:49
+#, kde-format
+msgid "Pages"
+msgstr "Pages"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PrinterConfigPage.ui:32
+#, kde-format
+msgid "Default paper size"
+msgstr "Taille par défaut de la feuille"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, PaperSize)
+#. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
+#, kde-format
+msgid "Select a paper size"
+msgstr "Sélectionner une taille de feuille de papier"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:49 ui/PrintSetup.ui:214
+#, kde-format
+msgctxt "Paper size"
+msgid "A0"
+msgstr "A0"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:54 ui/PrintSetup.ui:219
+#, kde-format
+msgctxt "Paper size"
+msgid "A1"
+msgstr "A1"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:59 ui/PrintSetup.ui:224
+#, kde-format
+msgctxt "Paper size"
+msgid "A2"
+msgstr "A2"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:64 ui/PrintSetup.ui:229
+#, kde-format
+msgctxt "Paper size"
+msgid "A3"
+msgstr "A3"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:234
+#, kde-format
+msgctxt "Paper size"
+msgid "A4"
+msgstr "A4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:74 ui/PrintSetup.ui:239
+#, kde-format
+msgctxt "Paper size"
+msgid "A5"
+msgstr "A5"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:79 ui/PrintSetup.ui:244
+#, kde-format
+msgctxt "Paper size"
+msgid "A6"
+msgstr "A6"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:84 ui/PrintSetup.ui:249
+#, kde-format
+msgctxt "Paper size"
+msgid "A7"
+msgstr "A7"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:89 ui/PrintSetup.ui:254
+#, kde-format
+msgctxt "Paper size"
+msgid "A8"
+msgstr "A8"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:94 ui/PrintSetup.ui:259
+#, kde-format
+msgctxt "Paper size"
+msgid "A9"
+msgstr "A9"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:99 ui/PrintSetup.ui:264
+#, kde-format
+msgctxt "Paper size"
+msgid "B0"
+msgstr "B0"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:104 ui/PrintSetup.ui:269
+#, kde-format
+msgctxt "Paper size"
+msgid "B1"
+msgstr "B1"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:109 ui/PrintSetup.ui:274
+#, kde-format
+msgctxt "Paper size"
+msgid "B2"
+msgstr "B2"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:114 ui/PrintSetup.ui:279
+#, kde-format
+msgctxt "Paper size"
+msgid "B3"
+msgstr "B3"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:119 ui/PrintSetup.ui:284
+#, kde-format
+msgctxt "Paper size"
+msgid "B4"
+msgstr "B4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:124 ui/PrintSetup.ui:289
+#, kde-format
+msgctxt "Paper size"
+msgid "B5"
+msgstr "B5"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:129 ui/PrintSetup.ui:294
+#, kde-format
+msgctxt "Paper size"
+msgid "B6"
+msgstr "B6"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:134 ui/PrintSetup.ui:299
+#, kde-format
+msgctxt "Paper size"
+msgid "B7"
+msgstr "B7"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:139 ui/PrintSetup.ui:304
+#, kde-format
+msgctxt "Paper size"
+msgid "B8"
+msgstr "B8"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:144 ui/PrintSetup.ui:309
+#, kde-format
+msgctxt "Paper size"
+msgid "B9"
+msgstr "B9"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:149 ui/PrintSetup.ui:314
+#, kde-format
+msgctxt "Paper size"
+msgid "B10"
+msgstr "B10"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:154 ui/PrintSetup.ui:319
+#, kde-format
+msgctxt "Paper size"
+msgid "C5E"
+msgstr "C5E"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:159 ui/PrintSetup.ui:324
+#, kde-format
+msgctxt "Paper size"
+msgid "Comm10E"
+msgstr "Comm10E"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:164 ui/PrintSetup.ui:329
+#, kde-format
+msgctxt "Paper size"
+msgid "DLE"
+msgstr "DLE"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:169 ui/PrintSetup.ui:334
+#, kde-format
+msgctxt "Paper size"
+msgid "Executive"
+msgstr "Direction"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:174 ui/PrintSetup.ui:339
+#, kde-format
+msgctxt "Paper size"
+msgid "Folio"
+msgstr "Folio"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:179 ui/PrintSetup.ui:344
+#, kde-format
+msgctxt "Paper size"
+msgid "Ledger"
+msgstr "Comptabilité"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:184 ui/PrintSetup.ui:349
+#, kde-format
+msgctxt "Paper size"
+msgid "Legal"
+msgstr "Juridique"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:189 ui/PrintSetup.ui:354
+#, kde-format
+msgctxt "Paper size"
+msgid "Letter"
+msgstr "Lettre US"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
+#: ui/PrinterConfigPage.ui:194 ui/PrintSetup.ui:359
+#, kde-format
+msgctxt "Paper size"
+msgid "Tabloid"
+msgstr "Tabloïd"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
+#: ui/PrinterConfigPage.ui:206 ui/PrintSetup.ui:377
+#, kde-format
+msgid "Portrait"
+msgstr "Portrait"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
+#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
+#: ui/PrinterConfigPage.ui:219 ui/PrintSetup.ui:382
+#, kde-format
+msgid "Landscape"
+msgstr "Paysage"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: ui/PrinterConfigPage.ui:239 ui/PrinterConfigPage.ui:352
+#: ui/PrinterConfigPage.ui:681 ui/PrinterConfigPage.ui:904
+#, kde-format
+msgctxt "Left margin"
+msgid "Left"
+msgstr "Gauche"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#. i18n: ectx: property (text), widget (QLabel, label_15)
+#: ui/PrinterConfigPage.ui:259 ui/PrinterConfigPage.ui:372
+#: ui/PrinterConfigPage.ui:701 ui/PrinterConfigPage.ui:924
+#, kde-format
+msgctxt "Right margin"
+msgid "Right"
+msgstr "Droite"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#. i18n: ectx: property (text), widget (QLabel, label_16)
+#: ui/PrinterConfigPage.ui:279 ui/PrinterConfigPage.ui:392
+#: ui/PrinterConfigPage.ui:721 ui/PrinterConfigPage.ui:944
+#, kde-format
+msgctxt "Top margin"
+msgid "Top"
+msgstr "Haut"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#. i18n: ectx: property (text), widget (QLabel, label_17)
+#: ui/PrinterConfigPage.ui:299 ui/PrinterConfigPage.ui:412
+#: ui/PrinterConfigPage.ui:741 ui/PrinterConfigPage.ui:964
+#, kde-format
+msgctxt "Bottom margin"
+msgid "Bottom"
+msgstr "Bas"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: ui/PrinterConfigPage.ui:338
+#, kde-format
+msgid "Pattern Element"
+msgstr "Élément de l'ouvrage"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
+#: ui/PrinterConfigPage.ui:437
+#, kde-format
+msgid "Cells"
+msgstr "Cases"
+
+#. i18n: ectx: property (text), widget (QLabel, label_27)
+#: ui/PrinterConfigPage.ui:445
+#, kde-format
+msgid "Minimum cell size (mm)"
+msgstr "Taille minimale d'une case (mm)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_28)
+#: ui/PrinterConfigPage.ui:458
+#, kde-format
+msgid "Minimum overflow"
+msgstr "Débordement minimum"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
+#: ui/PrinterConfigPage.ui:476
+#, kde-format
+msgid "Selections"
+msgstr "Sélections"
+
+#. i18n: ectx: property (text), widget (QLabel, label_29)
+#: ui/PrinterConfigPage.ui:482
+#, kde-format
+msgid "Selected area color"
+msgstr "Couleur de la région actuellement sélectionnée"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: ui/PrinterConfigPage.ui:528
+#, kde-format
+msgid "Text Element"
+msgstr "Élément texte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
+#: ui/PrinterConfigPage.ui:540 ui/TextElement.ui:463
+#, kde-format
+msgid "Text color"
+msgstr "Couleur du texte"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
+#: ui/PrinterConfigPage.ui:560 ui/PrinterConfigPage.ui:843
+#, kde-format
+msgctxt "Fill the background"
+msgid "Background"
+msgstr "Arrière-plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_20)
+#. i18n: ectx: property (text), widget (QLabel, label_25)
+#: ui/PrinterConfigPage.ui:569 ui/PrinterConfigPage.ui:856
+#, kde-format
+msgctxt "Background color"
+msgid "Color"
+msgstr "Couleur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_18)
+#. i18n: ectx: property (text), widget (QLabel, label_23)
+#: ui/PrinterConfigPage.ui:631 ui/PrinterConfigPage.ui:801
+#, kde-format
+msgctxt "Border color"
+msgid "Color"
+msgstr "Couleur"
+
+#. i18n: ectx: property (text), widget (QLabel, label_19)
+#. i18n: ectx: property (text), widget (QLabel, label_24)
+#: ui/PrinterConfigPage.ui:648 ui/PrinterConfigPage.ui:818
+#, kde-format
+msgid "Thickness"
+msgstr "Épaisseur"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
+#: ui/PrinterConfigPage.ui:989
+#, kde-format
+msgid "Elements"
+msgstr "Éléments"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
+#: ui/PrinterConfigPage.ui:995
+#, kde-format
+msgid "Symbols"
+msgstr "Symboles"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
+#: ui/PrintSetup.ui:68
+#, kde-format
+msgid "Create a default layout"
+msgstr "Créer une disposition par défaut"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
+#: ui/PrintSetup.ui:107
+#, kde-format
+msgid "Append a page"
+msgstr "Ajouter une page à la fin"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
+#: ui/PrintSetup.ui:149
+#, kde-format
+msgid "Insert a page before the selected page"
+msgstr "Insérer une page avant la page sélectionnée"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
+#: ui/PrintSetup.ui:188
+#, kde-format
+msgid "Delete the selected page"
+msgstr "Supprimer la page sélectionnée"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
+#: ui/PrintSetup.ui:373
+#, kde-format
+msgid "Select the paper orientation"
+msgstr "Choisir l'orientation de la page"
+
+#. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
+#: ui/PrintSetup.ui:396
+#, kde-format
+msgid "Zoom factor"
+msgstr "Facteur de zoom"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
+#: ui/PrintSetup.ui:456
+#, kde-format
+msgid "Select an element"
+msgstr "Sélectionner un élément"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
+#: ui/PrintSetup.ui:478
+#, kde-format
+msgid "Insert a text element"
+msgstr "Insérer du texte"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
+#: ui/PrintSetup.ui:503
+#, kde-format
+msgid "Insert a pattern element"
+msgstr "Insérer un ouvrage"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
+#: ui/PrintSetup.ui:525
+#, kde-format
+msgid "Insert a picture element"
+msgstr "Insérer une image"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
+#: ui/PrintSetup.ui:535
+#, kde-format
+msgid "Insert a key element"
+msgstr "Insérer le tableau des fils utilisés"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
+#: ui/PrintSetup.ui:606
+#, kde-format
+msgid "Page list"
+msgstr "Liste des pages"
+
+#. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
+#: ui/PrintSetup.ui:634
+#, kde-format
+msgid "Page preview"
+msgstr "Aperçu de la page"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
+#: ui/SymbolSelector.ui:14
+#, kde-format
+msgid "Symbol Selection"
+msgstr "Sélection des symboles"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
+#: ui/TextElement.ui:39
+#, kde-format
+msgid "Top margin in mm, internal to the border."
+msgstr "Marge du haut en mm, à l'intérieur du cadre de cet élément."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
+#: ui/TextElement.ui:68
+#, kde-format
+msgid "Left margin in mm, internal to the border."
+msgstr "Marge de gauche en mm, à l'intérieur du cadre de cet élément."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
+#: ui/TextElement.ui:97
+#, kde-format
+msgid "Right margin in mm, internal to the border."
+msgstr "Marge de droite en mm, à l'intérieur du cadre de cet élément."
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
+#: ui/TextElement.ui:126
+#, kde-format
+msgid "Bottom margin in mm, internal to the border."
+msgstr "Marge du bas en mm, à l'intérieur du cadre de cet élément."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
+#: ui/TextElement.ui:164
+#, kde-format
+msgid "Show border around the text box"
+msgstr "Afficher la bordure autour de l'élément texte"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
+#: ui/TextElement.ui:235
+#, kde-format
+msgid "Fill the background with a color"
+msgstr "Remplir l'arrière-plan avec une couleur"
+
+#. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
+#: ui/TextElement.ui:255
+#, kde-format
+msgid "Background color"
+msgstr "Couleur d'arrière-plan"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
+#: ui/TextElement.ui:272
+#, kde-format
+msgid "Transparency of the text box"
+msgstr "Transparence de l'élément texte"
+
+#. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
+#: ui/TextElement.ui:288
+#, kde-format
+msgid "Text font family"
+msgstr "Police du texte"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
+#: ui/TextElement.ui:301
+#, kde-format
+msgid "Text point size"
+msgstr "Taille de la police"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
+#: ui/TextElement.ui:330
+#, kde-format
+msgid "Bold text"
+msgstr "Texte en gras"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
+#: ui/TextElement.ui:349
+#, kde-format
+msgid "Italics text"
+msgstr "Texte en italique"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
+#: ui/TextElement.ui:368
+#, kde-format
+msgid "Underline text"
+msgstr "Texte souligné"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
+#: ui/TextElement.ui:387
+#, kde-format
+msgid "Align left"
+msgstr "Aligner à gauche"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
+#: ui/TextElement.ui:406
+#, kde-format
+msgid "Align centrally"
+msgstr "Centrer"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
+#: ui/TextElement.ui:425
+#, kde-format
+msgid "Align right"
+msgstr "Aligner à droite"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
+#: ui/TextElement.ui:444
+#, kde-format
+msgid "Align justified"
+msgstr "Justifier"
 
 #~ msgid "KXStitch"
 #~ msgstr "KXStitch"
