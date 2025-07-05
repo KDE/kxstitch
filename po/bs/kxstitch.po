@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-28 13:52+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2015-01-21 20:35+0100\n"
 "Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -20,737 +20,6 @@ msgstr ""
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-15 06:27+0000\n"
 
-#. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
-#: kxstitch.kcfg:10
-#, kde-format
-msgid "The background color."
-msgstr "Pozdadinska boja."
-
-#. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
-#: kxstitch.kcfg:14
-#, kde-format
-msgid "The color of the editors thick lines."
-msgstr "Boja urednikovih debelih linija."
-
-#. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
-#: kxstitch.kcfg:18
-#, kde-format
-msgid "The color of the editors thin lines."
-msgstr "Boja urednikovih tankih linija."
-
-#. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
-#: kxstitch.kcfg:22
-#, kde-format
-msgid "The width of the major grid lines."
-msgstr "Širina glavnih mrežnih linija."
-
-#. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
-#: kxstitch.kcfg:26
-#, kde-format
-msgid "The width of the minor grid lines."
-msgstr "Širina nižih mrežnih linija."
-
-#. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
-#: kxstitch.kcfg:30
-#, kde-format
-msgid "The number of cells making up a horizontal group."
-msgstr "Broj stanica koje čine horizontalnu skupinu."
-
-#. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
-#: kxstitch.kcfg:34
-#, kde-format
-msgid "The number of cells making up a vertical group."
-msgstr "Broj stanica koje čine vertikalnu skupinu."
-
-#. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
-#: kxstitch.kcfg:38
-#, kde-format
-msgid "The horizontal cloth count."
-msgstr "Broj horizontalne tkanine."
-
-#. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
-#: kxstitch.kcfg:42
-#, kde-format
-msgid "The vertical cloth count."
-msgstr "Broj vertikalne tkanine"
-
-#. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
-#. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
-#: kxstitch.kcfg:46 kxstitch.kcfg:159
-#, kde-format
-msgid "The cloth count units."
-msgstr "Platnene jedinice."
-
-#. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
-#: kxstitch.kcfg:55
-#, kde-format
-msgid "Square cells"
-msgstr "Kvadratne ćelije"
-
-#. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
-#: kxstitch.kcfg:59
-#, kde-format
-msgid "The height of the horizontal ruler."
-msgstr "Visina horizontalnog linijara."
-
-#. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
-#: kxstitch.kcfg:63
-#, kde-format
-msgid "The width of the vertical ruler."
-msgstr "Širina vertikalnog linijara."
-
-#. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
-#: kxstitch.kcfg:67
-#, kde-format
-msgid "The display units for a scale."
-msgstr "Zaslonske jedinice za skalu."
-
-#. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
-#: kxstitch.kcfg:76
-#, kde-format
-msgid "The minimum zoom factor"
-msgstr "Minimalni zumirajući faktor"
-
-#. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
-#: kxstitch.kcfg:80
-#, kde-format
-msgid "The maximum zoom factor"
-msgstr "Maksimalni zumirajući faktor"
-
-#. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
-#: kxstitch.kcfg:84
-#, kde-format
-msgid "The default zoom factor"
-msgstr "Standardni zumirajući faktor"
-
-#. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
-#: kxstitch.kcfg:91
-#, kde-format
-msgid "Enable color highlighting mode"
-msgstr "Uključite opciju za naglašavanje bojom"
-
-#. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
-#: kxstitch.kcfg:95
-#, kde-format
-msgid "Render the background images"
-msgstr "Obrada  pozadinskih slika"
-
-#. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
-#: kxstitch.kcfg:99
-#, kde-format
-msgid "Render the grid"
-msgstr "Obrada mreže"
-
-#. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
-#: kxstitch.kcfg:103
-#, kde-format
-msgid "Render the stitches"
-msgstr "Obrada šavova"
-
-#. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
-#: kxstitch.kcfg:107
-#, kde-format
-msgid "Render the backstitches"
-msgstr "Obrada pozadinskih šavova"
-
-#. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
-#: kxstitch.kcfg:111
-#, kde-format
-msgid "Render the french knots"
-msgstr "Obrada francuskih čvorova"
-
-#. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
-#: kxstitch.kcfg:115
-#, kde-format
-msgid "Render stitch hints for colored blocks"
-msgstr ""
-
-#. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
-#: kxstitch.kcfg:119
-#, kde-format
-msgid "How to display stitches."
-msgstr "Kako prikazati šavove."
-
-#. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
-#: kxstitch.kcfg:130
-#, kde-format
-msgid "How to display backstitches."
-msgstr "Kako prikazati pozadinske šavove."
-
-#. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
-#: kxstitch.kcfg:138
-#, kde-format
-msgid "How to display french knots."
-msgstr "Kako prikazati francuske čvorove."
-
-#. i18n: ectx: label, entry (Document_Width), group (document)
-#: kxstitch.kcfg:151
-#, kde-format
-msgid "The default width of a new pattern in the units specified."
-msgstr "Standardna širina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Document_Height), group (document)
-#: kxstitch.kcfg:155
-#, kde-format
-msgid "The default height of a new pattern in the units specified."
-msgstr "Standardna visina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Document_Min_Width), group (document)
-#: kxstitch.kcfg:168
-#, fuzzy, kde-format
-#| msgid "The default width of a new pattern in the units specified."
-msgid "The minimum width of a pattern in the units specified."
-msgstr "Standardna širina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Document_Min_Height), group (document)
-#: kxstitch.kcfg:172
-#, fuzzy, kde-format
-#| msgid "The default height of a new pattern in the units specified."
-msgid "The minimum height of a pattern in the units specified."
-msgstr "Standardna visina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Document_Max_Width), group (document)
-#: kxstitch.kcfg:176
-#, fuzzy, kde-format
-#| msgid "The default width of a new pattern in the units specified."
-msgid "The maximum width of a pattern in the units specified."
-msgstr "Standardna širina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Document_Max_Height), group (document)
-#: kxstitch.kcfg:180
-#, fuzzy, kde-format
-#| msgid "The default height of a new pattern in the units specified."
-msgid "The maximum height of a pattern in the units specified."
-msgstr "Standardna visina novog uzorka u navedenim jedinicama."
-
-#. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
-#: kxstitch.kcfg:187
-#, kde-format
-msgid "Use a maximum number of colors"
-msgstr "Koristite maksimalan broj boja"
-
-#. i18n: ectx: label, entry (Import_MaximumColors), group (import)
-#: kxstitch.kcfg:191
-#, kde-format
-msgid "Maximum number of colors"
-msgstr "Maksimalan broj boja"
-
-#. i18n: ectx: label, entry (Import_UseFractionals), group (import)
-#: kxstitch.kcfg:195
-#, kde-format
-msgid "Use fractional stitches for finer detail"
-msgstr "Koristite frakcijske šavove za finije detalje"
-
-#. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
-#: kxstitch.kcfg:202
-#, kde-format
-msgid "The default floss scheme to be used for new documents."
-msgstr "Zadana konac shema koja će se koristiti za nove dokumente."
-
-#. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
-#: kxstitch.kcfg:206
-#, kde-format
-msgid "The default symbol library to be used for new documents."
-msgstr "Zadana simbol biblioteka koja će se koristiti za nove dokumente."
-
-#. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
-#: kxstitch.kcfg:210
-#, kde-format
-msgid "The default number of strands used for stitches."
-msgstr "Zadani broj niti koji se koriste za ubode."
-
-#. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
-#: kxstitch.kcfg:214
-#, kde-format
-msgid "The default number of strands used for backstitches."
-msgstr "Zadani broj niti koji se koriste pozadinske šavove."
-
-#. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
-#: kxstitch.kcfg:218
-#, kde-format
-msgid "Display the symbols in the palette."
-msgstr "Prikaži simbole u paleti."
-
-#. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
-#: kxstitch.kcfg:222
-#, kde-format
-msgid "Display the symbols antialiased"
-msgstr "Prikaži simbole antialiased"
-
-#. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
-#: kxstitch.kcfg:229
-#, kde-format
-msgid "The default size of icons shown in the icon view"
-msgstr "Zadana veličina ikona prikazanih u pregledniku ikona"
-
-#. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
-#: kxstitch.kcfg:236
-#, kde-format
-msgid "Should character selection honor the caps lock key"
-msgstr "Treba li izbor slova odlikovati tipku caps lock"
-
-#. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
-#: kxstitch.kcfg:240
-#, kde-format
-msgid "The default width of a space in cells"
-msgstr "Zadana širina prostora u ćelijama"
-
-#. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
-#: kxstitch.kcfg:244
-#, kde-format
-msgid "Should a space cause word wrapping at the right edge of the pattern"
-msgstr "Da li će prostor uzrokovati umetanje riječi na desnu ivicu uzorka"
-
-#. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
-#: kxstitch.kcfg:248
-#, kde-format
-msgid "The number of cells between lines of text"
-msgstr "Broj ćelija između linija teksta"
-
-#. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
-#: kxstitch.kcfg:252
-#, kde-format
-msgid "The number of cells to be added when extending the pattern right"
-msgstr "Broj ćelija koje će biti dodane kada se uzorak proširi udesno"
-
-#. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
-#: kxstitch.kcfg:256
-#, kde-format
-msgid "The number of cells to be added when extending the pattern down"
-msgstr "Broj ćelija koje će biti dodane kada se uzorak proširi nadole"
-
-#. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
-#: kxstitch.kcfg:263
-#, kde-format
-msgid "Should the shapes tools use fractional stitches"
-msgstr "Trebaju li alati za oblikovanje koristiti frakcijske šavove"
-
-#. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
-#: kxstitch.kcfg:267
-#, kde-format
-msgid "The font family to be used in the TextToolDlg"
-msgstr "Familija fontova koji će biti korišteni u TextToolDlg"
-
-#. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
-#: kxstitch.kcfg:271
-#, kde-format
-msgid "The text size in pixels"
-msgstr "Veličina teksta u pikselima"
-
-#. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
-#: kxstitch.kcfg:275
-#, kde-format
-msgid "Does mirroring and copying make copies"
-msgstr "Da li zrcaljenje i kopiranje pravi kopije"
-
-#. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
-#: kxstitch.kcfg:282
-#, kde-format
-msgid "The page left margin"
-msgstr "Lijeva margina stranice"
-
-#. i18n: ectx: label, entry (Page_MarginTop), group (printer)
-#: kxstitch.kcfg:286
-#, kde-format
-msgid "The page top margin"
-msgstr "Gornja margina stranice"
-
-#. i18n: ectx: label, entry (Page_MarginRight), group (printer)
-#: kxstitch.kcfg:290
-#, kde-format
-msgid "The page right margin"
-msgstr "Desna margina stranice"
-
-#. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
-#: kxstitch.kcfg:294
-#, kde-format
-msgid "The page bottom margin"
-msgstr "Donja margina stranice"
-
-#. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
-#: kxstitch.kcfg:298
-#, kde-format
-msgid "Show the layout editor"
-msgstr "Prikažite raspored urednika"
-
-#. i18n: ectx: label, entry (Page_GridSize), group (printer)
-#: kxstitch.kcfg:302
-#, kde-format
-msgid "The grid size in mm"
-msgstr "Veličina rešetke u mm"
-
-#. i18n: ectx: label, entry (Page_Size), group (printer)
-#: kxstitch.kcfg:306
-#, kde-format
-msgid "The default page size"
-msgstr "Zadana veličina stranice"
-
-#. i18n: ectx: label, entry (Page_Orientation), group (printer)
-#: kxstitch.kcfg:310
-#, kde-format
-msgid "The default page orientation"
-msgstr "Zadana orjentacija stranice"
-
-#. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
-#: kxstitch.kcfg:314
-#, kde-format
-msgid "The snap distance for element boundary corner nodes"
-msgstr "Udaljenost namještanja za ugaone čvorove na granicama elemenata"
-
-#. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
-#: kxstitch.kcfg:318
-#, kde-format
-msgid "The snap node size"
-msgstr "Veličina čvorova za namještanja"
-
-#. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:323
-#, kde-format
-msgid "Show a border around the pattern"
-msgstr "Prikaži ivicu oko uzorka"
-
-#. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
-#. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
-#. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
-#: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
-#, kde-format
-msgid "The color of the border"
-msgstr "Boja ivice"
-
-#. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
-#. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
-#. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
-#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
-#, kde-format
-msgid "The thickness of the border in 1/10 mm"
-msgstr "Debljina ivice u 1/10 mm"
-
-#. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
-#. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:335 kxstitch.kcfg:478
-#, kde-format
-msgid "The left margin"
-msgstr "Lijeva margina"
-
-#. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
-#. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
-#: kxstitch.kcfg:339 kxstitch.kcfg:474
-#, kde-format
-msgid "The top margin"
-msgstr "Gornja margina"
-
-#. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
-#. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
-#: kxstitch.kcfg:343 kxstitch.kcfg:482
-#, kde-format
-msgid "The right margin"
-msgstr "Desna margina"
-
-#. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
-#. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:347 kxstitch.kcfg:486
-#, kde-format
-msgid "The bottom margin"
-msgstr "Donja margina"
-
-#. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
-#: kxstitch.kcfg:351
-#, kde-format
-msgid "Minimum cell size in mm for template generated printer configurations"
-msgstr ""
-"Minimalna veličina ćelije u mm za uzorak generisan konfiguracijom štampača"
-
-#. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
-#: kxstitch.kcfg:355
-#, kde-format
-msgid "Minimum number of cells that can be on a page of its own"
-msgstr "Minimalni broj ćelija koje mogu biti na toj stranici"
-
-#. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
-#: kxstitch.kcfg:359
-#, kde-format
-msgid ""
-"The color used to represented already selected areas in existing pattern "
-"elements"
-msgstr ""
-"Boja se već koristi za zastupljena odabrana područja u postojećim elementima "
-"uzorka"
-
-#. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:364
-#, kde-format
-msgid "Show a border around the image"
-msgstr "Prikaži granice oko slike"
-
-#. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:377
-#, kde-format
-msgid "Show a border around the key"
-msgstr "Prikaži granice oko ključa"
-
-#. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
-#. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
-#: kxstitch.kcfg:389 kxstitch.kcfg:462
-#, kde-format
-msgid "Fill the background"
-msgstr "Popuni pozadinu"
-
-#. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:393
-#, kde-format
-msgid "The color of the background"
-msgstr "Boja pozadine"
-
-#. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:397
-#, kde-format
-msgid "Transparency of the background"
-msgstr "Transparentnost pozadine"
-
-#. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:401
-#, kde-format
-msgid "The key element left margin"
-msgstr "Ključni element lijeve margine"
-
-#. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
-#: kxstitch.kcfg:405
-#, kde-format
-msgid "The key element top margin"
-msgstr "Ključni element gornje margine"
-
-#. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
-#: kxstitch.kcfg:409
-#, kde-format
-msgid "The key element right margin"
-msgstr "Ključni element desne margine"
-
-#. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:413
-#, kde-format
-msgid "The key element bottom margin"
-msgstr "Ključni element donje margine"
-
-#. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
-#: kxstitch.kcfg:417
-#, kde-format
-msgid "Show the key element symbol column"
-msgstr "Prikaži ključni element simbola kolona"
-
-#. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
-#: kxstitch.kcfg:421
-#, fuzzy, kde-format
-#| msgid "Show the key element symbol column"
-msgid "Show the key element symbol column in color"
-msgstr "Prikaži ključni element simbola kolona"
-
-#. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
-#: kxstitch.kcfg:425
-#, kde-format
-msgid "Show the key element floss name column"
-msgstr "Prikaži ključni element konca ime kolone"
-
-#. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
-#: kxstitch.kcfg:429
-#, kde-format
-msgid "Show the key element floss strands column"
-msgstr "Pokaži ključni element konca kolone"
-
-#. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
-#: kxstitch.kcfg:433
-#, kde-format
-msgid "Show the key element floss description column"
-msgstr "Pokaži ključni opis elementa konca kolone"
-
-#. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
-#: kxstitch.kcfg:437
-#, kde-format
-msgid "Show the key element stitch count column"
-msgstr "Pokaži ključni element boda s brojem kolona"
-
-#. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
-#: kxstitch.kcfg:441
-#, kde-format
-msgid "Show the key element floss length column"
-msgstr "Pokaži ključni element konca duljine kolone"
-
-#. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
-#: kxstitch.kcfg:445
-#, kde-format
-msgid "Show the key element skeins column"
-msgstr "Pokaži ključni element čunjeva kolone"
-
-#. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:450
-#, kde-format
-msgid "Show the border"
-msgstr "Pokaži granicu"
-
-#. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
-#. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
-#: kxstitch.kcfg:454 ui/TextElement.ui:184
-#, kde-format
-msgid "The border color"
-msgstr "Boja ivice"
-
-#. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#: kxstitch.kcfg:458 ui/ImageElement.ui:98 ui/KeyElement.ui:207
-#: ui/TextElement.ui:201
-#, kde-format
-msgid "Thickness of the border in 1/10 mm"
-msgstr "Debljina ivice u 1/10 mm"
-
-#. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:466
-#, kde-format
-msgid "Color of the background"
-msgstr "Boja pozadine"
-
-#. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:470
-#, kde-format
-msgid "The transparency value"
-msgstr "Transparentna vrijednost"
-
-#. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
-#: kxstitch.kcfg:490
-#, kde-format
-msgid "The text color"
-msgstr "Boja teksta"
-
-#. i18n: ectx: Menu (file)
-#: kxstitchui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&Datoteka"
-
-#. i18n: ectx: Menu (fileRemoveBackgroundImage)
-#: kxstitchui.rc:10 src/Commands.cpp:570
-#, kde-format
-msgid "Remove Background Image"
-msgstr "Uklonite pozadinsku sliku"
-
-#. i18n: ectx: Menu (edit)
-#: kxstitchui.rc:14
-#, kde-format
-msgid "&Edit"
-msgstr "&Izmijeni"
-
-#. i18n: ectx: Menu (selectionMasks)
-#: kxstitchui.rc:15
-#, kde-format
-msgid "Selection Masks"
-msgstr "Izbor maski"
-
-#. i18n: ectx: Menu (mirror)
-#: kxstitchui.rc:23 src/Commands.cpp:1306
-#, kde-format
-msgid "Mirror Selection"
-msgstr "Izbor ogledala"
-
-#. i18n: ectx: Menu (rotate)
-#: kxstitchui.rc:27 src/Commands.cpp:1354
-#, kde-format
-msgid "Rotate Selection"
-msgstr "Rotirajte izbor"
-
-#. i18n: ectx: Menu (settings)
-#: kxstitchui.rc:33
-#, kde-format
-msgid "&Settings"
-msgstr "&Postavke"
-
-#. i18n: ectx: Menu (formatScalesAs)
-#: kxstitchui.rc:35 kxstitchui.rc:140
-#, kde-format
-msgid "Format Scales As"
-msgstr "Formatiraj skale kao"
-
-#. i18n: ectx: Menu (renderStitchesAs)
-#: kxstitchui.rc:41 kxstitchui.rc:146
-#, kde-format
-msgid "Render Stitches As"
-msgstr "Izrazi konce kao"
-
-#. i18n: ectx: Menu (renderBackstitchesAs)
-#: kxstitchui.rc:49 kxstitchui.rc:154
-#, kde-format
-msgid "Render Backstitches As"
-msgstr "Obradi pozadinske šavove kao"
-
-#. i18n: ectx: Menu (renderKnotsAs)
-#: kxstitchui.rc:54 kxstitchui.rc:159
-#, kde-format
-msgid "Render Knots As"
-msgstr "Izrazi čvorove kao"
-
-#. i18n: ectx: Menu (view)
-#: kxstitchui.rc:68
-#, kde-format
-msgid "&View"
-msgstr "&Pogled"
-
-#. i18n: ectx: Menu (viewShowBackgroundImage)
-#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
-#, kde-format
-msgid "Show Background Image"
-msgstr "Prikaži pozadinsku sliku"
-
-#. i18n: ectx: Menu (viewFitBackgroundImage)
-#: kxstitchui.rc:76 kxstitchui.rc:176
-#, kde-format
-msgid "Fit Background Image to Selection"
-msgstr "Namjesti pozadinsku sliku za izbor"
-
-#. i18n: ectx: Menu (stitches)
-#: kxstitchui.rc:80
-#, kde-format
-msgid "&Stitches"
-msgstr "&šavovi"
-
-#. i18n: ectx: Menu (Tools)
-#: kxstitchui.rc:91
-#, kde-format
-msgid "&Tools"
-msgstr "&Alati"
-
-#. i18n: ectx: Menu (palette)
-#: kxstitchui.rc:111
-#, kde-format
-msgid "&Palette"
-msgstr "&Paleta"
-
-#. i18n: ectx: Menu (library)
-#: kxstitchui.rc:121
-#, kde-format
-msgid "&Library Manager"
-msgstr "&Menadžer biblioteke"
-
-#. i18n: ectx: Menu (pattern)
-#: kxstitchui.rc:124
-#, kde-format
-msgid "&Pattern"
-msgstr "&Uzorak"
-
-#. i18n: ectx: ToolBar (StitchToolBar)
-#: kxstitchui.rc:193
-#, kde-format
-msgid "Stitch Toolbar"
-msgstr "Alatna traka šavova"
-
-#. i18n: ectx: ToolBar (ToolsToolbar)
-#: kxstitchui.rc:204
-#, kde-format
-msgid "Tools Toolbar"
-msgstr "Traka s alatima"
-
-#. i18n: ectx: ToolBar (ZoomToolbar)
-#: kxstitchui.rc:227
-#, kde-format
-msgid "Zoom Toolbar"
-msgstr "Traka za zumiranje"
-
 #: src/BackgroundImage.cpp:136
 #, kde-format
 msgid "Background image version %1"
@@ -761,8 +30,7 @@ msgstr "Pozadinska slika verzija %1"
 msgid "Background images version %1"
 msgstr "Pozadinske slike verzija %1"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
-#: src/CalibrateFlossDlg.cpp:33 ui/CalibrateFloss.ui:14
+#: src/CalibrateFlossDlg.cpp:33
 #, kde-format
 msgid "Calibrate Floss"
 msgstr "Kalibriranje konca"
@@ -779,16 +47,12 @@ msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
 msgstr "%1-%2"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1141
-#: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Osobine datoteke"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
 #: src/Commands.cpp:58 src/MainWindow.cpp:517 src/MainWindow.cpp:1136
-#: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
 msgstr "Uvezi sliku"
@@ -883,8 +147,17 @@ msgstr "Dodaj pozadinsku sliku"
 msgid "Fit Background to Selection"
 msgstr "Namjesti pozadinu za izbor"
 
-#. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:684 ui/PaletteManager.ui:189
+#: src/Commands.cpp:548
+#, kde-format
+msgid "Show Background Image"
+msgstr "Prikaži pozadinsku sliku"
+
+#: src/Commands.cpp:570
+#, kde-format
+msgid "Remove Background Image"
+msgstr "Uklonite pozadinsku sliku"
+
+#: src/Commands.cpp:684
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Očisti nekorištene končiće"
@@ -914,8 +187,7 @@ msgstr "Umetni kolone"
 msgid "Insert Rows"
 msgstr "Ubaci redove"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
-#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
+#: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23
 #, kde-format
 msgid "Extend Pattern"
 msgstr "Proširi uzorak"
@@ -955,6 +227,16 @@ msgstr "Ažuriraj konfiguraciju štampača"
 msgid "Cut"
 msgstr ""
 
+#: src/Commands.cpp:1306
+#, kde-format
+msgid "Mirror Selection"
+msgstr "Izbor ogledala"
+
+#: src/Commands.cpp:1354
+#, kde-format
+msgid "Rotate Selection"
+msgstr "Rotirajte izbor"
+
 #: src/Commands.cpp:1402 src/Editor.cpp:1999 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Alphabet"
@@ -976,8 +258,7 @@ msgstr "Standardne niti šavova"
 msgid "Default (Inches)"
 msgstr ""
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
-#: src/ConfigurationDialogs.cpp:39 ui/PatternConfigPage.ui:164
+#: src/ConfigurationDialogs.cpp:39
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -1039,41 +320,19 @@ msgstr "Shema konca %1 nije pronađena"
 msgid "The floss name %1 was not found"
 msgstr "Ime konca %1 nije pronađeno"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StitchesColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1812 src/Document.cpp:2018 src/Element.cpp:520
 #: src/Element.cpp:555 src/ImportImageDlg.cpp:235 src/MainWindow.cpp:1500
-#: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
-#: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
-#: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:1032
 #, kde-format
 msgid "Stitches"
 msgstr "Šavovi"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1816 src/Document.cpp:2022 ui/EditorConfigPage.ui:82
-#: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
+#: src/Document.cpp:1816 src/Document.cpp:2022
 #, kde-format
 msgid "CM"
 msgstr "CM"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1820 src/Document.cpp:2026 src/ImportImageDlg.cpp:241
-#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
-#: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
-#: ui/PatternElement.ui:205
+#: src/MainWindow.cpp:1514
 #, kde-format
 msgid "Inches"
 msgstr "Inči"
@@ -1171,9 +430,7 @@ msgstr[2] ""
 msgid "Drag"
 msgstr "Privuci"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
 #: src/Editor.cpp:845 src/Editor.cpp:1975 src/MainWindow.cpp:1375
-#: ui/PrinterConfigPage.ui:534
 #, kde-format
 msgid "Text"
 msgstr "Tekst"
@@ -1189,11 +446,7 @@ msgstr "Dodaj slovo"
 msgid "Paste"
 msgstr "Zalijepi"
 
-#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/Element.cpp:516 src/Element.cpp:539 ui/KeyElement.ui:377
-#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#: src/Element.cpp:516 src/Element.cpp:539
 #, kde-format
 msgid "Symbol"
 msgstr "Simbol"
@@ -1204,16 +457,12 @@ msgctxt "The name of the floss"
 msgid "Name"
 msgstr "Naziv"
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
-#: src/Element.cpp:518 src/Element.cpp:547 ui/KeyElement.ui:403
-#: ui/PrinterConfigPage.ui:1022
+#: src/Element.cpp:518 src/Element.cpp:547
 #, kde-format
 msgid "Strands"
 msgstr "Žile"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/Element.cpp:519 src/Element.cpp:551 ui/NewFloss.ui:44
+#: src/Element.cpp:519 src/Element.cpp:551
 #, kde-format
 msgid "Description"
 msgstr "Opis"
@@ -1254,8 +503,7 @@ msgstr "Status nedefiniran status poruke %1"
 msgid "Failed to write to the device"
 msgstr "Neuspjelo pisanja uređaju"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
-#: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
+#: src/ImageElementDlg.cpp:31
 #, kde-format
 msgid "Image Element Properties"
 msgstr "Osobine elementa slike"
@@ -1265,10 +513,7 @@ msgstr "Osobine elementa slike"
 msgid "Import Image - Image Size %1 x %2 pixels"
 msgstr "Uvoz slike - Veličina Slike %1 x %2 piksela"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
-#: ui/PatternConfigPage.ui:96
+#: src/ImportImageDlg.cpp:247 src/MainWindow.cpp:1507
 #, fuzzy, kde-format
 #| msgid "Center Pattern"
 msgid "Centimeters"
@@ -1295,8 +540,7 @@ msgstr "Otkaži"
 msgid "Colors limited to %1 due to the number of symbols available"
 msgstr "Boje ograničene na %1 s obzirom na broj raspoloživih simbola"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
-#: src/KeyElementDlg.cpp:26 ui/KeyElement.ui:14
+#: src/KeyElementDlg.cpp:26
 #, kde-format
 msgid "Key Element Properties"
 msgstr "Osobine ključnih elemenata"
@@ -1356,14 +600,12 @@ msgstr ""
 "ne može biti otvoren.\n"
 "%2"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
-#: src/LibraryFilePathsDlg.cpp:23 ui/LibraryFilePaths.ui:14
+#: src/LibraryFilePathsDlg.cpp:23
 #, kde-format
 msgid "Library File Paths"
 msgstr "Bibliotečni putevi datoteka"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
-#: src/LibraryManagerDlg.cpp:39 ui/LibraryManager.ui:14
+#: src/LibraryManagerDlg.cpp:39
 #, kde-format
 msgid "Library Manager"
 msgstr "Menadžer biblioteke"
@@ -1456,8 +698,7 @@ msgstr "Kategorija postoji"
 msgid "Delete this pattern."
 msgstr "Izbriši ovaj uzorak."
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
-#: src/LibraryPatternPropertiesDlg.cpp:25 ui/LibraryPatternProperties.ui:14
+#: src/LibraryPatternPropertiesDlg.cpp:25
 #, kde-format
 msgid "Library Pattern Properties"
 msgstr "Osobine bibliotečnog uzorka"
@@ -1657,16 +898,12 @@ msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Urednik"
 
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:960 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:960
 #, kde-format
 msgid "Pattern"
 msgstr "Uzorak"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:962 src/MainWindow.cpp:1718 ui/FileProperties.ui:33
-#: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
+#: src/MainWindow.cpp:962 src/MainWindow.cpp:1718
 #, kde-format
 msgid "Palette"
 msgstr "Paleta"
@@ -1681,8 +918,7 @@ msgstr "Uvezi"
 msgid "Library"
 msgstr "Biblioteka"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:965 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:965
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Konfiguracija Štampača"
@@ -1863,46 +1099,27 @@ msgstr "Menadžer biblioteke..."
 msgid "Regular Stitches"
 msgstr "Standardni šavovi"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
 #: src/MainWindow.cpp:1533 src/MainWindow.cpp:1573 src/MainWindow.cpp:1606
-#: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
-#: ui/PatternElement.ui:168
 #, kde-format
 msgid "Black & White Symbols"
 msgstr "Crni & Bijeli simboli"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1599 ui/EditorConfigPage.ui:314
-#: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
+#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1599
 #, kde-format
 msgid "Color Symbols"
 msgstr "Simboli boje"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1547 src/MainWindow.cpp:1584 ui/EditorConfigPage.ui:319
-#: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
+#: src/MainWindow.cpp:1547 src/MainWindow.cpp:1584
 #, kde-format
 msgid "Color Blocks"
 msgstr "Blokovi boje"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1554 src/MainWindow.cpp:1592 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1554 src/MainWindow.cpp:1592
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Blokovi & Simboli boje"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1565 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1565
 #, kde-format
 msgid "Color Lines"
 msgstr "Linije boje"
@@ -1953,8 +1170,7 @@ msgstr "Historija"
 msgid "Imported Image"
 msgstr "Uvezena slika"
 
-#. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: src/NewFlossDlg.cpp:29 ui/PaletteManager.ui:182
+#: src/NewFlossDlg.cpp:29
 #, kde-format
 msgid "New Floss"
 msgstr "Novi končić"
@@ -1983,8 +1199,7 @@ msgstr "Verzija stranice %1"
 msgid "Invalid element type"
 msgstr "Nevalidni tip elementa"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
-#: src/PagePropertiesDlg.cpp:27 ui/PageProperties.ui:14
+#: src/PagePropertiesDlg.cpp:27
 #, kde-format
 msgid "Page Properties"
 msgstr "Osobine stranice"
@@ -2021,8 +1236,7 @@ msgstr ""
 "Dodaj ih sa menadžerom palete\n"
 "koji će zatim uključiti alate za crtanje."
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
-#: src/PaletteManagerDlg.cpp:82 ui/PaletteManager.ui:14
+#: src/PaletteManagerDlg.cpp:82
 #, kde-format
 msgid "Palette Manager"
 msgstr "Menadžer palete"
@@ -2044,8 +1258,7 @@ msgstr "Izabrani simbol biblioteke nema dovoljno simbola za končiće u paleti."
 msgid "Pattern version %1"
 msgstr "Verzija uzorka %1"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
-#: src/PatternElementDlg.cpp:30 ui/PatternElement.ui:14
+#: src/PatternElementDlg.cpp:30
 #, kde-format
 msgid "Pattern Element Properties"
 msgstr "Osobine elementa uzorka"
@@ -2055,8 +1268,7 @@ msgstr "Osobine elementa uzorka"
 msgid "Printer configuration %1"
 msgstr "Konfiguracija štampača %1"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
-#: src/PrintSetupDlg.cpp:54 ui/PrintSetup.ui:20
+#: src/PrintSetupDlg.cpp:54
 #, kde-format
 msgid "Print Setup"
 msgstr "Postavke štampanja"
@@ -2222,1526 +1434,1082 @@ msgstr "Neuspjelo otvaranje datoteke %1"
 msgid "Symbol Selector"
 msgstr "Izbornik simbola"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
-#: src/TextElementDlg.cpp:31 ui/TextElement.ui:14
+#: src/TextElementDlg.cpp:31
 #, kde-format
 msgid "Text Element Properties"
 msgstr "Osobine elemenata teksta"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
-#: src/TextToolDlg.cpp:28 ui/TextTool.ui:17
+#: src/TextToolDlg.cpp:28
 #, kde-format
 msgid "Text Tool"
 msgstr "Alat za tekst"
 
-#. i18n: ectx: property (text), widget (QLabel, TextLabel1)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/CalibrateFloss.ui:20 ui/NewFloss.ui:20
-#, kde-format
-msgid "Scheme"
-msgstr "Shema"
-
-#. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
-#: ui/CalibrateFloss.ui:60
-#, kde-format
-msgid "Currently selected color"
-msgstr "Trenutno odabrana boja"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
-#: ui/CalibrateFloss.ui:102
-#, kde-format
-msgctxt "Green value of color"
-msgid "Green"
-msgstr "Zelena"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel3)
-#: ui/CalibrateFloss.ui:112
-#, kde-format
-msgctxt "Red value of color"
-msgid "Red"
-msgstr "Crvena"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel5)
-#: ui/CalibrateFloss.ui:132
-#, kde-format
-msgctxt "Blue value of color"
-msgid "Blue"
-msgstr "Plava"
-
-#. i18n: ectx: property (text), widget (QPushButton, ResetColor)
-#: ui/CalibrateFloss.ui:158
-#, kde-format
-msgid "Reset Color"
-msgstr "Poništi boju"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
-#: ui/EditorConfigPage.ui:14
-#, kde-format
-msgid "Editor Configuration"
-msgstr "Konfiguracija urednika"
-
-#. i18n: ectx: attribute (title), widget (QWidget, EditorGridTab)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/EditorConfigPage.ui:24 ui/PageProperties.ui:170
-#, kde-format
-msgid "Grid"
-msgstr "Meža"
-
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#: ui/EditorConfigPage.ui:30
-#, kde-format
-msgid "Horizontal scale height"
-msgstr "Visina horizontalne skale"
-
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#: ui/EditorConfigPage.ui:47
-#, kde-format
-msgid "Vertical scale width"
-msgstr "Širina vertikalne skale"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/EditorConfigPage.ui:64
-#, kde-format
-msgid "Format scales as"
-msgstr "Formatiraj skalu kao"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/EditorConfigPage.ui:90
-#, kde-format
-msgid "Thick line width"
-msgstr "Širina debele linije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: ui/EditorConfigPage.ui:104
-#, kde-format
-msgid "Thick line color"
-msgstr "Boja debele linije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/EditorConfigPage.ui:114
-#, kde-format
-msgid "Thin line width"
-msgstr "Širina tanke linije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#: ui/EditorConfigPage.ui:128
-#, kde-format
-msgid "Thin line color"
-msgstr "Boja tanke linije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: ui/EditorConfigPage.ui:138
-#, kde-format
-msgid "Horizontal cell group"
-msgstr "Horizontalna grupa ćelija"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/EditorConfigPage.ui:158
-#, kde-format
-msgid "Vertical cell group"
-msgstr "Vertikalna grupa ćelija"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/EditorConfigPage.ui:178
-#, kde-format
-msgid "Minimum zoom factor"
-msgstr "Najmanji faktor zumiranja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#: ui/EditorConfigPage.ui:198
-#, kde-format
-msgid "Maximum zoom factor"
-msgstr "Najveći faktor zumiranja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#: ui/EditorConfigPage.ui:218
-#, kde-format
-msgid "Default zoom factor"
-msgstr "Uobičajeni faktor zumiranja"
-
-#. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
-#: ui/EditorConfigPage.ui:239
-#, kde-format
-msgid "Renderer"
-msgstr "Iscrtavač"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
-#. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
-#: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
-#, kde-format
-msgid "Show grid"
-msgstr "Prikaži mrežu"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
-#: ui/EditorConfigPage.ui:252
-#, kde-format
-msgid "Show background images"
-msgstr "Prikaži pozadinske slike"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
-#. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
-#: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
-#, kde-format
-msgid "Show stitches"
-msgstr "Prikaži šavove"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
-#: ui/EditorConfigPage.ui:266
-#, fuzzy, kde-format
-#| msgid "Show stitches"
-msgid "Show stitch hints"
-msgstr "Prikaži šavove"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
-#: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
-#, kde-format
-msgid "Show backstitches"
-msgstr "Prikaži pozadinske šavove"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
-#. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
-#: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
-#, kde-format
-msgid "Show knots"
-msgstr "Prikaži čvorove"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
-#: ui/EditorConfigPage.ui:287
-#, kde-format
-msgid "Color highlight"
-msgstr "Naglašavanje boje"
-
-#. i18n: ectx: property (text), widget (QLabel, label_13)
-#: ui/EditorConfigPage.ui:296
-#, kde-format
-msgid "Render stitches as"
-msgstr "Iscrtaj šavove kao"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
-#: ui/EditorConfigPage.ui:309 ui/EditorConfigPage.ui:376
-#, kde-format
-msgid "Black and White Symbols"
-msgstr "Crni i bijeli simboli"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
-#: ui/EditorConfigPage.ui:324 ui/EditorConfigPage.ui:366
-#, kde-format
-msgid "Color Blocks and Symbols"
-msgstr "Boja blokova i simbola"
-
-#. i18n: ectx: property (text), widget (QLabel, label_14)
-#: ui/EditorConfigPage.ui:332
-#, kde-format
-msgid "Render backstitches as"
-msgstr "Iscrtaj pozadinske šavove kao"
-
-#. i18n: ectx: property (text), widget (QLabel, label_15)
-#: ui/EditorConfigPage.ui:353
-#, kde-format
-msgid "Render knots as"
-msgstr "Iscrtaj čvorove kao"
-
-#. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
-#: ui/EditorConfigPage.ui:387
-#, kde-format
-msgid "Tools"
-msgstr "Alati"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
-#: ui/EditorConfigPage.ui:396
-#, kde-format
-msgid "Tool Fractionals"
-msgstr "Alatne frakcije"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
-#: ui/EditorConfigPage.ui:403
-#, kde-format
-msgid "Mirror / Rotate makes copies"
-msgstr "Ogledalo/rotacija pravi kopije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_16)
-#: ui/EditorConfigPage.ui:412
-#, kde-format
-msgid "Text tool font"
-msgstr "Alat za pismo teksta"
-
-#. i18n: ectx: property (text), widget (QLabel, label_17)
-#: ui/EditorConfigPage.ui:422
-#, kde-format
-msgid "Font size"
-msgstr "Veličina pisma"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/FileProperties.ui:41 ui/ImportImage.ui:48
-#: ui/LibraryPatternProperties.ui:41 ui/PaletteConfigPage.ui:26
-#, kde-format
-msgid "Floss scheme"
-msgstr "Shema končića"
-
-#. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
-#: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
-#, kde-format
-msgid "Pattern Size"
-msgstr "Veličina uzorka"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/FileProperties.ui:74 ui/PatternConfigPage.ui:32
-#: ui/PatternConfigPage.ui:127
-#, kde-format
-msgid "Units"
-msgstr "Jedinice"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/FileProperties.ui:100 ui/LibraryPatternProperties.ui:55
-#: ui/PatternConfigPage.ui:39
-#, kde-format
-msgid "Width"
-msgstr "Širina"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/FileProperties.ui:123 ui/LibraryPatternProperties.ui:69
-#: ui/PatternConfigPage.ui:62
-#, kde-format
-msgid "Height"
-msgstr "Visina"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
-#, kde-format
-msgid "Cloth Count"
-msgstr "Broj tkanine"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
-#, kde-format
-msgctxt "Horizontal cloth count value"
-msgid "Horizontal"
-msgstr "Vodoravno"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
-#, kde-format
-msgctxt "Vertical cloth count value"
-msgid "Vertical"
-msgstr "Uspravno"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: ui/FileProperties.ui:279
-#, kde-format
-msgctxt "The document title"
-msgid "Title"
-msgstr "Naslov"
-
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#: ui/FileProperties.ui:292
-#, kde-format
-msgid "Author"
-msgstr "Autor"
-
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#: ui/FileProperties.ui:305
-#, kde-format
-msgid "Copyright"
-msgstr "Autorska prava"
-
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#: ui/FileProperties.ui:318
-#, kde-format
-msgid "Fabric"
-msgstr "Tkanina"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: ui/FileProperties.ui:338
-#, kde-format
-msgid "Instructions"
-msgstr "Uputstva"
-
-#. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
-#: ui/ImageElement.ui:32 ui/PatternElement.ui:32
-#, kde-format
-msgid ""
-"<html><head/><body>Click and drag to select the area of the pattern to be "
-"displayed.<br />Grayed out areas have already been selected on this or other "
-"pages.</body></html>"
-msgstr ""
-"<html><head/><body>Klikni i povuci da odabereš područje uzorka koji će biti "
-"prikazan.<br />Posivljena područja su već odabrana na ovoj ili na drugim "
-"stranicama.</body></html>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/ImageElement.ui:61 ui/KeyElement.ui:168 ui/PrinterConfigPage.ui:616
-#: ui/PrinterConfigPage.ui:786 ui/TextElement.ui:158
-#, kde-format
-msgid "Border"
-msgstr "Granica"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
-#. i18n: ectx: property (text), widget (QCheckBox, ShowBorder)
-#: ui/ImageElement.ui:67 ui/KeyElement.ui:174 ui/PrinterConfigPage.ui:622
-#: ui/PrinterConfigPage.ui:792 ui/TextElement.ui:167
-#, kde-format
-msgid "Show border"
-msgstr "Prikaži granicu"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/ImageElement.ui:74 ui/KeyElement.ui:183 ui/KeyElement.ui:255
-#: ui/TextElement.ui:174 ui/TextElement.ui:245
-#, kde-format
-msgctxt "Label for color value"
-msgid "Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/ImageElement.ui:88 ui/KeyElement.ui:197 ui/TextElement.ui:191
-#, kde-format
-msgid "Line thickness"
-msgstr "Debljina linije"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginTop)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginBottom)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginLeft)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginRight)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginTop)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PatternElement_MarginBottom)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_BorderThickness)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginLeft)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginRight)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginTop)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_TextElement_MarginBottom)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_BorderThickness)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginLeft)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginRight)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginTop)
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_KeyElement_MarginBottom)
-#. i18n: ectx: property (suffix), widget (QDoubleSpinBox, BorderThickness)
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginTop)
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginLeft)
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginRight)
-#. i18n: ectx: property (suffix), widget (QSpinBox, MarginBottom)
-#. i18n: ectx: property (suffix), widget (QSpinBox, GridSize)
-#: ui/ImageElement.ui:101 ui/KeyElement.ui:55 ui/KeyElement.ui:84
-#: ui/KeyElement.ui:113 ui/KeyElement.ui:142 ui/KeyElement.ui:213
-#: ui/PageProperties.ui:45 ui/PageProperties.ui:77 ui/PageProperties.ui:109
-#: ui/PageProperties.ui:141 ui/PageProperties.ui:205
-#: ui/PrinterConfigPage.ui:252 ui/PrinterConfigPage.ui:272
-#: ui/PrinterConfigPage.ui:292 ui/PrinterConfigPage.ui:312
-#: ui/PrinterConfigPage.ui:365 ui/PrinterConfigPage.ui:385
-#: ui/PrinterConfigPage.ui:405 ui/PrinterConfigPage.ui:425
-#: ui/PrinterConfigPage.ui:661 ui/PrinterConfigPage.ui:694
-#: ui/PrinterConfigPage.ui:714 ui/PrinterConfigPage.ui:734
-#: ui/PrinterConfigPage.ui:754 ui/PrinterConfigPage.ui:831
-#: ui/PrinterConfigPage.ui:917 ui/PrinterConfigPage.ui:937
-#: ui/PrinterConfigPage.ui:957 ui/PrinterConfigPage.ui:977 ui/TextElement.ui:45
-#: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
-#: ui/TextElement.ui:204
-#, kde-format
-msgid "mm"
-msgstr "mm"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
-#: ui/ImportConfigPage.ui:14
-#, kde-format
-msgid "Import Configuration"
-msgstr "Uvezi podešavanja"
-
-#. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
-#: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
-#, kde-format
-msgid "Maximum colors"
-msgstr "Maksimalno boja"
-
-#. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
-#: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
-#, kde-format
-msgid "Use fractionals"
-msgstr "Koristi razlomke"
-
-#. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
-#: ui/ImportImage.ui:118
-#, kde-format
-msgid "Ignore color"
-msgstr "Ignoriši boju"
-
-#. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
-#: ui/ImportImage.ui:165
-#, kde-format
-msgid "Set as default"
-msgstr "Postavi kao zadani"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/ImportImage.ui:185 ui/TextTool.ui:38
-#, kde-format
-msgid "Size"
-msgstr "Veličina"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/ImportImage.ui:191
-#, kde-format
-msgid "Horizontal cloth count"
-msgstr "Horizontalna računica tkanine"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/ImportImage.ui:254
-#, kde-format
-msgid "Vertical cloth count"
-msgstr "Vertikalna računica tkanine"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: ui/ImportImage.ui:283
-#, kde-format
-msgid "Pattern scale"
-msgstr "Skala uzorka"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
-#: ui/ImportImage.ui:302
-#, no-c-format, kde-format
-msgid "%"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/ImportImage.ui:315
-#, kde-format
-msgid "Pattern size"
-msgstr "Veličina uzorka"
-
-#. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
-#: ui/ImportImage.ui:339
-#, kde-format
-msgid "Crop image"
-msgstr ""
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
-#. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
-#: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:780
-#, kde-format
-msgid "Key Element"
-msgstr "Ključni element"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
-#: ui/KeyElement.ui:30 ui/PageProperties.ui:20 ui/PrinterConfigPage.ui:231
-#: ui/PrinterConfigPage.ui:344 ui/PrinterConfigPage.ui:673
-#: ui/PrinterConfigPage.ui:896 ui/TextElement.ui:20
-#, kde-format
-msgid "Margins"
-msgstr "Margine"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
-#: ui/KeyElement.ui:49 ui/PageProperties.ui:39
-#, kde-format
-msgid "Top margin in mm"
-msgstr "Gornja margina u mm"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
-#: ui/KeyElement.ui:78 ui/PageProperties.ui:71
-#, kde-format
-msgid "Left margin in mm"
-msgstr "Lijeva margina u mm"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
-#: ui/KeyElement.ui:107 ui/PageProperties.ui:103
-#, kde-format
-msgid "Right margin in mm"
-msgstr "Desna margina u mm"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
-#: ui/KeyElement.ui:136 ui/PageProperties.ui:135
-#, kde-format
-msgid "Bottom margin in mm"
-msgstr "Donja margina u mm"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/KeyElement.ui:240 ui/TextElement.ui:229
-#, kde-format
-msgctxt "Groupbox title for background properties"
-msgid "Background"
-msgstr "Pozadina"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
-#. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:606 ui/PrinterConfigPage.ui:849
-#: ui/TextElement.ui:238
-#, kde-format
-msgid "Fill background"
-msgstr "Ispuni pozadinu"
-
-#. i18n: ectx: property (text), widget (QLabel, label_22)
-#. i18n: ectx: property (text), widget (QLabel, label_26)
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:586 ui/PrinterConfigPage.ui:873
-#: ui/TextElement.ui:262
-#, kde-format
-msgid "Transparency"
-msgstr "Transparentnost"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ElementContentTab)
-#: ui/KeyElement.ui:295
-#, fuzzy, kde-format
-#| msgid "Elements"
-msgid "Element Content"
-msgstr "Elementi"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/KeyElement.ui:301 ui/TextTool.ui:25
-#, kde-format
-msgid "Font"
-msgstr "Font"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
-#: ui/KeyElement.ui:313
-#, kde-format
-msgid "Key Elements"
-msgstr "Ključni elementi"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/KeyElement.ui:321
-#, kde-format
-msgid "First element"
-msgstr "Prvi element"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
-#: ui/KeyElement.ui:328
-#, kde-format
-msgid "The first line of the key to display"
-msgstr "Prva linija ključa koja će biti prikazana"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: ui/KeyElement.ui:341
-#, kde-format
-msgid "No. elements"
-msgstr "Nema elemenata"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
-#: ui/KeyElement.ui:348
-#, kde-format
-msgid "The number of key elements to display (0 for all)"
-msgstr "Broj ključnih elemenata koji će biti prikazani (0 za sve)"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/KeyElement.ui:369
-#, kde-format
-msgid "Columns"
-msgstr "Kolone"
-
-#. i18n: ectx: property (text), widget (QCheckBox, SymbolColumnColor)
-#: ui/KeyElement.ui:387
-#, fuzzy, kde-format
-#| msgctxt "Label for color value"
-#| msgid "Color"
-msgid "Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:1005
-#, kde-format
-msgid "Floss name"
-msgstr "Ime končića"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
-#: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:1015
-#, kde-format
-msgid "Floss description"
-msgstr "Opis končića"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
-#: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:1039
-#, kde-format
-msgid "Length"
-msgstr "Dužina"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
-#. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
-#: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:1046
-#, kde-format
-msgid "Skeins"
-msgstr "Konopi"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
-#: ui/LibraryConfigPage.ui:14
-#, kde-format
-msgid "Library Configuration"
-msgstr "Konfiguracija biblioteke"
-
-#. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: ui/LibraryConfigPage.ui:24 ui/LibraryManager.ui:37
-#, kde-format
-msgid "Libraries"
-msgstr "Biblioteke"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/LibraryConfigPage.ui:30
-#, kde-format
-msgid "Icon default size"
-msgstr "Standardna veličina ikone"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: ui/LibraryConfigPage.ui:41
-#, kde-format
-msgid "Alphabets"
-msgstr "Alfabeti"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
-#: ui/LibraryConfigPage.ui:47
-#, kde-format
-msgid "Use caps lock"
-msgstr "Koristi velika slova"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
-#: ui/LibraryConfigPage.ui:54
-#, kde-format
-msgid "Word wrap"
-msgstr "Omot riječi"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/LibraryConfigPage.ui:63
-#, kde-format
-msgid "Default space width"
-msgstr "Standardna širina prostora"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/LibraryConfigPage.ui:73
-#, kde-format
-msgid "Line spacing"
-msgstr "Razmak linija"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/LibraryConfigPage.ui:83
-#, kde-format
-msgid "Extend pattern width"
-msgstr "Proširi širinu uzorka"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/LibraryConfigPage.ui:93
-#, kde-format
-msgid "Extend pattern height"
-msgstr "Proširi visinu uzorka"
-
-#. i18n: ectx: property (text), widget (QLabel, CatagoryName)
-#: ui/LibraryFilePaths.ui:23
-#, kde-format
-msgid "Paths"
-msgstr "Putanje"
-
-#. i18n: ectx: property (toolTip), widget (QSlider, IconSizeSlider)
-#: ui/LibraryManager.ui:91
-#, fuzzy, kde-format
-#| msgid "Font size"
-msgid "Icon size"
-msgstr "Veličina pisma"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/LibraryPatternProperties.ui:83
-#, kde-format
-msgid "Baseline"
-msgstr "Bazna linija"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: ui/LibraryPatternProperties.ui:100
-#, kde-format
-msgid "Associated character"
-msgstr "Udruženi znak"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
-#: ui/NewFloss.ui:14
-#, kde-format
-msgid "Create New Floss"
-msgstr "Kreiraj novi končić"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/NewFloss.ui:57
-#, kde-format
-msgctxt "Color chooser"
-msgid "Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PageProperties.ui:192
-#, kde-format
-msgctxt "The horizontal axis"
-msgid "Size"
-msgstr "Veličina"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
-#: ui/PageProperties.ui:202
-#, kde-format
-msgid "Grid X spacing in mm"
-msgstr "Mrežni X razmak u mm"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, PaletteConfigPage)
-#: ui/PaletteConfigPage.ui:14
-#, kde-format
-msgid "Palette Configuration"
-msgstr "Konfiguracija palete"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
-#: ui/PaletteConfigPage.ui:43
-#, kde-format
-msgid "Show symbols"
-msgstr "Prikaži simbole"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PaletteConfigPage.ui:50
-#, kde-format
-msgid "Symbol library"
-msgstr "Biblioteka simbola"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/PaletteConfigPage.ui:60
-#, kde-format
-msgid "Default stitch strands"
-msgstr "Standardne niti šavova"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/PaletteConfigPage.ui:67
-#, kde-format
-msgid "Default backstitch strands"
-msgstr "Standardne niti pozadinskih šavova"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PaletteManager.ui:22
-#, kde-format
-msgid "Current palette"
-msgstr "Trenutna paleta"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/PaletteManager.ui:80
-#, kde-format
-msgid "Current scheme"
-msgstr "Trenutna shema"
-
-#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
-#: ui/PaletteManager.ui:87
-#, fuzzy, kde-format
-#| msgid "Text"
-msgid "TextLabel"
-msgstr "Tekst"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: ui/PaletteManager.ui:99
-#, kde-format
-msgid "Symbol Library"
-msgstr "Biblioteka simbola"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/PaletteManager.ui:109
-#, kde-format
-msgid "Stitch strands"
-msgstr "Niti šava"
-
-#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
-#: ui/PaletteManager.ui:196
-#, kde-format
-msgid "Calibrate Flosses"
-msgstr "Kalibriraj končiće"
-
-#. i18n: ectx: property (text), widget (QPushButton, PickColor)
-#: ui/PaletteManager.ui:203
-#, fuzzy, kde-format
-#| msgctxt "Label for color value"
-#| msgid "Color"
-msgid "Pick Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/PaletteManager.ui:212
-#, kde-format
-msgid "Backstitch strands"
-msgstr "Niti pozadinskih šavova"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:264
-#, kde-format
-msgctxt "A solid line"
-msgid "Solid"
-msgstr "Čvrsto"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:269
-#, kde-format
-msgctxt "A dashed line"
-msgid "Dashed"
-msgstr "Isprekidan"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:274
-#, kde-format
-msgctxt "A dotted line"
-msgid "Dotted"
-msgstr "Tačkast"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:279
-#, kde-format
-msgid "Dash Dotted"
-msgstr "Isprekidano tačkast"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:284
-#, kde-format
-msgid "Dash Dash Dotted"
-msgstr "Crta crta tačka"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
-#: ui/PatternConfigPage.ui:14
-#, kde-format
-msgid "Pattern Configuration"
-msgstr "Konfiguracija uzorka"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/PatternElement.ui:70 ui/PatternElement.ui:116 ui/PatternElement.ui:147
-#: ui/PatternElement.ui:189
-#, kde-format
-msgid "As"
-msgstr "Kao"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
-#: ui/PatternElement.ui:179
-#, kde-format
-msgid "Not currently implemented"
-msgstr "Nije trenutno implementirano"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
-#: ui/PatternElement.ui:182
-#, kde-format
-msgid "Show scales"
-msgstr "Prikaži skale"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
-#: ui/PatternElement.ui:225
-#, kde-format
-msgid "Show map"
-msgstr "Prikaži mapu"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: ui/PrinterConfigPage.ui:24 ui/PrintSetup.ui:49
-#, kde-format
-msgid "Pages"
-msgstr "Stranice"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PrinterConfigPage.ui:32
-#, kde-format
-msgid "Default paper size"
-msgstr "Standardna veličina papira"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, PaperSize)
-#. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
-#, kde-format
-msgid "Select a paper size"
-msgstr "Odaberi veličinu papira"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:49 ui/PrintSetup.ui:214
-#, kde-format
-msgctxt "Paper size"
-msgid "A0"
-msgstr "A0"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:54 ui/PrintSetup.ui:219
-#, kde-format
-msgctxt "Paper size"
-msgid "A1"
-msgstr "A1"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:59 ui/PrintSetup.ui:224
-#, kde-format
-msgctxt "Paper size"
-msgid "A2"
-msgstr "A2"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:64 ui/PrintSetup.ui:229
-#, kde-format
-msgctxt "Paper size"
-msgid "A3"
-msgstr "A3"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:234
-#, kde-format
-msgctxt "Paper size"
-msgid "A4"
-msgstr "A4"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:74 ui/PrintSetup.ui:239
-#, kde-format
-msgctxt "Paper size"
-msgid "A5"
-msgstr "A5"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:79 ui/PrintSetup.ui:244
-#, kde-format
-msgctxt "Paper size"
-msgid "A6"
-msgstr "A6"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:84 ui/PrintSetup.ui:249
-#, kde-format
-msgctxt "Paper size"
-msgid "A7"
-msgstr "A7"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:89 ui/PrintSetup.ui:254
-#, kde-format
-msgctxt "Paper size"
-msgid "A8"
-msgstr "A8"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:94 ui/PrintSetup.ui:259
-#, kde-format
-msgctxt "Paper size"
-msgid "A9"
-msgstr "A9"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:99 ui/PrintSetup.ui:264
-#, kde-format
-msgctxt "Paper size"
-msgid "B0"
-msgstr "B0"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:104 ui/PrintSetup.ui:269
-#, kde-format
-msgctxt "Paper size"
-msgid "B1"
-msgstr "B1"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:109 ui/PrintSetup.ui:274
-#, kde-format
-msgctxt "Paper size"
-msgid "B2"
-msgstr "B2"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:114 ui/PrintSetup.ui:279
-#, kde-format
-msgctxt "Paper size"
-msgid "B3"
-msgstr "B3"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:119 ui/PrintSetup.ui:284
-#, kde-format
-msgctxt "Paper size"
-msgid "B4"
-msgstr "B4"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:124 ui/PrintSetup.ui:289
-#, kde-format
-msgctxt "Paper size"
-msgid "B5"
-msgstr "B5"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:129 ui/PrintSetup.ui:294
-#, kde-format
-msgctxt "Paper size"
-msgid "B6"
-msgstr "B6"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:134 ui/PrintSetup.ui:299
-#, kde-format
-msgctxt "Paper size"
-msgid "B7"
-msgstr "B7"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:139 ui/PrintSetup.ui:304
-#, kde-format
-msgctxt "Paper size"
-msgid "B8"
-msgstr "B8"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:144 ui/PrintSetup.ui:309
-#, kde-format
-msgctxt "Paper size"
-msgid "B9"
-msgstr "B9"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:149 ui/PrintSetup.ui:314
-#, kde-format
-msgctxt "Paper size"
-msgid "B10"
-msgstr "B10"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:154 ui/PrintSetup.ui:319
-#, kde-format
-msgctxt "Paper size"
-msgid "C5E"
-msgstr "C5E"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:159 ui/PrintSetup.ui:324
-#, kde-format
-msgctxt "Paper size"
-msgid "Comm10E"
-msgstr "Comm10E"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:164 ui/PrintSetup.ui:329
-#, kde-format
-msgctxt "Paper size"
-msgid "DLE"
-msgstr "DLE"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:169 ui/PrintSetup.ui:334
-#, kde-format
-msgctxt "Paper size"
-msgid "Executive"
-msgstr "Izvršni"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:174 ui/PrintSetup.ui:339
-#, kde-format
-msgctxt "Paper size"
-msgid "Folio"
-msgstr "Folio"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:179 ui/PrintSetup.ui:344
-#, kde-format
-msgctxt "Paper size"
-msgid "Ledger"
-msgstr "Glavna knjiga"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:184 ui/PrintSetup.ui:349
-#, kde-format
-msgctxt "Paper size"
-msgid "Legal"
-msgstr "Pravno"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:189 ui/PrintSetup.ui:354
-#, kde-format
-msgctxt "Paper size"
-msgid "Letter"
-msgstr "Slovo"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, PaperSize)
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Page_Size)
-#: ui/PrinterConfigPage.ui:194 ui/PrintSetup.ui:359
-#, kde-format
-msgctxt "Paper size"
-msgid "Tabloid"
-msgstr "Tabloid"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
-#: ui/PrinterConfigPage.ui:206 ui/PrintSetup.ui:377
-#, kde-format
-msgid "Portrait"
-msgstr "Portret"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
-#. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
-#: ui/PrinterConfigPage.ui:219 ui/PrintSetup.ui:382
-#, kde-format
-msgid "Landscape"
-msgstr "Pejzaž"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#. i18n: ectx: property (text), widget (QLabel, label_14)
-#: ui/PrinterConfigPage.ui:239 ui/PrinterConfigPage.ui:352
-#: ui/PrinterConfigPage.ui:681 ui/PrinterConfigPage.ui:904
-#, kde-format
-msgctxt "Left margin"
-msgid "Left"
-msgstr "Lijevo"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#. i18n: ectx: property (text), widget (QLabel, label_15)
-#: ui/PrinterConfigPage.ui:259 ui/PrinterConfigPage.ui:372
-#: ui/PrinterConfigPage.ui:701 ui/PrinterConfigPage.ui:924
-#, kde-format
-msgctxt "Right margin"
-msgid "Right"
-msgstr "Right"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#. i18n: ectx: property (text), widget (QLabel, label_16)
-#: ui/PrinterConfigPage.ui:279 ui/PrinterConfigPage.ui:392
-#: ui/PrinterConfigPage.ui:721 ui/PrinterConfigPage.ui:944
-#, kde-format
-msgctxt "Top margin"
-msgid "Top"
-msgstr "Na vrhu"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#. i18n: ectx: property (text), widget (QLabel, label_13)
-#. i18n: ectx: property (text), widget (QLabel, label_17)
-#: ui/PrinterConfigPage.ui:299 ui/PrinterConfigPage.ui:412
-#: ui/PrinterConfigPage.ui:741 ui/PrinterConfigPage.ui:964
-#, kde-format
-msgctxt "Bottom margin"
-msgid "Bottom"
-msgstr "Dno"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: ui/PrinterConfigPage.ui:338
-#, kde-format
-msgid "Pattern Element"
-msgstr "Element uzorka"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
-#: ui/PrinterConfigPage.ui:437
-#, kde-format
-msgid "Cells"
-msgstr "Ćelije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_27)
-#: ui/PrinterConfigPage.ui:445
-#, kde-format
-msgid "Minimum cell size (mm)"
-msgstr "Minimalna veličina ćelije (mm)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_28)
-#: ui/PrinterConfigPage.ui:458
-#, kde-format
-msgid "Minimum overflow"
-msgstr "Minimalno prekoračenje"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
-#: ui/PrinterConfigPage.ui:476
-#, kde-format
-msgid "Selections"
-msgstr "Selekcije"
-
-#. i18n: ectx: property (text), widget (QLabel, label_29)
-#: ui/PrinterConfigPage.ui:482
-#, kde-format
-msgid "Selected area color"
-msgstr "Odabrano područje boje"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: ui/PrinterConfigPage.ui:528
-#, kde-format
-msgid "Text Element"
-msgstr "Element teksta"
-
-#. i18n: ectx: property (text), widget (QLabel, label_21)
-#. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
-#: ui/PrinterConfigPage.ui:540 ui/TextElement.ui:463
-#, kde-format
-msgid "Text color"
-msgstr "Boja teksta"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
-#: ui/PrinterConfigPage.ui:560 ui/PrinterConfigPage.ui:843
-#, kde-format
-msgctxt "Fill the background"
-msgid "Background"
-msgstr "Pozadina"
-
-#. i18n: ectx: property (text), widget (QLabel, label_20)
-#. i18n: ectx: property (text), widget (QLabel, label_25)
-#: ui/PrinterConfigPage.ui:569 ui/PrinterConfigPage.ui:856
-#, kde-format
-msgctxt "Background color"
-msgid "Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_18)
-#. i18n: ectx: property (text), widget (QLabel, label_23)
-#: ui/PrinterConfigPage.ui:631 ui/PrinterConfigPage.ui:801
-#, kde-format
-msgctxt "Border color"
-msgid "Color"
-msgstr "Boja"
-
-#. i18n: ectx: property (text), widget (QLabel, label_19)
-#. i18n: ectx: property (text), widget (QLabel, label_24)
-#: ui/PrinterConfigPage.ui:648 ui/PrinterConfigPage.ui:818
-#, kde-format
-msgid "Thickness"
-msgstr "Debljina"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
-#: ui/PrinterConfigPage.ui:989
-#, kde-format
-msgid "Elements"
-msgstr "Elementi"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
-#: ui/PrinterConfigPage.ui:995
-#, kde-format
-msgid "Symbols"
-msgstr "Simboli"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
-#: ui/PrintSetup.ui:68
-#, kde-format
-msgid "Create a default layout"
-msgstr "Kreiraj standardni raspored"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
-#: ui/PrintSetup.ui:107
-#, kde-format
-msgid "Append a page"
-msgstr "Priloži stranicu"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
-#: ui/PrintSetup.ui:149
-#, kde-format
-msgid "Insert a page before the selected page"
-msgstr "Umetni stranicu prije selektovane stranice"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
-#: ui/PrintSetup.ui:188
-#, kde-format
-msgid "Delete the selected page"
-msgstr "Izbriši selektovanu stranicu"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
-#: ui/PrintSetup.ui:373
-#, kde-format
-msgid "Select the paper orientation"
-msgstr "Odaberi orijentaciju papira"
-
-#. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
-#: ui/PrintSetup.ui:396
-#, kde-format
-msgid "Zoom factor"
-msgstr "Faktor uvećanja"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
-#: ui/PrintSetup.ui:456
-#, kde-format
-msgid "Select an element"
-msgstr "Odaberite neki element"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
-#: ui/PrintSetup.ui:478
-#, kde-format
-msgid "Insert a text element"
-msgstr "Ubaci tekstualni element"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
-#: ui/PrintSetup.ui:503
-#, kde-format
-msgid "Insert a pattern element"
-msgstr "Ubaci element uzorka"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
-#: ui/PrintSetup.ui:525
-#, kde-format
-msgid "Insert a picture element"
-msgstr "Umetni slikovni element"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
-#: ui/PrintSetup.ui:535
-#, kde-format
-msgid "Insert a key element"
-msgstr "Umetni ključni eleent"
-
-#. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
-#: ui/PrintSetup.ui:606
-#, kde-format
-msgid "Page list"
-msgstr "Lista stranice"
-
-#. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
-#: ui/PrintSetup.ui:634
-#, kde-format
-msgid "Page preview"
-msgstr "Pregled stranice"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
-#: ui/SymbolSelector.ui:14
-#, kde-format
-msgid "Symbol Selection"
-msgstr "Izbor simbola"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
-#: ui/TextElement.ui:39
-#, kde-format
-msgid "Top margin in mm, internal to the border."
-msgstr "Gornja margina u mm, unutrašnja do granice."
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
-#: ui/TextElement.ui:68
-#, kde-format
-msgid "Left margin in mm, internal to the border."
-msgstr "Lijeva margina u mm, unutrašnja do granice."
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
-#: ui/TextElement.ui:97
-#, kde-format
-msgid "Right margin in mm, internal to the border."
-msgstr "Desna margina u mm, unutrašnja do granice."
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
-#: ui/TextElement.ui:126
-#, kde-format
-msgid "Bottom margin in mm, internal to the border."
-msgstr "Donja margina u mm, unutrašnja do granice."
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
-#: ui/TextElement.ui:164
-#, kde-format
-msgid "Show border around the text box"
-msgstr "Prikaži granciu oko okvira sa tekstom"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
-#: ui/TextElement.ui:235
-#, kde-format
-msgid "Fill the background with a color"
-msgstr "Ispuni pozadinu bojom"
-
-#. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
-#: ui/TextElement.ui:255
-#, kde-format
-msgid "Background color"
-msgstr "Boja pozadine"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
-#: ui/TextElement.ui:272
-#, kde-format
-msgid "Transparency of the text box"
-msgstr "Transparentnost okvira sa tekstom"
-
-#. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
-#: ui/TextElement.ui:288
-#, kde-format
-msgid "Text font family"
-msgstr "Familija pisma teksta"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
-#: ui/TextElement.ui:301
-#, kde-format
-msgid "Text point size"
-msgstr "Veličina tačke u tekstu"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
-#: ui/TextElement.ui:330
-#, kde-format
-msgid "Bold text"
-msgstr "Podebljani tekst"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
-#: ui/TextElement.ui:349
-#, kde-format
-msgid "Italics text"
-msgstr "Nakošeni tekst"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
-#: ui/TextElement.ui:368
-#, kde-format
-msgid "Underline text"
-msgstr "Podvučeni tekst"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
-#: ui/TextElement.ui:387
-#, kde-format
-msgid "Align left"
-msgstr "Poravnajte na lijevo"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
-#: ui/TextElement.ui:406
-#, kde-format
-msgid "Align centrally"
-msgstr "Poravnajte centrirano"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
-#: ui/TextElement.ui:425
-#, kde-format
-msgid "Align right"
-msgstr "Poravnajte na desno"
-
-#. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
-#: ui/TextElement.ui:444
-#, kde-format
-msgid "Align justified"
-msgstr "Poravnajte podjednako"
+#~ msgid "The background color."
+#~ msgstr "Pozdadinska boja."
+
+#~ msgid "The color of the editors thick lines."
+#~ msgstr "Boja urednikovih debelih linija."
+
+#~ msgid "The color of the editors thin lines."
+#~ msgstr "Boja urednikovih tankih linija."
+
+#~ msgid "The width of the major grid lines."
+#~ msgstr "Širina glavnih mrežnih linija."
+
+#~ msgid "The width of the minor grid lines."
+#~ msgstr "Širina nižih mrežnih linija."
+
+#~ msgid "The number of cells making up a horizontal group."
+#~ msgstr "Broj stanica koje čine horizontalnu skupinu."
+
+#~ msgid "The number of cells making up a vertical group."
+#~ msgstr "Broj stanica koje čine vertikalnu skupinu."
+
+#~ msgid "The horizontal cloth count."
+#~ msgstr "Broj horizontalne tkanine."
+
+#~ msgid "The vertical cloth count."
+#~ msgstr "Broj vertikalne tkanine"
+
+#~ msgid "The cloth count units."
+#~ msgstr "Platnene jedinice."
+
+#~ msgid "Square cells"
+#~ msgstr "Kvadratne ćelije"
+
+#~ msgid "The height of the horizontal ruler."
+#~ msgstr "Visina horizontalnog linijara."
+
+#~ msgid "The width of the vertical ruler."
+#~ msgstr "Širina vertikalnog linijara."
+
+#~ msgid "The display units for a scale."
+#~ msgstr "Zaslonske jedinice za skalu."
+
+#~ msgid "The minimum zoom factor"
+#~ msgstr "Minimalni zumirajući faktor"
+
+#~ msgid "The maximum zoom factor"
+#~ msgstr "Maksimalni zumirajući faktor"
+
+#~ msgid "The default zoom factor"
+#~ msgstr "Standardni zumirajući faktor"
+
+#~ msgid "Enable color highlighting mode"
+#~ msgstr "Uključite opciju za naglašavanje bojom"
+
+#~ msgid "Render the background images"
+#~ msgstr "Obrada  pozadinskih slika"
+
+#~ msgid "Render the grid"
+#~ msgstr "Obrada mreže"
+
+#~ msgid "Render the stitches"
+#~ msgstr "Obrada šavova"
+
+#~ msgid "Render the backstitches"
+#~ msgstr "Obrada pozadinskih šavova"
+
+#~ msgid "Render the french knots"
+#~ msgstr "Obrada francuskih čvorova"
+
+#~ msgid "How to display stitches."
+#~ msgstr "Kako prikazati šavove."
+
+#~ msgid "How to display backstitches."
+#~ msgstr "Kako prikazati pozadinske šavove."
+
+#~ msgid "How to display french knots."
+#~ msgstr "Kako prikazati francuske čvorove."
+
+#~ msgid "The default width of a new pattern in the units specified."
+#~ msgstr "Standardna širina novog uzorka u navedenim jedinicama."
+
+#~ msgid "The default height of a new pattern in the units specified."
+#~ msgstr "Standardna visina novog uzorka u navedenim jedinicama."
+
+#, fuzzy
+#~| msgid "The default width of a new pattern in the units specified."
+#~ msgid "The minimum width of a pattern in the units specified."
+#~ msgstr "Standardna širina novog uzorka u navedenim jedinicama."
+
+#, fuzzy
+#~| msgid "The default height of a new pattern in the units specified."
+#~ msgid "The minimum height of a pattern in the units specified."
+#~ msgstr "Standardna visina novog uzorka u navedenim jedinicama."
+
+#, fuzzy
+#~| msgid "The default width of a new pattern in the units specified."
+#~ msgid "The maximum width of a pattern in the units specified."
+#~ msgstr "Standardna širina novog uzorka u navedenim jedinicama."
+
+#, fuzzy
+#~| msgid "The default height of a new pattern in the units specified."
+#~ msgid "The maximum height of a pattern in the units specified."
+#~ msgstr "Standardna visina novog uzorka u navedenim jedinicama."
+
+#~ msgid "Use a maximum number of colors"
+#~ msgstr "Koristite maksimalan broj boja"
+
+#~ msgid "Maximum number of colors"
+#~ msgstr "Maksimalan broj boja"
+
+#~ msgid "Use fractional stitches for finer detail"
+#~ msgstr "Koristite frakcijske šavove za finije detalje"
+
+#~ msgid "The default floss scheme to be used for new documents."
+#~ msgstr "Zadana konac shema koja će se koristiti za nove dokumente."
+
+#~ msgid "The default symbol library to be used for new documents."
+#~ msgstr "Zadana simbol biblioteka koja će se koristiti za nove dokumente."
+
+#~ msgid "The default number of strands used for stitches."
+#~ msgstr "Zadani broj niti koji se koriste za ubode."
+
+#~ msgid "The default number of strands used for backstitches."
+#~ msgstr "Zadani broj niti koji se koriste pozadinske šavove."
+
+#~ msgid "Display the symbols in the palette."
+#~ msgstr "Prikaži simbole u paleti."
+
+#~ msgid "Display the symbols antialiased"
+#~ msgstr "Prikaži simbole antialiased"
+
+#~ msgid "The default size of icons shown in the icon view"
+#~ msgstr "Zadana veličina ikona prikazanih u pregledniku ikona"
+
+#~ msgid "Should character selection honor the caps lock key"
+#~ msgstr "Treba li izbor slova odlikovati tipku caps lock"
+
+#~ msgid "The default width of a space in cells"
+#~ msgstr "Zadana širina prostora u ćelijama"
+
+#~ msgid "Should a space cause word wrapping at the right edge of the pattern"
+#~ msgstr "Da li će prostor uzrokovati umetanje riječi na desnu ivicu uzorka"
+
+#~ msgid "The number of cells between lines of text"
+#~ msgstr "Broj ćelija između linija teksta"
+
+#~ msgid "The number of cells to be added when extending the pattern right"
+#~ msgstr "Broj ćelija koje će biti dodane kada se uzorak proširi udesno"
+
+#~ msgid "The number of cells to be added when extending the pattern down"
+#~ msgstr "Broj ćelija koje će biti dodane kada se uzorak proširi nadole"
+
+#~ msgid "Should the shapes tools use fractional stitches"
+#~ msgstr "Trebaju li alati za oblikovanje koristiti frakcijske šavove"
+
+#~ msgid "The font family to be used in the TextToolDlg"
+#~ msgstr "Familija fontova koji će biti korišteni u TextToolDlg"
+
+#~ msgid "The text size in pixels"
+#~ msgstr "Veličina teksta u pikselima"
+
+#~ msgid "Does mirroring and copying make copies"
+#~ msgstr "Da li zrcaljenje i kopiranje pravi kopije"
+
+#~ msgid "The page left margin"
+#~ msgstr "Lijeva margina stranice"
+
+#~ msgid "The page top margin"
+#~ msgstr "Gornja margina stranice"
+
+#~ msgid "The page right margin"
+#~ msgstr "Desna margina stranice"
+
+#~ msgid "The page bottom margin"
+#~ msgstr "Donja margina stranice"
+
+#~ msgid "Show the layout editor"
+#~ msgstr "Prikažite raspored urednika"
+
+#~ msgid "The grid size in mm"
+#~ msgstr "Veličina rešetke u mm"
+
+#~ msgid "The default page size"
+#~ msgstr "Zadana veličina stranice"
+
+#~ msgid "The default page orientation"
+#~ msgstr "Zadana orjentacija stranice"
+
+#~ msgid "The snap distance for element boundary corner nodes"
+#~ msgstr "Udaljenost namještanja za ugaone čvorove na granicama elemenata"
+
+#~ msgid "The snap node size"
+#~ msgstr "Veličina čvorova za namještanja"
+
+#~ msgid "Show a border around the pattern"
+#~ msgstr "Prikaži ivicu oko uzorka"
+
+#~ msgid "The color of the border"
+#~ msgstr "Boja ivice"
+
+#~ msgid "The thickness of the border in 1/10 mm"
+#~ msgstr "Debljina ivice u 1/10 mm"
+
+#~ msgid "The left margin"
+#~ msgstr "Lijeva margina"
+
+#~ msgid "The top margin"
+#~ msgstr "Gornja margina"
+
+#~ msgid "The right margin"
+#~ msgstr "Desna margina"
+
+#~ msgid "The bottom margin"
+#~ msgstr "Donja margina"
+
+#~ msgid ""
+#~ "Minimum cell size in mm for template generated printer configurations"
+#~ msgstr ""
+#~ "Minimalna veličina ćelije u mm za uzorak generisan konfiguracijom štampača"
+
+#~ msgid "Minimum number of cells that can be on a page of its own"
+#~ msgstr "Minimalni broj ćelija koje mogu biti na toj stranici"
+
+#~ msgid ""
+#~ "The color used to represented already selected areas in existing pattern "
+#~ "elements"
+#~ msgstr ""
+#~ "Boja se već koristi za zastupljena odabrana područja u postojećim "
+#~ "elementima uzorka"
+
+#~ msgid "Show a border around the image"
+#~ msgstr "Prikaži granice oko slike"
+
+#~ msgid "Show a border around the key"
+#~ msgstr "Prikaži granice oko ključa"
+
+#~ msgid "Fill the background"
+#~ msgstr "Popuni pozadinu"
+
+#~ msgid "The color of the background"
+#~ msgstr "Boja pozadine"
+
+#~ msgid "Transparency of the background"
+#~ msgstr "Transparentnost pozadine"
+
+#~ msgid "The key element left margin"
+#~ msgstr "Ključni element lijeve margine"
+
+#~ msgid "The key element top margin"
+#~ msgstr "Ključni element gornje margine"
+
+#~ msgid "The key element right margin"
+#~ msgstr "Ključni element desne margine"
+
+#~ msgid "The key element bottom margin"
+#~ msgstr "Ključni element donje margine"
+
+#~ msgid "Show the key element symbol column"
+#~ msgstr "Prikaži ključni element simbola kolona"
+
+#, fuzzy
+#~| msgid "Show the key element symbol column"
+#~ msgid "Show the key element symbol column in color"
+#~ msgstr "Prikaži ključni element simbola kolona"
+
+#~ msgid "Show the key element floss name column"
+#~ msgstr "Prikaži ključni element konca ime kolone"
+
+#~ msgid "Show the key element floss strands column"
+#~ msgstr "Pokaži ključni element konca kolone"
+
+#~ msgid "Show the key element floss description column"
+#~ msgstr "Pokaži ključni opis elementa konca kolone"
+
+#~ msgid "Show the key element stitch count column"
+#~ msgstr "Pokaži ključni element boda s brojem kolona"
+
+#~ msgid "Show the key element floss length column"
+#~ msgstr "Pokaži ključni element konca duljine kolone"
+
+#~ msgid "Show the key element skeins column"
+#~ msgstr "Pokaži ključni element čunjeva kolone"
+
+#~ msgid "Show the border"
+#~ msgstr "Pokaži granicu"
+
+#~ msgid "The border color"
+#~ msgstr "Boja ivice"
+
+#~ msgid "Thickness of the border in 1/10 mm"
+#~ msgstr "Debljina ivice u 1/10 mm"
+
+#~ msgid "Color of the background"
+#~ msgstr "Boja pozadine"
+
+#~ msgid "The transparency value"
+#~ msgstr "Transparentna vrijednost"
+
+#~ msgid "The text color"
+#~ msgstr "Boja teksta"
+
+#~ msgid "&File"
+#~ msgstr "&Datoteka"
+
+#~ msgid "&Edit"
+#~ msgstr "&Izmijeni"
+
+#~ msgid "Selection Masks"
+#~ msgstr "Izbor maski"
+
+#~ msgid "&Settings"
+#~ msgstr "&Postavke"
+
+#~ msgid "Format Scales As"
+#~ msgstr "Formatiraj skale kao"
+
+#~ msgid "Render Stitches As"
+#~ msgstr "Izrazi konce kao"
+
+#~ msgid "Render Backstitches As"
+#~ msgstr "Obradi pozadinske šavove kao"
+
+#~ msgid "Render Knots As"
+#~ msgstr "Izrazi čvorove kao"
+
+#~ msgid "&View"
+#~ msgstr "&Pogled"
+
+#~ msgid "Fit Background Image to Selection"
+#~ msgstr "Namjesti pozadinsku sliku za izbor"
+
+#~ msgid "&Stitches"
+#~ msgstr "&šavovi"
+
+#~ msgid "&Tools"
+#~ msgstr "&Alati"
+
+#~ msgid "&Palette"
+#~ msgstr "&Paleta"
+
+#~ msgid "&Library Manager"
+#~ msgstr "&Menadžer biblioteke"
+
+#~ msgid "&Pattern"
+#~ msgstr "&Uzorak"
+
+#~ msgid "Stitch Toolbar"
+#~ msgstr "Alatna traka šavova"
+
+#~ msgid "Tools Toolbar"
+#~ msgstr "Traka s alatima"
+
+#~ msgid "Zoom Toolbar"
+#~ msgstr "Traka za zumiranje"
+
+#~ msgid "Scheme"
+#~ msgstr "Shema"
+
+#~ msgid "Currently selected color"
+#~ msgstr "Trenutno odabrana boja"
+
+#~ msgctxt "Green value of color"
+#~ msgid "Green"
+#~ msgstr "Zelena"
+
+#~ msgctxt "Red value of color"
+#~ msgid "Red"
+#~ msgstr "Crvena"
+
+#~ msgctxt "Blue value of color"
+#~ msgid "Blue"
+#~ msgstr "Plava"
+
+#~ msgid "Reset Color"
+#~ msgstr "Poništi boju"
+
+#~ msgid "Editor Configuration"
+#~ msgstr "Konfiguracija urednika"
+
+#~ msgid "Grid"
+#~ msgstr "Meža"
+
+#~ msgid "Horizontal scale height"
+#~ msgstr "Visina horizontalne skale"
+
+#~ msgid "Vertical scale width"
+#~ msgstr "Širina vertikalne skale"
+
+#~ msgid "Format scales as"
+#~ msgstr "Formatiraj skalu kao"
+
+#~ msgid "Thick line width"
+#~ msgstr "Širina debele linije"
+
+#~ msgid "Thick line color"
+#~ msgstr "Boja debele linije"
+
+#~ msgid "Thin line width"
+#~ msgstr "Širina tanke linije"
+
+#~ msgid "Thin line color"
+#~ msgstr "Boja tanke linije"
+
+#~ msgid "Horizontal cell group"
+#~ msgstr "Horizontalna grupa ćelija"
+
+#~ msgid "Vertical cell group"
+#~ msgstr "Vertikalna grupa ćelija"
+
+#~ msgid "Minimum zoom factor"
+#~ msgstr "Najmanji faktor zumiranja"
+
+#~ msgid "Maximum zoom factor"
+#~ msgstr "Najveći faktor zumiranja"
+
+#~ msgid "Default zoom factor"
+#~ msgstr "Uobičajeni faktor zumiranja"
+
+#~ msgid "Renderer"
+#~ msgstr "Iscrtavač"
+
+#~ msgid "Show grid"
+#~ msgstr "Prikaži mrežu"
+
+#~ msgid "Show background images"
+#~ msgstr "Prikaži pozadinske slike"
+
+#~ msgid "Show stitches"
+#~ msgstr "Prikaži šavove"
+
+#, fuzzy
+#~| msgid "Show stitches"
+#~ msgid "Show stitch hints"
+#~ msgstr "Prikaži šavove"
+
+#~ msgid "Show backstitches"
+#~ msgstr "Prikaži pozadinske šavove"
+
+#~ msgid "Show knots"
+#~ msgstr "Prikaži čvorove"
+
+#~ msgid "Color highlight"
+#~ msgstr "Naglašavanje boje"
+
+#~ msgid "Render stitches as"
+#~ msgstr "Iscrtaj šavove kao"
+
+#~ msgid "Black and White Symbols"
+#~ msgstr "Crni i bijeli simboli"
+
+#~ msgid "Color Blocks and Symbols"
+#~ msgstr "Boja blokova i simbola"
+
+#~ msgid "Render backstitches as"
+#~ msgstr "Iscrtaj pozadinske šavove kao"
+
+#~ msgid "Render knots as"
+#~ msgstr "Iscrtaj čvorove kao"
+
+#~ msgid "Tools"
+#~ msgstr "Alati"
+
+#~ msgid "Tool Fractionals"
+#~ msgstr "Alatne frakcije"
+
+#~ msgid "Mirror / Rotate makes copies"
+#~ msgstr "Ogledalo/rotacija pravi kopije"
+
+#~ msgid "Text tool font"
+#~ msgstr "Alat za pismo teksta"
+
+#~ msgid "Font size"
+#~ msgstr "Veličina pisma"
+
+#~ msgid "Floss scheme"
+#~ msgstr "Shema končića"
+
+#~ msgid "Pattern Size"
+#~ msgstr "Veličina uzorka"
+
+#~ msgid "Units"
+#~ msgstr "Jedinice"
+
+#~ msgid "Width"
+#~ msgstr "Širina"
+
+#~ msgid "Height"
+#~ msgstr "Visina"
+
+#~ msgid "Cloth Count"
+#~ msgstr "Broj tkanine"
+
+#~ msgctxt "Horizontal cloth count value"
+#~ msgid "Horizontal"
+#~ msgstr "Vodoravno"
+
+#~ msgctxt "Vertical cloth count value"
+#~ msgid "Vertical"
+#~ msgstr "Uspravno"
+
+#~ msgctxt "The document title"
+#~ msgid "Title"
+#~ msgstr "Naslov"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Copyright"
+#~ msgstr "Autorska prava"
+
+#~ msgid "Fabric"
+#~ msgstr "Tkanina"
+
+#~ msgid "Instructions"
+#~ msgstr "Uputstva"
+
+#~ msgid ""
+#~ "<html><head/><body>Click and drag to select the area of the pattern to be "
+#~ "displayed.<br />Grayed out areas have already been selected on this or "
+#~ "other pages.</body></html>"
+#~ msgstr ""
+#~ "<html><head/><body>Klikni i povuci da odabereš područje uzorka koji će "
+#~ "biti prikazan.<br />Posivljena područja su već odabrana na ovoj ili na "
+#~ "drugim stranicama.</body></html>"
+
+#~ msgid "Border"
+#~ msgstr "Granica"
+
+#~ msgid "Show border"
+#~ msgstr "Prikaži granicu"
+
+#~ msgctxt "Label for color value"
+#~ msgid "Color"
+#~ msgstr "Boja"
+
+#~ msgid "Line thickness"
+#~ msgstr "Debljina linije"
+
+#~ msgid "mm"
+#~ msgstr "mm"
+
+#~ msgid "Import Configuration"
+#~ msgstr "Uvezi podešavanja"
+
+#~ msgid "Maximum colors"
+#~ msgstr "Maksimalno boja"
+
+#~ msgid "Use fractionals"
+#~ msgstr "Koristi razlomke"
+
+#~ msgid "Ignore color"
+#~ msgstr "Ignoriši boju"
+
+#~ msgid "Set as default"
+#~ msgstr "Postavi kao zadani"
+
+#~ msgid "Size"
+#~ msgstr "Veličina"
+
+#~ msgid "Horizontal cloth count"
+#~ msgstr "Horizontalna računica tkanine"
+
+#~ msgid "Vertical cloth count"
+#~ msgstr "Vertikalna računica tkanine"
+
+#~ msgid "Pattern scale"
+#~ msgstr "Skala uzorka"
+
+#~ msgid "Pattern size"
+#~ msgstr "Veličina uzorka"
+
+#~ msgid "Key Element"
+#~ msgstr "Ključni element"
+
+#~ msgid "Margins"
+#~ msgstr "Margine"
+
+#~ msgid "Top margin in mm"
+#~ msgstr "Gornja margina u mm"
+
+#~ msgid "Left margin in mm"
+#~ msgstr "Lijeva margina u mm"
+
+#~ msgid "Right margin in mm"
+#~ msgstr "Desna margina u mm"
+
+#~ msgid "Bottom margin in mm"
+#~ msgstr "Donja margina u mm"
+
+#~ msgctxt "Groupbox title for background properties"
+#~ msgid "Background"
+#~ msgstr "Pozadina"
+
+#~ msgid "Fill background"
+#~ msgstr "Ispuni pozadinu"
+
+#~ msgid "Transparency"
+#~ msgstr "Transparentnost"
+
+#, fuzzy
+#~| msgid "Elements"
+#~ msgid "Element Content"
+#~ msgstr "Elementi"
+
+#~ msgid "Font"
+#~ msgstr "Font"
+
+#~ msgid "Key Elements"
+#~ msgstr "Ključni elementi"
+
+#~ msgid "First element"
+#~ msgstr "Prvi element"
+
+#~ msgid "The first line of the key to display"
+#~ msgstr "Prva linija ključa koja će biti prikazana"
+
+#~ msgid "No. elements"
+#~ msgstr "Nema elemenata"
+
+#~ msgid "The number of key elements to display (0 for all)"
+#~ msgstr "Broj ključnih elemenata koji će biti prikazani (0 za sve)"
+
+#~ msgid "Columns"
+#~ msgstr "Kolone"
+
+#, fuzzy
+#~| msgctxt "Label for color value"
+#~| msgid "Color"
+#~ msgid "Color"
+#~ msgstr "Boja"
+
+#~ msgid "Floss name"
+#~ msgstr "Ime končića"
+
+#~ msgid "Floss description"
+#~ msgstr "Opis končića"
+
+#~ msgid "Length"
+#~ msgstr "Dužina"
+
+#~ msgid "Skeins"
+#~ msgstr "Konopi"
+
+#~ msgid "Library Configuration"
+#~ msgstr "Konfiguracija biblioteke"
+
+#~ msgid "Libraries"
+#~ msgstr "Biblioteke"
+
+#~ msgid "Icon default size"
+#~ msgstr "Standardna veličina ikone"
+
+#~ msgid "Alphabets"
+#~ msgstr "Alfabeti"
+
+#~ msgid "Use caps lock"
+#~ msgstr "Koristi velika slova"
+
+#~ msgid "Word wrap"
+#~ msgstr "Omot riječi"
+
+#~ msgid "Default space width"
+#~ msgstr "Standardna širina prostora"
+
+#~ msgid "Line spacing"
+#~ msgstr "Razmak linija"
+
+#~ msgid "Extend pattern width"
+#~ msgstr "Proširi širinu uzorka"
+
+#~ msgid "Extend pattern height"
+#~ msgstr "Proširi visinu uzorka"
+
+#~ msgid "Paths"
+#~ msgstr "Putanje"
+
+#, fuzzy
+#~| msgid "Font size"
+#~ msgid "Icon size"
+#~ msgstr "Veličina pisma"
+
+#~ msgid "Baseline"
+#~ msgstr "Bazna linija"
+
+#~ msgid "Associated character"
+#~ msgstr "Udruženi znak"
+
+#~ msgid "Create New Floss"
+#~ msgstr "Kreiraj novi končić"
+
+#~ msgctxt "Color chooser"
+#~ msgid "Color"
+#~ msgstr "Boja"
+
+#~ msgctxt "The horizontal axis"
+#~ msgid "Size"
+#~ msgstr "Veličina"
+
+#~ msgid "Grid X spacing in mm"
+#~ msgstr "Mrežni X razmak u mm"
+
+#~ msgid "Palette Configuration"
+#~ msgstr "Konfiguracija palete"
+
+#~ msgid "Show symbols"
+#~ msgstr "Prikaži simbole"
+
+#~ msgid "Symbol library"
+#~ msgstr "Biblioteka simbola"
+
+#~ msgid "Default stitch strands"
+#~ msgstr "Standardne niti šavova"
+
+#~ msgid "Default backstitch strands"
+#~ msgstr "Standardne niti pozadinskih šavova"
+
+#~ msgid "Current palette"
+#~ msgstr "Trenutna paleta"
+
+#~ msgid "Current scheme"
+#~ msgstr "Trenutna shema"
+
+#, fuzzy
+#~| msgid "Text"
+#~ msgid "TextLabel"
+#~ msgstr "Tekst"
+
+#~ msgid "Symbol Library"
+#~ msgstr "Biblioteka simbola"
+
+#~ msgid "Stitch strands"
+#~ msgstr "Niti šava"
+
+#~ msgid "Calibrate Flosses"
+#~ msgstr "Kalibriraj končiće"
+
+#, fuzzy
+#~| msgctxt "Label for color value"
+#~| msgid "Color"
+#~ msgid "Pick Color"
+#~ msgstr "Boja"
+
+#~ msgid "Backstitch strands"
+#~ msgstr "Niti pozadinskih šavova"
+
+#~ msgctxt "A solid line"
+#~ msgid "Solid"
+#~ msgstr "Čvrsto"
+
+#~ msgctxt "A dashed line"
+#~ msgid "Dashed"
+#~ msgstr "Isprekidan"
+
+#~ msgctxt "A dotted line"
+#~ msgid "Dotted"
+#~ msgstr "Tačkast"
+
+#~ msgid "Dash Dotted"
+#~ msgstr "Isprekidano tačkast"
+
+#~ msgid "Dash Dash Dotted"
+#~ msgstr "Crta crta tačka"
+
+#~ msgid "Pattern Configuration"
+#~ msgstr "Konfiguracija uzorka"
+
+#~ msgid "As"
+#~ msgstr "Kao"
+
+#~ msgid "Not currently implemented"
+#~ msgstr "Nije trenutno implementirano"
+
+#~ msgid "Show scales"
+#~ msgstr "Prikaži skale"
+
+#~ msgid "Show map"
+#~ msgstr "Prikaži mapu"
+
+#~ msgid "Pages"
+#~ msgstr "Stranice"
+
+#~ msgid "Default paper size"
+#~ msgstr "Standardna veličina papira"
+
+#~ msgid "Select a paper size"
+#~ msgstr "Odaberi veličinu papira"
+
+#~ msgctxt "Paper size"
+#~ msgid "A0"
+#~ msgstr "A0"
+
+#~ msgctxt "Paper size"
+#~ msgid "A1"
+#~ msgstr "A1"
+
+#~ msgctxt "Paper size"
+#~ msgid "A2"
+#~ msgstr "A2"
+
+#~ msgctxt "Paper size"
+#~ msgid "A3"
+#~ msgstr "A3"
+
+#~ msgctxt "Paper size"
+#~ msgid "A4"
+#~ msgstr "A4"
+
+#~ msgctxt "Paper size"
+#~ msgid "A5"
+#~ msgstr "A5"
+
+#~ msgctxt "Paper size"
+#~ msgid "A6"
+#~ msgstr "A6"
+
+#~ msgctxt "Paper size"
+#~ msgid "A7"
+#~ msgstr "A7"
+
+#~ msgctxt "Paper size"
+#~ msgid "A8"
+#~ msgstr "A8"
+
+#~ msgctxt "Paper size"
+#~ msgid "A9"
+#~ msgstr "A9"
+
+#~ msgctxt "Paper size"
+#~ msgid "B0"
+#~ msgstr "B0"
+
+#~ msgctxt "Paper size"
+#~ msgid "B1"
+#~ msgstr "B1"
+
+#~ msgctxt "Paper size"
+#~ msgid "B2"
+#~ msgstr "B2"
+
+#~ msgctxt "Paper size"
+#~ msgid "B3"
+#~ msgstr "B3"
+
+#~ msgctxt "Paper size"
+#~ msgid "B4"
+#~ msgstr "B4"
+
+#~ msgctxt "Paper size"
+#~ msgid "B5"
+#~ msgstr "B5"
+
+#~ msgctxt "Paper size"
+#~ msgid "B6"
+#~ msgstr "B6"
+
+#~ msgctxt "Paper size"
+#~ msgid "B7"
+#~ msgstr "B7"
+
+#~ msgctxt "Paper size"
+#~ msgid "B8"
+#~ msgstr "B8"
+
+#~ msgctxt "Paper size"
+#~ msgid "B9"
+#~ msgstr "B9"
+
+#~ msgctxt "Paper size"
+#~ msgid "B10"
+#~ msgstr "B10"
+
+#~ msgctxt "Paper size"
+#~ msgid "C5E"
+#~ msgstr "C5E"
+
+#~ msgctxt "Paper size"
+#~ msgid "Comm10E"
+#~ msgstr "Comm10E"
+
+#~ msgctxt "Paper size"
+#~ msgid "DLE"
+#~ msgstr "DLE"
+
+#~ msgctxt "Paper size"
+#~ msgid "Executive"
+#~ msgstr "Izvršni"
+
+#~ msgctxt "Paper size"
+#~ msgid "Folio"
+#~ msgstr "Folio"
+
+#~ msgctxt "Paper size"
+#~ msgid "Ledger"
+#~ msgstr "Glavna knjiga"
+
+#~ msgctxt "Paper size"
+#~ msgid "Legal"
+#~ msgstr "Pravno"
+
+#~ msgctxt "Paper size"
+#~ msgid "Letter"
+#~ msgstr "Slovo"
+
+#~ msgctxt "Paper size"
+#~ msgid "Tabloid"
+#~ msgstr "Tabloid"
+
+#~ msgid "Portrait"
+#~ msgstr "Portret"
+
+#~ msgid "Landscape"
+#~ msgstr "Pejzaž"
+
+#~ msgctxt "Left margin"
+#~ msgid "Left"
+#~ msgstr "Lijevo"
+
+#~ msgctxt "Right margin"
+#~ msgid "Right"
+#~ msgstr "Right"
+
+#~ msgctxt "Top margin"
+#~ msgid "Top"
+#~ msgstr "Na vrhu"
+
+#~ msgctxt "Bottom margin"
+#~ msgid "Bottom"
+#~ msgstr "Dno"
+
+#~ msgid "Pattern Element"
+#~ msgstr "Element uzorka"
+
+#~ msgid "Cells"
+#~ msgstr "Ćelije"
+
+#~ msgid "Minimum cell size (mm)"
+#~ msgstr "Minimalna veličina ćelije (mm)"
+
+#~ msgid "Minimum overflow"
+#~ msgstr "Minimalno prekoračenje"
+
+#~ msgid "Selections"
+#~ msgstr "Selekcije"
+
+#~ msgid "Selected area color"
+#~ msgstr "Odabrano područje boje"
+
+#~ msgid "Text Element"
+#~ msgstr "Element teksta"
+
+#~ msgid "Text color"
+#~ msgstr "Boja teksta"
+
+#~ msgctxt "Fill the background"
+#~ msgid "Background"
+#~ msgstr "Pozadina"
+
+#~ msgctxt "Background color"
+#~ msgid "Color"
+#~ msgstr "Boja"
+
+#~ msgctxt "Border color"
+#~ msgid "Color"
+#~ msgstr "Boja"
+
+#~ msgid "Thickness"
+#~ msgstr "Debljina"
+
+#~ msgid "Elements"
+#~ msgstr "Elementi"
+
+#~ msgid "Symbols"
+#~ msgstr "Simboli"
+
+#~ msgid "Create a default layout"
+#~ msgstr "Kreiraj standardni raspored"
+
+#~ msgid "Append a page"
+#~ msgstr "Priloži stranicu"
+
+#~ msgid "Insert a page before the selected page"
+#~ msgstr "Umetni stranicu prije selektovane stranice"
+
+#~ msgid "Delete the selected page"
+#~ msgstr "Izbriši selektovanu stranicu"
+
+#~ msgid "Select the paper orientation"
+#~ msgstr "Odaberi orijentaciju papira"
+
+#~ msgid "Zoom factor"
+#~ msgstr "Faktor uvećanja"
+
+#~ msgid "Select an element"
+#~ msgstr "Odaberite neki element"
+
+#~ msgid "Insert a text element"
+#~ msgstr "Ubaci tekstualni element"
+
+#~ msgid "Insert a pattern element"
+#~ msgstr "Ubaci element uzorka"
+
+#~ msgid "Insert a picture element"
+#~ msgstr "Umetni slikovni element"
+
+#~ msgid "Insert a key element"
+#~ msgstr "Umetni ključni eleent"
+
+#~ msgid "Page list"
+#~ msgstr "Lista stranice"
+
+#~ msgid "Page preview"
+#~ msgstr "Pregled stranice"
+
+#~ msgid "Symbol Selection"
+#~ msgstr "Izbor simbola"
+
+#~ msgid "Top margin in mm, internal to the border."
+#~ msgstr "Gornja margina u mm, unutrašnja do granice."
+
+#~ msgid "Left margin in mm, internal to the border."
+#~ msgstr "Lijeva margina u mm, unutrašnja do granice."
+
+#~ msgid "Right margin in mm, internal to the border."
+#~ msgstr "Desna margina u mm, unutrašnja do granice."
+
+#~ msgid "Bottom margin in mm, internal to the border."
+#~ msgstr "Donja margina u mm, unutrašnja do granice."
+
+#~ msgid "Show border around the text box"
+#~ msgstr "Prikaži granciu oko okvira sa tekstom"
+
+#~ msgid "Fill the background with a color"
+#~ msgstr "Ispuni pozadinu bojom"
+
+#~ msgid "Background color"
+#~ msgstr "Boja pozadine"
+
+#~ msgid "Transparency of the text box"
+#~ msgstr "Transparentnost okvira sa tekstom"
+
+#~ msgid "Text font family"
+#~ msgstr "Familija pisma teksta"
+
+#~ msgid "Text point size"
+#~ msgstr "Veličina tačke u tekstu"
+
+#~ msgid "Bold text"
+#~ msgstr "Podebljani tekst"
+
+#~ msgid "Italics text"
+#~ msgstr "Nakošeni tekst"
+
+#~ msgid "Underline text"
+#~ msgstr "Podvučeni tekst"
+
+#~ msgid "Align left"
+#~ msgstr "Poravnajte na lijevo"
+
+#~ msgid "Align centrally"
+#~ msgstr "Poravnajte centrirano"
+
+#~ msgid "Align right"
+#~ msgstr "Poravnajte na desno"
+
+#~ msgid "Align justified"
+#~ msgstr "Poravnajte podjednako"
 
 #~ msgid "KXStitch"
 #~ msgstr "KXStitch"
