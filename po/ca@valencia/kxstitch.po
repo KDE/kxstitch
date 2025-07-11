@@ -1,17 +1,17 @@
 # Translation of kxstitch.po to Catalan (Valencian)
-# Copyright (C) 2012-2023 This_file_is_part_of_KDE
+# Copyright (C) 2012-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Joan Teixido Parramona <joan4@users.sourceforge.net>, 2012, 2014.
-# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2016, 2017, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2023-09-14 12:23+0200\n"
+"PO-Revision-Date: 2025-07-06 11:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -189,13 +189,13 @@ msgstr "Com mostrar el nus francés."
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr "Amplària inicial d'un nou patró en les unitats especificades."
+msgstr "L'amplària predeterminada d'un patró nou en les unitats especificades."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr "Alçària inicial d'un nou patró en les unitats especificades."
+msgstr "L'alçària predeterminada d'un patró nou en les unitats especificades."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
@@ -2935,7 +2935,7 @@ msgstr "Caràcter associat"
 #: ui/NewFloss.ui:14
 #, kde-format
 msgid "Create New Floss"
-msgstr "Crea un nou fil"
+msgstr "Crea un fil nou"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/NewFloss.ui:57
