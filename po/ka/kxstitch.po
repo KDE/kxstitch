@@ -119,7 +119,7 @@ msgstr "გადიდების მაქსიმალური კოე�
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr "გადიდების ნაგულისხმები კოეფიციენტი"
+msgstr "გადიდების ნაგულისხმევი კოეფიციენტი"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
@@ -185,13 +185,13 @@ msgstr "როგორ ვაჩვენო ფრანგული კვა
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr "ახალი შაბლონის ნაგულისხმები სიგანე, მითითებულ ერთეულებში."
+msgstr "ახალი შაბლონის ნაგულისხმევი სიგანე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr "ახალი შაბლონის ნაგულისხმები სიმაღლე, მითითებულ ერთეულებში."
+msgstr "ახალი შაბლონის ნაგულისხმევი სიმაღლე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
@@ -379,13 +379,13 @@ msgstr "ბადის ზომა, მმ-ში"
 #: kxstitch.kcfg:306
 #, kde-format
 msgid "The default page size"
-msgstr "გვერდის ნაგულისხმები ზომა"
+msgstr "გვერდის ნაგულისხმევი ზომა"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page orientation"
-msgstr "გვერდის ნაგულისხმები ორიენტაცია"
+msgstr "გვერდის ნაგულისხმევი ორიენტაცია"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -962,18 +962,18 @@ msgstr "KXStitch-ის მორგება"
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Centimeters)"
-msgstr "ნაგულისხმები (სანტიმეტრი)"
+msgstr "ნაგულისხმევი (სანტიმეტრი)"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Inches)"
-msgstr "ნაგულისხმები (დუიმი)"
+msgstr "ნაგულისხმევი (დუიმი)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #: src/ConfigurationDialogs.cpp:35 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ნაგულისხმევი"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
@@ -2627,7 +2627,7 @@ msgstr "ფერის უგულებელყოფა"
 #: ui/ImportImage.ui:165
 #, kde-format
 msgid "Set as default"
-msgstr "ნაგულისხმებად დაყენება"
+msgstr "ნაგულისხმევად დაყენება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
