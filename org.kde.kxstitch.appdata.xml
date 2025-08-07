@@ -19,6 +19,7 @@
   <name xml:lang="fi">KXStitch</name>
   <name xml:lang="fr">KXStitch</name>
   <name xml:lang="gl">KXStitch</name>
+  <name xml:lang="he">KXStitch</name>
   <name xml:lang="hi">केएक्सस्टिच</name>
   <name xml:lang="ia">KXStitch</name>
   <name xml:lang="id">KXStitch</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="eu">Gurutze-puntuko eredu sortzaile bat</summary>
   <summary xml:lang="fr">Concepteur d'ouvrages au point de croix</summary>
   <summary xml:lang="gl">Un creador de padróns de cruz en punta</summary>
+  <summary xml:lang="he">יוצר תבניות תכים משוכלים</summary>
   <summary xml:lang="hi">एक क्रॉस सिलाई पैटर्न निर्माता</summary>
   <summary xml:lang="id">Sebuah aplikasi penciptaan pola kristik (cross stitch)</summary>
   <summary xml:lang="it">Un creatore di modelli a punto croce</summary>
@@ -119,6 +121,7 @@
     <p xml:lang="fi">Ominaisuudet:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="he">יכולות:</p>
     <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
@@ -152,6 +155,7 @@
       <li xml:lang="eu">Eredu berriak sortzea</li>
       <li xml:lang="fr">Création de nouveaux ouvrages</li>
       <li xml:lang="gl">Creación de padróns novos.</li>
+      <li xml:lang="he">יצירת תבניות חדשות</li>
       <li xml:lang="hi">नये पैटर्न का निर्माण</li>
       <li xml:lang="id">Penciptaan pola-pola baru</li>
       <li xml:lang="it">Creazione di nuovi modelli</li>
@@ -183,6 +187,7 @@
       <li xml:lang="eu">Existitzen den eredu bat editatzea - KXStitch «PC Stitch» fitxategiak irakurtzeko gai da</li>
       <li xml:lang="fr">Édition d'ouvrages existants : KXStitch est également en mesure de lire les fichiers PC Stitch</li>
       <li xml:lang="gl">Edición de padróns existentes. KXStitch tamén pode ler ficheiros de PC Stitch.</li>
+      <li xml:lang="he">עריכת תבניות קיימות - KXStitch יכול לקרוא קובצי תכים של מחשב</li>
       <li xml:lang="hi">मौजूदा पैटर्न का संपादन - KXStitch पीसी स्टिच फ़ाइलों को पढ़ने में भी सक्षम है</li>
       <li xml:lang="id">Pengeditan pola-pola yang ada - KXStitch juga mampu membaca PC Stitch</li>
       <li xml:lang="it">Modifica di un modello esistente - KXStitch può anche leggere un file PC Stitch</li>
@@ -243,6 +248,7 @@
       <li xml:lang="eu">Norberak finkatutako paletak eta koloreak sortzea</li>
       <li xml:lang="fr">Création de nuanciers et de couleurs personnalisés</li>
       <li xml:lang="gl">Creación de paletas e cores personalizadas.</li>
+      <li xml:lang="he">יצירת ערכות צבעים וצבעים בהתאמה אישית</li>
       <li xml:lang="hi">कस्टम पैलेट और रंगों का निर्माण</li>
       <li xml:lang="id">Penciptaan warna dan pallet-pallet kustom</li>
       <li xml:lang="it">Creazione di tavolozze e colori personalizzati</li>
@@ -274,6 +280,7 @@
       <li xml:lang="eu">Puntu estandarrak erabiltzea</li>
       <li xml:lang="fr">Utilisation des points standards</li>
       <li xml:lang="gl">Uso de puntadas estándar.</li>
+      <li xml:lang="he">שימוש בתכים תקניים</li>
       <li xml:lang="hi">मानक टांकों का उपयोग</li>
       <li xml:lang="id">Menggunakan stitch standar</li>
       <li xml:lang="it">Uso di punti standard</li>
@@ -303,6 +310,7 @@
       <li xml:lang="eu">Atzera-puntadaren erabilera askea</li>
       <li xml:lang="fr">Utilisation libre des points arrière</li>
       <li xml:lang="gl">Uso libre de puntadas atrás.</li>
+      <li xml:lang="he">שימוש חופשי בתך מכונה</li>
       <li xml:lang="hi">बैकस्टिचिंग का निःशुल्क उपयोग</li>
       <li xml:lang="id">Bebas penggunaan backstitching</li>
       <li xml:lang="it">Uso libero dell'impuntura</li>
@@ -333,6 +341,7 @@
       <li xml:lang="eu">Hainbat irudi-formatu inportatzea</li>
       <li xml:lang="fr">Importation de différents formats d'image</li>
       <li xml:lang="gl">Importación de varios formatos de imaxe.</li>
+      <li xml:lang="he">ייבוא מגוון סוגים של תמונות</li>
       <li xml:lang="hi">विभिन्न चित्र प्रारूपों का आयात</li>
       <li xml:lang="id">Mengimpor berbagai format gambar</li>
       <li xml:lang="it">Importazione da vari formati d'immagine</li>
@@ -363,6 +372,7 @@
       <li xml:lang="eu">Ereduak inprimatzea eta hari-txirrikak</li>
       <li xml:lang="fr">Impression d'ouvrages et de tableaux des fils</li>
       <li xml:lang="gl">Impresión de padróns e claves de fíos.</li>
+      <li xml:lang="he">הדפסת תבניות ומפתחות חוטים ללא פיתול</li>
       <li xml:lang="hi">पैटर्न और फ़्लॉस कुंजियों की छपाई</li>
       <li xml:lang="id">Pencetakan kunci floss dan pola-pola</li>
       <li xml:lang="it">Stampa di modelli e farfalle in plastica</li>
@@ -395,6 +405,7 @@
       <caption xml:lang="eu">Irudi batetik sortutako gurutze-puntuko eredu bat</caption>
       <caption xml:lang="fr">Un motif de point créé à partir d'une image</caption>
       <caption xml:lang="gl">Un padrón de punta creado a partir dunha imaxe.</caption>
+      <caption xml:lang="he">תבנית תכים שנוצרה מתמונה</caption>
       <caption xml:lang="hi">एक छवि से बनाया गया सिलाई पैटर्न</caption>
       <caption xml:lang="it">Un modello a punto croce creato da un'immagine</caption>
       <caption xml:lang="ka">გამოსახულებიდან შექმნილი ქარგვის ნიმუში</caption>
