@@ -2354,10 +2354,9 @@ msgstr "Ukázat stehy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
 #: ui/EditorConfigPage.ui:266
-#, fuzzy, kde-format
-#| msgid "Show stitches"
+#, kde-format
 msgid "Show stitch hints"
-msgstr "Ukázat stehy"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
