@@ -1371,7 +1371,7 @@ msgstr ""
 #: src/LibraryManagerDlg.cpp:67
 #, kde-format
 msgid "Select a library to show the associated patterns."
-msgstr "Selecciona una biblioteca per a mostrar els patrons associats."
+msgstr "Tria una biblioteca per a mostrar els patrons associats."
 
 #: src/LibraryManagerDlg.cpp:69
 #, kde-format
@@ -1762,7 +1762,7 @@ msgstr "Esborra"
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
-msgstr "Selecciona"
+msgstr "Tria"
 
 #: src/MainWindow.cpp:1398
 #, kde-format
@@ -3022,7 +3022,7 @@ msgstr "Calibra els fils"
 #: ui/PaletteManager.ui:203
 #, kde-format
 msgid "Pick Color"
-msgstr "Selecciona un color"
+msgstr "Tria un color"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:212
@@ -3115,7 +3115,7 @@ msgstr "Mida predeterminada del paper"
 #: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
 #, kde-format
 msgid "Select a paper size"
-msgstr "Selecciona una mida del paper"
+msgstr "Tria una mida del paper"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
@@ -3295,7 +3295,7 @@ msgstr "Suprimix la pàgina seleccionada"
 #: ui/PrintSetup.ui:223
 #, kde-format
 msgid "Select the paper orientation"
-msgstr "Selecciona l'orientació del paper"
+msgstr "Tria l'orientació del paper"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
 #: ui/PrintSetup.ui:246
@@ -3307,7 +3307,7 @@ msgstr "Factor d'apropament"
 #: ui/PrintSetup.ui:306
 #, kde-format
 msgid "Select an element"
-msgstr "Selecciona un element"
+msgstr "Tria un element"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
 #: ui/PrintSetup.ui:328
@@ -3349,7 +3349,7 @@ msgstr "Vista prèvia de la pàgina"
 #: ui/SymbolSelector.ui:14
 #, kde-format
 msgid "Symbol Selection"
-msgstr "Seleccioneu els símbols"
+msgstr "Trieu els símbols"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
 #: ui/TextElement.ui:39
