@@ -28,6 +28,7 @@
     <comment xml:lang="sv">KXStitch-mönster</comment>
     <comment xml:lang="tr">KX Dikiş deseni</comment>
     <comment xml:lang="uk">візерунок KXStitch</comment>
+    <comment xml:lang="x_test">xxKXStitch patternxx</comment>
     <comment xml:lang="zh_CN">KXStitch 图案</comment>
     <comment xml:lang="zh_TW">KXStitch 圖樣</comment>
     <magic priority="50">
