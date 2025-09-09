@@ -38,7 +38,6 @@
   <name xml:lang="sv">KXStitch</name>
   <name xml:lang="tr">KX Dikiş</name>
   <name xml:lang="uk">KXStitch</name>
-  <name xml:lang="x-test">xxKXStitchxx</name>
   <name xml:lang="zh-CN">KXStitch</name>
   <name xml:lang="zh-TW">KXStitch</name>
   <summary>A cross stitch pattern creator</summary>
@@ -71,7 +70,6 @@
   <summary xml:lang="sv">Ett program för att skapa korsstygnsmönster</summary>
   <summary xml:lang="tr">Çapraz dikiş desen oluşturucusu</summary>
   <summary xml:lang="uk">Програма для створення візерунків для вишивання хрестиком</summary>
-  <summary xml:lang="x-test">xxA cross stitch pattern creatorxx</summary>
   <summary xml:lang="zh-CN">十字绣图案创建器</summary>
   <launchable type="desktop-id">org.kde.kxstitch.desktop</launchable>
   <metadata_license>GFDL-1.2</metadata_license>
@@ -89,6 +87,7 @@
     <p xml:lang="eu">KXStitch gurutze-puntuko ereduak eta diagramak sortzeko aukera ematen duen programa bat da. Ereduak hutsetik sor daitezke erabiltzaileak zehaztutako neurriko lauki-sare batean, zure eredua garatu ahala handiagotu edo txikiagotu daitekeelarik. Beste aukera bat irudiak inportatzea da, fitxategi-formatu grafiko askotakoak, kolore kopurua murriztu ahal izango duzu eta bihurketa puntada osoetara edo hautazko gisa puntada zatikietara murrizteko aukera emango dizu. Irudiak hondo gisa ere erabil ditzakezu haien gainetik trazatzeko. Inportatutako irudi hauek alda daitezke hornitutako tresnak erabiliz zure azken diseinua sortzeko.</p>
     <p xml:lang="fr">KXStitch est un programme qui vous permet de créer des ouvrages au point de croix. Les ouvrages peuvent être créés à partir de rien sur une grille définie par l'utilisateur, qui peut être agrandie ou réduite au fur et à mesure de la création de l'ouvrage. Vous pouvez également importer des images grâce à un des nombreux formats de fichiers pris en charge, à l'aide d'options vous permettant de réduire le nombre de couleurs et d'imposer des restrictions, pour n'utiliser que des points de croix complets ou autoriser les points fractionnés. Vous pouvez aussi utiliser des images de fond, afin de pouvoir dessiner dessus. Ces images importées peuvent ensuite être modifiées à l'aide des outils fournis, vous permettant ainsi de produire un ouvrage complet.</p>
     <p xml:lang="gl">KXStitch é un programa que lle permite crear padróns e gráficos de cruz en punta. Pode crear padróns desde cero sobre unha grade de tamaño personalizado. Tamén pode importar imaxes en varios formatos de ficheiro, o que lle permitirá restrinxir o número de cores e restrinxir a conversión a puntadas completas ou usar opcionalmente puntadas fraccionadas. Tamén pode usar imaxes de fondo, para trazar sobre elas. As imaxes importadas poden modificarse mediante as ferramentas fornecidas para producir o deseño final.</p>
+    <p xml:lang="he">KXStitch היא תוכנית שמאפשרת לך ליצור תבניות תכים משוכלים ותרשימים. אפשר ליצור תבניות מאפס על רשת בגודל שמוגדר על ידי המשתמש, שניתן להגדיל או להקטין עם התקדמות יצירת התבנית שלך. לחלופין, ניתן לייבא תמונות ממגוון סוגי קבצים גרפיים שיאפשרו לך להפחית את מספר הצבעים ולהגביל את ההמרה לתכים מלאים או לתכים חלקיים. אפשר גם להשתמש בתמונות כרקע כדי להכין את התבנית על גביהם. לאחר מכן ניתן להמיר את התמונות המיובאות האלה בעזרת הכלים המצורפים כדי לייצר את העיצוב הסופי שלך.</p>
     <p xml:lang="hi">KXStitch एक ऐसा प्रोग्राम है जो आपको क्रॉस स्टिच पैटर्न और चार्ट बनाने देता है। पैटर्न को ग्रिड के उपयोगकर्ता द्वारा निर्धारित आकार पर स्क्रैच से बनाया जा सकता है, जिसे आपके पैटर्न की प्रगति के अनुसार आकार में बढ़ाया या घटाया जा सकता है। वैकल्पिक रूप से आप कई ग्राफ़िक्स फ़ाइल स्वरूपों से छवियाँ आयात कर सकते हैं जो आपको रंगों की संख्या कम करने और रूपांतरण को पूर्ण टाँकों तक सीमित करने या वैकल्पिक रूप से आंशिक टाँकों का उपयोग करने की अनुमति देगा। आप छवियों को पृष्ठभूमि के रूप में भी उपयोग कर सकते हैं जिससे आप उन पर ट्रेस कर सकें। इन आयातित छवियों को फिर आपके अंतिम डिज़ाइन का निर्माण करने के लिए आपूर्ति किए गए टूल का उपयोग करके संशोधित किया जा सकता है।</p>
     <p xml:lang="id">KXStitch adalah program yang menyegerakanmu menciptakan bagan dan pola kristik. Pola-pola dapat diciptakan dari awal pada ukuran kisi yang ditentukan pengguna, yang mana ukuran  bisa diperbesar atau diperkecil saat selagi progres polamu. Selain itu kamu bisa mengimpor citra dari banyak format file grafik yang akan memungkinkanmu untuk mengurangi jumlah warna dan untuk membatasi konversi untuk memenuhi stitch-stitch atau secara opsional menggunakan stitch kecil-kecil. Kamu juga bisa menggunakan citra sebagai latarbelakang untuk mengeblabnya. Citra yang diimpor tersebut kemudian dapat dimodifikasi menggunakan peralatan yang disediakan untuk menghasilkan desain finalmu.</p>
     <p xml:lang="it">KXStitch è un programma che ti permette di creare modelli e grafici a punto croce. Puoi creare i modelli da zero, su una griglia di cui puoi definire la grandezza: puoi ingrandirla o ridurla man mano che sviluppi il modello. In alternativa, è possibile importare immagini da molti formati; questo ti permette di ridurre il numero dei colori, e di restringere la conversione a punto pieno oppure anche a mezzo punto. Puoi anche usare delle immagini come sfondo, disegnandoci sopra. Queste immagini possono poi essere modificate con gli strumenti del programma per produrre il disegno finale.</p>
@@ -106,7 +105,6 @@
     <p xml:lang="sv">KXStitch är ett program som låter dig skapa korsstygnsmönster och diagram Mönster kan skapas från början på ett rutnät med användardefinierad storlek, som kan göras större eller mindre allteftersom mönstret utvecklas. Som alternativ kan du importera bilder från många grafikfilformat, vilket låter dig reducera antal färger och begränsa konverteringen till hela stygn, eller valfritt använda delstygn. Du kan också använda bilder som bakgrunder, vilket gör det möjligt att kalkera från dem. De importerade bilderna kan sedan ändras genom att använda tillgängliga verktyg för att skapa den slutliga designen.</p>
     <p xml:lang="tr">KX Dikiş, size çapraz dikiş desenler ve çizelgeler oluşturmanızı sağlayan bir programdır. Kalıplar sıfırdan ya da kullanıcı tarafından tanımlanmış ızgaradan oluşturulabilir. Bunlar sizin desen ilerlemenize göre büyüyebilir ya da küçülebilir. Alternatif olarak, çoğu resim dosya biçiminden içe görsel aktarabilir, renk sayısını düşürebilir ve dönüşümü yalnızca dikiş ile sınırlayabilir ya da kesirli dikiş kullanabilirsiniz. Ayrıca görselleri, üzerinden geçmek için arka planda kullanabilirsiniz. Bu içe aktarılan resimler, sağlanan araçlarla düzenlenebilir; böylece son tasarımınızı elde edebilirsiniz.</p>
     <p xml:lang="uk">KXStitch — програма, за допомогою якої ви можете створювати візерунки та діаграми для вишивання хрестиком. Візерунки можна створювати «з нуля» на основі визначених користувачем розмірів сітки, які можна згодом збільшити або зменшити, якщо потрібно. Крім того, ви можете імпортувати зображення у одному з багатьох графічних форматів. Програма зменшить кількість кольорів і перетворить зображення так, щоб його можна було вишити повними стібками або частинними стібками. Ви також можете використати зображення як тло вишивки і змінювати його розміри відповідно до позначеної області. Ці імпортовані зображення можна змінювати за допомогою вбудованих до програми інструментів, щоб отримати бажаний для вас вигляд вишивки.</p>
-    <p xml:lang="x-test">xxKXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colors and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.xx</p>
     <p xml:lang="zh-CN">KXStitch 是一个十字绣图案和图标创建工具。可以使用自定义尺寸的网格从头开始创建图案，随着图案进度发展可以增大或缩小尺寸。或者您也可以从各种图形文件格式导入图像，减少颜色的数目，限制转换到全针或可选使用分针。您也可以使用图像作为背景，以便您描摹。导入的图像可以使用提供的工具编辑，生成您最终的设计。</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -140,7 +138,6 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -173,7 +170,6 @@
       <li xml:lang="sv">Skapa nya mönster</li>
       <li xml:lang="tr">Yeni desen oluşturma</li>
       <li xml:lang="uk">Створення візерунків</li>
-      <li xml:lang="x-test">xxCreation of new patternsxx</li>
       <li xml:lang="zh-CN">创建新的图案</li>
       <li xml:lang="zh-TW">建立新式樣</li>
       <li>Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
@@ -205,7 +201,6 @@
       <li xml:lang="sv">Redigering av befintliga mönster: KXStitch klarar också av att läsa PC Stitch-filer</li>
       <li xml:lang="tr">Var olan desenleri düzenleme — KXStitch, PC Stitch dosyalarını da okuyabilir</li>
       <li xml:lang="uk">Редагування наявних візерунків — програма KXStitch здатна читати файли PC Stitch.</li>
-      <li xml:lang="x-test">xxEditing of existing patterns - KXStitch is also capable of reading PC Stitch filesxx</li>
       <li xml:lang="zh-CN">编辑现有图案 - KXStitch 也能读取 PC Stitch 的文件</li>
       <li xml:lang="zh-TW">編輯存在式樣 - KXStitch 也可以讀取 PC Stitch 檔案</li>
       <li>Use of various floss pallets, DMC, Anchor, Madeira</li>
@@ -236,7 +231,6 @@
       <li xml:lang="sv">Användning av diverse garnpaletter, DMC, Anchor, Madeira</li>
       <li xml:lang="tr">Çeşitli ip paleti, DMC, Anchor, Madeira kullanımı</li>
       <li xml:lang="uk">Використання різних наборів ниток DMC, Anchor, Madeira.</li>
-      <li xml:lang="x-test">xxUse of various floss pallets, DMC, Anchor, Madeiraxx</li>
       <li xml:lang="zh-CN">运用多种线盘，DMC，Anchor，Madeira</li>
       <li>Creation of custom palettes and colors</li>
       <li xml:lang="ca">Creació de paletes i colors personalitzats</li>
@@ -267,7 +261,6 @@
       <li xml:lang="sv">Skapa egna paletter och färger</li>
       <li xml:lang="tr">Özel palet ve renk oluşturma</li>
       <li xml:lang="uk">Створення нетипових палітр і кольорів.</li>
-      <li xml:lang="x-test">xxCreation of custom palettes and colorsxx</li>
       <li xml:lang="zh-CN">创建自定义调色板和颜色</li>
       <li xml:lang="zh-TW">建立自動調色盤及顏色</li>
       <li>Use of standard stitches</li>
@@ -299,7 +292,6 @@
       <li xml:lang="sv">Användning av standardstygn</li>
       <li xml:lang="tr">Standart dikiş kullanımı</li>
       <li xml:lang="uk">Використання стандартних стібків.</li>
-      <li xml:lang="x-test">xxUse of standard stitchesxx</li>
       <li xml:lang="zh-CN">使用标准针脚</li>
       <li>Free use of backstitching</li>
       <li xml:lang="ca">Ús lliure de repunts</li>
@@ -329,7 +321,6 @@
       <li xml:lang="sv">Fri användning av efterstygn</li>
       <li xml:lang="tr">İğne ardı dikiş kullanımı</li>
       <li xml:lang="uk">Довільне використання зворотних стібків.</li>
-      <li xml:lang="x-test">xxFree use of backstitchingxx</li>
       <li xml:lang="zh-CN">自由使用背针</li>
       <li>Importing of various picture formats</li>
       <li xml:lang="ca">Importació de diversos formats d'imatge</li>
@@ -360,7 +351,6 @@
       <li xml:lang="sv">Import av diverse bildformat</li>
       <li xml:lang="tr">Çeşitli resim biçimlerini içe aktarma</li>
       <li xml:lang="uk">Імпортування зображень у різних форматах.</li>
-      <li xml:lang="x-test">xxImporting of various picture formatsxx</li>
       <li xml:lang="zh-CN">导入多种图片格式</li>
       <li xml:lang="zh-TW">匯入各種影像格式</li>
       <li>Printing of patterns and floss keys</li>
@@ -391,7 +381,6 @@
       <li xml:lang="sv">Utskrift av mönster och garnförklaringar</li>
       <li xml:lang="tr">Desenleri ve ip anahtarlarını yazdırma</li>
       <li xml:lang="uk">Друк візерунків та панелей умовних позначень до них.</li>
-      <li xml:lang="x-test">xxPrinting of patterns and floss keysxx</li>
       <li xml:lang="zh-CN">打印图案和线键</li>
     </ul>
   </description>
@@ -419,7 +408,6 @@
       <caption xml:lang="sv">Ett korsstygnsmönster skapat från en bild</caption>
       <caption xml:lang="tr">Bir görselden oluşturulmuş çapraz dikiş deseni</caption>
       <caption xml:lang="uk">Створений із зображення візерунок для вишивання хрестиком</caption>
-      <caption xml:lang="x-test">xxA stitch pattern created from an imagexx</caption>
       <image type="source">https://cdn.kde.org/screenshots/kxstitch/Importedimage.png</image>
     </screenshot>
   </screenshots>
