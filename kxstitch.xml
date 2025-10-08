@@ -2,6 +2,7 @@
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <mime-type type="application/x-kxs">
     <comment>KXStitch pattern</comment>
+    <comment xml:lang="ar">نمط المُطرِّز</comment>
     <comment xml:lang="ca">Patró del KXStitch</comment>
     <comment xml:lang="ca@valencia">Patró de KXStitch</comment>
     <comment xml:lang="cs">Vzorek KXStitch</comment>
