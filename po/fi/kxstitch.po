@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2018.
+# SPDX-FileCopyrightText: 2018, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2018-07-31 17:26+0200\n"
+"PO-Revision-Date: 2025-10-17 20:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -81,65 +82,61 @@ msgstr ""
 #: kxstitch.kcfg:55
 #, kde-format
 msgid "Square cells"
-msgstr ""
+msgstr "Neliömäiset solut"
 
 #. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
 #: kxstitch.kcfg:59
-#, fuzzy, kde-format
-#| msgid "The width of the major grid lines."
+#, kde-format
 msgid "The height of the horizontal ruler."
-msgstr "Pääruudukon viivojen paksuus."
+msgstr "Vaakaviivaimen korkeus."
 
 #. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
 #: kxstitch.kcfg:63
-#, fuzzy, kde-format
-#| msgid "The width of the major grid lines."
+#, kde-format
 msgid "The width of the vertical ruler."
-msgstr "Pääruudukon viivojen paksuus."
+msgstr "Pystyviivaimen leveys."
 
 #. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
 #: kxstitch.kcfg:67
 #, kde-format
 msgid "The display units for a scale."
-msgstr ""
+msgstr "Mittakaavan näyttöyksiköt."
 
 #. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
 #: kxstitch.kcfg:76
 #, kde-format
 msgid "The minimum zoom factor"
-msgstr ""
+msgstr "Lähennyksen vähimmäiskerroin"
 
 #. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
 #: kxstitch.kcfg:80
 #, kde-format
 msgid "The maximum zoom factor"
-msgstr ""
+msgstr "Lähennyksen enimmäiskerroin"
 
 #. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr ""
+msgstr "Lähennyksen oletuskerroin"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
 #, kde-format
 msgid "Enable color highlighting mode"
-msgstr ""
+msgstr "Käytä värikorostustilaa"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
 #: kxstitch.kcfg:95
-#, fuzzy, kde-format
-#| msgid "Show Background Images"
+#, kde-format
 msgid "Render the background images"
-msgstr "Näytä taustakuvat"
+msgstr "Hahmonna taustakuvat"
 
 #. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
 #: kxstitch.kcfg:99
-#, fuzzy, kde-format
-#| msgid "Renderer"
+#, kde-format
 msgid "Render the grid"
-msgstr "Renderoija"
+msgstr "Hahmonna ruudukko"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
 #: kxstitch.kcfg:103
@@ -187,49 +184,49 @@ msgstr ""
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr ""
+msgstr "Uuden kuvion oletusleveys annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr ""
+msgstr "Uuden kuvion oletuskorkeus annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
 #, kde-format
 msgid "The minimum width of a pattern in the units specified."
-msgstr ""
+msgstr "Kuvion vähimmäisleveys annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Document_Min_Height), group (document)
 #: kxstitch.kcfg:172
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
-msgstr ""
+msgstr "Kuvion vähimmäiskorkeus annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
 #: kxstitch.kcfg:176
 #, kde-format
 msgid "The maximum width of a pattern in the units specified."
-msgstr ""
+msgstr "Kuvio enimmäisleveys annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Document_Max_Height), group (document)
 #: kxstitch.kcfg:180
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
-msgstr ""
+msgstr "Kuvio enimmäiskorkeus annettuina yksiköinä."
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
 #: kxstitch.kcfg:187
 #, kde-format
 msgid "Use a maximum number of colors"
-msgstr ""
+msgstr "Käytä värien enimmäismäärää"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
 #: kxstitch.kcfg:191
 #, kde-format
 msgid "Maximum number of colors"
-msgstr ""
+msgstr "Värien enimmäismäärä"
 
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
 #: kxstitch.kcfg:195
@@ -265,55 +262,55 @@ msgstr ""
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr ""
+msgstr "Näytä paletissa symbolit."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr ""
+msgstr "Näytä symbolit antialiasoituina"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:229
 #, kde-format
 msgid "The default size of icons shown in the icon view"
-msgstr ""
+msgstr "Näytettyjen kuvakkeiden oletuskoko kuvakenäkymässä"
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr ""
+msgstr "Tulisiko merkkivalinnan kunnioittaa vaihtolukkoa"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
 #, kde-format
 msgid "The default width of a space in cells"
-msgstr ""
+msgstr "Sanavälin oletusleveys soluissa"
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
 #: kxstitch.kcfg:244
 #, kde-format
 msgid "Should a space cause word wrapping at the right edge of the pattern"
-msgstr ""
+msgstr "Aiheuttaako sanaväli kuvion oikeassa laidassa rivityksen"
 
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
 #: kxstitch.kcfg:248
 #, kde-format
 msgid "The number of cells between lines of text"
-msgstr ""
+msgstr "Tekstirivien välisten solujen määrä"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
 #: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
-msgstr ""
+msgstr "Lisättävien solujen määrä laajennettaessa kuviota oikealle"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
-msgstr ""
+msgstr "Lisättävien solujen määrä laajennettaessa kuviota alaspäin"
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
 #: kxstitch.kcfg:263
@@ -325,43 +322,43 @@ msgstr ""
 #: kxstitch.kcfg:267
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr ""
+msgstr "Tekstityökaluikkunassa käytettävä fonttiperhe"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:271
 #, kde-format
 msgid "The text size in pixels"
-msgstr ""
+msgstr "Tekstin koko kuvapisteinä"
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
 #: kxstitch.kcfg:275
 #, kde-format
 msgid "Does mirroring and copying make copies"
-msgstr ""
+msgstr "Luoko peilaus ja kopiointi kopioita"
 
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
 #: kxstitch.kcfg:282
 #, kde-format
 msgid "The page left margin"
-msgstr ""
+msgstr "Sivun vasen reunus"
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
 #: kxstitch.kcfg:286
 #, kde-format
 msgid "The page top margin"
-msgstr ""
+msgstr "Sivun yläreunus"
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
 #: kxstitch.kcfg:290
 #, kde-format
 msgid "The page right margin"
-msgstr ""
+msgstr "Sivun oikea reunus"
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
 #: kxstitch.kcfg:294
 #, kde-format
 msgid "The page bottom margin"
-msgstr ""
+msgstr "Sivun alareunus"
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
 #: kxstitch.kcfg:298
@@ -371,24 +368,21 @@ msgstr ""
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
 #: kxstitch.kcfg:302
-#, fuzzy, kde-format
-#| msgid "Grid X spacing in mm"
+#, kde-format
 msgid "The grid size in mm"
-msgstr "Ruudukon x-välistys (mm)"
+msgstr "Ruudukon koko millimetreinä"
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
 #: kxstitch.kcfg:306
-#, fuzzy, kde-format
-#| msgid "Default paper size"
+#, kde-format
 msgid "The default page size"
-msgstr "Oletuspaperikoko"
+msgstr "Sivun oletuskoko"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
-#, fuzzy, kde-format
-#| msgid "Select the paper orientation"
+#, kde-format
 msgid "The default page orientation"
-msgstr "Valitse paperin suunta"
+msgstr "Sivun oletussuunta"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -430,46 +424,43 @@ msgstr ""
 #. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
 #: kxstitch.kcfg:335 kxstitch.kcfg:478
-#, fuzzy, kde-format
-#| msgid "Left margin in mm"
+#, kde-format
 msgid "The left margin"
-msgstr "Vasen reunus (mm)"
+msgstr "Vasen reunus"
 
 #. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
 #: kxstitch.kcfg:339 kxstitch.kcfg:474
-#, fuzzy, kde-format
-#| msgid "Top margin in mm"
+#, kde-format
 msgid "The top margin"
-msgstr "Yläreunus (mm)"
+msgstr "Yläreunus"
 
 #. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
 #: kxstitch.kcfg:343 kxstitch.kcfg:482
-#, fuzzy, kde-format
-#| msgid "Right margin in mm"
+#, kde-format
 msgid "The right margin"
-msgstr "Oikea reunus (mm)"
+msgstr "Oikea reunus"
 
 #. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:347 kxstitch.kcfg:486
-#, fuzzy, kde-format
-#| msgid "Bottom margin in mm"
+#, kde-format
 msgid "The bottom margin"
-msgstr "Alareunus (mm)"
+msgstr "Alareunus"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
 #: kxstitch.kcfg:351
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
 msgstr ""
+"Solun vähimmäiskoko millimetreinä mallin luomissa tulostinmäärityksissä"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
 #: kxstitch.kcfg:355
 #, kde-format
 msgid "Minimum number of cells that can be on a page of its own"
-msgstr ""
+msgstr "Solujen vähimmäismäärä, joka voi olla oma sivunsa"
 
 #. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
 #: kxstitch.kcfg:359
@@ -477,27 +468,25 @@ msgstr ""
 msgid ""
 "The color used to represented already selected areas in existing pattern "
 "elements"
-msgstr ""
+msgstr "Olemassa olevissa kuvioalkioissa jo valittuja alueita osoittava väri"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:364
-#, fuzzy, kde-format
-#| msgid "Show border around the text box"
+#, kde-format
 msgid "Show a border around the image"
-msgstr "Näytä reuna tekstilaatikon ympärillä"
+msgstr "Näytä reuna kuvan ympärillä"
 
+# *** TARKISTA: ”Key” voisi olla paitsi näppäin myös avain, ja luultavasti on jotakin aivan muuta: ”key element”?
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
-#, fuzzy, kde-format
-#| msgid "Show border around the text box"
+#, kde-format
 msgid "Show a border around the key"
-msgstr "Näytä reuna tekstilaatikon ympärillä"
+msgstr "Näytä reuna näppäimen ympärillä"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
 #: kxstitch.kcfg:389 kxstitch.kcfg:462
-#, fuzzy, kde-format
-#| msgid "Fill background"
+#, kde-format
 msgid "Fill the background"
 msgstr "Täytä tausta"
 
@@ -588,18 +577,16 @@ msgstr ""
 
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:450
-#, fuzzy, kde-format
-#| msgid "Show border"
+#, kde-format
 msgid "Show the border"
 msgstr "Näytä reuna"
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
 #: kxstitch.kcfg:454 ui/TextElement.ui:184
-#, fuzzy, kde-format
-#| msgid "The background color."
+#, kde-format
 msgid "The border color"
-msgstr "Taustaväri."
+msgstr "Reunaväri"
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
@@ -607,26 +594,23 @@ msgstr "Taustaväri."
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "Reunan paksuus 1/10 mm:inä"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:466
-#, fuzzy, kde-format
-#| msgid "The color of the background"
+#, kde-format
 msgid "Color of the background"
 msgstr "Taustaväri"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:470
-#, fuzzy, kde-format
-#| msgid "Transparency"
+#, kde-format
 msgid "The transparency value"
-msgstr "Läpinäkyvyys"
+msgstr "Läpinäkyvyysarvo"
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
 #: kxstitch.kcfg:490
-#, fuzzy, kde-format
-#| msgid "Text color"
+#, kde-format
 msgid "The text color"
 msgstr "Tekstiväri"
 
@@ -634,34 +618,31 @@ msgstr "Tekstiväri"
 #: kxstitchui.rc:5
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&Tiedosto"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
 #: kxstitchui.rc:10 src/Commands.cpp:570
 #, kde-format
 msgid "Remove Background Image"
-msgstr ""
+msgstr "Poista taustakuva"
 
 #. i18n: ectx: Menu (edit)
 #: kxstitchui.rc:14
-#, fuzzy, kde-format
-#| msgctxt "The Editor config page"
-#| msgid "Editor"
+#, kde-format
 msgid "&Edit"
-msgstr "Muokkain"
+msgstr "&Muokkaa"
 
 #. i18n: ectx: Menu (selectionMasks)
 #: kxstitchui.rc:15
-#, fuzzy, kde-format
-#| msgid "Selections"
+#, kde-format
 msgid "Selection Masks"
-msgstr "Valintatyökalu"
+msgstr "Valintapeitteet"
 
 #. i18n: ectx: Menu (mirror)
 #: kxstitchui.rc:23 src/Commands.cpp:1306
 #, kde-format
 msgid "Mirror Selection"
-msgstr ""
+msgstr "Peilaa valinta"
 
 #. i18n: ectx: Menu (rotate)
 #: kxstitchui.rc:27 src/Commands.cpp:1354
@@ -673,7 +654,7 @@ msgstr "Kierrä valintaa"
 #: kxstitchui.rc:33
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "&Asetukset"
 
 #. i18n: ectx: Menu (formatScalesAs)
 #: kxstitchui.rc:35 kxstitchui.rc:140
@@ -703,83 +684,77 @@ msgstr ""
 #: kxstitchui.rc:68
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Näkymä"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
 #: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:548
 #, kde-format
 msgid "Show Background Image"
-msgstr ""
+msgstr "Näytä taustakuva"
 
 #. i18n: ectx: Menu (viewFitBackgroundImage)
 #: kxstitchui.rc:76 kxstitchui.rc:176
-#, fuzzy, kde-format
-#| msgid "Background Image"
+#, kde-format
 msgid "Fit Background Image to Selection"
-msgstr "Taustakuva"
+msgstr "Sovita taustakuva valintaan"
 
 #. i18n: ectx: Menu (stitches)
 #: kxstitchui.rc:80
 #, kde-format
 msgid "&Stitches"
-msgstr ""
+msgstr "&Ristipistot"
 
 #. i18n: ectx: Menu (Tools)
 #: kxstitchui.rc:91
-#, fuzzy, kde-format
-#| msgid "Tools"
+#, kde-format
 msgid "&Tools"
-msgstr "Työkalut"
+msgstr "T&yökalut"
 
 #. i18n: ectx: Menu (palette)
 #: kxstitchui.rc:111
-#, fuzzy, kde-format
-#| msgid "Palette"
+#, kde-format
 msgid "&Palette"
-msgstr "Paletti"
+msgstr "&Paletti"
 
 #. i18n: ectx: Menu (library)
 #: kxstitchui.rc:121
-#, fuzzy, kde-format
-#| msgid "Library Manager"
+#, kde-format
 msgid "&Library Manager"
-msgstr "Kirjastojen hallinta"
+msgstr "&Kirjastonhallinta"
 
 #. i18n: ectx: Menu (pattern)
 #: kxstitchui.rc:124
-#, fuzzy, kde-format
-#| msgid "Pattern Size"
+#, kde-format
 msgid "&Pattern"
-msgstr "Kuvion koko"
+msgstr "Ku&vio"
 
 #. i18n: ectx: ToolBar (StitchToolBar)
 #: kxstitchui.rc:193
 #, kde-format
 msgid "Stitch Toolbar"
-msgstr ""
+msgstr "Ristipistotyökalurivi"
 
 #. i18n: ectx: ToolBar (ToolsToolbar)
 #: kxstitchui.rc:204
 #, kde-format
 msgid "Tools Toolbar"
-msgstr ""
+msgstr "Työkalujen työkalurivi"
 
 #. i18n: ectx: ToolBar (ZoomToolbar)
 #: kxstitchui.rc:227
-#, fuzzy, kde-format
-#| msgid "Zoom factor"
+#, kde-format
 msgid "Zoom Toolbar"
-msgstr "Lähennyskerroin"
+msgstr "Lähennystyökalurivi"
 
 #: src/BackgroundImage.cpp:136
 #, kde-format
 msgid "Background image version %1"
-msgstr ""
+msgstr "Taustakuvan versio %1"
 
 #: src/BackgroundImages.cpp:111
 #, kde-format
 msgid "Background images version %1"
-msgstr ""
+msgstr "Taustakuvien versio %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
 #: src/CalibrateFlossDlg.cpp:33 ui/CalibrateFloss.ui:14
@@ -791,13 +766,13 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
-msgstr ""
+msgstr "%1–%2 (muutettu)"
 
 #: src/CalibrateFlossDlg.cpp:113
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1–%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:33 src/FilePropertiesDlg.cpp:31 src/MainWindow.cpp:1141
@@ -845,7 +820,7 @@ msgstr ""
 #: src/Commands.cpp:198 src/MainWindow.cpp:1343
 #, kde-format
 msgid "Fill Rectangle"
-msgstr ""
+msgstr "Täytä nelikulmio"
 
 #: src/Commands.cpp:222 src/MainWindow.cpp:1351
 #, kde-format
@@ -857,12 +832,12 @@ msgstr ""
 #: src/Commands.cpp:245 src/MainWindow.cpp:1359
 #, kde-format
 msgid "Fill Ellipse"
-msgstr ""
+msgstr "Täytä soikio"
 
 #: src/Commands.cpp:268 src/MainWindow.cpp:1367
 #, kde-format
 msgid "Fill Polygon"
-msgstr ""
+msgstr "Täytä monikulmio"
 
 #: src/Commands.cpp:291
 #, kde-format
@@ -887,27 +862,27 @@ msgstr ""
 #: src/Commands.cpp:428
 #, kde-format
 msgid "Add Knot"
-msgstr ""
+msgstr "Lisää solmu"
 
 #: src/Commands.cpp:449
 #, kde-format
 msgid "Delete Knots"
-msgstr ""
+msgstr "Poista solmuja"
 
 #: src/Commands.cpp:478
 #, kde-format
 msgid "Set Property"
-msgstr ""
+msgstr "Aseta ominaisuus"
 
 #: src/Commands.cpp:500
 #, kde-format
 msgid "Add Background Image"
-msgstr ""
+msgstr "Lisää taustakuva"
 
 #: src/Commands.cpp:525
 #, kde-format
 msgid "Fit Background to Selection"
-msgstr ""
+msgstr "Sovita tausta valintaan"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
 #: src/Commands.cpp:684 ui/PaletteManager.ui:189
@@ -918,12 +893,12 @@ msgstr ""
 #: src/Commands.cpp:705
 #, kde-format
 msgid "Resize Document"
-msgstr ""
+msgstr "Muuta tiedoston kokoa"
 
 #: src/Commands.cpp:735
 #, kde-format
 msgid "Crop to Pattern"
-msgstr ""
+msgstr "Rajaa kuvioon"
 
 #: src/Commands.cpp:765
 #, kde-format
@@ -933,28 +908,28 @@ msgstr "Rajaa valintaan"
 #: src/Commands.cpp:806 src/MainWindow.cpp:1481
 #, kde-format
 msgid "Insert Columns"
-msgstr ""
+msgstr "Lisää sarakkeita"
 
 #: src/Commands.cpp:852 src/MainWindow.cpp:1475
 #, kde-format
 msgid "Insert Rows"
-msgstr ""
+msgstr "Lisää rivejä"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
 #: src/Commands.cpp:898 src/ExtendPatternDlg.cpp:23 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
-msgstr ""
+msgstr "Laajenna kuviota"
 
 #: src/Commands.cpp:943 src/MainWindow.cpp:1457
 #, kde-format
 msgid "Center Pattern"
-msgstr ""
+msgstr "Keskitä kuvio"
 
 #: src/Commands.cpp:978
 #, kde-format
 msgid "Update Palette"
-msgstr ""
+msgstr "Päivitä paletti"
 
 #: src/Commands.cpp:1004
 #, kde-format
@@ -964,22 +939,22 @@ msgstr ""
 #: src/Commands.cpp:1074
 #, kde-format
 msgid "Replace Color"
-msgstr ""
+msgstr "Korvaa väri"
 
 #: src/Commands.cpp:1177 src/MainWindow.cpp:1439
 #, kde-format
 msgid "Swap Colors"
-msgstr ""
+msgstr "Vaihda värit keskenään"
 
 #: src/Commands.cpp:1201
 #, kde-format
 msgid "Update Printer Configuration"
-msgstr ""
+msgstr "Päivitä tulostinmääritys"
 
 #: src/Commands.cpp:1223
 #, kde-format
 msgid "Cut"
-msgstr ""
+msgstr "Leikkaa"
 
 #: src/Commands.cpp:1402 src/Editor.cpp:1999 src/MainWindow.cpp:1383
 #, kde-format
@@ -989,23 +964,23 @@ msgstr "Aakkoset"
 #: src/Commands.cpp:1455
 #, kde-format
 msgid "Configure KXStitch"
-msgstr ""
+msgstr "KXStitchin asetukset"
 
 #: src/ConfigurationDialogs.cpp:38
 #, kde-format
 msgid "Default (Centimeters)"
-msgstr ""
+msgstr "Oletus (senttimetrit)"
 
 #: src/ConfigurationDialogs.cpp:38
 #, kde-format
 msgid "Default (Inches)"
-msgstr ""
+msgstr "Oletus (tuumat)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #: src/ConfigurationDialogs.cpp:39 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
-msgstr ""
+msgstr "Oletus"
 
 #: src/ConfigurationDialogs.cpp:237 src/ConfigurationDialogs.cpp:240
 #: src/FilePropertiesDlg.cpp:333 src/FilePropertiesDlg.cpp:334
@@ -1013,7 +988,7 @@ msgstr ""
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
-msgstr ""
+msgstr "/in"
 
 #: src/ConfigurationDialogs.cpp:246 src/ConfigurationDialogs.cpp:249
 #: src/FilePropertiesDlg.cpp:326 src/FilePropertiesDlg.cpp:327
@@ -1021,18 +996,18 @@ msgstr ""
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
-msgstr ""
+msgstr "/cm"
 
 #: src/Document.cpp:125 src/MainWindow.cpp:292 src/MainWindow.cpp:364
 #: src/MainWindow.cpp:516 src/SymbolLibrary.cpp:101
 #, kde-format
 msgid "Untitled"
-msgstr ""
+msgstr "Nimetön"
 
 #: src/Document.cpp:262 src/Document.cpp:296
 #, kde-format
 msgid "KXStitch version %1"
-msgstr ""
+msgstr "KXStitch versio %1"
 
 #: src/Document.cpp:497 src/Document.cpp:776 src/Document.cpp:1074
 #, kde-format
@@ -1042,7 +1017,7 @@ msgstr ""
 #: src/Document.cpp:540 src/Document.cpp:821 src/Document.cpp:1121
 #, kde-format
 msgid "Invalid data read."
-msgstr ""
+msgstr "Luettiin virheellistä tietoa."
 
 #: src/Document.cpp:626 src/Document.cpp:907 src/Document.cpp:1207
 #: src/Document.cpp:1224 src/Document.cpp:1399 src/Document.cpp:1565
@@ -1290,7 +1265,7 @@ msgstr "Hahmonnuksen esikatselu"
 #: src/ImportImageDlg.cpp:391 src/MainWindow.cpp:597
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: src/ImportImageDlg.cpp:611
 #, kde-format
@@ -1520,11 +1495,12 @@ msgstr "Avaa tiedosto"
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
+"KXStitch-kuviot (*.kxs);;PC Stitch -kuviot (*.pat);;Kaikki tiedostot (*)"
 
 #: src/MainWindow.cpp:325
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
-msgstr ""
+msgstr "Tiedosto ei vaikuta tunnetulta ristipistotiedostolta."
 
 #: src/MainWindow.cpp:328
 #, kde-format
@@ -1532,6 +1508,8 @@ msgid ""
 "This version of the file is not supported.\n"
 "%1"
 msgstr ""
+"Tätä tiedoston versiota ei tueta.\n"
+"%1"
 
 #: src/MainWindow.cpp:330
 #, kde-format
@@ -1568,7 +1546,7 @@ msgstr "Tallenna nimellä…"
 #: src/MainWindow.cpp:395
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
-msgstr ""
+msgstr "Ristipistokuviot (*.kxs)"
 
 #: src/MainWindow.cpp:401
 #, kde-format
@@ -1624,7 +1602,7 @@ msgstr "Muokkain"
 #: src/MainWindow.cpp:960 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
-msgstr ""
+msgstr "Kuvio"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
@@ -1698,7 +1676,7 @@ msgstr ""
 #: src/MainWindow.cpp:1212
 #, kde-format
 msgid "Color Mask"
-msgstr ""
+msgstr "Väripeite"
 
 #: src/MainWindow.cpp:1218
 #, kde-format
@@ -2253,62 +2231,55 @@ msgstr ""
 #: ui/EditorConfigPage.ui:90
 #, kde-format
 msgid "Thick line width"
-msgstr ""
+msgstr "Paksun viivan leveys"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/EditorConfigPage.ui:104
-#, fuzzy, kde-format
-#| msgid "Text color"
+#, kde-format
 msgid "Thick line color"
-msgstr "Tekstiväri"
+msgstr "Paksun viivan väri"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/EditorConfigPage.ui:114
 #, kde-format
 msgid "Thin line width"
-msgstr ""
+msgstr "Ohuen viivan leveys"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/EditorConfigPage.ui:128
-#, fuzzy, kde-format
-#| msgid "Text color"
+#, kde-format
 msgid "Thin line color"
-msgstr "Tekstiväri"
+msgstr "Ohuen viivan väri"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/EditorConfigPage.ui:138
-#, fuzzy, kde-format
-#| msgid "Horizontally"
+#, kde-format
 msgid "Horizontal cell group"
-msgstr "Vaakasuunnassa"
+msgstr "Vaakasuuntainen soluryhmä"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/EditorConfigPage.ui:158
-#, fuzzy, kde-format
-#| msgid "Vertically"
+#, kde-format
 msgid "Vertical cell group"
-msgstr "Pystysuunnassa"
+msgstr "Pystysuuntainen soluryhmä"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/EditorConfigPage.ui:178
-#, fuzzy, kde-format
-#| msgid "Zoom factor"
+#, kde-format
 msgid "Minimum zoom factor"
-msgstr "Lähennyskerroin"
+msgstr "Lähennyksen vähimmäiskerroin"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: ui/EditorConfigPage.ui:198
-#, fuzzy, kde-format
-#| msgid "Zoom factor"
+#, kde-format
 msgid "Maximum zoom factor"
-msgstr "Lähennyskerroin"
+msgstr "Lähennyksen enimmäiskerroin"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: ui/EditorConfigPage.ui:218
-#, fuzzy, kde-format
-#| msgid "Zoom factor"
+#, kde-format
 msgid "Default zoom factor"
-msgstr "Lähennyskerroin"
+msgstr "Lähennyksen oletuskerroin"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
 #: ui/EditorConfigPage.ui:239
@@ -2325,24 +2296,22 @@ msgstr "Näytä ruudukko"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
 #: ui/EditorConfigPage.ui:252
-#, fuzzy, kde-format
-#| msgid "Show Background Images"
+#, kde-format
 msgid "Show background images"
 msgstr "Näytä taustakuvat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
 #: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
-#, fuzzy, kde-format
-#| msgid "Show scales"
+#, kde-format
 msgid "Show stitches"
-msgstr "Näytä mittakaavat"
+msgstr "Näytä ristipistot"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
 #: ui/EditorConfigPage.ui:266
 #, kde-format
 msgid "Show stitch hints"
-msgstr ""
+msgstr "Näytä ristipistovihjeet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
@@ -2364,7 +2333,7 @@ msgstr "Näytä symbolit"
 #: ui/EditorConfigPage.ui:287
 #, kde-format
 msgid "Color highlight"
-msgstr ""
+msgstr "Värikorostus"
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: ui/EditorConfigPage.ui:296
@@ -2418,10 +2387,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: ui/EditorConfigPage.ui:412
-#, fuzzy, kde-format
-#| msgid "Text Tool"
+#, kde-format
 msgid "Text tool font"
-msgstr "Tekstityökalu"
+msgstr "Tekstityökalufontti"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: ui/EditorConfigPage.ui:422
@@ -2476,38 +2444,36 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
-#, fuzzy, kde-format
-#| msgid "Horizontally"
+#, kde-format
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
-msgstr "Vaakasuunnassa"
+msgstr "Vaaka"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
-#, fuzzy, kde-format
-#| msgid "Vertically"
+#, kde-format
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
-msgstr "Pystysuunnassa"
+msgstr "Pysty"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/FileProperties.ui:279
 #, kde-format
 msgctxt "The document title"
 msgid "Title"
-msgstr ""
+msgstr "Otsikko"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/FileProperties.ui:292
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Tekijä"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: ui/FileProperties.ui:305
 #, kde-format
 msgid "Copyright"
-msgstr ""
+msgstr "Tekijänoikeudet"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: ui/FileProperties.ui:318
@@ -2621,21 +2587,20 @@ msgstr "Tuo asetukset"
 #: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
 #, kde-format
 msgid "Maximum colors"
-msgstr ""
+msgstr "Värejä enintään"
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
 #: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
 #, kde-format
 msgid "Use fractionals"
-msgstr ""
+msgstr "Käytä murto-osia"
 
 #. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
 #: ui/ImportImage.ui:118
-#, fuzzy, kde-format
-#| msgid "Text color"
+#, kde-format
 msgid "Ignore color"
-msgstr "Tekstiväri"
+msgstr "Sivuuta väri"
 
 #. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
 #: ui/ImportImage.ui:165
@@ -2666,10 +2631,9 @@ msgstr "Pystysuunnassa"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/ImportImage.ui:283
-#, fuzzy, kde-format
-#| msgid "Pattern Size"
+#, kde-format
 msgid "Pattern scale"
-msgstr "Kuvion koko"
+msgstr "Kuvion mittakaava"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
 #: ui/ImportImage.ui:302
@@ -2679,8 +2643,7 @@ msgstr " %"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/ImportImage.ui:315
-#, fuzzy, kde-format
-#| msgid "Pattern Size"
+#, kde-format
 msgid "Pattern size"
 msgstr "Kuvion koko"
 
