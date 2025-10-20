@@ -155,6 +155,7 @@
       <li xml:lang="es">Creación de nuevos patrones</li>
       <li xml:lang="et">Uute mustrite loomine</li>
       <li xml:lang="eu">Eredu berriak sortzea</li>
+      <li xml:lang="fi">Uusien kuvioiden luominen</li>
       <li xml:lang="fr">Création de nouveaux ouvrages</li>
       <li xml:lang="gl">Creación de padróns novos.</li>
       <li xml:lang="he">יצירת תבניות חדשות</li>
@@ -406,6 +407,7 @@
       <caption xml:lang="eo">Kruckudra ŝablono kreita el bildo</caption>
       <caption xml:lang="es">Un patrón de puntos creado a partir de una imagen</caption>
       <caption xml:lang="eu">Irudi batetik sortutako gurutze-puntuko eredu bat</caption>
+      <caption xml:lang="fi">Kuvasta luotu ristipistokuvio</caption>
       <caption xml:lang="fr">Un motif de point créé à partir d'une image</caption>
       <caption xml:lang="gl">Un padrón de punta creado a partir dunha imaxe.</caption>
       <caption xml:lang="he">תבנית תכים שנוצרה מתמונה</caption>
