@@ -3,7 +3,7 @@
 # zoe <chp321@gmail.com>, 2014.
 # Sebastien Renard <renard@kde.org>, 2014.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
-# SPDX-FileCopyrightText: 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 # Translators:
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2024-10-23 11:17+0200\n"
+"PO-Revision-Date: 2025-12-18 10:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.0\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -1494,7 +1494,7 @@ msgstr "Zoe, Sébastien Renard, Simon Depiets"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "chp321@gmail.com,renard@kde.org,sdepiets@gmail.com"
+msgstr "chp321@gmail.com, renard@kde.org, sdepiets@gmail.com"
 
 #: src/Main.cpp:110
 #, kde-format
