@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2014, 2015, 2016, 2017, 2019.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 # Ronald Stroethoff <stroet43@zonnet.nl>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2019-05-20 10:01+0200\n"
+"PO-Revision-Date: 2026-01-02 15:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.04.1\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -2201,7 +2201,7 @@ msgstr "Eigenschappen van tekstelement"
 #: src/TextToolDlg.cpp:28 ui/TextTool.ui:17
 #, kde-format
 msgid "Text Tool"
-msgstr "Tekstgereedschap"
+msgstr "Hulpmiddel voor tekst"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel1)
 #. i18n: ectx: property (text), widget (QLabel, label)
