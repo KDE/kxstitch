@@ -1091,7 +1091,7 @@ msgstr "Versió %1 de la paleta"
 #: src/DocumentPalette.cpp:412
 #, kde-format
 msgid "Failed reading palette"
-msgstr "No s'ha pogut llegir la paleta"
+msgstr "Ha fallat mentre es llegia la paleta"
 
 #: src/DocumentPalette.cpp:434
 #, kde-format
@@ -1242,7 +1242,7 @@ msgstr "Estat indefinit del missatge d'estat %1"
 #: src/Exceptions.cpp:107
 #, kde-format
 msgid "Failed to write to the device"
-msgstr "No s'ha pogut escriure al dispositiu"
+msgstr "Ha fallat mentre s'escrivia al dispositiu"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
 #: src/ImageElementDlg.cpp:31 ui/ImageElement.ui:14
@@ -1301,13 +1301,13 @@ msgid ""
 "Failed to read a pattern from the library %1.\n"
 "%2"
 msgstr ""
-"No s'ha pogut llegir un patró des de la biblioteca %1.\n"
+"Ha fallat mentre es llegia un patró des de la biblioteca %1.\n"
 "%2"
 
 #: src/LibraryFile.cpp:159
 #, kde-format
 msgid "Failed to read library."
-msgstr "No s'ha pogut llegir la biblioteca."
+msgstr "Ha fallat mentre es llegia la biblioteca."
 
 #: src/LibraryFile.cpp:193
 #, kde-format
@@ -1323,7 +1323,7 @@ msgstr ""
 #: src/LibraryFile.cpp:193 src/LibraryFile.cpp:218
 #, kde-format
 msgid "Error opening file"
-msgstr "S'ha produït un error en obrir el fitxer"
+msgstr "S'ha produït un error mentre s'obria el fitxer"
 
 #: src/LibraryFile.cpp:218
 #, kde-format
@@ -1543,7 +1543,7 @@ msgid ""
 "Failed to read the file.\n"
 "%1."
 msgstr ""
-"No s'ha pogut llegir el fitxer.\n"
+"Ha fallat mentre es llegia el fitxer.\n"
 "%1."
 
 #: src/MainWindow.cpp:382
@@ -1552,7 +1552,7 @@ msgid ""
 "Failed to save the file.\n"
 "%1"
 msgstr ""
-"No s'ha pogut guardar el fitxer.\n"
+"Ha fallat mentre es guardava el fitxer.\n"
 "%1"
 
 #: src/MainWindow.cpp:386
@@ -1561,7 +1561,7 @@ msgid ""
 "Failed to open the file.\n"
 "%1"
 msgstr ""
-"No s'ha pogut obrir el fitxer.\n"
+"Ha fallat mentre s'obria el fitxer.\n"
 "%1"
 
 #: src/MainWindow.cpp:395
@@ -2077,13 +2077,13 @@ msgid ""
 "Error reading scheme %1\n"
 "%2."
 msgstr ""
-"S'ha produït un error en llegir l'esquema %1\n"
+"S'ha produït un error mentre es llegia l'esquema %1\n"
 "%2."
 
 #: src/SchemeManager.cpp:144
 #, kde-format
 msgid "Error reading floss scheme."
-msgstr "S'ha produït un error en llegir l'esquema del fil."
+msgstr "S'ha produït un error mentre es llegia l'esquema del fil."
 
 #: src/SchemeManager.cpp:174 src/SchemeManager.cpp:183
 #, kde-format
@@ -2152,7 +2152,7 @@ msgstr "Versió %1 de les dades de la puntada"
 #: src/StitchData.cpp:1180
 #, kde-format
 msgid "Failed reading stitch data"
-msgstr "No s'ha pogut llegir les dades de la puntada"
+msgstr "Ha fallat mentre es llegien les dades de la puntada"
 
 #: src/Symbol.cpp:318
 #, kde-format
@@ -2178,7 +2178,7 @@ msgstr "No pareix un fitxer de símbols vàlid"
 #: src/SymbolManager.cpp:177
 #, kde-format
 msgid "Failed to open the file %1"
-msgstr "No s'ha pogut obrir el fitxer %1"
+msgstr "Ha fallat mentre s'obria el fitxer %1"
 
 #: src/SymbolSelectorDlg.cpp:50
 #, kde-format
