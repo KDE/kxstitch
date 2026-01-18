@@ -1,29 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# SPDX-FileCopyrightText: 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2026-01-17 22:56+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
-"3 : 4\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
 #, kde-format
 msgid "The background color."
-msgstr ""
+msgstr "צבע הרקע."
 
 #. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
 #: kxstitch.kcfg:14
@@ -156,7 +155,7 @@ msgstr ""
 #: kxstitch.kcfg:111
 #, kde-format
 msgid "Render the french knots"
-msgstr ""
+msgstr "תיצוג התפרים הצרפתיים"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchHints), group (renderer)
 #: kxstitch.kcfg:115
@@ -180,7 +179,7 @@ msgstr ""
 #: kxstitch.kcfg:138
 #, kde-format
 msgid "How to display french knots."
-msgstr ""
+msgstr "איך להציג תפרים צרפתיים."
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:151
@@ -569,20 +568,20 @@ msgstr ""
 #: kxstitch.kcfg:445
 #, kde-format
 msgid "Show the key element skeins column"
-msgstr ""
+msgstr "הצגת עמודת דוללות רכיב המפתח"
 
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:450
 #, kde-format
 msgid "Show the border"
-msgstr ""
+msgstr "הצגת המסגרת"
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
 #: kxstitch.kcfg:454 ui/TextElement.ui:184
 #, kde-format
 msgid "The border color"
-msgstr ""
+msgstr "צבע המסגרת"
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
@@ -590,167 +589,167 @@ msgstr ""
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "עובי המסגרת ב־1/10 מ״מ"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:466
 #, kde-format
 msgid "Color of the background"
-msgstr ""
+msgstr "צבע הרקע"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:470
 #, kde-format
 msgid "The transparency value"
-msgstr ""
+msgstr "ערך השקיפות"
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
 #: kxstitch.kcfg:490
 #, kde-format
 msgid "The text color"
-msgstr ""
+msgstr "צבע הטקסט"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&קובץ"
 
 #. i18n: ectx: Menu (fileRemoveBackgroundImage)
 #: kxstitchui.rc:10 src/Commands.cpp:501
 #, kde-format
 msgid "Remove Background Image"
-msgstr ""
+msgstr "הסרת תמונת רקע"
 
 #. i18n: ectx: Menu (edit)
 #: kxstitchui.rc:14
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "ע&ריכה"
 
 #. i18n: ectx: Menu (selectionMasks)
 #: kxstitchui.rc:15
 #, kde-format
 msgid "Selection Masks"
-msgstr ""
+msgstr "מסכות בחירה"
 
 #. i18n: ectx: Menu (mirror)
 #: kxstitchui.rc:23 src/Commands.cpp:1184
 #, kde-format
 msgid "Mirror Selection"
-msgstr ""
+msgstr "היפוך בחירה"
 
 #. i18n: ectx: Menu (rotate)
 #: kxstitchui.rc:27 src/Commands.cpp:1239
 #, kde-format
 msgid "Rotate Selection"
-msgstr ""
+msgstr "סיבוב בחירה"
 
 #. i18n: ectx: Menu (settings)
 #: kxstitchui.rc:33
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "ה&גדרות"
 
 #. i18n: ectx: Menu (formatScalesAs)
 #: kxstitchui.rc:35 kxstitchui.rc:140
 #, kde-format
 msgid "Format Scales As"
-msgstr ""
+msgstr "עיצוב סרגלי המידה בתור"
 
 #. i18n: ectx: Menu (renderStitchesAs)
 #: kxstitchui.rc:41 kxstitchui.rc:146
 #, kde-format
 msgid "Render Stitches As"
-msgstr ""
+msgstr "תיצוג תכים בתור"
 
 #. i18n: ectx: Menu (renderBackstitchesAs)
 #: kxstitchui.rc:49 kxstitchui.rc:154
 #, kde-format
 msgid "Render Backstitches As"
-msgstr ""
+msgstr "תיצוג תכים אחוריים בתור"
 
 #. i18n: ectx: Menu (renderKnotsAs)
 #: kxstitchui.rc:54 kxstitchui.rc:159
 #, kde-format
 msgid "Render Knots As"
-msgstr ""
+msgstr "תיצוג קשרים בתור"
 
 #. i18n: ectx: Menu (view)
 #: kxstitchui.rc:68
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "ת&צוגה"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
 #: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
 #, kde-format
 msgid "Show Background Image"
-msgstr ""
+msgstr "הצגת תמונת רקע"
 
 #. i18n: ectx: Menu (viewFitBackgroundImage)
 #: kxstitchui.rc:76 kxstitchui.rc:176
 #, kde-format
 msgid "Fit Background Image to Selection"
-msgstr ""
+msgstr "התאמת תמונת הרקע לבחירה"
 
 #. i18n: ectx: Menu (stitches)
 #: kxstitchui.rc:80
 #, kde-format
 msgid "&Stitches"
-msgstr ""
+msgstr "&תכים"
 
 #. i18n: ectx: Menu (Tools)
 #: kxstitchui.rc:91
 #, kde-format
 msgid "&Tools"
-msgstr ""
+msgstr "&כלים"
 
 #. i18n: ectx: Menu (palette)
 #: kxstitchui.rc:111
 #, kde-format
 msgid "&Palette"
-msgstr ""
+msgstr "&לוח צבעים"
 
 #. i18n: ectx: Menu (library)
 #: kxstitchui.rc:121
 #, kde-format
 msgid "&Library Manager"
-msgstr ""
+msgstr "מנהל &ספרייה"
 
 #. i18n: ectx: Menu (pattern)
 #: kxstitchui.rc:124
 #, kde-format
 msgid "&Pattern"
-msgstr ""
+msgstr "&תבנית"
 
 #. i18n: ectx: ToolBar (StitchToolBar)
 #: kxstitchui.rc:193
 #, kde-format
 msgid "Stitch Toolbar"
-msgstr ""
+msgstr "סרגל כלי תכים"
 
 #. i18n: ectx: ToolBar (ToolsToolbar)
 #: kxstitchui.rc:204
 #, kde-format
 msgid "Tools Toolbar"
-msgstr ""
+msgstr "סרגל כלי עזר"
 
 #. i18n: ectx: ToolBar (ZoomToolbar)
 #: kxstitchui.rc:227
 #, kde-format
 msgid "Zoom Toolbar"
-msgstr ""
+msgstr "סרגל כלי תקריב"
 
 #: src/BackgroundImage.cpp:122
 #, kde-format
 msgid "Background image version %1"
-msgstr ""
+msgstr "גרסת תמונת רקע %1"
 
 #: src/BackgroundImages.cpp:101
 #, kde-format
 msgid "Background images version %1"
-msgstr ""
+msgstr "גרסת תמונות רקע %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CalibrateFloss)
 #: src/CalibrateFlossDlg.cpp:31 ui/CalibrateFloss.ui:14
@@ -775,104 +774,104 @@ msgstr ""
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
-msgstr ""
+msgstr "מאפייני קובץ"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
 #: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1103
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
-msgstr ""
+msgstr "ייבוא תמונה"
 
 #: src/Commands.cpp:76
 #, kde-format
 msgid "Paint Stitches"
-msgstr ""
+msgstr "צביעת תכים"
 
 #: src/Commands.cpp:96
 #, kde-format
 msgid "Paint Knots"
-msgstr ""
+msgstr "צביעת קשרים"
 
 #: src/Commands.cpp:116
 #, kde-format
 msgid "Draw Line"
-msgstr ""
+msgstr "ציור קו"
 
 #: src/Commands.cpp:136
 #, kde-format
 msgid "Erase Stitches"
-msgstr ""
+msgstr "מחיקת תכים"
 
 #: src/Commands.cpp:156 src/MainWindow.cpp:1318
 #, kde-format
 msgid "Draw Rectangle"
-msgstr ""
+msgstr "ציור מרובע"
 
 #: src/Commands.cpp:176 src/MainWindow.cpp:1328
 #, kde-format
 msgid "Fill Rectangle"
-msgstr ""
+msgstr "מילוי מרובע"
 
 #: src/Commands.cpp:196 src/MainWindow.cpp:1338
 #, kde-format
 msgid "Draw Ellipse"
-msgstr ""
+msgstr "ציור אליפסה"
 
 #: src/Commands.cpp:216 src/MainWindow.cpp:1348
 #, kde-format
 msgid "Fill Ellipse"
-msgstr ""
+msgstr "מילוי אליפסה"
 
 #: src/Commands.cpp:236 src/MainWindow.cpp:1358
 #, kde-format
 msgid "Fill Polygon"
-msgstr ""
+msgstr "מילוי מצולע"
 
 #: src/Commands.cpp:256
 #, kde-format
 msgid "Add Stitch"
-msgstr ""
+msgstr "הוספת תך"
 
 #: src/Commands.cpp:292
 #, kde-format
 msgid "Delete Stitches"
-msgstr ""
+msgstr "מחיקת תכים"
 
 #: src/Commands.cpp:325
 #, kde-format
 msgid "Add Backstitch"
-msgstr ""
+msgstr "הוספת תך אחורי"
 
 #: src/Commands.cpp:348
 #, kde-format
 msgid "Delete Backstitch"
-msgstr ""
+msgstr "מחיקת תך אחורי"
 
 #: src/Commands.cpp:378
 #, kde-format
 msgid "Add Knot"
-msgstr ""
+msgstr "הוספת קשר"
 
 #: src/Commands.cpp:396
 #, kde-format
 msgid "Delete Knots"
-msgstr ""
+msgstr "מחיקת קשרים"
 
 #: src/Commands.cpp:421
 #, kde-format
 msgid "Set Property"
-msgstr ""
+msgstr "הגדרת מאפיין"
 
 #: src/Commands.cpp:440
 #, kde-format
 msgid "Add Background Image"
-msgstr ""
+msgstr "הוספת תמונת רקע"
 
 #: src/Commands.cpp:462
 #, kde-format
 msgid "Fit Background to Selection"
-msgstr ""
+msgstr "התאמת הרקע לבחירה"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
 #: src/Commands.cpp:600 ui/PaletteManager.ui:189
@@ -883,43 +882,43 @@ msgstr ""
 #: src/Commands.cpp:618
 #, kde-format
 msgid "Resize Document"
-msgstr ""
+msgstr "שינוי גודל מסמך"
 
 #: src/Commands.cpp:645
 #, kde-format
 msgid "Crop to Pattern"
-msgstr ""
+msgstr "חיתוך לתבנית"
 
 #: src/Commands.cpp:672
 #, kde-format
 msgid "Crop to Selection"
-msgstr ""
+msgstr "חיתוך לבחירה"
 
 #: src/Commands.cpp:709 src/MainWindow.cpp:1482
 #, kde-format
 msgid "Insert Columns"
-msgstr ""
+msgstr "הוספת עמודות"
 
 #: src/Commands.cpp:752 src/MainWindow.cpp:1476
 #, kde-format
 msgid "Insert Rows"
-msgstr ""
+msgstr "הוספת שורות"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExtendPattern)
 #: src/Commands.cpp:795 src/ExtendPatternDlg.cpp:21 ui/ExtendPattern.ui:14
 #, kde-format
 msgid "Extend Pattern"
-msgstr ""
+msgstr "הרחבת תבנית"
 
 #: src/Commands.cpp:837 src/MainWindow.cpp:1458
 #, kde-format
 msgid "Center Pattern"
-msgstr ""
+msgstr "מירכוז תבנית"
 
 #: src/Commands.cpp:868
 #, kde-format
 msgid "Update Palette"
-msgstr ""
+msgstr "עדכון לוח צבעים"
 
 #: src/Commands.cpp:891
 #, kde-format
@@ -929,48 +928,48 @@ msgstr ""
 #: src/Commands.cpp:952
 #, kde-format
 msgid "Replace Color"
-msgstr ""
+msgstr "החלפת צבע"
 
 #: src/Commands.cpp:1052 src/MainWindow.cpp:1441
 #, kde-format
 msgid "Swap Colors"
-msgstr ""
+msgstr "החלפת צבעים"
 
 #: src/Commands.cpp:1073
 #, kde-format
 msgid "Update Printer Configuration"
-msgstr ""
+msgstr "עדכון הגדרות מדפסת"
 
 #: src/Commands.cpp:1097
 #, kde-format
 msgid "Cut"
-msgstr ""
+msgstr "גזירה"
 
 #: src/Commands.cpp:1283 src/Editor.cpp:1959 src/MainWindow.cpp:1378
 #, kde-format
 msgid "Alphabet"
-msgstr ""
+msgstr "אלפבית"
 
 #: src/Commands.cpp:1329
 #, kde-format
 msgid "Configure KXStitch"
-msgstr ""
+msgstr "הגדרת KXStitch"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Centimeters)"
-msgstr ""
+msgstr "ברירת מחדל (סנטימטרים)"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Inches)"
-msgstr ""
+msgstr "ברירת מחדל (אינצ׳ים)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #: src/ConfigurationDialogs.cpp:35 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
-msgstr ""
+msgstr "ברירת מחדל"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
@@ -978,7 +977,7 @@ msgstr ""
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
-msgstr ""
+msgstr " לאינץ׳"
 
 #: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
 #: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
@@ -986,18 +985,18 @@ msgstr ""
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
-msgstr ""
+msgstr " לס״מ"
 
 #: src/Document.cpp:122 src/MainWindow.cpp:284 src/MainWindow.cpp:355
 #: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
-msgstr ""
+msgstr "ללא שם"
 
 #: src/Document.cpp:245 src/Document.cpp:279
 #, kde-format
 msgid "KXStitch version %1"
-msgstr ""
+msgstr "KXStitch גרסה %1"
 
 #: src/Document.cpp:475 src/Document.cpp:772 src/Document.cpp:1084
 #, kde-format
@@ -1007,7 +1006,7 @@ msgstr ""
 #: src/Document.cpp:523 src/Document.cpp:818 src/Document.cpp:1132
 #, kde-format
 msgid "Invalid data read."
-msgstr ""
+msgstr "נקראו נתונים שגויים."
 
 #: src/Document.cpp:623 src/Document.cpp:918 src/Document.cpp:1232
 #: src/Document.cpp:1248 src/Document.cpp:1410 src/Document.cpp:1566
@@ -1015,7 +1014,7 @@ msgstr ""
 #: src/Document.cpp:2300 src/SymbolLibrary.cpp:302
 #, kde-format
 msgid "Stream error"
-msgstr ""
+msgstr "שגיאת תזרים"
 
 #: src/Document.cpp:1351 src/Document.cpp:1504 src/Document.cpp:1665
 #: src/Document.cpp:1856 src/Document.cpp:2049 src/Document.cpp:2229
@@ -1044,7 +1043,7 @@ msgstr ""
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
 #, kde-format
 msgid "Stitches"
-msgstr ""
+msgstr "תכים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
@@ -1053,7 +1052,7 @@ msgstr ""
 #: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
 #, kde-format
 msgid "CM"
-msgstr ""
+msgstr "ס״מ"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
@@ -1066,7 +1065,7 @@ msgstr ""
 #: ui/PatternElement.ui:205
 #, kde-format
 msgid "Inches"
-msgstr ""
+msgstr "אינצ׳ים"
 
 #: src/DocumentFloss.cpp:167
 #, kde-format
@@ -1076,12 +1075,12 @@ msgstr ""
 #: src/DocumentPalette.cpp:384
 #, kde-format
 msgid "Palette version %1"
-msgstr ""
+msgstr "גרסת לוח צבעים %1"
 
 #: src/DocumentPalette.cpp:389
 #, kde-format
 msgid "Failed reading palette"
-msgstr ""
+msgstr "קריאת לוח צבעים נכשלה"
 
 #: src/DocumentPalette.cpp:414
 #, kde-format
@@ -1107,6 +1106,8 @@ msgid_plural ""
 "\n"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/DocumentPalette.cpp:442
 #, kde-format
@@ -1118,6 +1119,8 @@ msgid_plural ""
 "\n"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/DocumentPalette.cpp:451
 #, kde-format
@@ -1129,29 +1132,31 @@ msgid_plural ""
 "You may want to check these are suitable."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/Editor.cpp:762
 #, kde-format
 msgid "Drag"
-msgstr ""
+msgstr "גרירה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
 #: src/Editor.cpp:813 src/Editor.cpp:1938 src/MainWindow.cpp:1368
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "טקסט"
 
 #: src/Editor.cpp:908
 #, kde-format
 msgid "Add Character"
-msgstr ""
+msgstr "הוספת תו"
 
 #: src/Editor.cpp:957 src/Editor.cpp:2100 src/LibraryManagerDlg.cpp:116
 #: src/LibraryManagerDlg.cpp:135
 #, kde-format
 msgid "Paste"
-msgstr ""
+msgstr "הדבקה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumn)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
@@ -1160,13 +1165,13 @@ msgstr ""
 #: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
 #, kde-format
 msgid "Symbol"
-msgstr ""
+msgstr "סמל"
 
 #: src/Element.cpp:470 src/Element.cpp:496
 #, kde-format
 msgctxt "The name of the floss"
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_StrandsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, StrandsColumn)
@@ -1174,23 +1179,23 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
-msgstr ""
+msgstr "חוטים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/Element.cpp:472 src/Element.cpp:504 ui/NewFloss.ui:44
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
 #: src/Element.cpp:474 src/Element.cpp:513
 #, kde-format
 msgid "Length(m)"
-msgstr ""
+msgstr "אורך(מ׳)"
 
 #: src/Element.cpp:475 src/Element.cpp:519
 #, kde-format
 msgid "Skeins (8m)"
-msgstr ""
+msgstr "דוללות (8 מ׳)"
 
 #: src/Element.cpp:488
 #, kde-format
@@ -1201,33 +1206,33 @@ msgstr ""
 #: src/Exceptions.cpp:60
 #, kde-format
 msgid "Tried to read past the end of the data"
-msgstr ""
+msgstr "התבצע ניסיון לקרוא מעבר לסוף הנתונים"
 
 #: src/Exceptions.cpp:62
 #, kde-format
 msgid "Tried to read corrupted data"
-msgstr ""
+msgstr "התבצע ניסיון לקרוא נתונים פגומים"
 
 #: src/Exceptions.cpp:64 src/Exceptions.cpp:99
 #, kde-format
 msgid "Undefined status message status %1"
-msgstr ""
+msgstr "מצב הודעת המצב %1 לא מוגדר"
 
 #: src/Exceptions.cpp:96
 #, kde-format
 msgid "Failed to write to the device"
-msgstr ""
+msgstr "הכתיבה להתקן נכשלה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImageElement)
 #: src/ImageElementDlg.cpp:29 ui/ImageElement.ui:14
 #, kde-format
 msgid "Image Element Properties"
-msgstr ""
+msgstr "מאפייני רכיב תמונה"
 
 #: src/ImportImageDlg.cpp:84
 #, kde-format
 msgid "Import Image - Image Size %1 x %2 pixels"
-msgstr ""
+msgstr "ייבוא תמונה - גודל תמונה %1 × %2 פיקסלים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
@@ -1235,23 +1240,23 @@ msgstr ""
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
-msgstr ""
+msgstr "סנטימטרים"
 
 #: src/ImportImageDlg.cpp:225 src/ImportImageDlg.cpp:231
 #, kde-format
 msgctxt "%1 width, %2 height and %3 units"
 msgid "%1 x %2 %3"
-msgstr ""
+msgstr "%1 × %2 %3"
 
 #: src/ImportImageDlg.cpp:356
 #, kde-format
 msgid "Rendering preview"
-msgstr ""
+msgstr "תצוגה מקדימה לתיצוג"
 
 #: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:574
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: src/ImportImageDlg.cpp:570
 #, kde-format
@@ -1262,12 +1267,12 @@ msgstr ""
 #: src/KeyElementDlg.cpp:24 ui/KeyElement.ui:14
 #, kde-format
 msgid "Key Element Properties"
-msgstr ""
+msgstr "מאפייני רכיב מפתח"
 
 #: src/LibraryFile.cpp:112
 #, kde-format
 msgid "Loading Library %1"
-msgstr ""
+msgstr "הספרייה %1 נטענת"
 
 #: src/LibraryFile.cpp:150
 #, kde-format
@@ -1279,7 +1284,7 @@ msgstr ""
 #: src/LibraryFile.cpp:151
 #, kde-format
 msgid "Failed to read library."
-msgstr ""
+msgstr "קריאת הספרייה נכשלה."
 
 #: src/LibraryFile.cpp:185
 #, kde-format
@@ -1288,11 +1293,14 @@ msgid ""
 "could not be opened for reading.\n"
 "%2"
 msgstr ""
+"לא ניתן לפתוח את הקובץ %1\n"
+"לקריאה.\n"
+"%2"
 
 #: src/LibraryFile.cpp:185 src/LibraryFile.cpp:209
 #, kde-format
 msgid "Error opening file"
-msgstr ""
+msgstr "שגיאה בפתיחת קובץ"
 
 #: src/LibraryFile.cpp:209
 #, kde-format
@@ -1301,18 +1309,21 @@ msgid ""
 "could not be opened for writing.\n"
 "%2"
 msgstr ""
+"לא ניתן לפתוח את הקובץ %1\n"
+"לכתיבה.\n"
+"%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryFilePaths)
 #: src/LibraryFilePathsDlg.cpp:21 ui/LibraryFilePaths.ui:14
 #, kde-format
 msgid "Library File Paths"
-msgstr ""
+msgstr "נתיבי קובץ ספרייה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
 #: src/LibraryManagerDlg.cpp:38 ui/LibraryManager.ui:14
 #, kde-format
 msgid "Library Manager"
-msgstr ""
+msgstr "מנהל ספרייה"
 
 #: src/LibraryManagerDlg.cpp:63
 #, kde-format
@@ -1344,132 +1355,132 @@ msgstr ""
 #: src/LibraryManagerDlg.cpp:109
 #, kde-format
 msgid "New Category"
-msgstr ""
+msgstr "קטגוריה חדשה"
 
 #: src/LibraryManagerDlg.cpp:112
 #, kde-format
 msgid "Add to Export List"
-msgstr ""
+msgstr "הוספת לרשימת הייצוא"
 
 #: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
 #, kde-format
 msgid "Properties..."
-msgstr ""
+msgstr "מאפיינים…"
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
 #: src/LibraryManagerDlg.cpp:131
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #: src/LibraryManagerDlg.cpp:174
 #, kde-format
 msgid "Create Category"
-msgstr ""
+msgstr "יצירת קטגוריה"
 
 #: src/LibraryManagerDlg.cpp:174
 #, kde-format
 msgid "Category Name"
-msgstr ""
+msgstr "שם קטגוריה"
 
 #: src/LibraryManagerDlg.cpp:194
 #, kde-format
 msgid "This category already exists."
-msgstr ""
+msgstr "הקטגוריה הזאת כבר קיימת."
 
 #: src/LibraryManagerDlg.cpp:194
 #, kde-format
 msgid "Category Exists"
-msgstr ""
+msgstr "הקטגוריה קיימת"
 
 #: src/LibraryManagerDlg.cpp:283
 #, kde-format
 msgid "Delete this pattern."
-msgstr ""
+msgstr "מחיקת התבנית הזאת."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryPatternProperties)
 #: src/LibraryPatternPropertiesDlg.cpp:30 ui/LibraryPatternProperties.ui:14
 #, kde-format
 msgid "Library Pattern Properties"
-msgstr ""
+msgstr "מאפייני תבנית ספרייה"
 
 #: src/LibraryTreeWidget.cpp:70
 #, kde-format
 msgid "existing library"
-msgstr ""
+msgstr "ספרייה קיימת"
 
 #: src/Main.cpp:89
 #, kde-format
 msgid "kxstitch"
-msgstr ""
+msgstr "kxstitch"
 
 #: src/Main.cpp:91
 #, kde-format
 msgid "A cross stitch pattern creator."
-msgstr ""
+msgstr "יוצר תבניות תכים משוכלים."
 
 #: src/Main.cpp:93
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
-msgstr ""
+msgstr "‏(c) 2010‏-2019 סטיבן אלוול"
 
 #: src/Main.cpp:99
 #, kde-format
 msgid "Project Lead"
-msgstr ""
+msgstr "ראש המיזם"
 
 #: src/Main.cpp:100
 #, kde-format
 msgid "Bug fixes, application icons"
-msgstr ""
+msgstr "תיקוני תקלות, סמלי היישום"
 
 #: src/Main.cpp:101
 #, kde-format
 msgid "Man page"
-msgstr ""
+msgstr "עמוד ההדרכה (Man)"
 
 #: src/Main.cpp:102
 #, kde-format
 msgid "Bug fixes, improvements"
-msgstr ""
+msgstr "תיקוני תקלות, שיפורים"
 
 #: src/Main.cpp:103
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "צוות התרגום של KDE ישראל"
 
 #: src/Main.cpp:103
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-l10n-he@kde.org"
 
 #: src/Main.cpp:110
 #, kde-format
 msgid "Document to open."
-msgstr ""
+msgstr "מסמך לפתיחה."
 
 #: src/MainWindow.cpp:233
 #, kde-format
 msgid "Save changes to document?"
-msgstr ""
+msgstr "לשמור שינויים למסמך‫?"
 
 #: src/MainWindow.cpp:242
 #, kde-format
 msgid "Unable to save the file"
-msgstr ""
+msgstr "לא ניתן לשמור את הקובץ"
 
 #: src/MainWindow.cpp:276
 #, kde-format
 msgid "Open file"
-msgstr ""
+msgstr "פתיחת קובץ"
 
 #: src/MainWindow.cpp:278
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
-msgstr ""
+msgstr "תבניות של KXStitch‏ (‎*.kxs);;תבניות תכים מסוג PC‏ (‎*.pat);;כל הקבצים (*)"
 
 #: src/MainWindow.cpp:317
 #, kde-format
@@ -1489,6 +1500,8 @@ msgid ""
 "Failed to read the file.\n"
 "%1."
 msgstr ""
+"קריאת הקובץ נכשלה.\n"
+"%1."
 
 #: src/MainWindow.cpp:373
 #, kde-format
@@ -1496,6 +1509,8 @@ msgid ""
 "Failed to save the file.\n"
 "%1"
 msgstr ""
+"שמירת הקובץ נכשלה.\n"
+"%1"
 
 #: src/MainWindow.cpp:377
 #, kde-format
@@ -1503,69 +1518,71 @@ msgid ""
 "Failed to open the file.\n"
 "%1"
 msgstr ""
+"פתיחת הקובץ  נכשלה.\n"
+"%1"
 
 #: src/MainWindow.cpp:384
 #, kde-format
 msgid "Save As..."
-msgstr ""
+msgstr "שמירה בשם…"
 
 #: src/MainWindow.cpp:384
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
-msgstr ""
+msgstr "תבניות תכים משוכלים (‎*.kxs)"
 
 #: src/MainWindow.cpp:398
 #, kde-format
 msgid "Revert changes to document?"
-msgstr ""
+msgstr "להסיג את השינויים למסמך?"
 
 #: src/MainWindow.cpp:398
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
-msgstr ""
+msgstr "הסגה"
 
 #: src/MainWindow.cpp:438
 #, kde-format
 msgid "There is nothing to print"
-msgstr ""
+msgstr "אין מה להדפיס"
 
 #: src/MainWindow.cpp:495 src/MainWindow.cpp:730
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
-msgstr ""
+msgstr "תמונות (‎*.bmp‏ ‎*.gif‏ ‎*.jpg‏ ‎*.png‏ ‎*.pbm‏ ‎*.pgm‏ ‎*.ppm‏ ‎*.xbm‏ ‎*.xpm‏ ‎*.svg)"
 
 #: src/MainWindow.cpp:574
 #, kde-format
 msgid "Converting to stitches"
-msgstr ""
+msgstr "המרה לתכים"
 
 #: src/MainWindow.cpp:728
 #, kde-format
 msgid "Background Image"
-msgstr ""
+msgstr "תמונת רקע"
 
 #: src/MainWindow.cpp:778
 #, kde-format
 msgid "Undo %1"
-msgstr ""
+msgstr "הסגת %1"
 
 #: src/MainWindow.cpp:783
 #, kde-format
 msgid "Redo %1"
-msgstr ""
+msgstr "ביצוע %1 מחדש"
 
 #: src/MainWindow.cpp:922
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
-msgstr ""
+msgstr "עורך"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/MainWindow.cpp:924 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
-msgstr ""
+msgstr "תבנית"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
@@ -1573,83 +1590,83 @@ msgstr ""
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
-msgstr ""
+msgstr "לוח צבעים"
 
 #: src/MainWindow.cpp:927
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "ייבוא"
 
 #: src/MainWindow.cpp:928
 #, kde-format
 msgid "Library"
-msgstr ""
+msgstr "ספרייה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
 #: src/MainWindow.cpp:930 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
-msgstr ""
+msgstr "הגדרות מדפסת"
 
 #: src/MainWindow.cpp:1096
 #, kde-format
 msgid "Print Setup..."
-msgstr ""
+msgstr "הגדרות הדפסה…"
 
 #: src/MainWindow.cpp:1113
 #, kde-format
 msgid "Add Background Image..."
-msgstr ""
+msgstr "הוספת תמונת רקע…"
 
 #: src/MainWindow.cpp:1130
 #, kde-format
 msgid "Mirror/Rotate makes copies"
-msgstr ""
+msgstr "היפוך/סיבוב יוצר עותקים"
 
 #: src/MainWindow.cpp:1136
 #, kde-format
 msgid "Horizontally"
-msgstr ""
+msgstr "אופקית"
 
 #: src/MainWindow.cpp:1143
 #, kde-format
 msgid "Vertically"
-msgstr ""
+msgstr "אנכית"
 
 #: src/MainWindow.cpp:1150
 #, kde-format
 msgid "90 Degrees"
-msgstr ""
+msgstr "90 מעלות"
 
 #: src/MainWindow.cpp:1157
 #, kde-format
 msgid "180 Degrees"
-msgstr ""
+msgstr "180 מעלות"
 
 #: src/MainWindow.cpp:1164
 #, kde-format
 msgid "270 Degrees"
-msgstr ""
+msgstr "270 מעלות"
 
 #: src/MainWindow.cpp:1172
 #, kde-format
 msgid "Stitch Mask"
-msgstr ""
+msgstr "מסכת תכים"
 
 #: src/MainWindow.cpp:1178
 #, kde-format
 msgid "Color Mask"
-msgstr ""
+msgstr "מסכת צבע"
 
 #: src/MainWindow.cpp:1184
 #, kde-format
 msgid "Exclude Backstitches"
-msgstr ""
+msgstr "החרגת תכים אחוריים"
 
 #: src/MainWindow.cpp:1190
 #, kde-format
 msgid "Exclude Knots"
-msgstr ""
+msgstr "החרגת קשרים"
 
 #: src/MainWindow.cpp:1214
 #, kde-format
@@ -1684,88 +1701,88 @@ msgstr ""
 #: src/MainWindow.cpp:1274
 #, kde-format
 msgid "French Knot"
-msgstr ""
+msgstr "תפר צרפתי"
 
 #: src/MainWindow.cpp:1288
 #, kde-format
 msgid "Paint"
-msgstr ""
+msgstr "צביעה"
 
 #: src/MainWindow.cpp:1298
 #, kde-format
 msgid "Draw"
-msgstr ""
+msgstr "ציור"
 
 #: src/MainWindow.cpp:1308
 #, kde-format
 msgid "Erase"
-msgstr ""
+msgstr "מחיקה"
 
 #: src/MainWindow.cpp:1388
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
-msgstr ""
+msgstr "בחירה"
 
 #: src/MainWindow.cpp:1398
 #, kde-format
 msgid "Backstitch"
-msgstr ""
+msgstr "תך אחורי"
 
 #: src/MainWindow.cpp:1408
 #, kde-format
 msgid "Color Picker"
-msgstr ""
+msgstr "בורר צבעים"
 
 #: src/MainWindow.cpp:1419
 #, kde-format
 msgid "Palette Manager..."
-msgstr ""
+msgstr "מנהל לוחות צבעים…"
 
 #: src/MainWindow.cpp:1425
 #, kde-format
 msgid "Show Symbols"
-msgstr ""
+msgstr "הצגת סמלים"
 
 #: src/MainWindow.cpp:1431
 #, kde-format
 msgid "Clear Unused"
-msgstr ""
+msgstr "פינוי אלו שלא בשימוש"
 
 #: src/MainWindow.cpp:1436
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr ""
+msgstr "כיול סכמה…"
 
 #: src/MainWindow.cpp:1446
 #, kde-format
 msgid "Replace Colors"
-msgstr ""
+msgstr "החלפת צבעים"
 
 #: src/MainWindow.cpp:1452
 #, kde-format
 msgid "Extend Pattern..."
-msgstr ""
+msgstr "הרחבת תבנית…"
 
 #: src/MainWindow.cpp:1464
 #, kde-format
 msgid "Crop Canvas to Pattern"
-msgstr ""
+msgstr "חיתוך מתחם הציור לתבנית"
 
 #: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Crop Canvas to Selection"
-msgstr ""
+msgstr "חיתוך מתחם הציור לבחירה"
 
 #: src/MainWindow.cpp:1489
 #, kde-format
 msgid "Library Manager..."
-msgstr ""
+msgstr "מנהל ספרייה…"
 
 #: src/MainWindow.cpp:1525
 #, kde-format
 msgid "Regular Stitches"
-msgstr ""
+msgstr "תכים רגילים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
@@ -1776,7 +1793,7 @@ msgstr ""
 #: ui/PatternElement.ui:168
 #, kde-format
 msgid "Black & White Symbols"
-msgstr ""
+msgstr "סמלי שחור ולבן"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
@@ -1786,7 +1803,7 @@ msgstr ""
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
-msgstr ""
+msgstr "סמלי צבע"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
@@ -1796,65 +1813,65 @@ msgstr ""
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
-msgstr ""
+msgstr "מקטעי צבע"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #: src/MainWindow.cpp:1562 src/MainWindow.cpp:1608 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
-msgstr ""
+msgstr "מקטעי צבע וסמלים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #: src/MainWindow.cpp:1575 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
-msgstr ""
+msgstr "קווי צבע"
 
 #: src/MainWindow.cpp:1635
 #, kde-format
 msgid "Color Highlight"
-msgstr ""
+msgstr "הדגשת צבע"
 
 #: src/MainWindow.cpp:1641
 #, kde-format
 msgid "Show Stitches"
-msgstr ""
+msgstr "הצגת תכים"
 
 #: src/MainWindow.cpp:1647
 #, kde-format
 msgid "Show Backstitches"
-msgstr ""
+msgstr "הצגת תכים אחוריים"
 
 #: src/MainWindow.cpp:1653
 #, kde-format
 msgid "Show French Knots"
-msgstr ""
+msgstr "הצגת תפר צרפתי"
 
 #: src/MainWindow.cpp:1659
 #, kde-format
 msgid "Show Grid"
-msgstr ""
+msgstr "הצגת רשת"
 
 #: src/MainWindow.cpp:1665
 #, kde-format
 msgid "Show Background Images"
-msgstr ""
+msgstr "הצגת תמונות רקע"
 
 #: src/MainWindow.cpp:1724
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: src/MainWindow.cpp:1746
 #, kde-format
 msgid "History"
-msgstr ""
+msgstr "היסטוריה"
 
 #: src/MainWindow.cpp:1754
 #, kde-format
 msgid "Imported Image"
-msgstr ""
+msgstr "תמונה מיובאת"
 
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
 #: src/NewFlossDlg.cpp:28 ui/PaletteManager.ui:182
@@ -1865,7 +1882,7 @@ msgstr ""
 #: src/NewFlossDlg.cpp:77 src/PrintSetupDlg.cpp:450
 #, kde-format
 msgid "Overwrite"
-msgstr ""
+msgstr "שכתוב"
 
 #: src/NewFlossDlg.cpp:77
 #, kde-format
@@ -1878,23 +1895,23 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
-msgstr ""
+msgstr "לא לשכתב"
 
 #: src/Page.cpp:217
 #, kde-format
 msgid "Page version %1"
-msgstr ""
+msgstr "גרסת עמוד %1"
 
 #: src/Page.cpp:257
 #, kde-format
 msgid "Invalid element type"
-msgstr ""
+msgstr "סוג הרכיב שגוי"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PageProperties)
 #: src/PagePropertiesDlg.cpp:25 ui/PageProperties.ui:14
 #, kde-format
 msgid "Page Properties"
-msgstr ""
+msgstr "מאפייני עמוד"
 
 #: src/Palette.cpp:132
 #, kde-format
@@ -1909,6 +1926,8 @@ msgid_plural ""
 "%1 Stitches"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/Palette.cpp:144
 #, kde-format
@@ -1922,12 +1941,12 @@ msgstr ""
 #: src/PaletteManagerDlg.cpp:51 ui/PaletteManager.ui:14
 #, kde-format
 msgid "Palette Manager"
-msgstr ""
+msgstr "מנהל לוחות צבעים"
 
 #: src/PaletteManagerDlg.cpp:149
 #, kde-format
 msgid "There are no more symbols available."
-msgstr ""
+msgstr "אין סמלים נוספים זמינים."
 
 #: src/PaletteManagerDlg.cpp:190
 #, kde-format
@@ -1939,44 +1958,44 @@ msgstr ""
 #: src/Pattern.cpp:284
 #, kde-format
 msgid "Pattern version %1"
-msgstr ""
+msgstr "גרסת תבנית %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternElement)
 #: src/PatternElementDlg.cpp:28 ui/PatternElement.ui:14
 #, kde-format
 msgid "Pattern Element Properties"
-msgstr ""
+msgstr "מאפייני רכיב תבנית"
 
 #: src/PrinterConfiguration.cpp:121
 #, kde-format
 msgid "Printer configuration %1"
-msgstr ""
+msgstr "הגדרות מדפסת %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
 #: src/PrintSetupDlg.cpp:52 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
-msgstr ""
+msgstr "הגדרות הדפסה"
 
 #: src/PrintSetupDlg.cpp:302
 #, kde-format
 msgid "Properties"
-msgstr ""
+msgstr "מאפיינים"
 
 #: src/PrintSetupDlg.cpp:306
 #, kde-format
 msgid "Delete Element"
-msgstr ""
+msgstr "מחיקת רכיב"
 
 #: src/PrintSetupDlg.cpp:439
 #, kde-format
 msgid "Page %1 of %2"
-msgstr ""
+msgstr "עמוד %1 מתוך %2"
 
 #: src/PrintSetupDlg.cpp:450
 #, kde-format
 msgid "Overwrite the current configuration?"
-msgstr ""
+msgstr "לדרוס את ההגדרות הנוכחיות?"
 
 #: src/PrintSetupDlg.cpp:499
 #, kde-format
@@ -1989,6 +2008,11 @@ msgid ""
 "Pattern Size: ${width.stitches} x ${height.stitches}\n"
 "Flosses from the ${scheme} range."
 msgstr ""
+"נוצר על ידי ${author}\n"
+"(C) ${copyright}\n"
+"\n"
+"גודל תבנית: ${width.stitches} × ${height.stitches}\n"
+"Flosses from the ${scheme} range."
 
 #: src/PrintSetupDlg.cpp:505 src/PrintSetupDlg.cpp:566
 #: src/PrintSetupDlg.cpp:588
@@ -1996,24 +2020,24 @@ msgstr ""
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
-msgstr ""
+msgstr "עמוד ${page}"
 
 #: src/SchemeManager.cpp:128
 #, kde-format
 msgid "Cannot open file: %1"
-msgstr ""
+msgstr "לא ניתן לפתוח את הקובץ: %1"
 
 #: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
 #: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
 #: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "לא ניתן להגדיר תוכן DomDocument מקובץ: %1"
 
 #: src/SchemeManager.cpp:144
 #, kde-format
@@ -2028,12 +2052,12 @@ msgstr ""
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "נמצאו מכוון רכיבי כותרת בקובץ: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
 msgid "Malformed XML in file: %1"
-msgstr ""
+msgstr "‏XML פגום בקובץ: %1"
 
 #: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
 #, kde-format
@@ -2041,294 +2065,296 @@ msgid ""
 "Unable to locate a writable directory\n"
 "to store the scheme."
 msgstr ""
+"לא ניתן לאתר תיקייה שאפשר לכתוב אליה\n"
+"לאחסון הסכמה."
 
 #: src/Stitch.cpp:66
 #, kde-format
 msgid "Stitch version %1"
-msgstr ""
+msgstr "גרסת תכים %1"
 
 #: src/Stitch.cpp:327
 #, kde-format
 msgid "Stitch queue version %1"
-msgstr ""
+msgstr "גרסת תור תכים %1"
 
 #: src/Stitch.cpp:407
 #, kde-format
 msgid "Backstitch version %1"
-msgstr ""
+msgstr "גרסת תכים אחוריים %1"
 
 #: src/Stitch.cpp:467
 #, kde-format
 msgid "Knot version %1"
-msgstr ""
+msgstr "גרסת קשרים %1"
 
 #: src/StitchData.cpp:1121
 #, kde-format
 msgid "Stitch data version %1"
-msgstr ""
+msgstr "גרסת נתוני תכים %1"
 
 #: src/StitchData.cpp:1126
 #, kde-format
 msgid "Failed reading stitch data"
-msgstr ""
+msgstr "קריאת נתוני התכים נכשלה"
 
 #: src/Symbol.cpp:300
 #, kde-format
 msgid "Symbol version %1"
-msgstr ""
+msgstr "גרסת סמלים %1"
 
 #: src/SymbolLibrary.cpp:324
 #, kde-format
 msgid "Symbol file version %1"
-msgstr ""
+msgstr "גרסת קובץ סמלים %1"
 
 #: src/SymbolListWidget.cpp:126
 #, kde-format
 msgctxt "A symbol that has been used"
 msgid "Used"
-msgstr ""
+msgstr "בשימוש"
 
 #: src/SymbolManager.cpp:151
 #, kde-format
 msgid "This does not appear to be a valid symbol file"
-msgstr ""
+msgstr "זה לא נראה כמו קובץ סמלים תקף"
 
 #: src/SymbolManager.cpp:166
 #, kde-format
 msgid "Failed to open the file %1"
-msgstr ""
+msgstr "פתיחת הקובץ %1 נכשלה"
 
 #: src/SymbolSelectorDlg.cpp:46
 #, kde-format
 msgid "Symbol Selector"
-msgstr ""
+msgstr "בורר סמלים"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextElement)
 #: src/TextElementDlg.cpp:29 ui/TextElement.ui:14
 #, kde-format
 msgid "Text Element Properties"
-msgstr ""
+msgstr "מאפייני רכיב טקסט"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TextTool)
 #: src/TextToolDlg.cpp:26 ui/TextTool.ui:17
 #, kde-format
 msgid "Text Tool"
-msgstr ""
+msgstr "כלי טקסט"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel1)
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/CalibrateFloss.ui:20 ui/NewFloss.ui:20
 #, kde-format
 msgid "Scheme"
-msgstr ""
+msgstr "סכמה"
 
 #. i18n: ectx: property (text), widget (QLabel, SelectedColorName)
 #: ui/CalibrateFloss.ui:60
 #, kde-format
 msgid "Currently selected color"
-msgstr ""
+msgstr "הצבע שנבחר כרגע"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel4)
 #: ui/CalibrateFloss.ui:102
 #, kde-format
 msgctxt "Green value of color"
 msgid "Green"
-msgstr ""
+msgstr "ירוק"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel3)
 #: ui/CalibrateFloss.ui:112
 #, kde-format
 msgctxt "Red value of color"
 msgid "Red"
-msgstr ""
+msgstr "אדום"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel5)
 #: ui/CalibrateFloss.ui:132
 #, kde-format
 msgctxt "Blue value of color"
 msgid "Blue"
-msgstr ""
+msgstr "כחול"
 
 #. i18n: ectx: property (text), widget (QPushButton, ResetColor)
 #: ui/CalibrateFloss.ui:158
 #, kde-format
 msgid "Reset Color"
-msgstr ""
+msgstr "איפוס צבע"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, EditorConfigPage)
 #: ui/EditorConfigPage.ui:14
 #, kde-format
 msgid "Editor Configuration"
-msgstr ""
+msgstr "הגדרות עורך"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorGridTab)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/EditorConfigPage.ui:24 ui/PageProperties.ui:170
 #, kde-format
 msgid "Grid"
-msgstr ""
+msgstr "רשת"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: ui/EditorConfigPage.ui:30
 #, kde-format
 msgid "Horizontal scale height"
-msgstr ""
+msgstr "גובה קנה מידה אופקי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: ui/EditorConfigPage.ui:47
 #, kde-format
 msgid "Vertical scale width"
-msgstr ""
+msgstr "רוחב קנה מידה אנכי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/EditorConfigPage.ui:64
 #, kde-format
 msgid "Format scales as"
-msgstr ""
+msgstr "עיצוב סרגלי המידה בתור"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/EditorConfigPage.ui:90
 #, kde-format
 msgid "Thick line width"
-msgstr ""
+msgstr "עובי קו עבה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/EditorConfigPage.ui:104
 #, kde-format
 msgid "Thick line color"
-msgstr ""
+msgstr "צבע קו עבה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/EditorConfigPage.ui:114
 #, kde-format
 msgid "Thin line width"
-msgstr ""
+msgstr "עובי קו דק"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/EditorConfigPage.ui:128
 #, kde-format
 msgid "Thin line color"
-msgstr ""
+msgstr "צבע קו דק"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/EditorConfigPage.ui:138
 #, kde-format
 msgid "Horizontal cell group"
-msgstr ""
+msgstr "קבוצת תאים אופקית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/EditorConfigPage.ui:158
 #, kde-format
 msgid "Vertical cell group"
-msgstr ""
+msgstr "קבוצת תאים אנכית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/EditorConfigPage.ui:178
 #, kde-format
 msgid "Minimum zoom factor"
-msgstr ""
+msgstr "מקדם תקריב מזערי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: ui/EditorConfigPage.ui:198
 #, kde-format
 msgid "Maximum zoom factor"
-msgstr ""
+msgstr "מקדם תקריב מרבי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: ui/EditorConfigPage.ui:218
 #, kde-format
 msgid "Default zoom factor"
-msgstr ""
+msgstr "מקדם תקריב כברירת מחדל"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
 #: ui/EditorConfigPage.ui:239
 #, kde-format
 msgid "Renderer"
-msgstr ""
+msgstr "מעבד צלימה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderGrid)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowGrid)
 #: ui/EditorConfigPage.ui:245 ui/PageProperties.ui:179 ui/PatternElement.ui:218
 #, kde-format
 msgid "Show grid"
-msgstr ""
+msgstr "הצגת רשת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackgroundImages)
 #: ui/EditorConfigPage.ui:252
 #, kde-format
 msgid "Show background images"
-msgstr ""
+msgstr "הצגת תמונות רקע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowStitches)
 #: ui/EditorConfigPage.ui:259 ui/PatternElement.ui:63
 #, kde-format
 msgid "Show stitches"
-msgstr ""
+msgstr "הצגת תכים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderStitchHints)
 #: ui/EditorConfigPage.ui:266
 #, kde-format
 msgid "Show stitch hints"
-msgstr ""
+msgstr "הצגת רמזי תכים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
 #: ui/EditorConfigPage.ui:273 ui/PatternElement.ui:109
 #, kde-format
 msgid "Show backstitches"
-msgstr ""
+msgstr "הצגת תכים אחוריים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderFrenchKnots)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowKnots)
 #: ui/EditorConfigPage.ui:280 ui/PatternElement.ui:140
 #, kde-format
 msgid "Show knots"
-msgstr ""
+msgstr "הצגת קשרים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_ColorHilight)
 #: ui/EditorConfigPage.ui:287
 #, kde-format
 msgid "Color highlight"
-msgstr ""
+msgstr "הדגשת צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: ui/EditorConfigPage.ui:296
 #, kde-format
 msgid "Render stitches as"
-msgstr ""
+msgstr "תיצוג תכים בתור"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #: ui/EditorConfigPage.ui:309 ui/EditorConfigPage.ui:376
 #, kde-format
 msgid "Black and White Symbols"
-msgstr ""
+msgstr "סמלי שחור ולבן"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #: ui/EditorConfigPage.ui:324 ui/EditorConfigPage.ui:366
 #, kde-format
 msgid "Color Blocks and Symbols"
-msgstr ""
+msgstr "מקטעי צבע וסמלים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: ui/EditorConfigPage.ui:332
 #, kde-format
 msgid "Render backstitches as"
-msgstr ""
+msgstr "תיצוג תכים אחוריים בתור"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: ui/EditorConfigPage.ui:353
 #, kde-format
 msgid "Render knots as"
-msgstr ""
+msgstr "תיצוג קשרים בתור"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorToolsTab)
 #: ui/EditorConfigPage.ui:387
 #, kde-format
 msgid "Tools"
-msgstr ""
+msgstr "כלים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ToolShapes_UseFractionals)
 #: ui/EditorConfigPage.ui:396
@@ -2340,19 +2366,19 @@ msgstr ""
 #: ui/EditorConfigPage.ui:403
 #, kde-format
 msgid "Mirror / Rotate makes copies"
-msgstr ""
+msgstr "היפוך/סיבוב יוצר עותקים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: ui/EditorConfigPage.ui:412
 #, kde-format
 msgid "Text tool font"
-msgstr ""
+msgstr "גופן כלי טקסט"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: ui/EditorConfigPage.ui:422
 #, kde-format
 msgid "Font size"
-msgstr ""
+msgstr "גודל כתב"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -2367,7 +2393,7 @@ msgstr ""
 #: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
 #, kde-format
 msgid "Pattern Size"
-msgstr ""
+msgstr "גודל תבנית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2375,7 +2401,7 @@ msgstr ""
 #: ui/PatternConfigPage.ui:127
 #, kde-format
 msgid "Units"
-msgstr ""
+msgstr "יחידות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2383,7 +2409,7 @@ msgstr ""
 #: ui/PatternConfigPage.ui:39
 #, kde-format
 msgid "Width"
-msgstr ""
+msgstr "רוחב"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -2391,7 +2417,7 @@ msgstr ""
 #: ui/PatternConfigPage.ui:62
 #, kde-format
 msgid "Height"
-msgstr ""
+msgstr "גובה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
@@ -2404,45 +2430,45 @@ msgstr ""
 #, kde-format
 msgctxt "Horizontal cloth count value"
 msgid "Horizontal"
-msgstr ""
+msgstr "אופקי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/FileProperties.ui:198 ui/PatternConfigPage.ui:178
 #, kde-format
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
-msgstr ""
+msgstr "אנכי"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/FileProperties.ui:279
 #, kde-format
 msgctxt "The document title"
 msgid "Title"
-msgstr ""
+msgstr "כותרת"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/FileProperties.ui:292
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "יוצר/ת"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: ui/FileProperties.ui:305
 #, kde-format
 msgid "Copyright"
-msgstr ""
+msgstr "זכויות יוצרים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: ui/FileProperties.ui:318
 #, kde-format
 msgid "Fabric"
-msgstr ""
+msgstr "בד"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/FileProperties.ui:338
 #, kde-format
 msgid "Instructions"
-msgstr ""
+msgstr "הנחיות"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
 #: ui/ImageElement.ui:32 ui/PatternElement.ui:32
@@ -2461,7 +2487,7 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:636 ui/TextElement.ui:158
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "מסגרת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_ShowBorder)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_ShowBorder)
@@ -2470,7 +2496,7 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:642 ui/TextElement.ui:167
 #, kde-format
 msgid "Show border"
-msgstr ""
+msgstr "הצגת מסגרת"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2481,14 +2507,14 @@ msgstr ""
 #, kde-format
 msgctxt "Label for color value"
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/ImageElement.ui:88 ui/KeyElement.ui:197 ui/TextElement.ui:191
 #, kde-format
 msgid "Line thickness"
-msgstr ""
+msgstr "עובי קו"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginLeft)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_Page_MarginRight)
@@ -2531,20 +2557,20 @@ msgstr ""
 #: ui/TextElement.ui:204
 #, kde-format
 msgid "mm"
-msgstr ""
+msgstr "מ״מ"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportConfigPage)
 #: ui/ImportConfigPage.ui:14
 #, kde-format
 msgid "Import Configuration"
-msgstr ""
+msgstr "ייבוא הגדרות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseMaximumColors)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseMaximumColors)
 #: ui/ImportConfigPage.ui:20 ui/ImportImage.ui:71
 #, kde-format
 msgid "Maximum colors"
-msgstr ""
+msgstr "כמות צבעים מרבית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, UseFractionals)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Import_UseFractionals)
@@ -2557,20 +2583,20 @@ msgstr ""
 #: ui/ImportImage.ui:118
 #, kde-format
 msgid "Ignore color"
-msgstr ""
+msgstr "התעלמות מצבע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, SetAsDefault)
 #: ui/ImportImage.ui:165
 #, kde-format
 msgid "Set as default"
-msgstr ""
+msgstr "הגדרה כברירת מחדל"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ui/ImportImage.ui:185 ui/TextTool.ui:38
 #, kde-format
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/ImportImage.ui:191
@@ -2588,32 +2614,32 @@ msgstr ""
 #: ui/ImportImage.ui:283
 #, kde-format
 msgid "Pattern scale"
-msgstr ""
+msgstr "קנה מידה של תבנית"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, PatternScale)
 #: ui/ImportImage.ui:302
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/ImportImage.ui:315
 #, kde-format
 msgid "Pattern size"
-msgstr ""
+msgstr "גודל תבנית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CropEnabled)
 #: ui/ImportImage.ui:339
 #, kde-format
 msgid "Crop image"
-msgstr ""
+msgstr "חיתוך תמונה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #. i18n: ectx: attribute (title), widget (QWidget, KeyElementTab)
 #: ui/KeyElement.ui:24 ui/PrinterConfigPage.ui:630
 #, kde-format
 msgid "Key Element"
-msgstr ""
+msgstr "רכיב מפתח"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2624,31 +2650,31 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:746 ui/TextElement.ui:20
 #, kde-format
 msgid "Margins"
-msgstr ""
+msgstr "שוליים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
 #: ui/KeyElement.ui:49 ui/PageProperties.ui:39
 #, kde-format
 msgid "Top margin in mm"
-msgstr ""
+msgstr "שול עליון במילימטרים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #: ui/KeyElement.ui:78 ui/PageProperties.ui:71
 #, kde-format
 msgid "Left margin in mm"
-msgstr ""
+msgstr "שול שמאלי במילימטרים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
 #: ui/KeyElement.ui:107 ui/PageProperties.ui:103
 #, kde-format
 msgid "Right margin in mm"
-msgstr ""
+msgstr "שול ימני במילימטרים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
 #: ui/KeyElement.ui:136 ui/PageProperties.ui:135
 #, kde-format
 msgid "Bottom margin in mm"
-msgstr ""
+msgstr "שול תחתון במילימטרים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -2656,7 +2682,7 @@ msgstr ""
 #, kde-format
 msgctxt "Groupbox title for background properties"
 msgid "Background"
-msgstr ""
+msgstr "רקע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
@@ -2665,7 +2691,7 @@ msgstr ""
 #: ui/TextElement.ui:238
 #, kde-format
 msgid "Fill background"
-msgstr ""
+msgstr "מילוי רקע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_22)
 #. i18n: ectx: property (text), widget (QLabel, label_26)
@@ -2675,62 +2701,62 @@ msgstr ""
 #: ui/TextElement.ui:262
 #, kde-format
 msgid "Transparency"
-msgstr ""
+msgstr "שקיפות"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ElementContentTab)
 #: ui/KeyElement.ui:295
 #, kde-format
 msgid "Element Content"
-msgstr ""
+msgstr "תוכן רכיב"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: ui/KeyElement.ui:301 ui/TextTool.ui:25
 #, kde-format
 msgid "Font"
-msgstr ""
+msgstr "גופן"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #: ui/KeyElement.ui:313
 #, kde-format
 msgid "Key Elements"
-msgstr ""
+msgstr "רכיבי מפתח"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/KeyElement.ui:321
 #, kde-format
 msgid "First element"
-msgstr ""
+msgstr "הרכיב הראשון"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, IndexStart)
 #: ui/KeyElement.ui:328
 #, kde-format
 msgid "The first line of the key to display"
-msgstr ""
+msgstr "שורת המפתח הראשונה להצגה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/KeyElement.ui:341
 #, kde-format
 msgid "No. elements"
-msgstr ""
+msgstr "מספר הרכיבים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, IndexCount)
 #: ui/KeyElement.ui:348
 #, kde-format
 msgid "The number of key elements to display (0 for all)"
-msgstr ""
+msgstr "מספר רכיבי המפתח להצגה (0 כדי להציג הכול)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/KeyElement.ui:369
 #, kde-format
 msgid "Columns"
-msgstr ""
+msgstr "עמודות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, SymbolColumnColor)
 #: ui/KeyElement.ui:387
 #, kde-format
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossNameColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossNameColumn)
@@ -2752,99 +2778,99 @@ msgstr ""
 #: ui/KeyElement.ui:424 ui/PrinterConfigPage.ui:889
 #, kde-format
 msgid "Length"
-msgstr ""
+msgstr "אורך"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SkeinsColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, SkeinsColumn)
 #: ui/KeyElement.ui:431 ui/PrinterConfigPage.ui:896
 #, kde-format
 msgid "Skeins"
-msgstr ""
+msgstr "דוללה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryConfigPage)
 #: ui/LibraryConfigPage.ui:14
 #, kde-format
 msgid "Library Configuration"
-msgstr ""
+msgstr "הגדרות ספרייה"
 
 #. i18n: ectx: property (text), widget (LibraryTreeWidget, LibraryTree)
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: ui/LibraryConfigPage.ui:24 ui/LibraryManager.ui:37
 #, kde-format
 msgid "Libraries"
-msgstr ""
+msgstr "ספריות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/LibraryConfigPage.ui:30
 #, kde-format
 msgid "Icon default size"
-msgstr ""
+msgstr "גודל סמל כברירת מחדל"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/LibraryConfigPage.ui:41
 #, kde-format
 msgid "Alphabets"
-msgstr ""
+msgstr "סוגי אלף-בית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_UseCapsLock)
 #: ui/LibraryConfigPage.ui:47
 #, kde-format
 msgid "Use caps lock"
-msgstr ""
+msgstr "להשתמש ב־Caps Lock"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
 #: ui/LibraryConfigPage.ui:54
 #, kde-format
 msgid "Word wrap"
-msgstr ""
+msgstr "גלישת שורות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/LibraryConfigPage.ui:63
 #, kde-format
 msgid "Default space width"
-msgstr ""
+msgstr "רוחב רווח כברירת מחדל"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/LibraryConfigPage.ui:73
 #, kde-format
 msgid "Line spacing"
-msgstr ""
+msgstr "ריווח שורות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/LibraryConfigPage.ui:83
 #, kde-format
 msgid "Extend pattern width"
-msgstr ""
+msgstr "הרחבת רוחב תבנית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/LibraryConfigPage.ui:93
 #, kde-format
 msgid "Extend pattern height"
-msgstr ""
+msgstr "הרחבת גובה תבנית"
 
 #. i18n: ectx: property (text), widget (QLabel, CatagoryName)
 #: ui/LibraryFilePaths.ui:23
 #, kde-format
 msgid "Paths"
-msgstr ""
+msgstr "נתיבים"
 
 #. i18n: ectx: property (toolTip), widget (QSlider, IconSizeSlider)
 #: ui/LibraryManager.ui:91
 #, kde-format
 msgid "Icon size"
-msgstr ""
+msgstr "גודל סמל"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/LibraryPatternProperties.ui:83
 #, kde-format
 msgid "Baseline"
-msgstr ""
+msgstr "קו בסיס"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/LibraryPatternProperties.ui:100
 #, kde-format
 msgid "Associated character"
-msgstr ""
+msgstr "תו משויך"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, NewFloss)
 #: ui/NewFloss.ui:14
@@ -2857,38 +2883,38 @@ msgstr ""
 #, kde-format
 msgctxt "Color chooser"
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PageProperties.ui:192
 #, kde-format
 msgctxt "The horizontal axis"
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, GridSize)
 #: ui/PageProperties.ui:202
 #, kde-format
 msgid "Grid X spacing in mm"
-msgstr ""
+msgstr "ריווח X ברשת במילימטרים"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteConfigPage)
 #: ui/PaletteConfigPage.ui:14
 #, kde-format
 msgid "Palette Configuration"
-msgstr ""
+msgstr "הגדרת ערכת צבעים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Palette_ShowSymbols)
 #: ui/PaletteConfigPage.ui:43
 #, kde-format
 msgid "Show symbols"
-msgstr ""
+msgstr "הצגת סמלים"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PaletteConfigPage.ui:50
 #, kde-format
 msgid "Symbol library"
-msgstr ""
+msgstr "ספריית סמלים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteConfigPage.ui:60
@@ -2906,19 +2932,19 @@ msgstr ""
 #: ui/PaletteManager.ui:22
 #, kde-format
 msgid "Current palette"
-msgstr ""
+msgstr "ערכת צבעים נוכחית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:80
 #, kde-format
 msgid "Current scheme"
-msgstr ""
+msgstr "ערכה נוכחית"
 
 #. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
 #: ui/PaletteManager.ui:87
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "תווית טקסט"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/PaletteManager.ui:99
@@ -2942,52 +2968,52 @@ msgstr ""
 #: ui/PaletteManager.ui:203
 #, kde-format
 msgid "Pick Color"
-msgstr ""
+msgstr "בחירת צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:212
 #, kde-format
 msgid "Backstitch strands"
-msgstr ""
+msgstr "חוטי תך אחורי"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:264
 #, kde-format
 msgctxt "A solid line"
 msgid "Solid"
-msgstr ""
+msgstr "אחיד"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:269
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
-msgstr ""
+msgstr "מקווקוו"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:274
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
-msgstr ""
+msgstr "מנוקד"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:279
 #, kde-format
 msgid "Dash Dotted"
-msgstr ""
+msgstr "מקף נקודה"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:284
 #, kde-format
 msgid "Dash Dash Dotted"
-msgstr ""
+msgstr "מקף מקף נקודה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
 #, kde-format
 msgid "Pattern Configuration"
-msgstr ""
+msgstr "הגדרת תבנית"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -2997,59 +3023,59 @@ msgstr ""
 #: ui/PatternElement.ui:189
 #, kde-format
 msgid "As"
-msgstr ""
+msgstr "בתור"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ShowScales)
 #: ui/PatternElement.ui:179
 #, kde-format
 msgid "Not currently implemented"
-msgstr ""
+msgstr "לא ממומש כרגע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowScales)
 #: ui/PatternElement.ui:182
 #, kde-format
 msgid "Show scales"
-msgstr ""
+msgstr "הצגת סרגלי מידה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ShowPlan)
 #: ui/PatternElement.ui:225
 #, kde-format
 msgid "Show map"
-msgstr ""
+msgstr "הצגת מפה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: ui/PrinterConfigPage.ui:24 ui/PrintSetup.ui:49
 #, kde-format
 msgid "Pages"
-msgstr ""
+msgstr "עמודים"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PrinterConfigPage.ui:32
 #, kde-format
 msgid "Default paper size"
-msgstr ""
+msgstr "גודל נייר כברירת מחדל"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, PageSize)
 #. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
 #: ui/PrinterConfigPage.ui:45 ui/PrintSetup.ui:210
 #, kde-format
 msgid "Select a paper size"
-msgstr ""
+msgstr "בחירת גודל נייר"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, PortraitRadioButton)
 #: ui/PrinterConfigPage.ui:56 ui/PrintSetup.ui:227
 #, kde-format
 msgid "Portrait"
-msgstr ""
+msgstr "לאורך"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
 #: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:232
 #, kde-format
 msgid "Landscape"
-msgstr ""
+msgstr "לרוחב"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
@@ -3060,7 +3086,7 @@ msgstr ""
 #, kde-format
 msgctxt "Left margin"
 msgid "Left"
-msgstr ""
+msgstr "שמאל"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -3071,7 +3097,7 @@ msgstr ""
 #, kde-format
 msgctxt "Right margin"
 msgid "Right"
-msgstr ""
+msgstr "ימין"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -3082,7 +3108,7 @@ msgstr ""
 #, kde-format
 msgctxt "Top margin"
 msgid "Top"
-msgstr ""
+msgstr "עליון"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_9)
@@ -3093,25 +3119,25 @@ msgstr ""
 #, kde-format
 msgctxt "Bottom margin"
 msgid "Bottom"
-msgstr ""
+msgstr "תחתון"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/PrinterConfigPage.ui:188
 #, kde-format
 msgid "Pattern Element"
-msgstr ""
+msgstr "רכיב תבנית"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_11)
 #: ui/PrinterConfigPage.ui:287
 #, kde-format
 msgid "Cells"
-msgstr ""
+msgstr "תאים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: ui/PrinterConfigPage.ui:295
 #, kde-format
 msgid "Minimum cell size (mm)"
-msgstr ""
+msgstr "גודל תא מזערי (מ״מ)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: ui/PrinterConfigPage.ui:308
@@ -3123,26 +3149,26 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:326
 #, kde-format
 msgid "Selections"
-msgstr ""
+msgstr "בחירות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: ui/PrinterConfigPage.ui:332
 #, kde-format
 msgid "Selected area color"
-msgstr ""
+msgstr "צבע האזור הנבחר"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: ui/PrinterConfigPage.ui:378
 #, kde-format
 msgid "Text Element"
-msgstr ""
+msgstr "רכיב טקסט"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextColor)
 #: ui/PrinterConfigPage.ui:390 ui/TextElement.ui:463
 #, kde-format
 msgid "Text color"
-msgstr ""
+msgstr "צבע טקסט"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
@@ -3150,7 +3176,7 @@ msgstr ""
 #, kde-format
 msgctxt "Fill the background"
 msgid "Background"
-msgstr ""
+msgstr "רקע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #. i18n: ectx: property (text), widget (QLabel, label_25)
@@ -3158,7 +3184,7 @@ msgstr ""
 #, kde-format
 msgctxt "Background color"
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_18)
 #. i18n: ectx: property (text), widget (QLabel, label_23)
@@ -3166,209 +3192,209 @@ msgstr ""
 #, kde-format
 msgctxt "Border color"
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: ui/PrinterConfigPage.ui:498 ui/PrinterConfigPage.ui:668
 #, kde-format
 msgid "Thickness"
-msgstr ""
+msgstr "עובי"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_10)
 #: ui/PrinterConfigPage.ui:839
 #, kde-format
 msgid "Elements"
-msgstr ""
+msgstr "רכיבים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_SymbolColumn)
 #: ui/PrinterConfigPage.ui:845
 #, kde-format
 msgid "Symbols"
-msgstr ""
+msgstr "סמלים"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, Templates)
 #: ui/PrintSetup.ui:68
 #, kde-format
 msgid "Create a default layout"
-msgstr ""
+msgstr "יצירת פריסת ברירת מחדל"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
 #: ui/PrintSetup.ui:107
 #, kde-format
 msgid "Append a page"
-msgstr ""
+msgstr "הוספת עמוד לסוף"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, InsertPage)
 #: ui/PrintSetup.ui:149
 #, kde-format
 msgid "Insert a page before the selected page"
-msgstr ""
+msgstr "הוספת עמוד לפני העמוד הנוכחי"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, DeletePage)
 #: ui/PrintSetup.ui:188
 #, kde-format
 msgid "Delete the selected page"
-msgstr ""
+msgstr "מחיקת העמוד הנוכחי"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Orientation)
 #: ui/PrintSetup.ui:223
 #, kde-format
 msgid "Select the paper orientation"
-msgstr ""
+msgstr "בחירת כיוון הנייר"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, Zoom)
 #: ui/PrintSetup.ui:246
 #, kde-format
 msgid "Zoom factor"
-msgstr ""
+msgstr "מקדם תקריב"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, SelectElement)
 #: ui/PrintSetup.ui:306
 #, kde-format
 msgid "Select an element"
-msgstr ""
+msgstr "בחירת רכיב"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, TextElement)
 #: ui/PrintSetup.ui:328
 #, kde-format
 msgid "Insert a text element"
-msgstr ""
+msgstr "הוספת רכיב טקסט"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, PatternElement)
 #: ui/PrintSetup.ui:353
 #, kde-format
 msgid "Insert a pattern element"
-msgstr ""
+msgstr "הוספת רכיב תבנית"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, ImageElement)
 #: ui/PrintSetup.ui:375
 #, kde-format
 msgid "Insert a picture element"
-msgstr ""
+msgstr "הוספת רכיב תמונה"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, KeyElement)
 #: ui/PrintSetup.ui:385
 #, kde-format
 msgid "Insert a key element"
-msgstr ""
+msgstr "הוספת רכיב מפתח"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, Pages)
 #: ui/PrintSetup.ui:456
 #, kde-format
 msgid "Page list"
-msgstr ""
+msgstr "רשימת עמודים"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PagePreview)
 #: ui/PrintSetup.ui:484
 #, kde-format
 msgid "Page preview"
-msgstr ""
+msgstr "תצוגת עמוד מקדימה"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SymbolSelector)
 #: ui/SymbolSelector.ui:14
 #, kde-format
 msgid "Symbol Selection"
-msgstr ""
+msgstr "בחירת סמל"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginTop)
 #: ui/TextElement.ui:39
 #, kde-format
 msgid "Top margin in mm, internal to the border."
-msgstr ""
+msgstr "שול עליון במילימטרים, פנימי למסגרת."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginLeft)
 #: ui/TextElement.ui:68
 #, kde-format
 msgid "Left margin in mm, internal to the border."
-msgstr ""
+msgstr "שול שמאלי במילימטרים, פנימי למסגרת."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginRight)
 #: ui/TextElement.ui:97
 #, kde-format
 msgid "Right margin in mm, internal to the border."
-msgstr ""
+msgstr "שול ימני במילימטרים, פנימי למסגרת."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, MarginBottom)
 #: ui/TextElement.ui:126
 #, kde-format
 msgid "Bottom margin in mm, internal to the border."
-msgstr ""
+msgstr "שול תחתון במילימטרים, פנימי למסגרת."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ShowBorder)
 #: ui/TextElement.ui:164
 #, kde-format
 msgid "Show border around the text box"
-msgstr ""
+msgstr "להציג מסגרת מסביב לתיבת הטקסט"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, FillBackground)
 #: ui/TextElement.ui:235
 #, kde-format
 msgid "Fill the background with a color"
-msgstr ""
+msgstr "מילוי הרקע בצבע"
 
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BackgroundColor)
 #: ui/TextElement.ui:255
 #, kde-format
 msgid "Background color"
-msgstr ""
+msgstr "צבע רקע"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, BackgroundTransparency)
 #: ui/TextElement.ui:272
 #, kde-format
 msgid "Transparency of the text box"
-msgstr ""
+msgstr "שקיפות תיבת הטקסט"
 
 #. i18n: ectx: property (toolTip), widget (QFontComboBox, FontFamily)
 #: ui/TextElement.ui:288
 #, kde-format
 msgid "Text font family"
-msgstr ""
+msgstr "משפחת גופני הטקסט"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
 #: ui/TextElement.ui:301
 #, kde-format
 msgid "Text point size"
-msgstr ""
+msgstr "גודל נקודה של טקסט"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BoldButton)
 #: ui/TextElement.ui:330
 #, kde-format
 msgid "Bold text"
-msgstr ""
+msgstr "טקסט מודגש"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, ItalicButton)
 #: ui/TextElement.ui:349
 #, kde-format
 msgid "Italics text"
-msgstr ""
+msgstr "טקסט נטוי"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, UnderlineButton)
 #: ui/TextElement.ui:368
 #, kde-format
 msgid "Underline text"
-msgstr ""
+msgstr "טקסט עם קו תחתון"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignLeft)
 #: ui/TextElement.ui:387
 #, kde-format
 msgid "Align left"
-msgstr ""
+msgstr "יישור לשמאל"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignHCenter)
 #: ui/TextElement.ui:406
 #, kde-format
 msgid "Align centrally"
-msgstr ""
+msgstr "יישור לאמצע"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
 #: ui/TextElement.ui:425
 #, kde-format
 msgid "Align right"
-msgstr ""
+msgstr "יישור לימין"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignJustify)
 #: ui/TextElement.ui:444
 #, kde-format
 msgid "Align justified"
-msgstr ""
+msgstr "יישור מפוזר לצדדים"
