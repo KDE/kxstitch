@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-01-17 22:56+0200\n"
+"PO-Revision-Date: 2026-01-18 20:31+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 25.12.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -28,128 +28,128 @@ msgstr "צבע הרקע."
 #: kxstitch.kcfg:14
 #, kde-format
 msgid "The color of the editors thick lines."
-msgstr ""
+msgstr "צבע הקווים העבים של העורך."
 
 #. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
 #: kxstitch.kcfg:18
 #, kde-format
 msgid "The color of the editors thin lines."
-msgstr ""
+msgstr "צבע הקווים הדקים של העורך."
 
 #. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
 #: kxstitch.kcfg:22
 #, kde-format
 msgid "The width of the major grid lines."
-msgstr ""
+msgstr "רוחב קווי הרשת העיקריים."
 
 #. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
 #: kxstitch.kcfg:26
 #, kde-format
 msgid "The width of the minor grid lines."
-msgstr ""
+msgstr "רוחב קווי הרשת המשניים."
 
 #. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
 #: kxstitch.kcfg:30
 #, kde-format
 msgid "The number of cells making up a horizontal group."
-msgstr ""
+msgstr "מספר התאים שמרכיבים קבוצה אופקית."
 
 #. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
 #: kxstitch.kcfg:34
 #, kde-format
 msgid "The number of cells making up a vertical group."
-msgstr ""
+msgstr "מספר התאים שמרכיבים קבוצה אנכית."
 
 #. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
 #: kxstitch.kcfg:38
 #, kde-format
 msgid "The horizontal cloth count."
-msgstr ""
+msgstr "צפיפות הבד האופקית."
 
 #. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
 #: kxstitch.kcfg:42
 #, kde-format
 msgid "The vertical cloth count."
-msgstr ""
+msgstr "צפיפות הבד האנכית."
 
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
 #: kxstitch.kcfg:46 kxstitch.kcfg:159
 #, kde-format
 msgid "The cloth count units."
-msgstr ""
+msgstr "יחידות צפיפות הבד"
 
 #. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
 #: kxstitch.kcfg:55
 #, kde-format
 msgid "Square cells"
-msgstr ""
+msgstr "תאים ריבועיים"
 
 #. i18n: ectx: label, entry (Editor_HorizontalScaleHeight), group (editor)
 #: kxstitch.kcfg:59
 #, kde-format
 msgid "The height of the horizontal ruler."
-msgstr ""
+msgstr "גובה הסרגל האופקי."
 
 #. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
 #: kxstitch.kcfg:63
 #, kde-format
 msgid "The width of the vertical ruler."
-msgstr ""
+msgstr "רוחב הסרגל האנכי."
 
 #. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
 #: kxstitch.kcfg:67
 #, kde-format
 msgid "The display units for a scale."
-msgstr ""
+msgstr "יחידות התצוגה לסרגל מידה."
 
 #. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
 #: kxstitch.kcfg:76
 #, kde-format
 msgid "The minimum zoom factor"
-msgstr ""
+msgstr "מקדם התקריב המזערי"
 
 #. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
 #: kxstitch.kcfg:80
 #, kde-format
 msgid "The maximum zoom factor"
-msgstr ""
+msgstr "מקדם התקריב המרבי"
 
 #. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr ""
+msgstr "מקדם התקריב כברירת מחדל"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
 #, kde-format
 msgid "Enable color highlighting mode"
-msgstr ""
+msgstr "הפעלת מצב הדגשת צבע"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackgroundImages), group (renderer)
 #: kxstitch.kcfg:95
 #, kde-format
 msgid "Render the background images"
-msgstr ""
+msgstr "תיצוג תמונות הרקע"
 
 #. i18n: ectx: label, entry (Renderer_RenderGrid), group (renderer)
 #: kxstitch.kcfg:99
 #, kde-format
 msgid "Render the grid"
-msgstr ""
+msgstr "תיצוג הרשת"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitches), group (renderer)
 #: kxstitch.kcfg:103
 #, kde-format
 msgid "Render the stitches"
-msgstr ""
+msgstr "תיצוג התכים"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitches), group (renderer)
 #: kxstitch.kcfg:107
 #, kde-format
 msgid "Render the backstitches"
-msgstr ""
+msgstr "תיצוג התכים האחוריים"
 
 #. i18n: ectx: label, entry (Renderer_RenderFrenchKnots), group (renderer)
 #: kxstitch.kcfg:111
@@ -167,13 +167,13 @@ msgstr ""
 #: kxstitch.kcfg:119
 #, kde-format
 msgid "How to display stitches."
-msgstr ""
+msgstr "איך להציג תכים."
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
 #: kxstitch.kcfg:130
 #, kde-format
 msgid "How to display backstitches."
-msgstr ""
+msgstr "איך להציג תכים אחוריים."
 
 #. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
 #: kxstitch.kcfg:138
@@ -239,7 +239,7 @@ msgstr ""
 #: kxstitch.kcfg:202
 #, kde-format
 msgid "The default floss scheme to be used for new documents."
-msgstr ""
+msgstr "ערכת החוטים ברירת המחדל לשימוש במסמכים חדשים."
 
 #. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
 #: kxstitch.kcfg:206
@@ -251,13 +251,13 @@ msgstr ""
 #: kxstitch.kcfg:210
 #, kde-format
 msgid "The default number of strands used for stitches."
-msgstr ""
+msgstr "מספר הגדילים כברירת מחדל לשימוש בתכים."
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
 #: kxstitch.kcfg:214
 #, kde-format
 msgid "The default number of strands used for backstitches."
-msgstr ""
+msgstr "מספר הגדילים כברירת מחדל לשימוש בתכים אחוריים."
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
 #: kxstitch.kcfg:218
@@ -341,49 +341,49 @@ msgstr ""
 #: kxstitch.kcfg:282
 #, kde-format
 msgid "The page left margin"
-msgstr ""
+msgstr "השול השמאלי של העמוד"
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
 #: kxstitch.kcfg:286
 #, kde-format
 msgid "The page top margin"
-msgstr ""
+msgstr "השול העליון של העמוד"
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
 #: kxstitch.kcfg:290
 #, kde-format
 msgid "The page right margin"
-msgstr ""
+msgstr "השול הימני של העמוד"
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
 #: kxstitch.kcfg:294
 #, kde-format
 msgid "The page bottom margin"
-msgstr ""
+msgstr "השול התחתון של העמוד"
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
 #: kxstitch.kcfg:298
 #, kde-format
 msgid "Show the layout editor"
-msgstr ""
+msgstr "הצגת עורך הפריסות"
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
 #: kxstitch.kcfg:302
 #, kde-format
 msgid "The grid size in mm"
-msgstr ""
+msgstr "גודל הרשת במילימטרים"
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
 #: kxstitch.kcfg:306
 #, kde-format
 msgid "The default page size"
-msgstr ""
+msgstr "גודל העמוד כברירת מחדל"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page orientation"
-msgstr ""
+msgstr "כיוון עמודים כברירת מחדל"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -484,85 +484,85 @@ msgstr ""
 #: kxstitch.kcfg:389 kxstitch.kcfg:462
 #, kde-format
 msgid "Fill the background"
-msgstr ""
+msgstr "מילוי הרקע"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
 #: kxstitch.kcfg:393
 #, kde-format
 msgid "The color of the background"
-msgstr ""
+msgstr "צבע הרקע"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
 #: kxstitch.kcfg:397
 #, kde-format
 msgid "Transparency of the background"
-msgstr ""
+msgstr "שקיפות הרקע"
 
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
 #: kxstitch.kcfg:401
 #, kde-format
 msgid "The key element left margin"
-msgstr ""
+msgstr "השול השמאלי של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
 #: kxstitch.kcfg:405
 #, kde-format
 msgid "The key element top margin"
-msgstr ""
+msgstr "השול העליון של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
 #: kxstitch.kcfg:409
 #, kde-format
 msgid "The key element right margin"
-msgstr ""
+msgstr "השול הימני של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:413
 #, kde-format
 msgid "The key element bottom margin"
-msgstr ""
+msgstr "השול השמאלי של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
 #: kxstitch.kcfg:417
 #, kde-format
 msgid "Show the key element symbol column"
-msgstr ""
+msgstr "הצגת עמודת סמל רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
 #: kxstitch.kcfg:421
 #, kde-format
 msgid "Show the key element symbol column in color"
-msgstr ""
+msgstr "הצגת עמודת סמל רכיב המפתח בצבע"
 
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
 #: kxstitch.kcfg:425
 #, kde-format
 msgid "Show the key element floss name column"
-msgstr ""
+msgstr "הצגת עמודת שם החוט של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
 #: kxstitch.kcfg:429
 #, kde-format
 msgid "Show the key element floss strands column"
-msgstr ""
+msgstr "הצגת עמודת מספר גדילי החוט של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
 #: kxstitch.kcfg:433
 #, kde-format
 msgid "Show the key element floss description column"
-msgstr ""
+msgstr "הצגת עמודת תיאור החוט של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
 #: kxstitch.kcfg:437
 #, kde-format
 msgid "Show the key element stitch count column"
-msgstr ""
+msgstr "הצגת עמודת כמות התכים של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
 #: kxstitch.kcfg:441
 #, kde-format
 msgid "Show the key element floss length column"
-msgstr ""
+msgstr "הצגת עמודת אורך החוט של רכיב המפתח"
 
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
 #: kxstitch.kcfg:445
@@ -755,19 +755,19 @@ msgstr "גרסת תמונות רקע %1"
 #: src/CalibrateFlossDlg.cpp:31 ui/CalibrateFloss.ui:14
 #, kde-format
 msgid "Calibrate Floss"
-msgstr ""
+msgstr "כיול חוט"
 
 #: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2 (Modified)"
-msgstr ""
+msgstr "%1-%2 (השתנה)"
 
 #: src/CalibrateFlossDlg.cpp:105
 #, kde-format
 msgctxt "%1 is floss name, %2 is floss description"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
 #: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
@@ -877,7 +877,7 @@ msgstr "התאמת הרקע לבחירה"
 #: src/Commands.cpp:600 ui/PaletteManager.ui:189
 #, kde-format
 msgid "Clear Unused Flosses"
-msgstr ""
+msgstr "פינוי חוטים שאינם בשימוש"
 
 #: src/Commands.cpp:618
 #, kde-format
@@ -923,7 +923,7 @@ msgstr "עדכון לוח צבעים"
 #: src/Commands.cpp:891
 #, kde-format
 msgid "Change Floss Scheme"
-msgstr ""
+msgstr "שינוי ערכת חוטים"
 
 #: src/Commands.cpp:952
 #, kde-format
@@ -1001,7 +1001,7 @@ msgstr "KXStitch גרסה %1"
 #: src/Document.cpp:475 src/Document.cpp:772 src/Document.cpp:1084
 #, kde-format
 msgid "The floss scheme DMC was not found"
-msgstr ""
+msgstr "ערכת החוטים DMC לא נמצאה"
 
 #: src/Document.cpp:523 src/Document.cpp:818 src/Document.cpp:1132
 #, kde-format
@@ -1020,13 +1020,13 @@ msgstr "שגיאת תזרים"
 #: src/Document.cpp:1856 src/Document.cpp:2049 src/Document.cpp:2229
 #, kde-format
 msgid "The floss scheme %1 was not found"
-msgstr ""
+msgstr "ערכת החוטים %1 לא נמצאה"
 
 #: src/Document.cpp:1367 src/Document.cpp:1523 src/Document.cpp:1684
 #: src/Document.cpp:1875 src/Document.cpp:2070 src/Document.cpp:2250
 #, kde-format
 msgid "The floss name %1 was not found"
-msgstr ""
+msgstr "שם החוט %1 לא נמצא"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
@@ -1070,7 +1070,7 @@ msgstr "אינצ׳ים"
 #: src/DocumentFloss.cpp:167
 #, kde-format
 msgid "Document floss version %1"
-msgstr ""
+msgstr "גרסת חוט מסמך %1"
 
 #: src/DocumentPalette.cpp:384
 #, kde-format
@@ -1105,9 +1105,21 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
+"הסמל של צבע החוט להלן הוחלף\n"
+"מכיוון שהוא לא קיים בספריית הסמלים.\n"
+"\n"
 msgstr[1] ""
+"הסמלים של צבעי החוטים להלן הוחלפו\n"
+"מכיוון שהם לא קיימים בספריית הסמלים.\n"
+"\n"
 msgstr[2] ""
+"הסמלים של צבעי החוטים להלן הוחלפו\n"
+"מכיוון שהם לא קיימים בספריית הסמלים.\n"
+"\n"
 msgstr[3] ""
+"הסמלים של צבעי החוטים להלן הוחלפו\n"
+"מכיוון שהם לא קיימים בספריית הסמלים.\n"
+"\n"
 
 #: src/DocumentPalette.cpp:442
 #, kde-format
@@ -1118,9 +1130,17 @@ msgid_plural ""
 "The following floss colors have had an empty symbol assigned.\n"
 "\n"
 msgstr[0] ""
+"לצבע החוט להלן הוקצה סמל ריק.\n"
+"\n"
 msgstr[1] ""
+"לצבעי החוטים להלן הוקצה סמל ריק.\n"
+"\n"
 msgstr[2] ""
+"לצבעי החוטים להלן הוקצה סמל ריק.\n"
+"\n"
 msgstr[3] ""
+"לצבעי החוטים להלן הוקצה סמל ריק.\n"
+"\n"
 
 #: src/DocumentPalette.cpp:451
 #, kde-format
@@ -1179,7 +1199,7 @@ msgstr "שם"
 #: ui/PrinterConfigPage.ui:872
 #, kde-format
 msgid "Strands"
-msgstr "חוטים"
+msgstr "גדילים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/Element.cpp:472 src/Element.cpp:504 ui/NewFloss.ui:44
@@ -1340,7 +1360,7 @@ msgstr ""
 #: src/LibraryManagerDlg.cpp:67
 #, kde-format
 msgid "Select a library to show the associated patterns."
-msgstr ""
+msgstr "נא לבחור ספרייה כדי להציג את התבניות המשויכות."
 
 #: src/LibraryManagerDlg.cpp:69
 #, kde-format
@@ -1485,7 +1505,7 @@ msgstr "תבניות של KXStitch‏ (‎*.kxs);;תבניות תכים מסוג
 #: src/MainWindow.cpp:317
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
-msgstr ""
+msgstr "הקובץ לא נראה כמו קובץ תכים משוכלים מוכר."
 
 #: src/MainWindow.cpp:320
 #, kde-format
@@ -1671,32 +1691,32 @@ msgstr "החרגת קשרים"
 #: src/MainWindow.cpp:1214
 #, kde-format
 msgid "Quarter Stitch"
-msgstr ""
+msgstr "רבע תך"
 
 #: src/MainWindow.cpp:1224
 #, kde-format
 msgid "Half Stitch"
-msgstr ""
+msgstr "חצי תך"
 
 #: src/MainWindow.cpp:1234
 #, kde-format
 msgid "3 Quarter Stitch"
-msgstr ""
+msgstr "שלושה רבעי תך"
 
 #: src/MainWindow.cpp:1244
 #, kde-format
 msgid "Full Stitch"
-msgstr ""
+msgstr "תך מלא"
 
 #: src/MainWindow.cpp:1254
 #, kde-format
 msgid "Small Half Stitch"
-msgstr ""
+msgstr "חצי תך קטן"
 
 #: src/MainWindow.cpp:1264
 #, kde-format
 msgid "Small Full Stitch"
-msgstr ""
+msgstr "תך מלא קטן"
 
 #: src/MainWindow.cpp:1274
 #, kde-format
@@ -1877,7 +1897,7 @@ msgstr "תמונה מיובאת"
 #: src/NewFlossDlg.cpp:28 ui/PaletteManager.ui:182
 #, kde-format
 msgid "New Floss"
-msgstr ""
+msgstr "חוט חדש"
 
 #: src/NewFlossDlg.cpp:77 src/PrintSetupDlg.cpp:450
 #, kde-format
@@ -1890,6 +1910,8 @@ msgid ""
 "The floss name %1 is already used.\n"
 "Overwrite with the description and color selected."
 msgstr ""
+"שם החוט %1 כבר בשימוש.\n"
+"לשכתב עם התיאור והצבע שנבחרו?"
 
 #: src/NewFlossDlg.cpp:77
 #, kde-format
@@ -1925,9 +1947,17 @@ msgid_plural ""
 "%2 %3\n"
 "%1 Stitches"
 msgstr[0] ""
+"%2 %3\n"
+"תך"
 msgstr[1] ""
+"%2 %3\n"
+"שני תכים"
 msgstr[2] ""
+"%2 %3\n"
+"%1 תכים"
 msgstr[3] ""
+"%2 %3\n"
+"%1 תכים"
 
 #: src/Palette.cpp:144
 #, kde-format
@@ -1936,6 +1966,9 @@ msgid ""
 "Add them with the Palette Manager\n"
 "which will then enable the drawing tools."
 msgstr ""
+"אין חוטים בלוח הצבעים.\n"
+"יש להוסיף אותם דרך מנהל הלוחות\n"
+"מה שיאפשר את השימוש בכלי הציור."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PaletteManager)
 #: src/PaletteManagerDlg.cpp:51 ui/PaletteManager.ui:14
@@ -1953,7 +1986,7 @@ msgstr "אין סמלים נוספים זמינים."
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
 "the palette."
-msgstr ""
+msgstr "בספריית הסמלים שנבחרה אין מספיק סמלים עבור החוטים שבלוח."
 
 #: src/Pattern.cpp:284
 #, kde-format
@@ -2047,7 +2080,7 @@ msgstr ""
 #: src/SchemeManager.cpp:152
 #, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr ""
+msgstr "הקובץ %1 לא נראה כמו ערכת חוטים"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
@@ -2387,7 +2420,7 @@ msgstr "גודל כתב"
 #: ui/LibraryPatternProperties.ui:41 ui/PaletteConfigPage.ui:26
 #, kde-format
 msgid "Floss scheme"
-msgstr ""
+msgstr "ערכת חוטים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PatternSize)
 #: ui/FileProperties.ui:63 ui/PatternConfigPage.ui:20
@@ -2423,7 +2456,7 @@ msgstr "גובה"
 #: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
 #, kde-format
 msgid "Cloth Count"
-msgstr ""
+msgstr "צפיפות הבד"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/FileProperties.ui:172 ui/PatternConfigPage.ui:143
@@ -2577,7 +2610,7 @@ msgstr "כמות צבעים מרבית"
 #: ui/ImportConfigPage.ui:40 ui/ImportImage.ui:325
 #, kde-format
 msgid "Use fractionals"
-msgstr ""
+msgstr "שימוש בשברים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, IgnoreColor)
 #: ui/ImportImage.ui:118
@@ -2602,13 +2635,13 @@ msgstr "גודל"
 #: ui/ImportImage.ui:191
 #, kde-format
 msgid "Horizontal cloth count"
-msgstr ""
+msgstr "צפיפות בד אופקית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/ImportImage.ui:254
 #, kde-format
 msgid "Vertical cloth count"
-msgstr ""
+msgstr "צפיפות בד אנכית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: ui/ImportImage.ui:283
@@ -2764,14 +2797,14 @@ msgstr "צבע"
 #: ui/KeyElement.ui:396 ui/NewFloss.ui:34 ui/PrinterConfigPage.ui:855
 #, kde-format
 msgid "Floss name"
-msgstr ""
+msgstr "שם החוט"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FlossDescriptionColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, FlossDescriptionColumn)
 #: ui/KeyElement.ui:410 ui/PrinterConfigPage.ui:865
 #, kde-format
 msgid "Floss description"
-msgstr ""
+msgstr "תיאור החוט"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_LengthColumn)
 #. i18n: ectx: property (text), widget (QCheckBox, LengthColumn)
@@ -2876,7 +2909,7 @@ msgstr "תו משויך"
 #: ui/NewFloss.ui:14
 #, kde-format
 msgid "Create New Floss"
-msgstr ""
+msgstr "יצירת חוט חדש"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/NewFloss.ui:57
@@ -2920,13 +2953,13 @@ msgstr "ספריית סמלים"
 #: ui/PaletteConfigPage.ui:60
 #, kde-format
 msgid "Default stitch strands"
-msgstr ""
+msgstr "גדילי תך כברירת מחדל"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/PaletteConfigPage.ui:67
 #, kde-format
 msgid "Default backstitch strands"
-msgstr ""
+msgstr "גדילי תך אחורי כברירת מחדל"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PaletteManager.ui:22
@@ -2950,19 +2983,19 @@ msgstr "תווית טקסט"
 #: ui/PaletteManager.ui:99
 #, kde-format
 msgid "Symbol Library"
-msgstr ""
+msgstr "ספריית סמלים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/PaletteManager.ui:109
 #, kde-format
 msgid "Stitch strands"
-msgstr ""
+msgstr "גדילי תך"
 
 #. i18n: ectx: property (text), widget (QPushButton, Calibrate)
 #: ui/PaletteManager.ui:196
 #, kde-format
 msgid "Calibrate Flosses"
-msgstr ""
+msgstr "כיול חוטים"
 
 #. i18n: ectx: property (text), widget (QPushButton, PickColor)
 #: ui/PaletteManager.ui:203
@@ -2974,7 +3007,7 @@ msgstr "בחירת צבע"
 #: ui/PaletteManager.ui:212
 #, kde-format
 msgid "Backstitch strands"
-msgstr "חוטי תך אחורי"
+msgstr "גדילי תך אחורי"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:264
