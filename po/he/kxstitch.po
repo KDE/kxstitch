@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-01-18 20:31+0200\n"
+"PO-Revision-Date: 2026-01-19 06:59+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -161,7 +161,7 @@ msgstr "תיצוג התפרים הצרפתיים"
 #: kxstitch.kcfg:115
 #, kde-format
 msgid "Render stitch hints for colored blocks"
-msgstr ""
+msgstr "תיצוג רמזי תכים עבור קטעים צבעוניים"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
 #: kxstitch.kcfg:119
@@ -185,49 +185,49 @@ msgstr "איך להציג תפרים צרפתיים."
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr ""
+msgstr "רוחב ברירת המחדל של תבנית חדשה ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr ""
+msgstr "גובה ברירת המחדל של תבנית חדשה ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
 #, kde-format
 msgid "The minimum width of a pattern in the units specified."
-msgstr ""
+msgstr "הרוחב המזערי של תבנית ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Document_Min_Height), group (document)
 #: kxstitch.kcfg:172
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
-msgstr ""
+msgstr "הגובה המזערי של תבנית ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
 #: kxstitch.kcfg:176
 #, kde-format
 msgid "The maximum width of a pattern in the units specified."
-msgstr ""
+msgstr "הרוחב המרבי של תבנית ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Document_Max_Height), group (document)
 #: kxstitch.kcfg:180
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
-msgstr ""
+msgstr "הגובה המרבי של תבנית ביחידות שצוינו."
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
 #: kxstitch.kcfg:187
 #, kde-format
 msgid "Use a maximum number of colors"
-msgstr ""
+msgstr "להשתמש בכמות מרבית של צבעים"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
 #: kxstitch.kcfg:191
 #, kde-format
 msgid "Maximum number of colors"
-msgstr ""
+msgstr "כמות הצבעים המרבית"
 
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
 #: kxstitch.kcfg:195
@@ -245,7 +245,7 @@ msgstr "ערכת החוטים ברירת המחדל לשימוש במסמכים 
 #: kxstitch.kcfg:206
 #, kde-format
 msgid "The default symbol library to be used for new documents."
-msgstr ""
+msgstr "ספריית הסמלים כברירת המחדל לשימוש במסמכים חדשים."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
 #: kxstitch.kcfg:210
@@ -263,31 +263,31 @@ msgstr "מספר הגדילים כברירת מחדל לשימוש בתכים א
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr ""
+msgstr "הצגת הסמלים בלוח."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr ""
+msgstr "הצגת הסמלים עם החלקת קצוות"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:229
 #, kde-format
 msgid "The default size of icons shown in the icon view"
-msgstr ""
+msgstr "גודל ברירת המדל של סמלים המוצגים בתצוגת הסמלים"
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
 #: kxstitch.kcfg:236
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr ""
+msgstr "האם בחירת תווים תכבד את מקש ה־Caps Lock"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:240
 #, kde-format
 msgid "The default width of a space in cells"
-msgstr ""
+msgstr "רוחב ברירת המחדל של רווח בתאים"
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
 #: kxstitch.kcfg:244
@@ -299,19 +299,19 @@ msgstr ""
 #: kxstitch.kcfg:248
 #, kde-format
 msgid "The number of cells between lines of text"
-msgstr ""
+msgstr "מספר התאים בין שורות טקסט"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
 #: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
-msgstr ""
+msgstr "מספר התאים להוספה כשמרחיבים את התבנית לימין"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
-msgstr ""
+msgstr "מספר התאים להוספה כשמרחיבים את התבנית לשמאל"
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
 #: kxstitch.kcfg:263
@@ -323,19 +323,19 @@ msgstr ""
 #: kxstitch.kcfg:267
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr ""
+msgstr "משפחת הגופנים לשימוש ב־TextToolDlg"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:271
 #, kde-format
 msgid "The text size in pixels"
-msgstr ""
+msgstr "גודל הטקסט בפיקסלים"
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
 #: kxstitch.kcfg:275
 #, kde-format
 msgid "Does mirroring and copying make copies"
-msgstr ""
+msgstr "האם היפוך והעתקה יוצרים עותקים"
 
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
 #: kxstitch.kcfg:282
@@ -401,7 +401,7 @@ msgstr ""
 #: kxstitch.kcfg:323
 #, kde-format
 msgid "Show a border around the pattern"
-msgstr ""
+msgstr "הצגת מסגרת מסביב לתבנית"
 
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
@@ -409,7 +409,7 @@ msgstr ""
 #: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
 #, kde-format
 msgid "The color of the border"
-msgstr ""
+msgstr "צבע המסגרת"
 
 #. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
@@ -417,35 +417,35 @@ msgstr ""
 #: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
 #, kde-format
 msgid "The thickness of the border in 1/10 mm"
-msgstr ""
+msgstr "עובי המסגרת ב־1/10 מ״מ"
 
 #. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
 #: kxstitch.kcfg:335 kxstitch.kcfg:478
 #, kde-format
 msgid "The left margin"
-msgstr ""
+msgstr "השול השמאלי"
 
 #. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
 #: kxstitch.kcfg:339 kxstitch.kcfg:474
 #, kde-format
 msgid "The top margin"
-msgstr ""
+msgstr "השול העליון"
 
 #. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
 #: kxstitch.kcfg:343 kxstitch.kcfg:482
 #, kde-format
 msgid "The right margin"
-msgstr ""
+msgstr "השול הימני"
 
 #. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
 #: kxstitch.kcfg:347 kxstitch.kcfg:486
 #, kde-format
 msgid "The bottom margin"
-msgstr ""
+msgstr "השול התחתון"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
 #: kxstitch.kcfg:351
@@ -471,13 +471,13 @@ msgstr ""
 #: kxstitch.kcfg:364
 #, kde-format
 msgid "Show a border around the image"
-msgstr ""
+msgstr "להציג מסגרת מסביב לתמונה"
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr ""
+msgstr "להציג מסגרת מסביב למפתח"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
@@ -1221,7 +1221,7 @@ msgstr "דוללות (8 מ׳)"
 #, kde-format
 msgctxt "%1 is a scheme name"
 msgid "%1 Flosses"
-msgstr ""
+msgstr "חוטי %1"
 
 #: src/Exceptions.cpp:60
 #, kde-format
@@ -1281,7 +1281,7 @@ msgstr "ביטול"
 #: src/ImportImageDlg.cpp:570
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
-msgstr ""
+msgstr "הצבעים מוגבלים ל־%1 עקב מספר הסמלים הזמינים"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
 #: src/KeyElementDlg.cpp:24 ui/KeyElement.ui:14
@@ -1300,6 +1300,8 @@ msgid ""
 "Failed to read a pattern from the library %1.\n"
 "%2"
 msgstr ""
+"קריאת התבנית מהספרייה %1 נכשלה.\n"
+"%2"
 
 #: src/LibraryFile.cpp:151
 #, kde-format
@@ -1513,6 +1515,8 @@ msgid ""
 "This version of the file is not supported.\n"
 "%1"
 msgstr ""
+"הגרסה של הקובץ הזה לא נתמכת.\n"
+"%1"
 
 #: src/MainWindow.cpp:322
 #, kde-format
