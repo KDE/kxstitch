@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-01-19 06:59+0200\n"
+"PO-Revision-Date: 2026-01-20 07:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -233,7 +233,7 @@ msgstr "כמות הצבעים המרבית"
 #: kxstitch.kcfg:195
 #, kde-format
 msgid "Use fractional stitches for finer detail"
-msgstr ""
+msgstr "להשתמש בתכים בשברים כדי להגיע לפרטים עדינים יותר"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:202
@@ -293,7 +293,7 @@ msgstr "רוחב ברירת המחדל של רווח בתאים"
 #: kxstitch.kcfg:244
 #, kde-format
 msgid "Should a space cause word wrapping at the right edge of the pattern"
-msgstr ""
+msgstr "האם המקום אמור לגרום לגלישת שורות בצד הימני של התבנית"
 
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
 #: kxstitch.kcfg:248
@@ -317,7 +317,7 @@ msgstr "מספר התאים להוספה כשמרחיבים את התבנית ל
 #: kxstitch.kcfg:263
 #, kde-format
 msgid "Should the shapes tools use fractional stitches"
-msgstr ""
+msgstr "האם כלי הצורות יכולים להשתמש בתכים בשברים עשרוניים"
 
 #. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
 #: kxstitch.kcfg:267
@@ -389,13 +389,13 @@ msgstr "כיוון עמודים כברירת מחדל"
 #: kxstitch.kcfg:314
 #, kde-format
 msgid "The snap distance for element boundary corner nodes"
-msgstr ""
+msgstr "מרחק ההצמדה למפרקי פינת גבול רכיב"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
 #: kxstitch.kcfg:318
 #, kde-format
 msgid "The snap node size"
-msgstr ""
+msgstr "גודל מפרק הצמדה"
 
 #. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:323
@@ -451,13 +451,13 @@ msgstr "השול התחתון"
 #: kxstitch.kcfg:351
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
-msgstr ""
+msgstr "גודל התא המזערי במילימטרים לתבנית שנוצרה על ידי הגדרות מדפסת"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
 #: kxstitch.kcfg:355
 #, kde-format
 msgid "Minimum number of cells that can be on a page of its own"
-msgstr ""
+msgstr "מספר התאים המזערי שיכולים להיות בעמוד משלהם"
 
 #. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
 #: kxstitch.kcfg:359
@@ -465,7 +465,7 @@ msgstr ""
 msgid ""
 "The color used to represented already selected areas in existing pattern "
 "elements"
-msgstr ""
+msgstr "הצבע שמשמש לייצוג האזורים שכבר מסומנים ברכיבי תבנית קיימים"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:364
@@ -1087,12 +1087,12 @@ msgstr "קריאת לוח צבעים נכשלה"
 msgid ""
 "There are insufficient symbols available in the symbol library for this "
 "pattern. An extra %1 are required."
-msgstr ""
+msgstr "אין מספיק סמלים זמינים בספריית הסמלים עבור התבנית הזאת. דרושים עוד %1."
 
 #: src/DocumentPalette.cpp:416
 #, kde-format
 msgid "Canceled: Insufficient symbols available"
-msgstr ""
+msgstr "בוטל: אין מספיק סמלים זמינים"
 
 #: src/DocumentPalette.cpp:433
 #, kde-format
@@ -1151,9 +1151,17 @@ msgid_plural ""
 "\n"
 "You may want to check these are suitable."
 msgstr[0] ""
+"\n"
+"כדאי לבדוק שזה מתאים."
 msgstr[1] ""
+"\n"
+"כדאי לבדוק שאלו מתאימים."
 msgstr[2] ""
+"\n"
+"כדאי לבדוק שאלו מתאימים."
 msgstr[3] ""
+"\n"
+"כדאי לבדוק שאלו מתאימים."
 
 #: src/Editor.cpp:762
 #, kde-format
@@ -1358,6 +1366,13 @@ msgid ""
 "Click the Help button for information on creating\n"
 "and populating libraries."
 msgstr ""
+"אפשר להשתמש במנהל הספרייה כדי לאחסן\n"
+"תבניות לשימוש חוזר להוספה לתוך תבניות\n"
+"חדשות.\n"
+"\n"
+"לא מוגדרות קטגוריות בספרייה.\n"
+"אפשר ללחוץ על כפתור העזרה כדי לקבל מידע\n"
+"על יצירה ומילוי של ספריות."
 
 #: src/LibraryManagerDlg.cpp:67
 #, kde-format
@@ -1373,6 +1388,11 @@ msgid ""
 "Click the Help button for information\n"
 "on creating and populating libraries."
 msgstr ""
+"לא הוגדרו תבניות\n"
+"לספרייה הזאת.\n"
+"\n"
+"אפשר ללחוץ על כפתור העזרה לקבל מידע\n"
+"על יצירה ומילוי של ספריות."
 
 #: src/LibraryManagerDlg.cpp:109
 #, kde-format
@@ -2079,7 +2099,7 @@ msgstr "לא ניתן להגדיר תוכן DomDocument מקובץ: %1"
 #: src/SchemeManager.cpp:144
 #, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr ""
+msgstr "שגיאה ביצירת עותק של FlossScheme לערכה: %1"
 
 #: src/SchemeManager.cpp:152
 #, kde-format
@@ -2397,7 +2417,7 @@ msgstr "כלים"
 #: ui/EditorConfigPage.ui:396
 #, kde-format
 msgid "Tool Fractionals"
-msgstr ""
+msgstr "שברים עשרוניים בכלי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tool_MakesCopies)
 #: ui/EditorConfigPage.ui:403
@@ -2515,6 +2535,8 @@ msgid ""
 "displayed.<br />Grayed out areas have already been selected on this or other "
 "pages.</body></html>"
 msgstr ""
+"<html><head/><body>אפשר ללחוץ ולגרור כדי לבחור את אזור התבנית להצגה.<br /"
+">אזורים באפור כבר נבחרו בעמוד הזה או בעמודים אחרים.</body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
@@ -3180,7 +3202,7 @@ msgstr "גודל תא מזערי (מ״מ)"
 #: ui/PrinterConfigPage.ui:308
 #, kde-format
 msgid "Minimum overflow"
-msgstr ""
+msgstr "חריגה מזערית"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_12)
 #: ui/PrinterConfigPage.ui:326
