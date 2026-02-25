@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
-# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2025-10-06 11:28+0400\n"
+"PO-Revision-Date: 2026-02-24 23:03+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3151,14 +3151,14 @@ msgstr "اختَر حجم الورق"
 #: ui/PrinterConfigPage.ui:56 ui/PrintSetup.ui:227
 #, kde-format
 msgid "Portrait"
-msgstr "بالطّول"
+msgstr "طولي"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, Orientation)
 #. i18n: ectx: property (text), widget (QRadioButton, LandscapeRadioButton)
 #: ui/PrinterConfigPage.ui:69 ui/PrintSetup.ui:232
 #, kde-format
 msgid "Landscape"
-msgstr "بالعرض"
+msgstr "عرضي"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
