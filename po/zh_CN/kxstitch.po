@@ -1135,7 +1135,7 @@ msgstr "拖曳"
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
-msgstr "文字"
+msgstr "文本"
 
 #: src/Editor.cpp:908
 #, kde-format
@@ -2912,7 +2912,7 @@ msgstr ""
 #: ui/PaletteManager.ui:87
 #, kde-format
 msgid "TextLabel"
-msgstr "文字标签"
+msgstr "文本标签"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/PaletteManager.ui:99
@@ -3136,7 +3136,7 @@ msgstr ""
 #: ui/PrinterConfigPage.ui:390 ui/TextElement.ui:463
 #, kde-format
 msgid "Text color"
-msgstr "文字颜色"
+msgstr "文本颜色"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_9)
