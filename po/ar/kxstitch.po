@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-02-24 23:03+0400\n"
+"PO-Revision-Date: 2026-03-24 10:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -40,7 +40,7 @@ msgstr "لون الخطوط الرفيعة للمحرر."
 #: kxstitch.kcfg:22
 #, kde-format
 msgid "The width of the major grid lines."
-msgstr "عرض خطوط الشبكة الرئيسية."
+msgstr "عرض خطوط الشبكة الرئيسة."
 
 #. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
 #: kxstitch.kcfg:26
@@ -1694,7 +1694,7 @@ msgstr "أفقيًّا"
 #: src/MainWindow.cpp:1176
 #, kde-format
 msgid "Vertically"
-msgstr "رأسيًّا"
+msgstr "عموديًا"
 
 #: src/MainWindow.cpp:1183
 #, kde-format
@@ -2526,7 +2526,7 @@ msgstr "أفقي"
 #, kde-format
 msgctxt "Vertical cloth count value"
 msgid "Vertical"
-msgstr "رأسي"
+msgstr "عمودي"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: ui/FileProperties.ui:279
