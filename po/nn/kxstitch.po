@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2024-10-27 14:40+0100\n"
+"PO-Revision-Date: 2026-04-21 19:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2082,22 +2082,22 @@ msgstr "Feil"
 #: src/SchemeManager.cpp:135
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Kan ikkje setja DomDocument-innhald frå fil: %1"
 
 #: src/SchemeManager.cpp:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr "Feil ved lesing av trådsystem."
+msgstr "Feil ved oppretting av FlossScheme-instans for trådsystem: %1"
 
 #: src/SchemeManager.cpp:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr "Dette er ikkje ei gyldig symbolfil"
+msgstr "Fila «%1» ser ikkje ut til å vera ei trådsystem-fil"
 
 #: src/SchemeManager.cpp:160
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "Fann fleire tittelelement i fila: %1"
 
 #: src/SchemeManager.cpp:215
 #, kde-format
