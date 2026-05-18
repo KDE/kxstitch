@@ -191,6 +191,7 @@ Editor::Editor(QWidget *parent)
     , m_makesCopies(Configuration::tool_MakesCopies())
     , m_activeCommand(nullptr)
     , m_colorHighlight(Configuration::renderer_ColorHilight())
+    , m_showCenter(Configuration::renderer_ShowCenter())
     , m_pastePattern(nullptr)
 {
     setAcceptDrops(true);
@@ -280,6 +281,19 @@ void Editor::drawContents(const QRect &cells)
 
     if (m_renderBackgroundImages) {
         renderBackgroundImages(painter, cells);
+    }
+
+    if (m_showCenter) {
+        int width = m_document->pattern()->stitches().width();
+        int height = m_document->pattern()->stitches().height();
+        int centerX = width / 2;
+        int centerY = height / 2;
+
+        // Use the palette's highlight color with transparency
+        QColor centerColor = palette().color(QPalette::Highlight);
+        centerColor.setAlpha(50);
+        painter.fillRect(centerX, cells.top(), 1, cells.height(), centerColor);
+        painter.fillRect(cells.left(), centerY, cells.width(), 1, centerColor);
     }
 
     m_renderer.render(&painter,
@@ -636,6 +650,14 @@ void Editor::renderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::type type)
 void Editor::colorHighlight(bool set)
 {
     m_colorHighlight = set;
+    drawContents();
+}
+
+void Editor::showCenter(bool set)
+{
+    m_showCenter = set;
+    Configuration::setRenderer_ShowCenter(set);
+    Configuration::self()->save();
     drawContents();
 }
 

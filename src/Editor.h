@@ -115,6 +115,8 @@ public slots:
 
     void colorHighlight(bool);
 
+    void showCenter(bool);
+
     void selectTool(Editor::ToolMode);
 
     void selectStitch(Editor::SelectedStitchType);
@@ -315,6 +317,7 @@ private:
     Configuration::EnumRenderer_RenderBackstitchesAs::type m_renderBackstitchesAs;
     Configuration::EnumRenderer_RenderKnotsAs::type m_renderKnotsAs;
     bool m_colorHighlight;
+    bool m_showCenter;
 
     QRect m_rubberBand;
     QRect m_selectionArea;

@@ -144,6 +144,10 @@
                 <choice name="BlackWhiteSymbols" />
             </choices>
         </entry>
+        <entry name="Renderer_ShowCenter" type="Bool">
+            <label>Show the center of the pattern</label>
+            <default>false</default>
+        </entry>
     </group>
 
     <group name="document">

@@ -993,6 +993,8 @@ void MainWindow::loadSettings()
 
     actions->action(QStringLiteral("colorHighlight"))->setChecked(Configuration::renderer_ColorHilight());
 
+    actions->action(QStringLiteral("showCenter"))->setChecked(Configuration::renderer_ShowCenter());
+
     actions->action(QStringLiteral("renderStitches"))->setChecked(Configuration::renderer_RenderStitches());
     actions->action(QStringLiteral("renderBackstitches"))->setChecked(Configuration::renderer_RenderBackstitches());
     actions->action(QStringLiteral("renderFrenchKnots"))->setChecked(Configuration::renderer_RenderFrenchKnots());
@@ -1643,6 +1645,12 @@ void MainWindow::setupActions()
     action->setCheckable(true);
     connect(action, &QAction::toggled, m_editor, &Editor::colorHighlight);
     actions->addAction(QStringLiteral("colorHighlight"), action);
+
+    action = new QAction(this);
+    action->setText(i18n("Show Center"));
+    action->setCheckable(true);
+    connect(action, &QAction::toggled, m_editor, &Editor::showCenter);
+    actions->addAction(QStringLiteral("showCenter"), action);
 
     action = new QAction(this);
     action->setText(i18n("Show Stitches"));
