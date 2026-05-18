@@ -53,10 +53,20 @@ void Document::initialiseNew()
     QString scheme = Configuration::palette_DefaultScheme();
 
     if (SchemeManager::scheme(scheme) == nullptr) {
-        scheme = SchemeManager::schemes().at(scheme.toInt());
+        const QStringList schemes = SchemeManager::schemes();
+        bool legacyIndexValid = false;
+        int legacyIndex = scheme.toInt(&legacyIndexValid);
+
+        if (legacyIndexValid && legacyIndex >= 0 && legacyIndex < schemes.count()) {
+            scheme = schemes.at(legacyIndex);
+        } else {
+            scheme = schemes.value(0);
+        }
     }
 
-    m_pattern->palette().setSchemeName(scheme);
+    if (!scheme.isEmpty()) {
+        m_pattern->palette().setSchemeName(scheme);
+    }
 
     double documentWidth = Configuration::document_Width();
     double documentHeight = Configuration::document_Height();

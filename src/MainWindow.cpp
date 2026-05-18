@@ -519,8 +519,15 @@ void MainWindow::convertImage(const QString &source)
 {
     Magick::Image image(source.toStdString());
 
+    SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
+
+    if (symbolLibrary == nullptr) {
+        KMessageBox::error(this, i18n("No symbol libraries were found. Please install a symbol library before importing images."));
+        return;
+    }
+
     QMap<int, QColor> documentFlosses;
-    QList<qint16> symbolIndexes = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes();
+    QList<qint16> symbolIndexes = symbolLibrary->indexes();
 
     QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 

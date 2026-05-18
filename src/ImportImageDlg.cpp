@@ -330,6 +330,9 @@ void ImportImageDlg::renderPixmap()
     QPixmap alpha;
     alpha.loadFromData(alphaData, 143);
 
+    SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
+    int maxSymbols = symbolLibrary ? symbolLibrary->indexes().count() : 0;
+
     ui.ImagePreview->setCursor(Qt::WaitCursor);
     calculateSizes();
     m_convertedImage.modifyImage();
@@ -340,8 +343,8 @@ void ImportImageDlg::renderPixmap()
     m_convertedImage.quantizeColorSpace(Magick::RGBColorspace);
     m_convertedImage.quantizeColors(
         ui.UseMaximumColors->isChecked()
-            ? std::min<int>(ui.MaximumColors->value(), SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count())
-            : SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
+            ? std::min<int>(ui.MaximumColors->value(), maxSymbols)
+            : maxSymbols);
     m_convertedImage.quantize();
     m_convertedImage.map(m_colorMap);
     m_convertedImage.modifyImage();
@@ -558,7 +561,15 @@ void ImportImageDlg::resetImportParameters()
     QString scheme = Configuration::palette_DefaultScheme();
 
     if (SchemeManager::scheme(scheme) == nullptr) {
-        scheme = SchemeManager::schemes().at(scheme.toInt());
+        const QStringList schemes = SchemeManager::schemes();
+        bool legacyIndexValid = false;
+        int legacyIndex = scheme.toInt(&legacyIndexValid);
+
+        if (legacyIndexValid && legacyIndex >= 0 && legacyIndex < schemes.count()) {
+            scheme = schemes.at(legacyIndex);
+        } else {
+            scheme = schemes.value(0);
+        }
     }
 
     ui.FlossScheme->setCurrentItem(scheme);
@@ -566,7 +577,9 @@ void ImportImageDlg::resetImportParameters()
     ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
     ui.MaximumColors->setEnabled(ui.UseMaximumColors->isChecked());
     ui.MaximumColors->setValue(Configuration::import_MaximumColors());
-    ui.MaximumColors->setMaximum(SymbolManager::library(Configuration::palette_DefaultSymbolLibrary())->indexes().count());
+    SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
+    int maxSymbols = symbolLibrary ? symbolLibrary->indexes().count() : 0;
+    ui.MaximumColors->setMaximum(maxSymbols);
     ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
 }
 

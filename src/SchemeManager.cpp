@@ -10,6 +10,7 @@
 
 #include "SchemeManager.h"
 
+#include <QCoreApplication>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
@@ -290,7 +291,21 @@ bool SchemeManager::writeScheme(QString name)
     */
 void SchemeManager::refresh()
 {
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("schemes"), QStandardPaths::LocateDirectory);
+    QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("schemes"), QStandardPaths::LocateDirectory);
+
+    const QString appDir = QCoreApplication::applicationDirPath();
+    const QStringList fallbackDirs = {
+        QDir(appDir).absoluteFilePath(QStringLiteral("../share/kxstitch/schemes")),
+        QDir(appDir).absoluteFilePath(QStringLiteral("../../usr/share/kxstitch/schemes")),
+    };
+
+    for (const QString &dir : fallbackDirs) {
+        if (QDir(dir).exists()) {
+            dirs.append(dir);
+        }
+    }
+
+    dirs.removeDuplicates();
 
     Q_FOREACH (const QString &dir, dirs) {
         QDirIterator it(dir, QStringList() << QLatin1String("*.xml"));

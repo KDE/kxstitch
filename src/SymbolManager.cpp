@@ -25,6 +25,7 @@
 
 #include "SymbolManager.h"
 
+#include <QCoreApplication>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
@@ -95,15 +96,25 @@ QStringList SymbolManager::libraries()
  */
 SymbolLibrary *SymbolManager::library(const QString &name)
 {
-    for (int i = 0; i < self().m_symbolLibraries.count(); ++i) {
-        SymbolLibrary *symbolLibrary = self().m_symbolLibraries.at(i);
+    const QList<SymbolLibrary *> &libraries = self().m_symbolLibraries;
+
+    for (int i = 0; i < libraries.count(); ++i) {
+        SymbolLibrary *symbolLibrary = libraries.at(i);
 
         if (symbolLibrary->name() == name) {
             return symbolLibrary;
         }
     }
 
-    return nullptr;
+    // Support legacy configs that stored the library as a numeric index.
+    bool legacyIndexValid = false;
+    int legacyIndex = name.toInt(&legacyIndexValid);
+
+    if (legacyIndexValid && legacyIndex >= 0 && legacyIndex < libraries.count()) {
+        return libraries.at(legacyIndex);
+    }
+
+    return libraries.value(0);
 }
 
 /**
@@ -113,7 +124,21 @@ SymbolLibrary *SymbolManager::library(const QString &name)
  */
 void SymbolManager::refresh()
 {
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("symbols"), QStandardPaths::LocateDirectory);
+    QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("symbols"), QStandardPaths::LocateDirectory);
+
+    const QString appDir = QCoreApplication::applicationDirPath();
+    const QStringList fallbackDirs = {
+        QDir(appDir).absoluteFilePath(QStringLiteral("../share/kxstitch/symbols")),
+        QDir(appDir).absoluteFilePath(QStringLiteral("../../usr/share/kxstitch/symbols")),
+    };
+
+    for (const QString &dir : fallbackDirs) {
+        if (QDir(dir).exists()) {
+            dirs.append(dir);
+        }
+    }
+
+    dirs.removeDuplicates();
 
     Q_FOREACH (const QString &dir, dirs) {
         QDirIterator it(dir, QStringList() << QStringLiteral("*.sym"));
