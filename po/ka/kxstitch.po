@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-05-19 00:42+0000\n"
 "PO-Revision-Date: 2024-10-22 04:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr "ვერტიკალური ნაჭრების რაოდ�
 
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
-#: kxstitch.kcfg:46 kxstitch.kcfg:159
+#: kxstitch.kcfg:46 kxstitch.kcfg:163
 #, kde-format
 msgid "The cloth count units."
 msgstr "ნაჭრის რაოდენობის ერთეული."
@@ -181,226 +181,233 @@ msgstr "როგორ ვაჩვენო გვირისტები."
 msgid "How to display french knots."
 msgstr "როგორ ვაჩვენო ფრანგული კვანძები."
 
+#. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
+#: kxstitch.kcfg:148
+#, fuzzy, kde-format
+#| msgid "Show a border around the pattern"
+msgid "Show the center of the pattern"
+msgstr "საზღვრის ჩვენება ნიმუშის გარშემო"
+
 #. i18n: ectx: label, entry (Document_Width), group (document)
-#: kxstitch.kcfg:151
+#: kxstitch.kcfg:155
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
 msgstr "ახალი შაბლონის ნაგულისხმევი სიგანე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
-#: kxstitch.kcfg:155
+#: kxstitch.kcfg:159
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
 msgstr "ახალი შაბლონის ნაგულისხმევი სიმაღლე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
-#: kxstitch.kcfg:168
+#: kxstitch.kcfg:172
 #, kde-format
 msgid "The minimum width of a pattern in the units specified."
 msgstr "შაბლონის მინიმალური სიგანე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Min_Height), group (document)
-#: kxstitch.kcfg:172
+#: kxstitch.kcfg:176
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
 msgstr "შაბლონის მინიმალური სიმაღლე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
-#: kxstitch.kcfg:176
+#: kxstitch.kcfg:180
 #, kde-format
 msgid "The maximum width of a pattern in the units specified."
 msgstr "შაბლონის მაქსიმალური სიგანე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Document_Max_Height), group (document)
-#: kxstitch.kcfg:180
+#: kxstitch.kcfg:184
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
 msgstr "შაბლონის მაქსიმალური სიმაღლე, მითითებულ ერთეულებში."
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
-#: kxstitch.kcfg:187
+#: kxstitch.kcfg:191
 #, kde-format
 msgid "Use a maximum number of colors"
 msgstr "ფერების მაქსიმალური რაოდენობა"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
-#: kxstitch.kcfg:191
+#: kxstitch.kcfg:195
 #, kde-format
 msgid "Maximum number of colors"
 msgstr "ფერების მაქსიმალური რაოდენობა"
 
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
-#: kxstitch.kcfg:195
+#: kxstitch.kcfg:199
 #, kde-format
 msgid "Use fractional stitches for finer detail"
 msgstr "გამოიყენეთ ნაწილობრივი გვირისტები უფრო წვრილი დეტალებისთვის"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
-#: kxstitch.kcfg:202
+#: kxstitch.kcfg:206
 #, kde-format
 msgid "The default floss scheme to be used for new documents."
 msgstr "ნაგულიხმევი ძაფის სქემა ახალი დოკუმენტებისთვის."
 
 #. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
-#: kxstitch.kcfg:206
+#: kxstitch.kcfg:210
 #, kde-format
 msgid "The default symbol library to be used for new documents."
 msgstr "ნაგულისხმევი სიმბოლოები ახალი დოკუმენტებისთვის."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
-#: kxstitch.kcfg:210
+#: kxstitch.kcfg:214
 #, kde-format
 msgid "The default number of strands used for stitches."
 msgstr "ბოჭკოების ნაგულისხმევი რაოდენობა გვირისტებისთვის."
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
-#: kxstitch.kcfg:214
+#: kxstitch.kcfg:218
 #, kde-format
 msgid "The default number of strands used for backstitches."
 msgstr "ბოჭკოების ნაგულისხმევი რაოდენობა უკუგვირისტებისთვის."
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
-#: kxstitch.kcfg:218
+#: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols in the palette."
 msgstr "სიმბოლოების პალიტრაში ჩვენება."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
-#: kxstitch.kcfg:222
+#: kxstitch.kcfg:226
 #, kde-format
 msgid "Display the symbols antialiased"
 msgstr "სიმბოლოების მომრგვალებულად ჩვენება"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
-#: kxstitch.kcfg:229
+#: kxstitch.kcfg:233
 #, kde-format
 msgid "The default size of icons shown in the icon view"
 msgstr "ხატულების ხედში ნაჩვენები ხატულების ნაგულისხმევი ზომა"
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
-#: kxstitch.kcfg:236
+#: kxstitch.kcfg:240
 #, kde-format
 msgid "Should character selection honor the caps lock key"
 msgstr ""
 "უნდა იყოს თუ არა სიმბოლოების არჩევისას გათვალისწინებული ღილაკი CapsLock"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
-#: kxstitch.kcfg:240
+#: kxstitch.kcfg:244
 #, kde-format
 msgid "The default width of a space in cells"
 msgstr "სივრცის ნაგულისხმევი სიგანე უჯრედებში"
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
-#: kxstitch.kcfg:244
+#: kxstitch.kcfg:248
 #, kde-format
 msgid "Should a space cause word wrapping at the right edge of the pattern"
 msgstr ""
 "უნდა გამოიწვიოს თუ არა გამოტოვებამ სიტყვის გადატანა ნიმუშის მარჯვენა წიბოსთან"
 
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
-#: kxstitch.kcfg:248
+#: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells between lines of text"
 msgstr "უჯრედების რაოდენობა ტექსტის ხაზებს შორის"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
-#: kxstitch.kcfg:252
+#: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
 msgstr "უჯრედების რაოდენობა, რომელიც დაემატება ნიმუშის მარჯვნივ გაფართოებისას"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
-#: kxstitch.kcfg:256
+#: kxstitch.kcfg:260
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
 msgstr "უჯრედების რაოდენობა, რომელიც დაემატება ნიმუშის ქვემოთ გაფართოებისას"
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
-#: kxstitch.kcfg:263
+#: kxstitch.kcfg:267
 #, kde-format
 msgid "Should the shapes tools use fractional stitches"
 msgstr "უნდა გამოიყენონ თუ არა ფორმის ინსტრუმენტებმა ნაწილობრივი გვირისტები"
 
 #. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
-#: kxstitch.kcfg:267
+#: kxstitch.kcfg:271
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
 msgstr "TextToolDlg-ში გამოყენებული ფონტის ოჯახი"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
-#: kxstitch.kcfg:271
+#: kxstitch.kcfg:275
 #, kde-format
 msgid "The text size in pixels"
 msgstr "ტექსტის ზომა პიქსელებში"
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
-#: kxstitch.kcfg:275
+#: kxstitch.kcfg:279
 #, kde-format
 msgid "Does mirroring and copying make copies"
 msgstr "აკეთებს თუ არა არეკვლა და კოპირება ასლებს"
 
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
-#: kxstitch.kcfg:282
+#: kxstitch.kcfg:286
 #, kde-format
 msgid "The page left margin"
 msgstr "გვერდის მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
-#: kxstitch.kcfg:286
+#: kxstitch.kcfg:290
 #, kde-format
 msgid "The page top margin"
 msgstr "გვერდის ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
-#: kxstitch.kcfg:290
+#: kxstitch.kcfg:294
 #, kde-format
 msgid "The page right margin"
 msgstr "გვერდის მარჯვენა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
-#: kxstitch.kcfg:294
+#: kxstitch.kcfg:298
 #, kde-format
 msgid "The page bottom margin"
 msgstr "გვერდის ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
-#: kxstitch.kcfg:298
+#: kxstitch.kcfg:302
 #, kde-format
 msgid "Show the layout editor"
 msgstr "განლაგების რედაქტორის ჩვენება"
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
-#: kxstitch.kcfg:302
+#: kxstitch.kcfg:306
 #, kde-format
 msgid "The grid size in mm"
 msgstr "ბადის ზომა, მმ-ში"
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
-#: kxstitch.kcfg:306
+#: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page size"
 msgstr "გვერდის ნაგულისხმევი ზომა"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
-#: kxstitch.kcfg:310
+#: kxstitch.kcfg:314
 #, kde-format
 msgid "The default page orientation"
 msgstr "გვერდის ნაგულისხმევი ორიენტაცია"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
-#: kxstitch.kcfg:314
+#: kxstitch.kcfg:318
 #, kde-format
 msgid "The snap distance for element boundary corner nodes"
 msgstr "მიწებების მანძილი ელემენტის საზღვრის კუთხის კვანძებისთვის"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
-#: kxstitch.kcfg:318
+#: kxstitch.kcfg:322
 #, kde-format
 msgid "The snap node size"
 msgstr "მიწებების კვანძის ზომა"
 
 #. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:323
+#: kxstitch.kcfg:327
 #, kde-format
 msgid "Show a border around the pattern"
 msgstr "საზღვრის ჩვენება ნიმუშის გარშემო"
@@ -408,7 +415,7 @@ msgstr "საზღვრის ჩვენება ნიმუშის გ
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
-#: kxstitch.kcfg:327 kxstitch.kcfg:368 kxstitch.kcfg:381
+#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
 #, kde-format
 msgid "The color of the border"
 msgstr "ჩარჩოს ფერი"
@@ -416,41 +423,41 @@ msgstr "ჩარჩოს ფერი"
 #. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
 #. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
-#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
+#: kxstitch.kcfg:335 kxstitch.kcfg:376 kxstitch.kcfg:389
 #, kde-format
 msgid "The thickness of the border in 1/10 mm"
 msgstr "საზღვრის სისქე 1/10 მმ-ში"
 
 #. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:335 kxstitch.kcfg:478
+#: kxstitch.kcfg:339 kxstitch.kcfg:482
 #, kde-format
 msgid "The left margin"
 msgstr "მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
-#: kxstitch.kcfg:339 kxstitch.kcfg:474
+#: kxstitch.kcfg:343 kxstitch.kcfg:478
 #, kde-format
 msgid "The top margin"
 msgstr "ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
-#: kxstitch.kcfg:343 kxstitch.kcfg:482
+#: kxstitch.kcfg:347 kxstitch.kcfg:486
 #, kde-format
 msgid "The right margin"
 msgstr "ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:347 kxstitch.kcfg:486
+#: kxstitch.kcfg:351 kxstitch.kcfg:490
 #, kde-format
 msgid "The bottom margin"
 msgstr "ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
-#: kxstitch.kcfg:351
+#: kxstitch.kcfg:355
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
 msgstr ""
@@ -458,13 +465,13 @@ msgstr ""
 "კონფიგურაციებისთვის"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
-#: kxstitch.kcfg:355
+#: kxstitch.kcfg:359
 #, kde-format
 msgid "Minimum number of cells that can be on a page of its own"
 msgstr "უჯრედების მინიმალური რაოდენობა, რომლებიც შეიძლება იყოს ცალკე გვერდზე"
 
 #. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
-#: kxstitch.kcfg:359
+#: kxstitch.kcfg:363
 #, kde-format
 msgid ""
 "The color used to represented already selected areas in existing pattern "
@@ -472,143 +479,143 @@ msgid ""
 msgstr "არსებული ნიმუშის ელემენტებში უკვე მონიშნული ადგილების ფერი"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:364
+#: kxstitch.kcfg:368
 #, kde-format
 msgid "Show a border around the image"
 msgstr "სურათის გარშემო საზღვრის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:377
+#: kxstitch.kcfg:381
 #, kde-format
 msgid "Show a border around the key"
 msgstr "აჩვენეთ საზღვარი გასაღების გარშემო"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
-#: kxstitch.kcfg:389 kxstitch.kcfg:462
+#: kxstitch.kcfg:393 kxstitch.kcfg:466
 #, kde-format
 msgid "Fill the background"
 msgstr "ფონის შევსება"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:393
+#: kxstitch.kcfg:397
 #, kde-format
 msgid "The color of the background"
 msgstr "ფონის ფერი"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:397
+#: kxstitch.kcfg:401
 #, kde-format
 msgid "Transparency of the background"
 msgstr "ფონის გამჭვირვალობა"
 
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:401
+#: kxstitch.kcfg:405
 #, kde-format
 msgid "The key element left margin"
 msgstr "ძირითადი ელემენტის მარცხენა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
-#: kxstitch.kcfg:405
+#: kxstitch.kcfg:409
 #, kde-format
 msgid "The key element top margin"
 msgstr "ძირითადი ელემენტის ზედა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
-#: kxstitch.kcfg:409
+#: kxstitch.kcfg:413
 #, kde-format
 msgid "The key element right margin"
 msgstr "ძირითადი ელემენტის მარჯვენა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:413
+#: kxstitch.kcfg:417
 #, kde-format
 msgid "The key element bottom margin"
 msgstr "ძირითადი ელემენტის ქვედა ზღვარი"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
-#: kxstitch.kcfg:417
+#: kxstitch.kcfg:421
 #, kde-format
 msgid "Show the key element symbol column"
 msgstr "გასაღები ელემენტის სიმბოლოს სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
-#: kxstitch.kcfg:421
+#: kxstitch.kcfg:425
 #, kde-format
 msgid "Show the key element symbol column in color"
 msgstr "გასაღები ელემენტი სიმბოლოს სვეტის ფერადად ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
-#: kxstitch.kcfg:425
+#: kxstitch.kcfg:429
 #, kde-format
 msgid "Show the key element floss name column"
 msgstr "გასაღები ელემენტის ძაფის სახელის სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
-#: kxstitch.kcfg:429
+#: kxstitch.kcfg:433
 #, kde-format
 msgid "Show the key element floss strands column"
 msgstr "გასაღები ელემენტის ძაფის ბოჭკოების სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
-#: kxstitch.kcfg:433
+#: kxstitch.kcfg:437
 #, kde-format
 msgid "Show the key element floss description column"
 msgstr "გასაღები ელემენტის ძაფის აღწერის სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
-#: kxstitch.kcfg:437
+#: kxstitch.kcfg:441
 #, kde-format
 msgid "Show the key element stitch count column"
 msgstr "გასაღები ელემენტი გვირისტების რაოდენობის სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
-#: kxstitch.kcfg:441
+#: kxstitch.kcfg:445
 #, kde-format
 msgid "Show the key element floss length column"
 msgstr "გასაღები ელემენტის ძაფის სიგრძის სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
-#: kxstitch.kcfg:445
+#: kxstitch.kcfg:449
 #, kde-format
 msgid "Show the key element skeins column"
 msgstr "გასაღები ელემენტის გორგლების სვეტის ჩვენება"
 
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:450
+#: kxstitch.kcfg:454
 #, kde-format
 msgid "Show the border"
 msgstr "საზღვრის ჩვენება"
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
-#: kxstitch.kcfg:454 ui/TextElement.ui:184
+#: kxstitch.kcfg:458 ui/TextElement.ui:184
 #, kde-format
 msgid "The border color"
 msgstr "საზღვრის ფერი"
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#: kxstitch.kcfg:458 ui/ImageElement.ui:98 ui/KeyElement.ui:207
+#: kxstitch.kcfg:462 ui/ImageElement.ui:98 ui/KeyElement.ui:207
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
 msgstr "საზღვრის სისქე 1/10 მმ-ში"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:466
+#: kxstitch.kcfg:470
 #, kde-format
 msgid "Color of the background"
 msgstr "ფონის ფერი"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:470
+#: kxstitch.kcfg:474
 #, kde-format
 msgid "The transparency value"
 msgstr "გამჭვირვალობის მნიშვნელობა"
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
-#: kxstitch.kcfg:490
+#: kxstitch.kcfg:494
 #, kde-format
 msgid "The text color"
 msgstr "ტექსტის ფერი"
@@ -656,25 +663,25 @@ msgid "&Settings"
 msgstr "გამართვა"
 
 #. i18n: ectx: Menu (formatScalesAs)
-#: kxstitchui.rc:35 kxstitchui.rc:140
+#: kxstitchui.rc:35 kxstitchui.rc:141
 #, kde-format
 msgid "Format Scales As"
 msgstr "შკალების დაფორმატება, როგორც"
 
 #. i18n: ectx: Menu (renderStitchesAs)
-#: kxstitchui.rc:41 kxstitchui.rc:146
+#: kxstitchui.rc:41 kxstitchui.rc:147
 #, kde-format
 msgid "Render Stitches As"
 msgstr "გვირისტების რენდერი, როგორც"
 
 #. i18n: ectx: Menu (renderBackstitchesAs)
-#: kxstitchui.rc:49 kxstitchui.rc:154
+#: kxstitchui.rc:49 kxstitchui.rc:155
 #, kde-format
 msgid "Render Backstitches As"
 msgstr "უკუგვირისტების რენდერი, როგორც"
 
 #. i18n: ectx: Menu (renderKnotsAs)
-#: kxstitchui.rc:54 kxstitchui.rc:159
+#: kxstitchui.rc:54 kxstitchui.rc:160
 #, kde-format
 msgid "Render Knots As"
 msgstr "კვანძების რენდერი, როგორც"
@@ -686,61 +693,61 @@ msgid "&View"
 msgstr "&ხედი"
 
 #. i18n: ectx: Menu (viewShowBackgroundImage)
-#: kxstitchui.rc:73 kxstitchui.rc:173 src/Commands.cpp:482
+#: kxstitchui.rc:74 kxstitchui.rc:174 src/Commands.cpp:482
 #, kde-format
 msgid "Show Background Image"
 msgstr "ფონის სურათის ჩვენება"
 
 #. i18n: ectx: Menu (viewFitBackgroundImage)
-#: kxstitchui.rc:76 kxstitchui.rc:176
+#: kxstitchui.rc:77 kxstitchui.rc:177
 #, kde-format
 msgid "Fit Background Image to Selection"
 msgstr "ფონის სურათის ჩატევა მონიშნულში"
 
 #. i18n: ectx: Menu (stitches)
-#: kxstitchui.rc:80
+#: kxstitchui.rc:81
 #, kde-format
 msgid "&Stitches"
 msgstr "&თვალები"
 
 #. i18n: ectx: Menu (Tools)
-#: kxstitchui.rc:91
+#: kxstitchui.rc:92
 #, kde-format
 msgid "&Tools"
 msgstr "&ხელსაწყოები"
 
 #. i18n: ectx: Menu (palette)
-#: kxstitchui.rc:111
+#: kxstitchui.rc:112
 #, kde-format
 msgid "&Palette"
 msgstr "&პალიტრა"
 
 #. i18n: ectx: Menu (library)
-#: kxstitchui.rc:121
+#: kxstitchui.rc:122
 #, kde-format
 msgid "&Library Manager"
 msgstr "&ბიბლიოთეკის მმართველი"
 
 #. i18n: ectx: Menu (pattern)
-#: kxstitchui.rc:124
+#: kxstitchui.rc:125
 #, kde-format
 msgid "&Pattern"
 msgstr "&შაბლონი"
 
 #. i18n: ectx: ToolBar (StitchToolBar)
-#: kxstitchui.rc:193
+#: kxstitchui.rc:194
 #, kde-format
 msgid "Stitch Toolbar"
 msgstr "თვალის ხელსაწყოთა ზოლი"
 
 #. i18n: ectx: ToolBar (ToolsToolbar)
-#: kxstitchui.rc:204
+#: kxstitchui.rc:205
 #, kde-format
 msgid "Tools Toolbar"
 msgstr "ხელსაწყოთა ზოლი"
 
 #. i18n: ectx: ToolBar (ZoomToolbar)
-#: kxstitchui.rc:227
+#: kxstitchui.rc:228
 #, kde-format
 msgid "Zoom Toolbar"
 msgstr "გადიდების ხელსაწყოთა ზოლი"
@@ -774,14 +781,14 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1108
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1117
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "ფაილის თვისებები"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1103
+#: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1112
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -807,27 +814,27 @@ msgstr "ხაზის დახატვა"
 msgid "Erase Stitches"
 msgstr "გვირისტების წაშლა"
 
-#: src/Commands.cpp:156 src/MainWindow.cpp:1318
+#: src/Commands.cpp:156 src/MainWindow.cpp:1327
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "მართკუთხედის დახაზვა"
 
-#: src/Commands.cpp:176 src/MainWindow.cpp:1328
+#: src/Commands.cpp:176 src/MainWindow.cpp:1337
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "მართკუთხედის შევსება"
 
-#: src/Commands.cpp:196 src/MainWindow.cpp:1338
+#: src/Commands.cpp:196 src/MainWindow.cpp:1347
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "ოვალის დახატვა"
 
-#: src/Commands.cpp:216 src/MainWindow.cpp:1348
+#: src/Commands.cpp:216 src/MainWindow.cpp:1357
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "ოვალის შევსება"
 
-#: src/Commands.cpp:236 src/MainWindow.cpp:1358
+#: src/Commands.cpp:236 src/MainWindow.cpp:1367
 #, kde-format
 msgid "Fill Polygon"
 msgstr "მრავალკუთხედის შევსება"
@@ -898,12 +905,12 @@ msgstr "შაბლონამდე ამოჭრა"
 msgid "Crop to Selection"
 msgstr "მონიშნულამდე ამოჭრა"
 
-#: src/Commands.cpp:709 src/MainWindow.cpp:1482
+#: src/Commands.cpp:709 src/MainWindow.cpp:1491
 #, kde-format
 msgid "Insert Columns"
 msgstr "სვეტების ჩასმა"
 
-#: src/Commands.cpp:752 src/MainWindow.cpp:1476
+#: src/Commands.cpp:752 src/MainWindow.cpp:1485
 #, kde-format
 msgid "Insert Rows"
 msgstr "მწკრივების ჩასმა"
@@ -914,7 +921,7 @@ msgstr "მწკრივების ჩასმა"
 msgid "Extend Pattern"
 msgstr "შაბლონის გაფართოება"
 
-#: src/Commands.cpp:837 src/MainWindow.cpp:1458
+#: src/Commands.cpp:837 src/MainWindow.cpp:1467
 #, kde-format
 msgid "Center Pattern"
 msgstr "შაბლონის ცენტრში მოთავსება"
@@ -934,7 +941,7 @@ msgstr "ძაფის სქემის შეცვლა"
 msgid "Replace Color"
 msgstr "ფერის შეცვლა"
 
-#: src/Commands.cpp:1052 src/MainWindow.cpp:1441
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1450
 #, kde-format
 msgid "Swap Colors"
 msgstr "ფერების მიმოცვლა"
@@ -949,7 +956,7 @@ msgstr "პრინტერის კონფიგურაციის გ�
 msgid "Cut"
 msgstr "ამოჭრა"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1959 src/MainWindow.cpp:1378
+#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1387
 #, kde-format
 msgid "Alphabet"
 msgstr "ანბანი"
@@ -977,7 +984,7 @@ msgstr "ნაგულისხმევი"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
-#: src/ImportImageDlg.cpp:496 src/ImportImageDlg.cpp:497
+#: src/ImportImageDlg.cpp:499 src/ImportImageDlg.cpp:500
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
@@ -985,49 +992,49 @@ msgstr "/დუიმი"
 
 #: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
 #: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
-#: src/ImportImageDlg.cpp:489 src/ImportImageDlg.cpp:490
+#: src/ImportImageDlg.cpp:492 src/ImportImageDlg.cpp:493
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr "/სმ"
 
-#: src/Document.cpp:122 src/MainWindow.cpp:284 src/MainWindow.cpp:355
+#: src/Document.cpp:132 src/MainWindow.cpp:284 src/MainWindow.cpp:355
 #: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
 msgstr "უსახელო"
 
-#: src/Document.cpp:245 src/Document.cpp:279
+#: src/Document.cpp:255 src/Document.cpp:289
 #, kde-format
 msgid "KXStitch version %1"
 msgstr "KXStitch ვერსია %1"
 
-#: src/Document.cpp:475 src/Document.cpp:772 src/Document.cpp:1084
+#: src/Document.cpp:485 src/Document.cpp:782 src/Document.cpp:1094
 #, kde-format
 msgid "The floss scheme DMC was not found"
 msgstr "ძაფის სქემა DMC ვერ ვიპოვე"
 
-#: src/Document.cpp:523 src/Document.cpp:818 src/Document.cpp:1132
+#: src/Document.cpp:533 src/Document.cpp:828 src/Document.cpp:1142
 #, kde-format
 msgid "Invalid data read."
 msgstr "წაკითხული მონაცემები არასწორია."
 
-#: src/Document.cpp:623 src/Document.cpp:918 src/Document.cpp:1232
-#: src/Document.cpp:1248 src/Document.cpp:1410 src/Document.cpp:1566
-#: src/Document.cpp:1738 src/Document.cpp:1929 src/Document.cpp:2120
-#: src/Document.cpp:2300 src/SymbolLibrary.cpp:302
+#: src/Document.cpp:633 src/Document.cpp:928 src/Document.cpp:1242
+#: src/Document.cpp:1258 src/Document.cpp:1420 src/Document.cpp:1576
+#: src/Document.cpp:1748 src/Document.cpp:1939 src/Document.cpp:2130
+#: src/Document.cpp:2310 src/SymbolLibrary.cpp:302
 #, kde-format
 msgid "Stream error"
 msgstr "ნაკადის შეცდომა"
 
-#: src/Document.cpp:1351 src/Document.cpp:1504 src/Document.cpp:1665
-#: src/Document.cpp:1856 src/Document.cpp:2049 src/Document.cpp:2229
+#: src/Document.cpp:1361 src/Document.cpp:1514 src/Document.cpp:1675
+#: src/Document.cpp:1866 src/Document.cpp:2059 src/Document.cpp:2239
 #, kde-format
 msgid "The floss scheme %1 was not found"
 msgstr "ძაფის სქემა %1 ვერ ვიპოვე"
 
-#: src/Document.cpp:1367 src/Document.cpp:1523 src/Document.cpp:1684
-#: src/Document.cpp:1875 src/Document.cpp:2070 src/Document.cpp:2250
+#: src/Document.cpp:1377 src/Document.cpp:1533 src/Document.cpp:1694
+#: src/Document.cpp:1885 src/Document.cpp:2080 src/Document.cpp:2260
 #, kde-format
 msgid "The floss name %1 was not found"
 msgstr "ძაფის სახელი %1 ვერ ვიპოვე"
@@ -1040,8 +1047,8 @@ msgstr "ძაფის სახელი %1 ვერ ვიპოვე"
 #. i18n: ectx: property (text), widget (QCheckBox, StitchesColumn)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:473
-#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1500
+#: src/Document.cpp:1808 src/Document.cpp:2001 src/Element.cpp:473
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1509
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
@@ -1052,7 +1059,7 @@ msgstr "თვალები"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1802 src/Document.cpp:1995 ui/EditorConfigPage.ui:82
+#: src/Document.cpp:1812 src/Document.cpp:2005 ui/EditorConfigPage.ui:82
 #: ui/PatternConfigPage.ui:159 ui/PatternElement.ui:210
 #, kde-format
 msgid "CM"
@@ -1063,8 +1070,8 @@ msgstr "სმ"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1806 src/Document.cpp:1999 src/ImportImageDlg.cpp:206
-#: src/MainWindow.cpp:1514 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/Document.cpp:1816 src/Document.cpp:2009 src/ImportImageDlg.cpp:206
+#: src/MainWindow.cpp:1523 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1143,24 +1150,24 @@ msgstr[1] ""
 "\n"
 "შეიძლება, საჭიროა, შეამოწმოთ, შეესაბამება თუ არა."
 
-#: src/Editor.cpp:762
+#: src/Editor.cpp:784
 #, kde-format
 msgid "Drag"
 msgstr "გადათრევა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:813 src/Editor.cpp:1938 src/MainWindow.cpp:1368
+#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1377
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "ტექსტი"
 
-#: src/Editor.cpp:908
+#: src/Editor.cpp:930
 #, kde-format
 msgid "Add Character"
 msgstr "სიმბოლოს დამატება"
 
-#: src/Editor.cpp:957 src/Editor.cpp:2100 src/LibraryManagerDlg.cpp:116
+#: src/Editor.cpp:979 src/Editor.cpp:2122 src/LibraryManagerDlg.cpp:116
 #: src/LibraryManagerDlg.cpp:135
 #, kde-format
 msgid "Paste"
@@ -1244,7 +1251,7 @@ msgstr "გამოსახულების შემოტანა - გ�
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1507 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1516 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
@@ -1256,17 +1263,17 @@ msgctxt "%1 width, %2 height and %3 units"
 msgid "%1 x %2 %3"
 msgstr "%1 x %2 %3"
 
-#: src/ImportImageDlg.cpp:356
+#: src/ImportImageDlg.cpp:359
 #, kde-format
 msgid "Rendering preview"
 msgstr "მინიატურის რენდერი"
 
-#: src/ImportImageDlg.cpp:356 src/MainWindow.cpp:574
+#: src/ImportImageDlg.cpp:359 src/MainWindow.cpp:581
 #, kde-format
 msgid "Cancel"
 msgstr "შეწყვეტა"
 
-#: src/ImportImageDlg.cpp:570
+#: src/ImportImageDlg.cpp:583
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
 msgstr "ფერები შეზღუდულია %1-ზე ხელმისაწვდომი სიმბოლოების რაოდენობის გამო"
@@ -1572,240 +1579,247 @@ msgstr "დაბრუნება"
 msgid "There is nothing to print"
 msgstr "დასაბეჭდი არაფერია"
 
-#: src/MainWindow.cpp:495 src/MainWindow.cpp:730
+#: src/MainWindow.cpp:495 src/MainWindow.cpp:737
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 "გამოსახულებები (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
-#: src/MainWindow.cpp:574
+#: src/MainWindow.cpp:525
+#, kde-format
+msgid ""
+"No symbol libraries were found. Please install a symbol library before "
+"importing images."
+msgstr ""
+
+#: src/MainWindow.cpp:581
 #, kde-format
 msgid "Converting to stitches"
 msgstr "გვირისტებად გარდაქმნა"
 
-#: src/MainWindow.cpp:728
+#: src/MainWindow.cpp:735
 #, kde-format
 msgid "Background Image"
 msgstr "ფონის სურათი"
 
-#: src/MainWindow.cpp:778
+#: src/MainWindow.cpp:785
 #, kde-format
 msgid "Undo %1"
 msgstr "%1-ის დაბრუნება"
 
-#: src/MainWindow.cpp:783
+#: src/MainWindow.cpp:790
 #, kde-format
 msgid "Redo %1"
 msgstr "%1-ის გამეორება"
 
-#: src/MainWindow.cpp:922
+#: src/MainWindow.cpp:929
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "რედაქტორი"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:924 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:931 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "შაბლონი"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:926 src/MainWindow.cpp:1737 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:933 src/MainWindow.cpp:1752 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "პალიტრა"
 
-#: src/MainWindow.cpp:927
+#: src/MainWindow.cpp:934
 #, kde-format
 msgid "Import"
 msgstr "შემოტანა"
 
-#: src/MainWindow.cpp:928
+#: src/MainWindow.cpp:935
 #, kde-format
 msgid "Library"
 msgstr "ბიბლიოთეკა"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:930 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:937 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "პრინტერის მორგება"
 
-#: src/MainWindow.cpp:1096
+#: src/MainWindow.cpp:1105
 #, kde-format
 msgid "Print Setup..."
 msgstr "ბეჭდვის მორგება..."
 
-#: src/MainWindow.cpp:1113
+#: src/MainWindow.cpp:1122
 #, kde-format
 msgid "Add Background Image..."
 msgstr "ფონის გამოსახულების დამატება..."
 
-#: src/MainWindow.cpp:1130
+#: src/MainWindow.cpp:1139
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "ანარეკლი / მობრუნება ასლებს ქმნის"
 
-#: src/MainWindow.cpp:1136
+#: src/MainWindow.cpp:1145
 #, kde-format
 msgid "Horizontally"
 msgstr "ჰორიზონტალურად"
 
-#: src/MainWindow.cpp:1143
+#: src/MainWindow.cpp:1152
 #, kde-format
 msgid "Vertically"
 msgstr "ვერტიკალურად"
 
-#: src/MainWindow.cpp:1150
+#: src/MainWindow.cpp:1159
 #, kde-format
 msgid "90 Degrees"
 msgstr "90 გრადუსი"
 
-#: src/MainWindow.cpp:1157
+#: src/MainWindow.cpp:1166
 #, kde-format
 msgid "180 Degrees"
 msgstr "180 გრადუსი"
 
-#: src/MainWindow.cpp:1164
+#: src/MainWindow.cpp:1173
 #, kde-format
 msgid "270 Degrees"
 msgstr "270 გრადუსი"
 
-#: src/MainWindow.cpp:1172
+#: src/MainWindow.cpp:1181
 #, kde-format
 msgid "Stitch Mask"
 msgstr "გვირისტის ნიღაბი"
 
-#: src/MainWindow.cpp:1178
+#: src/MainWindow.cpp:1187
 #, kde-format
 msgid "Color Mask"
 msgstr "ფერების ნიღაბი"
 
-#: src/MainWindow.cpp:1184
+#: src/MainWindow.cpp:1193
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "უკუგვირისტების ამოღება"
 
-#: src/MainWindow.cpp:1190
+#: src/MainWindow.cpp:1199
 #, kde-format
 msgid "Exclude Knots"
 msgstr "კვანძების ამოღება"
 
-#: src/MainWindow.cpp:1214
+#: src/MainWindow.cpp:1223
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "მეოთხედი გვირისტი"
 
-#: src/MainWindow.cpp:1224
+#: src/MainWindow.cpp:1233
 #, kde-format
 msgid "Half Stitch"
 msgstr "ნახევარი გვირისტი"
 
-#: src/MainWindow.cpp:1234
+#: src/MainWindow.cpp:1243
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "3 მეოთხედი გვირისტი"
 
-#: src/MainWindow.cpp:1244
+#: src/MainWindow.cpp:1253
 #, kde-format
 msgid "Full Stitch"
 msgstr "სრული გვირისტი"
 
-#: src/MainWindow.cpp:1254
+#: src/MainWindow.cpp:1263
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "პატარა ნახევარი გვირისტი"
 
-#: src/MainWindow.cpp:1264
+#: src/MainWindow.cpp:1273
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "პატარა სრული გვირისტი"
 
-#: src/MainWindow.cpp:1274
+#: src/MainWindow.cpp:1283
 #, kde-format
 msgid "French Knot"
 msgstr "ფრანგული კვანძი"
 
-#: src/MainWindow.cpp:1288
+#: src/MainWindow.cpp:1297
 #, kde-format
 msgid "Paint"
 msgstr "დახატვა"
 
-#: src/MainWindow.cpp:1298
+#: src/MainWindow.cpp:1307
 #, kde-format
 msgid "Draw"
 msgstr "ხატვა"
 
-#: src/MainWindow.cpp:1308
+#: src/MainWindow.cpp:1317
 #, kde-format
 msgid "Erase"
 msgstr "წაშლა"
 
-#: src/MainWindow.cpp:1388
+#: src/MainWindow.cpp:1397
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "აირჩიეთ"
 
-#: src/MainWindow.cpp:1398
+#: src/MainWindow.cpp:1407
 #, kde-format
 msgid "Backstitch"
 msgstr "უკუგვირისტი"
 
-#: src/MainWindow.cpp:1408
+#: src/MainWindow.cpp:1417
 #, kde-format
 msgid "Color Picker"
 msgstr "ფერის ამრჩევი"
 
-#: src/MainWindow.cpp:1419
+#: src/MainWindow.cpp:1428
 #, kde-format
 msgid "Palette Manager..."
 msgstr "პალიტრების მმართველი..."
 
-#: src/MainWindow.cpp:1425
+#: src/MainWindow.cpp:1434
 #, kde-format
 msgid "Show Symbols"
 msgstr "სიმბოლოების ჩვენება"
 
-#: src/MainWindow.cpp:1431
+#: src/MainWindow.cpp:1440
 #, kde-format
 msgid "Clear Unused"
 msgstr "გამოუყენებლის წაშლა"
 
-#: src/MainWindow.cpp:1436
+#: src/MainWindow.cpp:1445
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "სქემის კალიბრაცია..."
 
-#: src/MainWindow.cpp:1446
+#: src/MainWindow.cpp:1455
 #, kde-format
 msgid "Replace Colors"
 msgstr "ფერების ჩანაცვლება"
 
-#: src/MainWindow.cpp:1452
+#: src/MainWindow.cpp:1461
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "შაბლონის გაფართოება..."
 
-#: src/MainWindow.cpp:1464
+#: src/MainWindow.cpp:1473
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "ტილოს ამოჭრა ნიმუშზე"
 
-#: src/MainWindow.cpp:1469
+#: src/MainWindow.cpp:1478
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "ტილოს ამოჭრა მონიშნულზე"
 
-#: src/MainWindow.cpp:1489
+#: src/MainWindow.cpp:1498
 #, kde-format
 msgid "Library Manager..."
 msgstr "ბიბლიოთეკის მმართველი..."
 
-#: src/MainWindow.cpp:1525
+#: src/MainWindow.cpp:1534
 #, kde-format
 msgid "Regular Stitches"
 msgstr "ჩვეულებრივი გვირისტები"
@@ -1814,7 +1828,7 @@ msgstr "ჩვეულებრივი გვირისტები"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1535 src/MainWindow.cpp:1585 src/MainWindow.cpp:1626
+#: src/MainWindow.cpp:1544 src/MainWindow.cpp:1594 src/MainWindow.cpp:1635
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1825,7 +1839,7 @@ msgstr "შავი და თეთრი სიმბოლოები"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1544 src/MainWindow.cpp:1617 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1553 src/MainWindow.cpp:1626 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1835,66 +1849,72 @@ msgstr "ფერადი სიმბოლოები"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1553 src/MainWindow.cpp:1598 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1607 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "ფერადი ბლოკები"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1608 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1571 src/MainWindow.cpp:1617 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "ფერადი ბლოკები და იმბოლოები"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1575 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1584 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "ფერადი ხაზები"
 
-#: src/MainWindow.cpp:1635
+#: src/MainWindow.cpp:1644
 #, kde-format
 msgid "Color Highlight"
 msgstr "ფერადი გამოკვეთა"
 
-#: src/MainWindow.cpp:1641
+#: src/MainWindow.cpp:1650
+#, fuzzy, kde-format
+#| msgid "Show knots"
+msgid "Show Center"
+msgstr "კვანძების ჩვენება"
+
+#: src/MainWindow.cpp:1656
 #, kde-format
 msgid "Show Stitches"
 msgstr "ნაკერების ჩვენება"
 
-#: src/MainWindow.cpp:1647
+#: src/MainWindow.cpp:1662
 #, kde-format
 msgid "Show Backstitches"
 msgstr "დალიანდაგების ჩვენება"
 
-#: src/MainWindow.cpp:1653
+#: src/MainWindow.cpp:1668
 #, kde-format
 msgid "Show French Knots"
 msgstr "ფრანგული კვანძების ჩვენება"
 
-#: src/MainWindow.cpp:1659
+#: src/MainWindow.cpp:1674
 #, kde-format
 msgid "Show Grid"
 msgstr "ბადის ჩვენება"
 
-#: src/MainWindow.cpp:1665
+#: src/MainWindow.cpp:1680
 #, kde-format
 msgid "Show Background Images"
 msgstr "ფონის სურათების ჩვენება"
 
-#: src/MainWindow.cpp:1724
+#: src/MainWindow.cpp:1739
 #, kde-format
 msgid "Preview"
 msgstr "მინიატურა"
 
-#: src/MainWindow.cpp:1746
+#: src/MainWindow.cpp:1761
 #, kde-format
 msgid "History"
 msgstr "ისტორია"
 
-#: src/MainWindow.cpp:1754
+#: src/MainWindow.cpp:1769
 #, kde-format
 msgid "Imported Image"
 msgstr "შემოტანილი გამოსახულება"
@@ -2057,44 +2077,44 @@ msgctxt ""
 msgid "Page ${page}"
 msgstr "გვერდი ${page}"
 
-#: src/SchemeManager.cpp:128
+#: src/SchemeManager.cpp:129
 #, kde-format
 msgid "Cannot open file: %1"
 msgstr "ვერ გავხსენი ფაილი: %1"
 
-#: src/SchemeManager.cpp:128 src/SchemeManager.cpp:135
-#: src/SchemeManager.cpp:144 src/SchemeManager.cpp:152
-#: src/SchemeManager.cpp:160 src/SchemeManager.cpp:215
+#: src/SchemeManager.cpp:129 src/SchemeManager.cpp:136
+#: src/SchemeManager.cpp:145 src/SchemeManager.cpp:153
+#: src/SchemeManager.cpp:161 src/SchemeManager.cpp:216
 #, kde-format
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/SchemeManager.cpp:135
+#: src/SchemeManager.cpp:136
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
 msgstr "ვერ დავაყენე DomDocument-ის შემცველობა ფაილიდან: %1"
 
-#: src/SchemeManager.cpp:144
+#: src/SchemeManager.cpp:145
 #, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
 msgstr "ვერ შევქმენი FlossScheme-ის გაშვებული ასლი სქემისთვის: %1"
 
-#: src/SchemeManager.cpp:152
+#: src/SchemeManager.cpp:153
 #, kde-format
 msgid "File %1 does not appear to be a floss scheme"
 msgstr "ფაილი %1 ძაფის სქემას არ წააგავს"
 
-#: src/SchemeManager.cpp:160
+#: src/SchemeManager.cpp:161
 #, kde-format
 msgid "Multiple title elements found in file: %1"
 msgstr "აღმოჩენილია ერთზე მეტი სათაურის ელემენტი ფაილში: %1"
 
-#: src/SchemeManager.cpp:215
+#: src/SchemeManager.cpp:216
 #, kde-format
 msgid "Malformed XML in file: %1"
 msgstr "არასწორი XML ფაილში: %1"
 
-#: src/SchemeManager.cpp:238 src/SchemeManager.cpp:247
+#: src/SchemeManager.cpp:239 src/SchemeManager.cpp:248
 #, kde-format
 msgid ""
 "Unable to locate a writable directory\n"
@@ -2149,12 +2169,12 @@ msgctxt "A symbol that has been used"
 msgid "Used"
 msgstr "გამოყენებულია"
 
-#: src/SymbolManager.cpp:151
+#: src/SymbolManager.cpp:176
 #, kde-format
 msgid "This does not appear to be a valid symbol file"
 msgstr "როგორც ჩანს, ეს არაა სწორი სიმბოლოს ფაილი"
 
-#: src/SymbolManager.cpp:166
+#: src/SymbolManager.cpp:191
 #, kde-format
 msgid "Failed to open the file %1"
 msgstr "ფაილის (\"%1\") გახსნის შეცდომა"
