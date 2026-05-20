@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2024-10-22 04:29+0200\n"
+"PO-Revision-Date: 2026-05-19 04:20+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -183,10 +183,9 @@ msgstr "როგორ ვაჩვენო ფრანგული კვა
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "საზღვრის ჩვენება ნიმუშის გარშემო"
+msgstr "ნიმუშის ცენტრის ჩვენება"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1591,6 +1590,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"სიმბოლოს ბიბლიოთეკები აღმოჩენილი არაა. გამოსახულებების შემოტანამდე დააყენეთ "
+"სიმბოლოების ბიბლიოთეკა."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1874,10 +1875,9 @@ msgid "Color Highlight"
 msgstr "ფერადი გამოკვეთა"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "კვანძების ჩვენება"
+msgstr "ცენტრის ჩვენება"
 
 #: src/MainWindow.cpp:1656
 #, kde-format

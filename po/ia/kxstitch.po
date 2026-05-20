@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
 #
-# SPDX-FileCopyrightText: 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2024, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2024-12-20 14:43+0100\n"
+"PO-Revision-Date: 2026-05-19 12:44+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -1828,10 +1828,9 @@ msgid "Color Highlight"
 msgstr ""
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show Grid"
+#, kde-format
 msgid "Show Center"
-msgstr "Monstra grillia"
+msgstr "Monstra Centro"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
@@ -2103,7 +2102,7 @@ msgstr ""
 #, kde-format
 msgctxt "A symbol that has been used"
 msgid "Used"
-msgstr ""
+msgstr "Usate"
 
 #: src/SymbolManager.cpp:176
 #, kde-format
@@ -2979,14 +2978,14 @@ msgstr "Solido"
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
-msgstr ""
+msgstr "a Lineetta"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:274
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
-msgstr ""
+msgstr "Punctate"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
 #: ui/PaletteManager.ui:279
@@ -3376,7 +3375,7 @@ msgstr "Alinea a sinistra"
 #: ui/TextElement.ui:406
 #, kde-format
 msgid "Align centrally"
-msgstr ""
+msgstr "Alinea centralmente"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, AlignRight)
 #: ui/TextElement.ui:425

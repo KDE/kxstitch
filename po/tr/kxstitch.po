@@ -1,83 +1,83 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2025-09-04 14:59+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-05-19 13:31+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.04.0\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
 #, kde-format
 msgid "The background color."
-msgstr "Arka plan rengi."
+msgstr "Arka plan rengi"
 
 #. i18n: ectx: label, entry (Editor_ThickLineColor), group (editor)
 #: kxstitch.kcfg:14
 #, kde-format
 msgid "The color of the editors thick lines."
-msgstr "Düzenleyicinin kalın çizgisinin rengi."
+msgstr "Düzenleyicinin kalın çizgisinin rengi"
 
 #. i18n: ectx: label, entry (Editor_ThinLineColor), group (editor)
 #: kxstitch.kcfg:18
 #, kde-format
 msgid "The color of the editors thin lines."
-msgstr "Düzenleyicinin ince çizgisinin rengi."
+msgstr "Düzenleyicinin ince çizgisinin rengi"
 
 #. i18n: ectx: label, entry (Editor_ThickLineWidth), group (editor)
 #: kxstitch.kcfg:22
 #, kde-format
 msgid "The width of the major grid lines."
-msgstr "Büyük ızgara çizgisinin genişliği."
+msgstr "Büyük ızgara çizgisinin genişliği"
 
 #. i18n: ectx: label, entry (Editor_ThinLineWidth), group (editor)
 #: kxstitch.kcfg:26
 #, kde-format
 msgid "The width of the minor grid lines."
-msgstr "Küçük ızgara çizgisinin genişliği."
+msgstr "Küçük ızgara çizgisinin genişliği"
 
 #. i18n: ectx: label, entry (Editor_CellHorizontalGrouping), group (editor)
 #: kxstitch.kcfg:30
 #, kde-format
 msgid "The number of cells making up a horizontal group."
-msgstr "Yatay grup oluşturmak için hücre sayısı."
+msgstr "Yatay grup oluşturmak için hücre sayısı"
 
 #. i18n: ectx: label, entry (Editor_CellVerticalGrouping), group (editor)
 #: kxstitch.kcfg:34
 #, kde-format
 msgid "The number of cells making up a vertical group."
-msgstr "Dikey grup oluşturmak için hücre sayısı."
+msgstr "Dikey grup oluşturmak için hücre sayısı"
 
 #. i18n: ectx: label, entry (Editor_HorizontalClothCount), group (editor)
 #: kxstitch.kcfg:38
 #, kde-format
 msgid "The horizontal cloth count."
-msgstr "Yatay bez sayısı."
+msgstr "Yatay bez sayısı"
 
 #. i18n: ectx: label, entry (Editor_VerticalClothCount), group (editor)
 #: kxstitch.kcfg:42
 #, kde-format
 msgid "The vertical cloth count."
-msgstr "Dikey bez sayısı."
+msgstr "Dikey bez sayısı"
 
 #. i18n: ectx: label, entry (Editor_ClothCountUnits), group (editor)
 #. i18n: ectx: label, entry (Document_UnitsFormat), group (document)
 #: kxstitch.kcfg:46 kxstitch.kcfg:163
 #, kde-format
 msgid "The cloth count units."
-msgstr "Bez sayma birimi."
+msgstr "Bez sayma birimi"
 
 #. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
 #: kxstitch.kcfg:55
@@ -89,37 +89,37 @@ msgstr "Kare hücre"
 #: kxstitch.kcfg:59
 #, kde-format
 msgid "The height of the horizontal ruler."
-msgstr "Yatay cetvel uzunluğu."
+msgstr "Yatay cetvel uzunluğu"
 
 #. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
 #: kxstitch.kcfg:63
 #, kde-format
 msgid "The width of the vertical ruler."
-msgstr "Dikey cetvel genişliği."
+msgstr "Dikey cetvel genişliği"
 
 #. i18n: ectx: label, entry (Editor_FormatScalesAs), group (editor)
 #: kxstitch.kcfg:67
 #, kde-format
 msgid "The display units for a scale."
-msgstr "Bir ölçek için gösterme birimi."
+msgstr "Bir ölçek için gösterme birimi"
 
 #. i18n: ectx: label, entry (Editor_MinimumZoomFactor), group (editor)
 #: kxstitch.kcfg:76
 #, kde-format
 msgid "The minimum zoom factor"
-msgstr "Asgari yakınlaştırma oranı"
+msgstr "En az yakınlaştırma çarpanı"
 
 #. i18n: ectx: label, entry (Editor_MaximumZoomFactor), group (editor)
 #: kxstitch.kcfg:80
 #, kde-format
 msgid "The maximum zoom factor"
-msgstr "Azami yakınlaştırma oranı"
+msgstr "En çok yakınlaştırma çarpanı"
 
 #. i18n: ectx: label, entry (Editor_DefaultZoomFactor), group (editor)
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr "Öntanımlı yakınlaştırma oranı"
+msgstr "Öntanımlı yakınlaştırma çarpanı"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
@@ -167,116 +167,115 @@ msgstr "Renkli bloklar için dikiş ipucunu sun"
 #: kxstitch.kcfg:119
 #, kde-format
 msgid "How to display stitches."
-msgstr "Dikişler nasıl gösterilsin."
+msgstr "Dikişler nasıl gösterileceği"
 
 #. i18n: ectx: label, entry (Renderer_RenderBackstitchesAs), group (renderer)
 #: kxstitch.kcfg:130
 #, kde-format
 msgid "How to display backstitches."
-msgstr "İğne ardı dikişler nasıl gösterilsin."
+msgstr "İğne ardı dikişlerin nasıl gösterileceği"
 
 #. i18n: ectx: label, entry (Renderer_RenderKnotsAs), group (renderer)
 #: kxstitch.kcfg:138
 #, kde-format
 msgid "How to display french knots."
-msgstr "Fransız düğümler nasıl gösterilsin."
+msgstr "Fransız düğümlerin nasıl gösterileceği"
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Desenin etrafında kenarlık göster"
+msgstr "Desenin merkezini göster"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr "Yeni desen için belirtilen birimde öntanımlı genişlik."
+msgstr "Yeni desen için belirtilen birimde öntanımlı genişlik"
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:159
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr "Belirtilen birimde yeni desenin öntanımlı yüksekliği."
+msgstr "Belirtilen birimde yeni desenin öntanımlı yüksekliği"
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:172
 #, kde-format
 msgid "The minimum width of a pattern in the units specified."
-msgstr "Belirtilen birimde desenin asgari genişliği."
+msgstr "Belirtilen birimde desenin asgari genişliği"
 
 #. i18n: ectx: label, entry (Document_Min_Height), group (document)
 #: kxstitch.kcfg:176
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
-msgstr "Belirtilen birimde desenin asgari yüksekliği."
+msgstr "Belirtilen birimde desenin asgari yüksekliği"
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
 #: kxstitch.kcfg:180
 #, kde-format
 msgid "The maximum width of a pattern in the units specified."
-msgstr "Belirtilen birimde desenin en büyük genişliği."
+msgstr "Belirtilen birimde desenin en büyük genişliği"
 
 #. i18n: ectx: label, entry (Document_Max_Height), group (document)
 #: kxstitch.kcfg:184
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
-msgstr "Belirtilen birimde desenin azami yüksekliği."
+msgstr "Belirtilen birimde desenin en çok yüksekliği"
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
 #: kxstitch.kcfg:191
 #, kde-format
 msgid "Use a maximum number of colors"
-msgstr "Azami sayıda renk kullan"
+msgstr "En çok sayıda renk kullan"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
 #: kxstitch.kcfg:195
 #, kde-format
 msgid "Maximum number of colors"
-msgstr "Renklerin azami sayısı"
+msgstr "Renklerin en çok sayısı"
 
 #. i18n: ectx: label, entry (Import_UseFractionals), group (import)
 #: kxstitch.kcfg:199
 #, kde-format
 msgid "Use fractional stitches for finer detail"
-msgstr "Daha iyi detay için kesirli dikiş kullan"
+msgstr "Daha iyi ayrıntı için kesirli dikiş kullan"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:206
 #, kde-format
 msgid "The default floss scheme to be used for new documents."
-msgstr "Yeni belgelerde kullanılacak öntanımlı ip şeması."
+msgstr "Yeni belgelerde kullanılacak öntanımlı ip şeması"
 
 #. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
 #: kxstitch.kcfg:210
 #, kde-format
 msgid "The default symbol library to be used for new documents."
-msgstr "Yeni belgelerde kullanılacak öntanımlı sembol kitaplığı."
+msgstr "Yeni belgelerde kullanılacak öntanımlı sembol kitaplığı"
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
 #: kxstitch.kcfg:214
 #, kde-format
 msgid "The default number of strands used for stitches."
-msgstr "Dikişler için kullanılacak öntanımlı iplik sayısı."
+msgstr "Dikişler için kullanılacak öntanımlı iplik sayısı"
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
 #: kxstitch.kcfg:218
 #, kde-format
 msgid "The default number of strands used for backstitches."
-msgstr "İğne ardı dikişler için kullanılacak öntanımlı iplik sayısı."
+msgstr "İğne ardı dikişler için kullanılacak öntanımlı iplik sayısı"
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
 #: kxstitch.kcfg:222
 #, kde-format
 msgid "Display the symbols in the palette."
-msgstr "Palette sembolleri göster."
+msgstr "Palette sembolleri görüntüle"
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
 #: kxstitch.kcfg:226
 #, kde-format
 msgid "Display the symbols antialiased"
-msgstr "Sembolleri yumuşatılmış göster"
+msgstr "Sembolleri yumuşatılmış olarak görüntüle"
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
 #: kxstitch.kcfg:233
@@ -473,7 +472,8 @@ msgstr "Bir sayfa için olabilecek azami hücre sayısı"
 msgid ""
 "The color used to represented already selected areas in existing pattern "
 "elements"
-msgstr "Mevcut desen ögelerinde zaten seçili olan alanları temsil edecek renk"
+msgstr ""
+"Var olan desen ögelerinde zaten seçili olan alanları temsil edecek renk"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:368
@@ -1278,7 +1278,7 @@ msgstr "İptal"
 #: src/ImportImageDlg.cpp:583
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
-msgstr "Renkler, mevcut sembol sayısı yüzünden %1 e limitlendi"
+msgstr "Renkler, kullanılabilir sembol sayısı yüzünden %1 olarak sınırlandı"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KeyElement)
 #: src/KeyElementDlg.cpp:24 ui/KeyElement.ui:14
@@ -1439,7 +1439,7 @@ msgstr "Kitaplık Desedn Özellikleri"
 #: src/LibraryTreeWidget.cpp:70
 #, kde-format
 msgid "existing library"
-msgstr "mevcut kitaplık"
+msgstr "var olan kitaplık"
 
 #: src/Main.cpp:89
 #, kde-format
@@ -1593,6 +1593,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Bulunan sembol kitaplığı yok. Lütfen görsel içe aktarmadan önce bir sembol "
+"kitaplığı kurun."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1876,10 +1878,9 @@ msgid "Color Highlight"
 msgstr "Renk Vurgulama"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Düğümleri göster"
+msgstr "Merkezi Göster"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
@@ -2050,7 +2051,7 @@ msgstr "Sayfa %1 / %2"
 #: src/PrintSetupDlg.cpp:450
 #, kde-format
 msgid "Overwrite the current configuration?"
-msgstr "Mevcut yapılandırmanın üstüne yaz?"
+msgstr "Geçerli yapılandırmanın üstüne yazılsın mı?"
 
 #: src/PrintSetupDlg.cpp:499
 #, kde-format
@@ -2207,7 +2208,7 @@ msgstr "Şema"
 #: ui/CalibrateFloss.ui:60
 #, kde-format
 msgid "Currently selected color"
-msgstr "Mevcut seçili renk"
+msgstr "Geçerli seçili renk"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel4)
 #: ui/CalibrateFloss.ui:102
@@ -2990,7 +2991,7 @@ msgstr "Öntanımlı iğne ardı dikiş ipliği"
 #: ui/PaletteManager.ui:22
 #, kde-format
 msgid "Current palette"
-msgstr "Mevcut palet"
+msgstr "Geçerli palet"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:80

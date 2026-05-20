@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2026-01-20 07:48+0200\n"
+"PO-Revision-Date: 2026-05-19 08:40+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -183,10 +183,9 @@ msgstr "איך להציג תפרים צרפתיים."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "הצגת מסגרת מסביב לתבנית"
+msgstr "הצגת מרכז התבנית"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1608,7 +1607,7 @@ msgstr "תמונות (‎*.bmp‏ ‎*.gif‏ ‎*.jpg‏ ‎*.png‏ ‎*.pbm�
 msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
-msgstr ""
+msgstr "לא נמצאו ספריות סמלים. נא להתקין ספריית סמלים בטרם ייבוא תמונות."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1892,10 +1891,9 @@ msgid "Color Highlight"
 msgstr "הדגשת צבע"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "הצגת קשרים"
+msgstr "הצגת המרכז"
 
 #: src/MainWindow.cpp:1656
 #, kde-format

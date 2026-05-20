@@ -1825,10 +1825,9 @@ msgid "Color Highlight"
 msgstr ""
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show Grid"
+#, kde-format
 msgid "Show Center"
-msgstr "显示网格"
+msgstr ""
 
 #: src/MainWindow.cpp:1656
 #, kde-format
