@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2026-03-24 10:31+0400\n"
+"PO-Revision-Date: 2026-05-21 11:23+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -183,10 +183,9 @@ msgstr "كيفية عرض العقد الفرنسية."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "اعرض إطاراً حول النمط"
+msgstr "اعرض وسط النمط"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1626,7 +1625,7 @@ msgstr "الصور (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)
 msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
-msgstr ""
+msgstr "لم يُعثر على مكتبات رموز. يرجى تثبيت مكتبة رموز قبل استيراد الصور."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1910,10 +1909,9 @@ msgid "Color Highlight"
 msgstr "إبراز مُلوَّن"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "أظهِر العُقد"
+msgstr "اعرض الوسط"
 
 #: src/MainWindow.cpp:1656
 #, kde-format

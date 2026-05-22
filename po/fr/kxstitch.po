@@ -3,7 +3,7 @@
 # zoe <chp321@gmail.com>, 2014.
 # Sebastien Renard <renard@kde.org>, 2014.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
-# SPDX-FileCopyrightText: 2022, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2024-2026 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 # Translators:
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2026-04-03 20:57+0200\n"
+"PO-Revision-Date: 2026-05-20 12:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -190,10 +190,9 @@ msgstr "Comment afficher les points de nœud"
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Afficher une bordure autour de l'ouvrage"
+msgstr "Afficher le centre de la figure"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1607,6 +1606,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Aucune bibliothèque de symboles n'a été trouvée. Veuillez en installer une "
+"avant d'importer des images."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1890,10 +1891,9 @@ msgid "Color Highlight"
 msgstr "Mise en évidence d'une couleur"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Afficher les points de nœud"
+msgstr "Afficher le centre"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
