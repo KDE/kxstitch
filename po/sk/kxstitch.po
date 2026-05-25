@@ -180,10 +180,9 @@ msgstr "Ako zobraziť francúzske uzly."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Zobraziť ohraničenie okolo vzoru"
+msgstr "Zobraziť stred vzoru"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1599,6 +1598,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Nenašli sa žiadne knižnice symbolov. Pred importovaním obrázkov prosím "
+"nainštalujte knižnicu symbolov."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1882,10 +1883,9 @@ msgid "Color Highlight"
 msgstr "Farba zvýraznenia"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Ukázať uzly"
+msgstr "Ukázať stred"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
