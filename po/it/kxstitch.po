@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the kxstitch package.
 # Ercole Carpanetto <ercole69@gmail.com>, 2014, 2017.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2020-2022, 2024, 2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 # Translators:
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2024-10-23 20:42+0200\n"
+"PO-Revision-Date: 2026-05-19 10:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -184,10 +184,9 @@ msgstr "Come mostrare i nodi francesi."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Mostra un bordo intorno al modello"
+msgstr "Mostra il centro del modello"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1603,6 +1602,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Non è stata trovata alcuna libreria di simboli. Installa una libreria di "
+"simboli prima di importare le immagini."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1886,10 +1887,9 @@ msgid "Color Highlight"
 msgstr "Evidenzia colori"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Mostra nodi"
+msgstr "Mostra il centro"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
