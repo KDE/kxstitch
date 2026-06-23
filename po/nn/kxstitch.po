@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2026-04-21 19:14+0200\n"
+"PO-Revision-Date: 2026-06-22 19:03+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -184,10 +184,9 @@ msgstr "Korleis franske knutar skal visast."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Vis kantlinje rundt mønsteret"
+msgstr "Vel midten av mønsteret"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1600,6 +1599,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Fann inn symbolbibliotek. Installer eit symbolbibliotek før du importerer "
+"bilete."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1885,10 +1886,9 @@ msgid "Color Highlight"
 msgstr "Framhev einskildfarge"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Vis knutar"
+msgstr "Vis midten"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
