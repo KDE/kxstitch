@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:42+0000\n"
-"PO-Revision-Date: 2026-02-13 21:44+0200\n"
+"PO-Revision-Date: 2026-06-26 20:45+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -185,10 +185,9 @@ msgstr "Как показывать французские узлы."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Показать рамку вокруг схемы"
+msgstr "Показать центр схемы"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1625,6 +1624,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Библиотеки символов не найдены. Перед импортом изображений установите "
+"библиотеку символов."
 
 #: src/MainWindow.cpp:581
 #, kde-format
@@ -1908,10 +1909,9 @@ msgid "Color Highlight"
 msgstr "Цветная подсветка"
 
 #: src/MainWindow.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Показывать узлы"
+msgstr "Показывать центр"
 
 #: src/MainWindow.cpp:1656
 #, kde-format
