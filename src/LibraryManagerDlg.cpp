@@ -22,7 +22,6 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kwidgetsaddons_version.h>
 
 #include "LibraryFilePathsDlg.h"
 #include "LibraryListWidgetItem.h"

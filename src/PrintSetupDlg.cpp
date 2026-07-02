@@ -25,7 +25,6 @@
 #include <KHelpClient>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kwidgetsaddons_version.h>
 
 #include "Document.h"
 #include "Element.h"

@@ -41,7 +41,6 @@
 #include <KRecentFilesAction>
 #include <KSelectAction>
 #include <KXMLGUIFactory>
-#include <kwidgetsaddons_version.h>
 
 #include "BackgroundImage.h"
 #include "Commands.h"

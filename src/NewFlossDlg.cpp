@@ -15,7 +15,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
-#include <kwidgetsaddons_version.h>
 
 #include "FlossScheme.h"
 #include "SchemeManager.h"
