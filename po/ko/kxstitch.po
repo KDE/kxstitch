@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-19 00:42+0000\n"
+"POT-Creation-Date: 2026-07-10 00:42+0000\n"
 "PO-Revision-Date: 2026-06-09 01:29+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -775,14 +775,14 @@ msgid "%1-%2"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1117
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1116
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:54 src/MainWindow.cpp:495 src/MainWindow.cpp:1112
+#: src/Commands.cpp:54 src/MainWindow.cpp:494 src/MainWindow.cpp:1111
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -808,27 +808,27 @@ msgstr ""
 msgid "Erase Stitches"
 msgstr ""
 
-#: src/Commands.cpp:156 src/MainWindow.cpp:1327
+#: src/Commands.cpp:156 src/MainWindow.cpp:1326
 #, kde-format
 msgid "Draw Rectangle"
 msgstr ""
 
-#: src/Commands.cpp:176 src/MainWindow.cpp:1337
+#: src/Commands.cpp:176 src/MainWindow.cpp:1336
 #, kde-format
 msgid "Fill Rectangle"
 msgstr ""
 
-#: src/Commands.cpp:196 src/MainWindow.cpp:1347
+#: src/Commands.cpp:196 src/MainWindow.cpp:1346
 #, kde-format
 msgid "Draw Ellipse"
 msgstr ""
 
-#: src/Commands.cpp:216 src/MainWindow.cpp:1357
+#: src/Commands.cpp:216 src/MainWindow.cpp:1356
 #, kde-format
 msgid "Fill Ellipse"
 msgstr ""
 
-#: src/Commands.cpp:236 src/MainWindow.cpp:1367
+#: src/Commands.cpp:236 src/MainWindow.cpp:1366
 #, kde-format
 msgid "Fill Polygon"
 msgstr ""
@@ -899,12 +899,12 @@ msgstr ""
 msgid "Crop to Selection"
 msgstr ""
 
-#: src/Commands.cpp:709 src/MainWindow.cpp:1491
+#: src/Commands.cpp:709 src/MainWindow.cpp:1490
 #, kde-format
 msgid "Insert Columns"
 msgstr ""
 
-#: src/Commands.cpp:752 src/MainWindow.cpp:1485
+#: src/Commands.cpp:752 src/MainWindow.cpp:1484
 #, kde-format
 msgid "Insert Rows"
 msgstr ""
@@ -915,7 +915,7 @@ msgstr ""
 msgid "Extend Pattern"
 msgstr ""
 
-#: src/Commands.cpp:837 src/MainWindow.cpp:1467
+#: src/Commands.cpp:837 src/MainWindow.cpp:1466
 #, kde-format
 msgid "Center Pattern"
 msgstr ""
@@ -935,7 +935,7 @@ msgstr ""
 msgid "Replace Color"
 msgstr ""
 
-#: src/Commands.cpp:1052 src/MainWindow.cpp:1450
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1449
 #, kde-format
 msgid "Swap Colors"
 msgstr ""
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Cut"
 msgstr ""
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1387
+#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1386
 #, kde-format
 msgid "Alphabet"
 msgstr ""
@@ -992,8 +992,8 @@ msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr ""
 
-#: src/Document.cpp:132 src/MainWindow.cpp:284 src/MainWindow.cpp:355
-#: src/MainWindow.cpp:494 src/SymbolLibrary.cpp:95
+#: src/Document.cpp:132 src/MainWindow.cpp:283 src/MainWindow.cpp:354
+#: src/MainWindow.cpp:493 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
 msgstr ""
@@ -1042,7 +1042,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1808 src/Document.cpp:2001 src/Element.cpp:473
-#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1509
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1508
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
@@ -1065,7 +1065,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1816 src/Document.cpp:2009 src/ImportImageDlg.cpp:206
-#: src/MainWindow.cpp:1523 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/MainWindow.cpp:1522 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1140,7 +1140,7 @@ msgid "Drag"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1377
+#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1376
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
@@ -1151,8 +1151,8 @@ msgstr ""
 msgid "Add Character"
 msgstr ""
 
-#: src/Editor.cpp:979 src/Editor.cpp:2122 src/LibraryManagerDlg.cpp:116
-#: src/LibraryManagerDlg.cpp:135
+#: src/Editor.cpp:979 src/Editor.cpp:2122 src/LibraryManagerDlg.cpp:115
+#: src/LibraryManagerDlg.cpp:134
 #, kde-format
 msgid "Paste"
 msgstr ""
@@ -1235,7 +1235,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1516 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1515 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
@@ -1252,7 +1252,7 @@ msgstr ""
 msgid "Rendering preview"
 msgstr ""
 
-#: src/ImportImageDlg.cpp:359 src/MainWindow.cpp:581
+#: src/ImportImageDlg.cpp:359 src/MainWindow.cpp:580
 #, kde-format
 msgid "Cancel"
 msgstr ""
@@ -1313,12 +1313,12 @@ msgid "Library File Paths"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LibraryManager)
-#: src/LibraryManagerDlg.cpp:38 ui/LibraryManager.ui:14
+#: src/LibraryManagerDlg.cpp:37 ui/LibraryManager.ui:14
 #, kde-format
 msgid "Library Manager"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:63
+#: src/LibraryManagerDlg.cpp:62
 #, kde-format
 msgid ""
 "The Library Manager can be used to store\n"
@@ -1330,12 +1330,12 @@ msgid ""
 "and populating libraries."
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:67
+#: src/LibraryManagerDlg.cpp:66
 #, kde-format
 msgid "Select a library to show the associated patterns."
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:69
+#: src/LibraryManagerDlg.cpp:68
 #, kde-format
 msgid ""
 "There are no patterns defined\n"
@@ -1345,49 +1345,49 @@ msgid ""
 "on creating and populating libraries."
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:109
+#: src/LibraryManagerDlg.cpp:108
 #, kde-format
 msgid "New Category"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:112
+#: src/LibraryManagerDlg.cpp:111
 #, kde-format
 msgid "Add to Export List"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:113 src/LibraryManagerDlg.cpp:128
+#: src/LibraryManagerDlg.cpp:112 src/LibraryManagerDlg.cpp:127
 #, kde-format
 msgid "Properties..."
 msgstr ""
 
 #. i18n("Add to Export List"), this, SLOT(addPatternToExportList()));
 #. i18n("Copy"), this, SLOT(copyToClipboard()));
-#: src/LibraryManagerDlg.cpp:131
+#: src/LibraryManagerDlg.cpp:130
 #, kde-format
 msgid "Delete"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:174
+#: src/LibraryManagerDlg.cpp:173
 #, kde-format
 msgid "Create Category"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:174
+#: src/LibraryManagerDlg.cpp:173
 #, kde-format
 msgid "Category Name"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:194
+#: src/LibraryManagerDlg.cpp:193
 #, kde-format
 msgid "This category already exists."
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:194
+#: src/LibraryManagerDlg.cpp:193
 #, kde-format
 msgid "Category Exists"
 msgstr ""
 
-#: src/LibraryManagerDlg.cpp:283
+#: src/LibraryManagerDlg.cpp:282
 #, kde-format
 msgid "Delete this pattern."
 msgstr ""
@@ -1455,325 +1455,325 @@ msgstr ""
 msgid "Document to open."
 msgstr ""
 
-#: src/MainWindow.cpp:233
+#: src/MainWindow.cpp:232
 #, kde-format
 msgid "Save changes to document?"
 msgstr ""
 
-#: src/MainWindow.cpp:242
+#: src/MainWindow.cpp:241
 #, kde-format
 msgid "Unable to save the file"
 msgstr ""
 
-#: src/MainWindow.cpp:276
+#: src/MainWindow.cpp:275
 #, kde-format
 msgid "Open file"
 msgstr ""
 
-#: src/MainWindow.cpp:278
+#: src/MainWindow.cpp:277
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
 
-#: src/MainWindow.cpp:317
+#: src/MainWindow.cpp:316
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr ""
 
-#: src/MainWindow.cpp:320
+#: src/MainWindow.cpp:319
 #, kde-format
 msgid ""
 "This version of the file is not supported.\n"
 "%1"
 msgstr ""
 
-#: src/MainWindow.cpp:322
+#: src/MainWindow.cpp:321
 #, kde-format
 msgid ""
 "Failed to read the file.\n"
 "%1."
 msgstr ""
 
-#: src/MainWindow.cpp:373
+#: src/MainWindow.cpp:372
 #, kde-format
 msgid ""
 "Failed to save the file.\n"
 "%1"
 msgstr ""
 
-#: src/MainWindow.cpp:377
+#: src/MainWindow.cpp:376
 #, kde-format
 msgid ""
 "Failed to open the file.\n"
 "%1"
 msgstr ""
 
-#: src/MainWindow.cpp:384
+#: src/MainWindow.cpp:383
 #, kde-format
 msgid "Save As..."
 msgstr ""
 
-#: src/MainWindow.cpp:384
+#: src/MainWindow.cpp:383
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
 msgstr ""
 
-#: src/MainWindow.cpp:398
+#: src/MainWindow.cpp:397
 #, kde-format
 msgid "Revert changes to document?"
 msgstr ""
 
-#: src/MainWindow.cpp:398
+#: src/MainWindow.cpp:397
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
 msgstr ""
 
-#: src/MainWindow.cpp:438
+#: src/MainWindow.cpp:437
 #, kde-format
 msgid "There is nothing to print"
 msgstr ""
 
-#: src/MainWindow.cpp:495 src/MainWindow.cpp:737
+#: src/MainWindow.cpp:494 src/MainWindow.cpp:736
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 
-#: src/MainWindow.cpp:525
+#: src/MainWindow.cpp:524
 #, kde-format
 msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
 
-#: src/MainWindow.cpp:581
+#: src/MainWindow.cpp:580
 #, kde-format
 msgid "Converting to stitches"
 msgstr ""
 
-#: src/MainWindow.cpp:735
+#: src/MainWindow.cpp:734
 #, kde-format
 msgid "Background Image"
 msgstr ""
 
-#: src/MainWindow.cpp:785
+#: src/MainWindow.cpp:784
 #, kde-format
 msgid "Undo %1"
 msgstr ""
 
-#: src/MainWindow.cpp:790
+#: src/MainWindow.cpp:789
 #, kde-format
 msgid "Redo %1"
 msgstr ""
 
-#: src/MainWindow.cpp:929
+#: src/MainWindow.cpp:928
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:931 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:930 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:933 src/MainWindow.cpp:1752 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:932 src/MainWindow.cpp:1751 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr ""
 
-#: src/MainWindow.cpp:934
+#: src/MainWindow.cpp:933
 #, kde-format
 msgid "Import"
 msgstr ""
 
-#: src/MainWindow.cpp:935
+#: src/MainWindow.cpp:934
 #, kde-format
 msgid "Library"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:937 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:936 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr ""
 
-#: src/MainWindow.cpp:1105
+#: src/MainWindow.cpp:1104
 #, kde-format
 msgid "Print Setup..."
 msgstr ""
 
-#: src/MainWindow.cpp:1122
+#: src/MainWindow.cpp:1121
 #, kde-format
 msgid "Add Background Image..."
 msgstr ""
 
-#: src/MainWindow.cpp:1139
+#: src/MainWindow.cpp:1138
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr ""
 
-#: src/MainWindow.cpp:1145
+#: src/MainWindow.cpp:1144
 #, kde-format
 msgid "Horizontally"
 msgstr ""
 
-#: src/MainWindow.cpp:1152
+#: src/MainWindow.cpp:1151
 #, kde-format
 msgid "Vertically"
 msgstr ""
 
-#: src/MainWindow.cpp:1159
+#: src/MainWindow.cpp:1158
 #, kde-format
 msgid "90 Degrees"
 msgstr ""
 
-#: src/MainWindow.cpp:1166
+#: src/MainWindow.cpp:1165
 #, kde-format
 msgid "180 Degrees"
 msgstr ""
 
-#: src/MainWindow.cpp:1173
+#: src/MainWindow.cpp:1172
 #, kde-format
 msgid "270 Degrees"
 msgstr ""
 
-#: src/MainWindow.cpp:1181
+#: src/MainWindow.cpp:1180
 #, kde-format
 msgid "Stitch Mask"
 msgstr ""
 
-#: src/MainWindow.cpp:1187
+#: src/MainWindow.cpp:1186
 #, kde-format
 msgid "Color Mask"
 msgstr ""
 
-#: src/MainWindow.cpp:1193
+#: src/MainWindow.cpp:1192
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr ""
 
-#: src/MainWindow.cpp:1199
+#: src/MainWindow.cpp:1198
 #, kde-format
 msgid "Exclude Knots"
 msgstr ""
 
-#: src/MainWindow.cpp:1223
+#: src/MainWindow.cpp:1222
 #, kde-format
 msgid "Quarter Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1233
+#: src/MainWindow.cpp:1232
 #, kde-format
 msgid "Half Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1243
+#: src/MainWindow.cpp:1242
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1253
+#: src/MainWindow.cpp:1252
 #, kde-format
 msgid "Full Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1263
+#: src/MainWindow.cpp:1262
 #, kde-format
 msgid "Small Half Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1273
+#: src/MainWindow.cpp:1272
 #, kde-format
 msgid "Small Full Stitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1283
+#: src/MainWindow.cpp:1282
 #, kde-format
 msgid "French Knot"
 msgstr ""
 
-#: src/MainWindow.cpp:1297
+#: src/MainWindow.cpp:1296
 #, kde-format
 msgid "Paint"
 msgstr ""
 
-#: src/MainWindow.cpp:1307
+#: src/MainWindow.cpp:1306
 #, kde-format
 msgid "Draw"
 msgstr ""
 
-#: src/MainWindow.cpp:1317
+#: src/MainWindow.cpp:1316
 #, kde-format
 msgid "Erase"
 msgstr ""
 
-#: src/MainWindow.cpp:1397
+#: src/MainWindow.cpp:1396
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr ""
 
-#: src/MainWindow.cpp:1407
+#: src/MainWindow.cpp:1406
 #, kde-format
 msgid "Backstitch"
 msgstr ""
 
-#: src/MainWindow.cpp:1417
+#: src/MainWindow.cpp:1416
 #, kde-format
 msgid "Color Picker"
 msgstr ""
 
-#: src/MainWindow.cpp:1428
+#: src/MainWindow.cpp:1427
 #, kde-format
 msgid "Palette Manager..."
 msgstr ""
 
-#: src/MainWindow.cpp:1434
+#: src/MainWindow.cpp:1433
 #, kde-format
 msgid "Show Symbols"
 msgstr ""
 
-#: src/MainWindow.cpp:1440
+#: src/MainWindow.cpp:1439
 #, kde-format
 msgid "Clear Unused"
 msgstr ""
 
-#: src/MainWindow.cpp:1445
+#: src/MainWindow.cpp:1444
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr ""
 
-#: src/MainWindow.cpp:1455
+#: src/MainWindow.cpp:1454
 #, kde-format
 msgid "Replace Colors"
 msgstr ""
 
-#: src/MainWindow.cpp:1461
+#: src/MainWindow.cpp:1460
 #, kde-format
 msgid "Extend Pattern..."
 msgstr ""
 
-#: src/MainWindow.cpp:1473
+#: src/MainWindow.cpp:1472
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr ""
 
-#: src/MainWindow.cpp:1478
+#: src/MainWindow.cpp:1477
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr ""
 
-#: src/MainWindow.cpp:1498
+#: src/MainWindow.cpp:1497
 #, kde-format
 msgid "Library Manager..."
 msgstr ""
 
-#: src/MainWindow.cpp:1534
+#: src/MainWindow.cpp:1533
 #, kde-format
 msgid "Regular Stitches"
 msgstr ""
@@ -1782,7 +1782,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1544 src/MainWindow.cpp:1594 src/MainWindow.cpp:1635
+#: src/MainWindow.cpp:1543 src/MainWindow.cpp:1593 src/MainWindow.cpp:1634
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1793,7 +1793,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1553 src/MainWindow.cpp:1626 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1552 src/MainWindow.cpp:1625 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1803,94 +1803,94 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1562 src/MainWindow.cpp:1607 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1561 src/MainWindow.cpp:1606 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1571 src/MainWindow.cpp:1617 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1570 src/MainWindow.cpp:1616 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1584 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1583 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr ""
 
-#: src/MainWindow.cpp:1644
+#: src/MainWindow.cpp:1643
 #, kde-format
 msgid "Color Highlight"
 msgstr ""
 
-#: src/MainWindow.cpp:1650
+#: src/MainWindow.cpp:1649
 #, kde-format
 msgid "Show Center"
 msgstr ""
 
-#: src/MainWindow.cpp:1656
+#: src/MainWindow.cpp:1655
 #, kde-format
 msgid "Show Stitches"
 msgstr ""
 
-#: src/MainWindow.cpp:1662
+#: src/MainWindow.cpp:1661
 #, kde-format
 msgid "Show Backstitches"
 msgstr ""
 
-#: src/MainWindow.cpp:1668
+#: src/MainWindow.cpp:1667
 #, kde-format
 msgid "Show French Knots"
 msgstr ""
 
-#: src/MainWindow.cpp:1674
+#: src/MainWindow.cpp:1673
 #, kde-format
 msgid "Show Grid"
 msgstr ""
 
-#: src/MainWindow.cpp:1680
+#: src/MainWindow.cpp:1679
 #, kde-format
 msgid "Show Background Images"
 msgstr ""
 
-#: src/MainWindow.cpp:1739
+#: src/MainWindow.cpp:1738
 #, kde-format
 msgid "Preview"
 msgstr ""
 
-#: src/MainWindow.cpp:1761
+#: src/MainWindow.cpp:1760
 #, kde-format
 msgid "History"
 msgstr ""
 
-#: src/MainWindow.cpp:1769
+#: src/MainWindow.cpp:1768
 #, kde-format
 msgid "Imported Image"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: src/NewFlossDlg.cpp:28 ui/PaletteManager.ui:182
+#: src/NewFlossDlg.cpp:27 ui/PaletteManager.ui:182
 #, kde-format
 msgid "New Floss"
 msgstr ""
 
-#: src/NewFlossDlg.cpp:77 src/PrintSetupDlg.cpp:450
+#: src/NewFlossDlg.cpp:76 src/PrintSetupDlg.cpp:449
 #, kde-format
 msgid "Overwrite"
 msgstr ""
 
-#: src/NewFlossDlg.cpp:77
+#: src/NewFlossDlg.cpp:76
 #, kde-format
 msgid ""
 "The floss name %1 is already used.\n"
 "Overwrite with the description and color selected."
 msgstr ""
 
-#: src/NewFlossDlg.cpp:77
+#: src/NewFlossDlg.cpp:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Do Not Overwrite"
@@ -1969,32 +1969,32 @@ msgid "Printer configuration %1"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
-#: src/PrintSetupDlg.cpp:52 ui/PrintSetup.ui:20
+#: src/PrintSetupDlg.cpp:51 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:302
+#: src/PrintSetupDlg.cpp:301
 #, kde-format
 msgid "Properties"
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:306
+#: src/PrintSetupDlg.cpp:305
 #, kde-format
 msgid "Delete Element"
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:439
+#: src/PrintSetupDlg.cpp:438
 #, kde-format
 msgid "Page %1 of %2"
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:450
+#: src/PrintSetupDlg.cpp:449
 #, kde-format
 msgid "Overwrite the current configuration?"
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:499
+#: src/PrintSetupDlg.cpp:498
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2006,8 +2006,8 @@ msgid ""
 "Flosses from the ${scheme} range."
 msgstr ""
 
-#: src/PrintSetupDlg.cpp:505 src/PrintSetupDlg.cpp:566
-#: src/PrintSetupDlg.cpp:588
+#: src/PrintSetupDlg.cpp:504 src/PrintSetupDlg.cpp:565
+#: src/PrintSetupDlg.cpp:587
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
