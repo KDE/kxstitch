@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2026-03-24 10:31+0400\n"
+"PO-Revision-Date: 2026-05-21 11:23+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -221,7 +221,7 @@ msgstr "الحد الأقصى لارتفاع نمط بالوحدات المحد�
 #: kxstitch.kcfg:187
 #, kde-format
 msgid "Use a maximum number of colors"
-msgstr "استخدِم عدداً أقصى من الألوان"
+msgstr "استخدِم عددًا أقصى من الألوان"
 
 #. i18n: ectx: label, entry (Import_MaximumColors), group (import)
 #: kxstitch.kcfg:191
@@ -233,7 +233,7 @@ msgstr "العدد الأقصى من الألوان"
 #: kxstitch.kcfg:195
 #, kde-format
 msgid "Use fractional stitches for finer detail"
-msgstr "استخدِم غرزاً جزئية لتفاصيل أدق"
+msgstr "استخدِم غرزًا جزئية لتفاصيل أدق"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:202
@@ -317,7 +317,7 @@ msgstr "عدد الخلايا المراد إضافتها عند تمديد ال
 #: kxstitch.kcfg:263
 #, kde-format
 msgid "Should the shapes tools use fractional stitches"
-msgstr "هل يجب أن تستخدِم أدوات الأشكال غرزاً جزئية"
+msgstr "هل يجب أن تستخدِم أدوات الأشكال غرزًا جزئية"
 
 #. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
 #: kxstitch.kcfg:267
@@ -335,7 +335,7 @@ msgstr "حجم النص بالبكسل"
 #: kxstitch.kcfg:275
 #, kde-format
 msgid "Does mirroring and copying make copies"
-msgstr "هل يُنشِئ الانعكاس والنسخ نُسَخاً"
+msgstr "هل يُنشِئ الانعكاس والنسخ نُسَخًا"
 
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
 #: kxstitch.kcfg:282
@@ -401,7 +401,7 @@ msgstr "حجم عقدة الالتقاط"
 #: kxstitch.kcfg:323
 #, kde-format
 msgid "Show a border around the pattern"
-msgstr "اعرض إطاراً حول النمط"
+msgstr "اعرض إطارًا حول النمط"
 
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
@@ -471,13 +471,13 @@ msgstr "اللون المُستخدَم لتمثيل المناطق المحدد
 #: kxstitch.kcfg:364
 #, kde-format
 msgid "Show a border around the image"
-msgstr "اعرض إطاراً حول الصورة"
+msgstr "اعرض إطارًا حول الصورة"
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:377
 #, kde-format
 msgid "Show a border around the key"
-msgstr "اعرض إطاراً حول المفتاح"
+msgstr "اعرض إطارًا حول المفتاح"
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
@@ -1105,10 +1105,10 @@ msgid_plural ""
 "replaced because they did not exist in the symbol library.\n"
 "\n"
 msgstr[0] ""
-"لون خيط الغزل التالي استُبدِل رمزه لأنه لم يكن موجوداً في مكتبة الرموز.\n"
+"لون خيط الغزل التالي استُبدِل رمزه لأنه لم يكن موجودًا في مكتبة الرموز.\n"
 "\n"
 msgstr[1] ""
-"لون خيط الغزل التالي استُبدِل رمزه لأنه لم يكن موجوداً في مكتبة الرموز.\n"
+"لون خيط الغزل التالي استُبدِل رمزه لأنه لم يكن موجودًا في مكتبة الرموز.\n"
 "\n"
 msgstr[2] ""
 "لونا خيط الغزل التاليان استُبدِل رمزهما لأنهما لم يكونا موجودَين في مكتبة "
