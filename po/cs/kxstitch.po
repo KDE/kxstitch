@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2023-11-10 16:09+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-13 23:08+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -76,7 +77,7 @@ msgstr "Svislá hustota tkaniny."
 #: kxstitch.kcfg:46 kxstitch.kcfg:159
 #, kde-format
 msgid "The cloth count units."
-msgstr "Jednotky pro hustotu tkaniny"
+msgstr "Jednotky pro hustotu tkaniny."
 
 #. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
 #: kxstitch.kcfg:55
@@ -160,7 +161,7 @@ msgstr "Vykreslit francouzské uzly"
 #: kxstitch.kcfg:115
 #, kde-format
 msgid "Render stitch hints for colored blocks"
-msgstr ""
+msgstr "Vykreslit vodítka pro spojování barevných bloků"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
 #: kxstitch.kcfg:119
@@ -1488,13 +1489,13 @@ msgstr "Opravy chyb a vylepšení"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Pavel Fric"
+msgstr "Pavel Fric,Libor Filípek"
 
 #: src/Main.cpp:106
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "pavelfric@seznam.cz"
+msgstr "pavelfric@seznam.cz,libor.filipek@gmail.com"
 
 #: src/Main.cpp:113
 #, kde-format
@@ -1526,6 +1527,8 @@ msgstr ""
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr ""
+"Zdá se, že tento soubor není rozpoznán jako soubor pro vyšívání křížkovým "
+"stehem."
 
 #: src/MainWindow.cpp:337
 #, kde-format
@@ -1543,7 +1546,7 @@ msgid ""
 "%1."
 msgstr ""
 "Soubor se nepodařilo přečíst.\n"
-"%1"
+"%1."
 
 #: src/MainWindow.cpp:390
 #, kde-format
@@ -1794,7 +1797,7 @@ msgstr "Smazat nepoužívané"
 #: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr "Přesně nastavit sadu"
+msgstr "Přesně nastavit sadu..."
 
 #: src/MainWindow.cpp:1479
 #, kde-format
@@ -1804,7 +1807,7 @@ msgstr "Nahradit barvy"
 #: src/MainWindow.cpp:1485
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Rozšířit předlohu"
+msgstr "Rozšířit předlohu..."
 
 #: src/MainWindow.cpp:1497
 #, kde-format
@@ -2106,22 +2109,22 @@ msgstr "Žádná chyba"
 #: src/SchemeParser.cpp:42
 #, kde-format
 msgid "Floss not completely defined"
-msgstr ""
+msgstr "Vyšívací příze není zcela definována"
 
 #: src/SchemeParser.cpp:43
 #, kde-format
 msgid "Unmatched element tags"
-msgstr ""
+msgstr "Nezodpovídající značky prvků"
 
 #: src/SchemeParser.cpp:44
 #, kde-format
 msgid "Unknown element tag"
-msgstr ""
+msgstr "Neznámá značka prvku"
 
 #: src/SchemeParser.cpp:45
 #, kde-format
 msgid "Color value is invalid"
-msgstr ""
+msgstr "Hodnota barvy je neplatná"
 
 #: src/SchemeParser.cpp:46
 #, kde-format
@@ -2356,7 +2359,7 @@ msgstr "Ukázat stehy"
 #: ui/EditorConfigPage.ui:266
 #, kde-format
 msgid "Show stitch hints"
-msgstr ""
+msgstr "Ukázat tipy pro stehy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
