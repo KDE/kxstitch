@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2025 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:42+0000\n"
-"PO-Revision-Date: 2025-12-05 10:16+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-13 23:08+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -76,7 +77,7 @@ msgstr "Svislá hustota tkaniny."
 #: kxstitch.kcfg:46 kxstitch.kcfg:163
 #, kde-format
 msgid "The cloth count units."
-msgstr "Jednotky pro hustotu tkaniny"
+msgstr "Jednotky pro hustotu tkaniny."
 
 #. i18n: ectx: label, entry (Editor_ClothCountLink), group (editor)
 #: kxstitch.kcfg:55
@@ -160,7 +161,7 @@ msgstr "Vykreslit francouzské uzly"
 #: kxstitch.kcfg:115
 #, kde-format
 msgid "Render stitch hints for colored blocks"
-msgstr ""
+msgstr "Vykreslit vodítka pro spojování barevných bloků"
 
 #. i18n: ectx: label, entry (Renderer_RenderStitchesAs), group (renderer)
 #: kxstitch.kcfg:119
@@ -182,10 +183,9 @@ msgstr "Jak zobrazit francouzské uzly."
 
 #. i18n: ectx: label, entry (Renderer_ShowCenter), group (renderer)
 #: kxstitch.kcfg:148
-#, fuzzy, kde-format
-#| msgid "Show a border around the pattern"
+#, kde-format
 msgid "Show the center of the pattern"
-msgstr "Ukázat hranici okolo předlohy"
+msgstr "Zobrazit střed vzoru"
 
 #. i18n: ectx: label, entry (Document_Width), group (document)
 #: kxstitch.kcfg:155
@@ -1494,13 +1494,13 @@ msgstr "Opravy chyb a vylepšení"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Pavel Fric"
+msgstr "Pavel Fric,Libor Filípek"
 
 #: src/Main.cpp:103
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "pavelfric@seznam.cz"
+msgstr "pavelfric@seznam.cz,libor.filipek@gmail.com"
 
 #: src/Main.cpp:110
 #, kde-format
@@ -1532,6 +1532,8 @@ msgstr ""
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr ""
+"Zdá se, že tento soubor není rozpoznán jako soubor pro vyšívání křížkovým "
+"stehem."
 
 #: src/MainWindow.cpp:319
 #, kde-format
@@ -1549,7 +1551,7 @@ msgid ""
 "%1."
 msgstr ""
 "Soubor se nepodařilo přečíst.\n"
-"%1"
+"%1."
 
 #: src/MainWindow.cpp:372
 #, kde-format
@@ -1606,6 +1608,8 @@ msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
+"Nebyly nalezeny žádné knihovny symbolů. Před importem obrázků prosím "
+"nainstalujte knihovnu symbolů."
 
 #: src/MainWindow.cpp:580
 #, kde-format
@@ -1807,7 +1811,7 @@ msgstr "Smazat nepoužívané"
 #: src/MainWindow.cpp:1444
 #, kde-format
 msgid "Calibrate Scheme..."
-msgstr "Přesně nastavit sadu"
+msgstr "Přesně nastavit sadu..."
 
 #: src/MainWindow.cpp:1454
 #, kde-format
@@ -1817,7 +1821,7 @@ msgstr "Nahradit barvy"
 #: src/MainWindow.cpp:1460
 #, kde-format
 msgid "Extend Pattern..."
-msgstr "Rozšířit předlohu"
+msgstr "Rozšířit předlohu..."
 
 #: src/MainWindow.cpp:1472
 #, kde-format
@@ -1889,10 +1893,9 @@ msgid "Color Highlight"
 msgstr "Barevné zvýrazňování"
 
 #: src/MainWindow.cpp:1649
-#, fuzzy, kde-format
-#| msgid "Show knots"
+#, kde-format
 msgid "Show Center"
-msgstr "Ukázat uzly"
+msgstr "Zobrazit střed"
 
 #: src/MainWindow.cpp:1655
 #, kde-format
@@ -2109,22 +2112,22 @@ msgstr "Chyba"
 #: src/SchemeManager.cpp:136
 #, kde-format
 msgid "Cannot set DomDocument content from file: %1"
-msgstr ""
+msgstr "Nelze nastavit obsah DomDocument ze souboru: %1"
 
 #: src/SchemeManager.cpp:145
 #, kde-format
 msgid "Error creating instance of a FlossScheme for scheme: %1"
-msgstr ""
+msgstr "Došlo k chybě při vytváření instance vyšívací příze pro schéma: %1"
 
 #: src/SchemeManager.cpp:153
 #, kde-format
 msgid "File %1 does not appear to be a floss scheme"
-msgstr ""
+msgstr "Soubor %1 zřejmě není schématem vyšívací příze"
 
 #: src/SchemeManager.cpp:161
 #, kde-format
 msgid "Multiple title elements found in file: %1"
-msgstr ""
+msgstr "V souboru bylo nalezeno více prvků s názvem: %1"
 
 #: src/SchemeManager.cpp:216
 #, kde-format
@@ -2368,7 +2371,7 @@ msgstr "Ukázat stehy"
 #: ui/EditorConfigPage.ui:266
 #, kde-format
 msgid "Show stitch hints"
-msgstr ""
+msgstr "Ukázat tipy pro stehy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Renderer_RenderBackstitches)
 #. i18n: ectx: property (text), widget (QCheckBox, ShowBackstitches)
