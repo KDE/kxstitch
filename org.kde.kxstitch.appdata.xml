@@ -83,6 +83,7 @@
     <p xml:lang="ar">المُطرِّز هو بَرنامج يمكنك من إنشاء أنماط ومخططات للتطريز المتقاطع. أنشِئ الأنماط من الصفر على حقل شبكي قياسه يحدِّده المستخدم، الذي تستطيع تكبيره أو تصغيره كلما تقدَّمت في نَمطك. بَديل ذلك، يمكنك استيراد صور من العديد من صيغ ملفات الرسوميات الذي يسمح لك بخفض عدد الألوان وتَقييد التحويل إلى غُرَز كاملة أو بِخيار استخدام غُرَز جزئية. يمكنك أيضًا استخدام الصور كخلفيات تسمح لك بالتتبع فوقها. ثمَّ عدِّل هذه الصور المستوردة باستخدام الأدوات المورَّدة لإنتاج تصميمك النهائي.</p>
     <p xml:lang="ca">El KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, la qual es pot ampliar o reduir de mida mentre s'està fent el patró. De manera alternativa, podeu importar imatges des de molts formats de fitxer per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a puntades senceres. També podeu utilitzar imatges com a fons, dibuixant-hi a sobre. Aquestes imatges importades es poden modificar utilitzant les eines subministrades per a produir el disseny final.</p>
     <p xml:lang="ca-valencia">KXStitch és un programa que permet crear patrons i dibuixos de punt de creu. Els patrons es poden crear des de zero amb una mida de quadrícula definida per l'usuari, la qual es pot ampliar o reduir de mida mentre s'està fent el patró. De manera alternativa, podeu importar imatges des de molts formats de fitxer per a gràfics, els quals permeten reduir el nombre de colors i restringir la conversió a puntades senceres. També podeu utilitzar imatges com a fons, dibuixant-hi damunt. Estes imatges importades es poden modificar utilitzant les eines subministrades per a produir el disseny final.</p>
+    <p xml:lang="cs">KXStitch je program, který vám umožňuje vytvářet vzory a schémata pro vyšívání křížkovým stehem. Vzory lze vytvářet zcela od začátku na mřížce s velikostí definovanou uživatelem, kterou lze v průběhu tvorby vzoru zvětšovat nebo zmenšovat. Alternativně můžete importovat obrázky z mnoha grafických formátů, což vám umožní snížit počet barev a omezit převod na celé stehy nebo volitelně použít zlomkové stehy. Obrázky můžete také použít jako pozadí, na kterém můžete vzor obkreslovat. Tyto importované obrázky lze poté upravovat pomocí dodaných nástrojů a vytvořit tak finální návrh.</p>
     <p xml:lang="de">KXStitch ist ein Programm, mit dem Sie Kreuzstichmuster und Diagramme erstellen können Muster können von Grund auf neu auf einem benutzerdefinierten Raster erstellt werden, das später vergrößert oder verkleinert werden kann. Alternativ können Sie auch Bilder aus vielen Grafikformaten importieren. Beim Importieren können Sie die Zahl der Farben reduzieren und die Konvertierung auf volle Stiche beschränken oder optional Teilstiche verwenden. Sie können Bilder auch als Hintergründe verwenden. Diese importierten Bilder können dann mit den mitgelieferten Werkzeugen bearbeitet werden, um Ihren endgültigen Entwurf zu erstellen.</p>
     <p xml:lang="en-GB">KXStitch is a program that lets you create cross stitch patterns and charts. Patterns can be created from scratch on a user defined size of grid, which can be enlarged or reduced in size as your pattern progresses. Alternatively you can import images from many graphics file formats which will allow you to reduce the number of colours and to restrict the conversion to full stitches or optionally use fractional stitches. You may also use images as backgrounds allowing you to trace over them. These imported images can then be modified using the supplied tools to produce your final design.</p>
     <p xml:lang="eo">KXStitch estas programo, kiu ebligas al vi krei krucpunktojn kaj diagramojn. Ŝablonoj povas esti kreitaj de nulo sur uzanto difinita grandeco de krado, kiu povas esti pligrandigita aŭ reduktita en grandeco kiel via ŝablono progresas. Alternative vi povas importi bildojn el multaj grafikaj dosierformatoj, kiuj permesos vin redukti la nombron da koloroj kaj limigi la konvertiĝon al plenaj kudreroj aŭ laŭvole uzi frakciajn kudrerojn. Vi ankaŭ povas uzi bildojn kiel fonojn permesante al vi spuri ilin. Ĉi tiuj importitaj bildoj povas tiam esti modifitaj uzante la provizitajn ilojn por produkti vian finan dezajnon.</p>
@@ -151,6 +152,7 @@
       <li xml:lang="ar">إنشاء أنماط جديدة</li>
       <li xml:lang="ca">Creació de patrons nous</li>
       <li xml:lang="ca-valencia">Creació de patrons nous</li>
+      <li xml:lang="cs">Vytváření nových vzorů</li>
       <li xml:lang="de">Erstellung neuer Muster</li>
       <li xml:lang="en-GB">Creation of new patterns</li>
       <li xml:lang="eo">Kreado de novaj ŝablonoj</li>
@@ -184,6 +186,7 @@
       <li xml:lang="ar">تحرير الأنماط الحالية - المُطرِّز يستطيع أيضًا قراءة ملفات PC Stitch</li>
       <li xml:lang="ca">Edició de patrons existents: El KXStitch també pot llegir fitxers del PC Stitch</li>
       <li xml:lang="ca-valencia">Edició de patrons existents: KXStitch també pot llegir fitxers del PC Stitch</li>
+      <li xml:lang="cs">Úpravy stávajících vzorů – KXStitch dokáže také načítat soubory ve formátu PC Stitch</li>
       <li xml:lang="de">Bearbeitung von vorhandenen Mustern - KXStitch kann auch Dateien des Programms PC Stitch lesen</li>
       <li xml:lang="en-GB">Editing of existing patterns - KXStitch is also capable of reading PC Stitch files</li>
       <li xml:lang="eo">Redaktado de ekzistantaj ŝablonoj - KXStitch ankaŭ kapablas legi dosierojn de PC Stitch</li>
@@ -216,6 +219,7 @@
       <li xml:lang="ar">استخدام باليتات خيوط تطريز متنوّعة، DMC، Anchor، Madeira</li>
       <li xml:lang="ca">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
       <li xml:lang="ca-valencia">Ús de diversos cabdells de fil, DMC, Anchor, Madeira</li>
+      <li xml:lang="cs">Použití různých sad přízí, značek DMC, Anchor, Madeira</li>
       <li xml:lang="en-GB">Use of various floss pallets, DMC, Anchor, Madeira</li>
       <li xml:lang="eo">Uzo de diversaj fadenaj paletoj, DMC, Anchor, Madejro</li>
       <li xml:lang="es">Uso de ovillos de hilo variados, DMC, Anchor, Madeira</li>
@@ -246,6 +250,7 @@
       <li xml:lang="ar">إنشاء باليتات وألوان مخصصة</li>
       <li xml:lang="ca">Creació de paletes i colors personalitzats</li>
       <li xml:lang="ca-valencia">Creació de paletes i colors personalitzats</li>
+      <li xml:lang="cs">Vytváření vlastních palet a barev</li>
       <li xml:lang="de">Erstellen von eigenen Paletten und Farben</li>
       <li xml:lang="en-GB">Creation of custom palettes and colours</li>
       <li xml:lang="eo">Kreado de propraj paletoj kaj koloroj</li>
@@ -278,6 +283,7 @@
       <li xml:lang="ar">استخدام الغُرَز القياسية</li>
       <li xml:lang="ca">Ús de puntades estàndard</li>
       <li xml:lang="ca-valencia">Ús de puntades estàndard</li>
+      <li xml:lang="cs">Použití standardních stehů</li>
       <li xml:lang="de">Standardstiche verwenden</li>
       <li xml:lang="en-GB">Use of standard stitches</li>
       <li xml:lang="eo">Uzo de normaj kudreroj</li>
@@ -309,6 +315,7 @@
       <li xml:lang="ar">حرية استخدام خياطة الظهر</li>
       <li xml:lang="ca">Ús lliure de repunts</li>
       <li xml:lang="ca-valencia">Ús lliure de repunts</li>
+      <li xml:lang="cs">Volné použití zpětného stehu</li>
       <li xml:lang="en-GB">Free use of backstitching</li>
       <li xml:lang="eo">Libera uzo de dorskudrido</li>
       <li xml:lang="es">Libre uso de pespuntes</li>
@@ -339,6 +346,7 @@
       <li xml:lang="ar">استيراد صيغ صور مختلفة</li>
       <li xml:lang="ca">Importació de diversos formats d'imatge</li>
       <li xml:lang="ca-valencia">Importació de diversos formats d'imatge</li>
+      <li xml:lang="cs">Import různých formátů obrázků</li>
       <li xml:lang="de">Import verschiedener Bildformate</li>
       <li xml:lang="en-GB">Importing of various picture formats</li>
       <li xml:lang="eo">Importado de diversaj bildformatoj</li>
@@ -371,6 +379,7 @@
       <li xml:lang="ar">طباعة الأنماط ومفاتيح خيوط التطريز</li>
       <li xml:lang="ca">Impressió de patrons i claus de fil</li>
       <li xml:lang="ca-valencia">Impressió de patrons i claus de fil</li>
+      <li xml:lang="cs">Tisk vzorů a legend k vyšívacím nitím</li>
       <li xml:lang="en-GB">Printing of patterns and floss keys</li>
       <li xml:lang="eo">Preso de ŝablonoj kaj ŝlosiloj</li>
       <li xml:lang="es">Impresión de patrones y claves de hilos</li>
@@ -405,6 +414,7 @@
       <caption xml:lang="ar">نَمط غُرَز أُنشِئ من صورة</caption>
       <caption xml:lang="ca">Un patró de punt de creu creat a partir d'una imatge</caption>
       <caption xml:lang="ca-valencia">Un patró de punt de creu creat a partir d'una imatge</caption>
+      <caption xml:lang="cs">Vzor stehů vytvořený na základě obrázku</caption>
       <caption xml:lang="en-GB">A stitch pattern created from an image</caption>
       <caption xml:lang="eo">Kruckudra ŝablono kreita el bildo</caption>
       <caption xml:lang="es">Un patrón de puntos creado a partir de una imagen</caption>
