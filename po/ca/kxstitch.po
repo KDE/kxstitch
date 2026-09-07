@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:42+0000\n"
-"PO-Revision-Date: 2026-05-19 09:24+0200\n"
+"PO-Revision-Date: 2026-09-06 17:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -93,7 +93,7 @@ msgstr "Cel·les quadrades"
 #: kxstitch.kcfg:59
 #, kde-format
 msgid "The height of the horizontal ruler."
-msgstr "L'alçada del regle horitzontal."
+msgstr "L'altura del regle horitzontal."
 
 #. i18n: ectx: label, entry (Editor_VerticalScaleWidth), group (editor)
 #: kxstitch.kcfg:63
@@ -201,7 +201,7 @@ msgstr "L'amplada predeterminada d'un patró nou en les unitats especificades."
 #: kxstitch.kcfg:159
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr "L'alçada predeterminada d'un patró nou en les unitats especificades."
+msgstr "L'altura predeterminada d'un patró nou en les unitats especificades."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:172
@@ -213,7 +213,7 @@ msgstr "L'amplada mínima d'un patró en les unitats especificades."
 #: kxstitch.kcfg:176
 #, kde-format
 msgid "The minimum height of a pattern in the units specified."
-msgstr "L'alçada mínima d'un patró en les unitats especificades."
+msgstr "L'altura mínima d'un patró en les unitats especificades."
 
 #. i18n: ectx: label, entry (Document_Max_Width), group (document)
 #: kxstitch.kcfg:180
@@ -225,7 +225,7 @@ msgstr "L'amplada màxima d'un patró en les unitats especificades."
 #: kxstitch.kcfg:184
 #, kde-format
 msgid "The maximum height of a pattern in the units specified."
-msgstr "L'alçada màxima d'un patró en les unitats especificades."
+msgstr "L'altura màxima d'un patró en les unitats especificades."
 
 #. i18n: ectx: label, entry (Import_UseMaximumColors), group (import)
 #: kxstitch.kcfg:191
@@ -2267,7 +2267,7 @@ msgstr "Quadrícula"
 #: ui/EditorConfigPage.ui:30
 #, kde-format
 msgid "Horizontal scale height"
-msgstr "Alçada de l'escala horitzontal"
+msgstr "Altura de l'escala horitzontal"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: ui/EditorConfigPage.ui:47
@@ -2486,7 +2486,7 @@ msgstr "Amplada"
 #: ui/PatternConfigPage.ui:62
 #, kde-format
 msgid "Height"
-msgstr "Alçada"
+msgstr "Altura"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/FileProperties.ui:164 ui/PatternConfigPage.ui:113
@@ -2918,7 +2918,7 @@ msgstr "Amplia l'amplada del patró"
 #: ui/LibraryConfigPage.ui:93
 #, kde-format
 msgid "Extend pattern height"
-msgstr "Amplia l'alçada del patró"
+msgstr "Amplia l'altura del patró"
 
 #. i18n: ectx: property (text), widget (QLabel, CatagoryName)
 #: ui/LibraryFilePaths.ui:23
