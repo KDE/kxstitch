@@ -91,6 +91,6 @@
         <para
 >La creació d'un patró nou de biblioteca es realitza seleccionant una àrea del vostre patró de treball, copiant i enganxant en una de les categories existents. </para>
         <para
->Cada patró de biblioteca té propietats, a les quals s'accedeix mitjançant el seu menú contextual. Aquestes propietats inclouen mida, esquema del fil, valor de la línia base i clau associada. L'eina Alfabet utilitza el valor de la línia base per a ajustar l'alçada d'un caràcter per sobre, valors negatius o per sota del punt d'inserció. L'eina Alfabet utilitzarà de nou la tecla associada perquè coincideixi amb la tecla premuda en el teclat. </para>
+>Cada patró de biblioteca té propietats, a les quals s'accedeix mitjançant el seu menú contextual. Aquestes propietats inclouen mida, esquema del fil, valor de la línia base i clau associada. L'eina Alfabet utilitza el valor de la línia base per a ajustar l'altura d'un caràcter per sobre, valors negatius o per sota del punt d'inserció. L'eina Alfabet utilitzarà de nou la tecla associada perquè coincideixi amb la tecla premuda en el teclat. </para>
     </sect1>
 </chapter>

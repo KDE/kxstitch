@@ -181,7 +181,7 @@
 ></screenshot>
         </para>
         <para
->La mida del patró es pot definir en unitats de puntades, centímetres o polzades. Si es canvia el tipus d'unitat, els valors d'amplada i alçada s'actualitzaran automàticament a la mida equivalent en el tipus d'unitat nou. </para>
+>La mida del patró es pot definir en unitats de puntades, centímetres o polzades. Si es canvia el tipus d'unitat, els valors d'amplada i altura s'actualitzaran automàticament a la mida equivalent en el tipus d'unitat nou. </para>
         <para
 >El recompte de la tela es defineix en unitats per centímetre o polzades i depèn de les unitats de mida. &ead;, si se selecciona CM per a les unitats, el recompte de la tela estarà en unitats per centímetre, de manera similar per a polzades. Si les <guilabel
 >Unitats</guilabel

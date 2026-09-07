@@ -578,13 +578,13 @@
                         <term
 ><menuchoice
 ><guimenuitem
->Ajusta a l'alçada de la pàgina</guimenuitem
+>Ajusta a l'altura de la pàgina</guimenuitem
 ></menuchoice
 ></term>
                         <listitem
 ><simpara
 ><action
->Fa zoom a la vista de manera que l'alçada dels patrons encaixi dins de l'àrea visible.</action
+>Fa zoom a la vista de manera que l'altura dels patrons encaixi dins de l'àrea visible.</action
 ></simpara
 ></listitem>
                     </varlistentry>
