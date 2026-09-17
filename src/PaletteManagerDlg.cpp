@@ -51,6 +51,9 @@ PaletteManagerDlg::PaletteManagerDlg(QWidget *parent, Document *document)
     setWindowTitle(i18n("Palette Manager"));
     ui.setupUi(this);
 
+    connect(ui.SearchLineEdit, &QLineEdit::textChanged,
+        this, &PaletteManagerDlg::updateSearchResults);
+
     ui.SymbolLibrary->insertItems(0, SymbolManager::libraries());
     ui.SymbolLibrary->setCurrentItem(m_dialogPalette.symbolLibrary());
 
@@ -435,6 +438,27 @@ int PaletteManagerDlg::paletteIndex(const QString &flossName) const
 bool PaletteManagerDlg::symbolsAvailable() const
 {
     return (SymbolManager::library(m_dialogPalette.symbolLibrary())->indexes().count() > m_dialogPalette.flosses().count());
+}
+
+void PaletteManagerDlg::updateSearchResults(const QString &text) {
+    results = ui.ColorList->findItems(text, Qt::MatchContains);
+
+    if (results.isEmpty()) {
+        return;
+    }
+
+    currentIndex = 0;
+    ui.ColorList->setCurrentItem(results[currentIndex]);
+    ui.ColorList->scrollToItem(results[currentIndex]);
+}
+
+void PaletteManagerDlg::on_NextButton_clicked() {
+    if (results.isEmpty())
+        return;
+
+    currentIndex = (currentIndex + 1) % results.size();
+    ui.ColorList->setCurrentItem(results[currentIndex]);
+    ui.ColorList->scrollToItem(results[currentIndex]);
 }
 
 #include "moc_PaletteManagerDlg.cpp"

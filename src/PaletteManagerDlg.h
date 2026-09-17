@@ -59,6 +59,8 @@ private slots:
     void on_DialogButtonBox_accepted();
     void on_DialogButtonBox_rejected();
     void on_DialogButtonBox_helpRequested();
+    void on_NextButton_clicked();
+    void updateSearchResults(const QString &text);
 
 private:
     void fillLists();
@@ -74,6 +76,8 @@ private:
     QMap<int, FlossUsage> m_flossUsage;
     FlossScheme *m_scheme;
     SymbolSelectorDlg *m_symbolSelectorDlg;
+    QList<QListWidgetItem *> results;
+    int currentIndex;
 };
 
 #endif // PaletteManagerDlg_H
