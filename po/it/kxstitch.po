@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-18 00:43+0000\n"
 "PO-Revision-Date: 2026-05-19 10:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -889,7 +889,7 @@ msgid "Fit Background to Selection"
 msgstr "Adatta sfondo alla selezione"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:600 ui/PaletteManager.ui:189
+#: src/Commands.cpp:600 ui/PaletteManager.ui:289
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "Cancella fili non usati"
@@ -1187,7 +1187,7 @@ msgstr "Incolla"
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/Element.cpp:469 src/Element.cpp:492 ui/KeyElement.ui:377
-#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#: ui/PaletteManager.ui:176 ui/PaletteManager.ui:245
 #, kde-format
 msgid "Symbol"
 msgstr "Simbolo"
@@ -1932,7 +1932,7 @@ msgid "Imported Image"
 msgstr "Immagine importata"
 
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: src/NewFlossDlg.cpp:27 ui/PaletteManager.ui:182
+#: src/NewFlossDlg.cpp:27 ui/PaletteManager.ui:282
 #, kde-format
 msgid "New Floss"
 msgstr "Nuovo filo"
@@ -2008,12 +2008,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "Gestore della tavolozza"
 
-#: src/PaletteManagerDlg.cpp:149
+#: src/PaletteManagerDlg.cpp:152
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Non ci sono più simboli disponibili."
 
-#: src/PaletteManagerDlg.cpp:190
+#: src/PaletteManagerDlg.cpp:193
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2999,86 +2999,98 @@ msgstr "Capi predefiniti dei punti"
 msgid "Default backstitch strands"
 msgstr "Capi predefiniti delle impunture"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PaletteManager.ui:22
-#, kde-format
-msgid "Current palette"
-msgstr "Tavolozza attuale"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/PaletteManager.ui:80
-#, kde-format
-msgid "Current scheme"
-msgstr "Schema attuale"
-
-#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
-#: ui/PaletteManager.ui:87
-#, kde-format
-msgid "TextLabel"
-msgstr "EtichettaDiTesto"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: ui/PaletteManager.ui:99
-#, kde-format
-msgid "Symbol Library"
-msgstr "Libreria dei simboli"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/PaletteManager.ui:109
-#, kde-format
-msgid "Stitch strands"
-msgstr "Capi dei punti"
-
-#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
-#: ui/PaletteManager.ui:196
-#, kde-format
-msgid "Calibrate Flosses"
-msgstr "Calibra fili"
-
-#. i18n: ectx: property (text), widget (QPushButton, PickColor)
-#: ui/PaletteManager.ui:203
-#, kde-format
-msgid "Pick Color"
-msgstr "Scegli colore"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/PaletteManager.ui:212
-#, kde-format
-msgid "Backstitch strands"
-msgstr "Capi delle impunture"
-
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:264
+#: ui/PaletteManager.ui:24
 #, kde-format
 msgctxt "A solid line"
 msgid "Solid"
 msgstr "Pieno"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:269
+#: ui/PaletteManager.ui:29
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
 msgstr "Tratteggiato"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:274
+#: ui/PaletteManager.ui:34
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
 msgstr "A punti"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:279
+#: ui/PaletteManager.ui:39
 #, kde-format
 msgid "Dash Dotted"
 msgstr "Tratto Punto"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:284
+#: ui/PaletteManager.ui:44
 #, kde-format
 msgid "Dash Dash Dotted"
 msgstr "Tratto Tratto Punto"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/PaletteManager.ui:52
+#, kde-format
+msgid "Symbol Library"
+msgstr "Libreria dei simboli"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/PaletteManager.ui:59
+#, kde-format
+msgid "&Search:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PaletteManager.ui:217
+#, kde-format
+msgid "Backstitch strands"
+msgstr "Capi delle impunture"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteManager.ui:226
+#, kde-format
+msgid "Current palette"
+msgstr "Tavolozza attuale"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteManager.ui:238
+#, kde-format
+msgid "Stitch strands"
+msgstr "Capi dei punti"
+
+#. i18n: ectx: property (text), widget (QToolButton, NextButton)
+#: ui/PaletteManager.ui:252
+#, kde-format
+msgid "&Next"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteManager.ui:264
+#, kde-format
+msgid "Current scheme"
+msgstr "Schema attuale"
+
+#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
+#: ui/PaletteManager.ui:271
+#, kde-format
+msgid "TextLabel"
+msgstr "EtichettaDiTesto"
+
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: ui/PaletteManager.ui:296
+#, kde-format
+msgid "Calibrate Flosses"
+msgstr "Calibra fili"
+
+#. i18n: ectx: property (text), widget (QPushButton, PickColor)
+#: ui/PaletteManager.ui:303
+#, kde-format
+msgid "Pick Color"
+msgstr "Scegli colore"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14

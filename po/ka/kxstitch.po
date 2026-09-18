@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-18 00:43+0000\n"
 "PO-Revision-Date: 2026-05-19 04:20+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -884,7 +884,7 @@ msgid "Fit Background to Selection"
 msgstr "ფონის ჩატევა მონიშნულში"
 
 #. i18n: ectx: property (text), widget (QPushButton, ClearUnused)
-#: src/Commands.cpp:600 ui/PaletteManager.ui:189
+#: src/Commands.cpp:600 ui/PaletteManager.ui:289
 #, kde-format
 msgid "Clear Unused Flosses"
 msgstr "გამოუყენებელი ძაფების გასუფთავება"
@@ -1176,7 +1176,7 @@ msgstr "ჩასმა"
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/Element.cpp:469 src/Element.cpp:492 ui/KeyElement.ui:377
-#: ui/PaletteManager.ui:150 ui/PaletteManager.ui:253
+#: ui/PaletteManager.ui:176 ui/PaletteManager.ui:245
 #, kde-format
 msgid "Symbol"
 msgstr "სიმბოლო"
@@ -1920,7 +1920,7 @@ msgid "Imported Image"
 msgstr "შემოტანილი გამოსახულება"
 
 #. i18n: ectx: property (text), widget (QPushButton, NewFloss)
-#: src/NewFlossDlg.cpp:27 ui/PaletteManager.ui:182
+#: src/NewFlossDlg.cpp:27 ui/PaletteManager.ui:282
 #, kde-format
 msgid "New Floss"
 msgstr "ახალი აბრეშუმი ძაფი"
@@ -1996,12 +1996,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "პალიტრის მმართველი"
 
-#: src/PaletteManagerDlg.cpp:149
+#: src/PaletteManagerDlg.cpp:152
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "მეტი სიმბოლო ხელმისაწვდომი არაა."
 
-#: src/PaletteManagerDlg.cpp:190
+#: src/PaletteManagerDlg.cpp:193
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2986,86 +2986,98 @@ msgstr "ნაგულისხმევი გვირისტის ბო�
 msgid "Default backstitch strands"
 msgstr "ნაგულიხმევი უკუგვირისტის ბოჭკოები"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/PaletteManager.ui:22
-#, kde-format
-msgid "Current palette"
-msgstr "მიმდინარე პალიტრა"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/PaletteManager.ui:80
-#, kde-format
-msgid "Current scheme"
-msgstr "მიმდინარე სქემა"
-
-#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
-#: ui/PaletteManager.ui:87
-#, kde-format
-msgid "TextLabel"
-msgstr "ტექსტური ჭდე"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: ui/PaletteManager.ui:99
-#, kde-format
-msgid "Symbol Library"
-msgstr "სიმბოლოების ბიბლიოთეკა"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/PaletteManager.ui:109
-#, kde-format
-msgid "Stitch strands"
-msgstr "გვირისტის ბოჭკოები"
-
-#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
-#: ui/PaletteManager.ui:196
-#, kde-format
-msgid "Calibrate Flosses"
-msgstr "ძაფების კალიბრაცია"
-
-#. i18n: ectx: property (text), widget (QPushButton, PickColor)
-#: ui/PaletteManager.ui:203
-#, kde-format
-msgid "Pick Color"
-msgstr "აირჩიეთ ფერი"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/PaletteManager.ui:212
-#, kde-format
-msgid "Backstitch strands"
-msgstr "უკუგვირისტის ბოჭკოები"
-
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:264
+#: ui/PaletteManager.ui:24
 #, kde-format
 msgctxt "A solid line"
 msgid "Solid"
 msgstr "მყარი"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:269
+#: ui/PaletteManager.ui:29
 #, kde-format
 msgctxt "A dashed line"
 msgid "Dashed"
 msgstr "ტირეებით"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:274
+#: ui/PaletteManager.ui:34
 #, kde-format
 msgctxt "A dotted line"
 msgid "Dotted"
 msgstr "წერტილოვანი"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:279
+#: ui/PaletteManager.ui:39
 #, kde-format
 msgid "Dash Dotted"
 msgstr "შტრიხ-წყვეტილი"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, BackstitchSymbol)
-#: ui/PaletteManager.ui:284
+#: ui/PaletteManager.ui:44
 #, kde-format
 msgid "Dash Dash Dotted"
 msgstr "შრიხ-შტრიხ-წერტილი"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: ui/PaletteManager.ui:52
+#, kde-format
+msgid "Symbol Library"
+msgstr "სიმბოლოების ბიბლიოთეკა"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: ui/PaletteManager.ui:59
+#, kde-format
+msgid "&Search:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/PaletteManager.ui:217
+#, kde-format
+msgid "Backstitch strands"
+msgstr "უკუგვირისტის ბოჭკოები"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/PaletteManager.ui:226
+#, kde-format
+msgid "Current palette"
+msgstr "მიმდინარე პალიტრა"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/PaletteManager.ui:238
+#, kde-format
+msgid "Stitch strands"
+msgstr "გვირისტის ბოჭკოები"
+
+#. i18n: ectx: property (text), widget (QToolButton, NextButton)
+#: ui/PaletteManager.ui:252
+#, kde-format
+msgid "&Next"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/PaletteManager.ui:264
+#, kde-format
+msgid "Current scheme"
+msgstr "მიმდინარე სქემა"
+
+#. i18n: ectx: property (text), widget (QLabel, CurrentScheme)
+#: ui/PaletteManager.ui:271
+#, kde-format
+msgid "TextLabel"
+msgstr "ტექსტური ჭდე"
+
+#. i18n: ectx: property (text), widget (QPushButton, Calibrate)
+#: ui/PaletteManager.ui:296
+#, kde-format
+msgid "Calibrate Flosses"
+msgstr "ძაფების კალიბრაცია"
+
+#. i18n: ectx: property (text), widget (QPushButton, PickColor)
+#: ui/PaletteManager.ui:303
+#, kde-format
+msgid "Pick Color"
+msgstr "აირჩიეთ ფერი"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
