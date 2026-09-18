@@ -516,7 +516,14 @@ void MainWindow::fileImportImage()
 
 void MainWindow::convertImage(const QString &source)
 {
-    Magick::Image image(source.toStdString());
+    Magick::Image image;
+
+    try {
+        image.read(source.toStdString());
+    } catch (const Magick::Exception &e) {
+        KMessageBox::error(this, i18n("Failed to load the image file.\n%1", QString::fromLocal8Bit(e.what())));
+        return;
+    }
 
     SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
 
@@ -540,24 +547,14 @@ void MainWindow::convertImage(const QString &source)
 
         bool useFractionals = importImageDlg->useFractionals();
 
-/*
- * ImageMagick prior to V7 used matte (opacity) to determine if an image has transparency.
- * 0.0 for transparent to 1.0 for opaque
- *
- * ImageMagick V7 now uses alpha (transparency).
- * 1.0 for transparent to 0.0 for opaque
- *
- * Access to pixels has changed too, V7 can use pixelColor to access the color of a particular
- * pixel, but although this was available in V6, it doesn't appear to produce the same result
- * and has resulted in black images when importing.
- */
+        // The alpha channel was removed from the converted image before it was mapped to the
+        // floss colors (see ImportImageDlg::renderPixmap), the extracted alpha mask is used to
+        // identify transparent pixels instead.
+        Magick::Image alphaMask = importImageDlg->alphaMask();
+        bool hasTransparency = alphaMask.isValid();
+
 #if MagickLibVersion < 0x700
-        bool hasTransparency = convertedImage.matte();
-        double transparent = 1.0;
         const Magick::PixelPacket *pixels = convertedImage.getConstPixels(0, 0, imageWidth, imageHeight);
-#else
-        bool hasTransparency = convertedImage.alpha();
-        double transparent = 0.0;
 #endif
 
         bool ignoreColor = importImageDlg->ignoreColor();
@@ -597,7 +594,7 @@ void MainWindow::convertImage(const QString &source)
                 Magick::ColorRGB rgb = convertedImage.pixelColor(dx, dy);
 #endif
 
-                if (hasTransparency && (rgb.alpha() == transparent)) {
+                if (hasTransparency && (Magick::ColorRGB(alphaMask.pixelColor(dx, dy)).red() == 0.0)) {
                     // ignore this pixel as it is transparent
                 } else {
                     if (!(ignoreColor && (rgb == ignoreColorValue))) {

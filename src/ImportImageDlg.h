@@ -41,6 +41,7 @@ public:
     virtual ~ImportImageDlg() = default;
 
     Magick::Image convertedImage() const;
+    Magick::Image alphaMask() const;
     bool ignoreColor() const;
     Magick::Color ignoreColorValue() const;
     QString flossScheme() const;
@@ -88,11 +89,12 @@ private:
     QPixmap m_pixmap;
     QSize m_originalSize;
     QSize m_preferredSize;
-    int m_timer;
+    int m_timer = 0;
     AlphaSelect *m_alphaSelect;
     Magick::ColorRGB m_ignoreColorValue;
     Magick::Image m_originalImage;
     Magick::Image m_convertedImage;
+    Magick::Image m_alphaMask;
     Magick::Image m_colorMap;
     QRect m_crop;
 };

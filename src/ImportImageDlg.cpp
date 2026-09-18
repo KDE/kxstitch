@@ -90,6 +90,11 @@ Magick::Image ImportImageDlg::convertedImage() const
     return m_convertedImage;
 }
 
+Magick::Image ImportImageDlg::alphaMask() const
+{
+    return m_alphaMask;
+}
+
 bool ImportImageDlg::ignoreColor() const
 {
     return ui.IgnoreColor->isChecked();
@@ -337,6 +342,27 @@ void ImportImageDlg::renderPixmap()
     calculateSizes();
     m_convertedImage.modifyImage();
 
+    // Extract any alpha channel before quantizing and mapping to the floss
+    // colors. ImageMagick's map() produces incorrect results for images with
+    // an alpha channel, so transparency is applied via the mask instead.
+    m_alphaMask = Magick::Image();
+
+#if MagickLibVersion < 0x700
+    bool hasTransparency = m_convertedImage.matte();
+#else
+    bool hasTransparency = m_convertedImage.alpha();
+#endif
+
+    if (hasTransparency) {
+        m_alphaMask = m_convertedImage;
+        m_alphaMask.channel(MagickCore::AlphaChannel);
+#if MagickLibVersion < 0x700
+        m_convertedImage.matte(false);
+#else
+        m_convertedImage.alpha(false);
+#endif
+    }
+
     m_pixmap = QPixmap(m_convertedImage.columns(), m_convertedImage.rows());
     m_pixmap.fill();
 
@@ -360,23 +386,12 @@ void ImportImageDlg::renderPixmap()
     progress.setWindowModality(Qt::WindowModal);
 
 /*
- * ImageMagick prior to V7 used matte (opacity) to determine if an image has transparency.
- * 0.0 for transparent to 1.0 for opaque
- *
- * ImageMagick V7 now uses alpha (transparency).
- * 1.0 for transparent to 0.0 for opaque
- *
- * Access to pixels has changed too, V7 can use pixelColor to access the color of a particular
- * pixel, but although this was available in V6, it doesn't appear to produce the same result
- * and has resulted in black images when importing.
+ * Access to pixels has changed in ImageMagick V7, V7 can use pixelColor to access the color of
+ * a particular pixel, but although this was available in V6, it doesn't appear to produce the
+ * same result and has resulted in black images when importing.
  */
 #if MagickLibVersion < 0x700
-    bool hasTransparency = m_convertedImage.matte();
-    double transparent = 1.0;
     const Magick::PixelPacket *pixels = m_convertedImage.getConstPixels(0, 0, width, height);
-#else
-    bool hasTransparency = m_convertedImage.alpha();
-    double transparent = 0.0;
 #endif
 
     for (int dy = 0; dy < height; dy++) {
@@ -394,7 +409,7 @@ void ImportImageDlg::renderPixmap()
             Magick::ColorRGB rgb = m_convertedImage.pixelColor(dx, dy);
 #endif
 
-            if (hasTransparency && (rgb.alpha() == transparent)) {
+            if (hasTransparency && (Magick::ColorRGB(m_alphaMask.pixelColor(dx, dy)).red() == 0.0)) {
                 // ignore this pixel as it is transparent
             } else {
                 if (!(ui.IgnoreColor->isChecked() && rgb == m_ignoreColorValue)) {
@@ -414,6 +429,7 @@ void ImportImageDlg::renderPixmap()
 void ImportImageDlg::timerEvent(QTimerEvent *)
 {
     killTimer(m_timer);
+    m_timer = 0;
     renderPixmap();
 }
 
