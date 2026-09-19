@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:43+0000\n"
+"POT-Creation-Date: 2026-09-19 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -778,14 +778,14 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1116
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1113
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "सञ्चिकागुणाः"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:54 src/MainWindow.cpp:494 src/MainWindow.cpp:1111
+#: src/Commands.cpp:54 src/MainWindow.cpp:494 src/MainWindow.cpp:1108
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -811,27 +811,27 @@ msgstr "रेखा खींचे"
 msgid "Erase Stitches"
 msgstr "सिलाईं मेटयतु"
 
-#: src/Commands.cpp:156 src/MainWindow.cpp:1326
+#: src/Commands.cpp:156 src/MainWindow.cpp:1323
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "आयत खींचें"
 
-#: src/Commands.cpp:176 src/MainWindow.cpp:1336
+#: src/Commands.cpp:176 src/MainWindow.cpp:1333
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "आयत भरना"
 
-#: src/Commands.cpp:196 src/MainWindow.cpp:1346
+#: src/Commands.cpp:196 src/MainWindow.cpp:1343
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "दीर्घवृत्तम् आकर्षयतु"
 
-#: src/Commands.cpp:216 src/MainWindow.cpp:1356
+#: src/Commands.cpp:216 src/MainWindow.cpp:1353
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "दीर्घवृत्तं पूरयतु"
 
-#: src/Commands.cpp:236 src/MainWindow.cpp:1366
+#: src/Commands.cpp:236 src/MainWindow.cpp:1363
 #, kde-format
 msgid "Fill Polygon"
 msgstr "बहुभुज भरना"
@@ -902,12 +902,12 @@ msgstr "सस्यं प्रति पैटर्नम्"
 msgid "Crop to Selection"
 msgstr "चयनं प्रति सस्यं कुर्वन्तु"
 
-#: src/Commands.cpp:709 src/MainWindow.cpp:1490
+#: src/Commands.cpp:709 src/MainWindow.cpp:1487
 #, kde-format
 msgid "Insert Columns"
 msgstr "स्तम्भान् सम्मिलितं कुर्वन्तु"
 
-#: src/Commands.cpp:752 src/MainWindow.cpp:1484
+#: src/Commands.cpp:752 src/MainWindow.cpp:1481
 #, kde-format
 msgid "Insert Rows"
 msgstr "पङ्क्तयः सम्मिलिताः"
@@ -918,7 +918,7 @@ msgstr "पङ्क्तयः सम्मिलिताः"
 msgid "Extend Pattern"
 msgstr "प्रतिरूपं विस्तारयतु"
 
-#: src/Commands.cpp:837 src/MainWindow.cpp:1466
+#: src/Commands.cpp:837 src/MainWindow.cpp:1463
 #, kde-format
 msgid "Center Pattern"
 msgstr "केन्द्र प्रतिरूप"
@@ -938,7 +938,7 @@ msgstr "फ्लॉस योजना परिवर्तन"
 msgid "Replace Color"
 msgstr "Replace Color इति"
 
-#: src/Commands.cpp:1052 src/MainWindow.cpp:1449
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1446
 #, kde-format
 msgid "Swap Colors"
 msgstr "रङ्ग अदला-बदली"
@@ -953,7 +953,7 @@ msgstr "मुद्रकविन्यासम् अद्यतनं क�
 msgid "Cut"
 msgstr "छिन्न"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1386
+#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Alphabet"
 msgstr "वर्णमाला"
@@ -981,7 +981,7 @@ msgstr "मूलभूतम्‌"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
-#: src/ImportImageDlg.cpp:499 src/ImportImageDlg.cpp:500
+#: src/ImportImageDlg.cpp:515 src/ImportImageDlg.cpp:516
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
@@ -989,7 +989,7 @@ msgstr "/इत्यस्मिन्‌"
 
 #: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
 #: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
-#: src/ImportImageDlg.cpp:492 src/ImportImageDlg.cpp:493
+#: src/ImportImageDlg.cpp:508 src/ImportImageDlg.cpp:509
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
@@ -1045,7 +1045,7 @@ msgstr "%1 इति फ्लॉसनाम न प्राप्तम्"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1808 src/Document.cpp:2001 src/Element.cpp:473
-#: src/Element.cpp:508 src/ImportImageDlg.cpp:200 src/MainWindow.cpp:1508
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:205 src/MainWindow.cpp:1505
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
@@ -1067,8 +1067,8 @@ msgstr "सी. एम."
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
-#: src/Document.cpp:1816 src/Document.cpp:2009 src/ImportImageDlg.cpp:206
-#: src/MainWindow.cpp:1522 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/Document.cpp:1816 src/Document.cpp:2009 src/ImportImageDlg.cpp:211
+#: src/MainWindow.cpp:1519 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1159,7 +1159,7 @@ msgid "Drag"
 msgstr "आकर्षति"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1376
+#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1373
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
@@ -1254,29 +1254,29 @@ msgstr "चित्रं आयातयतु - चित्रस्य आ�
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:212 src/MainWindow.cpp:1515 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:217 src/MainWindow.cpp:1512 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
 msgstr "सेन्टिमीटर्"
 
-#: src/ImportImageDlg.cpp:225 src/ImportImageDlg.cpp:231
+#: src/ImportImageDlg.cpp:230 src/ImportImageDlg.cpp:236
 #, kde-format
 msgctxt "%1 width, %2 height and %3 units"
 msgid "%1 x %2 %3"
 msgstr "%1 x %2 %3"
 
-#: src/ImportImageDlg.cpp:359
+#: src/ImportImageDlg.cpp:385
 #, kde-format
 msgid "Rendering preview"
 msgstr "पूर्वावलोकनं प्रतिपादनम्"
 
-#: src/ImportImageDlg.cpp:359 src/MainWindow.cpp:580
+#: src/ImportImageDlg.cpp:385 src/MainWindow.cpp:577
 #, kde-format
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/ImportImageDlg.cpp:583
+#: src/ImportImageDlg.cpp:599
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
 msgstr "उपलब्धचिह्नसङ्ख्यायाः कारणात् %1 यावत् सीमिताः वर्णाः"
@@ -1581,246 +1581,258 @@ msgstr "प्रत्यावर्तयतु"
 msgid "There is nothing to print"
 msgstr "मुद्रणार्थं किमपि नास्ति"
 
-#: src/MainWindow.cpp:494 src/MainWindow.cpp:736
+#: src/MainWindow.cpp:494 src/MainWindow.cpp:733
 #, kde-format
 msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr "चित्र(*.bmp*.gif*.jpg*.png*.pbm*.pgm*.ppm*.xbm*.xpm*.svg)"
 
 #: src/MainWindow.cpp:524
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to read the file.\n"
+#| "%1."
+msgid ""
+"Failed to load the image file.\n"
+"%1"
+msgstr ""
+"सञ्चिकां पठितुं असफलम्।\n"
+"%1."
+
+#: src/MainWindow.cpp:531
 #, kde-format
 msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
 
-#: src/MainWindow.cpp:580
+#: src/MainWindow.cpp:577
 #, kde-format
 msgid "Converting to stitches"
 msgstr "सिलेन्थेषु परिवर्तनम्"
 
-#: src/MainWindow.cpp:734
+#: src/MainWindow.cpp:731
 #, kde-format
 msgid "Background Image"
 msgstr "पृष्ठभूमि चित्र"
 
-#: src/MainWindow.cpp:784
+#: src/MainWindow.cpp:781
 #, kde-format
 msgid "Undo %1"
 msgstr "%1 पूर्ववतं कुर्वन्तु"
 
-#: src/MainWindow.cpp:789
+#: src/MainWindow.cpp:786
 #, kde-format
 msgid "Redo %1"
 msgstr "पुनः %1"
 
-#: src/MainWindow.cpp:928
+#: src/MainWindow.cpp:925
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "सम्पादक"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:930 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:927 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "प्रतिमानम्‌"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:932 src/MainWindow.cpp:1751 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:929 src/MainWindow.cpp:1748 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "पॅलेट्"
 
-#: src/MainWindow.cpp:933
+#: src/MainWindow.cpp:930
 #, kde-format
 msgid "Import"
 msgstr "आयात"
 
-#: src/MainWindow.cpp:934
+#: src/MainWindow.cpp:931
 #, kde-format
 msgid "Library"
 msgstr "पुस्तकालय"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:936 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:933 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "मुद्रकविन्यासः"
 
-#: src/MainWindow.cpp:1104
+#: src/MainWindow.cpp:1101
 #, kde-format
 msgid "Print Setup..."
 msgstr "मुद्रण सेटअप..."
 
-#: src/MainWindow.cpp:1121
+#: src/MainWindow.cpp:1118
 #, kde-format
 msgid "Add Background Image..."
 msgstr "पृष्ठभूमि चित्रं योजयतु..."
 
-#: src/MainWindow.cpp:1138
+#: src/MainWindow.cpp:1135
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "Mirror/Rotate प्रतिलिपानि करोति"
 
-#: src/MainWindow.cpp:1144
+#: src/MainWindow.cpp:1141
 #, kde-format
 msgid "Horizontally"
 msgstr "क्षैतिजरूपेण"
 
-#: src/MainWindow.cpp:1151
+#: src/MainWindow.cpp:1148
 #, kde-format
 msgid "Vertically"
 msgstr "लम्बवत्"
 
-#: src/MainWindow.cpp:1158
+#: src/MainWindow.cpp:1155
 #, kde-format
 msgid "90 Degrees"
 msgstr "९० डिग्री"
 
-#: src/MainWindow.cpp:1165
+#: src/MainWindow.cpp:1162
 #, kde-format
 msgid "180 Degrees"
 msgstr "१८० डिग्री"
 
-#: src/MainWindow.cpp:1172
+#: src/MainWindow.cpp:1169
 #, kde-format
 msgid "270 Degrees"
 msgstr "२७० डिग्री"
 
-#: src/MainWindow.cpp:1180
+#: src/MainWindow.cpp:1177
 #, kde-format
 msgid "Stitch Mask"
 msgstr "सिलाई मास्क"
 
-#: src/MainWindow.cpp:1186
+#: src/MainWindow.cpp:1183
 #, kde-format
 msgid "Color Mask"
 msgstr "रंग मुखौटा"
 
-#: src/MainWindow.cpp:1192
+#: src/MainWindow.cpp:1189
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "Backstitches बहिष्कृत करें"
 
-#: src/MainWindow.cpp:1198
+#: src/MainWindow.cpp:1195
 #, kde-format
 msgid "Exclude Knots"
 msgstr "ग्रन्थिं बहिष्कृत्य"
 
-#: src/MainWindow.cpp:1222
+#: src/MainWindow.cpp:1219
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "क्वार्टर स्टिच"
 
-#: src/MainWindow.cpp:1232
+#: src/MainWindow.cpp:1229
 #, kde-format
 msgid "Half Stitch"
 msgstr "आधा सिलाई"
 
-#: src/MainWindow.cpp:1242
+#: src/MainWindow.cpp:1239
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "३ क्वार्टर् स्टिच्"
 
-#: src/MainWindow.cpp:1252
+#: src/MainWindow.cpp:1249
 #, kde-format
 msgid "Full Stitch"
 msgstr "पूर्ण सिलाई"
 
-#: src/MainWindow.cpp:1262
+#: src/MainWindow.cpp:1259
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "लघु अर्ध सिलाई"
 
-#: src/MainWindow.cpp:1272
+#: src/MainWindow.cpp:1269
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "लघु पूर्ण सिलाई"
 
-#: src/MainWindow.cpp:1282
+#: src/MainWindow.cpp:1279
 #, kde-format
 msgid "French Knot"
 msgstr "फ्रेंच गाँठ"
 
-#: src/MainWindow.cpp:1296
+#: src/MainWindow.cpp:1293
 #, kde-format
 msgid "Paint"
 msgstr "चित्र"
 
-#: src/MainWindow.cpp:1306
+#: src/MainWindow.cpp:1303
 #, kde-format
 msgid "Draw"
 msgstr "आकर्षयतु"
 
-#: src/MainWindow.cpp:1316
+#: src/MainWindow.cpp:1313
 #, kde-format
 msgid "Erase"
 msgstr "मेटयतु"
 
-#: src/MainWindow.cpp:1396
+#: src/MainWindow.cpp:1393
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "विचि"
 
-#: src/MainWindow.cpp:1406
+#: src/MainWindow.cpp:1403
 #, kde-format
 msgid "Backstitch"
 msgstr "बैकस्टिच"
 
-#: src/MainWindow.cpp:1416
+#: src/MainWindow.cpp:1413
 #, kde-format
 msgid "Color Picker"
 msgstr "रङ्ग पिकर"
 
-#: src/MainWindow.cpp:1427
+#: src/MainWindow.cpp:1424
 #, kde-format
 msgid "Palette Manager..."
 msgstr "पैलेट प्रबन्धक..."
 
-#: src/MainWindow.cpp:1433
+#: src/MainWindow.cpp:1430
 #, kde-format
 msgid "Show Symbols"
 msgstr "प्रतीकं दर्शयतु"
 
-#: src/MainWindow.cpp:1439
+#: src/MainWindow.cpp:1436
 #, kde-format
 msgid "Clear Unused"
 msgstr "स्पष्ट अप्रयुक्त"
 
-#: src/MainWindow.cpp:1444
+#: src/MainWindow.cpp:1441
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "योजना मापन..."
 
-#: src/MainWindow.cpp:1454
+#: src/MainWindow.cpp:1451
 #, kde-format
 msgid "Replace Colors"
 msgstr "Replace Colors इति"
 
-#: src/MainWindow.cpp:1460
+#: src/MainWindow.cpp:1457
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "पैटर्न विस्तारित करें..."
 
-#: src/MainWindow.cpp:1472
+#: src/MainWindow.cpp:1469
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "सस्य कैनवास तः पैटर्न"
 
-#: src/MainWindow.cpp:1477
+#: src/MainWindow.cpp:1474
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "चयनं यावत् कैनवासं सस्यं कुर्वन्तु"
 
-#: src/MainWindow.cpp:1497
+#: src/MainWindow.cpp:1494
 #, kde-format
 msgid "Library Manager..."
 msgstr "पुस्तकालय प्रबन्धक..."
 
-#: src/MainWindow.cpp:1533
+#: src/MainWindow.cpp:1530
 #, kde-format
 msgid "Regular Stitches"
 msgstr "नियमित सिलाई"
@@ -1829,7 +1841,7 @@ msgstr "नियमित सिलाई"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1543 src/MainWindow.cpp:1593 src/MainWindow.cpp:1634
+#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1590 src/MainWindow.cpp:1631
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1840,7 +1852,7 @@ msgstr "कृष्ण & श्वेत प्रतीक"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1552 src/MainWindow.cpp:1625 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1549 src/MainWindow.cpp:1622 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1850,72 +1862,72 @@ msgstr "वर्ण प्रतीक"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1561 src/MainWindow.cpp:1606 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1558 src/MainWindow.cpp:1603 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "वर्णखण्डाः"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1570 src/MainWindow.cpp:1616 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1567 src/MainWindow.cpp:1613 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "रंग खण्ड एवं प्रतीक"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1583 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1580 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "वर्णरेखाः"
 
-#: src/MainWindow.cpp:1643
+#: src/MainWindow.cpp:1640
 #, kde-format
 msgid "Color Highlight"
 msgstr "रङ्ग हाइलाइट्"
 
-#: src/MainWindow.cpp:1649
+#: src/MainWindow.cpp:1646
 #, fuzzy, kde-format
 #| msgid "Show knots"
 msgid "Show Center"
 msgstr "ग्रन्थिः दर्शयतु"
 
-#: src/MainWindow.cpp:1655
+#: src/MainWindow.cpp:1652
 #, kde-format
 msgid "Show Stitches"
 msgstr "सिलाईं दर्शयतु"
 
-#: src/MainWindow.cpp:1661
+#: src/MainWindow.cpp:1658
 #, kde-format
 msgid "Show Backstitches"
 msgstr "Backstiches दर्शयतु"
 
-#: src/MainWindow.cpp:1667
+#: src/MainWindow.cpp:1664
 #, kde-format
 msgid "Show French Knots"
 msgstr "फ्रेंच गांठं दर्शयतु"
 
-#: src/MainWindow.cpp:1673
+#: src/MainWindow.cpp:1670
 #, kde-format
 msgid "Show Grid"
 msgstr "ग्रिड् दर्शयतु"
 
-#: src/MainWindow.cpp:1679
+#: src/MainWindow.cpp:1676
 #, kde-format
 msgid "Show Background Images"
 msgstr "पृष्ठभूमिचित्रं दर्शयतु"
 
-#: src/MainWindow.cpp:1738
+#: src/MainWindow.cpp:1735
 #, kde-format
 msgid "Preview"
 msgstr "पूर्वावलोकनम्"
 
-#: src/MainWindow.cpp:1760
+#: src/MainWindow.cpp:1757
 #, kde-format
 msgid "History"
 msgstr "इतिहास"
 
-#: src/MainWindow.cpp:1768
+#: src/MainWindow.cpp:1765
 #, kde-format
 msgid "Imported Image"
 msgstr "आयातितप्रतिमा"
