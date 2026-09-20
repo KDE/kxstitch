@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:43+0000\n"
-"PO-Revision-Date: 2026-05-20 12:22+0200\n"
+"PO-Revision-Date: 2026-09-18 16:51+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.0\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -3060,7 +3060,7 @@ msgstr "Bibliothèque de symboles"
 #: ui/PaletteManager.ui:59
 #, kde-format
 msgid "&Search:"
-msgstr ""
+msgstr "&Rechercher :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:217
@@ -3084,7 +3084,7 @@ msgstr "Brins des points de croix"
 #: ui/PaletteManager.ui:252
 #, kde-format
 msgid "&Next"
-msgstr ""
+msgstr "Suiva&nt"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:264
