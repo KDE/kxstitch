@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:43+0000\n"
-"PO-Revision-Date: 2026-05-19 12:44+0200\n"
+"PO-Revision-Date: 2026-09-21 15:01+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1540,12 +1540,13 @@ msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 
 #: src/MainWindow.cpp:524
-#, fuzzy, kde-format
-#| msgid "Failed to open the file %1"
+#, kde-format
 msgid ""
 "Failed to load the image file.\n"
 "%1"
-msgstr "Falleva a aperir le file %1"
+msgstr ""
+"Falleva a cargar le file  imagine. \n"
+"%1"
 
 #: src/MainWindow.cpp:531
 #, kde-format

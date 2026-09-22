@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:43+0000\n"
-"PO-Revision-Date: 2026-09-18 16:51+0200\n"
+"PO-Revision-Date: 2026-09-20 10:10+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1601,15 +1601,12 @@ msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
 #: src/MainWindow.cpp:524
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to read the file.\n"
-#| "%1."
+#, kde-format
 msgid ""
 "Failed to load the image file.\n"
 "%1"
 msgstr ""
-"Impossible de lire le fichier.\n"
+"Impossible de charger le fichier de l'image.\n"
 "%1."
 
 #: src/MainWindow.cpp:531
