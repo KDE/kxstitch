@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:43+0000\n"
-"PO-Revision-Date: 2026-05-31 20:12-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -1540,16 +1540,11 @@ msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 msgstr ""
 
 #: src/MainWindow.cpp:524
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to open the file.\n"
-#| "%1"
+#, kde-format
 msgid ""
 "Failed to load the image file.\n"
 "%1"
 msgstr ""
-"ھۆججەتنى ئاچالمىدى.\n"
-"%1"
 
 #: src/MainWindow.cpp:531
 #, kde-format
@@ -2621,7 +2616,7 @@ msgstr ""
 #: ui/ImportImage.ui:302
 #, no-c-format, kde-format
 msgid "%"
-msgstr "%"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/ImportImage.ui:315
@@ -2972,7 +2967,7 @@ msgstr ""
 #: ui/PaletteManager.ui:59
 #, kde-format
 msgid "&Search:"
-msgstr ""
+msgstr "ئىزدە(&S):"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:217
@@ -2996,7 +2991,7 @@ msgstr ""
 #: ui/PaletteManager.ui:252
 #, kde-format
 msgid "&Next"
-msgstr ""
+msgstr "كېيىنكى(&N)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:264
