@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:43+0000\n"
-"PO-Revision-Date: 2026-06-26 20:45+0200\n"
+"PO-Revision-Date: 2026-09-22 21:47+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -1619,16 +1619,13 @@ msgstr ""
 "Изображения (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
 
 #: src/MainWindow.cpp:524
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to read the file.\n"
-#| "%1."
+#, kde-format
 msgid ""
 "Failed to load the image file.\n"
 "%1"
 msgstr ""
-"Не удалось прочитать файл.\n"
-"%1."
+"Не удалось загрузить файл изображения.\n"
+"%1"
 
 #: src/MainWindow.cpp:531
 #, kde-format
@@ -3081,7 +3078,7 @@ msgstr "Библиотека обозначений"
 #: ui/PaletteManager.ui:59
 #, kde-format
 msgid "&Search:"
-msgstr ""
+msgstr "&Поиск:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:217
@@ -3105,7 +3102,7 @@ msgstr "Волокна стежка"
 #: ui/PaletteManager.ui:252
 #, kde-format
 msgid "&Next"
-msgstr ""
+msgstr "&Далее"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:264
