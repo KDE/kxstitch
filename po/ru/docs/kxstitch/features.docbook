@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>Возможности</title>
+    <para
+>Здесь перечислены имеющиеся и запланированные возможности.</para>
+    <itemizedlist>
+        <listitem
+><para
+>Создание новых схем <itemizedlist>
+                <listitem
+><para
+>Размер, заданный пользователем</para
+></listitem>
+                <listitem
+><para
+>Выбор цвета полотна</para
+></listitem>
+                <listitem
+><para
+>Вставка фоновых изображений для обводки</para
+></listitem>
+                <listitem
+><para
+>Импорт изображений различных форматов</para
+></listitem>
+                <listitem
+><para
+>Параметры импорта позволяют <itemizedlist>
+                        <listitem
+><para
+>ограничивать число цветов</para
+></listitem>
+                        <listitem
+><para
+>ограничивать цвета определённой палитрой</para
+></listitem>
+                        <listitem
+><para
+>масштабировать до размера готовой работы</para
+></listitem>
+                        <listitem
+><para
+>учитывать прозрачность изображений</para
+></listitem>
+                        <listitem
+><para
+>использовать дробные стежки</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Правка существующих схем; инструменты правки включают <itemizedlist>
+                <listitem
+><para
+>Незаполненные и заполненные прямоугольники</para
+></listitem>
+                <listitem
+><para
+>Незаполненные и заполненные эллипсы</para
+></listitem>
+                <listitem
+><para
+>Заполненные многоугольники</para
+></listitem>
+                <listitem
+><para
+>Рисование</para
+></listitem>
+                <listitem
+><para
+>Линии</para
+></listitem>
+                <listitem
+><para
+>Стирание стежков, узлов и обратных стежков</para
+></listitem>
+                <listitem
+><para
+>Выбор цвета из имеющихся стежков</para
+></listitem>
+                <listitem
+><para
+>Обмен двух цветов</para
+></listitem>
+                <listitem
+><para
+>Замена одного цвета другим</para
+></listitem>
+                <listitem
+><para
+>Текст с произвольными шрифтом и размером</para
+></listitem>
+                <listitem
+><para
+>Вырезание, копирование и вставка прямоугольных областей.</para
+></listitem>
+                <listitem
+><para
+>Неограниченная отмена и повтор действий</para
+></listitem>
+                <listitem
+><para
+>Отзеркаливание по горизонтали и по вертикали.</para
+></listitem>
+                <listitem
+><para
+>Поворот на 90, 180 и 270 градусов против часовой стрелки.</para
+></listitem>
+                <listitem
+><para
+>Изменение размера канвы <itemizedlist>
+                        <listitem
+><para
+>Расширение канвы влево, вверх, вправо и вниз</para
+></listitem>
+                        <listitem
+><para
+>Обрезка канвы по схеме</para
+></listitem>
+                        <listitem
+><para
+>Обрезка канвы по выделению</para
+></listitem>
+                        <listitem
+><para
+>Вставка строк и столбцов</para
+></listitem>
+                        <listitem
+><para
+>Размещение схемы в центре канвы</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>Преобразование между схемами ниток</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Стандартные палитры ниток: DMC, Anchor и другие</para
+></listitem>
+        <listitem
+><para
+>Создание собственных палитр ниток</para
+></listitem>
+        <listitem
+><para
+>Создание новых цветов для любой палитры ниток</para
+></listitem>
+        <listitem
+><para
+>Сохранение и загрузка текущей палитры</para
+></listitem>
+        <listitem
+><para
+>Использование стандартных стежков</para
+></listitem>
+        <listitem
+><para
+>Диспетчер библиотек схем <itemizedlist>
+                <listitem
+><para
+>Создание схем в библиотеке</para
+></listitem>
+                <listitem
+><para
+>Вставка схем из библиотеки в работу</para
+></listitem>
+                <listitem
+><para
+>Перетаскивание из библиотеки в схему</para
+></listitem>
+                <listitem
+><para
+>Перетаскивание из одной библиотеки в другую</para
+></listitem>
+                <listitem
+><para
+>Назначение схемам клавиш для инструмента «Алфавит»</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Произвольное использование обратных стежков</para
+></listitem>
+        <listitem
+><para
+>Печать готовых схем и легенд ниток <itemizedlist>
+                <listitem
+><para
+>Изображение схемы</para
+></listitem>
+                <listitem
+><para
+>Инструкции</para
+></listitem>
+                <listitem
+><para
+>Легенда ниток и сводка по стежкам</para
+></listitem>
+                <listitem
+><para
+>Схема с картой страниц</para
+></listitem>
+                <listitem
+><para
+>Текстовые поля</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>Сопоставление обозначений ниткам</para
+></listitem>
+        <listitem
+><para
+>Задание числа волокон для стежков и обратных стежков</para
+></listitem>
+        <listitem
+><para
+>Настройка цветов ниток</para
+></listitem>
+    </itemizedlist>
+    <para
+>Пожелания о новых возможностях возможно отправлять в <ulink url="http://bugs.kde.org"
+>систему отслеживания ошибок KDE</ulink
+></para>
+</chapter>

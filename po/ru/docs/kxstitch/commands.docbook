@@ -1,0 +1,1419 @@
+<chapter id="commands">
+    <title
+>Список команд</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>Меню &kxstitch;</title>
+        <sect2>
+            <title
+>Меню «Файл»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Создать</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Создаёт новую схему со значениями по умолчанию, заданными в диалоге свойств схемы.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Открыть</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Открывает существующую схему</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Последние файлы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Открывает недавно использовавшуюся схему</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Сохранить</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Сохраняет схему</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Сохранить как</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Сохраняет схему под новым именем</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Отменить</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Возвращает схему к последнему сохранённому состоянию</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Печать</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Печатает схему</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Параметры печати</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Настраивает макет печати</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Импорт изображения</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Импортирует файл изображения, преобразуя его в стежки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Свойства файла</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает и позволяет изменить свойства документа</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Добавление фонового изображения</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет изображение как фон для обводки.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Удалить фоновое изображение</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Выбор фонового изображения для удаления. Подменю заполняется ранее вставленными фоновыми изображениями.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Закрыть</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Закрывает схему</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Выход</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Завершает работу</action
+> &kxstitch;</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Правка»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Отменить действие</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Отменяет последнее изменение. Список изменений показан в окне журнала действий.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Повторить отменённое действие</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Повторяет последнее отменённое изменение. Список изменений показан в окне журнала действий.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Вырезать</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вырезает выделенную область в буфер обмена</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Копировать</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Копирует выделенную область в буфер обмена</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Вставить</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет выделенную область</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>Маски выделения</guisubmenu
+><guimenuitem
+>Маска стежков</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ограничивает выделение текущим типом стежка</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски выделения</guisubmenu
+><guimenuitem
+>Маска цветов</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Ограничивает выделение текущим цветом</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски выделения</guisubmenu
+><guimenuitem
+>Исключить обратные стежки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Исключает обратные стежки из выделения</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Маски выделения</guisubmenu
+><guimenuitem
+>Исключить узлы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Исключает узлы из выделения</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Отзеркаливание и поворот создают копии</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Если параметр включён, отзеркаливание и поворот создают копию выделенного, иначе выделенная область перемещается</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Отзеркалить выделенное</guisubmenu
+><guimenuitem
+>По горизонтали</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Отзеркаливает выделенную область по горизонтали, то есть переворачивает слева направо</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Отзеркалить выделенное</guisubmenu
+><guimenuitem
+>По вертикали</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Отзеркаливает выделенную область по вертикали, то есть переворачивает сверху вниз</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Повернуть выделенное</guisubmenu
+><guimenuitem
+>На 90 градусов</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Поворачивает выделенную область против часовой стрелки на 90 градусов</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Повернуть выделенное</guisubmenu
+><guimenuitem
+>На 180 градусов</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Поворачивает выделенную область против часовой стрелки на 180 градусов</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>Повернуть выделенное</guisubmenu
+><guimenuitem
+>На 270 градусов</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Поворачивает выделенную область против часовой стрелки на 270 градусов</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>Вырезание, копирование и вставка</title>
+                <para
+>При вырезании и копировании областей схемы возможно ограничить выделение масками стежков и цветов, а также исключением обратных стежков и узлов. </para>
+                <para
+>При вставке в &kxstitch; возможно нажать и удерживать <mousebutton
+>левую</mousebutton
+> кнопку мыши примерно там, куда должны попасть данные: тогда показывается изображение вставляемого, позволяющее точно расположить его перед тем, как отпустить кнопку мыши и закрепить положение. Так же работают отзеркаливание и поворот. Перемещать вставляемую схему возможно и клавишами со стрелками, а закреплять положение — клавишей &Enter;. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Вид»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Фактический размер</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет масштаб так, чтобы размер на экране примерно соответствовал физическому размеру</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Уместить страницу</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет масштаб так, чтобы вся схема уместилась в видимой области</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Уместить по ширине страницы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет масштаб так, чтобы ширина схемы уместилась в видимой области</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Уместить по высоте страницы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет масштаб так, чтобы высота схемы уместилась в видимой области</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Увеличить</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Увеличивает масштаб в области редактирования</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>Уменьшить</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Уменьшает масштаб в области редактирования</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Предварительный просмотр</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает окно предварительного просмотра</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Палитра</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает окно палитры</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Журнал действий</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает окно журнала действий</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Импортированное изображение</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает окно просмотра импортированного изображения</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показать фоновое изображение</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает фоновое изображение. Список составляется на основе вставленных фоновых изображений</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Подобрать размер фонового изображения по выделению</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Подгоняет выбранное фоновое изображение под текущую выделенную область</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Стежки»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Четвертной стежок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Четвертной стежок; его положение определяется выбранной четвертью ячейки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Полукрест</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Полукрест; его направление определяется выбранной четвертью ячейки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Стежок на три четверти</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>Стежок на три четверти; его положение определяется выбранной четвертью ячейки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Полный стежок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Полный стежок</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малый полукрест</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Малый полукрест; его положение определяется выбранной четвертью ячейки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Малый полный стежок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Малый полный стежок; его положение определяется выбранной четвертью ячейки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Французский узел</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Французский узел</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Инструменты»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Окрасить</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>Наносит стежки на канву: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши и ведите указатель по окну. Стежок добавляется в каждую пройденную ячейку. Отпустите кнопку мыши, чтобы прекратить рисование. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Нарисовать</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует на канве линию из стежков: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в начале линии, доведите указатель до нужной конечной точки и отпустите кнопку. Стежок добавляется в каждую ячейку, через которую проходит линия. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Стереть</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Стирает стежки: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши и проведите по стежкам, которые нужно удалить. Все стежки в пройденных ячейках будут удалены. Отпустите кнопку мыши, чтобы прекратить стирание. Чтобы стереть обратный стежок, удерживайте клавишу &Ctrl; и щёлкните левой кнопкой мыши в его начальной или конечной точке; если в этой точке несколько обратных стежков, будет удалён первый найденный. Чтобы удалить определённый обратный стежок, нажмите кнопку мыши на одном его конце и проведите к другому. Чтобы стереть французский узел, удерживайте клавишу &Shift; и щёлкните по узлу левой кнопкой мыши. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Нарисовать прямоугольник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует прямоугольник: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу прямоугольника и проведите указатель к противоположному. После отпускания кнопки на канву добавляется незаполненный прямоугольник из стежков. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заполнить прямоугольник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует заполненный прямоугольник: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу прямоугольника и проведите указатель к противоположному. После отпускания кнопки на канву добавляется заполненный стежками прямоугольник. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Нарисовать эллипс</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует эллипс: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу описанного прямоугольника и проведите указатель к противоположному. После отпускания кнопки на канву добавляется незаполненный эллипс из стежков. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заполнить эллипс</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует заполненный эллипс: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу описанного прямоугольника и проведите указатель к противоположному. После отпускания кнопки на канву добавляется заполненный стежками эллипс. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заполнить многоугольник</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Рисует заполненный многоугольник: щёлкайте по ячейкам, отмечая вершины многоугольника; чтобы получить более сложные кривые, нажимайте кнопку мыши и ведите указатель. Каждая вершина отмечается кружком, вершины соединяются чёрной линией. Чтобы замкнуть многоугольник, щёлкните по начальной ячейке ещё раз. Клавиша &Backspace; удаляет последнюю точку, клавиша &Esc; убирает все вершины и отменяет операцию. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Текст</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет текст стежками. Открывается диалог ввода текста: выберите нужный шрифт и размер, введите текст и нажмите кнопку <guibutton
+>ОК</guibutton
+>. Затем нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши примерно там, где должен быть текст, точно расположите его движением мыши и отпустите кнопку. Это работает так же, как вставка. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Алфавит</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет из выбранной библиотеки схемы, соответствующие нажатым клавишам. Это позволяет создавать алфавиты схем с назначенными клавишами. Выбрав этот инструмент и щёлкнув по схеме в точке вставки, при каждом нажатии клавиши вы запускаете поиск соответствующей схемы в текущей библиотеке. Если схема найдена, она вставляется в эту точку, а точка вставки смещается на ширину вставленной схемы символа. Поле схемы расширяется вправо, чтобы вместить следующие символы. Клавиша &Enter; начинает новую строку под исходной точкой вставки; если места не хватает, поле схемы расширяется вниз. Клавиша &Backspace; удаляет последний введённый символ, а клавиша <keycap
+>Space</keycap
+> смещает точку вставки на ширину символа пробела из библиотеки либо на заранее заданную величину, если символа пробела нет. При достижении края схемы и окончании слова текст переносится на следующую строку. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Выделение</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Выделяет прямоугольную область: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу прямоугольника, проведите указатель к противоположному и отпустите кнопку. Выделенная область обозначается прямоугольником. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Пипетка</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Позволяет выбрать цвет из уже имеющихся стежков. При наведении указателя на стежки показывается подсказка с цветом под указателем. Щелчок <mousebutton
+>левой</mousebutton
+> кнопкой мыши выбирает этот цвет. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Обратный стежок</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Добавляет на канву обратные стежки: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в начале обратного стежка — точка притянется к ближайшей из 9 точек ячейки, — проведите указатель к концу стежка и отпустите кнопку; конечная точка тоже притянется к ближайшей из 9 точек ячейки. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Палитра»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Редактор палитры</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Добавляет и удаляет цвета текущей палитры. Позволяет назначить обозначения и число волокон для стежков и обратных стежков. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать обозначения</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает обозначения, связанные с каждым цветом</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Убрать неиспользуемые</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Убирает из палитры неиспользуемые цвета.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Поменять цвета местами</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Следующий выбранный цвет поменяется местами с текущим выбранным цветом. Если выбрать инструмент «Пипетка», цвет для обмена возможно взять прямо со схемы. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Заменить цвета</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Следующий выбранный цвет заменит текущий выбранный цвет. Как и при обмене цветов, взять цвет со схемы возможно инструментом «Пипетка». </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Библиотека»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Диспетчер библиотек</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Открывает диспетчер библиотек схем — немодальный диалог для создания и использования библиотек схем и алфавитов. Схемы возможно перетаскивать из библиотеки в схему мышью. Нити автоматически пересчитываются под текущую схему, а изображение масштабируется по текущему масштабу схемы для точного расположения. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Схема»</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Расширение схемы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Расширяет схему вверх, влево, вправо и вниз</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Центрирование схемы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Помещает схему в центр канвы</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Обрезать канву по схеме</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обрезает канву по границам схемы</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Обрезать канву по выделению</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Обрезает канву по границам текущего выделения</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вставить строки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет столько строк, сколько занимает выделенная область</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Вставить столбцы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Вставляет столько столбцов, сколько занимает выделенная область</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Настройка»</title>
+            <para
+>Помимо обычных для &kde; пунктов меню «Настройка», описанных в главе <ulink url="help:/fundamentals/ui.html#menus-settings"
+>«Меню Настройка»</ulink
+> документации «Основы &kde;», в &kxstitch; есть следующие собственные пункты меню: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Форматировать шкалы как</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет единицы измерения на шкалах: стежки, сантиметры или дюймы.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать стежки как</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет способ показа стежков.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать обратные стежки как</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет способ показа обратных стежков.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать узлы как</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Меняет способ показа узлов.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Цветная подсветка</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Включает или отключает режим подсветки цвета</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать стежки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает стежки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать обратные стежки</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает обратные стежки</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать французские узлы</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает французские узлы</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показать сетку</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает сетку</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Показывать фоновые изображения</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>Показывает или скрывает все фоновые изображения</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>Настроить &kxstitch;</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>Открывает <link linkend="ConfigurationDialog"
+>диалог настройки</link
+> &kxstitch;.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>Меню «Справка»</title>
+            <para
+>Кроме того, в &kxstitch; есть обычные для &kde; пункты меню «Справка». Подробнее о них — в разделе <ulink url="help:/fundamentals/ui.html#menus-help"
+>«Меню Справка»</ulink
+> документации «Основы &kde;». </para>
+        </sect2>
+    </sect1>
+</chapter>

@@ -1,0 +1,40 @@
+<chapter id="credits">
+    <title
+>Авторские права и лицензия</title>
+    <para
+>&kxstitch;</para>
+    <para
+>Программа © Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+>, 2002-2015</para>
+    <para
+>Участники: <itemizedlist>
+	<listitem
+><para
+>Pierre Brua <email
+>kxstitchdev@paralline.com</email
+>: исправления ошибок, значки приложения</para
+></listitem>
+	<listitem
+><para
+>Eric Pareja <email
+>xenos@upm.edu.ph</email
+>: страница man</para
+></listitem>
+	<listitem
+><para
+>Adam Gundy <email
+>adam@starsilk.net</email
+>: исправления ошибок, улучшения</para
+></listitem>
+        </itemizedlist>
+    </para>
+    <para
+>Документация © Stephen P. Allewell <email
+>steve.allewell@gmail.com</email
+>, 2015 </para>
+    <para
+>Перевод на русский язык — Александр Яворский <email
+>kekcuha@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>

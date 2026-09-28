@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>Установка</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>Где взять &kxstitch;</title>
+        <para
+>Исходный код &kxstitch; размещён по адресу <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. Домашняя страница &kxstitch; — <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>Требования</title>
+        <para
+>&kxstitch; написан с использованием &Qt; 5.x и &kf5-full;. </para>
+        <para
+>Для импорта изображений нужны библиотеки ImageMagick, в том числе заголовочные файлы для разработки ImageMagick и Magick++. Они есть в вашем дистрибутиве либо доступны по адресу <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>Компиляция и установка</title>
+        <para
+>Для сборки KXStitch нужны cmake и подходящие средства сборки: make, gcc и так далее. В поставку входит сценарий сборки, который выполняет всю необходимую компиляцию и устанавливает KXStitch; для установки может потребоваться пароль root. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>
