@@ -1,0 +1,506 @@
+<chapter id="Dialogs">
+    <title
+>Диалоговые окна</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>Диалог «Редактор палитры»</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Редактор палитры позволяет добавлять, удалять и заменять нитки в текущей палитре и выбранной схеме ниток. Можно убрать из текущей палитры все неиспользуемые нитки и добавить в схему новые. Кроме того, отсюда открывается <link linkend="CalibrateDialog"
+>диалог настройки ниток</link
+>. </para>
+        <para
+>Для каждой нитки возможно задать число волокон — и для стежков, и для обратных стежков. Эти сведения используются при расчёте количества ниток, необходимого для готовой работы. </para>
+        <para
+>В диалоге есть кнопка <guilabel
+>Выбрать цвет</guilabel
+>, позволяющая взять цвет из любого места экрана — например, из фонового изображения, чтобы легко подобрать подходящие цвета. Указатель примет вид перекрестия с образцом цвета пикселя под ним. После щелчка по пикселю в списке ниток будет выбрана нитка, наиболее близкая к выбранному цвету. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>Выбор обозначений</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>Каждой нитке возможно назначить обозначение. Диалог выбора обозначения показывает все доступные обозначения; уже занятые показываются серым, и при наведении на них появляется подсказка <quote
+>Используется</quote
+>. Библиотеку обозначений для палитры возможно сменить, выбрав её в раскрывающемся списке, — тогда всем ниткам будут назначены обозначения из новой библиотеки. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>Диалог добавления цвета</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Диалог показывает название схемы ниток, в которую будет добавлен новый цвет. Для цвета нужно указать название и описание — они могут быть любыми, хотя название цвета обычно задаёт производитель ниток. </para>
+        <para
+>Кнопка <guilabel
+>Цвет</guilabel
+> открывает стандартный <ulink url="help:/fundamentals/colors.html"
+>диалог выбора цвета &kde;</ulink
+>. В нём возможно выбрать исходный цвет, а затем подстроить параметры до нужного оттенка. </para>
+        <para
+>Добавленный цвет можно будет включить в палитру схемы через диалог <guilabel
+>Редактор палитры</guilabel
+>. Кроме того, его можно подправить в <link linkend="CalibrateDialog"
+>диалоге настройки ниток</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>Диалог настройки ниток</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Диалог состоит из двух частей. </para>
+        <para
+>Слева — раскрывающийся список доступных схем ниток и список цветов выбранной схемы. Если цвет был изменён во время текущей работы с этим диалогом, к его описанию добавляется пометка <guilabel
+>(Calibrated)</guilabel
+>. </para>
+        <para
+>Справа — название и описание выбранного цвета (если цвет изменён, к ним добавляется пометка <guilabel
+>(изменено)</guilabel
+>), образец цвета и его текущие значения RGB. </para>
+        <para
+>Там же расположена кнопка <guibutton
+>Сбросить цвет</guibutton
+>: она возвращает выбранному цвету значение, которое было у него при открытии диалога. </para>
+        <para
+>Кнопка <guibutton
+>ОК</guibutton
+> сохраняет все изменённые цвета. </para>
+        <para
+>Кнопка <guibutton
+>Отмена</guibutton
+> возвращает всем изменённым цветам исходные значения. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>Диалог настройки</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Этот диалог позволяет настроить ряд элементов KXStitch. </para>
+        <para
+>Назначение большинства параметров понятно из названий. Флажки включают и отключают различные функции и элементы, а раскрывающиеся списки позволяют выбрать нужный вид этих элементов. </para>
+        <para
+>Вернуть параметры по умолчанию позволяет кнопка <guibutton
+>По умолчанию</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>Диалог импорта изображения</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>В левой части диалога показывается предварительный вид импортируемого изображения с учётом параметров, заданных справа. </para>
+        <para
+>Возможно выбрать схему ниток для готовой схемы; по умолчанию она совпадает со значением на странице <guilabel
+>Схема</guilabel
+> диалога настройки. Возможно также ограничить наибольшее число цветов схемы; по умолчанию импортированная схема получает столько цветов, сколько их в исходном изображении после преобразования в цвета ниток. Флажок <guilabel
+>Игнорировать цвет</guilabel
+> позволяет пипеткой выбрать на изображении цвет, который при импорте будет пропущен. Это удобно, чтобы убрать фон, который не нужно превращать в стежки. Пропускаемый цвет показывается в предварительном просмотре шахматным узором. </para>
+        <para
+>Плотность ткани по умолчанию берётся со страницы <guilabel
+>Схема</guilabel
+> диалога настройки, а масштаб подбирается так, чтобы итоговый размер был как можно ближе к заданному там же размеру схемы. Эти значения возможно изменить. </para>
+        <para
+>Флажок <guilabel
+>Обрезать изображение</guilabel
+> включает обрезку изображения в предварительном просмотре. Нажмите кнопку мыши и проведите по изображению, чтобы выделить нужную область. До выбора начальной точки показываются направляющие, помогающие точнее её поставить. После выделения области предварительный вид перерисовывается и показывает обрезанную часть; при необходимости её возможно обрезать ещё раз. Кнопка сброса или снятие флажка возвращает исходное изображение. </para>
+        <para
+>Флажок <guilabel
+>Использовать дробные стежки</guilabel
+> разрешает использовать в импортированной схеме дробные стежки. По сути это удваивает разрешение импорта, не меняя общего размера схемы. </para>
+        <para
+>Кнопка <guibutton
+>ОК</guibutton
+> преобразует изображение в схему. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>Диалог «Свойства файла»</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Размер схемы возможно задавать в стежках, сантиметрах или дюймах. При смене единиц ширина и высота автоматически пересчитываются в новые единицы. </para>
+        <para
+>Плотность ткани задаётся на сантиметр или на дюйм и зависит от единиц размера, то есть если выбраны сантиметры, плотность указывается на сантиметр, и так же для дюймов. Если в поле <guilabel
+>Единицы</guilabel
+> выбрать <guimenuitem
+>Стежки</guimenuitem
+>, плотность ткани останется в последних выбранных единицах — сантиметрах или дюймах. </para>
+        <para
+>В поля «Название», «Автор», «Авторские права» и «Полотно» возможно ввести любой текст. Цвет полотна задаётся кнопкой выбора цвета; он показывается в окнах редактора и предварительного просмотра. </para>
+        <para
+>Для схемы ниток есть раскрывающийся список всех доступных схем, в том числе созданных вами. </para>
+        <para
+>На вкладке <guilabel
+>Инструкции</guilabel
+> возможно ввести особые указания по вышиванию схемы. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>Диалог библиотеки схем</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>В диспетчере библиотек схем слева показано иерархическое дерево категорий (точнее, целый лес), а справа — значки схем выбранной категории. Диалог немодальный, его возможно не закрывать во время работы над схемой. </para>
+        <para
+>Проще всего перетаскивать схемы из библиотеки в поле схемы мышью. Другой способ — щелчок <mousebutton
+>правой</mousebutton
+> кнопкой мыши по схеме в библиотеке: откроется контекстное меню с командой копирования, после чего схему возможно вставить сколько угодно раз. </para>
+        <para
+>Другие пункты контекстного меню: <itemizedlist>
+                <listitem
+><para
+>Удалить: удаляет элемент библиотеки; перед удалением показывается запрос подтверждения.</para
+></listitem>
+                <listitem
+><para
+>Свойства: открывает диалог свойств элемента.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Диалог свойств элемента показывает его размер, используемую схему ниток, значение базовой линии и назначенный символ клавиатуры. Базовая линия задаёт положение схемы символа по вертикали относительно курсора при работе с инструментом «Алфавит»: положительные значения сдвигают её вниз, отрицательные — вверх. Назначенный символ нужен только для инструмента «Алфавит». После щелчка по полю назначенного символа следующее нажатие клавиши вместе с модификаторами (&Shift;, &Ctrl; и т. д.) запоминается как клавиша. </para>
+        <para
+>Чтобы создать библиотеку, щёлкните <mousebutton
+>правой</mousebutton
+> кнопкой мыши по существующей категории (для вложенной категории) или по пустому месту списка библиотек (для категории верхнего уровня), выберите пункт <guimenuitem
+>Новая категория</guimenuitem
+>, введите название и нажмите <guibutton
+>ОК</guibutton
+>. </para>
+        <para
+>Чтобы создать схему в библиотеке, выделите область в редакторе схем и скопируйте её, затем щёлкните <mousebutton
+>правой</mousebutton
+> кнопкой мыши по существующей категории и выберите вставку. Если библиотека нужна как набор символов, через свойства возможно назначить элементу клавишу. </para>
+        <para
+>Схемы возможно перетаскивать мышью между библиотеками списка, упорядочивая их по своему вкусу. Учтите, что уникальность назначенных схемам клавиш не проверяется, поэтому повторяющиеся назначения следует исправлять вручную. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>Диалог ввода текста</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>Диалог ввода текста позволяет выбрать шрифт и размер, а затем ввести текст. Кнопка <guibutton
+>ОК</guibutton
+> закрывает диалог и возвращает в окно &kxstitch;. Текст располагается так же, как при вставке любого другого элемента: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши на канве примерно там, где он нужен, — появится предварительный вид текста; поставьте текст точно на место и отпустите кнопку. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>Диалог «Расширение схемы»</title>
+        <para
+>Служит для расширения схемы в разных направлениях на заданное число ячеек. Введите число ячеек в поля со счётчиком и нажмите <guibutton
+>ОК</guibutton
+>. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>Диалог печати</title>
+        <para
+>Слева в диалоге — список страниц с миниатюрой каждой страницы. Справа — редактор макета, в котором размещаются элементы. Каждый элемент настраивается через контекстное меню; его положение и размер возможно менять как угодно. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Выбрать шаблон параметров печати. Сейчас в поставку входит шаблон, похожий на шаблон из KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Добавить страницу — добавляет страницу в конец списка.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Вставить страницу — вставляет страницу перед выбранной в списке.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Удалить страницу — удаляет выбранную в списке страницу.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Выбрать элемент — служит для выбора элементов для правки или изменения размера.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Вставить текстовый элемент — вставляет на текущую страницу текстовый элемент.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Вставить элемент схемы — вставляет на текущую страницу элемент схемы.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Вставить элемент изображения — вставляет на текущую страницу элемент изображения.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Вставить элемент легенды — вставляет на текущую страницу легенду ниток.</para>
+
+        <para
+>Чтобы добавить элемент, выберите значок нужного элемента, затем выделите область страницы, которую он займёт: нажмите <mousebutton
+>левую</mousebutton
+> кнопку мыши в одном углу и проведите к другому. Свойства элемента возможно просмотреть и изменить через контекстное меню, открываемое <mousebutton
+>правой</mousebutton
+> кнопкой мыши </para>
+        <para
+>Размер элемента возможно изменить, выбрав его инструментом выделения<inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>: вокруг элемента появится рамка изменения размера. Перетаскивая её углы, возможно подогнать размер, а весь элемент перемещается перетаскиванием <mousebutton
+>левой</mousebutton
+> кнопкой мыши. </para>
+        <para
+>У страницы есть собственный диалог свойств, в котором задаются поля страницы, а также размер и видимость сетки. Поля служат ориентиром при размещении объектов, но не запрещают ставить элементы за их пределами. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>Элемент схемы</title>
+            <para
+>Элемент схемы показывает расположение стежков на сетке. В диалоге свойств настраивается способ показа стежков: элемент может выглядеть как изображение схемы или как рабочая схема с обозначениями. </para>
+            <para
+>При создании элемент схемы по умолчанию показывает всю схему. В диалоге свойств, в окне предварительного просмотра, возможно выделить нужную область, проведя мышью с нажатой кнопкой. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>Элемент карты</title>
+                <para
+>Элемент карты используется, когда схема занимает несколько листов. Он показывает, какую часть всей схемы представляет данный элемент. Включается в свойствах элемента схемы. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>Текстовый элемент</title>
+            <para
+>Текстовый элемент служит для добавления к схеме заметок, заголовков или комментариев. Для текста настраиваются шрифт, цвет и прозрачность; кроме того, возможно показать рамку. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>В текстовых элементах возможно также использовать переменные, которые заменяются свойствами схемы. </para>
+            <sect3 id="TextVariables">
+                <title
+>Переменные в тексте</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>Элемент обозначения</title>
+            <para
+>Элемент легенды показывает используемые нитки. В диалоге свойств выбираются показываемые поля. Поля <guilabel
+>Первый элемент</guilabel
+> и <guilabel
+>Количество элементов</guilabel
+> пригодятся для больших легенд, занимающих несколько страниц: они позволяют разместить одни обозначения на одной странице, а другие — на другой. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>Изменение размера элемента</title>
+            <para
+>Размер любого элемента возможно изменить, выбрав его инструментом <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>: появится граница изменения размера. Весь элемент перемещается перетаскиванием изнутри. Чтобы изменить размер, наведите указатель на угловой маркер, нажмите кнопку мыши и потяните до нужного размера. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>
