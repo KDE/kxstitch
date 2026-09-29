@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Руководство пользователя KXStitch</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>Первая версия страницы руководства KXStitch для проекта Debian.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Обновление страницы руководства.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>29 июня 2016 г.</date>
+<releaseinfo
+>KXStitch 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>Программа для создания и редактирования схем вышивки крестом от &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>файл</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Описание</title>
+<para
+>KXStitch — приложение для создания схем вышивки крестом. Схемы можно создавать с нуля на сетке заданного размера, которую можно увеличивать или уменьшать по ходу работы. Можно также импортировать изображения множества графических форматов, сократив при этом число цветов и ограничившись полными стежками либо используя дробные стежки. Изображение можно использовать и как фон. Импортированные изображения затем дорабатываются имеющимися инструментами до готовой схемы.</para>
+
+<para
+>Для создания схемы предусмотрено множество инструментов — от незаполненных и заполненных прямоугольников и эллипсов до заполненных многоугольников, линий и обратных стежков. Кроме того, вырезание, копирование и вставка позволяют создавать копии выделенных областей. Выделенные области можно также поворачивать на 90, 180 и 270 градусов против часовой стрелки или отражать по горизонтали и вертикали.</para>
+
+<para
+>Есть также библиотека схем для хранения небольших и не очень фрагментов, которые затем можно использовать в других схемах. Схемы в библиотеках хранятся в иерархическом списке, в котором их легко упорядочивать и находить нужные. Библиотеки схем можно использовать и как алфавиты, назначив каждой схеме символ. При работе с инструментом «Алфавит» для каждой нажатой клавиши в текущей библиотеке ищется схема, и если она есть, то вставляется в рабочую схему.</para>
+
+<para
+>Готовую схему можно напечатать в нескольких вариантах: с титульными листами, инструкциями и таблицей обозначений ниток с расходом ниток и числом стежков.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Аргументы</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>файл</replaceable
+></term>
+<listitem>
+<para
+>Открываемый документ с вышивкой.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Смотрите также</title>
+<simplelist>
+<member
+>Более подробная документация для пользователя доступна по адресу <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (введите этот <acronym
+>URL</acronym
+> в &konqueror; или выполните <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Дополнительные сведения также доступны на <ulink url="http://userbase.kde.org/KXStitch"
+>домашней странице KXStitch</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>Авторы</title>
+<para
+>Автор KXStitch — <personname
+><firstname
+>Stephen</firstname
+><surname
+>Allewell</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>

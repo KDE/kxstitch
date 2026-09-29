@@ -2947,7 +2947,7 @@ msgstr "Межстрочный интервал"
 #: ui/LibraryConfigPage.ui:83
 #, kde-format
 msgid "Extend pattern width"
-msgstr "Увеличить ширину схему"
+msgstr "Увеличить ширину схемы"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: ui/LibraryConfigPage.ui:93
