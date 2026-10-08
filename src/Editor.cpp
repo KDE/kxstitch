@@ -292,8 +292,12 @@ void Editor::drawContents(const QRect &cells)
         // Use the palette's highlight color with transparency
         QColor centerColor = palette().color(QPalette::Highlight);
         centerColor.setAlpha(50);
-        painter.fillRect(centerX, cells.top(), 1, cells.height(), centerColor);
-        painter.fillRect(cells.left(), centerY, cells.width(), 1, centerColor);
+        // Only paint the bits that intersect with cells
+        QRect centerColumn(centerX, 0, 1, height);
+        QRect centerRow(0, centerY, width, 1);
+
+        painter.fillRect(centerColumn.intersected(cells), centerColor);
+        painter.fillRect(centerRow.intersected(cells), centerColor);
     }
 
     m_renderer.render(&painter,
