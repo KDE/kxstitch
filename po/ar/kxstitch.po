@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:43+0000\n"
+"POT-Creation-Date: 2026-10-09 00:44+0000\n"
 "PO-Revision-Date: 2026-09-23 17:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -951,7 +951,7 @@ msgstr "حَدِّث تشكيلة الطابعة"
 msgid "Cut"
 msgstr "قصّ"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1383
+#: src/Commands.cpp:1283 src/Editor.cpp:1985 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Alphabet"
 msgstr "ألفبائية"
@@ -1187,24 +1187,24 @@ msgstr[5] ""
 "\n"
 "قد ترغب في التحقق من أن هذه مناسبة."
 
-#: src/Editor.cpp:784
+#: src/Editor.cpp:788
 #, kde-format
 msgid "Drag"
 msgstr "اسحب"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1373
+#: src/Editor.cpp:839 src/Editor.cpp:1964 src/MainWindow.cpp:1373
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "النص"
 
-#: src/Editor.cpp:930
+#: src/Editor.cpp:934
 #, kde-format
 msgid "Add Character"
 msgstr "أضف شخصية"
 
-#: src/Editor.cpp:979 src/Editor.cpp:2122 src/LibraryManagerDlg.cpp:115
+#: src/Editor.cpp:983 src/Editor.cpp:2126 src/LibraryManagerDlg.cpp:115
 #: src/LibraryManagerDlg.cpp:134
 #, kde-format
 msgid "Paste"

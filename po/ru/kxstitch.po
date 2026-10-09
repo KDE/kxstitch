@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:43+0000\n"
+"POT-Creation-Date: 2026-10-09 00:44+0000\n"
 "PO-Revision-Date: 2026-09-22 21:47+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -960,7 +960,7 @@ msgstr "Обновить конфигурацию принтера"
 msgid "Cut"
 msgstr "Вырезать"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1981 src/MainWindow.cpp:1383
+#: src/Commands.cpp:1283 src/Editor.cpp:1985 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Alphabet"
 msgstr "Алфавит"
@@ -1181,24 +1181,24 @@ msgstr[3] ""
 "\n"
 "Рекомендуется проверить, подходит ли он."
 
-#: src/Editor.cpp:784
+#: src/Editor.cpp:788
 #, kde-format
 msgid "Drag"
 msgstr "Перетаскивание"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:835 src/Editor.cpp:1960 src/MainWindow.cpp:1373
+#: src/Editor.cpp:839 src/Editor.cpp:1964 src/MainWindow.cpp:1373
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "Текст"
 
-#: src/Editor.cpp:930
+#: src/Editor.cpp:934
 #, kde-format
 msgid "Add Character"
 msgstr "Добавить символ"
 
-#: src/Editor.cpp:979 src/Editor.cpp:2122 src/LibraryManagerDlg.cpp:115
+#: src/Editor.cpp:983 src/Editor.cpp:2126 src/LibraryManagerDlg.cpp:115
 #: src/LibraryManagerDlg.cpp:134
 #, kde-format
 msgid "Paste"
