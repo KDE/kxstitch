@@ -30,6 +30,8 @@
 
 #include <math.h>
 
+#include <algorithm>
+
 #include "BackgroundImage.h"
 #include "Commands.h"
 #include "Document.h"
@@ -1225,7 +1227,8 @@ void Editor::mousePressEvent(QMouseEvent *e)
 
 void Editor::mouseMoveEvent(QMouseEvent *e)
 {
-    if (!rect().contains(e->pos())) {
+    // selections can be dragged beyond the editor, they are clamped to the pattern edges
+    if (!rect().contains(e->pos()) && (m_toolMode != Editor::ToolSelect)) {
         return;
     }
 
@@ -1244,7 +1247,8 @@ void Editor::mouseMoveEvent(QMouseEvent *e)
 
 void Editor::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (!rect().contains(e->pos())) {
+    // a selection dragged beyond the editor still needs to be completed
+    if (!rect().contains(e->pos()) && (m_toolMode != Editor::ToolSelect)) {
         return;
     }
 
@@ -2001,6 +2005,10 @@ void Editor::mousePressEvent_Select(QMouseEvent *e)
         update();
     }
 
+    // the previous selection is replaced by the new one, which is not valid until the mouse is released
+    m_selectionArea = QRect();
+    emit(selectionMade(false));
+
     m_cellStart = m_cellTracking = m_cellEnd = contentsToCell(e->pos());
     m_rubberBand = QRect(cellToRect(m_cellStart));
 }
@@ -2011,7 +2019,11 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
 
     dynamic_cast<QScrollArea *>(parentWidget()->parentWidget())->ensureVisible(p.x(), p.y());
 
-    m_cellEnd = m_cellTracking = contentsToCell(p);
+    QPoint cell = contentsToCell(p);
+    cell.setX(std::clamp(cell.x(), 0, m_document->pattern()->stitches().width() - 1));
+    cell.setY(std::clamp(cell.y(), 0, m_document->pattern()->stitches().height() - 1));
+
+    m_cellEnd = m_cellTracking = cell;
     m_rubberBand = QRect(m_cellStart, QSize(1, 1)).united(QRect(m_cellEnd, QSize(1, 1)));
 
     update();
@@ -2021,8 +2033,13 @@ void Editor::mouseMoveEvent_Select(QMouseEvent *e)
         QString::fromLatin1("%1,%2 %3 x %4").arg(m_rubberBand.left()).arg(m_rubberBand.top()).arg(m_rubberBand.width()).arg(m_rubberBand.height()));
 }
 
-void Editor::mouseReleaseEvent_Select(QMouseEvent *)
+void Editor::mouseReleaseEvent_Select(QMouseEvent *e)
 {
+    // only the left button makes selections, and there may not be one to complete
+    if ((e->button() != Qt::LeftButton) || !m_rubberBand.isValid()) {
+        return;
+    }
+
     m_selectionArea = m_rubberBand;
     emit(selectionMade(true));
 }
