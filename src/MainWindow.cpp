@@ -24,7 +24,6 @@
 #include <QPainter>
 #include <QPrintDialog>
 #include <QPrintEngine>
-#include <QPrintPreviewDialog>
 #include <QPrinter>
 #include <QProgressDialog>
 #include <QSaveFile>
@@ -457,7 +456,7 @@ void MainWindow::filePrintSetup()
 
 void MainWindow::filePrint()
 {
-    if (m_printer == nullptr) {
+    if (m_printer == nullptr || m_document->printerConfiguration().pages().isEmpty()) {
         filePrintSetup();
     }
 
@@ -473,8 +472,6 @@ void MainWindow::filePrint()
         }
 
         delete printDialog;
-    } else {
-        KMessageBox::information(this, i18n("There is nothing to print"));
     }
 }
 

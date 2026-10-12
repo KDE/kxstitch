@@ -13,6 +13,7 @@
 #include <math.h>
 
 #include <QColorDialog>
+#include <QDialogButtonBox>
 #include <QFontDialog>
 #include <QHideEvent>
 #include <QInputDialog>
@@ -78,6 +79,15 @@ PrintSetupDlg::PrintSetupDlg(QWidget *parent, Document *document, QPrinter *prin
     connect(m_pageLayoutEditor, &PageLayoutEditor::elementGeometryChanged, this, &PrintSetupDlg::elementGeometryChanged);
     connect(m_pageLayoutEditor, &PageLayoutEditor::customContextMenuRequested, this, &PrintSetupDlg::previewContextMenuRequested);
 
+    // a printer configuration without any pages can not be printed, so only allow accepting one with pages
+    auto updateOkButton = [this]() {
+        ui.DialogButtonBox->button(QDialogButtonBox::Ok)->setEnabled(ui.Pages->count() > 0);
+    };
+    connect(ui.Pages->model(), &QAbstractItemModel::rowsInserted, this, updateOkButton);
+    connect(ui.Pages->model(), &QAbstractItemModel::rowsRemoved, this, updateOkButton);
+    connect(ui.Pages->model(), &QAbstractItemModel::modelReset, this, updateOkButton);
+    updateOkButton();
+
     ui.PageSize->setCurrentIndex(Configuration::page_Size());
     ui.Orientation->setCurrentIndex(Configuration::page_Orientation());
     ui.Zoom->setCurrentIndex(4); // 200%
@@ -113,11 +123,11 @@ void PrintSetupDlg::showEvent(QShowEvent *event)
         initialiseFromConfig();
     }
 
-    if (ui.Pages->count()) {
-        ui.Pages->setCurrentRow(0);
-    } else {
-        on_AddPage_clicked();
+    if (ui.Pages->count() == 0) {
+        createDefaultLayout();
     }
+
+    ui.Pages->setCurrentRow(0);
 }
 
 void PrintSetupDlg::on_PageSize_currentIndexChanged(int pageSizeIndex)
@@ -443,154 +453,172 @@ void PrintSetupDlg::on_Templates_clicked()
 {
     //    QString templateName = qobject_cast<QAction *>(sender())->data().toString();
 
-    bool okToCreate = true;
-
     if (!m_printerConfiguration.isEmpty()) {
-        okToCreate = (KMessageBox::questionTwoActions(this, i18n("Overwrite the current configuration?"), i18n("Overwrite"), KStandardGuiItem::overwrite(), KStandardGuiItem::cancel()) == KMessageBox::PrimaryAction);
-    }
-
-    if (okToCreate) {
-        // TODO this section is currently a hack to allow creation of a printerConfiguration
-        // based on the KDE3 version of KXStitch.  It is intended to create a template based
-        // functionality so that various templates can be created and selected as required.
-
-        // clear the current configuration
-        m_printerConfiguration = PrinterConfiguration();
-        ui.Pages->clear();
-        // create pages based on template
-        // Cover sheet
-        QFont titleFont;
-        titleFont.setPointSize(16);
-        QFont pageFont;
-        pageFont.setPointSize(8);
-
-        Page *page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
-        m_printerConfiguration.addPage(page);
-        addPage(ui.Pages->count(), page);
-
-        QRect printableArea(page->margins().left(),
-                            page->margins().top(),
-                            210 - page->margins().left() - page->margins().right(),
-                            297 - page->margins().top() - page->margins().bottom());
-        QRect headerTitleArea(printableArea.topLeft(), QSize(printableArea.width(), 10));
-        QRect patternArea(headerTitleArea.bottomLeft() + QPoint(0, 5), QSize(printableArea.width(), printableArea.height() - 10 - 35));
-        QRect mapArea(patternArea.bottomRight() - QPoint(30, 5), QSize(30, 30));
-        QRect pageNumberArea(printableArea.bottomLeft() - QPoint(0, 10), QSize(printableArea.width(), 10));
-
-        Element *element = new TextElement(page, QRect(printableArea.topLeft(), QSize(printableArea.width(), 30)));
-        static_cast<TextElement *>(element)->setTextFont(titleFont);
-        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
-        page->addElement(element);
-
-        element = new ImageElement(page, QRect(printableArea.topLeft() + QPoint(0, 60), QSize(printableArea.width(), printableArea.height() / 3)));
-        static_cast<ImageElement *>(element)->setPatternRect(
-            QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
-        static_cast<ImageElement *>(element)->setShowBorder(true);
-        static_cast<ImageElement *>(element)->setBorderThickness(2);
-        page->addElement(element);
-
-        element =
-            new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
-        static_cast<TextElement *>(element)->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-        static_cast<TextElement *>(element)->setText(
-            i18nc("Do not translate elements in ${...} which are substituted by properties",
-                  "Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
-        page->addElement(element);
-
-        element = new TextElement(page, pageNumberArea);
-        static_cast<TextElement *>(element)->setTextFont(pageFont);
-        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
-        page->addElement(element);
-
-        // pattern sheets
-        int documentWidth = m_document->pattern()->stitches().width();
-        int documentHeight = m_document->pattern()->stitches().height();
-
-        // calculate the aspect ratio and the size of the cells to fit within the rectangle and the overall paint area size
-        double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
-        double aspect =
-            m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
-        double cellHeight = cellWidth * aspect;
-
-        if (cellHeight < cellWidth) {
-            cellHeight = cellWidth;
-            cellWidth = cellHeight / aspect;
-        }
-
-        // at this point, based on a minimum preferred cell size a physical width and height have been calculated
-        // which can be used to calculate the number of pages wide and tall that the pattern needs to occupy
-        // based on the size of the pattern area on the page.
-        int horizontalCellsPerPage = int(double(patternArea.width()) / cellWidth);
-        int verticalCellsPerPage = int(double(patternArea.height()) / cellHeight);
-
-        int pagesWide =
-            (documentWidth / horizontalCellsPerPage) + (((documentWidth % horizontalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
-        int pagesTall =
-            (documentHeight / verticalCellsPerPage) + (((documentHeight % verticalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1);
-
-        // the number of pages wide and tall has been calculated based on the minimum cell size.
-        // try and make use of the available space across the pages expanding the cell size to fill the space.
-        horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0); // equal number per page
-        verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0); // equal number per page
-
-        for (int verticalPage = 0; verticalPage < pagesTall; ++verticalPage) {
-            for (int horizontalPage = 0; horizontalPage < pagesWide; ++horizontalPage) {
-                page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
-                m_printerConfiguration.addPage(page);
-                addPage(ui.Pages->count(), page);
-
-                element = new TextElement(page, headerTitleArea);
-                static_cast<TextElement *>(element)->setTextFont(titleFont);
-                static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-                static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
-                page->addElement(element);
-
-                element = new PatternElement(page, patternArea);
-                static_cast<PatternElement *>(element)->setPatternRect(
-                    QRect(horizontalPage * horizontalCellsPerPage,
-                          verticalPage * verticalCellsPerPage,
-                          std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)),
-                          std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
-                static_cast<PatternElement *>(element)->setShowScales(true);
-                static_cast<PatternElement *>(element)->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
-                static_cast<PatternElement *>(element)->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
-                static_cast<PatternElement *>(element)->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
-                page->addElement(element);
-
-                element = new TextElement(page, pageNumberArea);
-                static_cast<TextElement *>(element)->setTextFont(pageFont);
-                static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-                static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
-                page->addElement(element);
-            }
-        }
-
-        // key page
-        page = new Page(QPageSize(QPageSize::A4), QPageLayout::Portrait);
-        m_printerConfiguration.addPage(page);
-        addPage(ui.Pages->count(), page);
-
-        element = new TextElement(page, headerTitleArea);
-        static_cast<TextElement *>(element)->setTextFont(titleFont);
-        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
-        page->addElement(element);
-
-        element = new KeyElement(page, patternArea.adjusted(20, 0, -20, 0));
-        page->addElement(element);
-
-        element = new TextElement(page, pageNumberArea);
-        static_cast<TextElement *>(element)->setTextFont(titleFont);
-        static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
-        static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
-        page->addElement(element);
-
-        for (int i = 0; i < ui.Pages->count(); ++i) {
-            static_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i))->generatePreviewIcon();
+        if (KMessageBox::questionTwoActions(this, i18n("Overwrite the current configuration?"), i18n("Overwrite"), KStandardGuiItem::overwrite(), KStandardGuiItem::cancel()) != KMessageBox::PrimaryAction) {
+            return;
         }
     }
+
+    createDefaultLayout();
+}
+
+/**
+ * Replace the current printer configuration with a default layout of a cover sheet, the pattern
+ * split across as many pages as required and a key page.
+ */
+void PrintSetupDlg::createDefaultLayout()
+{
+    // TODO this section is currently a hack to allow creation of a printerConfiguration
+    // based on the KDE3 version of KXStitch.  It is intended to create a template based
+    // functionality so that various templates can be created and selected as required.
+
+    // clear the current configuration
+    m_printerConfiguration = PrinterConfiguration();
+    ui.Pages->clear();
+    // create pages based on template using the page size and orientation selected in the dialog
+    QPageSize pageSize = selectedPageSize();
+    QPageLayout::Orientation orientation = selectedOrientation();
+    int pageWidth = PageSizes::width(pageSize.id(), orientation);
+    int pageHeight = PageSizes::height(pageSize.id(), orientation);
+
+    // Cover sheet
+    QFont titleFont;
+    titleFont.setPointSize(16);
+    QFont pageFont;
+    pageFont.setPointSize(8);
+
+    Page *page = new Page(pageSize, orientation);
+    m_printerConfiguration.addPage(page);
+    addPage(ui.Pages->count(), page);
+
+    QRect printableArea(page->margins().left(),
+                        page->margins().top(),
+                        pageWidth - page->margins().left() - page->margins().right(),
+                        pageHeight - page->margins().top() - page->margins().bottom());
+    QRect headerTitleArea(printableArea.topLeft(), QSize(printableArea.width(), 10));
+    QRect patternArea(headerTitleArea.bottomLeft() + QPoint(0, 5), QSize(printableArea.width(), printableArea.height() - 10 - 35));
+    QRect mapArea(patternArea.bottomRight() - QPoint(30, 5), QSize(30, 30));
+    QRect pageNumberArea(printableArea.bottomLeft() - QPoint(0, 10), QSize(printableArea.width(), 10));
+
+    Element *element = new TextElement(page, QRect(printableArea.topLeft(), QSize(printableArea.width(), 30)));
+    static_cast<TextElement *>(element)->setTextFont(titleFont);
+    static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+    static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
+    page->addElement(element);
+
+    element = new ImageElement(page, QRect(printableArea.topLeft() + QPoint(0, 60), QSize(printableArea.width(), printableArea.height() / 3)));
+    static_cast<ImageElement *>(element)->setPatternRect(
+        QRect(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height()));
+    static_cast<ImageElement *>(element)->setShowBorder(true);
+    static_cast<ImageElement *>(element)->setBorderThickness(2);
+    page->addElement(element);
+
+    element =
+        new TextElement(page, QRect(printableArea.topLeft() + QPoint(20, 60 + printableArea.height() / 3 + 5), QSize(printableArea.width() - 40, 60)));
+    static_cast<TextElement *>(element)->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    static_cast<TextElement *>(element)->setText(
+        i18nc("Do not translate elements in ${...} which are substituted by properties",
+              "Created by ${author}\n(C) ${copyright}\n\nPattern Size: ${width.stitches} x ${height.stitches}\nFlosses from the ${scheme} range."));
+    page->addElement(element);
+
+    element = new TextElement(page, pageNumberArea);
+    static_cast<TextElement *>(element)->setTextFont(pageFont);
+    static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+    static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
+    page->addElement(element);
+
+    // pattern sheets
+    int documentWidth = m_document->pattern()->stitches().width();
+    int documentHeight = m_document->pattern()->stitches().height();
+
+    // calculate the aspect ratio and the size of the cells to fit within the rectangle and the overall paint area size
+    double cellWidth = Configuration::patternElement_MinimumCellSize(); // mm
+    double aspect =
+        m_document->property(QStringLiteral("horizontalClothCount")).toDouble() / m_document->property(QStringLiteral("verticalClothCount")).toDouble();
+    double cellHeight = cellWidth * aspect;
+
+    if (cellHeight < cellWidth) {
+        cellHeight = cellWidth;
+        cellWidth = cellHeight / aspect;
+    }
+
+    // at this point, based on a minimum preferred cell size a physical width and height have been calculated
+    // which can be used to calculate the number of pages wide and tall that the pattern needs to occupy
+    // based on the size of the pattern area on the page.
+    // at least one cell per page, small page sizes may not have room for any at the preferred size
+    int horizontalCellsPerPage = std::max(1, int(double(patternArea.width()) / cellWidth));
+    int verticalCellsPerPage = std::max(1, int(double(patternArea.height()) / cellHeight));
+
+    // at least one page, a pattern smaller than the minimum overflow would otherwise need no pages
+    int pagesWide = std::max(
+        1,
+        (documentWidth / horizontalCellsPerPage) + (((documentWidth % horizontalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1));
+    int pagesTall = std::max(
+        1,
+        (documentHeight / verticalCellsPerPage) + (((documentHeight % verticalCellsPerPage) < Configuration::patternElement_MinimumOverflow()) ? 0 : 1));
+
+    // the number of pages wide and tall has been calculated based on the minimum cell size.
+    // try and make use of the available space across the pages expanding the cell size to fill the space.
+    horizontalCellsPerPage = (documentWidth / pagesWide) + ((documentWidth % pagesWide) ? 1 : 0); // equal number per page
+    verticalCellsPerPage = (documentHeight / pagesTall) + ((documentHeight % pagesTall) ? 1 : 0); // equal number per page
+
+    for (int verticalPage = 0; verticalPage < pagesTall; ++verticalPage) {
+        for (int horizontalPage = 0; horizontalPage < pagesWide; ++horizontalPage) {
+            page = new Page(pageSize, orientation);
+            m_printerConfiguration.addPage(page);
+            addPage(ui.Pages->count(), page);
+
+            element = new TextElement(page, headerTitleArea);
+            static_cast<TextElement *>(element)->setTextFont(titleFont);
+            static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+            static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
+            page->addElement(element);
+
+            element = new PatternElement(page, patternArea);
+            static_cast<PatternElement *>(element)->setPatternRect(
+                QRect(horizontalPage * horizontalCellsPerPage,
+                      verticalPage * verticalCellsPerPage,
+                      std::min(horizontalCellsPerPage, documentWidth - (horizontalCellsPerPage * horizontalPage)),
+                      std::min(verticalCellsPerPage, documentHeight - (verticalCellsPerPage * verticalPage))));
+            static_cast<PatternElement *>(element)->setShowScales(true);
+            static_cast<PatternElement *>(element)->setRenderStitchesAs(Configuration::EnumRenderer_RenderStitchesAs::BlackWhiteSymbols);
+            static_cast<PatternElement *>(element)->setRenderBackstitchesAs(Configuration::EnumRenderer_RenderBackstitchesAs::BlackWhiteSymbols);
+            static_cast<PatternElement *>(element)->setRenderKnotsAs(Configuration::EnumRenderer_RenderKnotsAs::BlackWhiteSymbols);
+            page->addElement(element);
+
+            element = new TextElement(page, pageNumberArea);
+            static_cast<TextElement *>(element)->setTextFont(pageFont);
+            static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+            static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
+            page->addElement(element);
+        }
+    }
+
+    // key page
+    page = new Page(pageSize, orientation);
+    m_printerConfiguration.addPage(page);
+    addPage(ui.Pages->count(), page);
+
+    element = new TextElement(page, headerTitleArea);
+    static_cast<TextElement *>(element)->setTextFont(titleFont);
+    static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+    static_cast<TextElement *>(element)->setText(QStringLiteral("${title}"));
+    page->addElement(element);
+
+    element = new KeyElement(page, patternArea.adjusted(20, 0, -20, 0));
+    page->addElement(element);
+
+    element = new TextElement(page, pageNumberArea);
+    static_cast<TextElement *>(element)->setTextFont(titleFont);
+    static_cast<TextElement *>(element)->setAlignment(Qt::AlignCenter);
+    static_cast<TextElement *>(element)->setText(i18nc("Do not translate elements in ${...} which are substituted by properties", "Page ${page}"));
+    page->addElement(element);
+
+    for (int i = 0; i < ui.Pages->count(); ++i) {
+        static_cast<PagePreviewListWidgetItem *>(ui.Pages->item(i))->generatePreviewIcon();
+    }
+
+    ui.Pages->setCurrentRow(0);
 }
 
 #include "moc_PrintSetupDlg.cpp"
