@@ -461,15 +461,31 @@ void ImportImageDlg::selectColor(const QPoint &p)
     y = (y < 0) ? 0 : std::min(y, trueSize.height());
 
     m_ignoreColorValue = m_convertedImage.pixelColor(x, y);
-    QPixmap swatch(ui.ColorButton->size());
-    swatch.fill(QColor((int)(255 * m_ignoreColorValue.red()), (int)(255 * m_ignoreColorValue.green()), (int)(255 * m_ignoreColorValue.blue())));
-    ui.ColorButton->setIcon(swatch);
+    updateColorButton();
 
     renderPixmap();
 }
 
+void ImportImageDlg::updateColorButton()
+{
+    QPixmap swatch(ui.ColorButton->size());
+    swatch.fill(QColor((int)(255 * m_ignoreColorValue.red()), (int)(255 * m_ignoreColorValue.green()), (int)(255 * m_ignoreColorValue.blue())));
+    ui.ColorButton->setIcon(swatch);
+}
+
 void ImportImageDlg::on_DialogButtonBox_accepted()
 {
+    if (ui.SetAsDefault->isChecked()) {
+        Configuration::setImport_UseMaximumColors(ui.UseMaximumColors->isChecked());
+        Configuration::setImport_MaximumColors(ui.MaximumColors->value());
+        Configuration::setImport_UseFractionals(ui.UseFractionals->isChecked());
+        Configuration::setImport_IgnoreColor(ui.IgnoreColor->isChecked());
+        Configuration::setImport_IgnoreColorValue(
+            QColor((int)(255 * m_ignoreColorValue.red()), (int)(255 * m_ignoreColorValue.green()), (int)(255 * m_ignoreColorValue.blue())));
+        Configuration::setImport_PatternScale(ui.PatternScale->value());
+        Configuration::self()->save();
+    }
+
     accept();
 }
 
@@ -572,7 +588,7 @@ void ImportImageDlg::resetImportParameters()
 
     int scaledWidth = m_preferredSize.width() * 100 / m_originalSize.width();
     int scaledHeight = m_preferredSize.height() * 100 / m_originalSize.height();
-    int scale = std::min(scaledWidth, scaledHeight);
+    int scale = (Configuration::import_PatternScale() > 0) ? Configuration::import_PatternScale() : std::min(scaledWidth, scaledHeight);
 
     QString scheme = Configuration::palette_DefaultScheme();
 
@@ -592,11 +608,18 @@ void ImportImageDlg::resetImportParameters()
     ui.PatternScale->setValue(scale);
     ui.UseMaximumColors->setChecked(Configuration::import_UseMaximumColors());
     ui.MaximumColors->setEnabled(ui.UseMaximumColors->isChecked());
-    ui.MaximumColors->setValue(Configuration::import_MaximumColors());
     SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
     int maxSymbols = symbolLibrary ? symbolLibrary->indexes().count() : 0;
     ui.MaximumColors->setMaximum(maxSymbols);
     ui.MaximumColors->setToolTip(QString(i18n("Colors limited to %1 due to the number of symbols available", ui.MaximumColors->maximum())));
+    ui.MaximumColors->setValue(Configuration::import_MaximumColors());
+    ui.UseFractionals->setChecked(Configuration::import_UseFractionals());
+
+    QColor ignoreColor = Configuration::import_IgnoreColorValue();
+    m_ignoreColorValue = Magick::ColorRGB(ignoreColor.redF(), ignoreColor.greenF(), ignoreColor.blueF());
+    updateColorButton();
+    ui.IgnoreColor->setChecked(Configuration::import_IgnoreColor());
+    ui.ColorButton->setEnabled(ui.IgnoreColor->isChecked());
 }
 
 #include "moc_ImportImageDlg.cpp"

@@ -199,6 +199,20 @@
             <label>Use fractional stitches for finer detail</label>
             <default>false</default>
         </entry>
+        <entry name="Import_IgnoreColor" type="Bool">
+            <label>Ignore a selected color when importing</label>
+            <default>false</default>
+        </entry>
+        <entry name="Import_IgnoreColorValue" type="Color">
+            <label>The color to be ignored when importing</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="Import_PatternScale" type="Int">
+            <label>Pattern scale as a percentage of the image size, 0 to fit the default document size</label>
+            <default>100</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
     </group>
 
     <group name="palette">

@@ -83,6 +83,7 @@ private:
     void createImageMap();
     void renderPixmap();
     void pickColor();
+    void updateColorButton();
 
     Ui::ImportImage ui;
 
