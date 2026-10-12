@@ -509,4 +509,13 @@
             <default>#000000</default>
         </entry>
     </group>
+
+    <group name="recentDirectories">
+        <entry name="RecentDirectories_Patterns" type="Url">
+            <label>The directory last used to open or save a pattern</label>
+        </entry>
+        <entry name="RecentDirectories_Images" type="Url">
+            <label>The directory last used to import or add an image</label>
+        </entry>
+    </group>
 </kcfg>

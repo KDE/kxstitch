@@ -14,6 +14,7 @@
 #include <QActionGroup>
 #include <QClipboard>
 #include <QDataStream>
+#include <QDir>
 #include <QDockWidget>
 #include <QFileDialog>
 #include <QGridLayout>
@@ -38,6 +39,7 @@
 #include <KIO/StatJob>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KRecentDocument>
 #include <KRecentFilesAction>
 #include <KSelectAction>
 #include <KXMLGUIFactory>
@@ -63,6 +65,51 @@
 #include "SymbolLibrary.h"
 #include "SymbolManager.h"
 #include "configuration.h"
+
+namespace
+{
+/**
+ * Get the file dialog filter for supported image files.
+ */
+QString imageFilter()
+{
+    return i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)");
+}
+
+/**
+ * Get the directory a file dialog should start in.
+ *
+ * @param recentDirectory the directory last used, may be empty
+ *
+ * @return the recent directory if set, otherwise the users home directory
+ */
+QUrl startDirectory(const QUrl &recentDirectory)
+{
+    return recentDirectory.isEmpty() ? QUrl::fromLocalFile(QDir::homePath()) : recentDirectory;
+}
+
+/**
+ * Remember a successfully opened or saved pattern file so the next file dialog starts in its directory
+ * and the file is listed in the desktop recent documents.
+ */
+void rememberPatternUrl(const QUrl &url)
+{
+    Configuration::setRecentDirectories_Patterns(url.adjusted(QUrl::RemoveFilename));
+    Configuration::self()->save();
+    KRecentDocument::add(url, QStringLiteral("org.kde.kxstitch"));
+}
+
+/**
+ * Remember a successfully imported or added image file so the next file dialog starts in its directory
+ * and the file is listed in the desktop recent documents.
+ */
+void rememberImageUrl(const QUrl &url)
+{
+    Configuration::setRecentDirectories_Images(url.adjusted(QUrl::RemoveFilename));
+    Configuration::self()->save();
+    KRecentDocument::add(url, QStringLiteral("org.kde.kxstitch"));
+}
+}
 
 MainWindow::MainWindow()
     : m_printer(nullptr)
@@ -263,7 +310,7 @@ void MainWindow::fileOpen()
 {
     fileOpen(QFileDialog::getOpenFileUrl(this,
                                          i18n("Open file"),
-                                         QUrl::fromLocalFile(QDir::homePath()),
+                                         startDirectory(Configuration::recentDirectories_Patterns()),
                                          i18n("KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)")));
 }
 
@@ -294,6 +341,7 @@ void MainWindow::fileOpen(const QUrl &url)
                         try {
                             m_document->readKXStitch(stream);
                             m_document->setUrl(url);
+                            rememberPatternUrl(url);
                             KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
                             action->addUrl(url);
                             action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
@@ -302,6 +350,7 @@ void MainWindow::fileOpen(const QUrl &url)
 
                             try {
                                 m_document->readPCStitch(stream);
+                                rememberPatternUrl(url);
                             } catch (const InvalidFile &e) {
                                 KMessageBox::error(nullptr, i18n("The file does not appear to be a recognized cross stitch file."));
                             }
@@ -370,11 +419,12 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), QUrl::fromLocalFile(QDir::homePath()), i18n("Cross Stitch Patterns (*.kxs)"));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save As..."), startDirectory(Configuration::recentDirectories_Patterns()), i18n("Cross Stitch Patterns (*.kxs)"));
 
     if (url.isValid()) {
         m_document->setUrl(url);
         fileSave();
+        rememberPatternUrl(url);
         KRecentFilesAction *action = static_cast<KRecentFilesAction *>(actionCollection()->action(QStringLiteral("file_open_recent")));
         action->addUrl(url);
         action->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
@@ -481,7 +531,7 @@ void MainWindow::fileImportImage()
 {
     MainWindow *window;
     bool docEmpty = ((m_document->undoStack().isClean()) && (m_document->url().toString() == i18n("Untitled")));
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)), i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Import Image"), startDirectory(Configuration::recentDirectories_Images()), imageFilter());
 
     if (url.isValid()) {
         QTemporaryFile tmpFile;
@@ -492,6 +542,7 @@ void MainWindow::fileImportImage()
             if (job->exec()) {
                 if (docEmpty) {
                     if (convertImage(tmpFile.fileName())) {
+                        rememberImageUrl(url);
                         finishSetup();
                     }
                 } else {
@@ -500,6 +551,7 @@ void MainWindow::fileImportImage()
                         delete window;
                         return;
                     }
+                    rememberImageUrl(url);
                     window->finishSetup();
                     window->show();
                 }
@@ -729,8 +781,8 @@ void MainWindow::fileAddBackgroundImage()
 {
     QUrl url = QFileDialog::getOpenFileUrl(this,
                                            i18n("Background Image"),
-                                           QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)),
-                                           i18n("Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"));
+                                           startDirectory(Configuration::recentDirectories_Images()),
+                                           imageFilter());
 
     if (!url.isEmpty()) {
         QRect patternArea(0, 0, m_document->pattern()->stitches().width(), m_document->pattern()->stitches().height());
@@ -738,6 +790,7 @@ void MainWindow::fileAddBackgroundImage()
         QSharedPointer<BackgroundImage> backgroundImage(new BackgroundImage(url, (selectionArea.isValid() ? selectionArea : patternArea)));
 
         if (backgroundImage->isValid()) {
+            rememberImageUrl(url);
             m_document->undoStack().push(new AddBackgroundImageCommand(m_document, backgroundImage, this));
         }
     }
