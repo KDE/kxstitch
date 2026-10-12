@@ -16,7 +16,7 @@
 #ifndef SymbolManager_H
 #define SymbolManager_H
 
-#include <QList>
+#include <QMap>
 #include <QStringList>
 
 class SymbolLibrary;
@@ -46,7 +46,7 @@ private:
     SymbolLibrary *readLibrary(const QString &name);
 
     static SymbolManager *symbolManager; /**< pointer to the static symbol manager */
-    QList<SymbolLibrary *> m_symbolLibraries; /**< list of the symbol libraries loaded */
+    QMap<QString, SymbolLibrary *> m_symbolLibraries; /**< symbol libraries loaded, keyed by name */
 };
 
 #endif // SymbolManager_H

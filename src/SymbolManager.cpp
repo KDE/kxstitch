@@ -32,6 +32,9 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+#include <iterator>
+#include <utility>
+
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -72,19 +75,11 @@ SymbolManager::~SymbolManager()
 /**
  * Get a list of the symbol libraries available.
  *
- * @return QStringList of symbol library names.
+ * @return QStringList of unique symbol library names, sorted.
  */
 QStringList SymbolManager::libraries()
 {
-    QStringList libraryNames;
-
-    QListIterator<SymbolLibrary *> i(self().m_symbolLibraries);
-
-    while (i.hasNext()) {
-        libraryNames.append(i.next()->name());
-    }
-
-    return libraryNames;
+    return self().m_symbolLibraries.keys();
 }
 
 /**
@@ -92,18 +87,14 @@ QStringList SymbolManager::libraries()
  *
  * @param name of the library required.
  *
- * @return pointer to the SymbolLibrary instance, returns null if no library found.
+ * @return pointer to the SymbolLibrary instance, falls back to the first library if no library found.
  */
 SymbolLibrary *SymbolManager::library(const QString &name)
 {
-    const QList<SymbolLibrary *> &libraries = self().m_symbolLibraries;
+    const QMap<QString, SymbolLibrary *> &libraries = self().m_symbolLibraries;
 
-    for (int i = 0; i < libraries.count(); ++i) {
-        SymbolLibrary *symbolLibrary = libraries.at(i);
-
-        if (symbolLibrary->name() == name) {
-            return symbolLibrary;
-        }
+    if (SymbolLibrary *symbolLibrary = libraries.value(name)) {
+        return symbolLibrary;
     }
 
     // Support legacy configs that stored the library as a numeric index.
@@ -111,43 +102,48 @@ SymbolLibrary *SymbolManager::library(const QString &name)
     int legacyIndex = name.toInt(&legacyIndexValid);
 
     if (legacyIndexValid && legacyIndex >= 0 && legacyIndex < libraries.count()) {
-        return libraries.at(legacyIndex);
+        return *std::next(libraries.cbegin(), legacyIndex);
     }
 
-    return libraries.value(0);
+    return libraries.isEmpty() ? nullptr : libraries.first();
 }
 
 /**
  * Get a list of files stored in the symbols path, iterating each one to create a new SymbolLibrary instance
  * and read the library.
- * Assumes that local resources are given before global ones and should take priority.
+ * Assumes that local resources are given before global ones and should take priority, so a library
+ * is only read the first time its name is found.
  */
 void SymbolManager::refresh()
 {
     QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("symbols"), QStandardPaths::LocateDirectory);
 
-    const QString appDir = QCoreApplication::applicationDirPath();
-    const QStringList fallbackDirs = {
-        QDir(appDir).absoluteFilePath(QStringLiteral("../share/kxstitch/symbols")),
-        QDir(appDir).absoluteFilePath(QStringLiteral("../../usr/share/kxstitch/symbols")),
-    };
+    const QDir appDir(QCoreApplication::applicationDirPath());
+    dirs << appDir.absoluteFilePath(QStringLiteral("../share/kxstitch/symbols")) << appDir.absoluteFilePath(QStringLiteral("../../usr/share/kxstitch/symbols"));
 
-    for (const QString &dir : fallbackDirs) {
-        if (QDir(dir).exists()) {
-            dirs.append(dir);
+    QStringList canonicalDirs;
+
+    for (const QString &dir : std::as_const(dirs)) {
+        const QString canonicalDir = QDir(dir).canonicalPath(); // empty if the directory does not exist
+
+        if (!canonicalDir.isEmpty() && !canonicalDirs.contains(canonicalDir)) {
+            canonicalDirs.append(canonicalDir);
         }
     }
 
-    dirs.removeDuplicates();
-
-    Q_FOREACH (const QString &dir, dirs) {
-        QDirIterator it(dir, QStringList() << QStringLiteral("*.sym"));
+    for (const QString &dir : std::as_const(canonicalDirs)) {
+        QDirIterator it(dir, QStringList() << QStringLiteral("*.sym"), QDir::Files);
 
         while (it.hasNext()) {
-            SymbolLibrary *symbolLibrary = readLibrary(it.next());
+            const QString path = it.next();
+            const QString name = it.fileInfo().baseName();
 
-            if (symbolLibrary) {
-                m_symbolLibraries.append(symbolLibrary);
+            if (m_symbolLibraries.contains(name)) {
+                continue;
+            }
+
+            if (SymbolLibrary *symbolLibrary = readLibrary(path)) {
+                m_symbolLibraries.insert(name, symbolLibrary);
             }
         }
     }
