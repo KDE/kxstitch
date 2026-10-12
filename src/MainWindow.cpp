@@ -87,18 +87,8 @@ MainWindow::MainWindow(const QUrl &url)
     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->hide();
 }
 
-MainWindow::MainWindow(const QString &source)
-    : m_printer(nullptr)
+void MainWindow::finishSetup()
 {
-    setupMainWindow();
-    setupLayout();
-    setupDockWindows();
-    setupActions();
-    setupDocument();
-    setupConnections();
-    setupActionDefaults();
-    loadSettings();
-    convertImage(source);
     setupActionsFromDocument();
     setCaption(m_document->url().fileName(), !m_document->undoStack().isClean());
     this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
@@ -501,10 +491,16 @@ void MainWindow::fileImportImage()
 
             if (job->exec()) {
                 if (docEmpty) {
-                    convertImage(tmpFile.fileName());
-                    this->findChild<QDockWidget *>(QStringLiteral("ImportedImage#"))->show();
+                    if (convertImage(tmpFile.fileName())) {
+                        finishSetup();
+                    }
                 } else {
-                    window = new MainWindow(tmpFile.fileName());
+                    window = new MainWindow(QUrl());
+                    if (!window->convertImage(tmpFile.fileName())) {
+                        delete window;
+                        return;
+                    }
+                    window->finishSetup();
                     window->show();
                 }
             } else {
@@ -514,7 +510,7 @@ void MainWindow::fileImportImage()
     }
 }
 
-void MainWindow::convertImage(const QString &source)
+bool MainWindow::convertImage(const QString &source)
 {
     Magick::Image image;
 
@@ -522,14 +518,14 @@ void MainWindow::convertImage(const QString &source)
         image.read(source.toStdString());
     } catch (const Magick::Exception &e) {
         KMessageBox::error(this, i18n("Failed to load the image file.\n%1", QString::fromLocal8Bit(e.what())));
-        return;
+        return false;
     }
 
     SymbolLibrary *symbolLibrary = SymbolManager::library(Configuration::palette_DefaultSymbolLibrary());
 
     if (symbolLibrary == nullptr) {
         KMessageBox::error(this, i18n("No symbol libraries were found. Please install a symbol library before importing images."));
-        return;
+        return false;
     }
 
     QMap<int, QColor> documentFlosses;
@@ -584,7 +580,7 @@ void MainWindow::convertImage(const QString &source)
             if (progress.wasCanceled()) {
                 delete importImageDlg;
                 delete importImageCommand;
-                return;
+                return false;
             }
 
             for (int dx = 0; dx < imageWidth; dx++) {
@@ -640,9 +636,13 @@ void MainWindow::convertImage(const QString &source)
         m_document->undoStack().push(importImageCommand);
 
         convertPreview(source, importImageDlg->croppedArea());
+    } else {
+        delete importImageDlg;
+        return false;
     }
 
     delete importImageDlg;
+    return true;
 }
 
 void MainWindow::convertPreview(const QString &source, const QRect &croppedArea)

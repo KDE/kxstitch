@@ -33,7 +33,6 @@ class MainWindow : public KXmlGuiWindow
 public:
     MainWindow();
     explicit MainWindow(const QUrl &);
-    explicit MainWindow(const QString &);
     virtual ~MainWindow();
 
     Editor *editor();
@@ -114,8 +113,9 @@ private:
     void setupConnections();
     void setupActionDefaults();
     void setupActionsFromDocument();
-    void convertImage(const QString &);
+    bool convertImage(const QString &);
     void convertPreview(const QString &, const QRect &);
+    void finishSetup();
     QPrinter *printer();
 
     Document *m_document;

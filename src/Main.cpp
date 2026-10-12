@@ -57,6 +57,7 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QDir>
 #include <QUrl>
 
 #include <KAboutData>
@@ -122,7 +123,7 @@ int main(int argc, char *argv[])
         mainWindow->show();
     } else {
         foreach (const QString &url, urls) {
-            mainWindow = new MainWindow(url);
+            mainWindow = new MainWindow(QUrl::fromUserInput(url, QDir::currentPath(), QUrl::AssumeLocalFile));
             mainWindow->show();
         }
     }
