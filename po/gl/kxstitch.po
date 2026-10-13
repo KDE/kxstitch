@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:44+0000\n"
+"POT-Creation-Date: 2026-10-13 00:43+0000\n"
 "PO-Revision-Date: 2025-01-06 12:43+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -242,51 +242,72 @@ msgstr "Número máximo de cores."
 msgid "Use fractional stitches for finer detail"
 msgstr "Usar puntadas fraccionarias para maior detalle."
 
+#. i18n: ectx: label, entry (Import_IgnoreColor), group (import)
+#: kxstitch.kcfg:203
+#, kde-format
+msgid "Ignore a selected color when importing"
+msgstr ""
+
+#. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
+#: kxstitch.kcfg:207
+#, fuzzy, kde-format
+#| msgid "The color of the border"
+msgid "The color to be ignored when importing"
+msgstr "A cor do bordo."
+
+#. i18n: ectx: label, entry (Import_PatternScale), group (import)
+#: kxstitch.kcfg:211
+#, kde-format
+msgid ""
+"Pattern scale as a percentage of the image size, 0 to fit the default "
+"document size"
+msgstr ""
+
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
-#: kxstitch.kcfg:206
+#: kxstitch.kcfg:220
 #, kde-format
 msgid "The default floss scheme to be used for new documents."
 msgstr "O esquema de fío predeterminado para usar nos novos documentos."
 
 #. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
-#: kxstitch.kcfg:210
+#: kxstitch.kcfg:224
 #, kde-format
 msgid "The default symbol library to be used for new documents."
 msgstr ""
 "A biblioteca de símbolos predeterminada para usar nos novos documentos."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
-#: kxstitch.kcfg:214
+#: kxstitch.kcfg:228
 #, kde-format
 msgid "The default number of strands used for stitches."
 msgstr "O número predeterminado de febras que se usan para as puntadas."
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
-#: kxstitch.kcfg:218
+#: kxstitch.kcfg:232
 #, kde-format
 msgid "The default number of strands used for backstitches."
 msgstr "O número predeterminado de febras que se usan para as puntadas atrás."
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
-#: kxstitch.kcfg:222
+#: kxstitch.kcfg:236
 #, kde-format
 msgid "Display the symbols in the palette."
 msgstr "Amosar os símbolos da paleta."
 
 #. i18n: ectx: label, entry (Palette_SymbolsAntialiased), group (palette)
-#: kxstitch.kcfg:226
+#: kxstitch.kcfg:240
 #, kde-format
 msgid "Display the symbols antialiased"
 msgstr "Amosar os símbolos coas curvas suavizadas."
 
 #. i18n: ectx: label, entry (Icon_DefaultSize), group (library)
-#: kxstitch.kcfg:233
+#: kxstitch.kcfg:247
 #, kde-format
 msgid "The default size of icons shown in the icon view"
 msgstr "O tamaño predeterminado das iconas que se amosan na vista de iconas."
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
-#: kxstitch.kcfg:240
+#: kxstitch.kcfg:254
 #, kde-format
 msgid "Should character selection honor the caps lock key"
 msgstr ""
@@ -294,124 +315,124 @@ msgstr ""
 "maiúsculas."
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
-#: kxstitch.kcfg:244
+#: kxstitch.kcfg:258
 #, kde-format
 msgid "The default width of a space in cells"
 msgstr "A anchura predeterminada dun espazo nunha cela."
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
-#: kxstitch.kcfg:248
+#: kxstitch.kcfg:262
 #, kde-format
 msgid "Should a space cause word wrapping at the right edge of the pattern"
 msgstr ""
 "Se un espazo debería provocar un salto de liña no extremo dereito do motivo."
 
 #. i18n: ectx: label, entry (Alphabet_LineSpacing), group (alphabet)
-#: kxstitch.kcfg:252
+#: kxstitch.kcfg:266
 #, kde-format
 msgid "The number of cells between lines of text"
 msgstr "O número de celas entre liñas de texto."
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternWidth), group (alphabet)
-#: kxstitch.kcfg:256
+#: kxstitch.kcfg:270
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
 msgstr "O número de celas para engadir ao estender o motivo á dereita."
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
-#: kxstitch.kcfg:260
+#: kxstitch.kcfg:274
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
 msgstr "O número de celas para engadir ao estender o motivo cara abaixo."
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
-#: kxstitch.kcfg:267
+#: kxstitch.kcfg:281
 #, kde-format
 msgid "Should the shapes tools use fractional stitches"
 msgstr "Se as ferramentas de formas deberían usar puntadas fraccionarias."
 
 #. i18n: ectx: label, entry (TextTool_FontFamily), group (tool)
-#: kxstitch.kcfg:271
+#: kxstitch.kcfg:285
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
 msgstr ""
 "A familia de tipo de letra para usar no diálogo da ferramenta de texto."
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
-#: kxstitch.kcfg:275
+#: kxstitch.kcfg:289
 #, kde-format
 msgid "The text size in pixels"
 msgstr "O tamaño do texto en píxeles."
 
 #. i18n: ectx: label, entry (Tool_MakesCopies), group (tool)
-#: kxstitch.kcfg:279
+#: kxstitch.kcfg:293
 #, kde-format
 msgid "Does mirroring and copying make copies"
 msgstr "Fai que a reflexión e a copia xeren copias."
 
 #. i18n: ectx: label, entry (Page_MarginLeft), group (printer)
-#: kxstitch.kcfg:286
+#: kxstitch.kcfg:300
 #, kde-format
 msgid "The page left margin"
 msgstr "A marxe esquerda da páxina."
 
 #. i18n: ectx: label, entry (Page_MarginTop), group (printer)
-#: kxstitch.kcfg:290
+#: kxstitch.kcfg:304
 #, kde-format
 msgid "The page top margin"
 msgstr "A marxe superior da páxina."
 
 #. i18n: ectx: label, entry (Page_MarginRight), group (printer)
-#: kxstitch.kcfg:294
+#: kxstitch.kcfg:308
 #, kde-format
 msgid "The page right margin"
 msgstr "A marxe dereita da páxina."
 
 #. i18n: ectx: label, entry (Page_MarginBottom), group (printer)
-#: kxstitch.kcfg:298
+#: kxstitch.kcfg:312
 #, kde-format
 msgid "The page bottom margin"
 msgstr "A marxe inferior da páxina."
 
 #. i18n: ectx: label, entry (Page_ShowGrid), group (printer)
-#: kxstitch.kcfg:302
+#: kxstitch.kcfg:316
 #, kde-format
 msgid "Show the layout editor"
 msgstr "Amosar o editor da disposición."
 
 #. i18n: ectx: label, entry (Page_GridSize), group (printer)
-#: kxstitch.kcfg:306
+#: kxstitch.kcfg:320
 #, kde-format
 msgid "The grid size in mm"
 msgstr "O tamaño da grade en milímetros."
 
 #. i18n: ectx: label, entry (Page_Size), group (printer)
-#: kxstitch.kcfg:310
+#: kxstitch.kcfg:324
 #, kde-format
 msgid "The default page size"
 msgstr "O tamaño predeterminado da páxina."
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
-#: kxstitch.kcfg:314
+#: kxstitch.kcfg:328
 #, kde-format
 msgid "The default page orientation"
 msgstr "A orientación predeterminada da páxina."
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
-#: kxstitch.kcfg:318
+#: kxstitch.kcfg:332
 #, kde-format
 msgid "The snap distance for element boundary corner nodes"
 msgstr ""
 "A distancia de axuste automático para os nodos do contorno dos elementos."
 
 #. i18n: ectx: label, entry (Page_SelectNodeSize), group (printer)
-#: kxstitch.kcfg:322
+#: kxstitch.kcfg:336
 #, kde-format
 msgid "The snap node size"
 msgstr "O tamaño dos nodos de axuste automático."
 
 #. i18n: ectx: label, entry (PatternElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:327
+#: kxstitch.kcfg:341
 #, kde-format
 msgid "Show a border around the pattern"
 msgstr "Amosar un bordo arredor do motivo."
@@ -419,7 +440,7 @@ msgstr "Amosar un bordo arredor do motivo."
 #. i18n: ectx: label, entry (PatternElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderColor), group (printer)
 #. i18n: ectx: label, entry (KeyElement_BorderColor), group (printer)
-#: kxstitch.kcfg:331 kxstitch.kcfg:372 kxstitch.kcfg:385
+#: kxstitch.kcfg:345 kxstitch.kcfg:386 kxstitch.kcfg:399
 #, kde-format
 msgid "The color of the border"
 msgstr "A cor do bordo."
@@ -427,41 +448,41 @@ msgstr "A cor do bordo."
 #. i18n: ectx: label, entry (PatternElement_BorderThickness), group (printer)
 #. i18n: ectx: label, entry (ImageElement_BorderThickness), group (printer)
 #. i18n: ectx: label, entry (KeyElement_BorderThickness), group (printer)
-#: kxstitch.kcfg:335 kxstitch.kcfg:376 kxstitch.kcfg:389
+#: kxstitch.kcfg:349 kxstitch.kcfg:390 kxstitch.kcfg:403
 #, kde-format
 msgid "The thickness of the border in 1/10 mm"
 msgstr "O grosor do bordo en décimas de milímetro."
 
 #. i18n: ectx: label, entry (PatternElement_MarginLeft), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:339 kxstitch.kcfg:482
+#: kxstitch.kcfg:353 kxstitch.kcfg:496
 #, kde-format
 msgid "The left margin"
 msgstr "A marxe esquerda."
 
 #. i18n: ectx: label, entry (PatternElement_MarginTop), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginTop), group (printer)
-#: kxstitch.kcfg:343 kxstitch.kcfg:478
+#: kxstitch.kcfg:357 kxstitch.kcfg:492
 #, kde-format
 msgid "The top margin"
 msgstr "A marxe superior."
 
 #. i18n: ectx: label, entry (PatternElement_MarginRight), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginRight), group (printer)
-#: kxstitch.kcfg:347 kxstitch.kcfg:486
+#: kxstitch.kcfg:361 kxstitch.kcfg:500
 #, kde-format
 msgid "The right margin"
 msgstr "A marxe dereita."
 
 #. i18n: ectx: label, entry (PatternElement_MarginBottom), group (printer)
 #. i18n: ectx: label, entry (TextElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:351 kxstitch.kcfg:490
+#: kxstitch.kcfg:365 kxstitch.kcfg:504
 #, kde-format
 msgid "The bottom margin"
 msgstr "A marxe inferior."
 
 #. i18n: ectx: label, entry (PatternElement_MinimumCellSize), group (printer)
-#: kxstitch.kcfg:355
+#: kxstitch.kcfg:369
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
 msgstr ""
@@ -469,13 +490,13 @@ msgstr ""
 "xeradas a partir de modelos."
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
-#: kxstitch.kcfg:359
+#: kxstitch.kcfg:373
 #, kde-format
 msgid "Minimum number of cells that can be on a page of its own"
 msgstr "O número mínimo de celas por páxina."
 
 #. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
-#: kxstitch.kcfg:363
+#: kxstitch.kcfg:377
 #, kde-format
 msgid ""
 "The color used to represented already selected areas in existing pattern "
@@ -485,146 +506,158 @@ msgstr ""
 "existentes do motivo."
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:368
+#: kxstitch.kcfg:382
 #, kde-format
 msgid "Show a border around the image"
 msgstr "Amosar un bordo arredor da imaxe."
 
 #. i18n: ectx: label, entry (KeyElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:381
+#: kxstitch.kcfg:395
 #, kde-format
 msgid "Show a border around the key"
 msgstr "Amosar un bordo arredor da clave."
 
 #. i18n: ectx: label, entry (KeyElement_FillBackground), group (printer)
 #. i18n: ectx: label, entry (TextElement_FillBackground), group (printer)
-#: kxstitch.kcfg:393 kxstitch.kcfg:466
+#: kxstitch.kcfg:407 kxstitch.kcfg:480
 #, kde-format
 msgid "Fill the background"
 msgstr "Encher o fondo."
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:397
+#: kxstitch.kcfg:411
 #, kde-format
 msgid "The color of the background"
 msgstr "A cor do fondo"
 
 #. i18n: ectx: label, entry (KeyElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:401
+#: kxstitch.kcfg:415
 #, kde-format
 msgid "Transparency of the background"
 msgstr "Transparencia do fondo."
 
 #. i18n: ectx: label, entry (KeyElement_MarginLeft), group (printer)
-#: kxstitch.kcfg:405
+#: kxstitch.kcfg:419
 #, kde-format
 msgid "The key element left margin"
 msgstr "A marxe esquerda do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_MarginTop), group (printer)
-#: kxstitch.kcfg:409
+#: kxstitch.kcfg:423
 #, kde-format
 msgid "The key element top margin"
 msgstr "A marxe superior do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_MarginRight), group (printer)
-#: kxstitch.kcfg:413
+#: kxstitch.kcfg:427
 #, kde-format
 msgid "The key element right margin"
 msgstr "A marxe dereita do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_MarginBottom), group (printer)
-#: kxstitch.kcfg:417
+#: kxstitch.kcfg:431
 #, kde-format
 msgid "The key element bottom margin"
 msgstr "A marxe inferior do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumn), group (printer)
-#: kxstitch.kcfg:421
+#: kxstitch.kcfg:435
 #, kde-format
 msgid "Show the key element symbol column"
 msgstr "Amosar a columna do símbolo do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_SymbolColumnColor), group (printer)
-#: kxstitch.kcfg:425
+#: kxstitch.kcfg:439
 #, kde-format
 msgid "Show the key element symbol column in color"
 msgstr "Amosar a columna do símbolo do elemento clave cunha cor."
 
 #. i18n: ectx: label, entry (KeyElement_FlossNameColumn), group (printer)
-#: kxstitch.kcfg:429
+#: kxstitch.kcfg:443
 #, kde-format
 msgid "Show the key element floss name column"
 msgstr "Amosar a columna do nome do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
-#: kxstitch.kcfg:433
+#: kxstitch.kcfg:447
 #, kde-format
 msgid "Show the key element floss strands column"
 msgstr "Amosar a columna das febras de fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_FlossDescriptionColumn), group (printer)
-#: kxstitch.kcfg:437
+#: kxstitch.kcfg:451
 #, kde-format
 msgid "Show the key element floss description column"
 msgstr "Amosar a columna da descrición do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_StitchesColumn), group (printer)
-#: kxstitch.kcfg:441
+#: kxstitch.kcfg:455
 #, kde-format
 msgid "Show the key element stitch count column"
 msgstr "Amosar a columna do número de puntadas do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_LengthColumn), group (printer)
-#: kxstitch.kcfg:445
+#: kxstitch.kcfg:459
 #, kde-format
 msgid "Show the key element floss length column"
 msgstr "Amosar a columna da lonxitude do fío do elemento clave."
 
 #. i18n: ectx: label, entry (KeyElement_SkeinsColumn), group (printer)
-#: kxstitch.kcfg:449
+#: kxstitch.kcfg:463
 #, kde-format
 msgid "Show the key element skeins column"
 msgstr "Amosar a columna de madeixas do elemento clave."
 
 #. i18n: ectx: label, entry (TextElement_ShowBorder), group (printer)
-#: kxstitch.kcfg:454
+#: kxstitch.kcfg:468
 #, kde-format
 msgid "Show the border"
 msgstr "Amosar o bordo."
 
 #. i18n: ectx: label, entry (TextElement_BorderColor), group (printer)
 #. i18n: ectx: property (toolTip), widget (KColorCombo, BorderColor)
-#: kxstitch.kcfg:458 ui/TextElement.ui:184
+#: kxstitch.kcfg:472 ui/TextElement.ui:184
 #, kde-format
 msgid "The border color"
 msgstr "A cor do bordo."
 
 #. i18n: ectx: label, entry (TextElement_BorderThickness), group (printer)
 #. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, BorderThickness)
-#: kxstitch.kcfg:462 ui/ImageElement.ui:98 ui/KeyElement.ui:207
+#: kxstitch.kcfg:476 ui/ImageElement.ui:98 ui/KeyElement.ui:207
 #: ui/TextElement.ui:201
 #, kde-format
 msgid "Thickness of the border in 1/10 mm"
 msgstr "Grosor do bordo en décimas de milímetro."
 
 #. i18n: ectx: label, entry (TextElement_BackgroundColor), group (printer)
-#: kxstitch.kcfg:470
+#: kxstitch.kcfg:484
 #, kde-format
 msgid "Color of the background"
 msgstr "Cor do fondo"
 
 #. i18n: ectx: label, entry (TextElement_BackgroundTransparency), group (printer)
-#: kxstitch.kcfg:474
+#: kxstitch.kcfg:488
 #, kde-format
 msgid "The transparency value"
 msgstr "O valor de transparencia."
 
 #. i18n: ectx: label, entry (TextElement_TextColor), group (printer)
-#: kxstitch.kcfg:494
+#: kxstitch.kcfg:508
 #, kde-format
 msgid "The text color"
 msgstr "A cor do texto."
+
+#. i18n: ectx: label, entry (RecentDirectories_Patterns), group (recentDirectories)
+#: kxstitch.kcfg:515
+#, kde-format
+msgid "The directory last used to open or save a pattern"
+msgstr ""
+
+#. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
+#: kxstitch.kcfg:518
+#, kde-format
+msgid "The directory last used to import or add an image"
+msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -787,14 +820,14 @@ msgid "%1-%2"
 msgstr "%1-%2"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, FileProperties)
-#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1113
+#: src/Commands.cpp:32 src/FilePropertiesDlg.cpp:29 src/MainWindow.cpp:1163
 #: ui/FileProperties.ui:17
 #, kde-format
 msgid "File Properties"
 msgstr "Propiedades do ficheiro"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ImportImage)
-#: src/Commands.cpp:54 src/MainWindow.cpp:494 src/MainWindow.cpp:1108
+#: src/Commands.cpp:54 src/MainWindow.cpp:531 src/MainWindow.cpp:1158
 #: ui/ImportImage.ui:14
 #, kde-format
 msgid "Import Image"
@@ -820,27 +853,27 @@ msgstr "Debuxar unha liña"
 msgid "Erase Stitches"
 msgstr "Borrar as puntadas"
 
-#: src/Commands.cpp:156 src/MainWindow.cpp:1323
+#: src/Commands.cpp:156 src/MainWindow.cpp:1373
 #, kde-format
 msgid "Draw Rectangle"
 msgstr "Debuxar un rectángulo"
 
-#: src/Commands.cpp:176 src/MainWindow.cpp:1333
+#: src/Commands.cpp:176 src/MainWindow.cpp:1383
 #, kde-format
 msgid "Fill Rectangle"
 msgstr "Encher o rectángulo"
 
-#: src/Commands.cpp:196 src/MainWindow.cpp:1343
+#: src/Commands.cpp:196 src/MainWindow.cpp:1393
 #, kde-format
 msgid "Draw Ellipse"
 msgstr "Debuxar unha elipse"
 
-#: src/Commands.cpp:216 src/MainWindow.cpp:1353
+#: src/Commands.cpp:216 src/MainWindow.cpp:1403
 #, kde-format
 msgid "Fill Ellipse"
 msgstr "Encher a elipse"
 
-#: src/Commands.cpp:236 src/MainWindow.cpp:1363
+#: src/Commands.cpp:236 src/MainWindow.cpp:1413
 #, kde-format
 msgid "Fill Polygon"
 msgstr "Encher o polígono"
@@ -911,12 +944,12 @@ msgstr "Recortar o motivo"
 msgid "Crop to Selection"
 msgstr "Recortar pola selección"
 
-#: src/Commands.cpp:709 src/MainWindow.cpp:1487
+#: src/Commands.cpp:709 src/MainWindow.cpp:1537
 #, kde-format
 msgid "Insert Columns"
 msgstr "Inserir columnas"
 
-#: src/Commands.cpp:752 src/MainWindow.cpp:1481
+#: src/Commands.cpp:752 src/MainWindow.cpp:1531
 #, kde-format
 msgid "Insert Rows"
 msgstr "Inserir filas"
@@ -927,7 +960,7 @@ msgstr "Inserir filas"
 msgid "Extend Pattern"
 msgstr "Estender o motivo"
 
-#: src/Commands.cpp:837 src/MainWindow.cpp:1463
+#: src/Commands.cpp:837 src/MainWindow.cpp:1513
 #, kde-format
 msgid "Center Pattern"
 msgstr "Centrar o motivo"
@@ -947,7 +980,7 @@ msgstr "Cambiar o esquema de fío"
 msgid "Replace Color"
 msgstr "Substituír a cor"
 
-#: src/Commands.cpp:1052 src/MainWindow.cpp:1446
+#: src/Commands.cpp:1052 src/MainWindow.cpp:1496
 #, kde-format
 msgid "Swap Colors"
 msgstr "Trocas as cores"
@@ -962,7 +995,7 @@ msgstr "Actualizar a configuración de impresión"
 msgid "Cut"
 msgstr "Cortar"
 
-#: src/Commands.cpp:1283 src/Editor.cpp:1985 src/MainWindow.cpp:1383
+#: src/Commands.cpp:1283 src/Editor.cpp:1989 src/MainWindow.cpp:1433
 #, kde-format
 msgid "Alphabet"
 msgstr "Alfabeto"
@@ -990,7 +1023,7 @@ msgstr "Predeterminada"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
-#: src/ImportImageDlg.cpp:515 src/ImportImageDlg.cpp:516
+#: src/ImportImageDlg.cpp:531 src/ImportImageDlg.cpp:532
 #, kde-format
 msgctxt "Per inch measurements"
 msgid "/in"
@@ -998,14 +1031,14 @@ msgstr "/pol"
 
 #: src/ConfigurationDialogs.cpp:243 src/ConfigurationDialogs.cpp:246
 #: src/FilePropertiesDlg.cpp:298 src/FilePropertiesDlg.cpp:299
-#: src/ImportImageDlg.cpp:508 src/ImportImageDlg.cpp:509
+#: src/ImportImageDlg.cpp:524 src/ImportImageDlg.cpp:525
 #, kde-format
 msgctxt "Per centimeter measurements"
 msgid "/cm"
 msgstr "/cm"
 
-#: src/Document.cpp:132 src/MainWindow.cpp:283 src/MainWindow.cpp:354
-#: src/MainWindow.cpp:493 src/SymbolLibrary.cpp:95
+#: src/Document.cpp:132 src/MainWindow.cpp:319 src/MainWindow.cpp:392
+#: src/MainWindow.cpp:530 src/SymbolLibrary.cpp:95
 #, kde-format
 msgid "Untitled"
 msgstr "Sen título"
@@ -1054,7 +1087,7 @@ msgstr "Non se atopou o nome de fío %1."
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1808 src/Document.cpp:2001 src/Element.cpp:473
-#: src/Element.cpp:508 src/ImportImageDlg.cpp:205 src/MainWindow.cpp:1505
+#: src/Element.cpp:508 src/ImportImageDlg.cpp:205 src/MainWindow.cpp:1555
 #: ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82
 #: ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81
 #: ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
@@ -1077,7 +1110,7 @@ msgstr "CM"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_FormatScalesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1816 src/Document.cpp:2009 src/ImportImageDlg.cpp:211
-#: src/MainWindow.cpp:1519 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
+#: src/MainWindow.cpp:1569 ui/EditorConfigPage.ui:77 ui/FileProperties.ui:87
 #: ui/PatternConfigPage.ui:91 ui/PatternConfigPage.ui:154
 #: ui/PatternElement.ui:205
 #, kde-format
@@ -1162,24 +1195,24 @@ msgstr[1] ""
 "\n"
 "Quizais lle interese comprobar que estes son axeitados."
 
-#: src/Editor.cpp:788
+#: src/Editor.cpp:790
 #, kde-format
 msgid "Drag"
 msgstr "Arrastre"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_7)
-#: src/Editor.cpp:839 src/Editor.cpp:1964 src/MainWindow.cpp:1373
+#: src/Editor.cpp:841 src/Editor.cpp:1968 src/MainWindow.cpp:1423
 #: ui/PrinterConfigPage.ui:384
 #, kde-format
 msgid "Text"
 msgstr "Texto"
 
-#: src/Editor.cpp:934
+#: src/Editor.cpp:936
 #, kde-format
 msgid "Add Character"
 msgstr "Engadir un carácter"
 
-#: src/Editor.cpp:983 src/Editor.cpp:2126 src/LibraryManagerDlg.cpp:115
+#: src/Editor.cpp:985 src/Editor.cpp:2143 src/LibraryManagerDlg.cpp:115
 #: src/LibraryManagerDlg.cpp:134
 #, kde-format
 msgid "Paste"
@@ -1263,7 +1296,7 @@ msgstr "Importar unha imaxe - Tamaño: %1×%2 píxeles"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, UnitsFormat)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Document_UnitsFormat)
-#: src/ImportImageDlg.cpp:217 src/MainWindow.cpp:1512 ui/FileProperties.ui:92
+#: src/ImportImageDlg.cpp:217 src/MainWindow.cpp:1562 ui/FileProperties.ui:92
 #: ui/PatternConfigPage.ui:96
 #, kde-format
 msgid "Centimeters"
@@ -1280,12 +1313,12 @@ msgstr "%1 x %2 %3"
 msgid "Rendering preview"
 msgstr "Renderizando a vista previa"
 
-#: src/ImportImageDlg.cpp:385 src/MainWindow.cpp:577
+#: src/ImportImageDlg.cpp:385 src/MainWindow.cpp:622
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/ImportImageDlg.cpp:599
+#: src/ImportImageDlg.cpp:614
 #, kde-format
 msgid "Colors limited to %1 due to the number of symbols available"
 msgstr ""
@@ -1451,86 +1484,91 @@ msgstr "Propiedades dos motivos da biblioteca"
 msgid "existing library"
 msgstr "biblioteca existente"
 
-#: src/Main.cpp:89
+#: src/Main.cpp:90
 #, kde-format
 msgid "kxstitch"
 msgstr "kxstitch"
 
-#: src/Main.cpp:91
+#: src/Main.cpp:92
 #, kde-format
 msgid "A cross stitch pattern creator."
 msgstr "Un creador de motivos de cruz en punta."
 
-#: src/Main.cpp:93
+#: src/Main.cpp:94
 #, kde-format
 msgid "(c) 2010-2019 Stephen Allewell"
 msgstr "© 2010-2019 Stephen Allewell"
 
-#: src/Main.cpp:99
+#: src/Main.cpp:100
 #, kde-format
 msgid "Project Lead"
 msgstr "Líder do proxecto."
 
-#: src/Main.cpp:100
+#: src/Main.cpp:101
 #, kde-format
 msgid "Bug fixes, application icons"
 msgstr "Corrección de fallos, iconas da aplicación"
 
-#: src/Main.cpp:101
+#: src/Main.cpp:102
 #, kde-format
 msgid "Man page"
 msgstr "Páxina man"
 
-#: src/Main.cpp:102
+#: src/Main.cpp:103
 #, kde-format
 msgid "Bug fixes, improvements"
 msgstr "Corrección de fallos e melloras."
 
-#: src/Main.cpp:103
+#: src/Main.cpp:104
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Adrián Chaves"
 
-#: src/Main.cpp:103
+#: src/Main.cpp:104
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.gal"
 
-#: src/Main.cpp:110
+#: src/Main.cpp:111
 #, kde-format
 msgid "Document to open."
 msgstr "Documento para abrir."
 
-#: src/MainWindow.cpp:232
+#: src/MainWindow.cpp:75
+#, kde-format
+msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
+msgstr "Imaxes (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
+
+#: src/MainWindow.cpp:268
 #, kde-format
 msgid "Save changes to document?"
 msgstr "Gardar os cambios no documento?"
 
-#: src/MainWindow.cpp:241
+#: src/MainWindow.cpp:277
 #, kde-format
 msgid "Unable to save the file"
 msgstr "Non é posíbel gardar o ficheiro."
 
-#: src/MainWindow.cpp:275
+#: src/MainWindow.cpp:311
 #, kde-format
 msgid "Open file"
 msgstr "Abrir un ficheiro"
 
-#: src/MainWindow.cpp:277
+#: src/MainWindow.cpp:313
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
 "Motivos de KXStitch (*.kxs);;Motivos de PC Stitch (*.pat);;Todos os "
 "ficheiros (*)"
 
-#: src/MainWindow.cpp:316
+#: src/MainWindow.cpp:354
 #, kde-format
 msgid "The file does not appear to be a recognized cross stitch file."
 msgstr "O ficheiro non semella un ficheiro de cruz e punta recoñecido."
 
-#: src/MainWindow.cpp:319
+#: src/MainWindow.cpp:357
 #, kde-format
 msgid ""
 "This version of the file is not supported.\n"
@@ -1539,7 +1577,7 @@ msgstr ""
 "A versión do ficheiro non é compatíbel.\n"
 "%1"
 
-#: src/MainWindow.cpp:321
+#: src/MainWindow.cpp:359
 #, kde-format
 msgid ""
 "Failed to read the file.\n"
@@ -1548,7 +1586,7 @@ msgstr ""
 "Non foi posíbel ler o ficheiro.\n"
 "%1."
 
-#: src/MainWindow.cpp:372
+#: src/MainWindow.cpp:410
 #, kde-format
 msgid ""
 "Failed to save the file.\n"
@@ -1557,7 +1595,7 @@ msgstr ""
 "Non foi posíbel gardar o ficheiro.\n"
 "%1"
 
-#: src/MainWindow.cpp:376
+#: src/MainWindow.cpp:414
 #, kde-format
 msgid ""
 "Failed to open the file.\n"
@@ -1566,38 +1604,28 @@ msgstr ""
 "Non foi posíbel abrir o ficheiro.\n"
 "%1"
 
-#: src/MainWindow.cpp:383
+#: src/MainWindow.cpp:421
 #, kde-format
 msgid "Save As..."
 msgstr "Gardar como…"
 
-#: src/MainWindow.cpp:383
+#: src/MainWindow.cpp:421
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
 msgstr "Motivos de cruz e punta (*.kxs)"
 
-#: src/MainWindow.cpp:397
+#: src/MainWindow.cpp:436
 #, kde-format
 msgid "Revert changes to document?"
 msgstr "Quere reverter os cambios do documento?"
 
-#: src/MainWindow.cpp:397
+#: src/MainWindow.cpp:436
 #, kde-format
 msgctxt "@action:button"
 msgid "Revert"
 msgstr "Reverter"
 
-#: src/MainWindow.cpp:437
-#, kde-format
-msgid "There is nothing to print"
-msgstr "Non hai nada para imprimir."
-
-#: src/MainWindow.cpp:494 src/MainWindow.cpp:733
-#, kde-format
-msgid "Images (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
-msgstr "Imaxes (*.bmp *.gif *.jpg *.png *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)"
-
-#: src/MainWindow.cpp:524
+#: src/MainWindow.cpp:569
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed to read the file.\n"
@@ -1609,241 +1637,241 @@ msgstr ""
 "Non foi posíbel ler o ficheiro.\n"
 "%1."
 
-#: src/MainWindow.cpp:531
+#: src/MainWindow.cpp:576
 #, kde-format
 msgid ""
 "No symbol libraries were found. Please install a symbol library before "
 "importing images."
 msgstr ""
 
-#: src/MainWindow.cpp:577
+#: src/MainWindow.cpp:622
 #, kde-format
 msgid "Converting to stitches"
 msgstr "Convertendo en puntadas"
 
-#: src/MainWindow.cpp:731
+#: src/MainWindow.cpp:780
 #, kde-format
 msgid "Background Image"
 msgstr "Imaxe de fondo"
 
-#: src/MainWindow.cpp:781
+#: src/MainWindow.cpp:831
 #, kde-format
 msgid "Undo %1"
 msgstr "Desfacer %1"
 
-#: src/MainWindow.cpp:786
+#: src/MainWindow.cpp:836
 #, kde-format
 msgid "Redo %1"
 msgstr "Refacer %1"
 
-#: src/MainWindow.cpp:925
+#: src/MainWindow.cpp:975
 #, kde-format
 msgctxt "The Editor config page"
 msgid "Editor"
 msgstr "Editor"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/MainWindow.cpp:927 ui/FileProperties.ui:27
+#: src/MainWindow.cpp:977 ui/FileProperties.ui:27
 #, kde-format
 msgid "Pattern"
 msgstr "Motivo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, PaletteProperties)
-#: src/MainWindow.cpp:929 src/MainWindow.cpp:1748 ui/FileProperties.ui:33
+#: src/MainWindow.cpp:979 src/MainWindow.cpp:1798 ui/FileProperties.ui:33
 #: ui/ImportImage.ui:42 ui/PaletteConfigPage.ui:20
 #, kde-format
 msgid "Palette"
 msgstr "Paleta"
 
-#: src/MainWindow.cpp:930
+#: src/MainWindow.cpp:980
 #, kde-format
 msgid "Import"
 msgstr "Importar"
 
-#: src/MainWindow.cpp:931
+#: src/MainWindow.cpp:981
 #, kde-format
 msgid "Library"
 msgstr "Biblioteca"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrinterConfigPage)
-#: src/MainWindow.cpp:933 ui/PrinterConfigPage.ui:14
+#: src/MainWindow.cpp:983 ui/PrinterConfigPage.ui:14
 #, kde-format
 msgid "Printer Configuration"
 msgstr "Configuración de impresión"
 
-#: src/MainWindow.cpp:1101
+#: src/MainWindow.cpp:1151
 #, kde-format
 msgid "Print Setup..."
 msgstr "Configuración da impresión…"
 
-#: src/MainWindow.cpp:1118
+#: src/MainWindow.cpp:1168
 #, kde-format
 msgid "Add Background Image..."
 msgstr "Engadir unha imaxe de fondo…"
 
-#: src/MainWindow.cpp:1135
+#: src/MainWindow.cpp:1185
 #, kde-format
 msgid "Mirror/Rotate makes copies"
 msgstr "Reflectir ou rotar xera copias."
 
-#: src/MainWindow.cpp:1141
+#: src/MainWindow.cpp:1191
 #, kde-format
 msgid "Horizontally"
 msgstr "Horizontalmente"
 
-#: src/MainWindow.cpp:1148
+#: src/MainWindow.cpp:1198
 #, kde-format
 msgid "Vertically"
 msgstr "Verticalmente"
 
-#: src/MainWindow.cpp:1155
+#: src/MainWindow.cpp:1205
 #, kde-format
 msgid "90 Degrees"
 msgstr "90 graos"
 
-#: src/MainWindow.cpp:1162
+#: src/MainWindow.cpp:1212
 #, kde-format
 msgid "180 Degrees"
 msgstr "180 graos"
 
-#: src/MainWindow.cpp:1169
+#: src/MainWindow.cpp:1219
 #, kde-format
 msgid "270 Degrees"
 msgstr "270 graos"
 
-#: src/MainWindow.cpp:1177
+#: src/MainWindow.cpp:1227
 #, kde-format
 msgid "Stitch Mask"
 msgstr "Máscara de puntadas"
 
-#: src/MainWindow.cpp:1183
+#: src/MainWindow.cpp:1233
 #, kde-format
 msgid "Color Mask"
 msgstr "Máscara de cor"
 
-#: src/MainWindow.cpp:1189
+#: src/MainWindow.cpp:1239
 #, kde-format
 msgid "Exclude Backstitches"
 msgstr "Excluír as puntadas atrás"
 
-#: src/MainWindow.cpp:1195
+#: src/MainWindow.cpp:1245
 #, kde-format
 msgid "Exclude Knots"
 msgstr "Excluír os nos"
 
-#: src/MainWindow.cpp:1219
+#: src/MainWindow.cpp:1269
 #, kde-format
 msgid "Quarter Stitch"
 msgstr "Cuarto de puntada"
 
-#: src/MainWindow.cpp:1229
+#: src/MainWindow.cpp:1279
 #, kde-format
 msgid "Half Stitch"
 msgstr "Media puntada"
 
-#: src/MainWindow.cpp:1239
+#: src/MainWindow.cpp:1289
 #, kde-format
 msgid "3 Quarter Stitch"
 msgstr "Tres cuartos de puntada"
 
-#: src/MainWindow.cpp:1249
+#: src/MainWindow.cpp:1299
 #, kde-format
 msgid "Full Stitch"
 msgstr "Puntada completa"
 
-#: src/MainWindow.cpp:1259
+#: src/MainWindow.cpp:1309
 #, kde-format
 msgid "Small Half Stitch"
 msgstr "Media puntada pequena"
 
-#: src/MainWindow.cpp:1269
+#: src/MainWindow.cpp:1319
 #, kde-format
 msgid "Small Full Stitch"
 msgstr "Puntada completa pequena"
 
-#: src/MainWindow.cpp:1279
+#: src/MainWindow.cpp:1329
 #, kde-format
 msgid "French Knot"
 msgstr "Puntada anoada"
 
-#: src/MainWindow.cpp:1293
+#: src/MainWindow.cpp:1343
 #, kde-format
 msgid "Paint"
 msgstr "Pintar"
 
-#: src/MainWindow.cpp:1303
+#: src/MainWindow.cpp:1353
 #, kde-format
 msgid "Draw"
 msgstr "Debuxar"
 
-#: src/MainWindow.cpp:1313
+#: src/MainWindow.cpp:1363
 #, kde-format
 msgid "Erase"
 msgstr "Borrar"
 
-#: src/MainWindow.cpp:1393
+#: src/MainWindow.cpp:1443
 #, kde-format
 msgctxt "Select an area of the pattern"
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/MainWindow.cpp:1403
+#: src/MainWindow.cpp:1453
 #, kde-format
 msgid "Backstitch"
 msgstr "Puntada atrás"
 
-#: src/MainWindow.cpp:1413
+#: src/MainWindow.cpp:1463
 #, kde-format
 msgid "Color Picker"
 msgstr "Selector de cores"
 
-#: src/MainWindow.cpp:1424
+#: src/MainWindow.cpp:1474
 #, kde-format
 msgid "Palette Manager..."
 msgstr "Xestor de paletas…"
 
-#: src/MainWindow.cpp:1430
+#: src/MainWindow.cpp:1480
 #, kde-format
 msgid "Show Symbols"
 msgstr "Amosar os símbolos"
 
-#: src/MainWindow.cpp:1436
+#: src/MainWindow.cpp:1486
 #, kde-format
 msgid "Clear Unused"
 msgstr "Retirar os non usados"
 
-#: src/MainWindow.cpp:1441
+#: src/MainWindow.cpp:1491
 #, kde-format
 msgid "Calibrate Scheme..."
 msgstr "Calibrar o esquema…"
 
-#: src/MainWindow.cpp:1451
+#: src/MainWindow.cpp:1501
 #, kde-format
 msgid "Replace Colors"
 msgstr "Substituír as cores"
 
-#: src/MainWindow.cpp:1457
+#: src/MainWindow.cpp:1507
 #, kde-format
 msgid "Extend Pattern..."
 msgstr "Estender o motivo…"
 
-#: src/MainWindow.cpp:1469
+#: src/MainWindow.cpp:1519
 #, kde-format
 msgid "Crop Canvas to Pattern"
 msgstr "Axustar o lenzo ao motivo"
 
-#: src/MainWindow.cpp:1474
+#: src/MainWindow.cpp:1524
 #, kde-format
 msgid "Crop Canvas to Selection"
 msgstr "Axustar o lenzo á selección"
 
-#: src/MainWindow.cpp:1494
+#: src/MainWindow.cpp:1544
 #, kde-format
 msgid "Library Manager..."
 msgstr "Xestor de bibliotecas…"
 
-#: src/MainWindow.cpp:1530
+#: src/MainWindow.cpp:1580
 #, kde-format
 msgid "Regular Stitches"
 msgstr "Puntadas normais"
@@ -1852,7 +1880,7 @@ msgstr "Puntadas normais"
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1540 src/MainWindow.cpp:1590 src/MainWindow.cpp:1631
+#: src/MainWindow.cpp:1590 src/MainWindow.cpp:1640 src/MainWindow.cpp:1681
 #: ui/EditorConfigPage.ui:345 ui/PatternElement.ui:86 ui/PatternElement.ui:132
 #: ui/PatternElement.ui:168
 #, kde-format
@@ -1863,7 +1891,7 @@ msgstr "Símbolos en branco e negro"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1549 src/MainWindow.cpp:1622 ui/EditorConfigPage.ui:314
+#: src/MainWindow.cpp:1599 src/MainWindow.cpp:1672 ui/EditorConfigPage.ui:314
 #: ui/EditorConfigPage.ui:371 ui/PatternElement.ui:91 ui/PatternElement.ui:163
 #, kde-format
 msgid "Color Symbols"
@@ -1873,72 +1901,72 @@ msgstr "Símbolos de cores"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderKnotsAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderKnotsAs)
-#: src/MainWindow.cpp:1558 src/MainWindow.cpp:1603 ui/EditorConfigPage.ui:319
+#: src/MainWindow.cpp:1608 src/MainWindow.cpp:1653 ui/EditorConfigPage.ui:319
 #: ui/EditorConfigPage.ui:361 ui/PatternElement.ui:96 ui/PatternElement.ui:158
 #, kde-format
 msgid "Color Blocks"
 msgstr "Bloques de cores"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderStitchesAs)
-#: src/MainWindow.cpp:1567 src/MainWindow.cpp:1613 ui/PatternElement.ui:101
+#: src/MainWindow.cpp:1617 src/MainWindow.cpp:1663 ui/PatternElement.ui:101
 #, kde-format
 msgid "Color Blocks & Symbols"
 msgstr "Bloques e símbolos de cores "
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Renderer_RenderBackstitchesAs)
 #. i18n: ectx: property (text), item, widget (KComboBox, RenderBackstitchesAs)
-#: src/MainWindow.cpp:1580 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
+#: src/MainWindow.cpp:1630 ui/EditorConfigPage.ui:340 ui/PatternElement.ui:127
 #, kde-format
 msgid "Color Lines"
 msgstr "Colorar as liñas"
 
-#: src/MainWindow.cpp:1640
+#: src/MainWindow.cpp:1690
 #, kde-format
 msgid "Color Highlight"
 msgstr "Realce de cores"
 
-#: src/MainWindow.cpp:1646
+#: src/MainWindow.cpp:1696
 #, fuzzy, kde-format
 #| msgid "Show knots"
 msgid "Show Center"
 msgstr "Amosar os nos."
 
-#: src/MainWindow.cpp:1652
+#: src/MainWindow.cpp:1702
 #, kde-format
 msgid "Show Stitches"
 msgstr "Amosar as puntadas"
 
-#: src/MainWindow.cpp:1658
+#: src/MainWindow.cpp:1708
 #, kde-format
 msgid "Show Backstitches"
 msgstr "Amosar as puntadas atrás"
 
-#: src/MainWindow.cpp:1664
+#: src/MainWindow.cpp:1714
 #, kde-format
 msgid "Show French Knots"
 msgstr "Amosar as puntadas anoadas"
 
-#: src/MainWindow.cpp:1670
+#: src/MainWindow.cpp:1720
 #, kde-format
 msgid "Show Grid"
 msgstr "Amosar a grade"
 
-#: src/MainWindow.cpp:1676
+#: src/MainWindow.cpp:1726
 #, kde-format
 msgid "Show Background Images"
 msgstr "Amosar as imaxes de fondo"
 
-#: src/MainWindow.cpp:1735
+#: src/MainWindow.cpp:1785
 #, kde-format
 msgid "Preview"
 msgstr "Vista previa"
 
-#: src/MainWindow.cpp:1757
+#: src/MainWindow.cpp:1807
 #, kde-format
 msgid "History"
 msgstr "Historial"
 
-#: src/MainWindow.cpp:1765
+#: src/MainWindow.cpp:1815
 #, kde-format
 msgid "Imported Image"
 msgstr "Imaxe importada"
@@ -1949,7 +1977,7 @@ msgstr "Imaxe importada"
 msgid "New Floss"
 msgstr "Novo fío"
 
-#: src/NewFlossDlg.cpp:76 src/PrintSetupDlg.cpp:449
+#: src/NewFlossDlg.cpp:76 src/PrintSetupDlg.cpp:457
 #, kde-format
 msgid "Overwrite"
 msgstr "Substituír"
@@ -2051,32 +2079,32 @@ msgid "Printer configuration %1"
 msgstr "Configuración de impresión %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintSetup)
-#: src/PrintSetupDlg.cpp:51 ui/PrintSetup.ui:20
+#: src/PrintSetupDlg.cpp:52 ui/PrintSetup.ui:20
 #, kde-format
 msgid "Print Setup"
 msgstr "Configuración da impresión"
 
-#: src/PrintSetupDlg.cpp:301
+#: src/PrintSetupDlg.cpp:311
 #, kde-format
 msgid "Properties"
 msgstr "Propiedades"
 
-#: src/PrintSetupDlg.cpp:305
+#: src/PrintSetupDlg.cpp:315
 #, kde-format
 msgid "Delete Element"
 msgstr "Eliminar o elemento"
 
-#: src/PrintSetupDlg.cpp:438
+#: src/PrintSetupDlg.cpp:448
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Páxina %1 de %2"
 
-#: src/PrintSetupDlg.cpp:449
+#: src/PrintSetupDlg.cpp:457
 #, kde-format
 msgid "Overwrite the current configuration?"
 msgstr "Quere substituír a configuración actual?"
 
-#: src/PrintSetupDlg.cpp:498
+#: src/PrintSetupDlg.cpp:521
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2093,8 +2121,8 @@ msgstr ""
 "Tamaño do motivo: ${width.stitches}×${height.stitches}\n"
 "Fíos da gama ${scheme}."
 
-#: src/PrintSetupDlg.cpp:504 src/PrintSetupDlg.cpp:565
-#: src/PrintSetupDlg.cpp:587
+#: src/PrintSetupDlg.cpp:527 src/PrintSetupDlg.cpp:592
+#: src/PrintSetupDlg.cpp:614
 #, kde-format
 msgctxt ""
 "Do not translate elements in ${...} which are substituted by properties"
@@ -2195,12 +2223,12 @@ msgctxt "A symbol that has been used"
 msgid "Used"
 msgstr "Empregado"
 
-#: src/SymbolManager.cpp:176
+#: src/SymbolManager.cpp:172
 #, kde-format
 msgid "This does not appear to be a valid symbol file"
 msgstr "Isto non parece ser un ficheiro de símbolo válido."
 
-#: src/SymbolManager.cpp:191
+#: src/SymbolManager.cpp:187
 #, kde-format
 msgid "Failed to open the file %1"
 msgstr "Non foi posíbel abrir o ficheiro «%1»."
@@ -3494,6 +3522,9 @@ msgstr "Aliñar á dereita."
 #, kde-format
 msgid "Align justified"
 msgstr "Xustificar."
+
+#~ msgid "There is nothing to print"
+#~ msgstr "Non hai nada para imprimir."
 
 #~ msgid ""
 #~ "Error reading scheme %1\n"
