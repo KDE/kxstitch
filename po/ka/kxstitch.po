@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-19 06:17+0200\n"
+"PO-Revision-Date: 2026-10-13 04:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -245,14 +245,13 @@ msgstr "გამოიყენეთ ნაწილობრივი გვ�
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "მონიშნული ფერის იგნორი შემოტანისას"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "ჩარჩოს ფერი"
+msgstr "ფერი, რომელის გამოტოვებული იქნება შემოტანისას"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -261,6 +260,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"ნიმუშის მასშტაბი გამოსახულების ზომასთან შედარებით. 0 ნაგულისხმევი დოკუმენტის "
+"ზომაში ჩასატევად"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -644,13 +645,13 @@ msgstr "ტექსტის ფერი"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "ნიმუშის გასახსნელად, ან შესანახად ბოლოს გამოყენებული საქაღალდე"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "გამოსახულების შემოსატანად, ან გასახსნელად ბოლოს გამოყენებული საქაღალდე"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5

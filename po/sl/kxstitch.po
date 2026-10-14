@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-19 07:40+0200\n"
+"PO-Revision-Date: 2026-10-13 07:44+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -247,14 +247,13 @@ msgstr "Uporabite delne vbode za natančnejšo podrobnost"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Prezri izbrano barvo pri uvozu"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Barva obrobe"
+msgstr "Barva, ki naj prezre se pri uvozu"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -263,6 +262,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Merilo vzorca kot odstotek velikosti slike; 0 za prilagoditev k privzeti "
+"velikosti dokumenta"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -646,13 +647,13 @@ msgstr "Barva besedila"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "Nazadnje uporabljena mapa za odpiranje ali shranjevanje vzorca"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "Nazadnje uporabljen imenik pri uvozu ali dodajanju slike"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5

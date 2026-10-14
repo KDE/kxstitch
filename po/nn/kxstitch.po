@@ -3517,6 +3517,3 @@ msgstr "Høgrejuster"
 #, kde-format
 msgid "Align justified"
 msgstr "Blokkjuster"
-
-#~ msgid "There is nothing to print"
-#~ msgstr "Det finst ikkje noko å skriva ut"

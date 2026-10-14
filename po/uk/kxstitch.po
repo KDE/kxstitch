@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-19 14:23+0300\n"
+"PO-Revision-Date: 2026-10-13 13:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -247,14 +247,13 @@ msgstr "Використовувати частинні стібки для ут
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Ігнорувати вибраний колір під час імпортування"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Колір рамки"
+msgstr "Колір, який слід проігнорувати при імпортуванні"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -263,6 +262,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Масштаб візерунка як відсоток розміру файла зображення, 0 — підібрати за "
+"типовим розміром документа"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -648,12 +649,14 @@ msgstr "Колір тексту"
 #, kde-format
 msgid "The directory last used to open or save a pattern"
 msgstr ""
+"Каталог, який востаннє було використано для відкриття або зберігання "
+"візерунка"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "Каталог, який використано для імпортування або додавання зображення"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-19 11:42+0200\n"
+"PO-Revision-Date: 2026-10-13 15:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -247,14 +247,13 @@ msgstr "Gedeeltelijke steken gebruiken voor een fijner detail"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Negeer een geselecteerde kleur bij importeren"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "De kleur van de rand"
+msgstr "De te negeren kleur bij importeren"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -263,6 +262,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Patroonschaal als percentage van de afbeeldingsgrootte; 0 voor de "
+"standaarddocumentgrootte"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -657,12 +658,15 @@ msgstr "De tekstkleur"
 #, kde-format
 msgid "The directory last used to open or save a pattern"
 msgstr ""
+"De map die het laatst is gebruikt om een ​​patroon te openen of op te slaan"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
 msgstr ""
+"De map die het laatst is gebruikt om een ​​afbeelding te importeren of toe te "
+"voegen"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
