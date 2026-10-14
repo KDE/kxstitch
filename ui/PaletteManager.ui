@@ -304,6 +304,16 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QPushButton" name="ReassignSymbols">
+       <property name="toolTip">
+        <string>Give every floss a new symbol, spread across the symbol library so that they are easier to tell apart</string>
+       </property>
+       <property name="text">
+        <string>Reassign Symbols</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="6" column="0" colspan="9">

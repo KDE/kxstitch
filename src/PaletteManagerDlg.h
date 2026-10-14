@@ -54,6 +54,7 @@ private slots:
     void on_BackstitchSymbol_activated(int);
     void on_NewFloss_clicked(bool);
     void on_ClearUnused_clicked(bool);
+    void on_ReassignSymbols_clicked(bool);
     void on_Calibrate_clicked(bool);
     void on_PickColor_clicked();
     void on_DialogButtonBox_accepted();

@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2010-2022 by Stephen Allewell
- * steve.allewell@gmail.com
+ * Copyright (C) 2010-2022 by Stephen Allewell steve.allewell@gmail.com
+ * Copyright (C) 2026 by Jeremy Whiting <jpwhiting@kde.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -578,7 +578,7 @@ bool MainWindow::convertImage(const QString &source)
     }
 
     QMap<int, QColor> documentFlosses;
-    QList<qint16> symbolIndexes = symbolLibrary->indexes();
+    QList<qint16> symbolIndexes = symbolLibrary->allocationOrder();
 
     QPointer<ImportImageDlg> importImageDlg = new ImportImageDlg(this, image);
 

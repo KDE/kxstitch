@@ -56,6 +56,7 @@ public:
     void setName(const QString &name);
 
     QList<qint16> indexes() const;
+    QList<qint16> allocationOrder() const;
 
     QUndoStack *undoStack();
 

@@ -182,7 +182,7 @@ void DocumentPalette::setSchemeName(const QString &schemeName)
 
 void DocumentPalette::setSymbolLibrary(const QString &symbolLibrary)
 {
-    QList<qint16> indexes = SymbolManager::library(symbolLibrary)->indexes();
+    QList<qint16> indexes = SymbolManager::library(symbolLibrary)->allocationOrder();
 
     // only change the symbol library if there are enough symbols available
     if (d->m_documentFlosses.count() <= indexes.count()) {
@@ -469,7 +469,7 @@ int DocumentPalette::freeIndex() const
 
 qint16 DocumentPalette::freeSymbol() const
 {
-    QList<qint16> indexes = SymbolManager::library(d->m_symbolLibrary)->indexes();
+    QList<qint16> indexes = SymbolManager::library(d->m_symbolLibrary)->allocationOrder();
     QList<int> keys = d->m_documentFlosses.keys();
 
     foreach (int index, keys) {

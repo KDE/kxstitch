@@ -212,6 +212,47 @@ QList<qint16> SymbolLibrary::indexes() const
 }
 
 /**
+ * Get the symbol indexes in the order they should be allocated to flosses.
+ * Libraries group similar symbols together, e.g. triangles pointing in different directions,
+ * so allocating them in index order gives neighbouring colors symbols that are hard to tell
+ * apart. Instead the sorted indexes are visited using a base 2 van der Corput sequence, which
+ * repeatedly halves the gaps between positions already chosen, spreading consecutive
+ * allocations across the whole library. Positions that have already been chosen are skipped,
+ * so every index is returned exactly once.
+ *
+ * @return a QList<qint16> of indexes in allocation order
+ */
+QList<qint16> SymbolLibrary::allocationOrder() const
+{
+    const QList<qint16> sorted = indexes();
+    const int count = sorted.count();
+
+    QList<qint16> order;
+    QList<bool> used(count, false);
+
+    // once 2^n >= count the sequence has visited every position, so this always terminates
+    for (quint32 i = 0; order.count() < count; ++i) {
+        double radicalInverse = 0.0;
+        double digit = 0.5;
+
+        for (quint32 n = i; n; n >>= 1, digit /= 2.0) {
+            if (n & 1) {
+                radicalInverse += digit;
+            }
+        }
+
+        int position = static_cast<int>(radicalInverse * count);
+
+        if (!used[position]) {
+            used[position] = true;
+            order.append(sorted[position]);
+        }
+    }
+
+    return order;
+}
+
+/**
  * Get a pointer to the symbol library undo stack.
  *
  * @return a pointer to a QUndoStack

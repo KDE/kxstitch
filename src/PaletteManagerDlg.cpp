@@ -129,6 +129,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
         ui.StitchSymbol->setEnabled(true);
         ui.BackstitchSymbol->setEnabled(true);
         ui.ClearUnused->setEnabled(true);
+        ui.ReassignSymbols->setEnabled(true);
 
         if (m_flossUsage.contains(i) && m_flossUsage[i].totalStitches() != 0) {
             ui.RemoveFloss->setEnabled(false);
@@ -142,6 +143,7 @@ void PaletteManagerDlg::on_CurrentList_currentRowChanged(int currentRow)
         ui.StitchSymbol->setEnabled(false);
         ui.BackstitchSymbol->setEnabled(false);
         ui.ClearUnused->setEnabled(false);
+        ui.ReassignSymbols->setEnabled(false);
     }
 
     if (symbolsAvailable()) {
@@ -276,6 +278,14 @@ void PaletteManagerDlg::on_ClearUnused_clicked(bool)
             row++;
         }
     }
+}
+
+void PaletteManagerDlg::on_ReassignSymbols_clicked(bool)
+{
+    // setting the current library again reallocates all the symbols in the library allocation order,
+    // there are always enough symbols as the flosses already have symbols from this library
+    m_dialogPalette.setSymbolLibrary(m_dialogPalette.symbolLibrary());
+    on_CurrentList_currentRowChanged(ui.CurrentList->currentRow());
 }
 
 void PaletteManagerDlg::on_Calibrate_clicked(bool)
