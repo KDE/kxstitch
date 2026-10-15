@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:43+0000\n"
+"POT-Creation-Date: 2026-10-15 00:43+0000\n"
 "PO-Revision-Date: 2026-10-13 19:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1053,7 +1053,7 @@ msgstr "Geçersiz veri okundu."
 #: src/Document.cpp:633 src/Document.cpp:928 src/Document.cpp:1242
 #: src/Document.cpp:1258 src/Document.cpp:1420 src/Document.cpp:1576
 #: src/Document.cpp:1748 src/Document.cpp:1939 src/Document.cpp:2130
-#: src/Document.cpp:2310 src/SymbolLibrary.cpp:302
+#: src/Document.cpp:2310 src/SymbolLibrary.cpp:343
 #, kde-format
 msgid "Stream error"
 msgstr "Akış hatası"
@@ -2037,12 +2037,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "Palet Yöneticisi"
 
-#: src/PaletteManagerDlg.cpp:152
+#: src/PaletteManagerDlg.cpp:154
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Daha fazla sembol yok."
 
-#: src/PaletteManagerDlg.cpp:193
+#: src/PaletteManagerDlg.cpp:195
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2197,7 +2197,7 @@ msgstr "Dikiş verisi okunurken hata"
 msgid "Symbol version %1"
 msgstr "Sembol sürümü %1"
 
-#: src/SymbolLibrary.cpp:324
+#: src/SymbolLibrary.cpp:365
 #, kde-format
 msgid "Symbol file version %1"
 msgstr "Sembol dosya sürümü %1"
@@ -3117,6 +3117,21 @@ msgstr "İpleri Ayarla"
 #, kde-format
 msgid "Pick Color"
 msgstr "Renk Seç"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:310
+#, kde-format
+msgid ""
+"Give every floss a new symbol, spread across the symbol library so that they "
+"are easier to tell apart"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:313
+#, fuzzy, kde-format
+#| msgid "Symbols"
+msgid "Reassign Symbols"
+msgstr "Semboller"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14

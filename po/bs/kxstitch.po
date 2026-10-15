@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:43+0000\n"
+"POT-Creation-Date: 2026-10-15 00:43+0000\n"
 "PO-Revision-Date: 2015-01-21 20:35+0100\n"
 "Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -1062,7 +1062,7 @@ msgstr "Neuspjelo čitanje podataka."
 #: src/Document.cpp:633 src/Document.cpp:928 src/Document.cpp:1242
 #: src/Document.cpp:1258 src/Document.cpp:1420 src/Document.cpp:1576
 #: src/Document.cpp:1748 src/Document.cpp:1939 src/Document.cpp:2130
-#: src/Document.cpp:2310 src/SymbolLibrary.cpp:302
+#: src/Document.cpp:2310 src/SymbolLibrary.cpp:343
 #, kde-format
 msgid "Stream error"
 msgstr "Greška u protoku"
@@ -2088,12 +2088,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "Menadžer palete"
 
-#: src/PaletteManagerDlg.cpp:152
+#: src/PaletteManagerDlg.cpp:154
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Nema više dostupnih simbola."
 
-#: src/PaletteManagerDlg.cpp:193
+#: src/PaletteManagerDlg.cpp:195
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2252,7 +2252,7 @@ msgstr "Neuspjelo čitanje podataka o šavu"
 msgid "Symbol version %1"
 msgstr "Verzija simbola %1"
 
-#: src/SymbolLibrary.cpp:324
+#: src/SymbolLibrary.cpp:365
 #, kde-format
 msgid "Symbol file version %1"
 msgstr "Verzija datoteke simbola %1"
@@ -3180,6 +3180,21 @@ msgstr "Kalibriraj končiće"
 #| msgid "Color"
 msgid "Pick Color"
 msgstr "Boja"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:310
+#, kde-format
+msgid ""
+"Give every floss a new symbol, spread across the symbol library so that they "
+"are easier to tell apart"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:313
+#, fuzzy, kde-format
+#| msgid "Symbols"
+msgid "Reassign Symbols"
+msgstr "Simboli"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14

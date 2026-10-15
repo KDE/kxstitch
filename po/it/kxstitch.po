@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-20 08:47+0200\n"
+"POT-Creation-Date: 2026-10-15 00:43+0000\n"
+"PO-Revision-Date: 2026-10-13 16:10+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -246,14 +246,13 @@ msgstr "Usa punti frazionari per i dettagli più fini"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Ignora un colore selezionato durante l'importazione"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Colore del bordo"
+msgstr "Il colore da ignorare durante l'importazione"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -262,6 +261,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Scala del motivo come percentuale delle dimensioni dell'immagine; 0 per "
+"adattarsi alle dimensioni predefinite del documento."
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -649,13 +650,14 @@ msgstr "Colore del testo"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "La cartella utilizzata per ultima per aprire o salvare un motivo"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
 msgstr ""
+"La cartella utilizzata per ultima per importare o aggiungere un'immagine"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -1059,7 +1061,7 @@ msgstr "Lettura di dati non validi"
 #: src/Document.cpp:633 src/Document.cpp:928 src/Document.cpp:1242
 #: src/Document.cpp:1258 src/Document.cpp:1420 src/Document.cpp:1576
 #: src/Document.cpp:1748 src/Document.cpp:1939 src/Document.cpp:2130
-#: src/Document.cpp:2310 src/SymbolLibrary.cpp:302
+#: src/Document.cpp:2310 src/SymbolLibrary.cpp:343
 #, kde-format
 msgid "Stream error"
 msgstr "Errore di flusso"
@@ -2045,12 +2047,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "Gestore della tavolozza"
 
-#: src/PaletteManagerDlg.cpp:152
+#: src/PaletteManagerDlg.cpp:154
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Non ci sono più simboli disponibili."
 
-#: src/PaletteManagerDlg.cpp:193
+#: src/PaletteManagerDlg.cpp:195
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2208,7 +2210,7 @@ msgstr "Impossibile leggere i dati dei punti"
 msgid "Symbol version %1"
 msgstr "Versione simbolo %1"
 
-#: src/SymbolLibrary.cpp:324
+#: src/SymbolLibrary.cpp:365
 #, kde-format
 msgid "Symbol file version %1"
 msgstr "File dei simboli versione %1"
@@ -3128,6 +3130,21 @@ msgstr "Calibra fili"
 #, kde-format
 msgid "Pick Color"
 msgstr "Scegli colore"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:310
+#, kde-format
+msgid ""
+"Give every floss a new symbol, spread across the symbol library so that they "
+"are easier to tell apart"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:313
+#, fuzzy, kde-format
+#| msgid "Symbols"
+msgid "Reassign Symbols"
+msgstr "Simboli"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14

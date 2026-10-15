@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:43+0000\n"
+"POT-Creation-Date: 2026-10-15 00:43+0000\n"
 "PO-Revision-Date: 2026-10-13 15:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1070,7 +1070,7 @@ msgstr "Ongeldige gegevens gelezen."
 #: src/Document.cpp:633 src/Document.cpp:928 src/Document.cpp:1242
 #: src/Document.cpp:1258 src/Document.cpp:1420 src/Document.cpp:1576
 #: src/Document.cpp:1748 src/Document.cpp:1939 src/Document.cpp:2130
-#: src/Document.cpp:2310 src/SymbolLibrary.cpp:302
+#: src/Document.cpp:2310 src/SymbolLibrary.cpp:343
 #, kde-format
 msgid "Stream error"
 msgstr "Fout in stream"
@@ -2056,12 +2056,12 @@ msgstr ""
 msgid "Palette Manager"
 msgstr "Paletbeheerder"
 
-#: src/PaletteManagerDlg.cpp:152
+#: src/PaletteManagerDlg.cpp:154
 #, kde-format
 msgid "There are no more symbols available."
 msgstr "Er zijn geen symbolen meer beschikbaar."
 
-#: src/PaletteManagerDlg.cpp:193
+#: src/PaletteManagerDlg.cpp:195
 #, kde-format
 msgid ""
 "The selected symbol library does not have enough symbols for the flosses in "
@@ -2218,7 +2218,7 @@ msgstr "Lezen van stekengegevens is mislukt"
 msgid "Symbol version %1"
 msgstr "Symboolversie %1"
 
-#: src/SymbolLibrary.cpp:324
+#: src/SymbolLibrary.cpp:365
 #, kde-format
 msgid "Symbol file version %1"
 msgstr "Symboolbestandversie %1"
@@ -3138,6 +3138,21 @@ msgstr "Garen kalibreren"
 #, kde-format
 msgid "Pick Color"
 msgstr "Kies een kleur"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:310
+#, kde-format
+msgid ""
+"Give every floss a new symbol, spread across the symbol library so that they "
+"are easier to tell apart"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
+#: ui/PaletteManager.ui:313
+#, fuzzy, kde-format
+#| msgid "Symbols"
+msgid "Reassign Symbols"
+msgstr "Symbolen"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
