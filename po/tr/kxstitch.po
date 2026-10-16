@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-10-13 19:12+0300\n"
+"PO-Revision-Date: 2026-10-15 20:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -568,7 +568,7 @@ msgstr "Anahtar öge sembol sütununu renkli göster"
 #: kxstitch.kcfg:443
 #, kde-format
 msgid "Show the key element floss name column"
-msgstr "Anahtar öge ip ismi sütununu göster"
+msgstr "Anahtar öge ip adı sütununu göster"
 
 #. i18n: ectx: label, entry (KeyElement_StrandsColumn), group (printer)
 #: kxstitch.kcfg:447
@@ -3125,13 +3125,14 @@ msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
 msgstr ""
+"Her bir ipe yeni bir sembol verin ve sembol kitaplığı boyunca açın; böylece "
+"onları ayırt etmek daha kolay olacaktır."
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "Semboller"
+msgstr "Sembolleri Yeniden Ata"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14

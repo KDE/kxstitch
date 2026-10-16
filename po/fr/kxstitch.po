@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: KXStitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-20 10:10+0200\n"
+"PO-Revision-Date: 2026-10-14 10:40+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -252,14 +252,13 @@ msgstr "Utiliser des points fractionnés pour affiner les détails"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Ignorer une couleur sélectionnée lors de l'importation"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Couleur de la bordure"
+msgstr "La couleur à ignorer lors de l'importation"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -268,6 +267,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Échelle du motif en pourcentage de la taille de l'image, 0 pour s'adapter à "
+"la taille par défaut du document"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -654,13 +655,13 @@ msgstr "Couleur du texte"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "Le dernier dossier utilisé pour ouvrir ou enregistrer un motif"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "Le dernier dossier utilisé pour l'importation ou l'ajout d'une image"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
