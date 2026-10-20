@@ -112,6 +112,7 @@ Comment[sv]=Ett korsstygnsprogram
 Comment[tr]=Bir çapraz dikiş uygulaması
 Comment[uk]=Програма для роботи зі схемами для вишивання хрестиком
 Comment[zh_CN]=十字绣应用
+Keywords=embroidery;needlework;cross-stitch;pattern;chart;thread;floss;
 Icon=kxstitch
 Exec=kxstitch %U
 Terminal=false
