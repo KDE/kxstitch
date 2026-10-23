@@ -242,14 +242,13 @@ msgstr "Použiť zlomkové stehy pre jemnejšie detaily"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Pri importe ignorovať vybranú farbu"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Farba ohraničenia"
+msgstr "Farba, ktorá sa má pri importe ignorovať"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -258,6 +257,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Mierka vzoru v percentách veľkosti obrázka, 0 = prispôsobiť predvolenej "
+"veľkosti dokumentu"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -640,13 +641,13 @@ msgstr "Farba textu"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "Adresár naposledy použitý na otvorenie alebo uloženie vzoru"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "Adresár naposledy použitý na import alebo pridanie obrázka"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -1621,16 +1622,13 @@ msgid "Revert"
 msgstr "Vrátiť"
 
 #: src/MainWindow.cpp:569
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to read the file.\n"
-#| "%1."
+#, kde-format
 msgid ""
 "Failed to load the image file.\n"
 "%1"
 msgstr ""
-"Zlyhalo čítanie súboru .\n"
-"%1."
+"Nepodarilo sa načítať súbor obrázka.\n"
+"%1"
 
 #: src/MainWindow.cpp:576
 #, kde-format
@@ -3078,7 +3076,7 @@ msgstr "Knižnica symbolov"
 #: ui/PaletteManager.ui:59
 #, kde-format
 msgid "&Search:"
-msgstr ""
+msgstr "&Hľadať:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:217
@@ -3102,7 +3100,7 @@ msgstr "Vlákna stehu"
 #: ui/PaletteManager.ui:252
 #, kde-format
 msgid "&Next"
-msgstr ""
+msgstr "Ď&alšie"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:264
@@ -3135,13 +3133,14 @@ msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
 msgstr ""
+"Priradiť každej priadzi nový symbol, rozložený po celej knižnici symbolov, "
+"aby sa dali ľahšie rozlíšiť"
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "Symboly"
+msgstr "Znova priradiť symboly"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
