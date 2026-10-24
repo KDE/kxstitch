@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-10-15 20:59+0300\n"
+"PO-Revision-Date: 2026-10-21 23:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Poedit 3.9\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -309,7 +309,7 @@ msgstr "Simge görünümünde görünecek simgeler için öntanımlı boyut"
 #: kxstitch.kcfg:254
 #, kde-format
 msgid "Should character selection honor the caps lock key"
-msgstr "Karakter seçimi caps lock tuşuna uymalı mı"
+msgstr "Karakter seçimi Büyük Harf düğmesine uymalı mı"
 
 #. i18n: ectx: label, entry (Alphabet_SpaceWidth), group (alphabet)
 #: kxstitch.kcfg:258
@@ -970,12 +970,12 @@ msgstr "İp Şemasını Değiştir"
 #: src/Commands.cpp:952
 #, kde-format
 msgid "Replace Color"
-msgstr "Renk Değiştir"
+msgstr "Rengi Değiştir"
 
 #: src/Commands.cpp:1052 src/MainWindow.cpp:1496
 #, kde-format
 msgid "Swap Colors"
-msgstr "Renkleri Değiştir"
+msgstr "Renkleri Birbirleriyle Değiştir"
 
 #: src/Commands.cpp:1073
 #, kde-format
@@ -995,7 +995,7 @@ msgstr "Abece"
 #: src/Commands.cpp:1329
 #, kde-format
 msgid "Configure KXStitch"
-msgstr "KX Dikiş’i Yapılandır"
+msgstr "KXStitch’i Yapılandır"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
@@ -1038,7 +1038,7 @@ msgstr "Başlıksız"
 #: src/Document.cpp:255 src/Document.cpp:289
 #, kde-format
 msgid "KXStitch version %1"
-msgstr "KX Dikiş sürüm %1"
+msgstr "KXStitch sürüm %1"
 
 #: src/Document.cpp:485 src/Document.cpp:782 src/Document.cpp:1094
 #, kde-format
@@ -1478,7 +1478,7 @@ msgstr "var olan kitaplık"
 #: src/Main.cpp:90
 #, kde-format
 msgid "kxstitch"
-msgstr "kx dikiş"
+msgstr "KXStitch"
 
 #: src/Main.cpp:92
 #, kde-format
@@ -1493,7 +1493,7 @@ msgstr "© 2010–2019 Stephen Allewell"
 #: src/Main.cpp:100
 #, kde-format
 msgid "Project Lead"
-msgstr "Proje Yöneticisi"
+msgstr "Proje yöneticisi"
 
 #: src/Main.cpp:101
 #, kde-format
@@ -1525,7 +1525,7 @@ msgstr "mesutcank@gmail.com"
 #: src/Main.cpp:111
 #, kde-format
 msgid "Document to open."
-msgstr "Açılacak belge."
+msgstr "Açılacak belge"
 
 #: src/MainWindow.cpp:75
 #, kde-format
@@ -1541,7 +1541,7 @@ msgstr "Değişiklikler belgeye kaydedilsin mi?"
 #: src/MainWindow.cpp:277
 #, kde-format
 msgid "Unable to save the file"
-msgstr "Dosya kaydetme başarısız"
+msgstr "Dosya kaydedilemedi"
 
 #: src/MainWindow.cpp:311
 #, kde-format
@@ -1552,7 +1552,7 @@ msgstr "Dosya aç"
 #, kde-format
 msgid "KXStitch Patterns (*.kxs);;PC Stitch Patterns (*.pat);;All Files (*)"
 msgstr ""
-"KX Dikiş Kalıpları (*.kxs);;PC Stitch Kalıpları (*.pat);;Tüm Dosyalar (*)"
+"KXStitch desenleri (*.kxs);;PC Stitch desenleri (*.pat);;Tüm dosyalar (*)"
 
 #: src/MainWindow.cpp:354
 #, kde-format
@@ -1603,7 +1603,7 @@ msgstr "Farklı Kaydet…"
 #: src/MainWindow.cpp:421
 #, kde-format
 msgid "Cross Stitch Patterns (*.kxs)"
-msgstr "Cross Stitch Patterns (*.kxs)"
+msgstr "Çapraz dikiş desenleri (*.kxs)"
 
 #: src/MainWindow.cpp:436
 #, kde-format
@@ -2913,7 +2913,7 @@ msgstr "Abeceler"
 #: ui/LibraryConfigPage.ui:47
 #, kde-format
 msgid "Use caps lock"
-msgstr "Caps lock kullan"
+msgstr "Büyük Harf düğmesini kullan"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Alphabet_WordWrap)
 #: ui/LibraryConfigPage.ui:54
