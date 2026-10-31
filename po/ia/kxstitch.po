@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-21 15:01+0200\n"
+"PO-Revision-Date: 2026-10-30 16:14+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2494,7 +2494,7 @@ msgstr ""
 #: ui/FileProperties.ui:338
 #, kde-format
 msgid "Instructions"
-msgstr ""
+msgstr "Instructiones"
 
 #. i18n: ectx: property (toolTip), widget (QScrollArea, PreviewFrame)
 #: ui/ImageElement.ui:32 ui/PatternElement.ui:32
@@ -2995,9 +2995,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: ui/PaletteManager.ui:59
-#, kde-format
+#, fuzzy, kde-format
 msgid "&Search:"
-msgstr ""
+msgstr "Cerca"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/PaletteManager.ui:217
@@ -3019,9 +3019,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, NextButton)
 #: ui/PaletteManager.ui:252
-#, kde-format
+#, fuzzy, kde-format
 msgid "&Next"
-msgstr ""
+msgstr "Seque&nte"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/PaletteManager.ui:264
@@ -3057,10 +3057,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "Symbolos"
+msgstr "Reassigna Symbolos"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
@@ -3450,4 +3449,4 @@ msgstr "Alinea a  dextera"
 #: ui/TextElement.ui:444
 #, kde-format
 msgid "Align justified"
-msgstr ""
+msgstr "Alinea Justificate"
