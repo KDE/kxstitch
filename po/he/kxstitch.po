@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-21 23:04+0300\n"
+"PO-Revision-Date: 2026-10-30 10:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -245,14 +245,13 @@ msgstr "להשתמש בתכים בשברים כדי להגיע לפרטים עד
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "התעלמות מצבע נבחר בעת ייבוא"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "צבע המסגרת"
+msgstr "צבע להתעלמות בעת ייבוא"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -261,6 +260,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"התאמת קנה מידה של תבנית כאחוזים מגודל התמונה, 0 כדי לבצע התאמה לגודל המסמך "
+"כברירת מחדל"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -640,13 +641,13 @@ msgstr "צבע הטקסט"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "התיקייה שנעשה בה שימוש לאחרונה כדי לפתוח או לשמור תבנית"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "התיקייה שנעשה בה שימוש לאחרונה כדי לייבא או להוסיף תמונה"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -3142,13 +3143,14 @@ msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
 msgstr ""
+"להעניק לכל חוט סימן חדש, מופץ בקרב ספריית הסימנים כדי שיהיה קל יותר להבחין "
+"ביניהם."
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "סמלים"
+msgstr "הקצאת סמלים מחדש"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
