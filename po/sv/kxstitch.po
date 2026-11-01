@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-19 08:42+0200\n"
+"PO-Revision-Date: 2026-10-31 15:28+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -244,14 +244,13 @@ msgstr "Använd delstygn för finare detaljer"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Ignorera en vald färg vid import"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Kantens färg"
+msgstr "Färg att ignorera vid import"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -260,6 +259,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Mönsterskala som procent av bildstorleken, 0 för att anpassa till "
+"dokumentens standardstorlek"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -641,13 +642,14 @@ msgstr "Textfärgen"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "Katalogen som senast användes för att öppna eller spara ett mönster"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
 msgstr ""
+"Katalogen som senast användes för att importera eller lägga till en bild"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -3124,13 +3126,14 @@ msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
 msgstr ""
+"Ge varje garn en ny symbol, spridd över symbolbiblioteket så att de är "
+"enklare att skilja åt"
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "Symboler"
+msgstr "Ändra symboltilldelning"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
