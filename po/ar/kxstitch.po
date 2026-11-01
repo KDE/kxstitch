@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kxstitch package.
-# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-23 17:49+0400\n"
+"PO-Revision-Date: 2026-10-31 20:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
 #: kxstitch.kcfg:10
@@ -245,14 +245,13 @@ msgstr "استخدِم غرزًا جزئية لتفاصيل أدق"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "تجاهل لونًا محددًا عند الاستيراد"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "لون الإطار"
+msgstr "اللون الذي سيُتجاهل عند الاستيراد"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -260,7 +259,7 @@ msgstr "لون الإطار"
 msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
-msgstr ""
+msgstr "مقياس النقشة كنسبة مئوية من حجم الصورة، و0 لملاءمة حجم المستند المبدئي"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -640,13 +639,13 @@ msgstr "لون النص"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "المجلد الذي استُخدم آخر مرة لفتح نقشة أو حفظها"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "المجلد الذي استُخدم آخر مرة لاستيراد صورة أو إضافتها"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -3165,14 +3164,13 @@ msgstr "انتقِ لونًا"
 msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
-msgstr ""
+msgstr "أعطِ كل خيط رمزًا جديدًا، موزعًا عبر مكتبة الرموز ليسهل تمييزها عن بعضها"
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "رموز"
+msgstr "أعد تعيين الرموز"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
