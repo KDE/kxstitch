@@ -441,11 +441,12 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.0.0" date="2026-11-19" type="stable"/>
     <release version="2.2.0" date="2019-06-07" type="stable"/>
   </releases>
   <url type="homepage">https://userbase.kde.org/Special:myLanguage/KXStitch</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kxstitch</url>
-  <url type="help">https://docs.kde.org/stable5/en/kxstitch/kxstitch/index.html</url>
+  <url type="help">https://docs.kde.org/stable_kf6/en/kxstitch/kxstitch/index.html</url>
   <url type="vcs-browser">https://invent.kde.org/graphics/kxstitch</url>
   <content_rating type="oars-1.1"/>
   <provides>
