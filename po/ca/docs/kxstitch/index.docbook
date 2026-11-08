@@ -46,9 +46,9 @@
         <legalnotice
 >&FDLNotice;</legalnotice>
         <date
->19 de maig de 2019</date>
+>19 de novembre de 2026</date>
         <releaseinfo
->&kxstitch; 2.2.0</releaseinfo>
+>&kxstitch; 3.0.0</releaseinfo>
         <abstract>
             <para
 >El &kxstitch; és una aplicació dissenyada per a permetre que les persones creïn patrons de punt de creu i imprimir-los. Aquests patrons es poden crear des de zero en una mida de quadrícula definida per l'usuari, o es pot importar una imatge a partir de diversos fitxers gràfics. </para>
