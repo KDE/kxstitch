@@ -60,9 +60,9 @@
         <legalnotice
 >&FDLNotice;</legalnotice>
         <date
->19/05/2019</date>
+>19/11/2026</date>
         <releaseinfo
->&kxstitch; 2.2.0</releaseinfo>
+>&kxstitch; 3.0.0</releaseinfo>
         <abstract>
             <para
 >O &kxstitch; é um aplicativo projetado para permitir que as pessoas criem padrões em ponto cruz e possam imprimi-los. Esses padrões podem ser criados do zero em uma grade com um tamanho definido pelo usuário ou importados a partir de um arquivo de imagem em diversos formatos. </para>
