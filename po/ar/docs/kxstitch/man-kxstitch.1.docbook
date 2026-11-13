@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>دليل مستخدم المُطرِّز</title>
+<author
+><firstname
+>Eric</firstname
+> <surname
+>Pareja</surname
+> <contrib
+>First version of KXStitch man page for Debian project.</contrib
+> <email
+>xenos@upm.edu.ph</email
+></author>
+<author
+><firstname
+>Yuri</firstname
+> <surname
+>Chornoivan</surname
+> <contrib
+>Updated man page.</contrib
+> <email
+>yurchor@ukr.net</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>المُطرِّز 2.0</releaseinfo>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kxstitch</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kxstitch</command
+></refname>
+<refpurpose
+>منشئ ومحرر أنماط التطريز المتقاطع من كيدي</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis
+><command
+>kxstitch</command
+> <arg choice="opt"
+><option
+><replaceable
+>ملف</replaceable
+></option
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Description</title>
+<para
+>المُطرِّز هو برنامج يتيح لك إنشاء أنماط ورسوم بيانية للتطريز المتقاطع. يمكن إنشاء الأنماط من الصفر على شبكة بحجم يحدده المستخدم، ويمكن تكبير حجمها أو تصغيره مع تقدم النمط. بدلًا من ذلك، يمكنك استيراد صور من العديد من صيغ الرسوميات مما يتيح لك تقليل عدد الألوان وحصر التحويل إلى غرز كاملة أو استخدام غرز جزئية اختياريًا. يمكنك أيضًا استخدام صورة كخلفية. يمكن بعد ذلك تعديل هذه الصور المستوردة باستخدام الأدوات المقدمة لإنتاج تصميمك النهائي.</para>
+
+<para
+>هناك العديد من الأدوات للمساعدة في تصميم نمطك، بدءًا من المستطيلات والأهليلات المفتوحة والمملوءة، والمضلعات المملوءة والخطوط والغرز الخلفية. بالإضافة إلى ذلك، يمكن استخدام القص والنسخ واللصق لتكرار المناطق المحددة. يمكن أيضًا تدوير المناطق المحددة 90 و180 و270 درجة عكس عقارب الساعة، أو عكسها أفقيًا أو عموديًا.</para>
+
+<para
+>هناك أيضًا مكتبة أنماط يمكن استخدامها لتخزين أجزاء صغيرة وليست صغيرة جدًا من الأنماط التي يمكن إعادة استخدامها لاحقًا في أنماط أخرى. تُخزَّن الأنماط في هذه المكتبات في قائمة هرمية تسهل فرزها والتنقل بينها للعثور على ما تريد. يمكن أيضًا استخدام مكتبات الأنماط هذه كأبجديات بتعيين حرف لكل منها. باستخدام أداة الأبجدية، يُبحث عن كل ضغطة مفتاح في المكتبة الحالية، وإذا وُجدت، يُدرج النمط المرتبط في النمط.</para>
+
+<para
+>عندما تكون مستعدًا، يمكنك طباعة تصميمك بعدة صيغ. هناك خيارات لطباعة أوراق الغلاف والتعليمات ومفتاح الخيط بما في ذلك كمية الخيط المستخدمة وعدد الغرز.</para>
+</refsect1>
+
+<refsect1>
+<title
+>المعطيات</title>
+
+<variablelist>
+<varlistentry>
+  <term
+><replaceable
+>ملف</replaceable
+></term>
+<listitem>
+<para
+>مستند التطريز المتقاطع لفتحه.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+<simplelist>
+<member
+>وثائق المستخدم الأكثر تفصيلًا متوفرة من <ulink url="help:/kxstitch"
+>help:/kxstitch</ulink
+> (إما بإدخال هذا <acronym
+>الرابط</acronym
+> في &konqueror;، أو بتشغيل <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kxstitch</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>هناك أيضًا معلومات إضافية متوفرة في <ulink url="http://userbase.kde.org/KXStitch"
+>الصفحة الرئيسة لـ المُطرِّز</ulink
+>.</member>
+</simplelist>
+</refsect1>
+
+<refsect1>
+<title
+>المؤلفون</title>
+<para
+>كُتب المُطرِّز بواسطة <personname
+><firstname
+>ستيفن</firstname
+><surname
+>ألويل</surname
+></personname
+> <email
+>steve.allewell@gmail.com</email
+>.</para>
+</refsect1>
+
+</refentry>
