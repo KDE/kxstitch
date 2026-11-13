@@ -1,0 +1,240 @@
+<chapter id="kxstitch-features">
+    <title
+>الميزات</title>
+    <para
+>تُعرَض هنا قائمة الميزات الحالية والميزات الأخرى المخطط لها.</para>
+    <itemizedlist>
+        <listitem
+><para
+>إنشاء أنماط جديدة <itemizedlist>
+                <listitem
+><para
+>حجم محدد من المستخدم</para
+></listitem>
+                <listitem
+><para
+>اختيار لون القماش</para
+></listitem>
+                <listitem
+><para
+>إدراج صور خلفية للتتبع</para
+></listitem>
+                <listitem
+><para
+>استيراد تنسيقات صور متنوعة</para
+></listitem>
+                <listitem
+><para
+>تسمح خيارات الاستيراد <itemizedlist>
+                        <listitem
+><para
+>تحديد عدد الألوان</para
+></listitem>
+                        <listitem
+><para
+>تحديد الألوان بلوحة ألوان محددة</para
+></listitem>
+                        <listitem
+><para
+>تغيير الحجم إلى حجم نهائي</para
+></listitem>
+                        <listitem
+><para
+>دعم الشفافية في الصور</para
+></listitem>
+                        <listitem
+><para
+>السماح باستخدام الغرز الجزئية</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>تحرير النقوش الموجودة، ستتضمن أدوات التحرير <itemizedlist>
+                <listitem
+><para
+>مستطيلات مفتوحة ومملوءة</para
+></listitem>
+                <listitem
+><para
+>أهليجيات مفتوحة ومملوءة</para
+></listitem>
+                <listitem
+><para
+>مضلعات مملوءة</para
+></listitem>
+                <listitem
+><para
+>ارسم</para
+></listitem>
+                <listitem
+><para
+>ارسم</para
+></listitem>
+                <listitem
+><para
+>محو الغرز والعقد والغرز الخلفية</para
+></listitem>
+                <listitem
+><para
+>اختيار اللون من الغرز الموجودة</para
+></listitem>
+                <listitem
+><para
+>مبادلة لونين</para
+></listitem>
+                <listitem
+><para
+>استبدال لون بآخر</para
+></listitem>
+                <listitem
+><para
+>نص بخطوط وأحجام محددة من المستخدم</para
+></listitem>
+                <listitem
+><para
+>قص ونسخ ولصق المساحات المستطيلة</para
+></listitem>
+                <listitem
+><para
+>تراجع وإعادة غير محدودين</para
+></listitem>
+                <listitem
+><para
+>عكس، أفقيًا وعموديًا</para
+></listitem>
+                <listitem
+><para
+>تدوير، 90 و180 و270 درجة عكس عقارب الساعة</para
+></listitem>
+                <listitem
+><para
+>تغيير حجم اللوحة <itemizedlist>
+                        <listitem
+><para
+>تمديد اللوحة يسارًا وأعلى ويمينًا وأسفل</para
+></listitem>
+                        <listitem
+><para
+>اقتصاص اللوحة إلى النقش</para
+></listitem>
+                        <listitem
+><para
+>اقتصاص اللوحة إلى التحديد</para
+></listitem>
+                        <listitem
+><para
+>إدراج صفوف وأعمدة</para
+></listitem>
+                        <listitem
+><para
+>توسيط النقش على اللوحة</para
+></listitem>
+                    </itemizedlist
+></para>
+                </listitem>
+                <listitem
+><para
+>تحويل بين نظم الخيوط</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>استخدام لوحات الخيوط القياسية، DMC، Anchor، إلخ.</para
+></listitem>
+        <listitem
+><para
+>إنشاء لوحات خيوط مخصصة</para
+></listitem>
+        <listitem
+><para
+>إنشاء ألوان جديدة لأي لوحة خيوط</para
+></listitem>
+        <listitem
+><para
+>حفظ / تحميل اللوحة الحالية</para
+></listitem>
+        <listitem
+><para
+>استخدام الغُرَز القياسية</para
+></listitem>
+        <listitem
+><para
+>مدير مكتبة النماذج <itemizedlist>
+                <listitem
+><para
+>إنشاء نماذج مكتبة جديدة</para
+></listitem>
+                <listitem
+><para
+>إدراج نماذج المكتبة في تصميم</para
+></listitem>
+                <listitem
+><para
+>سحب وإفلات من المكتبة إلى النموذج</para
+></listitem>
+                <listitem
+><para
+>اسحب وأفلت من مكتبة إلى أخرى</para
+></listitem>
+                <listitem
+><para
+>تعيين ضغطات المفاتيح للنماذج لاستخدامها مع أداة الأبجدية</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>حرية استخدام خياطة الظهر</para
+></listitem>
+        <listitem
+><para
+>طباعة النماذج المكتملة ومفاتيح الخيوط <itemizedlist>
+                <listitem
+><para
+>صورة النموذج</para
+></listitem>
+                <listitem
+><para
+>الخطوط</para
+></listitem>
+                <listitem
+><para
+>مفتاح الخيط وملخص الغرز</para
+></listitem>
+                <listitem
+><para
+>مخطط النموذج مع خريطة الصفحات</para
+></listitem>
+                <listitem
+><para
+>مربعات النص</para
+></listitem>
+            </itemizedlist
+></para>
+        </listitem>
+        <listitem
+><para
+>تعيين الرموز إلى الخيوط</para
+></listitem>
+        <listitem
+><para
+>تحديد عدد الخيوط للغرز والغرز الخلفية</para
+></listitem>
+        <listitem
+><para
+>معايرة ألوان الخيوط</para
+></listitem>
+    </itemizedlist>
+    <para
+>يمكن تقديم طلبات الميزات الجديدة إلى <ulink url="http://bugs.kde.org"
+>نظام تتبع الأخطاء في كيدي</ulink
+></para>
+</chapter>
