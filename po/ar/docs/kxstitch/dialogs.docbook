@@ -1,0 +1,494 @@
+<chapter id="Dialogs">
+    <title
+>مربعات الحوار</title>
+
+    <sect1 id="PaletteManagerDialog">
+        <title
+>حوار مدير اللوحة</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="palette-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يتيح لك مدير اللوحة إضافة أو إزالة أو تبديل خيوط التطريز من لوحتك الحالية والمخطط المحدد. يمكنك إزالة جميع الخيوط غير المستخدمة من لوحتك الحالية، كما يمكنك إضافة خيوط جديدة إلى المخطط. بالإضافة إلى ذلك، يمكنك استدعاء <link linkend="CalibrateDialog"
+>حوار معايرة الخيط</link
+> من هنا. </para>
+        <para
+>يمكنك تخصيص عدد خيوط القطن المستخدمة لكل خيط تطريز، سواء للتطريز العادي أو التطريز الخلفي. ستُستخدم هذه المعلومات في حساب كمية الخيط المطلوبة في التصميم النهائي. </para>
+        <para
+>يتضمن الحوار زر <guilabel
+>اختيار لون</guilabel
+> يتيح اختيار لون من أي مكان على الشاشة. يمكن أن يكون هذا من صورة خلفية مثلًا لتسهيل اختيار الألوان المتطابقة. سيتغير المؤشر إلى علامة تقاطع مع عينة لون تشير إلى لون البكسل تحت العلامة. بعد النقر على بكسل، سيُحدد خيط تطريز يطابق اللون المختار بشكل وثيق في قائمة الخيوط. </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pick-color-cursor.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="SymbolSelectorDialog">
+            <title
+>مُحدِّد الرَّمز</title>
+            <para>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="symbol-selector-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>لكل خيط من الخيوط يمكنك تخصيص رمز. يعرض حوار منتقي الرموز جميع الرموز المتاحة. تظهر الرموز المستخدمة باللون الرمادي، وستظهر تلميحة أداة <quote
+>مستخدم</quote
+> عند التمرير فوق الرمز. بالنسبة للوحة، يمكن أيضًا تغيير مكتبة الرموز المستخدمة باختيار واحدة من القائمة المنسدلة. سيُخصص بعد ذلك رمز من المكتبة الجديدة لجميع الخيوط. </para>
+        </sect2>
+    </sect1>
+
+    <sect1 id="NewColorDialog">
+        <title
+>حوار اللون الجديد</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="new-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يظهر الحوار اسم المخطط الذي سيُضاف إليه اللون الجديد. يتطلب اللون اسمًا ووصفًا، يمكن أن يكونا أي شيء تريده، على الرغم من أن اسم اللون سيُحدد عادةً من قبل مصنع الخيط. </para>
+        <para
+>النقر على زر <guilabel
+>لون</guilabel
+> سيظهر حوار اختيار ألوان <ulink url="help:/fundamentals/colors.html"
+>&kde;</ulink
+> قياسيًا. يمكن اختيار اللون الأولي ثم ضبط المعاملات للحصول على اللون الصحيح. </para>
+        <para
+>بمجرد إضافته، سيكون هذا اللون الجديد متاحًا لإدراجه في لوحة أنماطك عبر حوار <guilabel
+>مدير اللوحة</guilabel
+>. يمكن أيضًا تعديله باستخدام <link linkend="CalibrateDialog"
+>حوار معايرة الخيط</link
+>. </para>
+    </sect1>
+
+    <sect1 id="CalibrateDialog">
+        <title
+>حوار معايرة الخيط</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="calibrate-color-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>لهذا الحوار جزآن. </para>
+        <para
+>على اليسار، قائمة انتقاء للمخططات المتاحة حاليًا مع قائمة بالألوان الموجودة في ذلك المخطط. سيُلحق وصف اللون بـ <guilabel
+>(مُعاير)</guilabel
+> إذا كان اللون قد عُدل بواسطة الاستدعاء الحالي لهذا الحوار. </para>
+        <para
+>على اليمين، اسم ووصف اللون المحدد حاليًا، سيُلحق هذا بـ <guilabel
+>(مُعدل)</guilabel
+> إذا كان اللون قد عُدل، معاينة للون، وقيم RGB الحالية للون. </para>
+        <para
+>يظهر أيضًا زر <guibutton
+>إعادة تعيين اللون</guibutton
+>. سيعيد هذا تعيين اللون المحدد حاليًا إلى القيمة التي كان عليها عند استدعاء الحوار لأول مرة. </para>
+        <para
+>الضغط على زر <guibutton
+>موافق</guibutton
+> سيثبت جميع الألوان المتغيرة. </para>
+        <para
+>الضغط على زر <guibutton
+>إلغاء</guibutton
+> سيعيد جميع الألوان المتغيرة إلى قيمها الأصلية. </para>
+    </sect1>
+
+    <sect1 id="ConfigurationDialog">
+        <title
+>حواريّ الضّبط</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="configuration-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يتيح لك هذا الحوار ضبط عدد من عناصر KXStitch. </para>
+        <para
+>معظم الخيارات واضحة بذاتها. مربعات الاختيار تفعّل أو تعطّل وظائف أو عناصر مختلفة. قوائم الانتقاء تتيح اختيار التنسيق المطلوب لتلك العناصر. </para>
+        <para
+>يمكنك العودة إلى مجموعة المعاملات المبدئية باستخدام زر <guibutton
+>مبدئي</guibutton
+>. </para>
+    </sect1>
+
+    <sect1 id="ImportImageDialog">
+        <title
+>حوار استيراد الصورة</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="import-image-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>على يسار الحوار توجد معاينة للصورة المستوردة، بناءً على المعاملات على اليمين. </para>
+        <para
+>يمكن اختيار مخطط الخيط للنمط النهائي، بشكل مبدئي هو نفسه مبدئيات حوار <guilabel
+>خصائص النمط الجديد</guilabel
+>. يمكن تفعيل الحد الأقصى للألوان المستخدمة في النمط وتغييره حسب الحاجة، بشكل مبدئي سيكون للنمط المستورد عدد ألوان بقدر ما هو محدد في الصورة الأصلية التي تُحول إلى ألوان خيوط. تحديد مربع <guilabel
+>تجاهل اللون</guilabel
+> يتيح لك النقر على أداة القطارة لاختيار لون في الصورة سيُتجاهل عند الاستيراد. هذا مفيد لإزالة الخلفيات التي لا تحتاج تحويلها إلى غرز. سيُعرض اللون المتجاهل كنمط رقعة شطرنج في المعاينة. </para>
+        <para
+>قيمة عدد القماش تكون مبدئيًا من حوار <guilabel
+>خصائص النمط الجديد</guilabel
+> ويُضبط المقياس بحيث يكون الحجم النهائي أقرب ما يمكن لحجم نمط <guilabel
+>خصائص النمط الجديد</guilabel
+>. يمكن تغيير هذه القيم حسب الحاجة. </para>
+        <para
+>مربع الاختيار <guilabel
+>اقتصاص الصورة</guilabel
+> يفعل اقتصاص صورة المعاينة. انقر واسحب عبر صورة المعاينة لتحديد المنطقة المطلوبة. تظهر خطوط إرشادية قبل اختيار نقطة البداية للسماح بوضع أكثر دقة. بمجرد تحديد منطقة، ستُعاد عرض المعاينة لإظهار المنطقة المقصوصة. يمكن إجراء المزيد من الاقتصاص إذا لزم الأمر. النقر على زر إعادة التعيين، أو إيقاف تشغيل الاقتصاص، سيعيد المعاينة إلى الصورة الأصلية. </para>
+        <para
+>مربع الاختيار <guilabel
+>استخدام الغرز الكسرية</guilabel
+> سيفعل استخدام الغرز الكسرية في النمط المستورد. هذا يضاعف دقة الاستيراد بشكل فعال دون التأثير على الحجم الكلي للنمط. </para>
+        <para
+>النقر على <guibutton
+>موافق</guibutton
+> سيحول الصورة إلى نمط. </para>
+    </sect1>
+
+    <sect1 id="FilePropertiesDialog">
+        <title
+>حوار خصائص الملف</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="file-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يمكن تعريف حجم النمط بوحدات الغرز أو السنتيمترات أو البوصات. ستُحدث قيمتا العرض والارتفاع تلقائيًا إلى الحجم المكافئ في نوع الوحدة الجديد إذا تغير نوع الوحدات. </para>
+        <para
+>يُعرف عدد القماش بوحدات لكل سنتيمتر أو بوصة ويعتمد على وحدات الحجم. أي إذا تم اختيار سم للوحدات فسيكون عدد القماش بوحدات لكل سنتيمتر، وبالمثل للبوصات. إذا تغيرت <guilabel
+>الوحدات</guilabel
+> إلى <guimenuitem
+>غرز</guimenuitem
+> فستبقى وحدات عدد القماش كآخر قيمة سم أو بوصة. </para>
+        <para
+>حقول العنوان والمؤلف وحقوق النشر والنسيج هي نصوص حرة، لذا يمكنك إدخال أي شيء تريده هنا. يمكن ضبط لون النسيج بالضغط على زر اللون واختيار اللون المطلوب. سيُعرض هذا بعد ذلك في نافذتي المحرر والمعاينة. </para>
+        <para
+>تحتوي قائمة مخططات الخيط على قائمة انتقاء لجميع مخططات الخيط المتاحة، بما في ذلك أي مخططات قمت بتعريفها بنفسك. </para>
+        <para
+>يمكن استخدام لسان التبويب <guilabel
+>تعليمات</guilabel
+> لإدخال أي تعليمات محددة لخياطة النمط. </para>
+    </sect1>
+
+    <sect1 id="PatternLibraryDialog">
+        <title
+>حوار مكتبة النمط</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-manager-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يحتوي مدير مكتبة النمط على عرض شجري هرمي (أشبه بغابة في الحقيقة) للفئات على اليسار مع عرض أيقونات للفئة المحددة من النماذج على اليمين. هذا الحوار غير حصري ويمكن تركه مفتوحًا أثناء العمل على النمط. </para>
+        <para
+>أبسط طريقة لاستخدام نماذج المكتبة هي سحبها وإفلاتها على مساحة النمط. بدلًا من ذلك، استخدام زر الفأرة الأيمن (&RMB;) على نموذج مكتبة سيظهر قائمة سياقية مع خيار لنسخه، ويمكن بعد ذلك لصقه في النمط عدة مرات حسب الحاجة. </para>
+        <para
+>العناصر الإضافية في قائمة السياق هي: <itemizedlist>
+                <listitem
+><para
+>حذف: حذف عنصر مكتبة، ويظهر حوار تأكيد لذلك.</para
+></listitem>
+                <listitem
+><para
+>خصائص: إظهار حوار الخصائص للعنصر.</para
+></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="library-pattern-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يعرض حوار الخصائص لكل عنصر حجمه ومخطط الخيط المستخدم، القيمة الأساسية والحرف المرتبط بلوحة المفاتيح. تُستخدم القيمة الأساسية لوضع النمط الحرفي عموديًا بالنسبة لموضع المؤشر عند استخدام أداة الأبجدية. القيم الموجبة تحركه لأسفل، والقيم السالبة تحركه لأعلى. الحرف المرتبط مطلوب فقط للاستخدام مع أداة الأبجدية. بعد النقر في مربع نص الحرف المرتبط، يُستخدم ضغط المفتاح التالي، بما في ذلك المفاتيح المعدلة (&Shift;، &Ctrl;، إلخ…)، كمفتاح. </para>
+        <para
+>أنشئ مكتبات جديدة بالنقر بزر الفأرة الأيمن (&RMB;) إما على فئة موجودة، لإنشاء فئة فرعية، أو على منطقة فارغة من قائمة المكتبة، لفئة رئيسية جديدة، واختر الخيار <guimenuitem
+>فئة جديدة</guimenuitem
+>، أدخل الاسم وانقر <guibutton
+>موافق</guibutton
+>. </para>
+        <para
+>إنشاء نمط مكتبة جديد بتحديد منطقة في محرر النمط، اختر نسخ، ثم استخدم زر الفأرة الأيمن (&RMB;) على فئة موجودة واختر لصق. إذا لزم الأمر، يمكنك استخدام خيار الخصائص لإضافة مفتاح مرتبط إذا أردت استخدامه كمكتبة حروف. </para>
+        <para
+>يمكن سحب نماذج المكتبة وإفلاتها إلى مكتبات أخرى في القائمة للسماح لك بإعادة ترتيبها حسب احتياجاتك. لاحظ أنه لا توجد فحوصات لضمان أن رموز المفاتيح المخصصة لنماذج المكتبة فريدة، ويجب عليك تعديل أي منها يكرر رمزًا موجودًا. </para>
+    </sect1>
+
+    <sect1 id="TextDialog">
+        <title
+>حوار النص</title>
+        <para>
+            <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <para
+>يسمح لك حوار النص بتحديد خط وحجم، ثم إدخال النص. النقر على <guibutton
+>موافق</guibutton
+> يغلق الحوار ويعيدك إلى نافذة &kxstitch;. وضع النص هو نفسه لصق أي عنصر آخر. اضغط زر الفأرة الأيسر (&LMB;) على اللوحة تقريبًا حيث تريد النص، سيظهر هذا معاينة للنص، ضع النص بالضبط حيث تريده، ثم حرر زر الفأرة الأيسر (&LMB;). </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-tool-pattern.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="ExtendDialog">
+        <title
+>حوار تمديد النمط</title>
+        <para
+>يُستخدم هذا لتمديد النمط في اتجاهات مختلفة بعدد من الخلايا. أدخل عدد الخلايا في مربعات التدوير واضغط <guibutton
+>موافق</guibutton
+> لتمديد النمط. </para>
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="extend-pattern-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+    </sect1>
+
+    <sect1 id="PrinterDialog">
+        <title
+>حوار الطابعة</title>
+        <para
+>يحتوي الحوار على قائمة صفحات على اليسار تظهر صورة مصغرة لكل صفحة. اللوحة اليمنى تحتوي على محرر التخطيط حيث يمكن وضع العناصر. كل عنصر قابل للتخصيص باستخدام قائمة السياق ويمكن وضعه وتغيير حجمه ليناسب متطلباتك. </para>
+
+        <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="print-setup-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="printer-template.png" format="PNG"/></imageobject
+></inlinemediaobject
+>اختر قالب تهيئة طابعة. حاليًا، تم تضمين قالب مشابه لـ KDE3.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="add-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إلحاق صفحة - سيؤدي هذا إلى إلحاق صفحة في نهاية القائمة.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="insert-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إدراج صفحة - سيؤدي هذا إلى إدراج صفحة قبل الصفحة المحددة حاليًا في القائمة.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="delete-page-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>حذف صفحة - سيؤدي هذا إلى حذف الصفحة المحددة حاليًا في القائمة.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>تحديد عنصر - يُستخدم لتحديد العناصر للتحرير أو تغيير الحجم.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="text-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إدراج عنصر نص - يُستخدم لإدراج عنصر نص في الصفحة الحالية.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="pattern-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إدراج عنصر نمط - يُستخدم لإدراج عنصر نمط في الصفحة الحالية.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="image-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إدراج عنصر صورة - يُستخدم لإدراج عنصر صورة في الصفحة الحالية.</para>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="key-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>إدراج عنصر مفتاح - يُستخدم لإدراج عنصر مفتاح خيط في الصفحة الحالية.</para>
+
+        <para
+>عند إضافة عناصر، اختر أيقونة العنصر المطلوب، ثم حدد منطقة الصفحة التي سيشغلها العنصر بالنقر والسحب بزر الفأرة الأيسر (&LMB;) من زاوية إلى أخرى. يمكن عرض خصائص العنصر وتغييرها باستخدام قائمة السياق التي يتم الوصول إليها بزر الفأرة الأيمن (&RMB;). </para>
+        <para
+>يمكن تغيير حجم العناصر بتحديدها باستخدام أداة التحديد<inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>، سيوفر هذا مستطيل تحجيم حول العنصر. يمكن سحب الزوايا لضبط الحجم أو يمكن تحريك العنصر بأكمله بالنقر والسحب باستخدام زر الفأرة الأيسر (&LMB;). </para>
+        <para
+>تحتوي الصفحة على حوار خصائص مرتبط يسمح بتعيين هامش الصفحة وحجم الشبكة ورؤيتها. يوفر هامش الصفحة دليلًا لوضع الكائنات ولكنه لا يمنع وضع العناصر خارج الهامش المحدد. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="page-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+        </para>
+        <sect2 id="PatternElement">
+            <title
+>عُنصر النمط</title>
+            <para
+>سيعرض عنصر النمط ترتيب الغرز على الشبكة. يمكن استخدام حوار الخصائص لضبط كيفية عرض الغرز. يتيح ذلك للعنصر العرض كصورة للنمط أو كنمط عمل يظهر الرموز. </para>
+            <para
+>يُظهر عنصر النمط النمط بأكمله مبدئيًا عند إنشائه. باستخدام حوار الخصائص، يمكن تحديد منطقة مطلوبة في نافذة المعاينة بالنقر والسحب فوق منطقة التحديد. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="pattern-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <sect3 id="MapElement">
+                <title
+>عنصر الخريطة</title>
+                <para
+>يُستخدم عنصر الخريطة عندما يمتد النمط عبر أوراق متعددة. يُظهر مساحة النمط الكامل الذي يمثله هذا العنصر. يمكن تفعيله في خصائص عنصر النمط. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="map-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                </para>
+            </sect3>
+        </sect2>
+        <sect2 id="TextElement">
+            <title
+>عُنصر النص</title>
+            <para
+>يمكن استخدام عنصر نصي لإضافة ملاحظات نصية إلى النمط أو لعرض عناوين أو تعليقات. النص قابل للضبط بالخطوط واللون والشفافية. بالإضافة إلى ذلك، يمكن عرض حد. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="text-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+            <para
+>يمكن لعناصر النص أيضًا استخدام متغيرات سيتم تحويلها إلى خصائص من النمط. </para>
+            <sect3 id="TextVariables">
+                <title
+>متغيرات النص</title>
+                <simplelist type='horiz' columns='3'>
+                    <member
+>${title}</member>
+                    <member
+>${author}</member>
+                    <member
+>${copyright}</member>
+                    <member
+>${fabric}</member>
+                    <member
+>${instructions}</member>
+                    <member
+>${horizontalClothCount}</member>
+                    <member
+>${verticalClothCount}</member>
+                    <member
+>${width.stitches}</member>
+                    <member
+>${height.stitches}</member>
+                    <member
+>${width.inches}</member>
+                    <member
+>${height.inches}</member>
+                    <member
+>${width.cm}</member>
+                    <member
+>${height.cm}</member>
+                    <member
+>${scheme}</member>
+                    <member
+>${page}</member>
+                </simplelist>
+            </sect3>
+        </sect2>
+        <sect2 id="KeyElement">
+            <title
+>عُنصر المفتاح</title>
+            <para
+>يُظهر عنصر المفتاح الخيوط المستخدمة. يتيح حوار الخصائص اختيار الحقول التي يمكن عرضها. يمكن استخدام <guilabel
+>العنصر الأول</guilabel
+> و<guilabel
+>عدد العناصر</guilabel
+> للمفاتيح الكبيرة التي قد تمتد عبر صفحات متعددة، مما يسمح بوجود بعض الرموز في صفحة وأخرى في صفحة أخرى. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element-properties-dialog.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="key-element.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+        <sect2 id="ResizeElement">
+            <title
+>غيّر حجم العنصر</title>
+            <para
+>يمكن تغيير حجم جميع العناصر بتحديدها باستخدام <inlinemediaobject
+><imageobject
+><imagedata fileref="select-element-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> الذي سيظهر حدود تغيير الحجم. يمكن نقل العنصر بأكمله بالنقر والسحب داخل العنصر. لتغيير الحجم، مرر المؤشر فوق مقابض تغيير الحجم في الزوايا، ثم انقر واسحب إلى الحجم المطلوب. <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+                <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="element-resize-handle.png" format="PNG"/></imageobject
+></mediaobject
+></screenshot>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>

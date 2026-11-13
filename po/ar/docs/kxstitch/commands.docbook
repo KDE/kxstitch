@@ -1,0 +1,1395 @@
+<chapter id="commands">
+    <title
+>مرجع الأوامر</title>
+
+    <sect1 id="kxstitch-menus">
+        <title
+>قوائم المُطرِّز</title>
+        <sect2>
+            <title
+>قائمة ملف</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>جديد</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ينشئ نمطًا جديدًا، باستخدام القيم المبدئية المضبوطة في حوار خصائص النمط.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>افتح</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يفتح نمطًا موجودًا</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أحدث ملفات</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يفتح نمطًا استُخدم مؤخرًا</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>احفظ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يحفظ النمط</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>احفظ باسم</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يحفظ النمط باسم جديد</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اعكس</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يُرجِع النمط إلى آخر حالة محفوظة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>اطبع</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يطبع النمط</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>إعداد الطباعة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اضبط تخطيط الطباعة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>استيراد الصّورة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يستورد ملف صورة محوِّلًا إياه إلى غرز</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>خصائص الملفّ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اعرض/حرّر خصائص المستند</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أضِف صورة خلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يدرج صورة كخلفية للتتبع.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أَزِل صورة الخلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اختر صورة خلفية لإزالتها. القائمة الفرعية لهذا تملأ من صور الخلفية المدرجة سابقًا.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>أغلق</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يغلق النمط</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>أنهِ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يُنهي</action
+> المُطرِّز</simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة حرر</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>تراجع</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يتراجع عن آخر تغيير. تظهر قائمة التغييرات في نافذة التاريخ.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>إعادة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يعيد آخر تغيير تم التراجع عنه. تظهر قائمة التغييرات في نافذة التاريخ.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>قص</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يقص المنطقة المحددة إلى الحافظة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>نسخ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ينسخ المنطقة المحددة إلى الحافظة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>لصق</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يلصق المنطقة المحددة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+		      <term
+><menuchoice
+><guisubmenu
+>أقنعة التحديد</guisubmenu
+><guimenuitem
+>قناع الغرزة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يحدد التحديدات إلى نوع الغرزة المحدد حاليًا</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>أقنعة التحديد</guisubmenu
+><guimenuitem
+>قناع اللون</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يحدد التحديدات إلى اللون المحدد حاليًا</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>أقنعة التحديد</guisubmenu
+><guimenuitem
+>استثناء الغرز الخلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يستثني الغرز الخلفية من التحديد</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>أقنعة التحديد</guisubmenu
+><guimenuitem
+>استبعاد العُقد</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>استبعاد العُقد من التحديد</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>المرآة / التدوير تنشئ نسخًا</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إذا ضُبط، ستُنشئ دالّتا المرآة والتدوير نسخة من التحديد، وإلا فسيُنقل المساحة المحددة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>عكس التحديد</guisubmenu
+><guimenuitem
+>أفقيًا</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>عكس المساحة المحددة أفقيًا، أي قلبها من اليسار إلى اليمين</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>عكس التحديد</guisubmenu
+><guimenuitem
+>عموديًا</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>عكس المساحة المحددة عموديًا، أي قلبها من الأعلى إلى الأسفل</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>تدوير التحديد</guisubmenu
+><guimenuitem
+>90 درجة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تدوير المساحة المحددة 90 درجة عكس عقارب الساعة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>تدوير التحديد</guisubmenu
+><guimenuitem
+>180 درجة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تدوير المساحة المحددة 180 درجة عكس عقارب الساعة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guisubmenu
+>تدوير التحديد</guisubmenu
+><guimenuitem
+>270 درجة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تدوير المساحة المحددة 270 درجة عكس عقارب الساعة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+            <sect3>
+                <title
+>قص ونسخ ولصق</title>
+                <para
+>يمكن لقص ونسخ مساحات النقش استخدام أقنعة الغرز والألوان واستبعاد الغرز الخلفية والعُقد لتحديد التحديد. </para>
+                <para
+>تتيح لك عملية اللصق في المُطرِّز الضغط مع الاستمرار على &LMB; في الموضع التقريبي الذي ستُوضع فيه بيانات اللصق، مما سيوفر صورة لبيانات اللصق للسماح بتحديد موضع دقيق قبل تحرير زر الفأرة لتثبيت الموضع. تُستخدم هذه التقنية أيضًا لوظائف المرآة والتدوير. يمكن أيضًا استخدام مفاتيح الأسهم لتحريك النقش الملصق ومفتاح &Enter; لتثبيت الموضع. </para>
+            </sect3>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة عرض</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>الحجم الفعلي</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تكبير العرض بحيث يقترب حجم الشاشة من الحجم الفعلي</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>لائم إلى الصفحة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تكبير العرض بحيث يتسع النقش كاملًا ضمن المساحة المرئية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>لائم إلى عرض الصفحة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تكبير العرض بحيث يتسع عرض النقش ضمن المساحة المرئية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>لائم إلى ارتفاع الصفحة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تكبير العرض بحيث يتسع ارتفاع النقش ضمن المساحة المرئية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>تكبير</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تكبير عرض المحرر</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>تصغير</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تصغير عرض المحرر</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>معاينة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء نافذة المعاينة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>لوحة الألوان</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء نافذة اللوحة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>التاريخ</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء نافذة السجل</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>صورة مستوردة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء نافذة معاينة الصورة المستوردة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اعرض صورة الخلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء صورة خلفية. تُنشأ القائمة ديناميكيًا بناءً على صور الخلفية المُدرجة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>وَافِق صورة الخلفية مع التحديد</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ملاءمة صورة الخلفية المحددة مع مساحة التحديد الحالية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة الغرز</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة ربعية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة ربعية، يُحدد الموضع برباعية الخلية المختارة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة نصفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة نصفية، يُحدد الاتجاه برباعية الخلية المختارة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة ثلاثة أرباع</guimenuitem
+></menuchoice
+></term>
+                        <listitem>
+                    <simpara
+><action
+>غرزة ثلاثة أرباع، يُحدد التوجيه برباعية الخلية المختارة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة كاملة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة كاملة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة نصفية صغيرة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة نصفية صغيرة، يُحدد الموضع برباعية الخلية المختارة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة كاملة صغيرة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة كاملة صغيرة، يُحدد الموضع برباعية الخلية المختارة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>عُقدة فرنسية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>غرزة العقدة الفرنسية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة أدوات</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>طلاء</guimenuitem
+></menuchoice
+></term>
+                            <listitem
+><simpara
+><action
+>ارسم غرزًا على اللوحة - اضغط مع الاستمرار على &LMB; واسحب عبر النافذة. ستُضاف الغرز إلى كل خلية تمر عليها. حرّر زر الفأرة لإيقاف الرسم. </action
+></simpara
+></listitem>
+                        </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>ارسم</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم خطًا من الغرز على اللوحة - اضغط مع الاستمرار على &LMB; عند بداية الخط، واسحب إلى نقطة النهاية المطلوبة للخط ثم حرّر زر الفأرة. ستُضاف الغرز إلى كل خلية يمر بها الخط. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>امسح</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>امسح الغرز - اضغط مع الاستمرار على &LMB; واسحب فوق الغرز المراد حذفها. ستُزال جميع الغرز داخل الخلايا التي تمر عليها. حرّر زر الفأرة لإيقاف المسح. لمسح الغرز الخلفية، اضغط مع الاستمرار على مفتاح &Ctrl; وانقر بزر الفأرة الأيسر عند نقطة البداية أو النهاية للغرزة الخلفية. إذا وُجدت أكثر من غرزة خلفية عند النقطة المُرقمنة، ستمسح هذه الطريقة أول غرزة تُعثر عليها. لحذف غرزة خلفية محددة، انقر واسحب من أحد الطرفين إلى الآخر. لمسح العقد الفرنسية، اضغط مع الاستمرار على مفتاح &Shift; وانقر بزر الفأرة الأيسر على العقدة لحذفها. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>ارسم مستطيلًا</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم مستطيلًا - اضغط مع الاستمرار على &LMB; عند إحدى زوايا المستطيل واسحب إلى الزاوية المقابلة. حرّر زر الفأرة وسيُضاف مستطيل غير مملوء بالغرز إلى اللوحة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اِمْلَأ المستطيل</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم مستطيلًا مملوءًا - اضغط مع الاستمرار على &LMB; عند إحدى زوايا المستطيل واسحب إلى الزاوية المقابلة. حرّر زر الفأرة وسيُضاف مستطيل مملوء بالغرز إلى اللوحة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>ارسم قطعًا ناقصًا</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم قطعًا ناقصًا - اضغط مع الاستمرار على &LMB; عند إحدى زوايا القطع الناقص واسحب إلى الزاوية المقابلة. حرّر زر الفأرة وسيُضاف قطع ناقص غير مملوء بالغرز إلى اللوحة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اِمْلَأ القطع الناقص</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم قطعًا ناقصًا مملوءًا - اضغط مع الاستمرار على &LMB; عند إحدى زوايا القطع الناقص واسحب إلى الزاوية المقابلة. حرّر زر الفأرة وسيُضاف قطع ناقص مملوء بالغرز إلى اللوحة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اِمْلَأ المضلع</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>ارسم مضلعًا مملوءًا - انقر على كل خلية تُحدد رؤوس المضلع، وانقر واسحب لإنشاء منحنيات أكثر تعقيدًا. يُحدد كل رأس بدائرة مع خط أسود يربط بينها. لإغلاق المضلع، انقر على خلية البداية مرة أخرى. يمكنك استخدام مفتاح &Backspace; لإزالة آخر نقطة، أو مفتاح &Esc; لإزالة جميع الرؤوس وإلغاء العملية. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>النص</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أدرج نصًا في الغرز. يستدعي هذا حوار النص. اختر الخط المطلوب وحجمه، وأدخل النص وانقر على <guibutton
+>موافق</guibutton
+>. اضغط على &LMB; تقريبًا حيث تريد النص، وحرّك الفأرة لوضع النص بدقة ثم حرّر زر الفأرة. هذا مماثل لوظيفة اللصق. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>ألفبائية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أدرج أنماطًا من المكتبة المحددة حاليًا تطابق المفاتيح المضغوطة. يسمح هذا بإنشاء أبجديات أنماط يمكن أن يكون لها تعيين مفتاح. بعد اختيار هذه الأداة والنقر على موضع في النمط لنقطة الإدراج، سيُبحث عن كل مفتاح يُضغط في المكتبة الحالية عن نمط مطابق. إذا وُجد، سيُدرج في الموضع على النمط ثم يتقدم موضع الإدراج بعرض نمط الحرف المُدرج. ستُمدد مساحة النمط إلى اليمين للسماح بإدخال المزيد من الأحرف. سيبدأ الضغط على &Enter; سطرًا جديدًا تحت موضع نقطة الإدراج الأصلية، وستُمدد مساحة النمط إلى الأسفل لاستيعاب السطر الجديد إذا لم تكن المساحة كافية. سيحذف &Backspace; آخر حرف أُدخل، وسيقدم مفتاح <keycap
+>مسافة</keycap
+> موضع الإدراج إما بعرض حرف مسافة في المكتبة أو بمقدار محدد مسبقًا إذا لم يوجد حرف مسافة. سيلتف النص إلى السطر التالي إذا وُصلت حافة النمط واكتُشفت نهاية كلمة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اختر</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اختر منطقة مستطيلة - اضغط مع الاستمرار على &LMB; عند إحدى زوايا المستطيل، واسحب إلى الزاوية المقابلة وحرّر الزر. يُظهر مستطيل اختيار المنطقة المشار إليها. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>منتق الألوان</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يسمح باختيار لون من الغرز الموجودة. سيعرض التمرير فوق الغرز تلميح أداة يشير إلى اللون تحت المؤشر. سيؤدي النقر باستخدام &LMB; إلى اختياره. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>غرزة خلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أضف غرزًا خلفية إلى اللوحة - اضغط مع الاستمرار على &LMB; عند بداية الغرزة الخلفية، ستلتصق بأقرب نقطة من 9 نقاط في الخلية، واسحب إلى نقطة نهاية الغرزة الخلفية وحرّر زر الفأرة، ومرة أخرى ستلتصق بأقرب نقطة من 9 نقاط في الخلية. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة اللوحة</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>مُدير لوحة الألوان</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أضف وأزل الألوان من اللوحة الحالية. عيّن الرموز وعدد الخيوط للغرز والغرز الخلفية. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهِر الرّموز</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أظهر الرموز المرتبطة بكل لون</action
+></simpara
+></listitem
+></varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أفرِغ غير المُستخدَم</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>يزيل الألوان غير المستخدمة من اللوحة.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>بَادِل الألوان</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>سيُبدل اللون التالي المختار باللون المختار حاليًا. إذا اخترت أداة القطارة، يمكنك اختيار اللون المراد تبديله مباشرة من النمط. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>استبدال الألوان</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>سيستبدل اللون التالي المختار اللون المختار حاليًا. كما هو الحال مع تبديل الألوان، يمكنك استخدام أداة القطارة لاختيار اللون من النمط. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة المكتبة</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>مدير المكتبة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>افتح مدير مكتبة الأنماط وهو حوار غير مشروط يسمح بإنشاء واستخدام مكتبات الأنماط أو الأبجديات. السحب والإفلات متاح للسماح بسحب وإفلات الأنماط من المكتبة إلى النمط. تحويل الخيوط تلقائيًا لتناسب النمط الحالي وتدرج الصورة إلى مقياس النمط الحالي لتحديد الموضع بدقة. </action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة النمط</title>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>مَدِّد النمط</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>مدد النمط من الأعلى واليسار واليمين والأسفل</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>وَسِّط النمط</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>وسّط النمط في اللوحة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اقطَع اللوحة إلى النمط</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اقتصاص اللوحة إلى مدى النقش</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اقطَع اللوحة إلى التحديد</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>اقتصاص اللوحة إلى مدى التحديد الحالي</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أدرج صفوف</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إدراج عدد من الصفوف تمثلها منطقة تحديد</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أدرج أعمدة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إدراج عدد من الأعمدة تمثلها منطقة تحديد</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة الإعدادات</title>
+            <para
+>بالإضافة إلى مدخلات قائمة الإعدادات الشائعة في كيدي الموضحة في فصل <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> من أساسيات كيدي، يحتوي المُطرِّز على مدخلات القائمة الخاصة بالتطبيق التالية: </para>
+            <para>
+                <variablelist>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>نَسِّق المقاييس على أنها</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تغيير تنسيق عرض المقياس إلى غرز أو سم أو بوصة.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اعرض الغرز على أنها</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تغيير طريقة عرض الغرز.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اعرض الغرز الخلفية على أنها</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تغيير طريقة عرض الغرز الخلفية.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>اعرض العقد على أنها</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تغيير طريقة عرض العقد.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>إبراز مُلوَّن</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>تمكين أو تعطيل وضع تمييز الألوان</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهِر الغُرَز</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء الغرز</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهِر الغُرَز الخلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء الغرز الخلفية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهِر العُقد الفرنسية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء العقد الفرنسية</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهر الشبكة</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>أظهر الشبكة</action
+></simpara
+></listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>أظهِر صور الخلفية</guimenuitem
+></menuchoice
+></term>
+                        <listitem
+><simpara
+><action
+>إظهار أو إخفاء جميع صور الخلفية</action
+></simpara
+></listitem>
+                    </varlistentry>
+		    <varlistentry>
+                        <term
+><menuchoice
+><guimenuitem
+>ضبط المُطرِّز</guimenuitem
+></menuchoice
+></term>
+			<listitem
+><simpara
+><action
+>فتح <link linkend="ConfigurationDialog"
+>حوار تهيئة</link
+> المُطرِّز.</action
+></simpara
+></listitem>
+                    </varlistentry>
+                </variablelist>
+            </para>
+
+        </sect2>
+
+        <sect2>
+            <title
+>قائمة مساعدة</title>
+            <para
+>بالإضافة إلى ذلك، يحتوي المُطرِّز على عناصر قائمة المساعدة الشائعة في كيدي، لمزيد من المعلومات اقرأ القسم الخاص بـ<ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> من أساسيات كيدي. </para>
+        </sect2>
+    </sect1>
+</chapter>

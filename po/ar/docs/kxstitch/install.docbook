@@ -1,0 +1,42 @@
+<appendix id="installation">
+    <title
+>التثبيت</title>
+
+    <sect1 id="getting-kxstitch">
+        <title
+>كيفية الحصول على المُطرِّز</title>
+        <para
+>يمكن العثور على مصدر المُطرِّز في <ulink url="http://download.kde.org/stable/kxstitch/"
+>http://download.kde.org/stable/kxstitch/</ulink
+>. يمكن العثور على الصفحة الرئيسية لـ المُطرِّز في <ulink url="http://userbase.kde.org/KXStitch"
+>http://userbase.kde.org/KXStitch</ulink
+> </para>
+    </sect1>
+
+    <sect1 id="requirements">
+        <title
+>المتطلبات</title>
+        <para
+>كُتب المُطرِّز باستخدام &Qt; 5.x و &kf5-full;. </para>
+        <para
+>لوظائف استيراد الصور، تُطلب مكتبات ImageMagick، ويتضمن ذلك رؤوس التطوير ImageMagick و Magick++، وهي متوفرة مع توزيعتك أو من <ulink url="http://www.imagemagick.org/"
+>http://www.imagemagick.org/</ulink
+>. </para>
+    </sect1>
+
+    <sect1 id="compilation">
+        <title
+>الترجمة والتثبيت</title>
+        <para
+>يتطلب تجميع KXStitch cmake وأدوات بناء مناسبة، make، gcc، إلخ. تم توفير سكريبت بناء يجب أن ينفذ عمليات التجميع اللازمة ويُثبّت KXStitch، وقد يُطلب منك إدخال كلمة مرور الجذر. </para>
+        <para>
+            <screen width="40"
+><prompt
+>bash$</prompt
+><command
+>./build.sh</command
+>
+            </screen>
+        </para>
+    </sect1>
+</appendix>
