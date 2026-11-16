@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 27.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -307,17 +307,13 @@ msgstr "Talet på ruter mellom linjer med tekst"
 #: kxstitch.kcfg:252
 #, kde-format
 msgid "The number of cells to be added when extending the pattern right"
-msgstr ""
-"Talet på ruter som skal verta lagde til til høgre ved utviding av mønsteret "
-"til høgre"
+msgstr "Talet på ruter som skal verta lagde til til høgre ved utviding av mønsteret til høgre"
 
 #. i18n: ectx: label, entry (Alphabet_ExtendPatternHeight), group (alphabet)
 #: kxstitch.kcfg:256
 #, kde-format
 msgid "The number of cells to be added when extending the pattern down"
-msgstr ""
-"Talet på ruter som skal verta lagde til til høgre ved utviding av mønsteret "
-"nedover"
+msgstr "Talet på ruter som skal verta lagde til til høgre ved utviding av mønsteret nedover"
 
 #. i18n: ectx: label, entry (ToolShapes_UseFractionals), group (tool)
 #: kxstitch.kcfg:263
@@ -457,9 +453,7 @@ msgstr "Botnmargen"
 #: kxstitch.kcfg:351
 #, kde-format
 msgid "Minimum cell size in mm for template generated printer configurations"
-msgstr ""
-"Minste rutestorleik i millimeter for utskriftsmalen som vert automatisk "
-"generert"
+msgstr "Minste rutestorleik i millimeter for utskriftsmalen som vert automatisk generert"
 
 #. i18n: ectx: label, entry (PatternElement_MinimumOverflow), group (printer)
 #: kxstitch.kcfg:355
@@ -470,11 +464,8 @@ msgstr "Minste tal på celler som kan vera på ei eiga side"
 #. i18n: ectx: label, entry (PatternElement_SelectedAreaColor), group (printer)
 #: kxstitch.kcfg:359
 #, kde-format
-msgid ""
-"The color used to represented already selected areas in existing pattern "
-"elements"
-msgstr ""
-"Fargen brukt til å representera allereie merkte område i mønsterelement"
+msgid "The color used to represented already selected areas in existing pattern elements"
+msgstr "Fargen brukt til å representera allereie merkte område i mønsterelement"
 
 #. i18n: ectx: label, entry (ImageElement_ShowBorder), group (printer)
 #: kxstitch.kcfg:364
@@ -1047,9 +1038,10 @@ msgstr "Fann ikkje trådsystemnamnet %1"
 #. i18n: ectx: property (text), item, widget (KComboBox, FormatScalesAs)
 #: src/Document.cpp:1798 src/Document.cpp:1991 src/Element.cpp:484
 #: src/Element.cpp:492 src/Element.cpp:528 src/ImportImageDlg.cpp:200
-#: src/MainWindow.cpp:1533 ui/EditorConfigPage.ui:72 ui/EditorConfigPage.ui:304
-#: ui/FileProperties.ui:82 ui/KeyElement.ui:417 ui/PatternConfigPage.ui:86
-#: ui/PatternElement.ui:81 ui/PatternElement.ui:200 ui/PrinterConfigPage.ui:882
+#: src/MainWindow.cpp:1533 ui/EditorConfigPage.ui:72
+#: ui/EditorConfigPage.ui:304 ui/FileProperties.ui:82 ui/KeyElement.ui:417
+#: ui/PatternConfigPage.ui:86 ui/PatternElement.ui:81 ui/PatternElement.ui:200
+#: ui/PrinterConfigPage.ui:882
 #, kde-format
 msgid "Stitches"
 msgstr "Sting"
@@ -1093,12 +1085,8 @@ msgstr "Feil ved lesing av palett"
 
 #: src/DocumentPalette.cpp:414
 #, kde-format
-msgid ""
-"There are insufficient symbols available in the symbol library for this "
-"pattern. An extra %1 are required."
-msgstr ""
-"Det finst ikkje nok symbol i symbolbiblioteket for dette mønsteret. Du treng "
-"%1 fleire."
+msgid "There are insufficient symbols available in the symbol library for this pattern. An extra %1 are required."
+msgstr "Det finst ikkje nok symbol i symbolbiblioteket for dette mønsteret. Du treng %1 fleire."
 
 #: src/DocumentPalette.cpp:416
 #, kde-format
@@ -1956,9 +1944,7 @@ msgstr "Sideeigenskapar"
 
 #: src/Palette.cpp:132
 #, kde-format
-msgctxt ""
-"%1 is the number of stitches of a particular floss, %2 is the floss name and "
-"%3 the floss description"
+msgctxt "%1 is the number of stitches of a particular floss, %2 is the floss name and %3 the floss description"
 msgid ""
 "%2 %3\n"
 "%1 Stitch"
@@ -1996,11 +1982,8 @@ msgstr "Det finst ikkje fleire tilgjengelege symbol."
 
 #: src/PaletteManagerDlg.cpp:191
 #, kde-format
-msgid ""
-"The selected symbol library does not have enough symbols for the flosses in "
-"the palette."
-msgstr ""
-"Det valde symbolbiblioteket har ikkje nok symbol til alle trådane i paletten."
+msgid "The selected symbol library does not have enough symbols for the flosses in the palette."
+msgstr "Det valde symbolbiblioteket har ikkje nok symbol til alle trådane i paletten."
 
 #: src/Pattern.cpp:284
 #, kde-format
@@ -2046,8 +2029,7 @@ msgstr "Vil du skriva over det gjeldande oppsettet?"
 
 #: src/PrintSetupDlg.cpp:512
 #, kde-format
-msgctxt ""
-"Do not translate elements in ${...} which are substituted by properties"
+msgctxt "Do not translate elements in ${...} which are substituted by properties"
 msgid ""
 "Created by ${author}\n"
 "(C) ${copyright}\n"
@@ -2064,8 +2046,7 @@ msgstr ""
 #: src/PrintSetupDlg.cpp:518 src/PrintSetupDlg.cpp:579
 #: src/PrintSetupDlg.cpp:601
 #, kde-format
-msgctxt ""
-"Do not translate elements in ${...} which are substituted by properties"
+msgctxt "Do not translate elements in ${...} which are substituted by properties"
 msgid "Page ${page}"
 msgstr "Side ${page}"
 
@@ -2528,13 +2509,11 @@ msgstr "Instruksjonar"
 #: ui/ImageElement.ui:32 ui/PatternElement.ui:32
 #, kde-format
 msgid ""
-"<html><head/><body>Click and drag to select the area of the pattern to be "
-"displayed.<br />Grayed out areas have already been selected on this or other "
-"pages.</body></html>"
+"<html><head/><body>Click and drag to select the area of the pattern to be displayed.<br />"
+"Grayed out areas have already been selected on this or other pages.</body></html>"
 msgstr ""
-"<html><head/><body>Trykk og dra for å velja området i mønsteret som du vil "
-"visa.<br />Farga område er alt viste på denne eller andre sider.</body></"
-"html>"
+"<html><head/><body>Trykk og dra for å velja området i mønsteret som du vil visa.<br />"
+"Farga område er alt viste på denne eller andre sider.</body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_8)
@@ -2610,9 +2589,9 @@ msgstr "Linjetjukkleik"
 #: ui/PrinterConfigPage.ui:564 ui/PrinterConfigPage.ui:584
 #: ui/PrinterConfigPage.ui:604 ui/PrinterConfigPage.ui:681
 #: ui/PrinterConfigPage.ui:767 ui/PrinterConfigPage.ui:787
-#: ui/PrinterConfigPage.ui:807 ui/PrinterConfigPage.ui:827 ui/TextElement.ui:45
-#: ui/TextElement.ui:74 ui/TextElement.ui:103 ui/TextElement.ui:132
-#: ui/TextElement.ui:204
+#: ui/PrinterConfigPage.ui:807 ui/PrinterConfigPage.ui:827
+#: ui/TextElement.ui:45 ui/TextElement.ui:74 ui/TextElement.ui:103
+#: ui/TextElement.ui:132 ui/TextElement.ui:204
 #, kde-format
 msgid "mm"
 msgstr " mm"
@@ -2745,8 +2724,8 @@ msgstr "Bakgrunn"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TextElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_KeyElement_FillBackground)
 #. i18n: ectx: property (text), widget (QCheckBox, FillBackground)
-#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:456 ui/PrinterConfigPage.ui:699
-#: ui/TextElement.ui:238
+#: ui/KeyElement.ui:246 ui/PrinterConfigPage.ui:456
+#: ui/PrinterConfigPage.ui:699 ui/TextElement.ui:238
 #, kde-format
 msgid "Fill background"
 msgstr "Fyll bakgrunnen"
@@ -2755,8 +2734,8 @@ msgstr "Fyll bakgrunnen"
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:436 ui/PrinterConfigPage.ui:723
-#: ui/TextElement.ui:262
+#: ui/KeyElement.ui:269 ui/PrinterConfigPage.ui:436
+#: ui/PrinterConfigPage.ui:723 ui/TextElement.ui:262
 #, kde-format
 msgid "Transparency"
 msgstr "Gjennomsikt"
