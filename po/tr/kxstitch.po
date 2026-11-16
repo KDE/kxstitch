@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-10-21 23:15+0300\n"
+"PO-Revision-Date: 2026-11-15 20:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Lokalize 26.08.2\n"
 "X-POOTLE-MTIME: 1497814090.000000\n"
 
 #. i18n: ectx: label, entry (Editor_BackgroundColor), group (editor)
@@ -351,7 +351,7 @@ msgstr "Şekil araçları kesirli dikiş kullansın mı"
 #: kxstitch.kcfg:285
 #, kde-format
 msgid "The font family to be used in the TextToolDlg"
-msgstr "TextToolDlg’de kullanılacak yazıtipi ailesi"
+msgstr "TextToolDlg’de kullanılacak yazı tipi ailesi"
 
 #. i18n: ectx: label, entry (TextTool_FontSize), group (tool)
 #: kxstitch.kcfg:289
@@ -2466,13 +2466,13 @@ msgstr "Aynalama / Döndürme kopya oluşturur"
 #: ui/EditorConfigPage.ui:412
 #, kde-format
 msgid "Text tool font"
-msgstr "Metin aracı yazıtipi"
+msgstr "Metin aracı yazı tipi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: ui/EditorConfigPage.ui:422
 #, kde-format
 msgid "Font size"
-msgstr "Yazıtipi puntosu"
+msgstr "Yazı tipi puntosu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -2811,7 +2811,7 @@ msgstr "Öge İçeriği"
 #: ui/KeyElement.ui:301 ui/TextTool.ui:25
 #, kde-format
 msgid "Font"
-msgstr "Yazıtipi"
+msgstr "Yazı Tipi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_6)
 #: ui/KeyElement.ui:313
@@ -3474,7 +3474,7 @@ msgstr "Metin kutusunun saydamlığı"
 #: ui/TextElement.ui:288
 #, kde-format
 msgid "Text font family"
-msgstr "Metin yazıtipi ailesi"
+msgstr "Metin yazı tipi ailesi"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, PointSize)
 #: ui/TextElement.ui:301
