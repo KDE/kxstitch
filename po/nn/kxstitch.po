@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:43+0000\n"
-"PO-Revision-Date: 2026-09-25 17:54+0200\n"
+"PO-Revision-Date: 2026-11-15 09:15+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 27.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -247,14 +247,13 @@ msgstr "Bruk delsting for finare detaljar"
 #: kxstitch.kcfg:203
 #, kde-format
 msgid "Ignore a selected color when importing"
-msgstr ""
+msgstr "Ignorer vald farge ved import"
 
 #. i18n: ectx: label, entry (Import_IgnoreColorValue), group (import)
 #: kxstitch.kcfg:207
-#, fuzzy, kde-format
-#| msgid "The color of the border"
+#, kde-format
 msgid "The color to be ignored when importing"
-msgstr "Fargen på kantlinja"
+msgstr "Fargen som skal ignorerast ved import"
 
 #. i18n: ectx: label, entry (Import_PatternScale), group (import)
 #: kxstitch.kcfg:211
@@ -263,6 +262,8 @@ msgid ""
 "Pattern scale as a percentage of the image size, 0 to fit the default "
 "document size"
 msgstr ""
+"Mønsterskala som prosent av biletstorleiken (0 for å bruka standard "
+"dokumentstorleik)"
 
 #. i18n: ectx: label, entry (Palette_DefaultScheme), group (palette)
 #: kxstitch.kcfg:220
@@ -649,13 +650,13 @@ msgstr "Tekstfargen"
 #: kxstitch.kcfg:515
 #, kde-format
 msgid "The directory last used to open or save a pattern"
-msgstr ""
+msgstr "Mappa sist brukt til å opna eller lagra eit mønster"
 
 #. i18n: ectx: label, entry (RecentDirectories_Images), group (recentDirectories)
 #: kxstitch.kcfg:518
 #, kde-format
 msgid "The directory last used to import or add an image"
-msgstr ""
+msgstr "Mappa sist brukt til å importera eller leggja til eit bilete"
 
 #. i18n: ectx: Menu (file)
 #: kxstitchui.rc:5
@@ -3135,13 +3136,14 @@ msgid ""
 "Give every floss a new symbol, spread across the symbol library so that they "
 "are easier to tell apart"
 msgstr ""
+"Gje kvar tråd eit nytt symbol, spreidd over symbolbiblioteket, slik at dei "
+"vert lettare å skilja"
 
 #. i18n: ectx: property (text), widget (QPushButton, ReassignSymbols)
 #: ui/PaletteManager.ui:313
-#, fuzzy, kde-format
-#| msgid "Symbols"
+#, kde-format
 msgid "Reassign Symbols"
-msgstr "Symbol"
+msgstr "Tildel symbol på nytt"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PatternConfigPage)
 #: ui/PatternConfigPage.ui:14
