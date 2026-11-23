@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kxstitch\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-11-18 18:15+0300\n"
+"PO-Revision-Date: 2026-11-22 19:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -119,7 +119,7 @@ msgstr "Azami yakınlaştırma oranı"
 #: kxstitch.kcfg:84
 #, kde-format
 msgid "The default zoom factor"
-msgstr "Öntanımlı yakınlaştırma oranı"
+msgstr "Varsayılan yakınlaştırma oranı"
 
 #. i18n: ectx: label, entry (Renderer_ColorHilight), group (renderer)
 #: kxstitch.kcfg:91
@@ -185,13 +185,13 @@ msgstr "Fransız düğümler nasıl gösterilsin."
 #: kxstitch.kcfg:151
 #, kde-format
 msgid "The default width of a new pattern in the units specified."
-msgstr "Yeni desen için belirtilen birimde öntanımlı genişlik."
+msgstr "Yeni desen için belirtilen birimde varsayılan genişlik."
 
 #. i18n: ectx: label, entry (Document_Height), group (document)
 #: kxstitch.kcfg:155
 #, kde-format
 msgid "The default height of a new pattern in the units specified."
-msgstr "Belirtilen birimde yeni desenin öntanımlı yüksekliği."
+msgstr "Belirtilen birimde yeni desenin varsayılan yüksekliği."
 
 #. i18n: ectx: label, entry (Document_Min_Width), group (document)
 #: kxstitch.kcfg:168
@@ -239,25 +239,25 @@ msgstr "Daha iyi detay için kesirli dikiş kullan"
 #: kxstitch.kcfg:202
 #, kde-format
 msgid "The default floss scheme to be used for new documents."
-msgstr "Yeni belgelerde kullanılacak öntanımlı ip şeması."
+msgstr "Yeni belgelerde kullanılacak varsayılan ip şeması."
 
 #. i18n: ectx: label, entry (Palette_DefaultSymbolLibrary), group (palette)
 #: kxstitch.kcfg:206
 #, kde-format
 msgid "The default symbol library to be used for new documents."
-msgstr "Yeni belgelerde kullanılacak öntanımlı sembol kitaplığı."
+msgstr "Yeni belgelerde kullanılacak varsayılan sembol kitaplığı."
 
 #. i18n: ectx: label, entry (Palette_StitchStrands), group (palette)
 #: kxstitch.kcfg:210
 #, kde-format
 msgid "The default number of strands used for stitches."
-msgstr "Dikişler için kullanılacak öntanımlı iplik sayısı."
+msgstr "Dikişler için kullanılacak varsayılan iplik sayısı."
 
 #. i18n: ectx: label, entry (Palette_BackstitchStrands), group (palette)
 #: kxstitch.kcfg:214
 #, kde-format
 msgid "The default number of strands used for backstitches."
-msgstr "İğne ardı dikişler için kullanılacak öntanımlı iplik sayısı."
+msgstr "İğne ardı dikişler için kullanılacak varsayılan iplik sayısı."
 
 #. i18n: ectx: label, entry (Palette_ShowSymbols), group (palette)
 #: kxstitch.kcfg:218
@@ -275,7 +275,7 @@ msgstr "Sembolleri yumuşatılmış göster"
 #: kxstitch.kcfg:229
 #, kde-format
 msgid "The default size of icons shown in the icon view"
-msgstr "Simge görünümünde görünecek simgeler için öntanımlı boyut"
+msgstr "Simge görünümünde görünecek simgeler için varsayılan boyut"
 
 #. i18n: ectx: label, entry (Alphabet_UseCapsLock), group (alphabet)
 #: kxstitch.kcfg:236
@@ -287,7 +287,7 @@ msgstr "Karakter seçimi caps lock tuşuna uymalı mı"
 #: kxstitch.kcfg:240
 #, kde-format
 msgid "The default width of a space in cells"
-msgstr "Hücreler arası boşluğun öntanımlı genişliği"
+msgstr "Hücreler arası boşluğun varsayılan genişliği"
 
 #. i18n: ectx: label, entry (Alphabet_WordWrap), group (alphabet)
 #: kxstitch.kcfg:244
@@ -377,13 +377,13 @@ msgstr "Mm cinsinden ızgara boyutu"
 #: kxstitch.kcfg:306
 #, kde-format
 msgid "The default page size"
-msgstr "Öntanımlı sayfa boyutu"
+msgstr "Varsayılan sayfa boyutu"
 
 #. i18n: ectx: label, entry (Page_Orientation), group (printer)
 #: kxstitch.kcfg:310
 #, kde-format
 msgid "The default page orientation"
-msgstr "Öntanımlı sayfa yönlendirmesi"
+msgstr "Varsayılan sayfa yönlendirmesi"
 
 #. i18n: ectx: label, entry (Page_SelectNodeSnapDistance), group (printer)
 #: kxstitch.kcfg:314
@@ -958,18 +958,18 @@ msgstr "KX Dikiş'i Yapılandır"
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Centimeters)"
-msgstr "Öntanımlı (Santimetre)"
+msgstr "Varsayılan (Santimetre)"
 
 #: src/ConfigurationDialogs.cpp:34
 #, kde-format
 msgid "Default (Inches)"
-msgstr "Öntanımlı (İnç)"
+msgstr "Varsayılan (İnç)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_Editor_ClothCountUnits)
 #: src/ConfigurationDialogs.cpp:35 ui/PatternConfigPage.ui:164
 #, kde-format
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: src/ConfigurationDialogs.cpp:234 src/ConfigurationDialogs.cpp:237
 #: src/FilePropertiesDlg.cpp:305 src/FilePropertiesDlg.cpp:306
@@ -2306,7 +2306,7 @@ msgstr "Azami yakınlaştırma çarpanı"
 #: ui/EditorConfigPage.ui:218
 #, kde-format
 msgid "Default zoom factor"
-msgstr "Öntanımlı yakınlaştırma çarpanı"
+msgstr "Varsayılan yakınlaştırma çarpanı"
 
 #. i18n: ectx: attribute (title), widget (QWidget, EditorRendererTab)
 #: ui/EditorConfigPage.ui:239
@@ -2634,7 +2634,7 @@ msgstr "Renkleri yok say"
 #: ui/ImportImage.ui:165
 #, kde-format
 msgid "Set as default"
-msgstr "Öntanımlı olarak ayarla"
+msgstr "Varsayılan olarak ayarla"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
@@ -2849,7 +2849,7 @@ msgstr "Kitaplıklar"
 #: ui/LibraryConfigPage.ui:30
 #, kde-format
 msgid "Icon default size"
-msgstr "Simge öntanımlı boyutu"
+msgstr "Simge varsayılan boyutu"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/LibraryConfigPage.ui:41
@@ -2873,7 +2873,7 @@ msgstr "Sözcük kaydır"
 #: ui/LibraryConfigPage.ui:63
 #, kde-format
 msgid "Default space width"
-msgstr "Öntanımlı boşluk genişliği"
+msgstr "Varsayılan boşluk genişliği"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/LibraryConfigPage.ui:73
@@ -2965,13 +2965,13 @@ msgstr "Sembol Kitaplığı"
 #: ui/PaletteConfigPage.ui:60
 #, kde-format
 msgid "Default stitch strands"
-msgstr "Öntanımlı dikiş ipliği"
+msgstr "Varsayılan dikiş ipliği"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/PaletteConfigPage.ui:67
 #, kde-format
 msgid "Default backstitch strands"
-msgstr "Öntanımlı iğne ardı dikiş ipliği"
+msgstr "Varsayılan iğne ardı dikiş ipliği"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/PaletteManager.ui:22
@@ -3099,7 +3099,7 @@ msgstr "Sayfalar"
 #: ui/PrinterConfigPage.ui:32
 #, kde-format
 msgid "Default paper size"
-msgstr "Öntanımlı sayfa boyutu"
+msgstr "Varsayılan sayfa boyutu"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, PageSize)
 #. i18n: ectx: property (toolTip), widget (KComboBox, kcfg_Page_Size)
@@ -3262,7 +3262,7 @@ msgstr "Semboller"
 #: ui/PrintSetup.ui:68
 #, kde-format
 msgid "Create a default layout"
-msgstr "Öntanımlı yerleşim oluştur"
+msgstr "Varsayılan yerleşim oluştur"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, AddPage)
 #: ui/PrintSetup.ui:107
